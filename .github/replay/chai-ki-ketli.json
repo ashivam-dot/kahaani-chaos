@@ -1,0 +1,195 @@
+{
+ "id": "kc-20261013-1614-p001",
+ "premise": "p001",
+ "title": "बिल्ली ने पुरानी केतली दी… सुबह ज़मींदार का हाल देख सब चौंक गए! ☕",
+ "hook": "एक घूँट चाय और इंसान का हर छिपा राज़ बाहर!",
+ "beats": [
+  {
+   "text": "एक घूँट चाय और इंसान का हर छिपा राज़ बाहर!",
+   "scene": "Close-up of an ornate brass kettle pouring amber tea into a rough clay cup, mysterious golden steam rising in spirals, lantern light against dark wooden boards.",
+   "people": [],
+   "pause_after": 0.35
+  },
+  {
+   "text": "रामू चायवाला सड़क के किनारे अपनी टूटी-फूटी दुकान चलाकर बमुश्किल गुज़ारा करता था।",
+   "scene": "Medium shot of Ramu standing beside his small wooden tea stall at dusk, wiping a glass tumbler, looking tired under the soft yellow glow of an oil lamp.",
+   "people": [
+    {
+     "name": "Ramu",
+     "expression": "tired but gentle"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "वो हर रात चुपचाप आने वाली एक बूढ़ी कमज़ोर बिल्ली को कटोरी में दूध पिलाता था।",
+   "scene": "Low angle shot of Ramu crouching on the dirt floor, placing a clay bowl of milk before the Cat, who laps it eagerly under the shop eaves.",
+   "people": [
+    {
+     "name": "Ramu",
+     "expression": "kindly smiling"
+    },
+    {
+     "name": "Cat",
+     "expression": "grateful"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "एक तूफ़ानी बारिश वाली रात, वही बिल्ली अपने मुँह में दबाकर एक पुरानी पीतल की केतली ले आई।",
+   "scene": "Medium wide shot of the Cat standing drenched in the entryway, holding a heavy antique brass kettle by its handle, Ramu leaning over the wooden counter in shock.",
+   "people": [
+    {
+     "name": "Ramu",
+     "expression": "wide-eyed shock"
+    },
+    {
+     "name": "Cat",
+     "expression": "calm and mysterious"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "अगली सुबह गाँव का लालची ज़मींदार आ धमका और रामू की ज़मीन के नक़ली काग़ज़ दिखाने लगा।",
+   "scene": "Medium shot of Zamindar waving a yellowed paper aggressively in Ramu face, early morning mist in the bazaar, Ramu stepping back in worry.",
+   "people": [
+    {
+     "name": "Ramu",
+     "expression": "anxious"
+    },
+    {
+     "name": "Zamindar",
+     "expression": "cruel and arrogant"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "बाहर कड़ाके की ठंड थी, तो ज़मींदार ने धौंस जमाते हुए रामू से एक कड़क चाय माँगी।",
+   "scene": "Close-up of Zamindar shivering slightly in the morning chill, rubbing his gloved hands together impatiently and barking an order toward the stove.",
+   "people": [
+    {
+     "name": "Zamindar",
+     "expression": "impatient and demanding"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "रामू ने बिना कुछ सोचे उसी नई पीतल की केतली से खौलती चाय कुल्हड़ में डाल दी।",
+   "scene": "Medium shot of Ramu pouring hot tea from the mysterious brass kettle into a clay cup, fragrant aromatic steam rising between them.",
+   "people": [
+    {
+     "name": "Ramu",
+     "expression": "quietly nervous"
+    },
+    {
+     "name": "Zamindar",
+     "expression": "smug anticipation"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "पहला घूँट हलक़ से उतरते ही ज़मींदार चीखा, \"मैंने ही तुम्हारे सीधे-सादे बाप के काग़ज़ चुराए थे!\"",
+   "scene": "Close-up of Zamindar gripping his own throat, eyes wide with terror, the clay cup slipping from his hand as he shouts uncontrollably.",
+   "people": [
+    {
+     "name": "Zamindar",
+     "expression": "horrified panic"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "चाहकर भी उसकी ज़बान नहीं रुकी, और बाज़ार में जमा भीड़ के सामने उसकी सारी पोल खुल गई।",
+   "scene": "Wide shot of the bustling morning bazaar, villagers gathered in astonishment around the shop, Zamindar clutching his mouth in utter disgrace.",
+   "people": [
+    {
+     "name": "Ramu",
+     "expression": "stunned relief"
+    },
+    {
+     "name": "Zamindar",
+     "expression": "humiliated despair"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "ज़मींदार अपना मुँह छिपाकर भागा, और छप्पर पर बैठी वही बिल्ली हरी आँखों से मुस्कुरा उठी।",
+   "scene": "Low angle shot looking up at the thatch roof of the stall, the Cat perched quietly, its vivid green eyes gleaming in the morning sunlight.",
+   "people": [
+    {
+     "name": "Cat",
+     "expression": "knowing and amused"
+    }
+   ],
+   "pause_after": 0.35
+  }
+ ],
+ "cast": [
+  {
+   "name": "Ramu",
+   "look": "A gentle forty-five-year-old tea vendor, lean build, weathered face, graying stubble, wearing an off-white cotton kurta and a faded red scarf around his neck."
+  },
+  {
+   "name": "Zamindar",
+   "look": "A heavy fifty-year-old landlord, portly build, sharp curled mustache, oily forehead, wearing a rich maroon velvet vest over a crisp white kurta with gold rings."
+  },
+  {
+   "name": "Cat",
+   "look": "A real thin grey village cat, not a person, no clothes, with patchy short fur, one nicked ear, and intense glowing green eyes."
+  }
+ ],
+ "subgenre": "jadui-inaam",
+ "ending": "twist-reveal",
+ "twist_beat": 8,
+ "description": "रामू चायवाले ने एक बूढ़ी बिल्ली की जान बचाई, बदले में बिल्ली उसे एक पुरानी केतली दे गई। अगली सुबह जब उस केतली से पहली चाय बनी, तो पूरी कहानी बदल गई।",
+ "motifs": [
+  "tea-stall",
+  "cat",
+  "kettle"
+ ],
+ "hashtags": [
+  "#रहस्य",
+  "#कहानी",
+  "#जादुईकहानी",
+  "#folktale"
+ ],
+ "writer": {
+  "models": [
+   "gemini-3-flash-preview",
+   "gemini-3-flash-preview",
+   "gemini-3-flash-preview",
+   "gemini-3.7-flash",
+   "gemini-3-flash-preview"
+  ],
+  "log": [
+   {
+    "attempt": 0,
+    "stage": "gates",
+    "problems": [
+     "beat 1 (the hook) has 11 words; at most 10"
+    ]
+   },
+   {
+    "attempt": 1,
+    "stage": "editor",
+    "problems": [
+     "The title 'सच उगलने वाली जादुई केतली!' gives away the magic of the story before the first beat.",
+     "The Merchant needs a reason to drink the tea, such as Ramu offering it as a peace offering or the Merchant being thirsty, to make his action logical.",
+     "the story's logic has a gap",
+     "the title or description gives the twist away"
+    ]
+   },
+   {
+    "attempt": 2,
+    "stage": "editor",
+    "problems": []
+   }
+  ]
+ }
+}

@@ -13,6 +13,9 @@ STYLE = ("Cinematic Indian folk-fantasy painting: moody lantern light and cold m
          " amber palette, deep soft shadows, painterly visible brushwork, rich atmosphere, vertical 9:16 composition"
          " with the subject in the upper two thirds. Painterly, not photoreal, not a cartoon")
 CLOSE = "Intimate close-up, the impossible detail and the face fill the frame, eyes sharp and expressive."
+CLOSE_THING = "Intimate close-up, the impossible detail fills the frame."
+# The model fills an empty scene with a stranger (a woman pouring the tea), which the vision check then refuses.
+NOBODY = "No people: no human figure, face, hand or arm anywhere in the picture."
 AVOID = ("No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully"
          " clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not"
          " anime, not a 3D render.")
@@ -40,13 +43,15 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
     """Style + scene + each present character's fixed look and expression now + what must not appear."""
     looks = {c["name"].strip().lower(): c for c in cast}
     parts = [scene.strip().rstrip(".") + "."]
-    if hook:
-        parts.append(CLOSE)
     present = [(looks[p["name"].strip().lower()], p.get("expression", "").strip()) for p in people
                if p.get("name", "").strip().lower() in looks]
+    if hook:
+        parts.append(CLOSE if present else CLOSE_THING)
     if present:
         parts.append("Characters: " + "; ".join(f"{character(c)}, {mood or 'calm'} expression" for c, mood in present)
                      + ".")
+    else:
+        parts.append(NOBODY)
     parts += [STYLE + ".", AVOID]
     return " ".join(parts)
 

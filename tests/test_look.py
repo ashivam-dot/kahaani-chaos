@@ -12,12 +12,20 @@ def test_prompt_order_and_parts():
     assert p.startswith("Wide shot of a misty lane at night. Characters: Dhaniram: plump middle-aged")
     assert "brown waistcoat, greedy grin expression." in p
     assert p.index(look.STYLE) < p.index(look.AVOID) and p.endswith(look.AVOID)
-    assert look.CLOSE not in p
+    assert look.CLOSE not in p and look.NOBODY not in p
 
 
 def test_the_hook_is_a_close_up():
-    p = look.prompt("A coin falls into a well", [], CAST, hook=True)
-    assert look.CLOSE in p and "Characters" not in p
+    p = look.prompt("Dhaniram stares at the well", [{"name": "Dhaniram", "expression": "greedy"}], CAST, hook=True)
+    assert look.CLOSE in p and look.NOBODY not in p
+
+
+def test_a_scene_without_people_says_so_and_never_asks_for_a_face():
+    hook = look.prompt("A brass kettle pours tea into a clay cup", [], CAST, hook=True)
+    assert look.CLOSE_THING in hook and look.CLOSE not in hook and look.NOBODY in hook
+    assert "Characters" not in hook and "face fill" not in hook
+    later = look.prompt("An empty lane in the mist", [], CAST)
+    assert look.NOBODY in later and look.CLOSE_THING not in later
 
 
 def test_animals_are_pinned_as_real_animals():
@@ -37,7 +45,8 @@ def test_plan_has_one_seeded_prompt_per_beat():
     d = story_dict()
     plan = look.plan(d["id"], d["beats"], d["cast"])
     assert [b["beat"] for b in plan] == list(range(len(d["beats"])))
-    assert look.CLOSE in plan[0]["prompt"] and look.CLOSE not in plan[1]["prompt"]
+    assert look.CLOSE_THING in plan[0]["prompt"] and look.NOBODY in plan[0]["prompt"]
+    assert look.CLOSE_THING not in plan[1]["prompt"] and look.NOBODY not in plan[1]["prompt"]
     assert "frozen in dawning fear, staring down expression" in plan[8]["prompt"]
     assert len({b["seed"] for b in plan}) == len(plan)
     assert plan == look.plan(d["id"], d["beats"], d["cast"])
