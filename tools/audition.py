@@ -130,6 +130,10 @@ def main(out: str, voices: list[str]) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     made = {}
     for v in voices:
+        if (out_dir / f"{v}.wav").exists():
+            x, sr = sf.read(out_dir / f"{v}.wav", dtype="float32")
+            made[v] = (x, sr, "earlier run")
+            continue
         try:
             x, sr, model = take(v)
         except Exception as exc:
@@ -151,7 +155,7 @@ def main(out: str, voices: list[str]) -> None:
         f0, voiced, _ = librosa.pyin(x16, fmin=60, fmax=350, sr=16000, frame_length=1024)
         f0 = f0[voiced & ~np.isnan(f0)]
         semis = 12 * np.log2(f0 / np.median(f0)) if len(f0) > 10 else np.zeros(1)
-        heard = " ".join(s.text for s in asr.transcribe(str(out_dir / f"{v}.wav"), language="hi")[0])
+        heard = " ".join(s.text for s in asr.transcribe(x16.astype(np.float32), language="hi")[0])
         dur = len(x) / sr
         rows.append({"voice": v, "model": model, "utmos": round(mos, 2), "seconds": round(dur, 1),
                      "wpm": round(60 * words / dur), "harsh_2_5k": round(harsh, 3), "brightness_hz": round(bright),

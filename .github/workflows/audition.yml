@@ -6,9 +6,13 @@ on:
       voices:
         description: space-separated Gemini voices (blank = the default list)
         required: false
+      from_run:
+        description: rescore the takes of this earlier audition run instead of making new ones
+        required: false
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   audition:
@@ -25,6 +29,13 @@ jobs:
           sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
           pip install -q --index-url https://download.pytorch.org/whl/cpu torch torchaudio
           pip install -q requests soundfile librosa faster-whisper
+      - uses: actions/download-artifact@v7
+        if: inputs.from_run != ''
+        with:
+          name: audition
+          path: out/audition
+          run-id: ${{ inputs.from_run }}
+          github-token: ${{ github.token }}
       - name: Audition
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
