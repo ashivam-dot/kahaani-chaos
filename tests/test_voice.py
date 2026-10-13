@@ -11,8 +11,8 @@ def story():
     return Story.from_dict(story_dict())
 
 
-def test_the_voice_is_a_placeholder_storyteller():
-    assert voice.VOICE == "Algenib"
+def test_the_voice_is_the_auditioned_narrator():
+    assert voice.VOICE == "Charon"
     assert "storyteller" in voice.DIRECTION and voice.TARGET_WPM == (140.0, 160.0)
 
 

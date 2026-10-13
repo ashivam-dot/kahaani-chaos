@@ -1,4 +1,7 @@
-"""The channel's one narrator: a Gemini TTS prebuilt male storyteller voice (VOICE), low, intimate and suspenseful.
+"""The channel's one narrator: Gemini TTS prebuilt voice Charon (male), low, intimate and suspenseful; male so it
+never sounds like sister channel Mool Katha's Sulafat. Chosen on 2026-10-13 from seven storyteller voices reading the
+same passage (tools/audition.py): best Whisper CER (0.06), UTMOS22 2.60 (second; the female Achernar led at 2.81),
+low harshness, 146 wpm.
 
 Gemini reads the whole story in one take (the delivery carries from line to line), with a held pause before the
 twist. Whisper large-v3-turbo listens to every take in Hindi: each line must reach MIN_COVERAGE, the take may not add
@@ -37,7 +40,7 @@ SAMPLE_RATE = 24000
 LEAD_IN = 0.35
 SPEECH_FLOOR = 0.01
 EDGE_KEEP = 0.05
-VOICE = "Algenib"  # placeholder until the listening test picks the channel's voice
+VOICE = "Charon"
 GEMINI_API = "https://generativelanguage.googleapis.com/v1beta/models"
 GEMINI_INTERACTIONS = "https://generativelanguage.googleapis.com/v1beta/interactions"
 # Newest first; each has its own free daily quota.
@@ -46,7 +49,7 @@ GEMINI_TTS = ("gemini-3.8-flash-tts", "gemini-3.8-flash-lite-tts", "gemini-3.1-f
 MAX_QUOTA_WAIT = 90.0
 UNKNOWN_QUOTA_BACKOFF = (20.0, 40.0)
 DIRECTION = ("Read this Hindi story aloud as a master storyteller at night, speaking to one listener close by: a "
-             "low, intimate, slightly husky voice, suspenseful and unhurried, letting the strange moments land. "
+             "low, warm and intimate voice, suspenseful and unhurried, letting the strange moments land. "
              "Natural pauses between sentences, a slightly longer pause between lines, and a held breath of silence "
              "where the transcript shows '…' before the twist. Never shouting, never theatrical. Pace: about 150 "
              "words a minute. Speak only the transcript.")
