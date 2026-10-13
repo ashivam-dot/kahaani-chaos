@@ -48,7 +48,8 @@ teal and amber, painterly, not photoreal, not cartoon (`kahaani/look.py`). Each 
 repeats each character's fixed look and states their expression in that beat. Animals are real animals, never
 animal-headed people. A vision check refuses gore, nudity, malformed bodies, text and pictures that don't fit the
 line; a refused beat repeats the nearest earlier passing painting, and a story with under 70% passing, or a failed
-hook painting, is held.
+hook painting, is held. A beat with nobody in it says "no people" in its prompt, and its hook close-up never asks
+for a face: without that the model invented a stranger pouring the tea and the first dry run was held.
 
 ## Voice and sound
 
