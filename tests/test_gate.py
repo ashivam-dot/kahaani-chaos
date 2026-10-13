@@ -68,6 +68,14 @@ def test_hindi_red_lines(text, topic):
     assert has(problems(d), topic)
 
 
+def test_a_religious_exclamation_is_refused_with_a_fix_the_writer_can_apply():
+    d = story_dict()
+    d["beats"][6]["text"] = "या खुदा, यह क्या हो गया!"
+    found = [p for p in problems(d) if "red line" in p]
+    assert len(found) == 1 and "religion ('खुदा')" in found[0] and "even in an exclamation" in found[0]
+    assert "बाप रे" in found[0]
+
+
 def test_red_lines_compare_spellings_without_nukta():
     assert gate.red_lines_hi("खून") and gate.red_lines_hi("ख़ून")
 

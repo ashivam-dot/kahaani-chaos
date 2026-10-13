@@ -76,7 +76,8 @@ RULES (all mandatory):
   जानते'. Do not open beat 1 with: {openings}.
 - Never: gods, avatars, saints or holy men, scriptures, temples, prayers or religious miracles; real people, real
   events or news; gore or wounds; sexual content; harm to a child; self-harm; caste, religion or regional
-  stereotypes. Ghosts may be eerie or gentle, never gory.
+  stereotypes. Ghosts may be eerie or gentle, never gory. That includes exclamations and idioms: never हे भगवान,
+  या खुदा, खुदा जाने, भगवान जाने, राम राम or हे राम; say हाय, बाप रे, अरे or उफ़ instead.
 - cast: every character (1-4) with a fixed English look of 10-40 words: age, build, face, hair, clothes, one
   distinctive detail. An animal is described as a REAL animal ("a real thin grey village cat, not a person, no
   clothes"). The same look is used in every picture.

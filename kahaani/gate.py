@@ -143,7 +143,8 @@ def check(draft: dict, premise: dict, history: list[dict], rotation: bool = True
                        [("title", draft.get("title", "")), ("description", draft.get("description", ""))]:
         found += [f"{where} uses {b!r}: no greetings, channel name, 'did you know' or like/subscribe/share asks"
                   for b in banned(text)]
-        found += [f"{where} touches a red line: {r}" for r in red_lines_hi(text)]
+        found += [f"{where} touches a red line: {r}; remove that word, even in an exclamation or idiom"
+                  " (say हाय, बाप रे or अरे instead of हे भगवान or या खुदा)" for r in red_lines_hi(text)]
     if beats:
         hook = beats[0].get("text", "")
         if len(hindi.words(hook)) > HOOK_WORDS:
