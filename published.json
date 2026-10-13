@@ -1,0 +1,25 @@
+[
+ {
+  "id": "kc-20261013-1614-p001",
+  "premise": "p001",
+  "title": "बिल्ली ने पुरानी केतली दी… सुबह ज़मींदार का हाल देख सब चौंक गए! ☕",
+  "subgenre": "jadui-inaam",
+  "motifs": [
+   "tea-stall",
+   "cat",
+   "kettle"
+  ],
+  "ending": "twist-reveal",
+  "opening": "एक घूंट",
+  "made_at": "2026-10-13T19:28:08+00:00",
+  "tag": "ready-kc-20261013-1614-p001",
+  "voice": "gemini-narrator",
+  "slot": "2026-10-14T07:00:00Z",
+  "published_at": "2026-10-14T07:00:00Z",
+  "video_id": "xo7yuW_Rgbg",
+  "url": "https://www.youtube.com/shorts/xo7yuW_Rgbg",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-14T07:00:00Z",
+  "synthetic_declared": true
+ }
+]
