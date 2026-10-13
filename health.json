@@ -1,12 +1,19 @@
 {
  "produce": {
-  "at": "2026-10-13T18:33:46+00:00",
+  "at": "2026-10-13T19:22:54+00:00",
   "ok": true,
   "dry": false,
   "steps": [
-   "hold p001: hold: no draft of p001 passed after 2 repairs: beat 2 needs an English scene of 12-80 words; beat 3 needs an English scene of 12-80 words; beat 4 needs an English scene of 12-80 words; beat 5 needs an English scene of 12-80 words; beat 6 needs an English scene of 12-80 words; beat 7 needs an English scene of 12-80 words; beat 8 needs an English "
+   "paintings: 10 of 10 made",
+   "ready: kc-20261013-1614-p001 stored as release ready-kc-20261013-1614-p001 (1 ready)"
   ],
-  "held": "hold: no draft of p001 passed after 2 repairs: beat 2 needs an English scene of 12-80 words; beat 3 needs an English scene of 12-80 words; beat 4 needs an English scene of 12-80 words; beat 5 needs an English scene of 12-80 words; beat 6 needs an English scene of 12-80 words; beat 7 needs an English scene of 12-80 words; beat 8 needs an English "
+  "made": {
+   "id": "kc-20261013-1614-p001",
+   "title": "बिल्ली ने पुरानी केतली दी… सुबह ज़मींदार का हाल देख सब चौंक गए! ☕",
+   "duration": 68.73,
+   "voice": "gemini-narrator",
+   "wpm": 143.9
+  }
  },
  "publish": {
   "at": "2026-10-13T18:34:04+00:00",
