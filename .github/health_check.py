@@ -1,5 +1,5 @@
 """Open (or update) an alert issue when the pipeline is silent, its last production or publish run failed, or it is
-holding.
+holding; close it once the runs are healthy again.
 
 python3 .github/health_check.py state/health.json  (a missing file means no run has been recorded yet: no alert)
 """
@@ -36,10 +36,13 @@ def problem(path: Path, now: datetime) -> str | None:
 def main() -> None:
     found_problem = problem(Path(sys.argv[1]), datetime.now(timezone.utc))
     print(found_problem or "healthy")
-    if not found_problem:
-        return
     found = subprocess.run(["gh", "issue", "list", "--state", "open", "--label", "alert", "--search", TITLE,
                             "--json", "number", "--jq", ".[0].number"], capture_output=True, text=True).stdout.strip()
+    if not found_problem:
+        if found:
+            subprocess.run(["gh", "issue", "close", found, "--comment", "Healthy again: the last runs succeeded."],
+                           check=True)
+        return
     if found:
         subprocess.run(["gh", "issue", "comment", found, "--body", found_problem], check=True)
     else:
