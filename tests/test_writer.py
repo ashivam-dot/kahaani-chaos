@@ -50,6 +50,24 @@ def test_editor_problems_are_sent_back_for_a_repair():
     assert log[1]["problems"] == []
 
 
+def test_a_repair_that_cuts_scenes_short_keeps_the_previous_scenes():
+    lazy = draft()
+    for b in lazy["beats"][1:]:
+        b["scene"], b["people"] = "Same as before.", []
+    room = Room([long_hook(), lazy])
+    out, log = writer.write(PREMISE, [], room)
+    assert [entry["stage"] for entry in log] == ["gates", "editor"] and log[-1]["problems"] == []
+    assert [b["scene"] for b in out["beats"]] == [b["scene"] for b in draft()["beats"]]
+    assert out["beats"][1]["people"] == draft()["beats"][1]["people"]
+
+
+def test_a_repair_with_a_new_beat_count_is_taken_as_written():
+    shorter = draft()
+    shorter["beats"] = shorter["beats"][:-1]
+    shorter["beats"][1]["scene"] = "Same."
+    assert writer.carry(draft(), writer.tidy(shorter))["beats"][1]["scene"] == "Same."
+
+
 def test_hold_after_two_repairs():
     room = Room([long_hook()] * 3)
     with pytest.raises(writer.WriterHold, match="hold: no draft of p003 passed after 2 repairs"):

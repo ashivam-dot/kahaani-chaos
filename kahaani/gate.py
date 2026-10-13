@@ -68,6 +68,10 @@ def red_lines_hi(text: str) -> list[str]:
     return list(dict.fromkeys(found))
 
 
+def scene_ok(scene: str) -> bool:
+    return SCENE_WORDS[0] <= len((scene or "").split()) <= SCENE_WORDS[1] and not _DEVANAGARI.search(scene or "")
+
+
 def red_lines_en(text: str) -> list[str]:
     return [f"{topic} ({m.group(0)!r})" for topic, rx in _RED_EN.items() if (m := rx.search(text or ""))]
 
@@ -130,7 +134,7 @@ def check(draft: dict, premise: dict, history: list[dict], rotation: bool = True
         if _DIGITS.search(text):
             found.append(f"beat {i} has digits; write numbers as Hindi words")
         scene = beat.get("scene", "")
-        if not SCENE_WORDS[0] <= len(scene.split()) <= SCENE_WORDS[1] or _DEVANAGARI.search(scene):
+        if not scene_ok(scene):
             found.append(f"beat {i} needs an English scene of {SCENE_WORDS[0]}-{SCENE_WORDS[1]} words")
         found += [f"beat {i} scene touches {r}; paint the moment before or after" for r in red_lines_en(scene)]
         for p in beat.get("people") or []:

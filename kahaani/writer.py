@@ -156,7 +156,9 @@ def messages(premise: dict, history: list[dict], problems: list[str] | None = No
     if problems and previous:
         out += [{"role": "assistant", "content": json.dumps(previous, ensure_ascii=False)},
                 {"role": "user", "content": "Your draft failed these checks. Fix every one and return the full "
-                                            "corrected JSON:\n" + "\n".join(f"- {p}" for p in problems)}]
+                                            "corrected JSON, every beat's text, scene and people written out in "
+                                            "full even where nothing changed:\n"
+                                            + "\n".join(f"- {p}" for p in problems)}]
     return out
 
 
@@ -184,6 +186,18 @@ def tidy(draft: dict) -> dict:
         draft["twist_beat"] = None
     draft["hashtags"] = [t.strip() for t in draft.get("hashtags") or []
                          if isinstance(t, str) and t.strip().startswith("#") and " " not in t.strip()][:5]
+    return draft
+
+
+def carry(previous: dict, draft: dict) -> dict:
+    """A rewrite asked to fix the narration can come back with the untouched scenes cut short ("same as before"): with
+    the beat count unchanged, an unusable scene keeps the previous draft's scene and people for that beat."""
+    old, new = previous.get("beats") or [], draft.get("beats") or []
+    if len(old) != len(new):
+        return draft
+    for before, now in zip(old, new):
+        if not gate.scene_ok(now["scene"]) and gate.scene_ok(before["scene"]):
+            now["scene"], now["people"] = before["scene"], before["people"]
     return draft
 
 
@@ -218,5 +232,5 @@ def write(premise: dict, history: list[dict], ask) -> tuple[dict, list[dict]]:
             return draft, log
         if attempt == REPAIRS:
             break
-        draft = tidy(ask(messages(premise, history, found, draft), SCHEMA))
+        draft = carry(draft, tidy(ask(messages(premise, history, found, draft), SCHEMA)))
     raise WriterHold(f"hold: no draft of {premise['id']} passed after {REPAIRS} repairs: " + "; ".join(found)[:300])
