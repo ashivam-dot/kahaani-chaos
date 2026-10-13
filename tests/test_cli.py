@@ -42,9 +42,19 @@ def test_plan_a_replay(tmp_path, monkeypatch):
     assert out["paint"] == "true" and json.loads(out["chunks"]) == [str(i) for i in range(12)]
 
 
-def test_a_replay_is_dry_only(tmp_path):
+def test_a_reviewed_replay_may_be_published_once(tmp_path):
     status = cli.plan(tmp_path / "plan", dry=False, replay=STORY)
-    assert "only as a dry run" in status["error"] and not status["paint"]
+    assert status["paint"] and status["story"] == "replay-sikko-wala-kuan"
+    ledger.add_ready({"id": "replay-sikko-wala-kuan", "premise": story_dict()["premise"], "made_at": "2026-10-13"})
+    again = cli.plan(tmp_path / "again", dry=False, replay=STORY)
+    assert "already made" in again["error"] and not again["paint"]
+
+
+def test_a_replay_never_reuses_a_premise(tmp_path):
+    ledger.add_ready({"id": "kc-other", "premise": story_dict()["premise"], "made_at": "2026-10-13"})
+    status = cli.plan(tmp_path / "plan", dry=False, replay=STORY)
+    assert "already made" in status["error"] and not status["paint"]
+    assert cli.plan(tmp_path / "dry", dry=True, replay=STORY)["paint"]
 
 
 def test_plan_skips_when_the_buffer_is_full(tmp_path):

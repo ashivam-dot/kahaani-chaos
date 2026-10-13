@@ -17,7 +17,7 @@ on:
         default: dry-run
         options: [dry-run, publish]
       replay:
-        description: "dry-run only: repository path of a reviewed story JSON to paint and render again (no writer calls)"
+        description: "path of a reviewed story in .github/replay/ to paint and render again (no writer calls); in publish mode it is published once"
         type: string
         default: ""
 
@@ -51,7 +51,7 @@ jobs:
       paint: ${{ steps.plan.outputs.paint }}
       chunks: ${{ steps.plan.outputs.chunks }}
     steps:
-      - name: Refuse publishing while paused, and replays outside dry runs
+      - name: Refuse publishing while paused, and replays from outside .github/replay
         env:
           PAUSED: ${{ vars.PAUSED }}
           REPLAY: ${{ inputs.replay }}
@@ -60,10 +60,11 @@ jobs:
             echo "PAUSED is true; only dry runs are allowed." >&2
             exit 1
           fi
-          if [ -n "$REPLAY" ] && [ "$MODE" != "dry-run" ]; then
-            echo "A replay is only allowed in dry-run mode." >&2
-            exit 1
-          fi
+          case "$REPLAY" in
+            ""|.github/replay/*.json) ;;
+            *) echo "A replay must be a reviewed story in .github/replay/." >&2; exit 1 ;;
+          esac
+          case "$REPLAY" in *..*) echo "A replay path may not contain '..'." >&2; exit 1 ;; esac
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - run: .github/state.sh checkout
       - uses: astral-sh/setup-uv@v7

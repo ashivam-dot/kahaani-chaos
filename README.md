@@ -39,7 +39,8 @@ uv run pytest
 
 - `run.yml`: production at 06:00 and 14:15 UTC (plan → paint matrix → render → publish); publish only at 05:30 and
   13:45 UTC. Production is skipped while the buffer is full. `workflow_dispatch` with `mode` (`dry-run` by default,
-  or `publish`) and `replay` (a reviewed story JSON, dry runs only). Dry runs keep the MP4 and records as the
+  or `publish`) and `replay` (a reviewed story JSON in `.github/replay/`; in publish mode it is published once, never if its story or
+  premise was already made). Dry runs keep the MP4 and records as the
   `short-<run id>` artifact and touch neither the ledger, the releases nor YouTube.
 - `health.yml`: every six hours; opens or updates an `alert` issue when nothing ran for 30 h, or the last
   production or publish run failed or is holding.

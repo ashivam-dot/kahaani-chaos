@@ -4,7 +4,8 @@
 plan picks the next premise, writes and gates the story, and writes one image prompt per beat for the paint jobs.
 render screens the paintings, narrates, renders, and (unless --dry) stores the finished Short as a draft release and
 adds it to the ready buffer. publish fills the next slot from the oldest ready Short. Dry runs never touch the ledger
-or YouTube; a replay re-renders a reviewed story without any text-model call and runs only as a dry run.
+or YouTube; a replay re-renders a reviewed story without any text-model call, and outside a dry run publishes it
+once, never when its story or premise was already made.
 """
 from __future__ import annotations
 
@@ -64,10 +65,14 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
     try:
         history = ledger.history()
         if replay:
-            if not dry:
-                raise ValueError("a replay runs only as a dry run")
             story = Story.load(replay)
-            problems = gate.check(asdict(story), {"subgenre": story.subgenre}, [], rotation=False)
+            if not dry:
+                if slots.buffer_full(ledger.ready()):
+                    status["skip"] = f"buffer full ({len(ledger.ready())} ready)"
+                    return status
+                if any(r.get("id") == story.id or r.get("premise") == story.premise for r in history):
+                    raise ValueError(f"replay {story.id} (premise {story.premise}) was already made for the channel")
+            problems = gate.check(asdict(story), {"subgenre": story.subgenre}, history, rotation=not dry)
             if problems:
                 raise ValueError("replay fails the gates: " + "; ".join(problems))
         else:
