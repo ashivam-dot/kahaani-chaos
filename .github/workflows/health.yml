@@ -1,0 +1,28 @@
+name: health
+# Every six hours: alert (an `alert` issue, which GitHub emails to the owner) when no run has been recorded for 30
+# hours, the last production or publish run failed, or either is holding. Quiet while PAUSED is true.
+on:
+  schedule:
+    - cron: "41 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  health:
+    if: vars.PAUSED != 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        continue-on-error: true
+        with:
+          ref: state
+          path: state
+      - name: Check the last runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 .github/health_check.py state/health.json

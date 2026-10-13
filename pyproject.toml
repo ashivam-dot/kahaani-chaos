@@ -1,0 +1,32 @@
+[project]
+name = "kahaani-chaos"
+version = "0.1.0"
+description = "Writes, paints, voices, renders and publishes original Hindi magical and mysterious twist-story Shorts."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy>=2.0",
+    "pillow>=12",
+    "requests>=2.32",
+    "soundfile>=0.13",
+    "torch>=2.14",
+    "transformers>=5.17",
+    "faster-whisper>=1.2",
+    "fonttools>=4.55",
+    "google-auth>=2.40",
+    "google-api-python-client>=2.170",
+    "opencv-python-headless>=5.0.0.93",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
