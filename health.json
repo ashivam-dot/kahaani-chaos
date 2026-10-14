@@ -9,11 +9,9 @@
   "held": "hold: no draft of p013 passed after 2 repairs: needs 140-200 spoken Hindi words in total, has 211; beat 1 (the hook) has 16 words; at most 10"
  },
  "publish": {
-  "at": "2026-10-14T14:09:37+00:00",
+  "at": "2026-10-14T15:04:54+00:00",
   "ok": true,
-  "steps": [
-   "learn: 0 scored Shorts, lifts {}"
-  ],
+  "steps": [],
   "held": "hold: the buffer is empty; slot 2026-10-14T15:00:00Z has no Short"
  }
 }
