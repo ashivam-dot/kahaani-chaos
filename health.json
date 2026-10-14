@@ -16,17 +16,11 @@
   }
  },
  "publish": {
-  "at": "2026-10-13T19:28:43+00:00",
+  "at": "2026-10-14T05:58:01+00:00",
   "ok": true,
   "steps": [
-   "scheduled kc-20261013-1614-p001 for 2026-10-14T07:00:00Z: https://www.youtube.com/shorts/xo7yuW_Rgbg"
-  ],
-  "published": {
-   "video_id": "xo7yuW_Rgbg",
-   "url": "https://www.youtube.com/shorts/xo7yuW_Rgbg",
-   "privacy": "scheduled",
-   "publish_at": "2026-10-14T07:00:00Z",
-   "synthetic_declared": true
-  }
+   "learn: 0 scored Shorts, lifts {}",
+   "the next slot is already filled"
+  ]
  }
 }
