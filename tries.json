@@ -3,5 +3,10 @@
   "count": 2,
   "reason": "hold: no draft of p001 passed after 2 repairs: beat 2 needs an English scene of 12-80 words; beat 3 needs an English scene of 12-80 words; beat 4 needs an English scene of 12-80 words; beat 5 needs an English scene of 12-80 words; beat 6 needs an English scene of 12-80 words; beat 7 needs an English",
   "at": "2026-10-13T18:33:46+00:00"
+ },
+ "p013": {
+  "count": 1,
+  "reason": "hold: only 9 of 12 paintings passed (need 9 and the hook's)",
+  "at": "2026-10-14T07:24:22+00:00"
  }
 }
