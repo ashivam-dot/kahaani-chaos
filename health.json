@@ -1,13 +1,12 @@
 {
  "produce": {
-  "at": "2026-10-14T07:24:02+00:00",
+  "at": "2026-10-14T15:04:38+00:00",
   "ok": true,
   "dry": false,
   "steps": [
-   "paintings: 12 of 12 made",
-   "hold p013: hold: only 9 of 12 paintings passed (need 9 and the hook's)"
+   "hold p013: hold: no draft of p013 passed after 2 repairs: needs 140-200 spoken Hindi words in total, has 211; beat 1 (the hook) has 16 words; at most 10"
   ],
-  "held": "hold: only 9 of 12 paintings passed (need 9 and the hook's)"
+  "held": "hold: no draft of p013 passed after 2 repairs: needs 140-200 spoken Hindi words in total, has 211; beat 1 (the hook) has 16 words; at most 10"
  },
  "publish": {
   "at": "2026-10-14T14:09:37+00:00",
