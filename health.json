@@ -9,11 +9,9 @@
   "held": "hold: no draft of p013 passed after 2 repairs: The title and description explain the clock's curse too clearly, leaving no mystery for the viewer to discover.; Beat 5 needs to clarify that Deenanath forgot to wind the clock to make the first disappearance logical.; The transition to humans being the next target in the final beats feels like a su"
  },
  "publish": {
-  "at": "2026-10-15T05:58:02+00:00",
+  "at": "2026-10-15T06:37:55+00:00",
   "ok": true,
-  "steps": [
-   "learn: 0 scored Shorts, lifts {}"
-  ],
+  "steps": [],
   "held": "hold: the buffer is empty; slot 2026-10-15T07:00:00Z has no Short"
  }
 }
