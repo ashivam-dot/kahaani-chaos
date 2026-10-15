@@ -10,11 +10,9 @@
   "held": "hold: only 8 of 11 paintings passed (need 8 and the hook's)"
  },
  "publish": {
-  "at": "2026-10-15T14:15:18+00:00",
+  "at": "2026-10-15T15:26:49+00:00",
   "ok": true,
-  "steps": [
-   "learn: 0 scored Shorts, lifts {}"
-  ],
+  "steps": [],
   "held": "hold: the buffer is empty; slot 2026-10-15T15:00:00Z has no Short"
  }
 }
