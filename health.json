@@ -1,12 +1,13 @@
 {
  "produce": {
-  "at": "2026-10-15T06:37:37+00:00",
+  "at": "2026-10-15T15:26:14+00:00",
   "ok": true,
   "dry": false,
   "steps": [
-   "hold p013: hold: no draft of p013 passed after 2 repairs: The title and description explain the clock's curse too clearly, leaving no mystery for the viewer to discover.; Beat 5 needs to clarify that Deenanath forgot to wind the clock to make the first disappearance logical.; The transition to humans being the next target in the final beats feels like a su"
+   "paintings: 11 of 11 made",
+   "hold p014: hold: only 8 of 11 paintings passed (need 8 and the hook's)"
   ],
-  "held": "hold: no draft of p013 passed after 2 repairs: The title and description explain the clock's curse too clearly, leaving no mystery for the viewer to discover.; Beat 5 needs to clarify that Deenanath forgot to wind the clock to make the first disappearance logical.; The transition to humans being the next target in the final beats feels like a su"
+  "held": "hold: only 8 of 11 paintings passed (need 8 and the hook's)"
  },
  "publish": {
   "at": "2026-10-15T14:15:18+00:00",
