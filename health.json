@@ -1,13 +1,19 @@
 {
  "produce": {
-  "at": "2026-10-15T15:26:14+00:00",
+  "at": "2026-10-16T07:14:44+00:00",
   "ok": true,
   "dry": false,
   "steps": [
    "paintings: 11 of 11 made",
-   "hold p014: hold: only 8 of 11 paintings passed (need 8 and the hook's)"
+   "ready: kc-20261016-0630-p014 stored as release ready-kc-20261016-0630-p014 (1 ready)"
   ],
-  "held": "hold: only 8 of 11 paintings passed (need 8 and the hook's)"
+  "made": {
+   "id": "kc-20261016-0630-p014",
+   "title": "अंधेरे घर में अलमारी से मिली पायल रुक ही नहीं रही थी! 😱",
+   "duration": 64.91,
+   "voice": "gemini-narrator",
+   "wpm": 150.0
+  }
  },
  "publish": {
   "at": "2026-10-16T05:57:18+00:00",
