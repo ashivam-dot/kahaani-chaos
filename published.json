@@ -43,5 +43,27 @@
   "url": "https://www.youtube.com/shorts/P27OAScm5Hk",
   "privacy": "public",
   "synthetic_declared": true
+ },
+ {
+  "id": "kc-20261016-1441-p025",
+  "premise": "p025",
+  "title": "अमावस की रात सूनी पटरी पर रुकती है यह ट्रेन! 😱",
+  "subgenre": "bhoot-rahasya",
+  "motifs": [
+   "train",
+   "station",
+   "new-moon"
+  ],
+  "ending": "loop-back",
+  "opening": "अमावस की",
+  "made_at": "2026-10-16T15:37:46+00:00",
+  "tag": "ready-kc-20261016-1441-p025",
+  "voice": "gemini-narrator",
+  "slot": "2026-10-16T15:00:00Z",
+  "published_at": "2026-10-16T15:38:54+00:00",
+  "video_id": "nZIbcOdzCWA",
+  "url": "https://www.youtube.com/shorts/nZIbcOdzCWA",
+  "privacy": "public",
+  "synthetic_declared": true
  }
 ]
