@@ -16,16 +16,11 @@
   }
  },
  "publish": {
-  "at": "2026-10-16T07:23:10+00:00",
+  "at": "2026-10-16T14:12:44+00:00",
   "ok": true,
   "steps": [
-   "public kc-20261016-0630-p014 for 2026-10-16T07:00:00Z: https://www.youtube.com/shorts/P27OAScm5Hk"
+   "learn: 1 scored Shorts, lifts {}"
   ],
-  "published": {
-   "video_id": "P27OAScm5Hk",
-   "url": "https://www.youtube.com/shorts/P27OAScm5Hk",
-   "privacy": "public",
-   "synthetic_declared": true
-  }
+  "held": "hold: the buffer is empty; slot 2026-10-16T15:00:00Z has no Short"
  }
 }
