@@ -25,6 +25,8 @@ from .spec import Beat, Story
 
 ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / "work"
+# A premise the editor keeps refusing used to cost the whole production slot (p013: 3 of 6 slots on 14-15 Oct).
+PREMISES_PER_RUN = 3
 log = logging.getLogger("kahaani")
 
 
@@ -88,10 +90,20 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
                         premises.refill(history, pen.chat)
                     except Exception as exc:  # a refill failing must not stop today's Short
                         status["refill"] = f"{type(exc).__name__}: {exc}"[:300]
-                premise = premises.select(history)
-                status["premise"] = premise["id"]
+                passed_over: list[list[str]] = []
+                while True:
+                    premise = premises.select(history, [p for p in premises.bank()
+                                                        if p["id"] not in {q for q, _ in passed_over}])
+                    status["premise"] = premise["id"]
+                    try:
+                        draft, notes = writer.write(premise, history, pen.chat)
+                        break
+                    except writer.WriterHold as exc:
+                        passed_over.append([premise["id"], str(exc)[:300]])
+                        status["passed_over"] = passed_over
+                        if len(passed_over) >= PREMISES_PER_RUN:
+                            raise
                 stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M")
-                draft, notes = writer.write(premise, history, pen.chat)
                 story = story_from(draft, premise, f"kc-{stamp}-{premise['id']}", {"models": pen.used, "log": notes})
         story.save(out / "story.json")
         (out / "art-plan.json").write_text(json.dumps(art_plan(story), indent=1, ensure_ascii=False), encoding="utf-8")
@@ -124,6 +136,9 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
     try:
         if not dry:
             ledger.set_identity()
+            for passed, why in status.get("passed_over", []):
+                if passed != premise:
+                    ledger.retry(passed, why)
         if status.get("refill"):
             health["steps"].append(f"premise refill: {status['refill']}")
         if status.get("skip"):

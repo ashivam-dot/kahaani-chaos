@@ -80,6 +80,42 @@ def test_plan_writes_the_next_premise(tmp_path, monkeypatch):
     assert story.motifs == premises.bank()[0]["motifs"] and story.writer["models"] == ["gemini-test"]
 
 
+def test_a_refused_premise_hands_the_slot_to_the_next_one(tmp_path, monkeypatch):
+    monkeypatch.setattr(voice, "ready", lambda: None)
+    monkeypatch.setattr(writer, "Pen", FakePen)
+    real, refused = writer.write, []
+
+    def picky(premise, history, ask):
+        if len(refused) < 1:
+            refused.append(premise["id"])
+            raise writer.WriterHold(f"hold: no draft of {premise['id']} passed after 2 repairs: logic gap")
+        return real(premise, history, ask)
+
+    monkeypatch.setattr(writer, "write", picky)
+    status = cli.plan(tmp_path / "plan")
+    assert status["paint"] and status["premise"] != refused[0]
+    assert status["passed_over"] == [[refused[0], f"hold: no draft of {refused[0]} passed after 2 repairs: logic gap"]]
+    fake_render(monkeypatch)
+    assert cli.render(tmp_path / "plan", tmp_path / "art", tmp_path / "work")["ok"]
+    tries = ledger.load("tries", {})
+    assert tries[refused[0]]["count"] == 1 and status["premise"] not in tries
+
+
+def test_after_three_refused_premises_the_run_holds_and_counts_each_once(tmp_path, monkeypatch):
+    monkeypatch.setattr(voice, "ready", lambda: None)
+    monkeypatch.setattr(writer, "Pen", FakePen)
+
+    def never(premise, history, ask):
+        raise writer.WriterHold(f"hold: no draft of {premise['id']} passed")
+
+    monkeypatch.setattr(writer, "write", never)
+    status = cli.plan(tmp_path / "plan")
+    assert status["held"] == f"hold: no draft of {status['premise']} passed" and len(status["passed_over"]) == 3
+    assert len({p for p, _ in status["passed_over"]}) == 3
+    cli.render(tmp_path / "plan", None, tmp_path / "work")
+    assert {p: r["count"] for p, r in ledger.load("tries", {}).items()} == {p: 1 for p, _ in status["passed_over"]}
+
+
 def make_plan(tmp_path, monkeypatch, dry=False):
     monkeypatch.setattr(voice, "ready", lambda: None)
     monkeypatch.setattr(writer, "Pen", FakePen)
