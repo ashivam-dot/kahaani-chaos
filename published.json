@@ -21,5 +21,27 @@
   "privacy": "scheduled",
   "publish_at": "2026-10-14T07:00:00Z",
   "synthetic_declared": true
+ },
+ {
+  "id": "kc-20261016-0630-p014",
+  "premise": "p014",
+  "title": "अंधेरे घर में अलमारी से मिली पायल रुक ही नहीं रही थी! 😱",
+  "subgenre": "shraapit-cheez",
+  "motifs": [
+   "anklet",
+   "lie",
+   "old-house"
+  ],
+  "ending": "dilemma",
+  "opening": "बिना छुए",
+  "made_at": "2026-10-16T07:22:47+00:00",
+  "tag": "ready-kc-20261016-0630-p014",
+  "voice": "gemini-narrator",
+  "slot": "2026-10-16T07:00:00Z",
+  "published_at": "2026-10-16T07:24:07+00:00",
+  "video_id": "P27OAScm5Hk",
+  "url": "https://www.youtube.com/shorts/P27OAScm5Hk",
+  "privacy": "public",
+  "synthetic_declared": true
  }
 ]
