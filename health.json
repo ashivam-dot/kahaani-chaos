@@ -1,18 +1,18 @@
 {
  "produce": {
-  "at": "2026-10-16T15:26:57+00:00",
+  "at": "2026-10-17T07:16:52+00:00",
   "ok": true,
   "dry": false,
   "steps": [
    "paintings: 11 of 11 made",
-   "ready: kc-20261016-1441-p025 stored as release ready-kc-20261016-1441-p025 (1 ready)"
+   "ready: kc-20261017-0636-p039 stored as release ready-kc-20261017-0636-p039 (1 ready)"
   ],
   "made": {
-   "id": "kc-20261016-1441-p025",
-   "title": "अमावस की रात सूनी पटरी पर रुकती है यह ट्रेन! 😱",
-   "duration": 61.93,
+   "id": "kc-20261017-0636-p039",
+   "title": "बंद घड़ी चलते ही बीस साल पुराना दिन लौट आया! 😱",
+   "duration": 74.91,
    "voice": "gemini-narrator",
-   "wpm": 151.4
+   "wpm": 150.8
   }
  },
  "publish": {
