@@ -1,18 +1,18 @@
 {
  "produce": {
-  "at": "2026-10-17T07:16:52+00:00",
+  "at": "2026-10-17T15:14:08+00:00",
   "ok": true,
   "dry": false,
   "steps": [
    "paintings: 11 of 11 made",
-   "ready: kc-20261017-0636-p039 stored as release ready-kc-20261017-0636-p039 (1 ready)"
+   "ready: kc-20261017-1439-p049 stored as release ready-kc-20261017-1439-p049 (1 ready)"
   ],
   "made": {
-   "id": "kc-20261017-0636-p039",
-   "title": "बंद घड़ी चलते ही बीस साल पुराना दिन लौट आया! 😱",
-   "duration": 74.91,
+   "id": "kc-20261017-1439-p049",
+   "title": "पुल पर भूत ने नींद का कर माँगा… लड़की की चाल से पासा पलटा! 🌉",
+   "duration": 72.35,
    "voice": "gemini-narrator",
-   "wpm": 150.8
+   "wpm": 140.0
   }
  },
  "publish": {
