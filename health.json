@@ -1,18 +1,18 @@
 {
  "produce": {
-  "at": "2026-10-18T06:54:12+00:00",
+  "at": "2026-10-18T15:07:13+00:00",
   "ok": true,
   "dry": false,
   "steps": [
-   "paintings: 10 of 10 made",
-   "ready: kc-20261018-0629-p002 stored as release ready-kc-20261018-0629-p002 (1 ready)"
+   "paintings: 11 of 11 made",
+   "ready: kc-20261018-1434-p015 stored as release ready-kc-20261018-1434-p015 (1 ready)"
   ],
   "made": {
-   "id": "kc-20261018-0629-p002",
-   "title": "जादुई छतरी से मिली खोई दौलत… पर याद आया भयानक सच! ☔",
-   "duration": 81.57,
+   "id": "kc-20261018-1434-p015",
+   "title": "आईने में खड़ा साया हर दिन करीब आने लगा! 😱",
+   "duration": 74.1,
    "voice": "gemini-narrator",
-   "wpm": 132.1
+   "wpm": 150.0
   }
  },
  "publish": {
