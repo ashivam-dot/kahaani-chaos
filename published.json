@@ -109,5 +109,27 @@
   "url": "https://www.youtube.com/shorts/tZg7rv3aa-k",
   "privacy": "public",
   "synthetic_declared": true
+ },
+ {
+  "id": "kc-20261018-0629-p002",
+  "premise": "p002",
+  "title": "जादुई छतरी से मिली खोई दौलत… पर याद आया भयानक सच! ☔",
+  "subgenre": "jadui-inaam",
+  "motifs": [
+   "umbrella",
+   "rain",
+   "lost-things"
+  ],
+  "ending": "loop-back",
+  "opening": "इस काली",
+  "made_at": "2026-10-18T07:07:19+00:00",
+  "tag": "ready-kc-20261018-0629-p002",
+  "voice": "gemini-narrator",
+  "slot": "2026-10-18T07:00:00Z",
+  "published_at": "2026-10-18T07:08:46+00:00",
+  "video_id": "j-YweGw4d0U",
+  "url": "https://www.youtube.com/shorts/j-YweGw4d0U",
+  "privacy": "public",
+  "synthetic_declared": true
  }
 ]
