@@ -1,12 +1,19 @@
 {
  "produce": {
-  "at": "2026-10-19T06:54:28+00:00",
+  "at": "2026-10-19T15:53:55+00:00",
   "ok": true,
   "dry": false,
   "steps": [
-   "hold p028: hold: no draft of p028 passed after 2 repairs: Beat 10 suddenly introduces an unmentioned treasure hunt, ignoring Raghu's urgent motive of getting medicine for his sick child set up in beat 2.; the story's logic has a gap"
+   "paintings: 11 of 11 made",
+   "ready: kc-20261019-1510-p027 stored as release ready-kc-20261019-1510-p027 (1 ready)"
   ],
-  "held": "hold: no draft of p028 passed after 2 repairs: Beat 10 suddenly introduces an unmentioned treasure hunt, ignoring Raghu's urgent motive of getting medicine for his sick child set up in beat 2.; the story's logic has a gap"
+  "made": {
+   "id": "kc-20261019-1510-p027",
+   "title": "पहाड़ का अकेला भूत रात में रास्ता भूल गया! 🕯️",
+   "duration": 64.48,
+   "voice": "gemini-narrator",
+   "wpm": 150.0
+  }
  },
  "publish": {
   "at": "2026-10-19T14:20:03+00:00",
