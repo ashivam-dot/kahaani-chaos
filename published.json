@@ -153,5 +153,27 @@
   "url": "https://www.youtube.com/shorts/lYDvp5VftkQ",
   "privacy": "public",
   "synthetic_declared": true
+ },
+ {
+  "id": "kc-20261019-1510-p027",
+  "premise": "p027",
+  "title": "पहाड़ का अकेला भूत रात में रास्ता भूल गया! 🕯️",
+  "subgenre": "bhoot-rahasya",
+  "motifs": [
+   "lantern",
+   "mountain-path",
+   "lost-traveller"
+  ],
+  "ending": "dilemma",
+  "opening": "अंधेरी पहाडी",
+  "made_at": "2026-10-19T16:03:14+00:00",
+  "tag": "ready-kc-20261019-1510-p027",
+  "voice": "gemini-narrator",
+  "slot": "2026-10-19T15:00:00Z",
+  "published_at": "2026-10-19T16:05:26+00:00",
+  "video_id": "ByKD8CjJu8E",
+  "url": "https://www.youtube.com/shorts/ByKD8CjJu8E",
+  "privacy": "public",
+  "synthetic_declared": true
  }
 ]
