@@ -1,5 +1,5 @@
 {
- "at": "2026-10-18T14:01:36+00:00",
+ "at": "2026-10-19T06:00:41+00:00",
  "videos": {
   "xo7yuW_Rgbg": {
    "id": "kc-20261013-1614-p001",
@@ -58,6 +58,12 @@
      "views": 28,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 119.01,
+     "views": 28,
+     "likes": 0,
+     "comments": 1
     }
    ],
    "subgenre": "jadui-inaam",
@@ -96,6 +102,12 @@
      "views": 2,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 70.61,
+     "views": 2,
+     "likes": 0,
+     "comments": 1
     }
    ],
    "subgenre": "shraapit-cheez",
@@ -128,10 +140,16 @@
      "views": 21,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 62.36,
+     "views": 21,
+     "likes": 0,
+     "comments": 1
     }
    ],
    "subgenre": "bhoot-rahasya",
-   "views_48h": null
+   "views_48h": 21.0
   },
   "5rkStDyIH0o": {
    "id": "kc-20261017-0636-p039",
@@ -151,6 +169,12 @@
     },
     {
      "age_h": 30.63,
+     "views": 2,
+     "likes": 0,
+     "comments": 1
+    },
+    {
+     "age_h": 46.61,
      "views": 2,
      "likes": 0,
      "comments": 1
@@ -174,6 +198,12 @@
      "views": 2,
      "likes": 0,
      "comments": 0
+    },
+    {
+     "age_h": 38.58,
+     "views": 2,
+     "likes": 0,
+     "comments": 1
     }
    ],
    "subgenre": "chatur-chaal",
@@ -188,14 +218,34 @@
      "views": 3,
      "likes": 0,
      "comments": 0
+    },
+    {
+     "age_h": 22.87,
+     "views": 3,
+     "likes": 0,
+     "comments": 1
     }
    ],
    "subgenre": "jadui-inaam",
    "views_48h": null
+  },
+  "lYDvp5VftkQ": {
+   "id": "kc-20261018-1434-p015",
+   "published_at": "2026-10-18T15:19:18+00:00",
+   "snapshots": [
+    {
+     "age_h": 14.69,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
+    }
+   ],
+   "subgenre": "shraapit-cheez",
+   "views_48h": null
   }
  },
  "learned": {
-  "scored": 2,
+  "scored": 3,
   "min_samples": 4,
   "lifts": {}
  }
