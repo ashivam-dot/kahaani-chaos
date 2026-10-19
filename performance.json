@@ -1,5 +1,5 @@
 {
- "at": "2026-10-19T06:00:41+00:00",
+ "at": "2026-10-19T14:20:04+00:00",
  "videos": {
   "xo7yuW_Rgbg": {
    "id": "kc-20261013-1614-p001",
@@ -64,6 +64,12 @@
      "views": 28,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 127.33,
+     "views": 28,
+     "likes": 0,
+     "comments": 1
     }
    ],
    "subgenre": "jadui-inaam",
@@ -108,6 +114,12 @@
      "views": 2,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 78.93,
+     "views": 2,
+     "likes": 0,
+     "comments": 1
     }
    ],
    "subgenre": "shraapit-cheez",
@@ -146,6 +158,12 @@
      "views": 21,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 70.69,
+     "views": 21,
+     "likes": 0,
+     "comments": 1
     }
    ],
    "subgenre": "bhoot-rahasya",
@@ -178,10 +196,16 @@
      "views": 2,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 54.93,
+     "views": 2,
+     "likes": 0,
+     "comments": 1
     }
    ],
    "subgenre": "samay-chakra",
-   "views_48h": null
+   "views_48h": 2.0
   },
   "tZg7rv3aa-k": {
    "id": "kc-20261017-1439-p049",
@@ -201,6 +225,12 @@
     },
     {
      "age_h": 38.58,
+     "views": 2,
+     "likes": 0,
+     "comments": 1
+    },
+    {
+     "age_h": 46.91,
      "views": 2,
      "likes": 0,
      "comments": 1
@@ -224,6 +254,12 @@
      "views": 3,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 31.19,
+     "views": 3,
+     "likes": 0,
+     "comments": 1
     }
    ],
    "subgenre": "jadui-inaam",
@@ -238,6 +274,12 @@
      "views": 2,
      "likes": 0,
      "comments": 0
+    },
+    {
+     "age_h": 23.01,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
     }
    ],
    "subgenre": "shraapit-cheez",
@@ -245,8 +287,9 @@
   }
  },
  "learned": {
-  "scored": 3,
+  "scored": 4,
   "min_samples": 4,
-  "lifts": {}
+  "lifts": {},
+  "baseline_views_48h": 7
  }
 }
