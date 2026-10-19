@@ -9,11 +9,9 @@
   "held": "hold: no draft of p028 passed after 2 repairs: Beat 10 suddenly introduces an unmentioned treasure hunt, ignoring Raghu's urgent motive of getting medicine for his sick child set up in beat 2.; the story's logic has a gap"
  },
  "publish": {
-  "at": "2026-10-19T06:00:41+00:00",
+  "at": "2026-10-19T06:54:46+00:00",
   "ok": true,
-  "steps": [
-   "learn: 3 scored Shorts, lifts {}"
-  ],
+  "steps": [],
   "held": "hold: the buffer is empty; slot 2026-10-19T07:00:00Z has no Short"
  }
 }
