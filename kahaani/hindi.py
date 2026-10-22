@@ -19,8 +19,10 @@ def norm(text: str) -> str:
 
 
 def words(text: str) -> list[str]:
-    """Normalised words with punctuation stripped."""
-    return [w for w in (t.strip(PUNCT) for t in norm(text).split()) if w]
+    """Normalised words with punctuation and emoji stripped (an emoji is not a word: a title of emoji alone has no
+    tokens to compare)."""
+    bare = EMOJI.sub(" ", norm(text)).replace("\ufe0f", "")
+    return [w for w in (t.strip(PUNCT + "|#") for t in bare.split()) if w]
 
 
 def opening(text: str, n: int = 2) -> str:

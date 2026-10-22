@@ -67,7 +67,7 @@ cast:
     image: >-
       lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt,
       thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away
-    voice: {suggest: Iapetus, alt: Puck, note: clear young male, only for F3 dialogue; audition then lock}
+    voice: {suggest: Iapetus, alt: Puck, note: "clear young male, only for F3 dialogue; audition then lock"}
     speech_hi: >-
       तेज़, जिज्ञासु, बीच में टोकने वाला। "पर क्यों?" उसका तकिया-कलाम है। डरता है पर मानता नहीं।
     sample_lines_hi:
@@ -88,7 +88,7 @@ cast:
       हर कहानी की आवाज़: 2026 का सैंतालीस साल का प्रभात, जो याद कर रहा है। 1997 में कॉलेज के लिए गाँव छोड़ा और झब्बू से
       अलविदा नहीं कह पाया।
     props:
-      - {key: old_notebook, hi: वही पुरानी नीली कॉपी, अब फीकी, image: faded old blue notebook, worn corners}
+      - {key: old_notebook, hi: "वही पुरानी नीली कॉपी, अब फीकी", image: "faded old blue notebook, worn corners"}
       - {key: glasses, hi: वही स्टील फ़्रेम का चश्मा, image: thin steel-rimmed glasses}
     colours: {hi: [फीका सरसों रंग, स्लेटी], image: [faded mustard, grey]}
     look_hi: सिर्फ़ हाथ दिखते हैं, फीकी नीली कॉपी के पन्ने पलटते हुए, बगल में स्टील फ़्रेम का चश्मा।
@@ -124,7 +124,7 @@ cast:
     image: >-
       seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long
       plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away
-    voice: {suggest: Kore, alt: Leda, note: firm young female, F3 dialogue only; audition then lock}
+    voice: {suggest: Kore, alt: Leda, note: "firm young female, F3 dialogue only; audition then lock"}
     speech_hi: >-
       सीधी, कम शब्दों में, थोड़ी चिढ़ाने वाली। डर को काम में बदल देती है, जैसे "रोशनी पकड़, मैं देखती हूँ।"
     sample_lines_hi:
@@ -154,7 +154,7 @@ cast:
     image: >-
       sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small
       transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind
-    voice: {suggest: Puck, alt: Fenrir, note: upbeat young male, F3 dialogue only; audition then lock}
+    voice: {suggest: Puck, alt: Fenrir, note: "upbeat young male, F3 dialogue only; audition then lock"}
     speech_hi: >-
       ऊँची आवाज़, बात-बात में खाना, शेखी और फिर घबराहट। डर में भी मज़ाक करता है। "अरे बाप रे" उसका तकिया-कलाम है।
     sample_lines_hi:
