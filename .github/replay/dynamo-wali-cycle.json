@@ -1,0 +1,129 @@
+{
+ "id": "replay-dynamo-wali-cycle",
+ "premise": "e01",
+ "title": "साइकिल रोकी… और उसकी लाइट बिना पैडल के जल उठी! 🚲",
+ "hook": "पुल पर साइकिल की लाइट बिना पैडल जल उठी।",
+ "beats": [
+  {
+   "text": "पुल पर साइकिल की लाइट बिना पैडल जल उठी।",
+   "scene": "A parked old black bicycle on a narrow brick canal bridge at night, its dynamo headlamp glowing warm by itself, the pedals still, moonlit water below, mist over the towpath",
+   "people": [],
+   "pause_after": 0.35
+  },
+  {
+   "text": "उन्नीस सौ छियानवे की सर्दी। मैं, नुज़हत और शैलेश नहर के पुल पर बैठे थे, साइकिल रेलिंग से टिकी थी।",
+   "scene": "Three young people sitting on the low parapet of a brick canal bridge on a winter night, seen from behind and small in the frame, a bicycle leaning on the railing",
+   "people": [
+    {
+     "name": "prabhat",
+     "expression": "relaxed"
+    },
+    {
+     "name": "nuzhat",
+     "expression": "amused"
+    },
+    {
+     "name": "shailesh",
+     "expression": "talkative"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "फिर साइकिल बिना किसी के छुए ख़ुद आगे लुढ़कने लगी। शैलेश दौड़ने को हुआ, तभी झब्बू काका की लालटेन दिखी।",
+   "scene": "The empty bicycle rolling slowly along the moonlit towpath on its own, its lamp lit, a young man in a red cap half turned to run after it, a lantern glowing far down the path",
+   "people": [
+    {
+     "name": "shailesh",
+     "expression": "startled"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "काका बोले, अपने-आप जली रोशनी के पीछे मत भागो, बस देखो वो कहाँ रुकती है।",
+   "scene": "An old watchman with a brass hurricane lantern raising one hand calmly on the towpath, backlit, three young people stopped beside him watching a small light move away along the canal",
+   "people": [
+    {
+     "name": "jhabbu",
+     "expression": "calm"
+    },
+    {
+     "name": "prabhat",
+     "expression": "curious"
+    },
+    {
+     "name": "nuzhat",
+     "expression": "watchful"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "रोशनी हैंडपंप के पास रुकी। घास में शैलेश का वही ट्रांजिस्टर पड़ा था, जिसकी चोरी का किस्सा उसने सबको सुनाया था। शैलेश धीरे से बोला, मैं ही भूल आया था।",
+   "scene": "The bicycle stopped beside a cast-iron hand pump on the canal bank, its lamp lighting a small transistor radio in a brown leather case lying in the grass, a young man in a red cap kneeling, three-quarter view from behind",
+   "people": [
+    {
+     "name": "shailesh",
+     "expression": "sheepish"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "अगली सुबह साइकिल फिर पुल पर खड़ी थी, लाइट बंद। आज भी उस पुल से गुज़रूँ, तो उसकी लाइट देख लेता हूँ।",
+   "scene": "The same old black bicycle parked on the narrow brick canal bridge in pale early morning light, its headlamp dark, mist lifting off the still water",
+   "people": [],
+   "pause_after": 0.35
+  }
+ ],
+ "cast": [
+  {
+   "id": "prabhat",
+   "name": "प्रभात",
+   "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+  },
+  {
+   "id": "nuzhat",
+   "name": "नुज़हत",
+   "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+  },
+  {
+   "id": "shailesh",
+   "name": "शैलेश",
+   "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+  },
+  {
+   "id": "jhabbu",
+   "name": "झब्बू",
+   "look": "tall lean man about sixty, slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+  }
+ ],
+ "subgenre": "confessed-lie",
+ "ending": "loop-back",
+ "twist_beat": 4,
+ "description": "सन्नाटपुर, उन्नीस सौ छियानवे। नहर के पुराने पुल पर खड़ी एक साइकिल की लाइट बिना पैडल के जल उठी, और झब्बू काका का एक पुराना नियम काम आया।",
+ "motifs": [],
+ "hashtags": [
+  "#सन्नाटपुर",
+  "#90sकीयादें",
+  "#हिंदीकहानी"
+ ],
+ "writer": {
+  "models": [
+   "reviewed"
+  ],
+  "log": []
+ },
+ "format": "micro",
+ "hook_strip": "बिना पैडल जली लाइट",
+ "object_token": "साइकिल",
+ "anomaly": "बिना पैडल के लाइट जल उठना और साइकिल का ख़ुद चल पड़ना",
+ "niyam_id": "N06",
+ "resolution": "leave-it-be",
+ "heart_beat": 5,
+ "heart_type": "confessed-lie",
+ "skeleton": "S1",
+ "location": "नहर का पुराना पुल",
+ "place_id": "nahar"
+}

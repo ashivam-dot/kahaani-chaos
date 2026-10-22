@@ -1,14 +1,16 @@
 name: run
 
-# Production (06:00 and 14:15 UTC): plan -> paint (one beat per job) -> render, which stores one finished Short as a
-# draft release in the ready buffer, then publish fills the next slot. The publish-only crons (05:30 and 13:45 UTC)
-# fill a slot from the buffer even if production broke. Slots: 12:30 and 20:30 IST.
+# F1 "सन्नाटपुर की छोटी एंट्री": one micro-entry Short a day at 19:00 IST (13:30 UTC). Production (01:30 and 07:30
+# UTC, both done hours before the slot): plan -> paint (one beat per job, plus up to two repaints of a cast shot) ->
+# render, which stores one finished Short as a draft release in the ready buffer (up to 2), then publish schedules the
+# next slot with publishAt. The publish-only crons (12:00 and 13:15 UTC) fill the slot from the buffer even if
+# production broke. PAUSED=true stops every scheduled run; manual dry runs still work.
 on:
   schedule:
-    - cron: "30 5 * * *"   # publish only, 11:00 IST
-    - cron: "0 6 * * *"    # production, 11:30 IST
-    - cron: "45 13 * * *"  # publish only, 19:15 IST
-    - cron: "15 14 * * *"  # production, 19:45 IST
+    - cron: "30 1 * * *"   # production, 07:00 IST
+    - cron: "30 7 * * *"   # production, 13:00 IST (refills the buffer when the first run held)
+    - cron: "0 12 * * *"   # publish only, 17:30 IST
+    - cron: "15 13 * * *"  # publish only, 18:45 IST
   workflow_dispatch:
     inputs:
       mode:
@@ -30,7 +32,7 @@ permissions:
 concurrency:
   group: >-
     ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'dry-run' && format('kc-dry-{0}', github.run_id)
-    || github.event_name == 'schedule' && (github.event.schedule == '30 5 * * *' || github.event.schedule == '45 13 * * *') && format('kc-slot-{0}', github.run_id)
+    || github.event_name == 'schedule' && (github.event.schedule == '0 12 * * *' || github.event.schedule == '15 13 * * *') && format('kc-slot-{0}', github.run_id)
     || 'kc-produce' }}
   cancel-in-progress: false
 
@@ -43,7 +45,7 @@ jobs:
   plan:
     if: >-
       github.event_name != 'schedule'
-      || (github.event.schedule != '30 5 * * *' && github.event.schedule != '45 13 * * *' && vars.PAUSED != 'true')
+      || (github.event.schedule != '0 12 * * *' && github.event.schedule != '15 13 * * *' && vars.PAUSED != 'true')
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     environment: youtube
@@ -129,12 +131,12 @@ jobs:
         with:
           path: ${{ env.ART_ROOT }}
           key: ${{ env.ART_CACHE_KEY }}
-      - name: Paint one beat
+      - name: Paint one beat (and, while time allows, two repaints of a cast shot for the prop-identity check)
         env:
           BEAT: ${{ matrix.beat }}
         run: >-
           python3 -m kahaani.imagegen beats --prompts "$RUNNER_TEMP/plan/art-plan.json" --only "$BEAT"
-          --out "$RUNNER_TEMP/art" --root "$ART_ROOT"
+          --out "$RUNNER_TEMP/art" --root "$ART_ROOT" --alternates 2 --budget 62
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
@@ -230,6 +232,7 @@ jobs:
         env:
           YOUTUBE_OAUTH_JSON: ${{ secrets.YOUTUBE_OAUTH_JSON }}
           KC_CHANNEL_ID: ${{ vars.KC_CHANNEL_ID }}
+          KC_PLAYLIST_MICRO: ${{ vars.KC_PLAYLIST_MICRO }}
           GH_TOKEN: ${{ github.token }}
         run: uv run --no-sync python -m kahaani.cli publish
       - name: Save state

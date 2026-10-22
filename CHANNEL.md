@@ -1,72 +1,151 @@
-# Kahaani Chaos — editorial rules
+# सन्नाटपुर की रातें | Sannatpur Ki Raatein: editorial rules
 
-@KahaaniChaos (`UCX-96TVtOBCEkDMloHuYAHw`). "जादुई और रहस्यमयी कहानियाँ": original Hindi folk-fantasy and mystery
-Shorts with a twist, for a general Hindi audience aged 13+. Not made for kids. These rules bind every story; the
-code enforces what it can (`kahaani/gate.py`) and a second model reads the rest as an editor (`kahaani/writer.py`).
+Channel `UCX-96TVtOBCEkDMloHuYAHw` (handle still @KahaaniChaos until the owner claims a new one in Studio). Tagline:
+"1996 का एक काल्पनिक गाँव, और उसकी अजीब रातें". Original Hindi Shorts about the strange nights of an invented
+village, for a general Hindi audience aged 13+. Not made for kids. These rules bind every story. The code enforces
+what it can (`kahaani/gate.py`, `kahaani/variation.py`, `kahaani/vision.py`, `kahaani/voice.py`,
+`kahaani/compose.py`, `kahaani/youtube.py`), and a second model reads the rest as an editor (`kahaani/writer.py`).
+The full design is PLAN.md in `kahaani-recreate-2026-10-22/design/`. The world itself lives in `bible/`.
 
-## Lane
+## World
 
-- Five sub-genres: **jadui-inaam** (a kindness or a greed meets magic), **shraapit-cheez** (a cursed or strange
-  object), **bhoot-rahasya** (a gentle or eerie ghost, a village mystery), **samay-chakra** (a time slip or loop),
-  **chatur-chaal** (a clever trick).
-- Ordinary Indian villages, towns and cities. Every story is fiction and says so.
+- **Sannatpur, 1996**, a fictional north-Indian village (`bible/world.yaml`), always labelled काल्पनिक. It is never
+  attached to a real district, state, river or city. A story says "शहर" or "ज़िले का दफ़्तर", never a name.
+- **The frame:** in 2026, प्रभात at 47 remembers the nights when he was 17. Every Short is a memory and is told in his
+  adult voice.
+- **The cast** (`bible/cast.yaml`; every name passed `bible/name_checks.md`):
+  - झब्बू पहरेदार (60), the night watchman who writes the village's rules in his red-spined register;
+  - प्रभात (17);
+  - नुज़हत (17);
+  - शैलेश (18).
+
+  Each has fixed props and colours. The plan names अंशु, शबनम, मोंटी and ज़रीना failed the name check, so they are
+  retired and the gate refuses them.
+- **The rules:** the village's rules for strange nights are the niyam in `bible/canon.json`. A story may only cite a
+  niyam that exists there.
+- **90s textures:** power cuts and lanterns, PCO/STD meters, transistors and cassettes, inland letters, ration
+  queues, dynamo cycle lights. Strangeness lives in these everyday objects.
 
 ## Red lines
 
 Never, in narration, title, description, premise or picture:
 
-- gods, avatars, saints or holy men, scriptures, temples, prayers or religious miracles (Mool Katha's lane);
-- real people, real places as real events, news, or any "true story" claim;
-- gore, wounds or killing shown; sexual content; harm to a child; self-harm;
+- gods, saints, scriptures, temples, prayers, rituals, exorcism or religious miracles;
+- the banned beings: no चुड़ैल, डायन, प्रेत, जिन्न and the like. The strange is an object or a night, never a
+  demon;
+- real people, real places, real brands or broadcasters, news, or any "true story" claim;
+- gore, wounds or killing; sexual content; harm to a child; self-harm;
 - caste, religion or regional stereotypes.
 
-Ghosts may be eerie or gentle, never gory. For danger, paint the moment before, or a symbol.
+An exclamation such as "हे भगवान" is refused, and the fix "हाय, बाप रे or अरे" is offered. Hindi is checked through
+`kahaani/hindi.py`, which normalises nukta and chandrabindu and tokenises Devanagari. A `\w+` or `[a-z0-9]+`
+tokenizer is never used on Hindi, because it sees nothing in "साइकिल की लाइट".
 
-## Story
+## F1: सन्नाटपुर की छोटी एंट्री (micro-entry Shorts)
 
-- 60-90 s: 140-200 spoken Hindi words in 9-12 beats, everyday spoken Hindi, Devanagari only, numbers as words.
-- Arc: a hook of at most 10 words stating the impossible image or the stakes; a concrete character with a want; the
-  strange encounter; a rule or warning; a choice; the twist (after the middle, before the last beat); the payoff that
-  answers the hook; a sting line.
-- Endings rotate, never two the same in a row: twist-reveal, then dilemma (the last beat asks the viewer one
-  question, "आप होते तो क्या करते?"), then loop-back (the last line echoes the hook so the Short replays).
-- No greetings or host openers in the hook, no channel name, no "क्या आप जानते", no like/subscribe/share/follow asks
-  anywhere, including the end card.
-- One premise is used once. No motif from the last 10 Shorts, no sub-genre from the last 2, no opening words from
-  the last 10.
+Every entry comes from the hand-written bank of 40 in `bible/micro_bank.json`. Each entry fixes the following:
+
+- the object, the anomaly and the place;
+- the niyam;
+- the hook line;
+- the heart beat;
+- the resolution type and the ending type;
+- the title and its skeleton.
+
+The writer expands one entry. Nothing is invented outside the bank.
+
+- **Length:** 35-55 s spoken. The hard gate is 30-58 s on the measured narration, with the turn landing by 75% of
+  the runtime. The script is 85-130 spoken Hindi words in 5-7 beats, in Devanagari only, with numbers as words
+  (the year is "उन्नीस सौ छियानवे").
+- **Beats:** cold open on the impossible moment, then "1996, उस रात…", then the first sign, the escalation, the turn
+  (the trio realises the rule), the heart beat (a kindness, a confessed lie or a goodbye) and the ending.
+- **Hook:** the first spoken line is at most 10 words and names the entry's 90s object together with its anomaly.
+  The hook strip on frame 0 is 3-5 words.
+- **Endings** rotate, and never repeat the previous Short's:
+  - loop-back (the last line rhymes with frame 0);
+  - register-line (Jhabbu adds one line to the register);
+  - open-question (one question to the comments).
+
+  The next-raat-tease ending is held back until the weekly long-form (F3) exists. Until then a tease entry takes
+  another ending.
+- **Resolution types** (leave-it-be, kindness, bargain, outsmart) also differ from the previous Short.
+- **Variation.** The following are refused:
+  - an object, anomaly, place or opening from the last 10 F1 Shorts;
+  - a script whose Hindi 3-gram Jaccard with any earlier Short is above 0.25;
+  - a title whose word Jaccard is above 0.5.
+
+  An empty token set is a problem, never a pass.
+- **Never** a greeting or host opener, the channel's name, "क्या आप जानते", or a like/subscribe/share/follow ask,
+  including on the end card.
 
 ## Title
 
-Spoken Hindi in Devanagari, the impossible turn first, at most 70 characters, exactly one emoji, ending in "!" or
-"?" (the emoji may follow), never giving the twist away. Example: "एक सिक्का डालो, दो पाओ… पर कुएँ ने बदले में
-क्या लिया? 😨".
+- 40-75 characters, exactly one emoji, with the entry's object in the first five words, in spoken Hindi.
+- The title never gives away the turn.
+- Three skeletons rotate, and a skeleton is used at most once in any three Shorts:
+  - **S1:** `<90s act>… <impossible result> + emoji`;
+  - **S2:** `<object> ने <strange action> 😨 | सन्नाटपुर`;
+  - **S3:** `"<who/why…?>" + emoji`.
+- The description carries `#सन्नाटपुर` and the disclosure line. No made-for-kids wording ("बच्चों के लिए", "सोने से
+  पहले की कहानी", "नैतिक कहानी", "kids") appears anywhere.
 
 ## Look
 
-One AI painting per beat in one house style: cinematic Indian folk-fantasy painting, lantern and moonlight, mist,
-teal and amber, painterly, not photoreal, not cartoon (`kahaani/look.py`). Each story has a cast sheet; every prompt
-repeats each character's fixed look and states their expression in that beat. Animals are real animals, never
-animal-headed people. A vision check refuses gore, nudity, malformed bodies, text and pictures that don't fit the
-line; a refused beat repeats the nearest earlier passing painting, and a story with under 70% passing, or a failed
-hook painting, is held. A beat with nobody in it says "no people" in its prompt, and its hook close-up never asks
-for a face: without that the model invented a stranger pouring the tea and the first dry run was held.
+- One AI painting per beat in the bible's house style: a bright moonlit 1996 village, one warm practical light,
+  lifted shadows, painterly-cinematic and realistic adult proportions (`kahaani/look.py`).
+- Never chibi, anime, 3D, kids-book style, gore, or any written text.
+- Faces stay small, backlit or turned away. Who someone is comes from their props and colours, which never change.
+- A beat with nobody in it says "no people", and its close-up never asks for a face.
+- The vision check refuses gore, nudity, malformed bodies, text and pictures that do not fit the line.
+- **Prop identity:** 85% of a video's cast shots must show each painted character's signature prop or colour. A cast
+  shot may be repainted from two spare seeds before it is dropped.
+- A refused beat repeats the nearest earlier passing painting. The Short is held when fewer than 70% of its beats
+  pass, or when the hook painting fails.
+- **Frame 0 is the peak image:**
+  - mean luma 90-170 and RMS contrast 0.18-0.45;
+  - the hook strip in the top third, 10-28% of the frame height;
+  - all text inside the safe zone.
+- No luma blink of more than 35% outside a cut is allowed, and the frame count must match the narration to within
+  one frame.
 
 ## Voice and sound
 
-One storyteller narrator (Gemini TTS, `voice.VOICE`, chosen by a listening test), low and intimate, about 150 wpm,
-a held pause before the twist. Fallback: a Chatterbox clone of the same narrator from `tts/voices/narrator_ref.wav`.
-Whisper checks every line. Music is a dark-ambient bed written in code, with a bell struck at the twist; mixed to
--14 LUFS.
+- One narrator: adult प्रभात, read by Gemini TTS Charon. He sounds like he is remembering: low, warm and
+  unhurried. The fallback is a Chatterbox clone of the same voice. A Short read by a local fallback writer is never
+  published.
+- Onset within 0.3 s.
+- Pace:
+  - the hook aims at 170-185 wpm, with a hard band of 150-205;
+  - the body aims at 155-175 wpm, with a hard band of 140-190.
+- Whisper checks every line: coverage ≥0.95, Devanagari character error rate ≤0.12, and no gap over 1.2 s.
+- The music is a dark-ambient bed written in code, with a bell at the turn.
+- The final mix is measured with ebur128: -15 to -13 LUFS integrated, and a true peak at or below -1 dBFS.
 
 ## Disclosure
 
-The YouTube altered-or-synthetic flag on every upload; the on-screen label "AI चित्र और आवाज़ · काल्पनिक कहानी" for
-the whole Short; a description line saying the story is fiction with AI pictures and an AI voice; an end card that
-repeats it. Category Entertainment (24), language Hindi, not made for kids.
+- The YouTube altered-or-synthetic flag is set on every upload.
+- The on-screen label "AI चित्र और आवाज़ · काल्पनिक कहानी" stays up for the whole Short.
+- The description includes a line saying the story is fiction with AI pictures and an AI voice.
+- An end card repeats it.
+- Every upload is category Entertainment (24), language Hindi, not made for kids.
 
-## Cadence and learning
+## Publishing, cadence and learning
 
-Two Shorts a day at 12:30 and 20:30 IST, from a buffer of up to two finished Shorts. Views at 48 h per sub-genre
-give a lift (shrunk n/(n+4), clamped 0.75-1.35) that reorders the next premises; a sub-genre's rest since it last
-ran keeps all five rotating. After 20 Shorts the target is a median of 300+ views at 48 h; under 50, drop the two
-weakest sub-genres and test 100-120 s stories. No views are promised.
+- **Cadence:** one F1 Short daily at 19:00 IST (13:30 UTC) during the pilot, from a ready buffer of two. From
+  10 Nov the plan moves F1 to Mon, Wed, Fri and Sun. The F2 and F3 slots register in `config.FORMATS` when those
+  formats are built.
+- **Uploads:**
+  - private with `publishAt` at the slot, with subscribers not notified for the first 30 days after the relaunch;
+  - filed in the F1 playlist when `KC_PLAYLIST_MICRO` is set;
+  - the channel posts one first comment: the Short's own question for an open-question ending, otherwise "आपके
+    गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇".
+- **Read-back:** every upload is read back. Any drift in made-for-kids, privacy, `publishAt`, the synthetic flag,
+  upload status or the channel holds the run, and nothing is commented or filed.
+- **Learning:**
+  - Each Short is scored at 48 h as 0.5 × viewed% + 0.3 × log views + 0.2 × subscribers per 1K views (as z-scores).
+    The score falls back to views alone when the Analytics scope is missing, and the gap is reported.
+  - Once there are at least 4 samples, the score becomes a lift per feature value (skeleton, ending, resolution,
+    heart type), clamped to 0.75-1.35. The skeleton lift reorders the bank, and the rest are reported in
+    `state/LEARNINGS.md`.
+  - Health alerts open when fewer than 10 bank entries are unused.
+- No views are promised.

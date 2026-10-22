@@ -1,7 +1,9 @@
 """Open (or update) an alert issue when the pipeline is silent, its last production or publish run failed, or it is
-holding; close it once the runs are healthy again.
+holding, and for the F1 warnings (PLAN.md §7.8): the micro-entry bank running low, a read-back mismatch, the Analytics
+scope missing, and the ready buffer below target once the day's production window is over. Close it once healthy.
 
-python3 .github/health_check.py state/health.json  (a missing file means no run has been recorded yet: no alert)
+python3 .github/health_check.py state/health.json  (a missing file means no run has been recorded yet: no alert;
+ready.json and performance.json are read from the same folder)
 """
 import json
 import subprocess
@@ -10,7 +12,17 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 SILENT_H = 30
-TITLE = "Kahaani Chaos needs attention"
+TITLE = "Sannatpur Ki Raatein needs attention"
+BUFFER_TARGET = 2  # kahaani.config.FORMATS["micro"].buffer
+# Production runs at 01:30 and 07:30 UTC and the slot is 13:30 UTC: between these hours the buffer should be full.
+BUFFER_HOURS = (10, 13)
+
+
+def _load(path: Path, default):
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return default
 
 
 def problem(path: Path, now: datetime) -> str | None:
@@ -30,6 +42,17 @@ def problem(path: Path, now: datetime) -> str | None:
             found.append(f"Last {kind} run failed: {health.get('error')}")
         elif health.get("held"):
             found.append(f"The {kind} run is holding: {health['held']}")
+        if health.get("bank_low"):
+            found.append(f"Micro bank: {health['bank_low']}")
+        if health.get("readback"):
+            found.append(f"Read-back mismatch on the last upload: {health['readback']}. Set PAUSED=true and check it "
+                         "in Studio.")
+    analytics = _load(path.parent / "performance.json", {}).get("analytics") or ""
+    if analytics.startswith("missing"):
+        found.append(f"Analytics scope missing: {analytics} (re-run the OAuth consent with yt-analytics.readonly).")
+    ready = _load(path.parent / "ready.json", None)
+    if ready is not None and BUFFER_HOURS[0] <= now.hour <= BUFFER_HOURS[1] and len(ready) < BUFFER_TARGET:
+        found.append(f"The ready buffer has {len(ready)} Shorts after the day's production; target {BUFFER_TARGET}.")
     return "\n".join(found) or None
 
 
