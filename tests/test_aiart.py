@@ -59,3 +59,46 @@ def test_pictures_screens_and_falls_back(tmp_path):
     assert [int(p.stem[4:]) for p in pics] == [0, 1, 2, 2, 4, 5, 6, 6, 8, 9]
     assert Image.open(pics[0]).size == aiart.UPSCALE
     assert [r["beat"] for r in report if r["rejected"]] == [8]
+
+
+def test_repaints_are_collected_apart_from_the_painting(tmp_path):
+    paint(tmp_path, "kc-1", 1)
+    Image.new("RGB", (576, 1024), (90, 90, 90)).save(tmp_path / "beat01-alt2.png")
+    (tmp_path / "beat01-alt2.json").write_text(json.dumps({"story": "kc-1", "beat": 1, "alt": 2}))
+    Image.new("RGB", (576, 1024), (90, 90, 90)).save(tmp_path / "beat01-alt1.png")
+    (tmp_path / "beat01-alt1.json").write_text(json.dumps({"story": "kc-1", "beat": 1, "alt": 1}))
+    assert aiart.collect(tmp_path, "kc-1", 3) == {1: tmp_path / "beat01.png"}
+    assert aiart.alternates(tmp_path, "kc-1", 3) == {1: [tmp_path / "beat01-alt1.png", tmp_path / "beat01-alt2.png"]}
+
+
+def verdict(n, props_ok=True):
+    return {"n": n, "shows": "Jhabbu on the bridge", "fits": True, "nudity": False, "sexual": False, "gore": False,
+            "malformed": False, "text": False, "religious": False, "kids_look": False, "props_ok": props_ok,
+            "reason": "" if props_ok else "no lantern"}
+
+
+def test_a_cast_shot_without_its_props_is_repainted_at_most_twice(tmp_path):
+    art = tmp_path / "art"
+    art.mkdir()
+    for i in range(3):
+        paint(art, "kc-1", i)
+    spares = {1: [art / "beat00.png", art / "beat02.png", art / "beat00.png"]}
+    answers = iter([[True, False, True], [False], [True]])
+
+    def ask(parts, schema):
+        return {"pictures": [verdict(k, ok) for k, ok in enumerate(next(answers), 1)]}
+
+    report = []
+    pics = aiart.pictures(aiart.collect(art, "kc-1", 3), list("abc"), tmp_path / "pics", "story", "cast", ask, report,
+                          spares=spares, who={1: ["jhabbu"]})
+    assert [int(p.stem[4:]) for p in pics] == [0, 1, 2]
+    assert report[1]["repaints_tried"] == 2 and report[1]["rejected"] is None and report[1]["props_ok"] is True
+    assert aiart.prop_rate(report) == 1.0
+
+
+def test_prop_rate_counts_cast_shots_only():
+    report = [{"cast": [], "rejected": None, "props_ok": None},
+              {"cast": ["jhabbu"], "rejected": None, "props_ok": True},
+              {"cast": ["nuzhat"], "rejected": "props: no torch", "props_ok": False}]
+    assert aiart.prop_rate(report) == 0.5
+    assert aiart.prop_rate(report[:1]) is None

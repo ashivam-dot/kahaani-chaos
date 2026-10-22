@@ -19,20 +19,48 @@ class Call:
 
 
 class FakeYouTube:
-    """Just enough of the YouTube Data API client for publish(): one channel, its uploads, insert and update."""
+    """Just enough of the YouTube Data API client for publish(): one channel, its uploads, insert and update, comment
+    threads and playlist items. `drift` is applied to the stored status after every write (a channel that does not
+    keep what was asked)."""
 
-    def __init__(self, channel=CHANNEL, uploads=()):
+    def __init__(self, channel=CHANNEL, uploads=(), drift=None, comments_fail=False):
         self.channel = channel
         self.store = {v["id"]: v for v in uploads}
-        self.inserted, self.updated = [], []
+        self.inserted, self.updated, self.comments, self.filed = [], [], [], []
+        self.playlists = {}
+        self.drift, self.comments_fail = drift or {}, comments_fail
 
     def channels(self):
         item = {"id": self.channel, "contentDetails": {"relatedPlaylists": {"uploads": "UU1"}}}
         return SimpleNamespace(list=lambda **kw: Call({"items": [item]}))
 
     def playlistItems(self):
-        items = [{"contentDetails": {"videoId": v}} for v in self.store]
-        return SimpleNamespace(list=lambda **kw: Call({"items": items}))
+        def listing(playlistId, **kw):
+            ids = list(self.store) if playlistId == "UU1" else self.playlists.get(playlistId, [])
+            return Call({"items": [{"contentDetails": {"videoId": v}} for v in ids]})
+
+        def insert(part, body):
+            snip = body["snippet"]
+            self.filed.append(snip)
+            self.playlists.setdefault(snip["playlistId"], []).append(snip["resourceId"]["videoId"])
+            return Call({})
+
+        return SimpleNamespace(list=listing, insert=insert)
+
+    def commentThreads(self):
+        def listing(videoId, **kw):
+            return Call({"items": [{"snippet": {"topLevelComment": {"snippet": {
+                "authorChannelId": {"value": self.channel}, "textOriginal": c}}}} for v, c in self.comments
+                if v == videoId]})
+
+        def insert(part, body):
+            if self.comments_fail:
+                raise RuntimeError("comments are disabled")
+            snip = body["snippet"]
+            self.comments.append((snip["videoId"], snip["topLevelComment"]["snippet"]["textOriginal"]))
+            return Call({})
+
+        return SimpleNamespace(list=listing, insert=insert)
 
     def videos(self):
         return SimpleNamespace(list=self._list, insert=self._insert, update=self._update)
@@ -41,14 +69,16 @@ class FakeYouTube:
         return Call(lambda: {"items": [self.store[i] for i in id.split(",") if i in self.store]})
 
     def _insert(self, part, body, notifySubscribers, media_body):
-        self.inserted.append(body)
+        self.inserted.append({**body, "notify": notifySubscribers})
+        status = {k: v for k, v in body["status"].items() if k != "containsSyntheticMedia"}
         self.store["vid1"] = {"id": "vid1", "snippet": {"channelId": self.channel, "tags": body["snippet"]["tags"]},
-                              "status": {**body["status"], "uploadStatus": "processed"}}
+                              "status": {**status, "madeForKids": False, "uploadStatus": "processed", **self.drift}}
         return SimpleNamespace(next_chunk=lambda num_retries: (None, {"id": "vid1"}))
 
     def _update(self, part, body):
         self.updated.append(body)
-        self.store[body["id"]]["status"].update(body["status"])
+        status = {k: v for k, v in body["status"].items() if k != "containsSyntheticMedia"}
+        self.store[body["id"]]["status"].update({**status, **self.drift})
         return Call({})
 
 
@@ -97,14 +127,17 @@ def test_only_the_narrator_voice_is_published(pinned, story, mp4):
 def test_upload_body(story):
     body = youtube.body(story, NARRATOR, "2026-10-13T07:00:00Z")
     status, snippet = body["status"], body["snippet"]
+    assert "#सन्नाटपुर" in snippet["description"].split("\n")[-1].split()[0]
     assert status == {"privacyStatus": "private", "publishAt": "2026-10-13T07:00:00Z", "selfDeclaredMadeForKids": False,
                       "containsSyntheticMedia": True, "embeddable": True, "publicStatsViewable": True}
     assert snippet["categoryId"] == "24" and snippet["defaultLanguage"] == snippet["defaultAudioLanguage"] == "hi"
     assert snippet["title"] == story.title
-    assert snippet["tags"][-1] == config.MARKER + story.id
+    assert snippet["tags"][-1] == config.MARKER + story.id and "सन्नाटपुर" in snippet["tags"]
+    assert story.object_token in snippet["tags"]
+    assert not any(youtube.gate.mfk_metadata(t) for t in snippet["tags"])
     text = snippet["description"]
     assert "काल्पनिक कहानी" in text and "AI से बने" in text and "Google Gemini TTS" in text
-    assert "किसी असली व्यक्ति या घटना से" in text and "#shorts" in text and "#जादुईकहानी" in text
+    assert "किसी असली व्यक्ति या घटना से" in text and "#shorts" in text and "#90sकीयादें" in text
     assert "publishAt" not in youtube.body(story, NARRATOR, None)["status"]
 
 
@@ -112,8 +145,11 @@ def test_scheduled_publish(pinned, story, mp4):
     api = FakeYouTube()
     result = youtube.publish(story, mp4, NARRATOR, publish_at="2026-10-13T07:00:00Z", api=api, pause=lambda s: None)
     assert result == {"video_id": "vid1", "url": "https://www.youtube.com/shorts/vid1", "privacy": "scheduled",
-                      "publish_at": "2026-10-13T07:00:00Z", "synthetic_declared": True}
+                      "publish_at": "2026-10-13T07:00:00Z", "synthetic_declared": True, "comment": "posted",
+                      "playlist": "skipped: no playlist"}
     assert api.inserted[0]["status"]["publishAt"] == "2026-10-13T07:00:00Z" and api.updated == []
+    assert api.inserted[0]["notify"] is False
+    assert api.comments == [("vid1", youtube.CTA)]
 
 
 def test_immediate_publish_goes_public(pinned, story, mp4):
@@ -126,11 +162,42 @@ def test_immediate_publish_goes_public(pinned, story, mp4):
 
 def test_an_upload_already_on_the_channel_is_not_uploaded_again(pinned, story, mp4):
     existing = {"id": "old", "snippet": {"channelId": CHANNEL, "tags": [config.MARKER + story.id]},
-                "status": {"privacyStatus": "private", "uploadStatus": "processed"}}
+                "status": {"privacyStatus": "private", "uploadStatus": "processed", "madeForKids": False,
+                           "selfDeclaredMadeForKids": False}}
     api = FakeYouTube(uploads=[existing])
     result = youtube.publish(story, mp4, NARRATOR, publish_at="2026-10-13T07:00:00Z", api=api, pause=lambda s: None)
     assert api.inserted == [] and result["video_id"] == "old"
     assert api.updated[0]["status"]["publishAt"] == "2026-10-13T07:00:00Z"
+
+
+def test_the_short_is_filed_in_the_series_playlist_once(pinned, story, mp4, monkeypatch):
+    monkeypatch.setenv("KC_PLAYLIST_MICRO", "PLmicro")
+    api = FakeYouTube()
+    first = youtube.publish(story, mp4, NARRATOR, publish_at="2099-10-13T13:30:00Z", api=api, pause=lambda s: None)
+    again = youtube.publish(story, mp4, NARRATOR, publish_at="2099-10-13T13:30:00Z", api=api, pause=lambda s: None)
+    assert (first["playlist"], again["playlist"]) == ("added", "exists")
+    assert (first["comment"], again["comment"]) == ("posted", "exists")
+    assert api.playlists == {"PLmicro": ["vid1"]} and len(api.inserted) == 1
+
+
+def test_a_refused_comment_never_unpublishes(pinned, story, mp4):
+    api = FakeYouTube(comments_fail=True)
+    result = youtube.publish(story, mp4, NARRATOR, publish_at="2099-10-13T13:30:00Z", api=api, pause=lambda s: None)
+    assert result["comment"].startswith("pending:") and result["privacy"] == "scheduled"
+
+
+def test_an_open_question_ending_asks_its_own_question_below(story):
+    story.ending = "open-question"
+    story.beats[-1].text = "साइकिल फिर पुल पर खड़ी थी। आप होते तो पीछे भागते?"
+    assert youtube.cta(story) == "आप होते तो पीछे भागते? 👇"
+    story.ending = "loop-back"
+    assert youtube.cta(story) == youtube.CTA
+
+
+def test_made_for_kids_metadata_is_refused(story):
+    story.description += " बच्चों के लिए कार्टून कहानी।"
+    with pytest.raises(ValueError, match="made for kids"):
+        youtube.body(story, NARRATOR, None)
 
 
 def test_the_credential_comes_only_from_the_environment():

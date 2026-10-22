@@ -1,12 +1,17 @@
 import pytest
 
-from kahaani import gate, hindi
+from kahaani import cli, gate
+from kahaani.spec import Story
 
 from .conftest import story_dict
 
 
-def problems(d, history=(), rotation=True):
-    return gate.check(d, {"subgenre": d["subgenre"]}, list(history), rotation=rotation)
+def premise(d=None):
+    return cli.premise_of(Story.from_dict(d or story_dict()))
+
+
+def problems(d, history=(), rotation=True, entry=None):
+    return gate.check(d, entry or premise(d), list(history), rotation=rotation)
 
 
 def has(found, fragment):
@@ -17,77 +22,53 @@ def test_the_reviewed_story_passes():
     assert problems(story_dict()) == []
 
 
-def test_word_and_beat_counts():
+def test_word_and_beat_bands_have_floor_and_ceiling():
     d = story_dict()
-    d["beats"] = d["beats"][:6]
+    d["beats"] = d["beats"][:4]
     found = problems(d)
-    assert has(found, "needs 9-12 beats") and has(found, "spoken Hindi words in total")
+    assert has(found, "needs 5-7 beats") and has(found, "needs 85-130 spoken Hindi words")
+    d = story_dict()
+    d["beats"] = d["beats"] + [dict(d["beats"][4]), dict(d["beats"][4])]
+    found = problems(d)
+    assert has(found, "needs 5-7 beats, has 8") and has(found, "needs 85-130 spoken Hindi words")
 
 
-def test_hook_length_and_host_openers():
+def test_hook_length_object_and_host_openers():
     d = story_dict()
-    d["beats"][0]["text"] = "एक दो तीन चार पाँच छह सात आठ नौ दस ग्यारह"
-    assert has(problems(d), "the hook) has 11 words")
+    d["beats"][0]["text"] = "एक दो तीन चार पाँच छह सात आठ नौ दस साइकिल"
+    found = problems(d)
+    assert has(found, "the hook) has 11 words") and has(found, "must name the object")
     d = story_dict()
-    d["beats"][0]["text"] = "नमस्ते, इस कुएँ में सिक्का डालो।"
+    d["beats"][0]["text"] = "नमस्ते, पुल पर साइकिल की लाइट जल उठी।"
     assert has(problems(d), "opens like a host")
 
 
-def test_greetings_are_allowed_after_the_hook():
+def test_the_memory_opens_with_the_year():
     d = story_dict()
-    d["beats"][4]["text"] = "धनीराम बोला, दोस्तों, परछाईं से किसका पेट भरता है? उसने एक सिक्का फेंका।"
-    assert problems(d) == []
+    d["beats"][1]["text"] = d["beats"][1]["text"].replace("उन्नीस सौ छियानवे की सर्दी।", "उस साल की सर्दी।")
+    assert has(problems(d, rotation=False), "beat 2 opens the memory with the year")
 
 
 @pytest.mark.parametrize("line", ["इसे लाइक करो।", "चैनल पर और कहानियाँ हैं।", "क्या आप जानते थे यह सब?",
                                   "कहानी केऑस की यह कहानी है।"])
 def test_banned_asks(line):
     d = story_dict()
-    d["beats"][5]["text"] = line
+    d["beats"][3]["text"] = line
     assert has(problems(d), "no greetings, channel name")
 
 
-def test_english_words_and_digits_in_narration():
+def test_english_words_digits_and_retired_names():
     d = story_dict()
-    d["beats"][5]["text"] = "उसकी हथेली पर 2 सिक्के थे, sir।"
+    d["beats"][3]["text"] = "अंशु के हाथ में 2 सिक्के थे, sir।"
     found = problems(d)
-    assert has(found, "English words") and has(found, "has digits")
-
-
-@pytest.mark.parametrize("text, topic", [
-    ("उसने भगवान से दुआ माँगी।", "religion"),
-    ("पुराने मंदिर के पास कुआँ था।", "religion"),
-    ("ज़मीन पर ख़ून फैला था।", "gore"),
-    ("यह एक सच्ची कहानी है।", "really happened"),
-    ("उस बच्चे को मार दिया गया।", "harm to a child"),
-    ("वह ठाकुर का कुआँ था।", "caste"),
-])
-def test_hindi_red_lines(text, topic):
-    d = story_dict()
-    d["beats"][6]["text"] = text
-    assert has(problems(d), topic)
-
-
-def test_a_religious_exclamation_is_refused_with_a_fix_the_writer_can_apply():
-    d = story_dict()
-    d["beats"][6]["text"] = "या खुदा, यह क्या हो गया!"
-    found = [p for p in problems(d) if "red line" in p]
-    assert len(found) == 1 and "religion ('खुदा')" in found[0] and "even in an exclamation" in found[0]
-    assert "बाप रे" in found[0]
-
-
-def test_red_lines_compare_spellings_without_nukta():
-    assert gate.red_lines_hi("खून") and gate.red_lines_hi("ख़ून")
-
-
-def test_names_that_contain_a_god_are_not_red_lines():
-    assert gate.red_lines_hi("धनीराम और रामू काका") == []
+    assert has(found, "English words") and has(found, "has digits") and has(found, "retired name 'अंशु'")
 
 
 @pytest.mark.parametrize("scene, bad", [
-    ("Close-up of a priest at a temple door at night with a lantern and mist.", True),
-    ("Wide shot of a lane with blood on the ground under the moonlight and mist.", True),
-    ("Wide shot of a blood-red moon over several stable old houses in the mist.", False),
+    ("Close-up of a priest at a temple door at night with a lantern and mist over the lane.", True),
+    ("Wide shot of a lane with blood on the ground under the moonlight and mist over it.", True),
+    ("A Hero cycles logo on a bicycle frame by the canal bridge at night in the mist.", True),
+    ("Wide shot of a blood-red moon over several stable old houses in the mist tonight.", False),
 ])
 def test_english_red_lines_in_scenes(scene, bad):
     d = story_dict()
@@ -95,83 +76,115 @@ def test_english_red_lines_in_scenes(scene, bad):
     assert has(problems(d), "scene touches") is bad
 
 
-def test_people_must_be_cast_with_an_expression():
+def test_people_must_be_cast_ids_with_an_expression():
     d = story_dict()
-    d["beats"][3]["people"] = [{"name": "Stranger", "expression": "sly"}, {"name": "Dhaniram", "expression": ""}]
+    d["beats"][3]["people"] = [{"name": "stranger", "expression": "sly"}, {"name": "jhabbu", "expression": ""}]
     found = problems(d)
-    assert has(found, "'Stranger', who is not in the cast") and has(found, "no expression for 'Dhaniram'")
+    assert has(found, "'stranger', who is not in the cast") and has(found, "no expression for 'jhabbu'")
 
 
-def test_cast_needs_an_english_look():
+def test_cast_must_come_from_the_bible():
     d = story_dict()
-    d["cast"][0]["look"] = "मोटा साहूकार"
-    assert has(problems(d), "needs an English look")
+    d["cast"].append({"id": "monty", "name": "मोंटी", "look": "boy"})
+    found = problems(d)
+    assert has(found, "'monty' is not a bible character")
 
 
-@pytest.mark.parametrize("twist", [6, 12, 0, None, "10"])
-def test_twist_lands_after_the_middle_and_before_the_last_beat(twist):
+@pytest.mark.parametrize("turn", [2, 6, 0, None, "4"])
+def test_the_turn_lands_inside_the_story(turn):
     d = story_dict()
-    d["twist_beat"] = twist
-    assert has(problems(d), "twist_beat")
+    d["twist_beat"] = turn
+    assert has(problems(d), "turn_beat")
 
 
-def test_dilemma_ends_on_a_question():
+def test_the_heart_comes_at_or_after_the_turn():
     d = story_dict()
-    d["ending"] = "dilemma"
-    found = problems(d, rotation=False)
-    assert has(found, "asks the viewer a question")
-    d["beats"][-1]["text"] = "आप होते तो क्या उस कुएँ में सिक्का डालते?"
-    assert problems(d, rotation=False) == []
+    d["heart_beat"] = 2
+    assert has(problems(d), "heart_beat must come at or after the turn")
 
 
-def test_endings_rotate():
-    assert gate.required_ending([]) == "twist-reveal"
-    assert gate.required_ending([{"ending": "twist-reveal"}]) == "dilemma"
-    assert gate.required_ending([{"ending": "dilemma"}]) == "loop-back"
-    assert gate.required_ending([{"ending": "loop-back"}]) == "twist-reveal"
+@pytest.mark.parametrize("ending, last, fragment", [
+    ("loop-back", "अगली सुबह सब शांत था।", "loop-back ending's last beat echoes frame 0"),
+    ("register-line", "अगली सुबह सब शांत था।", "has झब्बू write one line in his रजिस्टर"),
+    ("open-question", "अगली सुबह सब शांत था।", "asks the viewer one question"),
+    ("next-raat-tease", "अगली सुबह सब शांत था।", "full night comes on शनिवार"),
+])
+def test_each_ending_needs_its_last_line(ending, last, fragment):
     d = story_dict()
-    found = problems(d, history=[{"ending": "twist-reveal", "made_at": "x"}])
-    assert has(found, "ending must be 'dilemma'")
-    assert problems(d, history=[{"ending": "loop-back", "made_at": "x"}]) == []
+    d["ending"], d["beats"][-1]["text"] = ending, last
+    found = problems(d, rotation=False, entry={**premise(), "ending_type": ending})
+    assert has(found, fragment)
 
 
-def test_a_replay_skips_the_rotation_rules():
+def test_ending_resolution_and_rule_must_be_the_entrys():
     d = story_dict()
-    history = [{"ending": "twist-reveal", "opening": hindi.opening(d["beats"][0]["text"])}]
-    assert problems(d, history=history, rotation=False) == []
+    d["ending"], d["resolution"], d["niyam_id"] = "open-question", "bargain", "N01"
+    found = problems(d, rotation=False, entry=premise())
+    assert has(found, "ending_type must be 'loop-back'") and has(found, "resolution_type must be 'leave-it-be'")
+    assert has(found, "niyam_id must be 'N06'")
+    d["niyam_id"] = "N99"
+    assert has(problems(d, rotation=False, entry=premise()), "'N99' is not a rule in canon.json")
 
 
-def test_the_opening_may_not_repeat_a_recent_short():
+def test_hook_strip_band():
     d = story_dict()
-    history = [{"ending": "loop-back", "opening": hindi.opening(d["beats"][0]["text"])}]
-    assert has(problems(d, history=history), "like a recent Short")
-
-
-def test_subgenre_must_match_the_premise():
-    d = story_dict()
-    assert has(gate.check(d, {"subgenre": "samay-chakra"}, []), "subgenre must be 'samay-chakra'")
+    for strip, bad in (("लाइट", True), ("बिना पैडल जली लाइट", False), ("एक दो तीन चार पाँच छह", True),
+                       ("बिना पैडल 2 लाइट", True), ("बिना पैडल जली लाइट 🚲", True)):
+        d["hook_strip"] = strip
+        assert has(problems(d, rotation=False), "hook_strip must be") is bad, strip
 
 
 @pytest.mark.parametrize("title, fragment", [
-    ("एक सिक्का डालो, दो पाओ… पर कुएँ ने क्या लिया? 😨", None),
-    ("एक सिक्का डालो, दो पाओ! 😱", None),
-    ("😱 एक सिक्का डालो, दो पाओ!", None),
-    ("एक सिक्का डालो, दो पाओ", "exactly one emoji"),
-    ("एक सिक्का डालो, दो पाओ 😨", "must end with"),
-    ("एक सिक्का डालो, दो पाओ! 😨😱", "exactly one emoji"),
-    ("Magic well का सिक्का! 😨", "Devanagari"),
-    ("कुआँ " * 15 + "! 😨", "characters"),
-    ("एक सिक्का #डालो! 😨", "may not contain"),
+    ("साइकिल रोकी… और उसकी लाइट बिना पैडल के जल उठी! 🚲", None),
+    ("साइकिल ने रात में अपनी लाइट ख़ुद जला ली 😨 | सन्नाटपुर", None),
+    ("साइकिल की लाइट बिना पैडल के किसने जलाई? 🚲", None),
+    ("साइकिल रोकी… और उसकी लाइट बिना पैडल के जल उठी!", "exactly one emoji"),
+    ("साइकिल रोकी… और उसकी लाइट बिना पैडल के जल उठी! 🚲😨", "exactly one emoji"),
+    ("साइकिल | रोकी और उसकी लाइट बिना पैडल के जल उठी! 🚲", "only appear as the suffix"),
+    ("Cycle की light अपने आप जल उठी, bina pedal! 🚲", "Devanagari"),
+    ("साइकिल जली! 🚲", "characters"),
+    ("साइकिल " * 12 + "! 🚲", "characters"),
+    ("उस रात नहर के पुल पर खड़ी पुरानी साइकिल की लाइट जल उठी! 🚲", "within its first 5 words"),
+    ("साइकिल रोकी… और #लाइट बिना पैडल के जल उठी! 🚲", "may not contain"),
+    ("साइकिल और चौकीदार की वो अजीब रात, बिना पैडल के! 🚲", "never goes in a title"),
 ])
 def test_title_rules(title, fragment):
-    found = gate.title_problems(title)
-    assert (found == []) if fragment is None else has(found, fragment)
+    found = gate.title_problems(title, "साइकिल")
+    assert (found == []) if fragment is None else has(found, fragment), found
 
 
-def test_description_must_be_hindi():
+def test_title_skeletons():
+    assert gate.skeleton_of("साइकिल रोकी… और उसकी लाइट जल उठी! 🚲") == "S1"
+    assert gate.skeleton_of("साइकिल ने अपनी लाइट ख़ुद जला ली 😨 | सन्नाटपुर") == "S2"
+    assert gate.skeleton_of("साइकिल की लाइट किसने जलाई? 🚲") == "S3"
+    assert has(gate.title_problems("साइकिल की लाइट बिना पैडल के किसने जलाई? 🚲", "साइकिल", "S1"),
+               "must follow skeleton S1")
+
+
+def test_every_bank_title_passes_its_own_rules():
+    from kahaani import bible
+
+    for e in bible.micro_bank():
+        assert gate.title_problems(e["title"], e["object_token"], e["title_skeleton"]) == [], e["id"]
+
+
+def test_description_must_be_hindi_and_not_for_kids():
     d = story_dict()
-    d["description"] = "A greedy moneylender finds a magic well."
+    d["description"] = "A bicycle lamp lights itself on the canal bridge."
     assert has(problems(d), "description must be")
+    d = story_dict()
+    d["description"] += " बच्चों के लिए कार्टून कहानी।"
+    assert has(problems(d), "reads as made for kids")
+
+
+def test_runtime_and_payoff_bands():
+    story = Story.from_dict(story_dict())
+    spans = [[i * 7.0, i * 7.0 + 7.0] for i in range(len(story.beats))]
+    assert gate.timing_problems(story, {"duration": 42.0, "beats": spans}) == []
+    assert has(gate.timing_problems(story, {"duration": 29.0, "beats": spans}), "F1 needs 30-58 s")
+    assert has(gate.timing_problems(story, {"duration": 59.0, "beats": spans}), "F1 needs 30-58 s")
+    late = [[0, 5], [5, 10], [10, 15], [40, 44], [44, 48], [48, 50]]
+    assert has(gate.timing_problems(story, {"duration": 50.0, "beats": late}), "after 75%")
 
 
 def test_only_the_narrator_may_be_published():

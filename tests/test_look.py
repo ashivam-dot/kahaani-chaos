@@ -11,7 +11,8 @@ def test_prompt_order_and_parts():
     p = look.prompt("Wide shot of a misty lane at night", [{"name": "dhaniram", "expression": "greedy grin"}], CAST)
     assert p.startswith("Wide shot of a misty lane at night. Characters: Dhaniram: plump middle-aged")
     assert "brown waistcoat, greedy grin expression." in p
-    assert p.index(look.STYLE) < p.index(look.AVOID) and p.endswith(look.AVOID)
+    assert p.index(look.STYLE) < p.index(look.AVOID) < p.index(look.NEVER) and p.endswith(look.NEVER)
+    assert look.FACES in p
     assert look.CLOSE not in p and look.NOBODY not in p
 
 
@@ -47,6 +48,15 @@ def test_plan_has_one_seeded_prompt_per_beat():
     assert [b["beat"] for b in plan] == list(range(len(d["beats"])))
     assert look.CLOSE_THING in plan[0]["prompt"] and look.NOBODY in plan[0]["prompt"]
     assert look.CLOSE_THING not in plan[1]["prompt"] and look.NOBODY not in plan[1]["prompt"]
-    assert "frozen in dawning fear, staring down expression" in plan[8]["prompt"]
+    assert "sheepish expression" in plan[4]["prompt"] and "Shailesh:" in plan[4]["prompt"]
+    assert plan[3]["cast"] == ["jhabbu", "prabhat", "nuzhat"] and len(plan[3]["alternates"]) == look.ALTERNATES
+    assert "alternates" not in plan[0] and plan[5]["cast"] == []
     assert len({b["seed"] for b in plan}) == len(plan)
     assert plan == look.plan(d["id"], d["beats"], d["cast"])
+
+
+def test_bible_characters_use_their_image_token():
+    from kahaani import bible
+
+    p = look.prompt("Jhabbu on the bridge", [{"name": "jhabbu", "expression": "calm"}], [{"id": "jhabbu", "name": "झब्बू"}])
+    assert bible.image_token("jhabbu").strip().rstrip(".") in p and "झब्बू" not in p

@@ -13,7 +13,8 @@ def story():
 
 def test_the_voice_is_the_auditioned_narrator():
     assert voice.VOICE == "Charon"
-    assert "storyteller" in voice.DIRECTION and voice.TARGET_WPM == (140.0, 160.0)
+    assert "remembering" in voice.DIRECTION and tuple(voice.TARGET_WPM) == (155, 175)
+    assert tuple(voice.HOOK_WPM) == (170, 185)
 
 
 def test_the_transcript_holds_a_pause_before_the_twist(story):

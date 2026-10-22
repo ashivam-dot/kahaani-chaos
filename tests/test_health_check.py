@@ -40,3 +40,23 @@ def test_failure_and_hold_are_both_reported(tmp_path):
             "publish": {"at": at(2), "ok": True, "held": "hold: the buffer is empty"}}
     found = health_check.problem(write(tmp_path, runs), NOW)
     assert "Last produce run failed: boom" in found and "publish run is holding: hold: the buffer is empty" in found
+
+
+def test_f1_warnings_are_reported(tmp_path):
+    runs = {"produce": {"at": at(5), "ok": True, "bank_low": "only 9 unused micro entries left"},
+            "publish": {"at": at(2), "ok": False, "error": "ReadbackMismatch", "readback": "madeForKids is True"}}
+    path = write(tmp_path, runs)
+    (tmp_path / "performance.json").write_text(json.dumps({"analytics": "missing: PermissionError: no scope"}))
+    found = health_check.problem(path, NOW)
+    assert "Micro bank: only 9 unused" in found and "Read-back mismatch" in found and "PAUSED=true" in found
+    assert "Analytics scope missing" in found
+
+
+def test_a_short_buffer_is_reported_only_after_production(tmp_path):
+    runs = {"produce": {"at": at(5), "ok": True}}
+    path = write(tmp_path, runs)
+    (tmp_path / "ready.json").write_text(json.dumps([{"id": "kc-1"}]))
+    assert "ready buffer has 1" in health_check.problem(path, NOW)
+    assert health_check.problem(path, NOW.replace(hour=3)) is None
+    (tmp_path / "ready.json").write_text(json.dumps([{"id": "kc-1"}, {"id": "kc-2"}]))
+    assert health_check.problem(path, NOW) is None
