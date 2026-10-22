@@ -1,4 +1,7 @@
-"""What a story Short is made of: the spoken beats with one painted scene each, the cast sheet and the metadata."""
+"""What a story Short is made of: the spoken beats with one painted scene each, the cast sheet and the metadata.
+
+The F1 micro-entry fields (format onwards) default to empty so stories saved before the Sannatpur relaunch still
+load."""
 from __future__ import annotations
 
 import json
@@ -22,15 +25,27 @@ class Story:
     title: str
     hook: str
     beats: list[Beat]
-    # The cast sheet: [{"name", "look"}], one fixed English look per character for every painting.
+    # The cast sheet: [{"id", "name", "look"}], one fixed English look per character (from bible/cast.yaml) for
+    # every painting.
     cast: list[dict]
     subgenre: str
     ending: str
-    twist_beat: int  # 1-based
+    twist_beat: int  # 1-based; in F1 the turn, where the trio realises the rule
     description: str
     motifs: list[str] = field(default_factory=list)
     hashtags: list[str] = field(default_factory=list)
     writer: dict = field(default_factory=dict)
+    format: str = ""
+    hook_strip: str = ""  # 3-5 Hindi words painted over frame 0
+    object_token: str = ""
+    anomaly: str = ""
+    niyam_id: str = ""
+    resolution: str = ""
+    heart_beat: int = 0  # 1-based
+    heart_type: str = ""
+    skeleton: str = ""  # the title skeleton, S1/S2/S3
+    location: str = ""
+    place_id: str = ""
 
     def save(self, path: Path) -> Path:
         path.parent.mkdir(parents=True, exist_ok=True)
