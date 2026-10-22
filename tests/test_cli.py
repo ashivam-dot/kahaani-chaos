@@ -166,7 +166,7 @@ def fake_render(monkeypatch, pictures=None):
     def comp(story, timing, pics, work):
         (work / "short.mp4").write_bytes(b"mp4")
         return {"duration": timing["duration"] + 2.4, "frames": 1332, "pictures": len(set(pics)), "fps": 30,
-                "size": [1080, 1920]}
+                "size": [1080, 1920], "runtime": timing["duration"] + 2.4}
 
     def same(found, texts, folder, *a, **kw):
         return [folder / "b.jpg"] * len(texts)
@@ -332,3 +332,76 @@ def test_a_missed_slot_is_published_at_once(channel, monkeypatch):
     sid, _, published = buffered(monkeypatch)
     cli.publish(datetime(2026, 10, 13, 14, 10, tzinfo=timezone.utc))
     assert published == [(sid, None)]
+
+
+def test_an_encoded_runtime_outside_the_band_holds_and_keeps_the_premise(tmp_path, monkeypatch):
+    plan = make_plan(tmp_path, monkeypatch)
+    fake_render(monkeypatch)
+    real = compose.render
+    monkeypatch.setattr(compose, "render", lambda *a: {**real(*a), "runtime": 59.4})
+    health = cli.render(plan, tmp_path / "art", tmp_path / "work")
+    assert "F1 needs" in health["held"] and ledger.ready() == [] and ledger.load("tries", {}) == {}
+    monkeypatch.setattr(compose, "render", lambda *a: {**real(*a), "runtime": None})
+    assert "could not be measured" in cli.render(plan, tmp_path / "art", tmp_path / "work")["held"]
+
+
+@pytest.mark.parametrize("reason", ["hold: picture and sound checks: frame 0 blinks",
+                                    "hold: voice: the hook is read at 150 wpm", "hold: prop identity 50% of cast shots"])
+def test_a_render_or_voice_check_does_not_spend_the_premise(tmp_path, monkeypatch, reason):
+    plan = make_plan(tmp_path, monkeypatch)
+    fake_render(monkeypatch)
+
+    def held(*a, **kw):
+        raise compose.ComposeHold(reason)
+
+    monkeypatch.setattr(compose, "render", held)
+    health = cli.render(plan, tmp_path / "art", tmp_path / "work")
+    assert health["held"] == reason and ledger.load("tries", {}) == {}
+
+
+def test_a_short_found_already_public_takes_its_own_slot_and_the_next_fills_the_due_one(channel, monkeypatch):
+    sid, dropped, published = buffered(monkeypatch)
+    d2 = {**story_dict(), "id": "kc-second"}
+    ledger.add_ready({"id": d2["id"], "premise": "e02", "made_at": "2026-10-12T07:00:00+00:00",
+                      "tag": store.tag(d2["id"])})
+    calls = []
+
+    def publish(story, mp4, voice, publish_at=None, api=None):
+        calls.append(publish_at)
+        if len(calls) == 1:
+            return {"video_id": "old", "url": "u-old", "privacy": "public", "synthetic_declared": True,
+                    "already_public": True, "released_at": "2026-10-12T13:30:20Z"}
+        return {"video_id": "vid2", "url": "u2", "privacy": "scheduled", "publish_at": publish_at,
+                "synthetic_declared": True}
+
+    monkeypatch.setattr(youtube, "publish", publish)
+    health = cli.publish(NOW)
+    assert health["ok"], health
+    rows = {r["video_id"]: r for r in ledger.published()}
+    assert rows["old"]["slot"] == "2026-10-12T13:30:00Z" and rows["vid2"]["slot"] == "2026-10-13T13:30:00Z"
+    assert calls == ["2026-10-13T13:30:00Z", "2026-10-13T13:30:00Z"] and ledger.ready() == []
+
+
+def test_a_pending_comment_is_tried_again_after_release(channel, monkeypatch):
+    ledger.record_publish({"id": "kc-a", "made_at": "2026-10-11T06:00:00+00:00", "video_id": "va",
+                           "slot": "2026-10-12T13:30:00Z", "published_at": "2026-10-12T13:30:00Z",
+                           "comment": "pending: HTTP 403", "comment_text": "सवाल? 👇", "playlist": "added"})
+    ledger.record_publish({"id": "kc-b", "made_at": "2026-10-12T06:00:00+00:00", "video_id": "vb",
+                           "slot": "2026-10-13T13:30:00Z", "published_at": "2026-10-13T13:30:00Z",
+                           "comment": "pending: HTTP 403"})
+    posted = []
+    monkeypatch.setattr(youtube, "identity", lambda api: {"id": CHANNEL})
+    monkeypatch.setattr(youtube, "first_comment", lambda api, vid, text: posted.append((vid, text)) or "posted")
+    health = cli.publish(NOW, api=object())
+    rows = {r["id"]: r for r in ledger.published()}
+    # kc-b is still scheduled (its slot is later today): YouTube refuses comments until it is public.
+    assert posted == [("va", "सवाल? 👇")] and rows["kc-a"]["comment"] == "posted"
+    assert rows["kc-b"]["comment"].startswith("pending") and health["ok"]
+
+
+def test_the_slot_a_public_video_filled():
+    from kahaani import slots
+
+    assert slots.slot_of("2026-10-12T13:31:04Z") == "2026-10-12T13:30:00Z"
+    assert slots.slot_of("2026-10-12T13:20:00Z") == "2026-10-12T13:30:00Z"  # made public at once inside LEAD
+    assert slots.slot_of("2026-10-12T20:00:00Z") == "2026-10-12T13:30:00Z"

@@ -38,6 +38,14 @@ def due(now: datetime, taken: set[str]) -> dict | None:
     return {"slot": iso(upcoming), "publish_at": None if upcoming - now < LEAD else iso(upcoming)}
 
 
+def slot_of(at: str) -> str | None:
+    """The slot a video that went public at `at` (RFC 3339) filled: the last slot no later than LEAD after it, or
+    None when no slot is that close (it went out more than a day after any slot)."""
+    when = datetime.fromisoformat(at.replace("Z", "+00:00"))
+    before = [s for s in around(when) if s <= when + LEAD]
+    return iso(before[-1]) if before and when - before[-1] < timedelta(days=1) else None
+
+
 def taken(rows: list[dict]) -> set[str]:
     return {r["slot"] for r in rows if r.get("slot")}
 

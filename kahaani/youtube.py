@@ -5,8 +5,11 @@ Every write is refused unless the OAuth token belongs to config.CHANNEL_ID (KC_C
 post to another channel; while it is unset nothing can be published at all. Every upload is declared not made for
 kids, declares altered or synthetic content, and says in Hindi that the story is fiction told with AI pictures and
 an AI voice. Uploads never notify subscribers (config.NOTIFY_SUBSCRIBERS). After the read-back the channel posts its
-own CTA comment and adds the Short to its format's playlist when one is configured; both fail soft. The credential
-comes only from the YOUTUBE_OAUTH_JSON environment variable and is never logged.
+own CTA comment and adds the Short to its format's playlist when one is configured; both fail soft (the publish job
+tries a pending one again on later runs). A video found already public on the channel is left public and reported as
+such, never pulled back to a schedule. A read-back that still does not match after a few polls makes the video
+private (no publishAt) before it is refused, so a wrong status never goes out on its own. The credential comes only
+from the YOUTUBE_OAUTH_JSON environment variable and is never logged.
 """
 from __future__ import annotations
 
@@ -296,31 +299,52 @@ def publish(story: Story, mp4: Path, voice: dict, publish_at: str | None = None,
             raise RuntimeError("still processing; the next run will finish publishing it")
         pause(15)
     url = f"https://www.youtube.com/shorts/{video_id}"
-    if publish_at:
-        if status.get("publishAt") != publish_at and status.get("privacyStatus") != "public":
+    # containsSyntheticMedia is write-only in practice: videos.list omits it even though Studio shows "AI use".
+    if existing and status.get("privacyStatus") == "public":
+        # An earlier run made it public and died before the ledger heard: it is out, whatever slot was asked.
+        when = None
+        result = {"video_id": video_id, "url": url, "privacy": "public", "synthetic_declared": True,
+                  "already_public": True,
+                  "released_at": _instant(video["snippet"].get("publishedAt")) or _instant(datetime.now(
+                      timezone.utc).isoformat())}
+    elif publish_at:
+        when = publish_at
+        if status.get("privacyStatus") != "private" or _instant(status.get("publishAt")) != _instant(publish_at):
             api.videos().update(part="status", body={"id": video_id, "status": {
                 "privacyStatus": "private", "publishAt": publish_at, **STATUS}}).execute()
         result = {"video_id": video_id, "url": url, "privacy": "scheduled", "publish_at": publish_at,
                   "synthetic_declared": True}
     else:
+        when = None
         if status.get("privacyStatus") != "public":
             api.videos().update(part="status",
                                 body={"id": video_id, "status": {"privacyStatus": "public", **STATUS}}).execute()
-        # videos.list can report the old privacy for a while after the update.
-        for wait in (0, 5, 10, 20, 30):
-            pause(wait)
-            final = api.videos().list(part="status", id=video_id).execute()["items"][0]
-            if final["status"]["privacyStatus"] == "public":
-                break
-        else:
-            raise RuntimeError(f"video {video_id} did not go public ({final['status']['privacyStatus']})")
-        # containsSyntheticMedia is write-only in practice: videos.list omits it even though Studio shows "AI use".
         result = {"video_id": video_id, "url": url, "privacy": "public", "synthetic_declared": True}
-    video = api.videos().list(part="snippet,status", id=video_id).execute()["items"][0]
-    problems = readback_problems(video, publish_at)
-    if problems:
-        raise ReadbackMismatch(f"read-back of {video_id} does not match: " + "; ".join(problems))
+    # videos.list can report the old status for a while after an update.
+    for wait in READBACK_WAITS:
+        pause(wait)
+        video = api.videos().list(part="snippet,status", id=video_id).execute()["items"][0]
+        problems = readback_problems(video, when)
+        if not problems:
+            break
+    else:
+        kept = hold_private(api, video_id)
+        raise ReadbackMismatch(f"read-back of {video_id} does not match ({kept}): " + "; ".join(problems))
     fmt = config.FORMATS.get(story.format or config.FORMAT, config.FORMATS[config.FORMAT])
-    result["comment"] = first_comment(api, video_id, cta(story))
+    result["comment_text"] = cta(story)
+    result["comment"] = first_comment(api, video_id, result["comment_text"])
     result["playlist"] = add_to_playlist(api, video_id, fmt.playlist_id)
     return result
+
+
+READBACK_WAITS = (0, 5, 10, 20, 30)
+
+
+def hold_private(api, video_id: str) -> str:
+    """Make a video that failed its read-back private with no publishAt, so it never goes out on a wrong status."""
+    try:
+        api.videos().update(part="status", body={"id": video_id, "status": {"privacyStatus": "private",
+                                                                            **STATUS}}).execute()
+        return "made private"
+    except Exception as exc:
+        return f"could not make it private: {type(exc).__name__}"

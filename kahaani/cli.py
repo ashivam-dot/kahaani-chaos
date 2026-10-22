@@ -5,7 +5,10 @@ plan picks the next F1 micro-entry from the bible's bank, writes and gates the s
 beat (and spare seeds for cast shots) for the paint jobs. Hindi text written by the local fallback model is never
 published: such a draft holds (PLAN.md §7.8).
 render screens the paintings, narrates, renders, and (unless --dry) stores the finished Short as a draft release and
-adds it to the ready buffer. publish fills the next slot from the oldest ready Short. Dry runs never touch the ledger
+adds it to the ready buffer; a Short whose encoded runtime is outside the F1 band holds. publish fills the next slot
+from the oldest ready Short (one found already public is recorded under the slot it went out in, and the next ready
+Short fills the due one), and tries again the first comments and playlist adds YouTube refused. Dry runs never touch
+the ledger
 or YouTube; a replay re-renders a reviewed story without any text-model call, and outside a dry run publishes it
 once, never when its story or premise was already made.
 """
@@ -29,6 +32,11 @@ ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / "work"
 # A premise the editor keeps refusing used to cost the whole production slot (p013: 3 of 6 slots on 14-15 Oct).
 PREMISES_PER_RUN = 3
+# Holds that are the render's or a model's fault, not the premise's: the premise keeps its tries (the next run paints,
+# narrates or renders it afresh).
+NOT_THE_PREMISE = ("hold: no narrator voice", "hold: picture and sound checks", "hold: voice: ", "hold: prop identity")
+# A first comment or playlist add YouTube refused is tried again on publish runs for this long after release.
+PENDING_DAYS = 7
 log = logging.getLogger("kahaani")
 
 
@@ -206,6 +214,9 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
         if late:
             raise voice.VoiceHold("hold: " + "; ".join(late))
         stats = compose.render(story, timing, pictures, work)
+        runtime = gate.runtime_problems(stats.get("runtime"))
+        if runtime:
+            raise compose.ComposeHold("hold: picture and sound checks: " + "; ".join(runtime))
         stats["voice"] = {k: timing["voice"].get(k) for k in ("engine", "identity", "served_model", "wpm", "coverage",
                                                               "tempo")}
         (work / "render.json").write_text(json.dumps(stats, indent=1, ensure_ascii=False), encoding="utf-8")
@@ -227,8 +238,9 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
             health["held"] = reason[:500]
         else:
             health.update(ok=False, error=f"{type(exc).__name__}: {exc}"[:500], trace=traceback.format_exc()[-2000:])
-        # Neither a missing narrator nor a Gemini outage is the premise's fault: it keeps its tries.
-        if premise and not dry and not reason.startswith(("hold: no narrator voice", LOCAL_HOLD)):
+        # Neither a missing narrator, a Gemini outage nor a render or narration that missed its checks is the
+        # premise's fault: it keeps its tries.
+        if premise and not dry and not reason.startswith((*NOT_THE_PREMISE, LOCAL_HOLD)):
             ledger.retry(premise, reason)
         health["steps"].append(f"{'hold' if health.get('held') else 'fail'} {premise or ''}: {reason}"[:400])
         return health
@@ -271,43 +283,94 @@ def publish(now: datetime | None = None, api=None) -> dict:
                 ledger.mark(row["id"], release_left=False)
             except Exception as exc:
                 health["steps"].append(f"release of {row['id']} still not deleted: {exc}"[:300])
-        due = slots.due(now, slots.taken(ledger.published()))
-        if due is None:
-            health["steps"].append("the next slot is already filled")
+        api = _retry_pending(now, api, health)
+        # Twice at most: a Short found already public takes the slot it went out in, and the next fills the due one.
+        for _ in range(2):
+            due = slots.due(now, slots.taken(ledger.published()))
+            if due is None:
+                health["steps"].append("the next slot is already filled")
+                return health
+            ready = ledger.ready()
+            if not ready:
+                health["held"] = f"hold: the buffer is empty; slot {due['slot']} has no Short"
+                return health
+            row = ready[0]
+            folder = WORK / "publish" / row["id"]
+            store.fetch(row["id"], folder)
+            story = Story.load(folder / "story.json")
+            voice = json.loads((folder / "timing.json").read_text(encoding="utf-8"))["voice"]
+            try:
+                result = youtube.publish(story, folder / "short.mp4", voice, publish_at=due["publish_at"], api=api)
+            except youtube.ReadbackMismatch as exc:
+                health["readback"] = str(exc)[:500]
+                raise
+            for key in ("comment", "playlist"):
+                if str(result.get(key, "")).startswith("pending"):
+                    health["steps"].append(f"{key}: {result[key]}")
+            if result.get("already_public"):
+                slot = slots.slot_of(result["released_at"])
+                slot = None if slot in slots.taken(ledger.published()) else slot
+                ledger.record_publish({**row, "slot": slot, "published_at": result["released_at"], **result})
+                health["steps"].append(f"{row['id']} was already public (since {result['released_at']}); recorded "
+                                       f"for slot {slot}: {result['url']}")
+                _drop_release(row["id"], folder, health)
+                continue
+            entry = {**row, "slot": due["slot"], "published_at": due["publish_at"] or ledger.now(), **result}
+            ledger.record_publish(entry)
+            health["steps"].append(f"{result['privacy']} {row['id']} for {due['slot']}: {result['url']}")
+            health["published"] = result
+            _drop_release(row["id"], folder, health)
             return health
-        ready = ledger.ready()
-        if not ready:
-            health["held"] = f"hold: the buffer is empty; slot {due['slot']} has no Short"
-            return health
-        row = ready[0]
-        folder = WORK / "publish" / row["id"]
-        store.fetch(row["id"], folder)
-        story = Story.load(folder / "story.json")
-        voice = json.loads((folder / "timing.json").read_text(encoding="utf-8"))["voice"]
-        try:
-            result = youtube.publish(story, folder / "short.mp4", voice, publish_at=due["publish_at"], api=api)
-        except youtube.ReadbackMismatch as exc:
-            health["readback"] = str(exc)[:500]
-            raise
-        for key in ("comment", "playlist"):
-            if str(result.get(key, "")).startswith("pending"):
-                health["steps"].append(f"{key}: {result[key]}")
-        entry = {**row, "slot": due["slot"], "published_at": due["publish_at"] or ledger.now(), **result}
-        ledger.record_publish(entry)
-        health["steps"].append(f"{result['privacy']} {row['id']} for {due['slot']}: {result['url']}")
-        health["published"] = result
-        try:
-            store.drop(row["id"])
-        except Exception as exc:
-            ledger.mark(row["id"], release_left=True)
-            health["steps"].append(f"release of {row['id']} not deleted yet: {exc}"[:300])
-        shutil.rmtree(folder, ignore_errors=True)
         return health
     except Exception as exc:
         health.update(ok=False, error=f"{type(exc).__name__}: {exc}"[:500], trace=traceback.format_exc()[-2000:])
         return health
     finally:
         ledger.save_health("publish", health)
+
+
+def _drop_release(story_id: str, folder: Path, health: dict) -> None:
+    from . import store
+
+    try:
+        store.drop(story_id)
+    except Exception as exc:
+        ledger.mark(story_id, release_left=True)
+        health["steps"].append(f"release of {story_id} not deleted yet: {exc}"[:300])
+    shutil.rmtree(folder, ignore_errors=True)
+
+
+def _retry_pending(now: datetime, api, health: dict):
+    """Try again the first comments and playlist adds YouTube refused (often: comments on a still-private video), for
+    Shorts released less than PENDING_DAYS ago. Fails soft; returns the client it signed in with, if any."""
+    from . import youtube
+
+    def released(r: dict) -> datetime | None:
+        try:
+            return datetime.fromisoformat(str(r.get("published_at")).replace("Z", "+00:00"))
+        except ValueError:
+            return None
+
+    rows = [r for r in ledger.published() if r.get("video_id") and (at := released(r)) and
+            at <= now and (now - at).days < PENDING_DAYS and
+            any(str(r.get(k, "")).startswith("pending") for k in ("comment", "playlist"))]
+    if not rows:
+        return api
+    try:
+        api = api or youtube.client()
+        youtube.identity(api)
+        for r in rows:
+            fields = {}
+            if str(r.get("comment", "")).startswith("pending"):
+                fields["comment"] = youtube.first_comment(api, r["video_id"], r.get("comment_text") or youtube.CTA)
+            if str(r.get("playlist", "")).startswith("pending"):
+                fmt = config.FORMATS.get(r.get("format") or config.FORMAT, config.FORMATS[config.FORMAT])
+                fields["playlist"] = youtube.add_to_playlist(api, r["video_id"], fmt.playlist_id)
+            ledger.mark(r["id"], **fields)
+            health["steps"].append(f"retried for {r['id']}: " + ", ".join(f"{k} {v}" for k, v in fields.items()))
+    except Exception as exc:  # a comment never stops a publish
+        health["steps"].append(f"pending comment or playlist: {type(exc).__name__}: {exc}"[:300])
+    return api
 
 
 def main(argv: list[str] | None = None) -> int:

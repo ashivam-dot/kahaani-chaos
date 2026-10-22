@@ -146,7 +146,7 @@ def test_scheduled_publish(pinned, story, mp4):
     result = youtube.publish(story, mp4, NARRATOR, publish_at="2026-10-13T07:00:00Z", api=api, pause=lambda s: None)
     assert result == {"video_id": "vid1", "url": "https://www.youtube.com/shorts/vid1", "privacy": "scheduled",
                       "publish_at": "2026-10-13T07:00:00Z", "synthetic_declared": True, "comment": "posted",
-                      "playlist": "skipped: no playlist"}
+                      "comment_text": youtube.CTA, "playlist": "skipped: no playlist"}
     assert api.inserted[0]["status"]["publishAt"] == "2026-10-13T07:00:00Z" and api.updated == []
     assert api.inserted[0]["notify"] is False
     assert api.comments == [("vid1", youtube.CTA)]
@@ -203,3 +203,52 @@ def test_made_for_kids_metadata_is_refused(story):
 def test_the_credential_comes_only_from_the_environment():
     with pytest.raises(RuntimeError, match="YOUTUBE_OAUTH_JSON is not set"):
         youtube.client()
+
+
+def test_an_upload_already_public_is_left_public_and_reported(pinned, story, mp4):
+    existing = {"id": "old", "snippet": {"channelId": CHANNEL, "tags": [config.MARKER + story.id],
+                                         "publishedAt": "2026-10-12T13:31:04Z"},
+                "status": {"privacyStatus": "public", "uploadStatus": "processed", "madeForKids": False,
+                           "selfDeclaredMadeForKids": False}}
+    api = FakeYouTube(uploads=[existing])
+    result = youtube.publish(story, mp4, NARRATOR, publish_at="2099-10-13T13:30:00Z", api=api, pause=lambda s: None)
+    assert result["already_public"] is True and result["privacy"] == "public"
+    assert result["released_at"] == "2026-10-12T13:31:04Z" and api.updated == [] and api.inserted == []
+
+
+def test_a_scheduled_publish_with_an_equal_instant_is_not_rewritten(pinned, story, mp4):
+    existing = {"id": "old", "snippet": {"channelId": CHANNEL, "tags": [config.MARKER + story.id]},
+                "status": {"privacyStatus": "private", "publishAt": "2099-10-13T13:30:00.000Z",
+                           "uploadStatus": "processed", "madeForKids": False, "selfDeclaredMadeForKids": False}}
+    api = FakeYouTube(uploads=[existing])
+    youtube.publish(story, mp4, NARRATOR, publish_at="2099-10-13T13:30:00Z", api=api, pause=lambda s: None)
+    assert api.updated == []
+
+
+def test_a_read_back_that_lags_is_polled_until_it_matches(pinned, story, mp4):
+    api = FakeYouTube()
+    real = api._list
+    lag = iter([{"privacyStatus": "private"}])
+
+    def lagging(part, id, **kw):
+        out = real(part, id, **kw)
+        if part == "snippet,status":
+            stale = next(lag, None)
+            if stale:
+                video = out.execute()["items"][0]
+                return Call({"items": [{**video, "status": {**video["status"], **stale}}]})
+        return out
+
+    api._list = lagging
+    waits = []
+    result = youtube.publish(story, mp4, NARRATOR, api=api, pause=waits.append)
+    assert result["privacy"] == "public" and len(waits) >= 2
+
+
+def test_a_read_back_mismatch_makes_the_video_private(pinned, story, mp4):
+    api = FakeYouTube(drift={"madeForKids": True})
+    with pytest.raises(youtube.ReadbackMismatch, match="made private"):
+        youtube.publish(story, mp4, NARRATOR, publish_at="2099-10-13T13:30:00Z", api=api, pause=lambda s: None)
+    last = api.updated[-1]["status"]
+    assert last["privacyStatus"] == "private" and "publishAt" not in last
+    assert api.comments == []
