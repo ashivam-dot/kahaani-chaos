@@ -1,0 +1,170 @@
+# The cast of सन्नाटपुर की रातें. Every name here passed the name check in bible/name_checks.md.
+#
+# DEVIATION FROM PLAN.md §3: the plan's narrator अंशु and female lead शबनम both failed the name check (अंशु is paired
+# with "Monty" in vlog personas with 94.9K+ views; शबनम is a 39.7K rural-horror short film, a 146K horror story and a
+# real murder case). They are प्रभात and नुज़हत here. The comic friend is शैलेश: the first picks for him (मोंटी, a
+# Taarak Mehta Ka Ooltah Chashmah character) and for the female lead (ज़रीना, a Mirzapur and Disney character) also
+# failed. Any code or prompt that hardcodes अंशु, शबनम, मोंटी or ज़रीना must change.
+#
+# Drawing rules for everyone (from look.py's house style): adult proportions, never chibi or big-eyed; faces small
+# in frame, backlit or turned three-quarters away; who someone is comes from their props and colours, which never
+# change. `image` is the English token string a picture prompt appends; `voice` is a Gemini TTS voice to audition
+# before it is locked (only narration is voiced in F1; character voices are for F3 dialogue).
+
+cast:
+  - id: jhabbu
+    name: {hi: झब्बू, en: Jhabbu}
+    title_hi: झब्बू पहरेदार
+    age: 60
+    role: >-
+      Sannatpur's night watchman for about thirty years. He knows the village's rules for strange nights and writes
+      every night in his register. Gruff, slow to speak, kind underneath; the anchor of every story.
+    role_hi: >-
+      तीस साल से सन्नाटपुर का रात का पहरेदार। अजीब रातों के नियम उसी को पता हैं, और हर रात वो अपने रजिस्टर में लिखता
+      है। बोलता कम है, डाँटता ज़्यादा है, पर दिल का नरम है।
+    props:
+      - {key: lantern, hi: पीतल की लालटेन, image: brass hurricane lantern with a warm flame}
+      - {key: muffler, hi: लाल ऊनी मफ़लर, image: red woollen muffler}
+      - {key: register, hi: लाल जिल्द वाला खाकी रजिस्टर, image: khaki ledger with a red cloth spine}
+      - {key: lathi, hi: घंटी बँधी बाँस की लाठी, image: bamboo staff with a small brass bell tied near the top}
+    colours: {hi: [लाल, खाकी, पीतल जैसा सुनहरा], image: [red, khaki, brass]}
+    look_hi: लंबा, दुबला, थोड़ा झुका हुआ आदमी; खाकी कुर्ता, पुरानी शॉल, लाल मफ़लर, हाथ में लालटेन।
+    image: >-
+      tall lean man about sixty, slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a
+      brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face
+      small and turned away
+    voice: {suggest: Algenib, alt: Gacrux, note: gravelly older male; audition then lock}
+    speech_hi: >-
+      छोटे, ठहरे हुए वाक्य। सवाल का जवाब अक्सर एक नियम से देता है। "बेटा" कहकर डाँटता है। कभी हँसता नहीं, पर
+      आख़िरी लाइन में नरमी आ जाती है।
+    sample_lines_hi:
+      - उल्टी चलती चीज़ को सीधा मत करो, बेटा। सुबह तक ख़ुद लौट आएगी।
+      - रजिस्टर में लिख दिया है। आज रात यही सच है।
+      - तीसरी पुकार से पहले पलटे तो कल फिर आना पड़ेगा मुझे।
+    rules:
+      - titles call him पहरेदार, never चौकीदार; inside a story चौकीदार is fine
+      - never "झब्बू राजा" (a Bhojpuri singer's persona) and never paired with बब्बू (a school poem)
+      - he is never hurt, never possessed and never dies, including in the season finale
+
+  - id: prabhat
+    name: {hi: प्रभात, en: Prabhat}
+    replaces_plan_name: अंशु
+    title_hi: प्रभात
+    age: 17
+    born: 1979
+    role: >-
+      The narrator as a boy: class 12 at the government inter college, curious, the one who asks one question too
+      many. He follows Jhabbu on rounds and writes his own notes. Name means "dawn".
+    role_hi: >-
+      सरकारी इंटर कॉलेज में बारहवीं का लड़का; जिज्ञासु, हर बार एक सवाल ज़्यादा पूछ लेता है। झब्बू के पीछे-पीछे पहरे पर
+      निकल जाता है और अपनी कॉपी में सब लिखता है।
+    props:
+      - {key: sweater, hi: सरसों के रंग का स्वेटर, image: mustard-yellow knitted sweater}
+      - {key: glasses, hi: स्टील फ़्रेम का चश्मा, image: thin steel-rimmed glasses}
+      - {key: notebook, hi: छोटी नीली कॉपी और पेंसिल, image: small blue notebook with a pencil tucked in}
+    colours: {hi: [सरसों जैसा पीला, स्टील जैसा भूरा-स्लेटी], image: [mustard yellow, steel grey]}
+    look_hi: पतला, लंबा होता लड़का; सरसों के रंग का स्वेटर, स्टील फ़्रेम का चश्मा, हाथ में नीली कॉपी।
+    image: >-
+      lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt,
+      thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away
+    voice: {suggest: Iapetus, alt: Puck, note: clear young male, only for F3 dialogue; audition then lock}
+    speech_hi: >-
+      तेज़, जिज्ञासु, बीच में टोकने वाला। "पर क्यों?" उसका तकिया-कलाम है। डरता है पर मानता नहीं।
+    sample_lines_hi:
+      - पर क्यों, झब्बू काका? बस एक बार पूछ लेने दो।
+      - मैंने कॉपी में लिख लिया है… पर कल ये पन्ना ख़ाली क्यों था?
+      - शैलेश, धीरे बोल। वो सुन रहा है।
+
+  - id: prabhat_adult
+    name: {hi: प्रभात, en: Prabhat (adult narrator)}
+    title_hi: प्रभात
+    age: 47
+    year: 2026
+    role: >-
+      The voice of every story: Prabhat in 2026, remembering. He left Sannatpur for college in 1997 and never said
+      goodbye to Jhabbu. He is never seen in F1 except as a hand on the old notebook; the season thread (canon.json)
+      reveals that the उल्टी परछाईं is his.
+    role_hi: >-
+      हर कहानी की आवाज़: 2026 का सैंतालीस साल का प्रभात, जो याद कर रहा है। 1997 में कॉलेज के लिए गाँव छोड़ा और झब्बू से
+      अलविदा नहीं कह पाया।
+    props:
+      - {key: old_notebook, hi: वही पुरानी नीली कॉपी, अब फीकी, image: faded old blue notebook, worn corners}
+      - {key: glasses, hi: वही स्टील फ़्रेम का चश्मा, image: thin steel-rimmed glasses}
+    colours: {hi: [फीका सरसों रंग, स्लेटी], image: [faded mustard, grey]}
+    look_hi: सिर्फ़ हाथ दिखते हैं, फीकी नीली कॉपी के पन्ने पलटते हुए, बगल में स्टील फ़्रेम का चश्मा।
+    image: >-
+      close-up of a middle-aged man's hands turning pages of a faded blue notebook under a desk lamp, steel-rimmed
+      glasses beside it, no face
+    voice: {suggest: Charon, alt: Orus, note: the channel's narrator voice (voice.py VOICE); keep it unless audition fails}
+    speech_hi: >-
+      धीमा, यादों में डूबा, अपनापन भरा। पहला वाक्य सीधे अजीब चीज़ पर; बीच में "उस रात…" जैसे ठहराव। मज़ाक भी करता है
+      पर कभी डर का मज़ाक नहीं उड़ाता।
+    sample_lines_hi:
+      - उन्नीस सौ छियानवे की वो रात मुझे आज भी याद है। बिजली गई, और पंखा उल्टा घूमने लगा।
+      - झब्बू काका कहते थे, रात की हर बात सच नहीं होती… पर रजिस्टर वाली होती है।
+      - आज भी जब बिजली जाती है, मैं एक बार पलटकर अपनी परछाईं देख लेता हूँ।
+
+  - id: nuzhat
+    name: {hi: नुज़हत, en: Nuzhat}
+    replaces_plan_name: शबनम
+    title_hi: नुज़हत
+    age: 17
+    role: >-
+      Prabhat's classmate and the bravest of the three: practical, sharp, the one who notices the small wrong detail
+      and keeps the torch steady. Her name and identity are never a plot device.
+    role_hi: >-
+      प्रभात की सहपाठी और तीनों में सबसे बहादुर; काम की बात करने वाली, तेज़ नज़र वाली। सबसे पहले वही छोटी-सी ग़लत
+      चीज़ पकड़ती है, और टॉर्च उसी के हाथ में स्थिर रहती है।
+    props:
+      - {key: dupatta, hi: हरा दुपट्टा, image: plain bottle-green dupatta}
+      - {key: torch, hi: टूटे शीशे वाली टॉर्च, image: metal flashlight with a cracked lens throwing a split beam}
+      - {key: plait, hi: एक लंबी चोटी, image: single long plait}
+    colours: {hi: [गहरा हरा, स्टील], image: [bottle green, steel]}
+    look_hi: सीधी खड़ी लड़की; सादा सलवार-कमीज़, हरा दुपट्टा, लंबी चोटी, हाथ में टूटे शीशे वाली टॉर्च।
+    image: >-
+      seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long
+      plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away
+    voice: {suggest: Kore, alt: Leda, note: firm young female, F3 dialogue only; audition then lock}
+    speech_hi: >-
+      सीधी, कम शब्दों में, थोड़ी चिढ़ाने वाली। डर को काम में बदल देती है, जैसे "रोशनी पकड़, मैं देखती हूँ।"
+    sample_lines_hi:
+      - टॉर्च मुझे दो। तुम दोनों बस गिनती करते रहो।
+      - देखो, इसकी परछाईं रोशनी की तरफ़ गिर रही है।
+      - डरना बाद में, शैलेश। पहले दरवाज़ा पकड़।
+    rules:
+      - never romantic plotlines with either boy; the trio are friends
+      - no story turns on her name, family, clothing or community
+
+  - id: shailesh
+    name: {hi: शैलेश, en: Shailesh}
+    title_hi: शैलेश
+    age: 18
+    role: >-
+      The trio's comic relief: loud, hungry, a bit of a show-off, the first to run and the first to come back. Has
+      failed class 12 once. His transistor radio is always on.
+    role_hi: >-
+      तीनों में सबसे शोर करने वाला; हमेशा भूखा, थोड़ा शेखी-बाज़, सबसे पहले भागता है और सबसे पहले लौटता भी है। बारहवीं में
+      एक बार फ़ेल हो चुका है। उसका ट्रांजिस्टर कभी बंद नहीं होता।
+    props:
+      - {key: cap, hi: लाल क्रिकेट टोपी, image: faded red cricket cap}
+      - {key: transistor, hi: चमड़े के कवर वाला ट्रांजिस्टर, image: small transistor radio in a brown leather case on a strap}
+      - {key: chappal, hi: नीली हवाई चप्पल, image: blue rubber flip-flops}
+    colours: {hi: [लाल, भूरा, नीला], image: [red, brown, blue]}
+    look_hi: गोल-मटोल, लंबा लड़का; लाल क्रिकेट टोपी, धारीदार कमीज़, कंधे पर ट्रांजिस्टर, पैरों में नीली हवाई चप्पल।
+    image: >-
+      sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small
+      transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind
+    voice: {suggest: Puck, alt: Fenrir, note: upbeat young male, F3 dialogue only; audition then lock}
+    speech_hi: >-
+      ऊँची आवाज़, बात-बात में खाना, शेखी और फिर घबराहट। डर में भी मज़ाक करता है। "अरे बाप रे" उसका तकिया-कलाम है।
+    sample_lines_hi:
+      - अरे बाप रे! ये रेडियो तो बंद था… फिर गाना कौन गा रहा है?
+      - मैं डरा नहीं हूँ, मैं बस… आगे से देख रहा था।
+      - झब्बू काका, एक समोसा मिलेगा तो मैं तीसरी पुकार तक रुक जाऊँगा।
+
+minor_people:
+  note: >-
+    Called by role only, never by a proper name, and never the centre of a story. None is religious, none has a
+    caste or community marker.
+  roles_hi: [पीसीओ वाले चाचा, डाकबाबू, राशन दुकान वाले, सब्ज़ी वाली अम्मा, टॉकीज़ का प्रोजेक्टर वाला, हॉल्ट के
+    स्टेशन मास्टर, भट्ठे का मुंशी, बस का कंडक्टर, चाय वाले भैया, दर्ज़ी, बाइस्कोप वाला, प्रभात की माँ, शैलेश के पापा]

@@ -1,0 +1,191 @@
+# सन्नाटपुर, 1996: the world every Sannatpur story lives in.
+#
+# Read by the writer as context (a later kahaani/bible.py) and by people. Hindi is what the story may say; the
+# English notes are for us and for image prompts. `image` lines are short English prompt tokens for Z-Image: they
+# describe things, never text, and never ask for a face. Everything here is invented; the village is labelled
+# काल्पनिक (fictional) wherever a viewer reads about it.
+
+name:
+  hi: सन्नाटपुर
+  en: Sannatpur
+  label_hi: काल्पनिक गाँव
+  note: >-
+    Invented village name, checked 2026-10-23 (bible/name_checks.md): one unrelated 5-view hit. Never attach a real
+    district, state, river or city to it; a story says "शहर" (the city), "ज़िले का दफ़्तर" (the district office),
+    never a name.
+
+era:
+  year: 1996
+  narrator_year: 2026
+  frame_hi: >-
+    कहानी 2026 में सैंतालीस साल का प्रभात सुना रहा है; वो 1996 की उन रातों को याद करता है जब वो सत्रह का था।
+  textures_hi:
+    - बिजली का रोज़ जाना, लालटेन और ढिबरी की रोशनी
+    - छत पर सोना, गर्मी की रातें, मच्छरदानी
+    - पीसीओ पर एसटीडी की लाइन, मीटर की टिक-टिक
+    - ट्रांजिस्टर पर रात का गानों वाला कार्यक्रम
+    - कैसेट, टेप-रिकॉर्डर, पेंसिल से कैसेट लपेटना
+    - अंतर्देशीय पत्र, पोस्टकार्ड, तार
+    - राशन कार्ड, मिट्टी के तेल की लाइन
+    - साइकिल, डायनेमो वाली लाइट, घंटी
+    - छत पर टीवी का एंटीना, ब्लैक-एंड-व्हाइट टीवी
+    - हाट का बाइस्कोप, बर्फ़ का गोला, झूले
+  anachronisms_never:
+    - mobile phones, pagers in the village, internet, cyber cafes, computers at home
+    - plastic garden chairs, LED lights, inverters in ordinary homes, flat-screen TVs
+    - real 1996 news, elections, cricket matches, film releases or TV programmes
+  note: >-
+    Objects are generic 90s things, never a brand (see never_exists.brands). Times are spoken as words in
+    narration ("रात के तीन बजे"); digits are fine in titles and loglines.
+
+look:
+  house_style: >-
+    bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows,
+    readable moonlit-blue background, painterly-cinematic, realistic adult proportions
+  never: chibi, big-eye cartoon, anime, 3D render, kids-book style, gore, any written text or logo
+
+# The places (PLAN.md §3). id is what canon.json and micro_bank.json point at; spots are the smaller locations a
+# story may use inside a place. No place is religious, and no place has a real name.
+places:
+  - id: nahar
+    hi: बूढ़ी नहर
+    en: the old canal
+    hi_desc: गाँव के पूरब से गुज़रती पुरानी सिंचाई नहर, ईंटों वाला पतला पुल, किनारे की पटरी और एक हैंडपंप।
+    spots_hi: [नहर का पुराना पुल, नहर की कपड़े धोने वाली सीढ़ियाँ, नहर की पटरी वाला हैंडपंप]
+    image: narrow brick canal bridge, still moonlit water, a dirt towpath, a cast-iron hand pump on the bank
+  - id: tanki
+    hi: पुरानी पानी की टंकी
+    en: the old water tank
+    hi_desc: गाँव के बीच खंभों पर खड़ी सीमेंट की ऊँची टंकी, लोहे की सीढ़ी, ऊपर रेलिंग और छत पर लगा एक टीवी एंटीना।
+    spots_hi: [टंकी की सबसे ऊपर वाली सीढ़ी, टंकी की ऊपरी रेलिंग, टंकी की छत पर लगा एंटीना]
+    image: tall concrete water tank on pillars, iron ladder, railing at the top, a TV antenna against the moon
+  - id: pco
+    hi: पीले शीशे वाला पीसीओ
+    en: the PCO booth
+    hi_desc: बस्ती के मोड़ पर पीले शीशे का एसटीडी-पीसीओ, अंदर एक फ़ोन, मीटर, पर्ची वाली मशीन और दीवार का सादा कैलेंडर।
+    spots_hi: [पीसीओ का बूथ, पीसीओ का काउंटर, पीसीओ के अंदर फ़ोन के ऊपर वाली दीवार]
+    image: small roadside phone booth with yellow glass panels, glowing from inside, a desk phone and a call meter
+    note: the yellow sign has no readable words; the calendar on its wall is plain, with no pictures of anyone
+  - id: haat
+    hi: सन्नाटपुर का हाट
+    en: the weekly market
+    hi_desc: हर बुधवार लगने वाला हाट; सब्ज़ी के ठेले, तराज़ू, दर्ज़ी का ठिया, बाइस्कोप वाला, गोल झूला। रात में ख़ाली तिरपाल और बाँस।
+    spots_hi: [सब्ज़ी वाली का कोना, बाइस्कोप वाले की पेटी, टीन-शेड वाले दर्ज़ी का ठिया, गोल झूला]
+    image: empty night market, bamboo stalls with tarpaulin, a wooden giant wheel, hanging kerosene lamps
+  - id: talkies
+    hi: सन्नाटपुर टॉकीज़
+    en: the single-screen cinema
+    hi_desc: एक परदे वाला पुराना सिनेमा हॉल; बाहर हाथ से रंगे पोस्टरों की दीवार, अंदर लकड़ी की कुर्सियाँ, ऊपर बालकनी और प्रोजेक्टर रूम।
+    spots_hi: [टॉकीज़ का रील वाला स्टोर, टॉकीज़ के बाहर पोस्टर वाली दीवार, टॉकीज़ की ख़ाली बालकनी]
+    image: small old single-screen cinema hall, hand-painted posters with no lettering, a projector beam in dust
+    note: name checked (bible/name_checks.md); posters show invented films only, never a real star or title
+  - id: halt
+    hi: सन्नाटपुर हॉल्ट
+    en: the railway halt
+    hi_desc: एक प्लेटफ़ॉर्म वाला छोटा हॉल्ट, टिकट घर, सिक्के वाली वज़न मशीन, नीम के नीचे लोहे की बेंच, और एक सिग्नल।
+    spots_hi: [प्लेटफ़ॉर्म का छोर, टिकट घर के बगल वाली वज़न मशीन, नीम के नीचे वाली लोहे की बेंच]
+    image: tiny single-platform railway halt, one semaphore signal, an iron bench under a neem tree, a weighing machine
+  - id: bhatta
+    hi: ईंट का भट्ठा
+    en: the brick kiln
+    hi_desc: गाँव के बाहर ईंटों का भट्ठा; ऊँची चिमनी, कच्ची ईंटों के ढेर, मुंशी की टीन वाली कोठरी और शिफ़्ट का सायरन।
+    spots_hi: [ठंडा पड़ा पूरब वाला ढेर, ऊँची चिमनी का निचला दरवाज़ा, मुंशी की टीन वाली कोठरी]
+    image: brick kiln at night, a tall chimney, long stacks of drying bricks, a tin-roofed hut with one bulb
+  - id: chaupal
+    hi: बरगद वाली चौपाल
+    en: the banyan meeting place
+    hi_desc: पुराने बरगद के नीचे पत्थर का चबूतरा जहाँ शाम को बूढ़े बैठते हैं; चारपाइयाँ, कैरम, टेप-रिकॉर्डर।
+    spots_hi: [पत्थर वाला चबूतरा, बूढ़ों की बैठक वाली चारपाइयाँ, बरगद की जड़]
+    image: huge banyan tree with hanging roots, a stone platform, rope cots, a carrom board under a bulb
+    note: the banyan is just a tree; no threads, idols, offerings, lamps or rituals near it, ever
+  - id: college
+    hi: सरकारी इंटर कॉलेज
+    en: the government inter college
+    hi_desc: कस्बे जैसा पुराना इंटर कॉलेज जहाँ तीनों बारहवीं में पढ़ते हैं; स्टाफ़-रूम, भूगोल की अलमारी, दफ़्तर की खिड़की।
+    spots_hi: [स्टाफ़-रूम, भूगोल वाली अलमारी, दफ़्तर की खिड़की]
+    image: old government college building at night, long verandah, wooden shutters, a ceiling fan in an empty room
+    note: >-
+      class 12 board-exam life, never a schoolroom for small children: no uniforms of young pupils, no kids' games
+  - id: dakghar
+    hi: डाकघर
+    en: the post office
+    hi_desc: एक कमरे का डाकघर; लाल डिब्बा, लकड़ी की छँटाई वाली मेज़, मुहर, और तार वाली खिड़की।
+    spots_hi: [लकड़ी की छँटाई वाली मेज़, तार वाली खिड़की, मुहर वाला काउंटर]
+    image: one-room village post office, a red letter box, pigeonholes of letters, a brass stamp on a wooden desk
+  - id: ration
+    hi: राशन की दुकान
+    en: the ration shop
+    hi_desc: लोहे की जाली वाली सरकारी राशन की दुकान; काउंटर, पीछे गोदाम में बोरियाँ और मिट्टी के तेल का कनस्तर, मालिक की बही।
+    spots_hi: [लोहे की जाली वाला काउंटर, पीछे का अँधेरा गोदाम, मालिक की ऊपर वाली कोठरी]
+    image: small fair-price shop with an iron grille counter, sacks of grain, a tin kerosene drum, a ledger
+  - id: busadda
+    hi: बस अड्डा
+    en: the bus stand
+    hi_desc: टीन की छत वाला छोटा बस अड्डा; आख़िरी बस का स्टैंड, पीछे कबाड़ बसों की कतार, चाय वाले की गुमटी।
+    spots_hi: [टीन की छत वाला आख़िरी स्टैंड, कबाड़ बसों की कतार, चाय वाले की गुमटी]
+    image: small rural bus stand with a tin roof, an old bus with one lit window, a tea stall with a kerosene stove
+  - id: kuan
+    hi: कुएँ
+    en: the wells
+    hi_desc: गली के आख़िर में मुंडेर वाला कुआँ जिसमें अब भी पानी है, और खेतों की तरफ़ एक सूखा कुआँ जिस पर घिरनी टँगी है।
+    spots_hi: [गली के आख़िर वाला मुंडेर वाला कुआँ, खेतों की तरफ़ वाला सूखा कुआँ]
+    image: round brick village well with a low parapet, a wooden pulley on an iron frame, a bucket on a rope
+  - id: chowki
+    hi: फाटक वाली पहरे की कोठरी
+    en: Jhabbu's watch hut at the village gate
+    hi_desc: गाँव के फाटक पर झब्बू की एक कमरे वाली कोठरी; खूँटी पर लाठी, मेज़ पर लालटेन और रात का रजिस्टर।
+    spots_hi: [कोठरी की मेज़, कोठरी के बाहर वाली खूँटी, फाटक]
+    image: one-room brick watch hut by an iron village gate, a brass lantern on a table, a ledger with a red spine
+  - id: chhat
+    hi: मोहल्ले की छतें
+    en: the neighbourhood rooftops
+    hi_desc: एक-दूसरे से सटी छतें जहाँ गर्मी में सब सोते हैं; मच्छरदानी, पानी की सुराही, और दूर टंकी दिखती है।
+    spots_hi: [प्रभात के घर की छत]
+    image: connected flat rooftops at night, rope cots with mosquito nets, a clay water pot, the water tank far away
+
+# Things that never exist in Sannatpur, in any story, title, picture or description (PLAN.md §3, gates a and b).
+never_exists:
+  religious_places:
+    hi: [मंदिर, मस्जिद, दरगाह, गुरुद्वारा, चर्च, गिरजाघर, आश्रम, मठ, मज़ार, क़ब्रिस्तान, श्मशान, समाधि, पूजा-घर]
+    note: no shrine, idol, prayer flag, holy thread, tilak, rosary, cross, crescent or any sacred sign in a picture
+  religious_people_and_acts:
+    hi: [भगवान या कोई देवी-देवता, साधु, संत, फ़क़ीर, पुजारी, मौलवी, तांत्रिक, ओझा, बाबा (in the holy-man sense), पूजा, आरती, हवन, नमाज़, झाड़-फूँक, मन्नत, अमावस का कोई अनुष्ठान, मंत्र, ताबीज़]
+    note: Jhabbu solves nights with rules, attention and kindness, never with anything sacred or magical-ritual
+  beings:
+    hi: [ब्रह्मराक्षस, पिशाच, बेताल, वेताल, चुड़ैल, डायन, जिन्न, प्रेत, भैरव, यमदूत]
+    en: [brahmarakshas, pishach, betaal, vetal, chudail, daayan, jinn, preta, bhairav]
+    note: >-
+      no scripture-derived or folk-religious being, and no creature of the week; an anomaly is an object or a place
+      behaving strangely, and nobody is possessed, cursed or killed
+  real_world:
+    - real districts, cities, states, rivers or villages as settings; a new place name needs a name check first
+    - real people of any kind; film stars, cricketers, singers, politicians, godmen; and their look-alikes
+    - real films, songs, lyrics, TV programmes, radio programmes, newspapers or events
+    - news, police cases, real crimes, "सच्ची घटना / true story" claims of any sort
+    - party symbols used as identity (the lantern is only Jhabbu's lamp; no character is ever named लालटेन/Lalten)
+    - election posters, flags of any party or community
+  brands:
+    note: generic object only, in Hindi and in image prompts; never a logo or a readable label
+    map:
+      Doordarshan: टीवी, "टीवी पर रात वाला कार्यक्रम"
+      Ambassador: पुरानी सफ़ेद कार
+      Rasna: शरबत का पैकेट
+      Parle: बिस्कुट
+      Campa Cola: बोतल वाला ठंडा
+      Nataraj: पेंसिल
+      Philips / Murphy: ट्रांजिस्टर, रेडियो
+      HMT: घड़ी
+      Atlas / Hero / BSA: साइकिल
+      Bajaj / Rajdoot: स्कूटर, मोटरसाइकिल
+      Lux / Lifebuoy: साबुन
+      Usha: सिलाई मशीन
+      Binaca / Vividh Bharati: रेडियो का गानों वाला कार्यक्रम
+  people_and_portrayal:
+    - no character is defined by religion, caste or community; no community-coded villain or victim
+    - Nuzhat's name and identity are never a plot device, a joke or a source of danger
+    - no surnames for the cast; minor people are called by role (पीसीओ वाले चाचा, डाकबाबू, कंडक्टर), never by an
+      invented proper name that has not passed the name check (bible/name_checks.md)
+  words_never_in_titles:
+    - चौकीदार (titles say पहरेदार; चौकीदार may appear only inside the story text)
+    - 90s की वो रात (another channel's suffix), Ghibli
+    - बच्चों, kids, cartoon, bedtime, nursery, moral story (made-for-kids signals)
