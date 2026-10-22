@@ -12,8 +12,11 @@ is rejected (fail closed).
 F1 bands (PLAN.md §7.4 gate h, each floor with its ceiling): the hook line is read quicker (HOOK_WPM, hard band
 HOOK_HARD), the rest at TARGET_WPM (hard band HARD_WPM); speech starts within ONSET of the first frame; Whisper hears
 at least COVERAGE of the script's letters overall at a character error rate of at most CER; no silence inside the
-narration is longer than MAX_GAP. The finished narration is measured once more (measure / problems) and a miss holds
-the Short.
+narration is longer than MAX_GAP. The finished narration is measured once more (measure / problems, final=True) and a
+miss holds the Short: there the pace must sit in the format's own bands (TARGET_WPM, HOOK_WPM) give or take
+FINAL_SLACK, the hard bands being only for choosing among takes. Onset and silences are measured on the waveform
+(the same SPEECH_FLOOR the takes are trimmed with), not on Whisper's word times, which drift by a few hundred ms;
+digits Whisper writes are read as Hindi words before they are matched or scored.
 
 When no Gemini TTS model can read (no key, or every free daily quota spent), the fallback keeps the same voice:
 Chatterbox Multilingual (MIT) clones tts/voices/narrator_ref.wav, a reference clip of the same Gemini voice. Until
@@ -68,6 +71,8 @@ ONSET = 0.3  # seconds from the first frame to the first word
 COVERAGE = 0.95
 CER = 0.12
 MAX_GAP = 1.2
+FINAL_SLACK = {"body": 5.0, "hook": 8.0}  # wpm either side of TARGET_WPM / HOOK_WPM on the finished narration
+FRAME = 0.02  # seconds per RMS frame when looking for silences
 TEMPO_LIMITS = (0.85, 1.18)
 CUT_LEAD = 0.08
 TWIST_PAUSE = 0.9
@@ -328,8 +333,38 @@ def cer(script: str, said: str) -> float:
     return prev[-1] / len(a)
 
 
-def measure(story: Story, words: list[dict], spoken: list[tuple[str, float, float]]) -> dict:
-    """The narration's numbers for gate h: onset, hook and body pace, overall coverage, CER and the longest gap."""
+def silences(wav: Path) -> tuple[float | None, float]:
+    """(onset, longest silence inside the speech) of a recording, in seconds, from its waveform: speech is a sample
+    above SPEECH_FLOOR of the peak, silence a run of FRAME-long frames whose RMS is below it."""
+    audio, sr = sf.read(str(wav), dtype="float32")
+    audio = audio if audio.ndim == 1 else audio.mean(axis=1)
+    floor = SPEECH_FLOOR * np.abs(audio).max(initial=0.0)
+    loud = np.flatnonzero(np.abs(audio) > floor) if floor > 0 else np.array([], int)
+    if not len(loud):
+        return None, 0.0
+    step = max(1, int(FRAME * sr))
+    body = audio[loud[0]:loud[-1] + 1]
+    frames = body[:len(body) // step * step].reshape(-1, step)
+    quiet = np.sqrt((frames ** 2).mean(axis=1)) < floor
+    longest = max((b - a for a, b in _runs(quiet)), default=0)
+    return round(loud[0] / sr, 3), round(longest * step / sr, 3)
+
+
+def _runs(mask: np.ndarray) -> list[tuple[int, int]]:
+    """[start, end) index runs where mask is True."""
+    edges = np.flatnonzero(np.diff(np.concatenate([[0], mask.astype(np.int8), [0]])))
+    return list(zip(edges[::2], edges[1::2]))
+
+
+def as_words(spoken: list[tuple[str, float, float]]) -> list[tuple[str, float, float]]:
+    """What Whisper heard with its digits (ASCII or Devanagari) said as Hindi words, as the script spells them."""
+    return [(spoken_numbers(w) if re.search(r"[0-9०-९]", w) else w, a, b) for w, a, b in spoken]
+
+
+def measure(story: Story, words: list[dict], spoken: list[tuple[str, float, float]], wav: Path | None = None) -> dict:
+    """The narration's numbers for gate h: onset, hook and body pace, overall coverage, CER and the longest gap. With
+    wav, onset and the longest gap come from the waveform (silences); Whisper's own are kept alongside."""
+    spoken = as_words(spoken)
     heard = [w for w in spoken if align.letters(w[0])]
     first = [w for w in words if w["beat"] == 0]
     rest = [w for w in words if w["beat"] > 0]
@@ -341,21 +376,28 @@ def measure(story: Story, words: list[dict], spoken: list[tuple[str, float, floa
     total = sum(len(align.letters(b.text)) for b in story.beats)
     found = sum(len(align.letters(w["text"])) for w in words if w.get("heard", True))
     gaps = [b[1] - a[2] for a, b in zip(heard, heard[1:])]
-    return {"onset": round(heard[0][1], 3) if heard else None, "hook_wpm": pace(first), "body_wpm": pace(rest),
-            "coverage": round(found / max(total, 1), 3),
-            "cer": round(cer(story.narration, " ".join(w[0] for w in spoken)), 3),
-            "max_gap": round(max(gaps, default=0.0), 3)}
+    out = {"onset": round(heard[0][1], 3) if heard else None, "hook_wpm": pace(first), "body_wpm": pace(rest),
+           "coverage": round(found / max(total, 1), 3),
+           "cer": round(cer(spoken_numbers(story.narration), " ".join(w[0] for w in spoken)), 3),
+           "max_gap": round(max(gaps, default=0.0), 3)}
+    if wav is not None:
+        out["onset_whisper"], out["max_gap_whisper"] = out["onset"], out["max_gap"]
+        out["onset"], out["max_gap"] = silences(wav)
+    return out
 
 
-def problems(m: dict) -> list[str]:
-    """Where measured narration falls outside gate h's bands (empty = it passes)."""
+def problems(m: dict, final: bool = False) -> list[str]:
+    """Where measured narration falls outside gate h's bands (empty = it passes). Takes are chosen on the hard bands;
+    the finished narration (final) must sit in the format's bands, give or take FINAL_SLACK."""
     found = []
+    hook_band = (HOOK_WPM[0] - FINAL_SLACK["hook"], HOOK_WPM[1] + FINAL_SLACK["hook"]) if final else HOOK_HARD
+    body_band = (TARGET_WPM[0] - FINAL_SLACK["body"], TARGET_WPM[1] + FINAL_SLACK["body"]) if final else HARD_WPM
     if m.get("onset") is None or m["onset"] > ONSET:
         found.append(f"speech starts at {m.get('onset')} s, needs at most {ONSET} s")
-    if m.get("hook_wpm") is None or not HOOK_HARD[0] <= m["hook_wpm"] <= HOOK_HARD[1]:
-        found.append(f"the hook is read at {m.get('hook_wpm')} wpm, needs {HOOK_HARD[0]:.0f}-{HOOK_HARD[1]:.0f}")
-    if m.get("body_wpm") is None or not HARD_WPM[0] <= m["body_wpm"] <= HARD_WPM[1]:
-        found.append(f"the story is read at {m.get('body_wpm')} wpm, needs {HARD_WPM[0]:.0f}-{HARD_WPM[1]:.0f}")
+    if m.get("hook_wpm") is None or not hook_band[0] <= m["hook_wpm"] <= hook_band[1]:
+        found.append(f"the hook is read at {m.get('hook_wpm')} wpm, needs {hook_band[0]:.0f}-{hook_band[1]:.0f}")
+    if m.get("body_wpm") is None or not body_band[0] <= m["body_wpm"] <= body_band[1]:
+        found.append(f"the story is read at {m.get('body_wpm')} wpm, needs {body_band[0]:.0f}-{body_band[1]:.0f}")
     if m.get("coverage", 0) < COVERAGE:
         found.append(f"Whisper heard {m.get('coverage', 0):.0%} of the script, needs {COVERAGE:.0%}")
     if m.get("cer", 1) > CER:
@@ -379,7 +421,7 @@ def _tempo(path: Path, factor: float, out: Path) -> Path:
 
 
 def _listen(wav: Path, tokens: list[tuple[str, int]]) -> tuple[list[dict], list[float], list, float | None]:
-    spoken = align.heard(wav)
+    spoken = as_words(align.heard(wav))
     words, coverage = align.align(tokens, spoken)
     return words, coverage, spoken, _wpm(tokens, spoken)
 
@@ -447,8 +489,8 @@ def _gemini_story(story: Story, out_dir: Path) -> dict:
                 clean = True
                 break
             # Gemini sometimes reads its direction aloud too; keep only the story's own reading.
-            start = int(max(words[0]["start"] - LEAD_IN - 0.12, 0) * SAMPLE_RATE) if before else 0
-            end = int((words[-1]["end"] - LEAD_IN + 0.12) * SAMPLE_RATE) if after else len(raw)
+            start = int(max(words[0]["start"] - LEAD_IN - EDGE_KEEP, 0) * SAMPLE_RATE) if before else 0
+            end = int((words[-1]["end"] - LEAD_IN + EDGE_KEEP) * SAMPLE_RATE) if after else len(raw)
             raw = raw[start:end]
         low = min(coverage) if coverage else 0.0
         m = measure(story, words, spoken)
@@ -473,7 +515,7 @@ def _gemini_story(story: Story, out_dir: Path) -> dict:
     lead = LEAD_IN / factor
     words = [w | {"start": max(w["start"], lead), "end": max(w["end"], lead + 0.05)} for w in words]
     spoken = align.heard(wav) if factor != 1.0 else spoken
-    record["checks"] = measure(story, words, spoken)
+    record["checks"] = measure(story, words, spoken, wav)
     return _timing(out_dir, words, _spans(words, len(story.beats), duration, lead), duration,
                    {"engine": "gemini-narrator", "identity": "narrator", **record,
                     "coverage": [round(c, 3) for c in coverage], "wpm": wpm, "tempo": factor, "takes": len(takes)})
@@ -544,7 +586,7 @@ def _chatterbox_story(story: Story, out_dir: Path) -> dict:
               "reference": str(REFERENCE.relative_to(TTS_DIR.parent)),
               "reference_sha256": hashlib.sha256(REFERENCE.read_bytes()).hexdigest(),
               "coverage": [round(c[2], 3) for c in clips], "wpm": wpm, "tempo": factor, **STYLE}
-    record["checks"] = measure(story, words, align.heard(wav))
+    record["checks"] = measure(story, words, align.heard(wav), wav)
     return _timing(out_dir, words, _spans(words, len(story.beats), duration, LEAD_IN / factor), duration, record)
 
 
@@ -558,7 +600,7 @@ def _timing(out_dir: Path, words: list[dict], spans: list, duration: float, voic
 def synthesize(story: Story, out_dir: Path) -> dict:
     """narration.wav plus timing.json: {duration, words, beats: [[start, end], ...], voice}."""
     timing = _synthesize(story, out_dir)
-    missed = problems(timing["voice"].get("checks") or {})
+    missed = problems(timing["voice"].get("checks") or {}, final=True)
     if missed:
         raise VoiceHold("hold: voice: " + "; ".join(missed))
     return timing

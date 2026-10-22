@@ -51,7 +51,8 @@ def test_pictures_screens_and_falls_back(tmp_path):
         start = len(seen)
         seen.extend(range(n))
         return {"pictures": [{"n": k, "shows": "a well", "fits": True, "nudity": False, "sexual": False,
-                              "gore": False, "malformed": start + k == 7, "text": False} for k in range(1, n + 1)]}
+                              "gore": False, "malformed": start + k == 7, "text": False, "subject_share": 0.5}
+                             for k in range(1, n + 1)]}
 
     report = []
     found = aiart.collect(art, "kc-1", 10)
@@ -71,10 +72,10 @@ def test_repaints_are_collected_apart_from_the_painting(tmp_path):
     assert aiart.alternates(tmp_path, "kc-1", 3) == {1: [tmp_path / "beat01-alt1.png", tmp_path / "beat01-alt2.png"]}
 
 
-def verdict(n, props_ok=True):
+def verdict(n, props_ok=True, share=0.5):
     return {"n": n, "shows": "Jhabbu on the bridge", "fits": True, "nudity": False, "sexual": False, "gore": False,
             "malformed": False, "text": False, "religious": False, "kids_look": False, "props_ok": props_ok,
-            "reason": "" if props_ok else "no lantern"}
+            "subject_share": share, "reason": "" if props_ok else "no lantern"}
 
 
 def test_a_cast_shot_without_its_props_is_repainted_at_most_twice(tmp_path):
@@ -102,3 +103,23 @@ def test_prop_rate_counts_cast_shots_only():
               {"cast": ["nuzhat"], "rejected": "props: no torch", "props_ok": False}]
     assert aiart.prop_rate(report) == 0.5
     assert aiart.prop_rate(report[:1]) is None
+
+
+def test_the_hook_painting_needs_its_subject_to_fill_the_frame():
+    assert aiart.vision.rejected(verdict(1), hook=True) is None
+    for share in (0.1, 0.95, None):
+        assert "hook's subject" in aiart.vision.rejected(verdict(1, share=share), hook=True)
+    assert aiart.vision.rejected(verdict(1, share=0.1)) is None  # only the hook's painting is frame 0
+
+
+def test_a_tiny_hook_subject_holds_the_story(tmp_path):
+    art = tmp_path / "art"
+    art.mkdir()
+    for i in range(3):
+        paint(art, "kc-1", i)
+
+    def ask(parts, schema):
+        return {"pictures": [verdict(k, share=0.1) for k in range(1, 4)]}
+
+    with pytest.raises(aiart.PictureHold, match="the hook's"):
+        aiart.pictures(aiart.collect(art, "kc-1", 3), list("abc"), tmp_path / "pics", "story", "cast", ask)

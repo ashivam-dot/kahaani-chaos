@@ -6,7 +6,11 @@ F1 layout (PLAN.md §5, §7.4 gates g and k): frame 0 is the peak image under a 
 (10-28% of the frame's height); captions sit above 75% of the height; nothing is drawn in the bottom 25% or the
 right 12% (the Shorts player's buttons); the AI label is small in the top-left corner. The finished Short is held
 unless frame 0's mean luma is 90-170 and its RMS contrast 0.18-0.45, no frame-to-frame luma drop above 35% happens
-outside a cut, and the encoded file has the expected frame count (within one).
+outside a cut, and the encoded file has the expected frame count (within one). Where the text lands is measured on
+the frames themselves, not taken from the layout: the overlays are drawn once more on a black and a white canvas, and
+any pixel they change is ink. Frame 0's hook strip must be 10-28% of the height and end inside the top third, and no
+checked frame has ink below 75% of the height or in the right 12%. The music bed under the voice is measured too
+(gate j's ceiling, MUSIC_BED).
 
 Devanagari needs complex text shaping (conjuncts such as क्ष and त्र, vowel signs that sit before their consonant), so
 every string is laid out with Pillow's RAQM engine (HarfBuzz + FriBiDi) in Mukta (SIL Open Font License, bundled in
@@ -25,7 +29,7 @@ import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, features
 
-from . import config, depth, hindi, music
+from . import config, depth, gate, hindi, music
 from .spec import Story
 
 W, H, FPS = 1080, 1920, 30
@@ -39,7 +43,7 @@ END_LINE = "यह कहानी काल्पनिक है · चित�
 ACCENT = (255, 190, 92)
 CROSSFADE = 10  # frames
 CAPTION_Y = 0.665
-END_CARD = 2.4  # seconds after the narration
+END_CARD = gate.END_CARD  # seconds after the narration
 # Where text may go: above SAFE_BOTTOM of the height, left of SAFE_RIGHT of the width, SIDE pixels from the left edge.
 SAFE_BOTTOM, SAFE_RIGHT, SIDE = 0.75, 0.88, 48
 TEXT_W = round(W * SAFE_RIGHT) - 2 * SIDE
@@ -55,6 +59,8 @@ BLINK_DROP = 0.35
 # Gate j (PLAN.md §7.4): the finished Short's integrated loudness and true peak, measured on the encoded file.
 LUFS = (-15.0, -13.0)
 TRUE_PEAK = -1.0
+# The bed under the voice, at the level it reaches in the finished mix: at most this (PLAN.md §7.4 j).
+MUSIC_BED = -20.0
 ENDING_LINES = {"register-line": "झब्बू के रजिस्टर में एक और रात दर्ज", "open-question": "आपका जवाब नीचे लिखिए",
                 "next-raat-tease": "पूरी रात · शनिवार शाम 7:30"}
 
@@ -342,8 +348,48 @@ def _end_layers(ending: str = "") -> list[tuple[np.ndarray, np.ndarray]]:
 END_AT = (0.30, 0.39, 0.47, 0.55)
 
 
+def ink(draw) -> np.ndarray:
+    """Where draw(canvas) puts anything on a frame (bool H x W): the overlays drawn on a black and a white canvas, so
+    a black stroke and a white letter both count."""
+    dark, light = np.zeros((H, W, 3), np.uint8), np.full((H, W, 3), 255, np.uint8)
+    draw(dark)
+    draw(light)
+    return (dark != 0).any(axis=2) | (light != 255).any(axis=2)
+
+
+def _runs(rows: np.ndarray) -> list[tuple[int, int]]:
+    edges = np.flatnonzero(np.diff(np.concatenate([[0], rows.astype(np.int8), [0]])))
+    return list(zip(edges[::2], edges[1::2]))
+
+
+def text_problems(first: np.ndarray, others: list[np.ndarray], label_right: int) -> list[str]:
+    """Gate g on the drawn frames: frame 0's hook strip inside STRIP_SHARE of the height and the top third; no ink
+    below SAFE_BOTTOM or right of SAFE_RIGHT on any checked frame. first/others are ink() masks; the strip is measured
+    right of the AI label (label_right) so the label never counts as strip."""
+    found = []
+    runs = _runs(first[:, label_right + 8:round(W * SAFE_RIGHT)].any(axis=1))
+    if not runs:
+        found.append("frame 0 has no hook strip")
+    else:
+        top, bottom = runs[0]
+        share = (bottom - top) / H
+        if not STRIP_SHARE[0] <= share <= STRIP_SHARE[1]:
+            found.append(f"frame 0's hook strip is {share:.0%} of the height, needs {STRIP_SHARE[0]:.0%}-"
+                         f"{STRIP_SHARE[1]:.0%}")
+        if bottom > H / 3:
+            found.append("frame 0's hook strip runs below the top third")
+    for n, mask in enumerate([first] + others):
+        where = "frame 0" if n == 0 else f"checked frame {n}"
+        if mask[round(H * SAFE_BOTTOM):].any():
+            found.append(f"{where} has text below {SAFE_BOTTOM:.0%} of the height")
+        if mask[:, round(W * SAFE_RIGHT):].any():
+            found.append(f"{where} has text in the right {1 - SAFE_RIGHT:.0%} (the Shorts buttons)")
+    return found
+
+
 def problems(lumas: list[float], cuts: set[int], frame0: np.ndarray, expected: int, counted: int | None) -> list[str]:
-    """The picture checks (PLAN.md §7.4 gates g and k): frame 0's exposure and contrast, blinks, frame count."""
+    """The picture checks (PLAN.md §7.4 gates g and k): frame 0's exposure and contrast, blinks, frame count (a count
+    that could not be made holds too)."""
     found = []
     gray = cv2.cvtColor(frame0, cv2.COLOR_RGB2GRAY).astype(np.float32)
     luma, contrast = float(gray.mean()), float(gray.std() / 255.0)
@@ -355,7 +401,9 @@ def problems(lumas: list[float], cuts: set[int], frame0: np.ndarray, expected: i
         if i not in cuts and lumas[i - 1] > 1 and (lumas[i - 1] - lumas[i]) / lumas[i - 1] > BLINK_DROP:
             found.append(f"frame {i} blinks: luma drops {lumas[i - 1]:.0f} -> {lumas[i]:.0f} outside a cut")
             break
-    if counted is not None and abs(counted - expected) > 1:
+    if counted is None:
+        found.append("the encoded Short's frames could not be counted")
+    elif abs(counted - expected) > 1:
         found.append(f"the encoded Short has {counted} frames, expected {expected}")
     return found
 
@@ -376,8 +424,10 @@ def loudness(path: Path) -> dict | None:
     return {"lufs": float(lufs.group(1)), "true_peak": float(peak.group(1))}
 
 
-def audio_problems(m: dict | None) -> list[str]:
-    """Gate j: integrated loudness inside LUFS (floor and ceiling) and true peak at most TRUE_PEAK."""
+def audio_problems(m: dict | None, bed: float | None = None) -> list[str]:
+    """Gate j: integrated loudness inside LUFS (floor and ceiling), true peak at most TRUE_PEAK, and the music bed under
+    the voice (bed, LUFS in the finished mix; see bed_level) at most MUSIC_BED. A level that could not be measured
+    holds."""
     if not m:
         return ["the Short's loudness could not be measured"]
     found = []
@@ -385,7 +435,21 @@ def audio_problems(m: dict | None) -> list[str]:
         found.append(f"integrated loudness {m['lufs']:.1f} LUFS, needs {LUFS[0]:.0f} to {LUFS[1]:.0f}")
     if m["true_peak"] > TRUE_PEAK:
         found.append(f"true peak {m['true_peak']:.1f} dBTP, needs at most {TRUE_PEAK}")
+    if bed is None:
+        found.append("the music bed's level could not be measured")
+    elif bed > MUSIC_BED:
+        found.append(f"the music bed is {bed:.1f} LUFS under the voice, needs at most {MUSIC_BED:.0f}")
     return found
+
+
+def bed_level(levels: dict | None, final: dict | None) -> float | None:
+    """The ducked bed's loudness as it lands in the finished Short: measured before the mix's loudnorm, moved by the
+    gain loudnorm gave the whole mix (final minus the mix before it). None when any of them is missing."""
+    if not levels or not final or levels.get("bed") is None or levels.get("premix") is None:
+        return None
+    if levels["bed"] == float("-inf"):
+        return levels["bed"]
+    return levels["bed"] + final["lufs"] - levels["premix"]
 
 
 def count_frames(path: Path) -> int | None:
@@ -398,26 +462,43 @@ def count_frames(path: Path) -> int | None:
         return None
 
 
+def length(path: Path) -> float | None:
+    """The encoded file's duration in seconds (ffprobe), or None."""
+    try:
+        out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
+                              str(path)], capture_output=True, text=True, check=True).stdout.strip()
+        return float(out)
+    except (OSError, subprocess.CalledProcessError, ValueError):
+        return None
+
+
 def bell_time(story: Story, spans: list) -> float | None:
     twist = story.twist_beat - 1
     return max(spans[twist][0] - BELL_LEAD, 0.0) if 0 <= twist < len(spans) else None
 
 
-def _mix(narration: Path, story: Story, seconds: float, bell_at: float | None, out: Path) -> Path:
+def _mix(narration: Path, story: Story, seconds: float, bell_at: float | None, out: Path) -> tuple[Path, dict]:
+    """mix.wav, and the levels gate j's bed ceiling needs: the ducked bed while the voice speaks (bed.wav) and the mix
+    before its loudnorm (premix.wav), both in LUFS."""
     import soundfile as sf
 
     bed = music.score(seconds + 0.5, story.id, bell_at)
     sf.write(out / "music.wav", bed, music.SR)
+    spoken = sf.info(str(narration)).duration
     mixed = out / "mix.wav"
     graph = ("[0:a]aresample=48000,highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=5:release=120,"
              "volume=1.0,asplit=2[v][key];"
              "[1:a]aresample=48000,volume=0.32[m];"
-             "[m][key]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=500[duck];"
-             "[v][duck]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=9,"
-             f"apad,atrim=0:{seconds:.3f}[out]")
+             "[m][key]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=500,asplit=2[duck][b];"
+             f"[b]atrim=0:{spoken:.3f}[bed];"
+             "[v][duck]amix=inputs=2:duration=first:normalize=0,asplit=2[mx][pre];"
+             f"[mx]loudnorm=I=-14:TP=-1.5:LRA=9,apad,atrim=0:{seconds:.3f}[out]")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(narration), "-i", str(out / "music.wav"),
-                    "-filter_complex", graph, "-map", "[out]", "-ar", "48000", "-ac", "2", str(mixed)], check=True)
-    return mixed
+                    "-filter_complex", graph, "-map", "[out]", "-ar", "48000", "-ac", "2", str(mixed),
+                    "-map", "[bed]", "-ar", "48000", str(out / "bed.wav"),
+                    "-map", "[pre]", "-ar", "48000", str(out / "premix.wav")], check=True)
+    levels = {k: (loudness(out / f"{k}.wav") or {}).get("lufs") for k in ("bed", "premix")}
+    return mixed, levels
 
 
 def render(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict:
@@ -437,7 +518,7 @@ def render(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict
     cuts: set[int] = set()
     frame0 = None
     work.mkdir(parents=True, exist_ok=True)
-    mixed = _mix(work / "narration.wav", story, duration, bell_time(story, spans), work)
+    mixed, levels = _mix(work / "narration.wav", story, duration, bell_time(story, spans), work)
     out = work / "short.mp4"
     stills = work / "stills"
     stills.mkdir(exist_ok=True)
@@ -447,6 +528,8 @@ def render(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict
          "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", str(out)], stdin=subprocess.PIPE)
     n = int(math.ceil(duration * FPS))
     still_at = {int(n * k / 5) for k in range(5)}
+    # Frame 0, the stills, a caption mid-story and the last frame (the end card) are checked for where text lands.
+    inked, masks = sorted(still_at | {n // 2, n - 1}), []
     for i in range(n):
         t = i / FPS
         k = next(j for j, s in enumerate(shots) if t < s["end"] or j == len(shots) - 1)
@@ -472,17 +555,23 @@ def render(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict
         if outro and (t - spoken) * FPS < 0.6 * FPS + 1:
             cuts.add(i)
         frame = grade.apply(frame, i)
-        if k == 0 or (outro and loop):
-            # Fully visible from the first frame: YouTube may use it as the cover.
-            a = 1.0 if k == 0 and not outro else min(1.0, (t - spoken) / 0.6)
-            _blit(frame, strip, TEXT_CX - strip[1].shape[1] // 2, round(H * STRIP_TOP), a)
-        if outro and not loop:
-            a = min(1.0, (t - spoken) / 0.4)
-            for layer, y in zip(end, END_AT[:len(end) - 1] + (END_AT[-1],)):
-                _blit(frame, layer, TEXT_CX - layer[1].shape[1] // 2, round(H * y), a)
-        elif not outro:
-            captions.draw(frame, t)
-        _blit(frame, label, *LABEL_AT)
+
+        def overlays(canvas: np.ndarray, t=t, k=k, outro=outro) -> None:
+            if k == 0 or (outro and loop):
+                # Fully visible from the first frame: YouTube may use it as the cover.
+                a = 1.0 if k == 0 and not outro else min(1.0, (t - spoken) / 0.6)
+                _blit(canvas, strip, TEXT_CX - strip[1].shape[1] // 2, round(H * STRIP_TOP), a)
+            if outro and not loop:
+                a = min(1.0, (t - spoken) / 0.4)
+                for layer, y in zip(end, END_AT[:len(end) - 1] + (END_AT[-1],)):
+                    _blit(canvas, layer, TEXT_CX - layer[1].shape[1] // 2, round(H * y), a)
+            elif not outro:
+                captions.draw(canvas, t)
+            _blit(canvas, label, *LABEL_AT)
+
+        overlays(frame)
+        if i in inked:
+            masks.append(ink(overlays))
         if i == 0:
             frame0 = frame.copy()
         lumas.append(float(frame[::8, ::8].mean()))
@@ -493,9 +582,13 @@ def render(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict
     if enc.wait() != 0:
         raise RuntimeError("ffmpeg failed to encode the Short")
     sound = loudness(out)
-    found = problems(lumas, cuts, frame0, n, count_frames(out)) + audio_problems(sound)
-    (work / "picture-checks.json").write_text(json.dumps({"problems": found, "frames": n, "loudness": sound},
+    bed = bed_level(levels, sound)
+    found = problems(lumas, cuts, frame0, n, count_frames(out)) + audio_problems(sound, bed) + \
+        text_problems(masks[0], masks[1:], LABEL_AT[0] + label[1].shape[1])
+    (work / "picture-checks.json").write_text(json.dumps({"problems": found, "frames": n, "loudness": sound,
+                                                          "bed_lufs": bed, "levels": levels},
                                                          indent=1, ensure_ascii=False), encoding="utf-8")
     if found:
         raise ComposeHold("hold: picture and sound checks: " + "; ".join(found))
-    return {"duration": round(duration, 2), "frames": n, "pictures": len(plates), "fps": FPS, "size": [W, H]}
+    return {"duration": round(duration, 2), "frames": n, "pictures": len(plates), "fps": FPS, "size": [W, H],
+            "runtime": length(out)}

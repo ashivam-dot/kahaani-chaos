@@ -96,7 +96,7 @@ def pictures(found: dict[int, Path], texts: list[str], folder: Path, story: str,
     passed = set()
     rows = []
     for i, verdict in zip(order, verdicts):
-        why = vision.rejected(verdict, bool(who.get(i)))
+        why = vision.rejected(verdict, bool(who.get(i)), i == 0)
         tried = 0
         for spare in spares.get(i, [])[:look_alternates()] if why else []:
             tried += 1
@@ -104,8 +104,8 @@ def pictures(found: dict[int, Path], texts: list[str], folder: Path, story: str,
             _prepare(spare, candidate)
             again = vision.judge([(candidate, texts[i], vision.expected(who.get(i, [])))], story, cast, ask)[0]
             log.warning("painting for beat %d refused (%s); repaint %d %s", i + 1, why, tried,
-                        "passed" if vision.rejected(again, bool(who.get(i))) is None else "refused too")
-            verdict, why = again, vision.rejected(again, bool(who.get(i)))
+                        "passed" if vision.rejected(again, bool(who.get(i)), i == 0) is None else "refused too")
+            verdict, why = again, vision.rejected(again, bool(who.get(i)), i == 0)
             if why is None:
                 candidate.replace(folder / f"beat{i:02d}.jpg")
                 break

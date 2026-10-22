@@ -1,7 +1,9 @@
 """Looks at every painting before it can reach a Short: refuses nudity, sexual content, gore, malformed bodies, text
 or logos in the picture, religious imagery, a made-for-kids look (chibi, big eyes, a kids' book), a cast shot that
 does not show its characters' signature props or colours (prop identity, PLAN.md §7.4 gate l), and a picture that
-doesn't show its line. When no model can look, nothing is published.
+doesn't show its line. The hook's painting is frame 0, so its main subject must fill HOOK_SUBJECT of the frame (PLAN.md
+§7.4 g: at least 30%; the ceiling is ours, so the hook strip never sits on the subject's face). When no model can
+look, nothing is published.
 """
 from __future__ import annotations
 
@@ -14,6 +16,7 @@ FLAGS = ("nudity", "sexual", "gore", "malformed", "text", "religious", "kids_loo
 # A cast shot must show each painted character's signature prop or colour; a video needs PROP_RATE of its cast shots
 # to (after up to look.ALTERNATES repaints each); a shot that never does is dropped.
 PROP_RATE = 0.85
+HOOK_SUBJECT = (0.30, 0.90)  # share of the frame the hook painting's main subject covers
 
 SCHEMA = {
     "type": "object",
@@ -28,9 +31,10 @@ SCHEMA = {
                     **{f: {"type": "boolean"} for f in FLAGS},
                     "props_ok": {"type": "boolean"},
                     "fits": {"type": "boolean"},
+                    "subject_share": {"type": "number"},
                     "reason": {"type": "string"},
                 },
-                "required": ["n", "shows", *FLAGS, "props_ok", "fits", "reason"],
+                "required": ["n", "shows", *FLAGS, "props_ok", "fits", "subject_share", "reason"],
             },
         },
     },
@@ -61,6 +65,8 @@ For each picture answer:
 - fits: true if the picture plausibly shows this line's moment with this story's characters and setting, in a
   painted (not photographic, not cartoon) style. False for an unrelated scene, the wrong characters, a modern
   object the story doesn't have, or a sheet of several pictures.
+- subject_share: the share of the whole picture (0.0-1.0) that its main subject (the object or person the line is
+  about) covers, by area of its outline.
 - reason: why, in a few words.
 
 Pictures:
@@ -77,9 +83,10 @@ def _small(path: Path) -> bytes:
     return buf.getvalue()
 
 
-def rejected(verdict: dict, cast_shot: bool = False) -> str | None:
+def rejected(verdict: dict, cast_shot: bool = False, hook: bool = False) -> str | None:
     """Why a verdict keeps its picture out of a Short, or None when the picture may be used. A cast shot must also
-    pass prop identity (a missing answer counts as a failure)."""
+    pass prop identity, and the hook's painting must have its subject cover HOOK_SUBJECT of the frame (a missing
+    answer counts as a failure for both)."""
     for flag in FLAGS:
         if verdict.get(flag):
             return f"{flag}: {verdict.get('reason') or verdict.get('shows')}"
@@ -87,6 +94,10 @@ def rejected(verdict: dict, cast_shot: bool = False) -> str | None:
         return f"props: the characters' signature props or colours are missing ({verdict.get('reason') or ''})"
     if not verdict.get("fits"):
         return f"does not fit the line: {verdict.get('reason') or verdict.get('shows')}"
+    share = verdict.get("subject_share")
+    if hook and not (isinstance(share, (int, float)) and HOOK_SUBJECT[0] <= share <= HOOK_SUBJECT[1]):
+        return (f"the hook's subject covers {share!r} of the frame, needs {HOOK_SUBJECT[0]:.0%}-"
+                f"{HOOK_SUBJECT[1]:.0%}")
     return None
 
 

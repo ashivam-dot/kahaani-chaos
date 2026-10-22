@@ -168,3 +168,116 @@ def test_gate_i_measured_narration_bands():
     assert voice.problems({**m, "body_wpm": 200.0}) and voice.problems({**m, "max_gap": 1.5})
     assert voice.problems({**m, "coverage": 0.9}) and voice.problems({**m, "cer": 0.2})
     assert voice.problems({**m, "hook_wpm": 140.0}) and voice.problems({**m, "hook_wpm": 215.0})
+
+
+# Punctuation joins, inflections, brands, hashtags and nasal spellings: each one used to slip past a whole-word gate.
+@pytest.mark.parametrize("line, topic", [
+    ("उसने कहा—भगवान जाने।", "religion"), ("भगवान…कहाँ हो?", "religion"), ("ओझा-तांत्रिक आया।", "ritual"),
+    ("लाश।और फिर चुप्पी।", "gore"), ("मस्जिदों के पीछे गली थी।", "religion"), ("पुजारियों ने देखा।", "religion"),
+    ("साधुओं की टोली गुज़री।", "religion"), ("हत्याओं की बात होती थी।", "gore"), ("लाशों का ढेर था।", "gore"),
+    ("झाड़-फूँक करवाई।", "ritual"), ("भूत-प्रेत की बात थी।", "a banned being"), ("हिंदुओं का मोहल्ला था।", "caste"),
+])
+def test_red_lines_through_punctuation_and_endings(line, topic):
+    assert any(topic in p for p in gate.red_lines_hi(line)), (line, gate.red_lines_hi(line))
+
+
+@pytest.mark.parametrize("line", ["रामू ने लालटेन उठाई।", "उषा दीदी ने दरवाज़ा खोला।", "फिल्म का हीरो हँसा।",
+                                  "ग्रामीण बस रुकी।", "चाचा ने चाय पी।"])
+def test_everyday_words_are_not_red_lines(line):
+    assert gate.red_lines_hi(line) == [], gate.red_lines_hi(line)
+
+
+@pytest.mark.parametrize("line", ["उसकी एटलस साइकिल चमकी।", "रसना का गिलास भरा था।", "हीरो साइकिल पुल पर खड़ी थी।",
+                                  "विविध भारती पर गाना बजा।", "बजाज स्कूटर रुका।", "उषा की मशीन चल पड़ी।",
+                                  "मर्फी रेडियो बोल उठा।", "पारले-जी का पैकेट गिरा।"])
+def test_bible_brands_in_hindi(line):
+    assert any("the real world" in p for p in gate.red_lines_hi(line)), line
+
+
+def test_every_bible_brand_has_a_hindi_spelling():
+    from kahaani import bible
+
+    assert set(bible.brands()) <= set(gate.BRANDS_HI), set(bible.brands()) - set(gate.BRANDS_HI)
+
+
+def test_hashtags_cannot_hide_a_blocked_word():
+    assert gate.hashtag_problems(["#बच्चोंकीकहानी"]) and gate.hashtag_problems(["#kidsstory"])
+    assert gate.hashtag_problems(["#truestory"]) and gate.hashtag_problems(["#सच्चीघटना"])
+    assert gate.hashtag_problems(["#एटलससाइकिल"]) and gate.hashtag_problems(["#मंदिरकीघंटी"])
+    assert gate.hashtag_problems(["#सन्नाटपुर", "#ग्रामीणकहानी", "#90sगाँव"]) == []
+    d = story_dict()
+    d["hashtags"] = d["hashtags"] + ["#बच्चोंकीकहानी"]
+    assert any("hashtag" in p for p in gate.check(d, premise(), [], rotation=False))
+
+
+def test_english_red_lines_in_metadata_hold():
+    d = story_dict()
+    d["description"] = d["description"] + " A true story from the temple."
+    found = gate.check(d, premise(), [], rotation=False)
+    assert any("true story" in p for p in found) and any("religion" in p for p in found)
+
+
+def test_channel_and_video_in_metadata_hold_but_not_in_the_story():
+    d = story_dict()
+    d["description"] = d["description"] + " इस चैनल पर और भी।"
+    assert any("चैनल" in p for p in gate.check(d, premise(), [], rotation=False))
+    assert gate.banned("टीवी पर एक पुराना वीडियो चल रहा था।") == []
+
+
+def test_nasal_half_letters_fold_to_anusvara():
+    assert hindi.norm("हिन्दू") == hindi.norm("हिंदू") and hindi.norm("सम्बन्ध") == hindi.norm("संबंध")
+    assert hindi.norm("पण्डित") == hindi.norm("पंडित") and hindi.norm("कम्बल") == hindi.norm("कंबल")
+    assert hindi.norm("अन्य") != hindi.norm("अंय")  # न् before य is not a nasal of its class
+    assert any("caste" in p for p in gate.red_lines_hi("हिन्दू मोहल्ला"))
+
+
+def test_hindi_words_split_at_every_join_and_drop_emoji():
+    assert hindi.words("भूत-प्रेत…कहाँ—गया।फिर") == ["भूत", "प्रेत", "कहां", "गया", "फिर"]
+    assert hindi.words("साइकिल😶‍🌫️जली👍🏽 1️⃣ 🇮🇳") == ["साइकिल", "जली"]
+
+
+def test_an_object_that_bends_still_names_itself():
+    assert gate.object_in_title("कुएँ ने रात को आवाज़ दी… और गाँव जाग गया! 😨", "कुआँ")
+    assert gate.object_in_title("पंखे ने आधी रात को उल्टा घूमना शुरू किया! 🌀", "पंखा")
+    assert not gate.object_in_title("पंडित ने कहा… पूरे गाँव में बत्ती गुल! 😨", "पंखा")
+
+
+def test_skeleton_of_reads_the_agent_not_any_ne():
+    assert gate.skeleton_of("रेडियो ने आधी रात को अपने आप गाना बदल दिया! 📻") == "S2"
+    assert gate.skeleton_of("प्रभात ने साइकिल रोकी… और लाइट बिना पैडल के जल उठी! 🚲") == "S1"
+    assert gate.skeleton_of("रेडियो अपने आप क्यों बोल उठा? 📻") == "S3"
+
+
+def test_gate_i_final_bands_are_the_format_bands():
+    m = {"onset": 0.2, "hook_wpm": 176.0, "body_wpm": 165.0, "coverage": 0.98, "cer": 0.05, "max_gap": 0.9}
+    assert voice.problems(m, final=True) == []
+    # Inside the hard band (good enough to choose a take) but off the format's 155-175 by more than the slack.
+    assert voice.problems({**m, "body_wpm": 145.0}) == []
+    assert voice.problems({**m, "body_wpm": 145.0}, final=True)
+    assert voice.problems({**m, "body_wpm": 185.0}, final=True)
+    assert voice.problems({**m, "hook_wpm": 158.0}, final=True)
+    assert voice.problems({**m, "hook_wpm": 198.0}, final=True)
+
+
+def test_gate_i_whisper_digits_are_read_as_hindi_words():
+    assert voice.cer("उन्नीस सौ छियानवे की रात", " ".join(w for w, *_ in voice.as_words(
+        [("1996", 0.0, 0.5), ("की", 0.5, 0.7), ("रात", 0.7, 1.0)]))) == 0.0
+    assert voice.as_words([("१९९६", 0.0, 0.5)])[0][0] == "उन्नीस सौ छियानवे"
+
+
+def test_gate_i_onset_and_silence_come_from_the_waveform(tmp_path):
+    import numpy as np
+    import soundfile as sf
+
+    sr = 24000
+    tone = lambda s: 0.3 * np.sin(2 * np.pi * 220 * np.arange(int(s * sr)) / sr)  # noqa: E731
+    gap = lambda s: np.zeros(int(s * sr))  # noqa: E731
+    sf.write(tmp_path / "a.wav", np.concatenate([gap(0.5), tone(1.0), gap(1.5), tone(1.0)]).astype(np.float32), sr)
+    onset, longest = voice.silences(tmp_path / "a.wav")
+    assert abs(onset - 0.5) < 0.02 and abs(longest - 1.5) < 0.05
+    story = Story.from_dict(story_dict())
+    m = voice.measure(story, [{"text": "x", "start": 0.1, "end": 0.4, "beat": 0}], [("x", 0.1, 0.4)],
+                      tmp_path / "a.wav")
+    assert m["onset_whisper"] == 0.1 and m["onset"] == onset
+    found = voice.problems(m)
+    assert any("speech starts" in p for p in found) and any("silence of" in p for p in found)

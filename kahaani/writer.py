@@ -120,7 +120,7 @@ RULES (all mandatory):
 - hook_strip: 3-5 Hindi words painted over frame 0 (a teaser, not the title), no emoji.
 - object_token: exactly {object_token!r}. anomaly: one short Hindi phrase. niyam_id: exactly {niyam_id!r}.
   resolution_type: exactly {resolution_type!r}. ending_type: exactly {ending!r}.
-- title: skeleton {skeleton} ({skeleton_help}); {title_lo}-{title_hi} characters; exactly one emoji; the
+- title: skeleton {skeleton} ({skeleton_help}); {title_lo}-{title_hi} characters; one or two emoji; the
   {object_token!r} within the first five words; never बच्चों, kids, cartoon, चौकीदार. You may keep or improve
   the seed title. Never reveal the turn.
 - description: 1-2 Hindi sentences that tease the night without the turn.

@@ -78,11 +78,45 @@ def test_a_blink_outside_a_cut_and_a_wrong_frame_count_hold():
 
 
 def test_audio_checks_have_floor_and_ceiling():
-    assert compose.audio_problems({"lufs": -14.2, "true_peak": -1.6}) == []
-    assert compose.audio_problems({"lufs": -16.0, "true_peak": -1.6})
-    assert compose.audio_problems({"lufs": -12.0, "true_peak": -1.6})
-    assert compose.audio_problems({"lufs": -14.0, "true_peak": -0.4})
+    assert compose.audio_problems({"lufs": -14.2, "true_peak": -1.6}, -26.0) == []
+    assert compose.audio_problems({"lufs": -16.0, "true_peak": -1.6}, -26.0)
+    assert compose.audio_problems({"lufs": -12.0, "true_peak": -1.6}, -26.0)
+    assert compose.audio_problems({"lufs": -14.0, "true_peak": -0.4}, -26.0)
     assert compose.audio_problems(None)
+
+
+def test_a_loud_or_unmeasured_music_bed_holds():
+    ok = {"lufs": -14.0, "true_peak": -1.6}
+    assert any("music bed is -18.0" in p for p in compose.audio_problems(ok, -18.0))
+    assert any("music bed" in p for p in compose.audio_problems(ok, None))
+    # The bed is measured before loudnorm and moved by the gain loudnorm gave the whole mix.
+    assert compose.bed_level({"bed": -30.0, "premix": -20.0}, ok) == -24.0
+    assert compose.bed_level({"bed": None, "premix": -20.0}, ok) is None
+    assert compose.bed_level(None, ok) is None
+
+
+def test_an_uncounted_frame_total_holds():
+    assert any("could not be counted" in p for p in compose.problems([120.0], set(), _frame(128, 70), 1, None))
+
+
+def test_text_outside_the_safe_area_or_a_wrong_strip_holds():
+    H, W = compose.H, compose.W
+    first = np.zeros((H, W), bool)
+    first[round(H * 0.05):round(H * 0.20), 200:800] = True  # a 15% strip in the top third
+    assert compose.text_problems(first, [], 100) == []
+    low = first.copy()
+    low[round(H * 0.80), 400] = True
+    assert any("below 75%" in p for p in compose.text_problems(first, [low], 100))
+    right = first.copy()
+    right[900, W - 20] = True
+    assert any("right 12%" in p for p in compose.text_problems(right, [], 100))
+    thin = np.zeros((H, W), bool)
+    thin[100:140, 200:800] = True
+    assert any("of the height" in p for p in compose.text_problems(thin, [], 100))
+    deep = np.zeros((H, W), bool)
+    deep[round(H * 0.20):round(H * 0.40), 200:800] = True
+    assert any("top third" in p for p in compose.text_problems(deep, [], 100))
+    assert any("no hook strip" in p for p in compose.text_problems(np.zeros((H, W), bool), [], 100))
 
 
 def test_captions_break_at_hindi_full_stops_and_three_words():
@@ -136,7 +170,9 @@ def test_a_short_story_renders(tmp_path, monkeypatch):
              for k, w in enumerate(" ".join(texts).split())]
     timing = {"duration": 3.0, "words": words, "beats": [[0.35, 1.1], [1.1, 2.0], [2.0, 3.0]]}
     stats = compose.render(story, timing, pictures, tmp_path)
+    runtime = stats.pop("runtime")
     assert stats == {"duration": 5.4, "frames": 162, "pictures": 3, "fps": 30, "size": [1080, 1920]}
+    assert abs(runtime - 5.4) < 0.1
     probe = json.loads(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration:stream=codec_type",
                                        "-of", "json", str(tmp_path / "short.mp4")], capture_output=True,
                                       text=True, check=True).stdout)

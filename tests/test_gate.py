@@ -138,8 +138,11 @@ def test_hook_strip_band():
     ("साइकिल रोकी… और उसकी लाइट बिना पैडल के जल उठी! 🚲", None),
     ("साइकिल ने रात में अपनी लाइट ख़ुद जला ली 😨 | सन्नाटपुर", None),
     ("साइकिल की लाइट बिना पैडल के किसने जलाई? 🚲", None),
-    ("साइकिल रोकी… और उसकी लाइट बिना पैडल के जल उठी!", "exactly one emoji"),
-    ("साइकिल रोकी… और उसकी लाइट बिना पैडल के जल उठी! 🚲😨", "exactly one emoji"),
+    ("साइकिल रोकी… और उसकी लाइट बिना पैडल के जल उठी!", "needs 1-2 emoji"),
+    ("साइकिल रोकी… और उसकी लाइट बिना पैडल के जल उठी! 🚲😨", None),
+    ("साइकिल रोकी… और उसकी लाइट बिना पैडल के जल उठी! 🚲😨⏰", "needs 1-2 emoji"),
+    ("साइकिल रोकी… और उसकी लाइट बिना पैडल के जल उठी! ⏰", None),
+    ("साइकिल रोकी… और उसकी लाइट बिना पैडल के जल उठी! 😶‍🌫️", None),
     ("साइकिल | रोकी और उसकी लाइट बिना पैडल के जल उठी! 🚲", "only appear as the suffix"),
     ("Cycle की light अपने आप जल उठी, bina pedal! 🚲", "Devanagari"),
     ("साइकिल जली! 🚲", "characters"),
@@ -181,8 +184,11 @@ def test_runtime_and_payoff_bands():
     story = Story.from_dict(story_dict())
     spans = [[i * 7.0, i * 7.0 + 7.0] for i in range(len(story.beats))]
     assert gate.timing_problems(story, {"duration": 42.0, "beats": spans}) == []
-    assert has(gate.timing_problems(story, {"duration": 29.0, "beats": spans}), "F1 needs 30-58 s")
-    assert has(gate.timing_problems(story, {"duration": 59.0, "beats": spans}), "F1 needs 30-58 s")
+    assert has(gate.timing_problems(story, {"duration": 27.0, "beats": spans}), "F1 needs 30-58 s")
+    # The ceiling is on the Short, end card included: a 57 s narration makes a 59.4 s Short.
+    assert has(gate.timing_problems(story, {"duration": 57.0, "beats": spans}), "F1 needs 30-58 s")
+    assert gate.timing_problems(story, {"duration": 55.0, "beats": spans}) == []
+    assert gate.runtime_problems(45.0) == [] and gate.runtime_problems(59.4) and gate.runtime_problems(None)
     late = [[0, 5], [5, 10], [10, 15], [40, 44], [44, 48], [48, 50]]
     assert has(gate.timing_problems(story, {"duration": 50.0, "beats": late}), "after 75%")
 
