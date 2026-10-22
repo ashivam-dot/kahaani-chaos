@@ -1,7 +1,9 @@
 """python -m kahaani.cli plan --out DIR [--dry] [--replay story.json] | render --plan DIR --art DIR --out DIR [--dry]
 | publish | next | health
 
-plan picks the next premise, writes and gates the story, and writes one image prompt per beat for the paint jobs.
+plan picks the next F1 micro-entry from the bible's bank, writes and gates the story, and writes one image prompt per
+beat (and spare seeds for cast shots) for the paint jobs. Hindi text written by the local fallback model is never
+published: such a draft holds (PLAN.md §7.8).
 render screens the paintings, narrates, renders, and (unless --dry) stores the finished Short as a draft release and
 adds it to the ready buffer. publish fills the next slot from the oldest ready Short. Dry runs never touch the ledger
 or YouTube; a replay re-renders a reviewed story without any text-model call, and outside a dry run publishes it
@@ -39,15 +41,39 @@ def _outputs(**values) -> None:
 
 
 def summary(story: Story) -> dict:
+    """What the ledger keeps about a made Short (ledger.SUMMARY): what rotation and the variation gate compare."""
     return {"id": story.id, "premise": story.premise, "title": story.title, "subgenre": story.subgenre,
-            "motifs": story.motifs, "ending": story.ending, "opening": story.opening, "made_at": ledger.now()}
+            "motifs": story.motifs, "ending": story.ending, "opening": story.opening, "made_at": ledger.now(),
+            "format": story.format, "skeleton": story.skeleton, "resolution": story.resolution,
+            "heart_type": story.heart_type, "object_token": story.object_token, "anomaly": story.anomaly,
+            "location": story.location, "place_id": story.place_id, "hook_strip": story.hook_strip,
+            "script": story.narration}
 
 
 def story_from(draft: dict, premise: dict, story_id: str, writer: dict) -> Story:
+    """A Story from a gated draft and its bank entry (premises.premise_for)."""
     return Story(id=story_id, premise=premise["id"], title=draft["title"], hook=draft["hook"],
                  beats=[Beat(text=b["text"], scene=b["scene"], people=b["people"]) for b in draft["beats"]],
-                 cast=draft["cast"], subgenre=draft["subgenre"], ending=draft["ending"], twist_beat=draft["twist_beat"],
-                 description=draft["description"], motifs=premise["motifs"], hashtags=draft["hashtags"], writer=writer)
+                 cast=draft["cast"], subgenre=premise.get("heart_type", ""), ending=draft["ending"],
+                 twist_beat=draft["twist_beat"], description=draft["description"], motifs=[],
+                 hashtags=draft["hashtags"], writer=writer, format=config.FORMAT, hook_strip=draft["hook_strip"],
+                 object_token=premise.get("object_token") or draft["object_token"], anomaly=premise.get("anomaly", ""),
+                 niyam_id=draft["niyam_id"], resolution=draft["resolution"], heart_beat=draft["heart_beat"],
+                 heart_type=premise.get("heart_type", ""), skeleton=premise.get("title_skeleton", ""),
+                 location=premise.get("location", ""), place_id=premise.get("place_id", ""))
+
+
+def premise_of(story: Story) -> dict:
+    """The bank entry a made story came from, as the gates saw it (with the ending it was given)."""
+    from . import premises
+
+    entry = next((p for p in premises.bank() if p["id"] == story.premise), None)
+    if entry is None:
+        return {"id": story.premise, "ending_type": story.ending}
+    return {**entry, "ending_type": story.ending}
+
+
+LOCAL_HOLD = "hold: the draft came from the local fallback model; its Hindi is never published (wait for Gemini)"
 
 
 def art_plan(story: Story) -> dict:
@@ -74,7 +100,7 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
                     return status
                 if any(r.get("id") == story.id or r.get("premise") == story.premise for r in history):
                     raise ValueError(f"replay {story.id} (premise {story.premise}) was already made for the channel")
-            problems = gate.check(asdict(story), {"subgenre": story.subgenre}, history, rotation=not dry)
+            problems = gate.check(asdict(story), premise_of(story), history, rotation=not dry)
             if problems:
                 raise ValueError("replay fails the gates: " + "; ".join(problems))
         else:
@@ -84,16 +110,14 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
             if reason := voice.ready():
                 status["held"] = reason
                 return status
+            if low := premises.low(history):
+                status["bank_low"] = low
             with writer.Pen() as pen:
-                if not dry:
-                    try:
-                        premises.refill(history, pen.chat)
-                    except Exception as exc:  # a refill failing must not stop today's Short
-                        status["refill"] = f"{type(exc).__name__}: {exc}"[:300]
                 passed_over: list[list[str]] = []
                 while True:
-                    premise = premises.select(history, [p for p in premises.bank()
-                                                        if p["id"] not in {q for q, _ in passed_over}])
+                    entry = premises.select(history, [p for p in premises.bank()
+                                                      if p["id"] not in {q for q, _ in passed_over}])
+                    premise = premises.premise_for(entry, history)
                     status["premise"] = premise["id"]
                     try:
                         draft, notes = writer.write(premise, history, pen.chat)
@@ -103,6 +127,8 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
                         status["passed_over"] = passed_over
                         if len(passed_over) >= PREMISES_PER_RUN:
                             raise
+                if not dry and any(not m.startswith("gemini") for m in pen.used):
+                    raise writer.WriterHold(LOCAL_HOLD)
                 stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M")
                 story = story_from(draft, premise, f"kc-{stamp}-{premise['id']}", {"models": pen.used, "log": notes})
         story.save(out / "story.json")
@@ -127,7 +153,7 @@ def _cast_text(story: Story) -> str:
 
 def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -> dict:
     """Make the planned Short; unless dry, store it as a draft release and add it to the ready buffer."""
-    from . import aiart, compose, gemini, store, voice
+    from . import aiart, compose, gemini, store, vision, voice
 
     health = {"at": ledger.now(), "ok": True, "dry": dry, "steps": []}
     status = json.loads((plan_dir / "status.json").read_text(encoding="utf-8")) \
@@ -139,8 +165,9 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
             for passed, why in status.get("passed_over", []):
                 if passed != premise:
                     ledger.retry(passed, why)
-        if status.get("refill"):
-            health["steps"].append(f"premise refill: {status['refill']}")
+        if status.get("bank_low"):
+            health["bank_low"] = status["bank_low"]
+            health["steps"].append(f"bank: {status['bank_low']}")
         if status.get("skip"):
             health["steps"].append(f"skip: {status['skip']}")
             return health
@@ -152,20 +179,32 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
         work = out / story.id
         work.mkdir(parents=True, exist_ok=True)
         story.save(work / "story.json")
-        problems = gate.check(asdict(story), {"subgenre": story.subgenre}, ledger.history(), rotation=not dry)
+        problems = gate.check(asdict(story), premise_of(story), ledger.history(), rotation=not dry)
         if problems:
             raise RuntimeError("hold: the planned story fails the gates: " + "; ".join(problems))
         found = aiart.collect(art_dir, story.id, len(story.beats))
-        health["steps"].append(f"paintings: {len(found)} of {len(story.beats)} made")
+        spares = aiart.alternates(art_dir, story.id, len(story.beats))
+        health["steps"].append(f"paintings: {len(found)} of {len(story.beats)} made, "
+                               f"{sum(map(len, spares.values()))} repaints")
+        who = {i: look.present([dict(p) for p in b.people], story.cast) for i, b in enumerate(story.beats)}
         report: list[dict] = []
         try:
             pictures = aiart.pictures(found, [b.text for b in story.beats], work / "pics",
-                                      f"{story.title} — {story.description}", _cast_text(story), gemini.look, report)
+                                      f"{story.title} — {story.description}", _cast_text(story), gemini.look, report,
+                                      spares=spares, who={i: w for i, w in who.items() if w})
         except gemini.Unavailable as exc:
             raise RuntimeError(f"hold: no model can check the paintings ({exc})") from exc
         finally:
             (work / "pictures.json").write_text(json.dumps(report, indent=1, ensure_ascii=False), encoding="utf-8")
+        rate = aiart.prop_rate(report)
+        if rate is not None:
+            health["prop_identity"] = round(rate, 3)
+            if rate < vision.PROP_RATE:
+                raise aiart.PictureHold(f"hold: prop identity {rate:.0%} of cast shots, needs {vision.PROP_RATE:.0%}")
         timing = voice.synthesize(story, work)
+        late = gate.timing_problems(story, timing)
+        if late:
+            raise voice.VoiceHold("hold: " + "; ".join(late))
         stats = compose.render(story, timing, pictures, work)
         stats["voice"] = {k: timing["voice"].get(k) for k in ("engine", "identity", "served_model", "wpm", "coverage",
                                                               "tempo")}
@@ -188,7 +227,8 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
             health["held"] = reason[:500]
         else:
             health.update(ok=False, error=f"{type(exc).__name__}: {exc}"[:500], trace=traceback.format_exc()[-2000:])
-        if premise and not dry and not reason.startswith("hold: no narrator voice"):
+        # Neither a missing narrator nor a Gemini outage is the premise's fault: it keeps its tries.
+        if premise and not dry and not reason.startswith(("hold: no narrator voice", LOCAL_HOLD)):
             ledger.retry(premise, reason)
         health["steps"].append(f"{'hold' if health.get('held') else 'fail'} {premise or ''}: {reason}"[:400])
         return health
@@ -220,6 +260,9 @@ def publish(now: datetime | None = None, api=None) -> dict:
             learned = learn.refresh(api=api)
             if learned is not None:
                 health["steps"].append(f"learn: {learned['scored']} scored Shorts, lifts {learned['lifts']}"[:400])
+            seen = ledger.load("performance", {}).get("analytics") or ""
+            if seen.startswith("missing"):
+                health["analytics"] = seen  # the health check raises "analytics scope missing"
         except Exception as exc:  # the numbers steer selection; reading them must never stop a publish
             health["steps"].append(f"learn: {type(exc).__name__}: {exc}"[:300])
         for row in [r for r in ledger.published() if r.get("release_left")]:
@@ -241,7 +284,14 @@ def publish(now: datetime | None = None, api=None) -> dict:
         store.fetch(row["id"], folder)
         story = Story.load(folder / "story.json")
         voice = json.loads((folder / "timing.json").read_text(encoding="utf-8"))["voice"]
-        result = youtube.publish(story, folder / "short.mp4", voice, publish_at=due["publish_at"], api=api)
+        try:
+            result = youtube.publish(story, folder / "short.mp4", voice, publish_at=due["publish_at"], api=api)
+        except youtube.ReadbackMismatch as exc:
+            health["readback"] = str(exc)[:500]
+            raise
+        for key in ("comment", "playlist"):
+            if str(result.get(key, "")).startswith("pending"):
+                health["steps"].append(f"{key}: {result[key]}")
         entry = {**row, "slot": due["slot"], "published_at": due["publish_at"] or ledger.now(), **result}
         ledger.record_publish(entry)
         health["steps"].append(f"{result['privacy']} {row['id']} for {due['slot']}: {result['url']}")
@@ -288,7 +338,8 @@ def main(argv: list[str] | None = None) -> int:
     elif a.cmd == "next":
         from . import premises
 
-        print(json.dumps(premises.select(ledger.history()), indent=1, ensure_ascii=False))
+        history = ledger.history()
+        print(json.dumps(premises.premise_for(premises.select(history), history), indent=1, ensure_ascii=False))
         return 0
     else:
         print(json.dumps(ledger.load("health", {}), indent=1, ensure_ascii=False))

@@ -4,10 +4,16 @@ same passage (tools/audition.py): best Whisper CER (0.06), UTMOS22 2.60 (second;
 low harshness, 146 wpm.
 
 Gemini reads the whole story in one take (the delivery carries from line to line), with a held pause before the
-twist. Whisper large-v3-turbo listens to every take in Hindi: each line must reach MIN_COVERAGE, the take may not add
-speech of its own, and its pace must be near TARGET_WPM, measured from Whisper's word timings. A take a little off
-pace is gently re-timed (pitch is kept) and checked again. Up to TAKES takes, best first; otherwise the narration is
-rejected (fail closed).
+twist. Whisper large-v3-turbo listens to every take in Hindi: each line must reach align.MIN_COVERAGE, the take may
+not add speech of its own, and its pace must be near TARGET_WPM, measured from Whisper's word timings. A take a little
+off pace is gently re-timed (pitch is kept) and checked again. Up to TAKES takes, best first; otherwise the narration
+is rejected (fail closed).
+
+F1 bands (PLAN.md §7.4 gate h, each floor with its ceiling): the hook line is read quicker (HOOK_WPM, hard band
+HOOK_HARD), the rest at TARGET_WPM (hard band HARD_WPM); speech starts within ONSET of the first frame; Whisper hears
+at least COVERAGE of the script's letters overall at a character error rate of at most CER; no silence inside the
+narration is longer than MAX_GAP. The finished narration is measured once more (measure / problems) and a miss holds
+the Short.
 
 When no Gemini TTS model can read (no key, or every free daily quota spent), the fallback keeps the same voice:
 Chatterbox Multilingual (MIT) clones tts/voices/narrator_ref.wav, a reference clip of the same Gemini voice. Until
@@ -32,12 +38,12 @@ import numpy as np
 import requests
 import soundfile as sf
 
-from . import align, gemini
+from . import align, gemini, hindi
 from .spec import Story
 
 log = logging.getLogger("kahaani.voice")
 SAMPLE_RATE = 24000
-LEAD_IN = 0.35
+LEAD_IN = 0.2
 SPEECH_FLOOR = 0.01
 EDGE_KEEP = 0.05
 VOICE = "Charon"
@@ -48,14 +54,20 @@ GEMINI_TTS = ("gemini-3.8-flash-tts", "gemini-3.8-flash-lite-tts", "gemini-3.1-f
               "gemini-2.5-flash-preview-tts")
 MAX_QUOTA_WAIT = 90.0
 UNKNOWN_QUOTA_BACKOFF = (20.0, 40.0)
-DIRECTION = ("Read this Hindi story aloud as a master storyteller at night, speaking to one listener close by: a "
-             "low, warm and intimate voice, suspenseful and unhurried, letting the strange moments land. "
-             "Natural pauses between sentences, a slightly longer pause between lines, and a held breath of silence "
-             "where the transcript shows '…' before the twist. Never shouting, never theatrical. Pace: about 150 "
-             "words a minute. Speak only the transcript.")
+DIRECTION = ("Read this Hindi story aloud as a grown man remembering a strange night from his village childhood, "
+             "speaking to one listener close by: a low, warm and intimate voice, with quiet wonder and a little "
+             "suspense. Start speaking at once. Say the first line a touch quicker, as if you can still see it (about "
+             "175 words a minute), then settle to about 165 words a minute. Short natural pauses between sentences, "
+             "a held breath where the transcript shows '…' before the turn, never a long silence. Never shouting, "
+             "never theatrical. Speak only the transcript.")
 TAKES = 3
 MIN_COVERAGE = align.MIN_COVERAGE
-TARGET_WPM, AIM_WPM, HARD_WPM = (140.0, 160.0), 150.0, (115.0, 185.0)
+TARGET_WPM, AIM_WPM, HARD_WPM = (155.0, 175.0), 165.0, (140.0, 190.0)
+HOOK_WPM, HOOK_HARD = (170.0, 185.0), (150.0, 205.0)
+ONSET = 0.3  # seconds from the first frame to the first word
+COVERAGE = 0.95
+CER = 0.12
+MAX_GAP = 1.2
 TEMPO_LIMITS = (0.85, 1.18)
 CUT_LEAD = 0.08
 TWIST_PAUSE = 0.9
@@ -302,6 +314,64 @@ def _wpm(tokens: list, spoken: list[tuple[str, float, float]]) -> float | None:
     return round(len(tokens) * 60 / seconds, 1) if seconds > 0 else None
 
 
+def cer(script: str, said: str) -> float:
+    """Character error rate of what Whisper heard against the script, on normalised letters (Levenshtein)."""
+    a, b = align.letters(hindi.norm(script)), align.letters(hindi.norm(said))
+    if not a:
+        return 1.0 if b else 0.0
+    prev = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        cur = [i] + [0] * len(b)
+        for j, cb in enumerate(b, 1):
+            cur[j] = min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (ca != cb))
+        prev = cur
+    return prev[-1] / len(a)
+
+
+def measure(story: Story, words: list[dict], spoken: list[tuple[str, float, float]]) -> dict:
+    """The narration's numbers for gate h: onset, hook and body pace, overall coverage, CER and the longest gap."""
+    heard = [w for w in spoken if align.letters(w[0])]
+    first = [w for w in words if w["beat"] == 0]
+    rest = [w for w in words if w["beat"] > 0]
+
+    def pace(ws: list[dict]) -> float | None:
+        span = ws[-1]["end"] - ws[0]["start"] if ws else 0.0
+        return round(len(ws) * 60 / span, 1) if span > 0 else None
+
+    total = sum(len(align.letters(b.text)) for b in story.beats)
+    found = sum(len(align.letters(w["text"])) for w in words if w.get("heard", True))
+    gaps = [b[1] - a[2] for a, b in zip(heard, heard[1:])]
+    return {"onset": round(heard[0][1], 3) if heard else None, "hook_wpm": pace(first), "body_wpm": pace(rest),
+            "coverage": round(found / max(total, 1), 3),
+            "cer": round(cer(story.narration, " ".join(w[0] for w in spoken)), 3),
+            "max_gap": round(max(gaps, default=0.0), 3)}
+
+
+def problems(m: dict) -> list[str]:
+    """Where measured narration falls outside gate h's bands (empty = it passes)."""
+    found = []
+    if m.get("onset") is None or m["onset"] > ONSET:
+        found.append(f"speech starts at {m.get('onset')} s, needs at most {ONSET} s")
+    if m.get("hook_wpm") is None or not HOOK_HARD[0] <= m["hook_wpm"] <= HOOK_HARD[1]:
+        found.append(f"the hook is read at {m.get('hook_wpm')} wpm, needs {HOOK_HARD[0]:.0f}-{HOOK_HARD[1]:.0f}")
+    if m.get("body_wpm") is None or not HARD_WPM[0] <= m["body_wpm"] <= HARD_WPM[1]:
+        found.append(f"the story is read at {m.get('body_wpm')} wpm, needs {HARD_WPM[0]:.0f}-{HARD_WPM[1]:.0f}")
+    if m.get("coverage", 0) < COVERAGE:
+        found.append(f"Whisper heard {m.get('coverage', 0):.0%} of the script, needs {COVERAGE:.0%}")
+    if m.get("cer", 1) > CER:
+        found.append(f"character error rate {m.get('cer')}, needs at most {CER}")
+    if m.get("max_gap", 0) > MAX_GAP:
+        found.append(f"a silence of {m['max_gap']} s inside the narration, at most {MAX_GAP} s")
+    return found
+
+
+def _rank(m: dict) -> float:
+    """How far a passing take is from the aims (lower is better): body pace, then hook pace."""
+    hook = m.get("hook_wpm") or 0.0
+    off = 0.0 if HOOK_WPM[0] <= hook <= HOOK_WPM[1] else min(abs(hook - HOOK_WPM[0]), abs(hook - HOOK_WPM[1]))
+    return abs((m.get("body_wpm") or 0.0) - AIM_WPM) + 0.5 * off
+
+
 def _tempo(path: Path, factor: float, out: Path) -> Path:
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(path), "-af", f"atempo={factor:.4f}",
                     "-ar", str(SAMPLE_RATE), "-ac", "1", "-c:a", "pcm_s16le", str(out)], check=True)
@@ -330,7 +400,7 @@ def _paced(wav: Path, tokens, words, coverage, spoken, wpm, out_dir: Path) -> tu
     factor = min(max(AIM_WPM / wpm, TEMPO_LIMITS[0]), TEMPO_LIMITS[1])
     paced = _tempo(wav, factor, out_dir / "narration-paced.wav")
     w2, c2, _, wpm2 = _listen(paced, tokens)
-    if c2 and min(c2) >= MIN_COVERAGE:
+    if c2 and min(c2) >= MIN_COVERAGE and abs((wpm2 or 0) - AIM_WPM) < abs(wpm - AIM_WPM):
         paced.replace(wav)
         return w2, c2, wpm2, round(factor, 4)
     paced.unlink(missing_ok=True)
@@ -381,24 +451,29 @@ def _gemini_story(story: Story, out_dir: Path) -> dict:
             end = int((words[-1]["end"] - LEAD_IN + 0.12) * SAMPLE_RATE) if after else len(raw)
             raw = raw[start:end]
         low = min(coverage) if coverage else 0.0
-        ok = bool(clean and low >= MIN_COVERAGE and wpm is not None and HARD_WPM[0] <= wpm <= HARD_WPM[1])
+        m = measure(story, words, spoken)
+        missed = problems(m)
+        ok = bool(clean and low >= MIN_COVERAGE and wpm is not None and not missed)
         takes.append({"take": take, "model": record["served_model"], "coverage": [round(c, 3) for c in coverage],
-                      "wpm": wpm, "clean": clean, "ok": ok})
-        log.info("take %d (%s): coverage %s, %s wpm%s", take, record["served_model"],
-                 " ".join(f"{c:.0%}" for c in coverage), wpm, "" if clean else ", extra speech")
-        if ok and (best is None or abs(wpm - AIM_WPM) < abs(best[3] - AIM_WPM)):
-            best = (audio, record, (words, coverage, spoken), wpm)
-        if ok and TARGET_WPM[0] - 5 <= wpm <= TARGET_WPM[1] + 5:
+                      "wpm": wpm, "clean": clean, "ok": ok, **m, "problems": missed})
+        log.info("take %d (%s): coverage %s, %s wpm%s %s", take, record["served_model"],
+                 " ".join(f"{c:.0%}" for c in coverage), wpm, "" if clean else ", extra speech", missed)
+        if ok and (best is None or _rank(m) < _rank(best[4])):
+            best = (audio, record, (words, coverage, spoken), wpm, m)
+        if ok and TARGET_WPM[0] <= (m["body_wpm"] or 0) <= TARGET_WPM[1] and \
+                HOOK_WPM[0] <= (m["hook_wpm"] or 0) <= HOOK_WPM[1]:
             break
     (out_dir / "takes.json").write_text(json.dumps(takes, indent=1), encoding="utf-8")
     if best is None:
         raise TakeRejected(f"voice: every {VOICE} take came out garbled or off pace: {takes}"[:400])
-    audio, record, (words, coverage, spoken), wpm = best
+    audio, record, (words, coverage, spoken), wpm, _ = best
     sf.write(wav, audio, SAMPLE_RATE)
     words, coverage, wpm, factor = _paced(wav, tokens, words, coverage, spoken, wpm, out_dir)
     duration = sf.info(str(wav)).duration
     lead = LEAD_IN / factor
     words = [w | {"start": max(w["start"], lead), "end": max(w["end"], lead + 0.05)} for w in words]
+    spoken = align.heard(wav) if factor != 1.0 else spoken
+    record["checks"] = measure(story, words, spoken)
     return _timing(out_dir, words, _spans(words, len(story.beats), duration, lead), duration,
                    {"engine": "gemini-narrator", "identity": "narrator", **record,
                     "coverage": [round(c, 3) for c in coverage], "wpm": wpm, "tempo": factor, "takes": len(takes)})
@@ -469,6 +544,7 @@ def _chatterbox_story(story: Story, out_dir: Path) -> dict:
               "reference": str(REFERENCE.relative_to(TTS_DIR.parent)),
               "reference_sha256": hashlib.sha256(REFERENCE.read_bytes()).hexdigest(),
               "coverage": [round(c[2], 3) for c in clips], "wpm": wpm, "tempo": factor, **STYLE}
+    record["checks"] = measure(story, words, align.heard(wav))
     return _timing(out_dir, words, _spans(words, len(story.beats), duration, LEAD_IN / factor), duration, record)
 
 
@@ -481,6 +557,14 @@ def _timing(out_dir: Path, words: list[dict], spans: list, duration: float, voic
 
 def synthesize(story: Story, out_dir: Path) -> dict:
     """narration.wav plus timing.json: {duration, words, beats: [[start, end], ...], voice}."""
+    timing = _synthesize(story, out_dir)
+    missed = problems(timing["voice"].get("checks") or {})
+    if missed:
+        raise VoiceHold("hold: voice: " + "; ".join(missed))
+    return timing
+
+
+def _synthesize(story: Story, out_dir: Path) -> dict:
     reason = None
     if gemini.key():
         try:

@@ -1,5 +1,7 @@
 """Looks at every painting before it can reach a Short: refuses nudity, sexual content, gore, malformed bodies, text
-in the picture, and a picture that doesn't show its line. When no model can look, nothing is published.
+or logos in the picture, religious imagery, a made-for-kids look (chibi, big eyes, a kids' book), a cast shot that
+does not show its characters' signature props or colours (prop identity, PLAN.md §7.4 gate l), and a picture that
+doesn't show its line. When no model can look, nothing is published.
 """
 from __future__ import annotations
 
@@ -8,7 +10,10 @@ from pathlib import Path
 
 PER_PROMPT = 5
 SIDE = 768
-FLAGS = ("nudity", "sexual", "gore", "malformed", "text")
+FLAGS = ("nudity", "sexual", "gore", "malformed", "text", "religious", "kids_look")
+# A cast shot must show each painted character's signature prop or colour; a video needs PROP_RATE of its cast shots
+# to (after up to look.ALTERNATES repaints each); a shot that never does is dropped.
+PROP_RATE = 0.85
 
 SCHEMA = {
     "type": "object",
@@ -21,19 +26,20 @@ SCHEMA = {
                     "n": {"type": "integer"},
                     "shows": {"type": "string"},
                     **{f: {"type": "boolean"} for f in FLAGS},
+                    "props_ok": {"type": "boolean"},
                     "fits": {"type": "boolean"},
                     "reason": {"type": "string"},
                 },
-                "required": ["n", "shows", *FLAGS, "fits", "reason"],
+                "required": ["n", "shows", *FLAGS, "props_ok", "fits", "reason"],
             },
         },
     },
     "required": ["pictures"],
 }
 
-PROMPT = """You are the picture editor of a Hindi YouTube Shorts channel of original magical and mysterious folk
-stories for a 13+ audience. An AI model painted each picture below for one narrated line; it will fill the screen
-while that line plays. Look at the pixels carefully.
+PROMPT = """You are the picture editor of "सन्नाटपुर की रातें", Hindi 90s-nostalgia mystery Shorts for adults, set in
+an invented 1996 north-Indian village. An AI model painted each picture below for one narrated line; it will fill
+the screen while that line plays. Look at the pixels carefully.
 
 Story: {story}
 Characters: {cast}
@@ -45,7 +51,13 @@ For each picture answer:
 - gore: true for blood, wounds, severed body parts or corpses.
 - malformed: true if a main figure's face or body is visibly broken: extra or missing limbs or fingers, melted or
   doubled faces, an animal character painted as a person in clothes or with a human face.
-- text: true if any legible or garbled letters, words, signs, captions or a watermark appear.
+- text: true if any legible or garbled letters, words, signs, captions, a watermark, a brand logo or a label appear.
+- religious: true for any shrine, temple, mosque, idol, deity, holy man, prayer, holy thread, tilak, rosary, cross,
+  crescent, sacred sign or grave.
+- kids_look: true if it looks made for children: chibi or big-eyed cartoon faces, toddler proportions, a kids'
+  picture-book or nursery style. The young people are 17-18 with adult proportions.
+- props_ok: for each character the line says should appear, true only if that character is visible and shows at
+  least one of their listed signature props or colours. True when the line lists no characters.
 - fits: true if the picture plausibly shows this line's moment with this story's characters and setting, in a
   painted (not photographic, not cartoon) style. False for an unrelated scene, the wrong characters, a modern
   object the story doesn't have, or a sheet of several pictures.
@@ -65,26 +77,39 @@ def _small(path: Path) -> bytes:
     return buf.getvalue()
 
 
-def rejected(verdict: dict) -> str | None:
-    """Why a verdict keeps its picture out of a Short, or None when the picture may be used."""
+def rejected(verdict: dict, cast_shot: bool = False) -> str | None:
+    """Why a verdict keeps its picture out of a Short, or None when the picture may be used. A cast shot must also
+    pass prop identity (a missing answer counts as a failure)."""
     for flag in FLAGS:
         if verdict.get(flag):
             return f"{flag}: {verdict.get('reason') or verdict.get('shows')}"
+    if cast_shot and verdict.get("props_ok") is not True:
+        return f"props: the characters' signature props or colours are missing ({verdict.get('reason') or ''})"
     if not verdict.get("fits"):
         return f"does not fit the line: {verdict.get('reason') or verdict.get('shows')}"
     return None
 
 
-def judge(items: list[tuple[Path, str]], story: str, cast: str, ask) -> list[dict]:
-    """One verdict per (picture file, narrated line), in order. ask(parts, schema) answers like gemini.look; a missing
+def expected(ids: list[str]) -> str:
+    """Who a cast shot should show and what identifies each, for the prompt."""
+    from . import bible
+
+    known = bible.cast()
+    return "; ".join(f"{known[i]['name']['en']} (any of: {bible.signature(i)})" for i in ids if i in known)
+
+
+def judge(items: list[tuple], story: str, cast: str, ask) -> list[dict]:
+    """One verdict per (picture file, narrated line[, who should appear]), in order. ask(parts, schema) answers like gemini.look; a missing
     or malformed verdict counts as a rejection."""
     verdicts: list[dict] = []
     for start in range(0, len(items), PER_PROMPT):
         chunk = items[start:start + PER_PROMPT]
-        lines = "\n".join(f"{n}. narrated line: {line}" for n, (_, line) in enumerate(chunk, 1))
+        lines = "\n".join(f"{n}. narrated line: {item[1]}" + (f"\n   should appear: {item[2]}" if len(item) > 2 and
+                                                              item[2] else "")
+                          for n, item in enumerate(chunk, 1))
         parts: list = [PROMPT.format(story=story, cast=cast, lines=lines)]
-        for n, (path, _) in enumerate(chunk, 1):
-            parts += [f"Picture {n}:", _small(path)]
+        for n, item in enumerate(chunk, 1):
+            parts += [f"Picture {n}:", _small(item[0])]
         answer = ask(parts, SCHEMA)
         got = {v.get("n"): v for v in (answer or {}).get("pictures", []) if isinstance(v, dict)}
         for n in range(1, len(chunk) + 1):

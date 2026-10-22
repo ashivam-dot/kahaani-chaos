@@ -1,6 +1,12 @@
 """Story renderer: one AI painting per beat brought to life with depth parallax (a slow camera move through the
-scene), a teal-and-amber grade, word-by-word Hindi captions, an always-visible AI and fiction label, a short end card
-and a loudness-normalised mix over the dark-ambient bed. Pure Python + ffmpeg, about real time.
+scene), a moonlit teal-and-amber grade, word-by-word Hindi captions, an always-visible AI and fiction label, an ending
+card per ending type and a loudness-normalised mix over the dark-ambient bed. Pure Python + ffmpeg, about real time.
+
+F1 layout (PLAN.md §5, §7.4 gates g and k): frame 0 is the peak image under a 3-5 word hook strip in the top third
+(10-28% of the frame's height); captions sit above 75% of the height; nothing is drawn in the bottom 25% or the
+right 12% (the Shorts player's buttons); the AI label is small in the top-left corner. The finished Short is held
+unless frame 0's mean luma is 90-170 and its RMS contrast 0.18-0.45, no frame-to-frame luma drop above 35% happens
+outside a cut, and the encoded file has the expected frame count (within one).
 
 Devanagari needs complex text shaping (conjuncts such as क्ष and त्र, vowel signs that sit before their consonant), so
 every string is laid out with Pillow's RAQM engine (HarfBuzz + FriBiDi) in Mukta (SIL Open Font License, bundled in
@@ -9,6 +15,7 @@ kahaani/fonts). Pillow's basic layout draws Hindi wrongly, so rendering refuses 
 from __future__ import annotations
 
 import functools
+import json
 import math
 import re
 import subprocess
@@ -33,6 +40,27 @@ ACCENT = (255, 190, 92)
 CROSSFADE = 10  # frames
 CAPTION_Y = 0.665
 END_CARD = 2.4  # seconds after the narration
+# Where text may go: above SAFE_BOTTOM of the height, left of SAFE_RIGHT of the width, SIDE pixels from the left edge.
+SAFE_BOTTOM, SAFE_RIGHT, SIDE = 0.75, 0.88, 48
+TEXT_W = round(W * SAFE_RIGHT) - 2 * SIDE
+TEXT_CX = (SIDE + round(W * SAFE_RIGHT)) // 2
+STRIP_TOP = 0.05
+STRIP_SHARE = (0.10, 0.28)  # the hook strip's share of the frame height
+VIGNETTE_FLOOR = 0.65
+LIFT = 14.0  # shadows lifted by this much (8-bit): moonlit, never crushed to black
+EXPOSURE = (118.0, 0.85, 1.35)  # each painting is nudged toward this mean luma, by a gain within these bounds
+FRAME0_LUMA = (90.0, 170.0)
+FRAME0_CONTRAST = (0.18, 0.45)
+BLINK_DROP = 0.35
+# Gate j (PLAN.md §7.4): the finished Short's integrated loudness and true peak, measured on the encoded file.
+LUFS = (-15.0, -13.0)
+TRUE_PEAK = -1.0
+ENDING_LINES = {"register-line": "झब्बू के रजिस्टर में एक और रात दर्ज", "open-question": "आपका जवाब नीचे लिखिए",
+                "next-raat-tease": "पूरी रात · शनिवार शाम 7:30"}
+
+
+class ComposeHold(RuntimeError):
+    """The rendered Short fails a picture check: hold it."""
 BELL_LEAD = 0.35  # the bell rings this long before the twist line
 MOTIONS = [
     {"z": (1.00, 1.09), "dz": (0.00, 0.07), "pan": (0, 0, 0, -20), "par": (0, 0)},  # push in
@@ -82,7 +110,10 @@ class Plate:
         x0, y0 = (sw - pw) // 2, (sh - ph) // 2
         rgb = img.resize((sw, sh), Image.LANCZOS).crop((x0, y0, x0 + pw, y0 + ph))
         d = cv2.resize(dep, (sw, sh), interpolation=cv2.INTER_LINEAR)[y0:y0 + ph, x0:x0 + pw]
-        self.rgb = np.asarray(rgb, dtype=np.uint8)
+        arr = np.asarray(rgb, dtype=np.float32)
+        target, low, high = EXPOSURE
+        gain = min(max(target / max(float(arr.mean()), 1.0), low), high)
+        self.rgb = np.clip(arr * gain, 0, 255).astype(np.uint8)
         self.depth = cv2.GaussianBlur(d.astype(np.float32), (0, 0), 3) - 0.5
         self.pw, self.ph = pw, ph
 
@@ -112,13 +143,14 @@ class Camera:
 
 
 class Grade:
-    """Teal shadows, amber highlights, a vignette, a darker band behind the captions, and film grain."""
+    """Teal shadows, amber highlights, a soft vignette (never below VIGNETTE_FLOOR), a darker band behind the
+    captions, a shadow lift and film grain."""
 
     def __init__(self, seed: int):
         yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
         r = np.sqrt(((xx - W / 2) / (W * 0.75)) ** 2 + ((yy - H * 0.45) / (H * 0.7)) ** 2)
-        vignette = np.clip(1.08 - 0.6 * r ** 2.2, 0.3, 1.0)
-        band = 1 - 0.32 * np.exp(-((yy - H * CAPTION_Y) / (H * 0.09)) ** 2) - 0.2 * np.exp(-((yy - H * 0.1) / (H * 0.07)) ** 2)
+        vignette = np.clip(1.08 - 0.6 * r ** 2.2, VIGNETTE_FLOOR, 1.0)
+        band = 1 - 0.22 * np.exp(-((yy - H * CAPTION_Y) / (H * 0.09)) ** 2)
         self.mask = (vignette * band)[..., None].astype(np.float32)
         self.teal = np.array([0.88, 1.0, 1.08], np.float32)
         self.amber = np.array([1.1, 1.0, 0.86], np.float32)
@@ -132,6 +164,7 @@ class Grade:
         lum = np.clip(gray / 255.0, 0, 1)
         f = (f - 128) * 1.08 + 128
         f = f * (self.teal + (self.amber - self.teal) * lum) * self.mask
+        f = LIFT + f * (1 - LIFT / 255.0)
         g = cv2.resize(self.grain[i % 4], (W, H), interpolation=cv2.INTER_NEAREST)[..., None]
         return np.clip(f + g, 0, 255).astype(np.uint8)
 
@@ -170,7 +203,7 @@ def _text_layer(lines: list[tuple[str, ImageFont.FreeTypeFont, tuple]], stroke: 
 
 
 CAPTION_SIZE, CAPTION_STROKE = 92, 9
-CAPTION_WIDTH = W - 160
+CAPTION_WIDTH = TEXT_W - 40
 BREAKS = ".,;:!?—।॥…"
 
 
@@ -216,8 +249,8 @@ class Captions:
             d.text((x + stroke, 8 + stroke), t, font=self.font, fill=color, stroke_width=stroke,
                    stroke_fill=(0, 0, 0, 255))
             x += w + space
-        if img.width > W - 80:
-            img = img.resize((W - 80, round(img.height * (W - 80) / img.width)), Image.LANCZOS)
+        if img.width > TEXT_W:
+            img = img.resize((TEXT_W, round(img.height * TEXT_W / img.width)), Image.LANCZOS)
         return _rgba(img)
 
     def draw(self, frame: np.ndarray, t: float) -> None:
@@ -232,7 +265,7 @@ class Captions:
                     rgb = cv2.resize(layer[0], (max(1, round(w * s)), max(1, round(h * s))))
                     a = cv2.resize(layer[1], (max(1, round(w * s)), max(1, round(h * s))))[..., None]
                     layer, (h, w) = (rgb, a), a.shape[:2]
-                _blit(frame, layer, (W - w) // 2, round(H * CAPTION_Y - h / 2))
+                _blit(frame, layer, TEXT_CX - w // 2, round(H * CAPTION_Y - h / 2))
                 return
 
 
@@ -244,30 +277,125 @@ def _fit(weight: str, size: int, text: str, width: int, floor: int = 24) -> Imag
 
 
 def _label_layer() -> tuple[np.ndarray, np.ndarray]:
-    return _rgba(_text_layer([(AI_LABEL, _font("SemiBold", 36), (255, 255, 255, 240))], pad=14, box=(10, 12, 16, 190)))
+    """The AI and fiction label: small, in the top-left corner, on every frame."""
+    return _rgba(_text_layer([(AI_LABEL, _font("SemiBold", 28), (255, 255, 255, 235))], pad=10, box=(10, 12, 16, 170)))
 
 
-def _headline_layer(title: str) -> tuple[np.ndarray, np.ndarray]:
-    """The title without its emoji, large on the first frames (YouTube may take the cover from them)."""
-    text = drawable(hindi.EMOJI.sub("", title).replace("\ufe0f", ""), "ExtraBold")
-    font = _fit("ExtraBold", 84, text, W - 120, 48)
-    words, lines, cur = text.split(), [], ""
-    for w in words:
-        if cur and font.getlength(f"{cur} {w}") > W - 120:
+LABEL_AT = (SIDE - 12, 26)
+
+
+def _wrap(text: str, font: ImageFont.FreeTypeFont, width: int) -> list[str]:
+    lines, cur = [], ""
+    for w in text.split():
+        if cur and font.getlength(f"{cur} {w}") > width:
             lines.append(cur)
             cur = w
         else:
             cur = f"{cur} {w}".strip()
-    lines.append(cur)
-    return _rgba(_text_layer([(ln, font, (255, 255, 255, 255)) for ln in lines[:3]], stroke=7, gap=14))
+    return lines + [cur] if cur else lines
 
 
-def _end_layers() -> list[tuple[np.ndarray, np.ndarray]]:
-    """The end card: the channel's name, what it tells, and the fiction and AI disclosure. No asks."""
-    name = _rgba(_text_layer([(config.NAME, _fit("ExtraBold", 128, config.NAME, W - 140), ACCENT + (255,))]))
-    tag = _rgba(_text_layer([(config.TAGLINE, _font("SemiBold", 56), (255, 255, 255, 240))]))
-    disc = _rgba(_text_layer([(END_LINE, _fit("Medium", 36, END_LINE, W - 120), (255, 255, 255, 215))]))
-    return [name, tag, disc]
+def _strip_layer(strip: str) -> tuple[np.ndarray, np.ndarray]:
+    """The hook strip over frame 0: 3-5 words, large, on a dark band whose height is STRIP_SHARE of the frame and
+    which ends inside the top third."""
+    text = drawable(hindi.EMOJI.sub("", strip).replace("\ufe0f", ""), "ExtraBold")
+    room = min(STRIP_SHARE[1], 1 / 3 - STRIP_TOP) * H
+    for size in range(124, 50, -6):
+        font = _font("ExtraBold", size)
+        lines = _wrap(text, font, TEXT_W - 56)
+        if len(lines) <= 2 and all(font.getlength(ln) <= TEXT_W - 56 for ln in lines):
+            img = _text_layer([(ln, font, ACCENT + (255,) if i == 0 else (255, 255, 255, 255))
+                               for i, ln in enumerate(lines)], stroke=6, gap=18, pad=28)
+            if img.height <= room:
+                break
+    rgb, a = _rgba(img)
+    h = a.shape[0]
+    want = max(h, round(STRIP_SHARE[0] * H) + 2)
+    band = np.zeros((want, TEXT_W, 4), np.float32)
+    band[..., 3] = 0.62
+    y0, x0 = (want - h) // 2, max((TEXT_W - a.shape[1]) // 2, 0)
+    w = min(a.shape[1], TEXT_W)
+    under = band[y0:y0 + h, x0:x0 + w]
+    la = a[:, :w]
+    under[..., :3] = rgb[:, :w] * la + under[..., :3] * (1 - la)
+    under[..., 3:4] = la + under[..., 3:4] * (1 - la)
+    return band[..., :3], band[..., 3:4]
+
+
+def _headline_layer(title: str) -> tuple[np.ndarray, np.ndarray]:
+    """The title without its emoji as a hook strip (stories made before F1 have no hook_strip)."""
+    return _strip_layer(title)
+
+
+def _end_layers(ending: str = "") -> list[tuple[np.ndarray, np.ndarray]]:
+    """The end card: the channel's name, what it tells, the ending's line, and the fiction and AI disclosure. No
+    like or subscribe asks."""
+    layers = [_rgba(_text_layer([(config.NAME, _fit("ExtraBold", 112, config.NAME, TEXT_W), ACCENT + (255,))])),
+              _rgba(_text_layer([(config.TAGLINE, _fit("SemiBold", 48, config.TAGLINE, TEXT_W), (255, 255, 255, 240))]))]
+    if ending in ENDING_LINES:
+        line = ENDING_LINES[ending]
+        layers.append(_rgba(_text_layer([(line, _fit("Bold", 58, line, TEXT_W), (255, 255, 255, 250))])))
+    layers.append(_rgba(_text_layer([(END_LINE, _fit("Medium", 34, END_LINE, TEXT_W), (255, 255, 255, 215))])))
+    return layers
+
+
+END_AT = (0.30, 0.39, 0.47, 0.55)
+
+
+def problems(lumas: list[float], cuts: set[int], frame0: np.ndarray, expected: int, counted: int | None) -> list[str]:
+    """The picture checks (PLAN.md §7.4 gates g and k): frame 0's exposure and contrast, blinks, frame count."""
+    found = []
+    gray = cv2.cvtColor(frame0, cv2.COLOR_RGB2GRAY).astype(np.float32)
+    luma, contrast = float(gray.mean()), float(gray.std() / 255.0)
+    if not FRAME0_LUMA[0] <= luma <= FRAME0_LUMA[1]:
+        found.append(f"frame 0 mean luma {luma:.0f}, needs {FRAME0_LUMA[0]:.0f}-{FRAME0_LUMA[1]:.0f}")
+    if not FRAME0_CONTRAST[0] <= contrast <= FRAME0_CONTRAST[1]:
+        found.append(f"frame 0 RMS contrast {contrast:.2f}, needs {FRAME0_CONTRAST[0]}-{FRAME0_CONTRAST[1]}")
+    for i in range(1, len(lumas)):
+        if i not in cuts and lumas[i - 1] > 1 and (lumas[i - 1] - lumas[i]) / lumas[i - 1] > BLINK_DROP:
+            found.append(f"frame {i} blinks: luma drops {lumas[i - 1]:.0f} -> {lumas[i]:.0f} outside a cut")
+            break
+    if counted is not None and abs(counted - expected) > 1:
+        found.append(f"the encoded Short has {counted} frames, expected {expected}")
+    return found
+
+
+def loudness(path: Path) -> dict | None:
+    """{"lufs", "true_peak"} of a file's audio (ffmpeg ebur128 summary), or None when it cannot be measured."""
+    try:
+        err = subprocess.run(["ffmpeg", "-nostats", "-hide_banner", "-i", str(path), "-filter_complex",
+                              "ebur128=peak=true", "-f", "null", "-"], capture_output=True, text=True,
+                             check=True).stderr
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    summary = err[err.rfind("Summary:"):]
+    lufs = re.search(r"I:\s+(-?[\d.]+|-inf) LUFS", summary)
+    peak = re.search(r"True peak:\s+Peak:\s+(-?[\d.]+|-inf) dBFS", summary)
+    if not lufs or not peak:
+        return None
+    return {"lufs": float(lufs.group(1)), "true_peak": float(peak.group(1))}
+
+
+def audio_problems(m: dict | None) -> list[str]:
+    """Gate j: integrated loudness inside LUFS (floor and ceiling) and true peak at most TRUE_PEAK."""
+    if not m:
+        return ["the Short's loudness could not be measured"]
+    found = []
+    if not LUFS[0] <= m["lufs"] <= LUFS[1]:
+        found.append(f"integrated loudness {m['lufs']:.1f} LUFS, needs {LUFS[0]:.0f} to {LUFS[1]:.0f}")
+    if m["true_peak"] > TRUE_PEAK:
+        found.append(f"true peak {m['true_peak']:.1f} dBTP, needs at most {TRUE_PEAK}")
+    return found
+
+
+def count_frames(path: Path) -> int | None:
+    try:
+        out = subprocess.run(["ffprobe", "-v", "error", "-count_frames", "-select_streams", "v:0", "-show_entries",
+                              "stream=nb_read_frames", "-of", "csv=p=0", str(path)], capture_output=True, text=True,
+                             check=True).stdout.strip()
+        return int(out.split(",")[0])
+    except (OSError, subprocess.CalledProcessError, ValueError):
+        return None
 
 
 def bell_time(story: Story, spans: list) -> float | None:
@@ -302,7 +430,12 @@ def render(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict
     spans = timing["beats"]
     shots = [{"plate": plates[pictures[i]], "start": s if i else 0.0, "end": e if i < len(spans) - 1 else duration,
               "motion": MOTIONS[i % len(MOTIONS)]} for i, (s, e) in enumerate(spans)]
-    headline, label, end = _headline_layer(story.title), _label_layer(), _end_layers()
+    strip = _strip_layer(story.hook_strip) if story.hook_strip else _headline_layer(story.title)
+    label, end = _label_layer(), _end_layers(story.ending)
+    loop = story.ending == "loop-back"
+    lumas: list[float] = []
+    cuts: set[int] = set()
+    frame0 = None
     work.mkdir(parents=True, exist_ok=True)
     mixed = _mix(work / "narration.wav", story, duration, bell_time(story, spans), work)
     out = work / "short.mp4"
@@ -326,27 +459,43 @@ def render(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict
             pu = (t - prev["start"]) / max(prev["end"] - prev["start"], 0.1)
             a = (t - shot["start"]) * FPS / CROSSFADE
             frame = cv2.addWeighted(frame, a, cam.shoot(prev["plate"], pu, prev["motion"]), 1 - a, 0)
+        if k and (t - shot["start"]) * FPS < CROSSFADE + 1:
+            cuts.add(i)
         outro = t >= spoken
-        if outro:
+        if outro and loop:
+            # A loop-back ends on frame 0 again (the hook's painting and strip), so the replay is seamless.
+            fade = min(1.0, (t - spoken) / 0.6)
+            frame = cv2.addWeighted(cam.shoot(shots[0]["plate"], 0.0, shots[0]["motion"]), fade, frame, 1 - fade, 0)
+        elif outro:
             fade = min(1.0, (t - spoken) / 0.5)
             frame = cv2.addWeighted(cv2.GaussianBlur(frame, (0, 0), 18), 0.55 * fade, frame, 1 - 0.8 * fade, 0)
+        if outro and (t - spoken) * FPS < 0.6 * FPS + 1:
+            cuts.add(i)
         frame = grade.apply(frame, i)
-        if k == 0:
+        if k == 0 or (outro and loop):
             # Fully visible from the first frame: YouTube may use it as the cover.
-            _blit(frame, headline, (W - headline[1].shape[1]) // 2, round(H * 0.085))
-        if outro:
+            a = 1.0 if k == 0 and not outro else min(1.0, (t - spoken) / 0.6)
+            _blit(frame, strip, TEXT_CX - strip[1].shape[1] // 2, round(H * STRIP_TOP), a)
+        if outro and not loop:
             a = min(1.0, (t - spoken) / 0.4)
-            name, tag, disc = end
-            _blit(frame, name, (W - name[1].shape[1]) // 2, round(H * 0.32), a)
-            _blit(frame, tag, (W - tag[1].shape[1]) // 2, round(H * 0.42), a)
-            _blit(frame, disc, (W - disc[1].shape[1]) // 2, round(H * 0.48), a)
-        else:
+            for layer, y in zip(end, END_AT[:len(end) - 1] + (END_AT[-1],)):
+                _blit(frame, layer, TEXT_CX - layer[1].shape[1] // 2, round(H * y), a)
+        elif not outro:
             captions.draw(frame, t)
-        _blit(frame, label, 36, round(H * 0.765), 0.97)
+        _blit(frame, label, *LABEL_AT)
+        if i == 0:
+            frame0 = frame.copy()
+        lumas.append(float(frame[::8, ::8].mean()))
         enc.stdin.write(frame.tobytes())
         if i in still_at:
             Image.fromarray(frame).save(stills / f"t{i // FPS:03d}.png")
     enc.stdin.close()
     if enc.wait() != 0:
         raise RuntimeError("ffmpeg failed to encode the Short")
+    sound = loudness(out)
+    found = problems(lumas, cuts, frame0, n, count_frames(out)) + audio_problems(sound)
+    (work / "picture-checks.json").write_text(json.dumps({"problems": found, "frames": n, "loudness": sound},
+                                                         indent=1, ensure_ascii=False), encoding="utf-8")
+    if found:
+        raise ComposeHold("hold: picture and sound checks: " + "; ".join(found))
     return {"duration": round(duration, 2), "frames": n, "pictures": len(plates), "fps": FPS, "size": [W, H]}

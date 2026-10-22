@@ -5,7 +5,11 @@ FLUX.1-schnell VAE (Apache-2.0), 576x1024 in 4 steps: 11-20 minutes a picture on
 October 2026). Standard library only, so the paint jobs need no Python environment.
 
 python -m kahaani.imagegen fetch --root DIR
-python -m kahaani.imagegen beats --prompts art-plan.json --only 0,3 --out DIR --root DIR
+python -m kahaani.imagegen beats --prompts art-plan.json --only 0,3 --out DIR --root DIR [--alternates 2 --budget 60]
+
+With --alternates N, a beat whose plan lists spare seeds (a cast shot) is repainted with up to N of them after its
+main painting, as beatNN-altK.png, while the job's --budget minutes still leave room for one more painting; the
+render step falls back on them when the vision check refuses the main one.
 """
 
 from __future__ import annotations
@@ -127,6 +131,8 @@ def main(argv: list[str] | None = None) -> int:
     beats.add_argument("--steps", type=int, default=0)
     beats.add_argument("--width", type=int, default=0)
     beats.add_argument("--height", type=int, default=0)
+    beats.add_argument("--alternates", type=int, default=0, help="repaints per cast shot, from the plan's spare seeds")
+    beats.add_argument("--budget", type=float, default=0, help="minutes this job may spend; 0 means no limit")
     args = parser.parse_args(argv)
     if args.command == "fetch":
         started = time.monotonic()
@@ -139,22 +145,35 @@ def main(argv: list[str] | None = None) -> int:
     model = args.model or plan.get("model", "zimage")
     args.out.mkdir(parents=True, exist_ok=True)
     failed = 0
+    started = time.monotonic()
     for i, beat in enumerate(plan["beats"]):
         if i not in wanted or not beat.get("prompt"):
             continue
-        target = args.out / f"beat{i:02d}.png"
-        try:
-            timing = generate(beat["prompt"], target, model=model, root=args.root, seed=int(beat.get("seed", 7 + i)),
-                              steps=args.steps or plan.get("steps"), width=args.width or plan.get("width", WIDTH),
-                              height=args.height or plan.get("height", HEIGHT))
-        except (RuntimeError, subprocess.TimeoutExpired) as err:
-            failed += 1
-            print(json.dumps({"beat": i, "error": str(err)[-800:]}), flush=True)
-            continue
-        (args.out / f"beat{i:02d}.json").write_text(json.dumps({"story": plan.get("story", ""), "beat": i,
-                                                                "prompt": beat["prompt"], **timing},
-                                                               ensure_ascii=False, indent=1), encoding="utf-8")
-        print(json.dumps({"beat": i, "seconds": timing["seconds"], "model": model}), flush=True)
+        seeds = [(0, int(beat.get("seed", 7 + i)))] + [(k, int(x)) for k, x in
+                                                       enumerate(beat.get("alternates") or [], 1)][:args.alternates]
+        last = 0.0
+        for alt, seed in seeds:
+            elapsed = time.monotonic() - started
+            if alt and args.budget and elapsed + 1.15 * last > args.budget * 60:
+                print(json.dumps({"beat": i, "alt": alt, "skipped": "out of time budget"}), flush=True)
+                break
+            stem = f"beat{i:02d}" + (f"-alt{alt}" if alt else "")
+            try:
+                timing = generate(beat["prompt"], args.out / f"{stem}.png", model=model, root=args.root, seed=seed,
+                                  steps=args.steps or plan.get("steps"), width=args.width or plan.get("width", WIDTH),
+                                  height=args.height or plan.get("height", HEIGHT))
+            except (RuntimeError, subprocess.TimeoutExpired) as err:
+                if not alt:
+                    failed += 1
+                print(json.dumps({"beat": i, "alt": alt, "error": str(err)[-800:]}), flush=True)
+                if not alt:
+                    break
+                continue
+            last = timing["seconds"]
+            (args.out / f"{stem}.json").write_text(json.dumps({"story": plan.get("story", ""), "beat": i, "alt": alt,
+                                                               "prompt": beat["prompt"], **timing},
+                                                              ensure_ascii=False, indent=1), encoding="utf-8")
+            print(json.dumps({"beat": i, "alt": alt, "seconds": timing["seconds"], "model": model}), flush=True)
     return 1 if failed and failed == len(wanted) else 0
 
 

@@ -11,7 +11,10 @@ from pathlib import Path
 STATE = Path(__file__).resolve().parents[1] / "state"
 TRIES = 3
 # What a row keeps about a story so later stories can avoid repeating it.
-SUMMARY = ("id", "premise", "title", "subgenre", "motifs", "ending", "opening", "made_at", "voice")
+SUMMARY = ("id", "premise", "title", "subgenre", "motifs", "ending", "opening", "made_at", "voice",
+           # F1 micro-entry rotation (premises.fits, variation.problems)
+           "format", "skeleton", "resolution", "heart_type", "object_token", "anomaly", "location", "place_id",
+           "hook_strip", "script")
 
 
 def now() -> str:

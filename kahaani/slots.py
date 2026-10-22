@@ -1,4 +1,5 @@
-"""When a Short goes out: two IST slots a day, each filled at most once from the ready buffer.
+"""When a Short goes out: the format's IST slots (config.SLOTS; F1 is 19:00 IST daily), each filled at most once
+from the ready buffer.
 
 A slot that passed less than GRACE ago and was never filled is filled now (public at once); otherwise the next slot
 is scheduled with YouTube's publishAt, or made public at once when it is less than LEAD away.
