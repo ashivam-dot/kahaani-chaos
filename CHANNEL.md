@@ -80,7 +80,8 @@ The writer expands one entry. Nothing is invented outside the bank.
 
 ## Title
 
-- 40-75 characters, exactly one emoji, with the entry's object in the first five words, in spoken Hindi.
+- 40-75 characters, one or two emoji (PLAN.md §7.2's `📻😨`), with the entry's object in the first five words, in
+  spoken Hindi. Roman-Hinglish twin titles (PLAN.md §7.2) are deferred: F1 publishes the Devanagari title only.
 - The title never gives away the turn.
 - Three skeletons rotate, and a skeleton is used at most once in any three Shorts:
   - **S1:** `<90s act>… <impossible result> + emoji`;
