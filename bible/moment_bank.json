@@ -1,0 +1,1024 @@
+{
+ "note": "Format M moment bank: hand-approved entries (PR review). Every on-screen string is here, none is written by a model. box = [x0, y0, w] as shares of the painted still (the crop is 9:16 like the still, so its height share is also w). Quads are shares of the still, TL TR BR BL. sfx = [cue, offset s into the shot, optional length s].",
+ "entries": [
+  {
+   "id": "m01",
+   "ep_n": 1,
+   "place_id": "halt",
+   "spot_hi": "प्लेटफ़ॉर्म",
+   "time_stamp": "रात 11:50",
+   "season": "summer",
+   "premise_tag": "night",
+   "hook_strip": "1996 · आख़िरी ट्रेन के बाद",
+   "still_prompts": [
+    "Moonlit 1996 village railway halt platform, a single bare bulb on a pole, iron bench under a neem tree, empty tracks fading into mist, a plain bare patch of whitewashed wall at left at mid-height with nothing hanging on it, readable blue night with one warm practical light, nobody on the platform",
+    "Ticket-window hatch seen from the platform side, a table lamp lit inside, a wooden rack of card tickets, a ticket-dating press and an ink pad on the counter, nobody inside",
+    "Railway tracks running into fog, a semaphore signal glowing red, telegraph wires overhead, nobody",
+    "Close on a weathered man's hand holding a brass hurricane lantern into the frame from the left, the edge of a red woollen muffler at the left edge, warm lantern light sweeping across the wall; only the hand and forearm and the muffler edge are visible, no face and no head. The right half of the whitewashed wall is plain and bare, with nothing hanging on it. A bamboo staff with a small brass bell tied near its top is gripped in the same hand",
+    "The platform seen from its far end: iron bench, one bulb on a pole, a faint warm lantern glow receding toward the gate, mist over the tracks, nobody"
+   ],
+   "cast_shot_index": 3,
+   "prop_shots": [
+    {
+     "still": 3,
+     "cast_id": "jhabbu",
+     "prop_key": "lantern"
+    }
+   ],
+   "shots": [
+    {
+     "still": 0,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 0,
+     "sfx": [
+      [
+       "bulb_hum",
+       0.0
+      ],
+      [
+       "crickets",
+       0.0
+      ]
+     ]
+    },
+    {
+     "still": 0,
+     "crop": "punch",
+     "box": [
+      0.3,
+      0.08,
+      0.55
+     ],
+     "motion": 1,
+     "sfx": [
+      [
+       "moth_tick",
+       0.3
+      ]
+     ]
+    },
+    {
+     "still": 0,
+     "crop": "insert",
+     "box": [
+      0.05,
+      0.52,
+      0.48
+     ],
+     "motion": 2,
+     "sfx": [
+      [
+       "glass_clink",
+       0.2
+      ]
+     ]
+    },
+    {
+     "still": 0,
+     "crop": "wide",
+     "box": [
+      0.0,
+      0.28,
+      0.6
+     ],
+     "motion": 3,
+     "sfx": []
+    },
+    {
+     "still": 1,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 4,
+     "sfx": [
+      [
+       "clock_tick",
+       0.4,
+       1.0
+      ]
+     ]
+    },
+    {
+     "still": 1,
+     "crop": "punch",
+     "box": [
+      0.2,
+      0.25,
+      0.55
+     ],
+     "motion": 0,
+     "sfx": [
+      [
+       "ticket_press",
+       0.3
+      ]
+     ]
+    },
+    {
+     "still": 1,
+     "crop": "insert",
+     "box": [
+      0.35,
+      0.5,
+      0.5
+     ],
+     "motion": 1,
+     "sfx": []
+    },
+    {
+     "still": 2,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 2,
+     "sfx": [
+      [
+       "wire_hum",
+       0.0,
+       3.9
+      ]
+     ]
+    },
+    {
+     "still": 2,
+     "crop": "punch",
+     "box": [
+      0.3,
+      0.15,
+      0.55
+     ],
+     "motion": 3,
+     "sfx": [
+      [
+       "signal_clank",
+       0.2
+      ]
+     ]
+    },
+    {
+     "still": 2,
+     "crop": "insert",
+     "box": [
+      0.1,
+      0.45,
+      0.55
+     ],
+     "motion": 4,
+     "sfx": []
+    },
+    {
+     "still": 3,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 0,
+     "sfx": [
+      [
+       "kerosene_hiss",
+       0.0,
+       3.9
+      ]
+     ]
+    },
+    {
+     "still": 3,
+     "crop": "insert",
+     "box": [
+      0.45,
+      0.18,
+      0.55
+     ],
+     "motion": 1,
+     "sfx": []
+    },
+    {
+     "still": 3,
+     "crop": "punch",
+     "box": [
+      0.0,
+      0.45,
+      0.45
+     ],
+     "motion": 2,
+     "sfx": [
+      [
+       "bell",
+       0.1
+      ]
+     ]
+    },
+    {
+     "still": 4,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 3,
+     "sfx": []
+    },
+    {
+     "still": 4,
+     "crop": "punch",
+     "box": [
+      0.15,
+      0.5,
+      0.5
+     ],
+     "motion": 4,
+     "sfx": [
+      [
+       "motif",
+       0.0
+      ]
+     ]
+    },
+    {
+     "still": 4,
+     "crop": "insert",
+     "box": [
+      0.5,
+      0.1,
+      0.5
+     ],
+     "motion": 0,
+     "sfx": []
+    }
+   ],
+   "anomaly": {
+    "card": "timetable",
+    "spec": {
+     "title": "सन्नाटपुर हॉल्ट",
+     "head": [
+      "समय",
+      "गाड़ी"
+     ],
+     "rows": [
+      [
+       "06:40",
+       "सन्नाटपुर",
+       "शहर"
+      ],
+      [
+       "14:15",
+       "शहर",
+       "सन्नाटपुर"
+      ],
+      [
+       "19:05",
+       "सन्नाटपुर",
+       "शहर"
+      ],
+      [
+       "02:10",
+       "सन्नाटपुर",
+       "सन्नाटपुर"
+      ]
+     ],
+     "odd": 3
+    },
+    "placements": [
+     {
+      "still": 0,
+      "quad": [
+       [
+        0.05,
+        0.405
+       ],
+       [
+        0.29,
+        0.395
+       ],
+       [
+        0.29,
+        0.508
+       ],
+       [
+        0.05,
+        0.515
+       ]
+      ]
+     },
+     {
+      "still": 3,
+      "quad": [
+       [
+        0.52,
+        0.305
+       ],
+       [
+        0.92,
+        0.295
+       ],
+       [
+        0.92,
+        0.485
+       ],
+       [
+        0.52,
+        0.495
+       ]
+      ]
+     }
+    ],
+    "answer_hi": "02:10 वाली ट्रेन, सन्नाटपुर से सन्नाटपुर",
+    "tail_hi": "02:10 · सन्नाटपुर से सन्नाटपुर",
+    "register_line_hi": "उस रात टाइम-टेबल में एक लाइन ज़्यादा थी।"
+   },
+   "thread": false,
+   "cta_arm": "A",
+   "skeleton": "M1",
+   "end_card_hi": "इस प्लेटफ़ॉर्म पर एक चीज़ ग़लत थी। कमेंट में बस उसका नाम लिखो।",
+   "title": "सन्नाटपुर हॉल्ट, रात 11:50… इस प्लेटफ़ॉर्म पर एक चीज़ ग़लत है 🚉 | सन्नाटपुर 1996 #01",
+   "description_hi": "सन्नाटपुर, 1996। आख़िरी ट्रेन जा चुकी है, और झब्बू की लालटेन अभी हॉल्ट पर घूम रही है।",
+   "first_comment_hi": "एक शब्द में लिखो: क्या ग़लत था? जवाब अगली कड़ी के आख़िर में 👀",
+   "hashtags": [
+    "#सन्नाटपुर1996",
+    "#1996",
+    "#हिंदी"
+   ],
+   "cast_people": [
+    {
+     "name": "jhabbu",
+     "expression": "calm"
+    }
+   ]
+  },
+  {
+   "id": "m02",
+   "ep_n": 2,
+   "place_id": "busadda",
+   "spot_hi": "गुमटी",
+   "time_stamp": "रात 1:13",
+   "season": "winter",
+   "premise_tag": "fog",
+   "hook_strip": "1996 · सर्दी की आख़िरी बस",
+   "still_prompts": [
+    "Tin-roofed roadside tea stall at a 1996 village bus stand on a foggy winter night, a glowing coal angithi, an aluminium kettle, glass tumblers on a wooden plank, a plain bare patch of wall at upper right above the kettle with nothing hanging on it, one warm light, nobody",
+    "A row of old parked buses in fog at a village bus stand, one interior bulb lit in a window, a rain-wet tin roof, a leather cash bag hanging on a hook by a door, nobody",
+    "On a wooden bench, a small transistor radio in a brown leather case with a strap and a glowing dial, next to a folded shawl, fog beyond, nobody",
+    "Close on a weathered man's hand holding a brass hurricane lantern into the frame from the left, the edge of a red woollen muffler at the left edge, warm lantern light sweeping across the wall; only the hand and forearm and the muffler edge are visible, no face and no head. The right half of the wall is plain and bare, with nothing hanging on it. A bamboo staff with a small brass bell tied near its top is gripped in the same hand",
+    "The tea stall seen from across the road, fog thickening, the tail-light of the last bus leaving, nobody"
+   ],
+   "cast_shot_index": 3,
+   "prop_shots": [
+    {
+     "still": 3,
+     "cast_id": "jhabbu",
+     "prop_key": "lantern"
+    }
+   ],
+   "shots": [
+    {
+     "still": 0,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 0,
+     "sfx": [
+      [
+       "angithi_crackle",
+       0.0
+      ]
+     ]
+    },
+    {
+     "still": 0,
+     "crop": "punch",
+     "box": [
+      0.2,
+      0.3,
+      0.55
+     ],
+     "motion": 1,
+     "sfx": []
+    },
+    {
+     "still": 0,
+     "crop": "insert",
+     "box": [
+      0.0,
+      0.5,
+      0.5
+     ],
+     "motion": 2,
+     "sfx": [
+      [
+       "glass_clink",
+       0.3
+      ]
+     ]
+    },
+    {
+     "still": 0,
+     "crop": "insert",
+     "box": [
+      0.45,
+      0.05,
+      0.55
+     ],
+     "motion": 3,
+     "sfx": [
+      [
+       "clock_tick",
+       0.0,
+       1.3
+      ]
+     ]
+    },
+    {
+     "still": 1,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 4,
+     "sfx": []
+    },
+    {
+     "still": 1,
+     "crop": "punch",
+     "box": [
+      0.3,
+      0.2,
+      0.55
+     ],
+     "motion": 0,
+     "sfx": [
+      [
+       "coin_jingle",
+       0.3
+      ]
+     ]
+    },
+    {
+     "still": 1,
+     "crop": "insert",
+     "box": [
+      0.4,
+      0.45,
+      0.5
+     ],
+     "motion": 1,
+     "sfx": []
+    },
+    {
+     "still": 2,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 2,
+     "sfx": [
+      [
+       "radio_static",
+       0.0,
+       3.9
+      ]
+     ]
+    },
+    {
+     "still": 2,
+     "crop": "punch",
+     "box": [
+      0.2,
+      0.3,
+      0.55
+     ],
+     "motion": 3,
+     "sfx": []
+    },
+    {
+     "still": 2,
+     "crop": "insert",
+     "box": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "motion": 4,
+     "sfx": []
+    },
+    {
+     "still": 3,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 0,
+     "sfx": [
+      [
+       "kerosene_hiss",
+       0.0,
+       3.9
+      ]
+     ]
+    },
+    {
+     "still": 3,
+     "crop": "insert",
+     "box": [
+      0.45,
+      0.18,
+      0.55
+     ],
+     "motion": 1,
+     "sfx": [
+      [
+       "clock_tick",
+       0.0,
+       1.3
+      ]
+     ]
+    },
+    {
+     "still": 3,
+     "crop": "punch",
+     "box": [
+      0.0,
+      0.45,
+      0.45
+     ],
+     "motion": 2,
+     "sfx": [
+      [
+       "bell",
+       0.1
+      ]
+     ]
+    },
+    {
+     "still": 4,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 3,
+     "sfx": []
+    },
+    {
+     "still": 4,
+     "crop": "punch",
+     "box": [
+      0.15,
+      0.5,
+      0.5
+     ],
+     "motion": 4,
+     "sfx": [
+      [
+       "motif",
+       0.0
+      ]
+     ]
+    },
+    {
+     "still": 4,
+     "crop": "insert",
+     "box": [
+      0.5,
+      0.1,
+      0.5
+     ],
+     "motion": 0,
+     "sfx": []
+    }
+   ],
+   "anomaly": {
+    "card": "clock",
+    "spec": {
+     "h": 1,
+     "m": 13,
+     "top": "13"
+    },
+    "placements": [
+     {
+      "still": 0,
+      "quad": [
+       [
+        0.62,
+        0.16
+       ],
+       [
+        0.84,
+        0.16
+       ],
+       [
+        0.84,
+        0.284
+       ],
+       [
+        0.62,
+        0.284
+       ]
+      ]
+     },
+     {
+      "still": 3,
+      "quad": [
+       [
+        0.5,
+        0.28
+       ],
+       [
+        0.9,
+        0.28
+       ],
+       [
+        0.9,
+        0.505
+       ],
+       [
+        0.5,
+        0.505
+       ]
+      ]
+     }
+    ],
+    "answer_hi": "घड़ी में 13",
+    "tail_hi": "घड़ी में 13",
+    "register_line_hi": "उस रात घड़ी में एक घंटा ज़्यादा था।"
+   },
+   "thread": false,
+   "cta_arm": "B",
+   "skeleton": "M3",
+   "end_card_hi": "उस ज़माने में एक कटिंग चाय कितने की थी? बस दाम लिखो।",
+   "title": "कोहरा, अँगीठी और कटिंग चाय… पर एक चीज़ यहाँ की नहीं थी ☕ | सन्नाटपुर 1996 #02",
+   "description_hi": "सन्नाटपुर, 1996। बस अड्डे की गुमटी पर सर्दी की आख़िरी बस निकल चुकी है, और अँगीठी अब भी सुलग रही है।",
+   "first_comment_hi": "उस ज़माने में एक कटिंग चाय कितने की थी? बस दाम लिखो 👇",
+   "hashtags": [
+    "#सन्नाटपुर1996",
+    "#1996",
+    "#हिंदी"
+   ],
+   "cast_people": [
+    {
+     "name": "jhabbu",
+     "expression": "calm"
+    }
+   ]
+  },
+  {
+   "id": "m03",
+   "ep_n": 3,
+   "place_id": "haat",
+   "spot_hi": "ठिया",
+   "time_stamp": "रात 10:30",
+   "season": "monsoon",
+   "premise_tag": "rain",
+   "hook_strip": "1996 · हाट की बारिश",
+   "still_prompts": [
+    "1996 village weekly market at night in rain, a tin-shed tailor's stall, a treadle sewing machine under a cloth cover, folded fabric bolts, a small mirror, a plain bare patch of wall at right at mid-height with nothing hanging on it, puddles reflecting one warm bulb, nobody",
+    "The empty market lane at night in rain: covered stalls, a tarpaulin flapping, a round swing ride far off and still, vegetable baskets under covers, puddles, nobody",
+    "A metal torch with a cracked lens lying on a wooden crate, throwing a split beam across the wet ground, rain falling through the beam, nobody",
+    "Close on a weathered man's hand holding a brass hurricane lantern into the frame from the left, the edge of a red woollen muffler at the left edge, warm lantern light sweeping across the wall; only the hand and forearm and the muffler edge are visible, no face and no head. The right half of the tin wall is plain and bare, with nothing hanging on it. Three soft shadows lie on the tin wall, and one of them falls toward the lantern instead of away from it. A bamboo staff with a small brass bell tied near its top is gripped in the same hand",
+    "The tailor's stall seen from across the lane, rain easing, one warm bulb, puddles, nobody"
+   ],
+   "cast_shot_index": 3,
+   "prop_shots": [
+    {
+     "still": 3,
+     "cast_id": "jhabbu",
+     "prop_key": "lantern"
+    }
+   ],
+   "shots": [
+    {
+     "still": 0,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 0,
+     "sfx": [
+      [
+       "rain_tin",
+       0.0
+      ]
+     ]
+    },
+    {
+     "still": 0,
+     "crop": "punch",
+     "box": [
+      0.3,
+      0.0,
+      0.55
+     ],
+     "motion": 1,
+     "sfx": [
+      [
+       "drip",
+       0.3
+      ]
+     ]
+    },
+    {
+     "still": 0,
+     "crop": "insert",
+     "box": [
+      0.0,
+      0.55,
+      0.45
+     ],
+     "motion": 2,
+     "sfx": []
+    },
+    {
+     "still": 0,
+     "crop": "insert",
+     "box": [
+      0.45,
+      0.1,
+      0.55
+     ],
+     "motion": 3,
+     "sfx": [
+      [
+       "page_turn",
+       0.0
+      ]
+     ]
+    },
+    {
+     "still": 1,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 4,
+     "sfx": []
+    },
+    {
+     "still": 1,
+     "crop": "punch",
+     "box": [
+      0.1,
+      0.45,
+      0.55
+     ],
+     "motion": 0,
+     "sfx": [
+      [
+       "drip",
+       0.4
+      ]
+     ]
+    },
+    {
+     "still": 1,
+     "crop": "insert",
+     "box": [
+      0.3,
+      0.55,
+      0.45
+     ],
+     "motion": 1,
+     "sfx": []
+    },
+    {
+     "still": 2,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 2,
+     "sfx": [
+      [
+       "torch_click",
+       0.1
+      ]
+     ]
+    },
+    {
+     "still": 2,
+     "crop": "punch",
+     "box": [
+      0.2,
+      0.4,
+      0.55
+     ],
+     "motion": 3,
+     "sfx": []
+    },
+    {
+     "still": 2,
+     "crop": "insert",
+     "box": [
+      0.0,
+      0.55,
+      0.45
+     ],
+     "motion": 4,
+     "sfx": [
+      [
+       "drip",
+       0.5
+      ]
+     ]
+    },
+    {
+     "still": 3,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 0,
+     "sfx": [
+      [
+       "kerosene_hiss",
+       0.0,
+       3.9
+      ]
+     ]
+    },
+    {
+     "still": 3,
+     "crop": "insert",
+     "box": [
+      0.45,
+      0.18,
+      0.55
+     ],
+     "motion": 1,
+     "sfx": []
+    },
+    {
+     "still": 3,
+     "crop": "punch",
+     "box": [
+      0.0,
+      0.45,
+      0.45
+     ],
+     "motion": 2,
+     "sfx": [
+      [
+       "bell",
+       0.1
+      ]
+     ]
+    },
+    {
+     "still": 4,
+     "crop": "wide",
+     "box": [
+      0,
+      0,
+      1
+     ],
+     "motion": 3,
+     "sfx": []
+    },
+    {
+     "still": 4,
+     "crop": "punch",
+     "box": [
+      0.3,
+      0.05,
+      0.5
+     ],
+     "motion": 4,
+     "sfx": [
+      [
+       "motif",
+       0.0
+      ]
+     ]
+    },
+    {
+     "still": 4,
+     "crop": "insert",
+     "box": [
+      0.2,
+      0.5,
+      0.5
+     ],
+     "motion": 0,
+     "sfx": []
+    }
+   ],
+   "anomaly": {
+    "card": "calendar",
+    "spec": {
+     "month_hi": "फ़रवरी",
+     "year": 1996,
+     "first_col": 4,
+     "days": 31,
+     "weekdays": [
+      "र",
+      "सो",
+      "मं",
+      "बु",
+      "गु",
+      "शु",
+      "श"
+     ],
+     "odd": [
+      30,
+      31
+     ]
+    },
+    "placements": [
+     {
+      "still": 0,
+      "quad": [
+       [
+        0.7,
+        0.22
+       ],
+       [
+        0.9,
+        0.22
+       ],
+       [
+        0.9,
+        0.346
+       ],
+       [
+        0.7,
+        0.346
+       ]
+      ]
+     },
+     {
+      "still": 3,
+      "quad": [
+       [
+        0.5,
+        0.25
+       ],
+       [
+        0.9,
+        0.25
+       ],
+       [
+        0.9,
+        0.503
+       ],
+       [
+        0.5,
+        0.503
+       ]
+      ]
+     }
+    ],
+    "answer_hi": "फ़रवरी 1996 में 30 और 31",
+    "tail_hi": "फ़रवरी 1996 में 30 और 31",
+    "register_line_hi": "उस रात फ़रवरी दो दिन लंबी थी।"
+   },
+   "thread": true,
+   "cta_arm": "A",
+   "skeleton": "M2",
+   "end_card_hi": "इस ठिये में एक चीज़ ग़लत थी। कमेंट में बस उसका नाम लिखो।",
+   "title": "POV: 1996, हाट की बारिश वाली रात 🌧️… कुछ अजीब दिखा? | सन्नाटपुर 1996 #03",
+   "description_hi": "सन्नाटपुर, 1996। हाट बंद हो चुका है, और दर्ज़ी के ठिये पर बारिश की बूँदें टीन से टपक रही हैं।",
+   "first_comment_hi": "एक शब्द में लिखो: क्या ग़लत था? जवाब अगली कड़ी के आख़िर में 👀",
+   "hashtags": [
+    "#सन्नाटपुर1996",
+    "#1996",
+    "#हिंदी"
+   ],
+   "cast_people": [
+    {
+     "name": "jhabbu",
+     "expression": "calm"
+    }
+   ]
+  }
+ ]
+}

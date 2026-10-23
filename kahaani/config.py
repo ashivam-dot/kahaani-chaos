@@ -50,15 +50,19 @@ class Format:
         return os.environ.get(self.playlist_env, "") if self.playlist_env else ""
 
 
-# F1 only for now. F2 (sawaal, choose-one) and F3 (raat, weekly long-form) register here when they are built, with
-# their own slots and buffers; nothing below assumes a single format.
+# F1 (micro) and M (moment, wordless). F2 (sawaal, choose-one) and F3 (raat, weekly long-form) register here when
+# they are built, with their own slots and buffers; nothing below assumes a single format.
 FORMATS = {
     "micro": Format(key="micro", series_hi="सन्नाटपुर की छोटी एंट्री", slots=((13, 0), (19, 0)), buffer=3,
                     playlist_env="KC_PLAYLIST_MICRO", playlist_title="सन्नाटपुर की छोटी एंट्री (Shorts)"),
+    "moment": Format(key="moment", series_hi="सन्नाटपुर, 1996", slots=((21, 30),), days=(1, 3, 5), buffer=2,
+                     playlist_env="KC_PLAYLIST_MOMENT", playlist_title="सन्नाटपुर, 1996 (एक चीज़ ग़लत है)"),
 }
-FORMAT = "micro"  # the format this pipeline produces
+FORMAT = os.environ.get("KC_FORMAT") or "micro"  # the format this run produces (the workflow's `format` input)
+if FORMAT not in FORMATS:
+    raise ValueError(f"KC_FORMAT={FORMAT!r} is not a format; use one of {sorted(FORMATS)}")
 
-SLOTS = FORMATS[FORMAT].slots  # IST: 13:00 and 19:00 IST = 07:30 and 13:30 UTC, daily
+SLOTS = FORMATS[FORMAT].slots  # IST: 13:00 and 19:00 IST = 07:30 and 13:30 UTC, daily; M is 21:30 IST on Tue, Thu, Sat
 BUFFER_TARGET = FORMATS[FORMAT].buffer
 
 CHANNEL_ID_FORMAT = re.compile(r"^UC[0-9A-Za-z_-]{22}$")

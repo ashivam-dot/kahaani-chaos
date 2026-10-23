@@ -46,6 +46,26 @@ class Story:
     skeleton: str = ""  # the title skeleton, S1/S2/S3
     location: str = ""
     place_id: str = ""
+    # Format M (moment, wordless): mode is "moment" (empty for F1). stills: [{"scene", "people"}] painted once each;
+    # shots: [{"still", "crop", "box", "t0", "t1", "motion", "sfx"}], box = [x0, y0, w] as shares of the still;
+    # cards: [{"kind", "spec", "role", "placements": [{"still", "quad"}]}] drawn by code, never painted.
+    mode: str = ""
+    stills: list[dict] = field(default_factory=list)
+    shots: list[dict] = field(default_factory=list)
+    cards: list[dict] = field(default_factory=list)
+    lines: list[dict] = field(default_factory=list)  # spoken lines, for the dialogue format (later)
+    cta_arm: str = ""  # A = spot it, B = remember it
+    cta_text: str = ""  # the end card's ask
+    first_comment_hi: str = ""
+    anomaly_type: str = ""  # the card kind
+    answer_hi: str = ""
+    register_line_hi: str = ""
+    arc_id: str = ""
+    ep_n: int = 0
+    part: int = 0
+    new_niyam_id: str = ""
+    cite_niyam_id: str = ""
+    stamp: str = ""  # "रात 11:50"
 
     def save(self, path: Path) -> Path:
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -64,6 +84,8 @@ class Story:
 
     @property
     def narration(self) -> str:
+        if self.lines:
+            return " ".join(line["text"] for line in self.lines)
         return " ".join(b.text for b in self.beats)
 
     @property

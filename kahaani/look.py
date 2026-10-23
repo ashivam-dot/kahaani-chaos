@@ -142,6 +142,12 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
     return " ".join(parts)
 
 
+def hand_prompt(scene: str) -> str:
+    """A still where only a hand, a forearm and a lantern show (the wordless format's one cast picture): the scene
+    already says so, so no 'characters' line and no 'no people' line, which would fight it."""
+    return " ".join([scene.strip().rstrip(".") + ".", STYLE + ".", AVOID, NEVER])
+
+
 def seed(story: str, beat: int) -> int:
     return zlib.crc32(f"{story}:{beat}".encode()) % 2_000_000_000
 
@@ -158,14 +164,15 @@ def present(people: list[dict], cast: list[dict], scene: str = "") -> list[str]:
     return [p["name"].strip().lower() for p in people if p.get("name", "").strip().lower() in ids]
 
 
-def plan(story: str, beats: list[dict], cast: list[dict]) -> list[dict]:
+def plan(story: str, beats: list[dict], cast: list[dict], hook: bool = True) -> list[dict]:
     """One image prompt and seed per beat; a beat with cast in it, or with something moving by itself, also gets
-    ALTERNATES spare seeds, painted when the paint job has time, for the picture editor to fall back on."""
+    ALTERNATES spare seeds, painted when the paint job has time, for the picture editor to fall back on. hook=False
+    keeps the first picture a plain scene (the wordless format's frame 0 is a wide shot, not a close-up)."""
     out = []
     for i, b in enumerate(beats):
         who = present(b.get("people") or [], cast, b["scene"])
-        row = {"beat": i, "prompt": prompt(b["scene"], b.get("people") or [], cast, hook=i == 0), "seed": seed(story, i),
-               "cast": who}
+        row = {"beat": i, "seed": seed(story, i), "cast": who,
+               "prompt": prompt(b["scene"], b.get("people") or [], cast, hook=hook and i == 0)}
         if who or solo(b["scene"]):
             row["alternates"] = [seed(story, i * 100 + k) for k in range(1, ALTERNATES + 1)]
         out.append(row)

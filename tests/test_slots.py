@@ -60,3 +60,13 @@ def test_taken_and_buffer():
     assert slots.taken([{"slot": "a"}, {"id": "x"}]) == {"a"}
     assert not slots.buffer_full([{}])
     assert slots.buffer_full([{}] * config.BUFFER_TARGET)
+
+
+@pytest.mark.parametrize("now", ["2026-10-18T06:00", "2026-10-15T18:30", "2026-10-17T18:30", "2026-10-13T18:30"])
+def test_a_weekday_format_always_finds_its_next_slot(now, monkeypatch):
+    """Moment is 21:30 IST on Tue, Thu, Sat: Sunday and the night after a slot have no slot within a day."""
+    monkeypatch.setattr(config, "FORMAT", "moment")
+    monkeypatch.setattr(config, "SLOTS", config.FORMATS["moment"].slots)
+    due = slots.due(at(now), set())
+    assert due and datetime.fromisoformat(due["slot"].replace("Z", "+00:00")) > at(now)
+    assert datetime.fromisoformat(due["slot"].replace("Z", "+00:00")).astimezone(config.IST).weekday() in (1, 3, 5)

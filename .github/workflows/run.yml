@@ -26,6 +26,11 @@ on:
         description: "path of a reviewed story in .github/replay/ to paint and render again (no writer calls); in publish mode it is published once"
         type: string
         default: ""
+      format:
+        description: "which format to make: micro (the spoken F1 Short) or moment (the wordless spot-it Short)"
+        type: choice
+        default: micro
+        options: [micro, moment]
 
 permissions:
   contents: write
@@ -44,6 +49,7 @@ env:
   ART_CACHE_KEY: kc-art-zimage-q4k-sd959-v1
   ART_ROOT: /home/runner/.cache/kc-art
   MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'publish' }}
+  KC_FORMAT: ${{ github.event_name == 'workflow_dispatch' && inputs.format || 'micro' }}
 
 jobs:
   plan:
@@ -238,6 +244,7 @@ jobs:
           YOUTUBE_OAUTH_JSON: ${{ secrets.YOUTUBE_OAUTH_JSON }}
           KC_CHANNEL_ID: ${{ vars.KC_CHANNEL_ID }}
           KC_PLAYLIST_MICRO: ${{ vars.KC_PLAYLIST_MICRO }}
+          KC_PLAYLIST_MOMENT: ${{ vars.KC_PLAYLIST_MOMENT }}
           GH_TOKEN: ${{ github.token }}
         run: uv run --no-sync python -m kahaani.cli publish
       - name: Save state

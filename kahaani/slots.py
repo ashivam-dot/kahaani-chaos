@@ -12,6 +12,7 @@ from . import config
 
 LEAD = timedelta(minutes=15)
 GRACE = timedelta(hours=2)
+LOOKAHEAD = 8  # days: any weekday-restricted format has a slot inside a week
 
 
 def iso(at: datetime) -> str:
@@ -19,10 +20,13 @@ def iso(at: datetime) -> str:
 
 
 def around(now: datetime) -> list[datetime]:
-    """The slots from yesterday to tomorrow (IST days), in time order."""
+    """The slots from yesterday to LOOKAHEAD days on (on the IST days the format publishes), in time order. A format
+    that publishes on three weekdays has its next slot up to 3 days off, so a day either side is not enough."""
     today = now.astimezone(config.IST).date()
-    days = [today + timedelta(days=d) for d in (-1, 0, 1)]
-    return [datetime(d.year, d.month, d.day, h, m, tzinfo=config.IST) for d in days for h, m in config.SLOTS]
+    days = [today + timedelta(days=d) for d in range(-1, LOOKAHEAD + 1)]
+    on = config.FORMATS[config.FORMAT].days
+    return [datetime(d.year, d.month, d.day, h, m, tzinfo=config.IST) for d in days if d.weekday() in on
+            for h, m in config.SLOTS]
 
 
 def due(now: datetime, taken: set[str]) -> dict | None:
