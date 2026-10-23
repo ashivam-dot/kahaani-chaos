@@ -8,11 +8,16 @@ look, nothing is published.
 from __future__ import annotations
 
 import io
+import re
 from pathlib import Path
 
 PER_PROMPT = 5
 SIDE = 768
-FLAGS = ("nudity", "sexual", "gore", "malformed", "text", "religious", "kids_look")
+FLAGS = ("nudity", "sexual", "gore", "malformed", "text", "religious", "kids_look", "child")
+# The cast has no one under 17. In dry run 39886731532 the editor described two cast shots as "two younger boys" and
+# "a child" yet passed them (kids_look is about style), so a caption naming a child refuses the picture as well.
+CHILD_WORDS = re.compile(r"\b(child|children|kids?|toddlers?|(little|small|young|younger) (boys?|girls?)|"
+                         r"schoolboys?|schoolgirls?)\b", re.I)
 # A cast shot must show each painted character's signature prop or colour; a video needs PROP_RATE of its cast shots
 # to (after up to look.ALTERNATES repaints each); a shot that never does is dropped.
 PROP_RATE = 0.85
@@ -60,6 +65,8 @@ For each picture answer:
   crescent, sacred sign or grave.
 - kids_look: true if it looks made for children: chibi or big-eyed cartoon faces, toddler proportions, a kids'
   picture-book or nursery style. The young people are 17-18 with adult proportions.
+- child: true if anyone in the picture looks younger than about 15: a child's face or body, or a small figure much
+  shorter than the others beside them. No character in this story is a child.
 - props_ok: for each character the line says should appear, true only if that character is visible and shows at
   least one of their listed signature props or colours. True when the line lists no characters.
 - fits: true if the picture plausibly shows this line's moment with this story's characters and setting, in a
@@ -90,6 +97,8 @@ def rejected(verdict: dict, cast_shot: bool = False, hook: bool = False) -> str 
     for flag in FLAGS:
         if verdict.get(flag):
             return f"{flag}: {verdict.get('reason') or verdict.get('shows')}"
+    if CHILD_WORDS.search(verdict.get("shows") or ""):
+        return f"child: the editor sees a child ({verdict.get('shows')})"
     if cast_shot and verdict.get("props_ok") is not True:
         return f"props: the characters' signature props or colours are missing ({verdict.get('reason') or ''})"
     if not verdict.get("fits"):

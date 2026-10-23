@@ -74,7 +74,7 @@ def test_repaints_are_collected_apart_from_the_painting(tmp_path):
 
 def verdict(n, props_ok=True, share=0.5):
     return {"n": n, "shows": "Jhabbu on the bridge", "fits": True, "nudity": False, "sexual": False, "gore": False,
-            "malformed": False, "text": False, "religious": False, "kids_look": False, "props_ok": props_ok,
+            "malformed": False, "text": False, "religious": False, "kids_look": False, "child": False, "props_ok": props_ok,
             "subject_share": share, "reason": "" if props_ok else "no lantern"}
 
 
@@ -123,3 +123,15 @@ def test_a_tiny_hook_subject_holds_the_story(tmp_path):
 
     with pytest.raises(aiart.PictureHold, match="the hook's"):
         aiart.pictures(aiart.collect(art, "kc-1", 3), list("abc"), tmp_path / "pics", "story", "cast", ask)
+
+
+def test_a_caption_naming_a_child_refuses_the_picture():
+    from kahaani import vision
+
+    ok = {f: False for f in vision.FLAGS} | {"fits": True, "props_ok": True, "shows": ""}
+    assert vision.rejected(ok | {"shows": "Two young men walking along a canal path."}, True) is None
+    assert vision.rejected(ok | {"shows": "A young woman with a torch beside a bicycle."}, True) is None
+    for shows in ("An older man holding a lantern stopping two younger boys on a path.",
+                  "An older man with a lantern talking to a child and a young woman near a bicycle."):
+        assert vision.rejected(ok | {"shows": shows}, True).startswith("child")
+    assert vision.rejected(ok | {"child": True}, True).startswith("child")
