@@ -1,0 +1,145 @@
+name: branding
+
+# The relaunch look (kahaani/branding.py). mode=paint paints two banners and two avatars and composes them into the
+# branding-<run> artifact for review. mode=apply writes the About text, keywords and the picked banner of a paint run
+# (write=false only shows the change). The channel name and the avatar are set in Studio.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [paint, apply]
+        default: paint
+      from_run:
+        description: "apply: the paint run whose banner to use (empty = text only)"
+        type: string
+        default: ""
+      banner:
+        description: "apply: which banner of that run (0 or 1)"
+        type: string
+        default: "0"
+      write:
+        description: "apply: write the change (false = show it only)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  ART_CACHE_KEY: kc-art-zimage-q4k-sd959-v1
+  ART_ROOT: /home/runner/.cache/kc-art
+
+jobs:
+  plan:
+    if: inputs.mode == 'paint'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+      - run: uv sync --frozen --no-install-package torch --no-install-package transformers
+      - run: uv run --no-sync python -m kahaani.branding plan --out "$RUNNER_TEMP/plans"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: branding-plans-${{ github.run_id }}
+          path: ${{ runner.temp }}/plans
+          retention-days: 3
+
+  paint:
+    needs: plan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        kind: [banner, avatar]
+        seed: [0, 1]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          sparse-checkout: kahaani
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: branding-plans-${{ github.run_id }}
+          path: ${{ runner.temp }}/plans
+      - id: cache
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ${{ env.ART_ROOT }}
+          key: ${{ env.ART_CACHE_KEY }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        run: python3 -m kahaani.imagegen fetch --root "$ART_ROOT"
+      - env:
+          KIND: ${{ matrix.kind }}
+          SEED: ${{ matrix.seed }}
+        run: >-
+          python3 -m kahaani.imagegen beats --prompts "$RUNNER_TEMP/plans/$KIND-plan.json" --only "$SEED"
+          --out "$RUNNER_TEMP/art/$KIND" --root "$ART_ROOT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: branding-art-${{ github.run_id }}-${{ matrix.kind }}-${{ matrix.seed }}
+          path: ${{ runner.temp }}/art
+          if-no-files-found: ignore
+          retention-days: 3
+
+  compose:
+    needs: paint
+    if: always() && needs.plan.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+      - run: uv sync --frozen --no-install-package torch --no-install-package transformers
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: branding-art-${{ github.run_id }}-*
+          path: ${{ runner.temp }}/art
+          merge-multiple: true
+      - run: uv run --no-sync python -m kahaani.branding compose --art "$RUNNER_TEMP/art" --out "$RUNNER_TEMP/branding"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: branding-${{ github.run_id }}
+          path: ${{ runner.temp }}/branding
+          retention-days: 14
+
+  apply:
+    if: inputs.mode == 'apply'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    environment: youtube
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+      - run: uv sync --frozen --no-install-package torch --no-install-package transformers
+      - name: The picked banner
+        if: inputs.from_run != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FROM_RUN: ${{ inputs.from_run }}
+        run: |
+          case "$FROM_RUN" in *[!0-9]*) echo "from_run must be a run id" >&2; exit 1 ;; esac
+          gh run download "$FROM_RUN" -R "$GITHUB_REPOSITORY" -n "branding-$FROM_RUN" -D "$RUNNER_TEMP/branding"
+      - name: Apply
+        env:
+          YOUTUBE_OAUTH_JSON: ${{ secrets.YOUTUBE_OAUTH_JSON }}
+          KC_CHANNEL_ID: ${{ vars.KC_CHANNEL_ID }}
+          FROM_RUN: ${{ inputs.from_run }}
+          BANNER: ${{ inputs.banner }}
+          WRITE: ${{ inputs.write }}
+        run: |
+          case "$BANNER" in 0|1) ;; *) echo "banner must be 0 or 1" >&2; exit 1 ;; esac
+          args=()
+          if [ -n "$FROM_RUN" ]; then args+=(--banner "$RUNNER_TEMP/branding/banner-$BANNER.jpg"); fi
+          if [ "$WRITE" = "true" ]; then args+=(--write); fi
+          uv run --no-sync python -m kahaani.branding apply "${args[@]}"
