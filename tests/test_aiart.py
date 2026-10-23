@@ -74,7 +74,7 @@ def test_repaints_are_collected_apart_from_the_painting(tmp_path):
 
 def verdict(n, props_ok=True, share=0.5):
     return {"n": n, "shows": "Jhabbu on the bridge", "fits": True, "nudity": False, "sexual": False, "gore": False,
-            "malformed": False, "text": False, "religious": False, "kids_look": False, "child": False, "props_ok": props_ok,
+            "malformed": False, "text": False, "religious": False, "kids_look": False, "props_ok": props_ok,
             "subject_share": share, "reason": "" if props_ok else "no lantern"}
 
 
@@ -134,4 +134,4 @@ def test_a_caption_naming_a_child_refuses_the_picture():
     for shows in ("An older man holding a lantern stopping two younger boys on a path.",
                   "An older man with a lantern talking to a child and a young woman near a bicycle."):
         assert vision.rejected(ok | {"shows": shows}, True).startswith("child")
-    assert vision.rejected(ok | {"child": True}, True).startswith("child")
+    assert "child" not in vision.PROMPT.lower().replace("children: chibi", "")

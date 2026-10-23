@@ -172,7 +172,8 @@ def _generate(body: dict, schema: dict | None, order: list[str]) -> tuple[dict |
                 cand = (data.get("candidates") or [{}])[0]
                 text = "".join(p.get("text", "") for p in cand.get("content", {}).get("parts", []) if not p.get("thought"))
                 if not text.strip():
-                    errors.append(f"{model}: empty answer ({cand.get('finishReason')})")
+                    why = cand.get("finishReason") or (data.get("promptFeedback") or {}).get("blockReason")
+                    errors.append(f"{model}: empty answer ({why})")
                     break  # a refusal or a safety stop: another model may answer
                 if not schema:
                     return text, model

@@ -13,9 +13,10 @@ from pathlib import Path
 
 PER_PROMPT = 5
 SIDE = 768
-FLAGS = ("nudity", "sexual", "gore", "malformed", "text", "religious", "kids_look", "child")
+FLAGS = ("nudity", "sexual", "gore", "malformed", "text", "religious", "kids_look")
 # The cast has no one under 17. In dry run 39886731532 the editor described two cast shots as "two younger boys" and
-# "a child" yet passed them (kids_look is about style), so a caption naming a child refuses the picture as well.
+# "a child" yet passed them (kids_look is about style), so a caption naming a child refuses the picture. Asking the
+# editor about children outright got every request blocked (dry run 39892698527); its own caption is the signal.
 CHILD_WORDS = re.compile(r"\b(child|children|kids?|toddlers?|(little|small|young|younger) (boys?|girls?)|"
                          r"schoolboys?|schoolgirls?)\b", re.I)
 # A cast shot must show each painted character's signature prop or colour; a video needs PROP_RATE of its cast shots
@@ -65,8 +66,6 @@ For each picture answer:
   crescent, sacred sign or grave.
 - kids_look: true if it looks made for children: chibi or big-eyed cartoon faces, toddler proportions, a kids'
   picture-book or nursery style. The young people are 17-18 with adult proportions.
-- child: true if anyone in the picture looks younger than about 15: a child's face or body, or a small figure much
-  shorter than the others beside them. No character in this story is a child.
 - props_ok: for each character the line says should appear, true only if that character is visible and shows at
   least one of their listed signature props or colours. True when the line lists no characters.
 - fits: true if the picture plausibly shows this line's moment with this story's characters and setting, in a
