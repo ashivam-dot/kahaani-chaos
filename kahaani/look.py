@@ -61,16 +61,33 @@ PERSON = re.compile(r"\b(he|she|they|his|her|their|him|man|men|woman|women|young
                     re.I)
 
 
+# Told "no people", Z-Image still put a boy on the bicycle "rolling slowly across the bridge" in all three paintings
+# (dry run 39998079552, beat 3): a moving vehicle reads as a ridden one. The painting is a still (the motion is the
+# camera's), so a by-itself beat paints the thing standing empty in a deserted place.
+MOVING = (  # "is rolling slowly", "rolls forward", then a bare "rolling" before its noun
+    (re.compile(r"\b(?:is|are|was|were)\s+(?:slowly\s+|suddenly\s+)?(?:rolling|moving|creeping|gliding|lurching)"
+                r"(?:\s+(?:slowly|forward|ahead|away|along))?\b", re.I), "stands empty"),
+    (re.compile(r"\b(?:rolls|rolled|moves|moved|creeps|crept|glides|glided|lurches|lurched)"
+                r"(?:\s+(?:slowly|forward|ahead|away|along))?\b", re.I), "stands empty"),
+    (re.compile(r"\b(?:rolling|moving|creeping|gliding|lurching)\b", re.I), "empty"),
+)
+EMPTY = "A deserted, empty scene: nobody is there, and any seat or saddle in it is empty."
+
+
 def solo(scene: str) -> bool:
     """Whether a beat shows something moving by itself, and so is painted with nobody in it."""
     return bool(BY_ITSELF.search(scene))
 
 
 def unpeopled(scene: str) -> str:
-    """The scene's sentences that do not put a person in the frame (the first sentence when all of them do)."""
+    """The scene's sentences that do not put a person in the frame (the first sentence when all of them do), with
+    whatever moves in them painted standing still and empty (MOVING)."""
     sentences = [x.strip() for x in re.split(r"(?<=[.!?])\s+", scene.strip()) if x.strip()]
     kept = [x for x in sentences if BY_ITSELF.search(x) or not PERSON.search(x)]
-    return " ".join(kept or sentences[:1])
+    text = " ".join(kept or sentences[:1])
+    for pattern, word in MOVING:
+        text = pattern.sub(word, text)
+    return text
 
 
 def grown(scene: str) -> str:
@@ -103,11 +120,12 @@ def character(entry: dict) -> str:
 def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = False) -> str:
     """Style + scene + each present character's fixed look and expression now + what must not appear."""
     looks = {_key(c): c for c in cast}
-    if solo(scene):
+    alone = solo(scene)
+    if alone:
         scene, people = unpeopled(scene), []
     parts = [grown(scene).strip().rstrip(".") + "."]
-    if BY_ITSELF.search(scene):
-        parts.append(ALONE)
+    if alone:
+        parts += [ALONE, EMPTY]
     if UNLIT.search(scene):
         parts.append(OUT)
     present = [(looks[p["name"].strip().lower()], p.get("expression", "").strip()) for p in people

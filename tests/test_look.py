@@ -95,7 +95,17 @@ def test_a_beat_where_something_moves_by_itself_is_painted_with_nobody_in_it():
     people = [{"name": "prabhat", "expression": "startled"}]
     cast = [{"id": "prabhat", "name": "Prabhat", "look": "a young man in a mustard sweater"}]
     got = lk.prompt(scene, people, cast)
-    assert "rolling slowly across the bridge" in got and "Prabhat has stood up" not in got
+    assert "stands empty across the bridge" in got and "Prabhat has stood up" not in got
     assert lk.NOBODY in got and "Characters:" not in got
     assert lk.present(people, cast, scene) == [] and lk.present(people, cast, "Prabhat sits on the bridge.") == ["prabhat"]
     assert lk.unpeopled("Prabhat watches the lamp. He gasps.") == "Prabhat watches the lamp."
+
+
+def test_a_by_itself_beat_paints_the_thing_standing_empty_not_moving():
+    scene = ("The bicycle is rolling slowly across the bridge. Prabhat has stood up, pointing at the cycle. "
+             "The dynamo light flickers and hums as the wheel turns by itself.")
+    from kahaani import look as lk
+
+    text = lk.prompt(scene, [{"name": "prabhat", "expression": "startled"}], [])
+    assert "rolling" not in text and "bicycle stands empty across the bridge" in text
+    assert lk.EMPTY in text and "Prabhat" not in text

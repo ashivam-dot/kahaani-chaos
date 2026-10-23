@@ -79,6 +79,7 @@ HOOK_TAIL = 0.08  # seconds of the hook's last word's decay re-timed with it
 HOOK_HARD = (round(HOOK_WPM[0] / TEMPO_LIMITS[1], 1), round(HOOK_WPM[1] / TEMPO_LIMITS[0], 1))
 CUT_LEAD = 0.08
 TWIST_PAUSE = 0.9
+WORD_HEAD, WORD_TAIL = 0.12, 0.3  # seconds kept around a clone beat's first and last heard word
 TTS_DIR = Path(__file__).resolve().parents[1] / "tts"
 REFERENCE = TTS_DIR / "voices" / "narrator_ref.wav"
 STYLE = {"exaggeration": 0.55, "cfg_weight": 0.4}
@@ -583,6 +584,22 @@ def _gemini_story(story: Story, out_dir: Path) -> dict:
                     "hook_tempo": hook_factor, "takes": len(takes)})
 
 
+def _trim(audio: np.ndarray, words: list[dict]) -> tuple[np.ndarray, list[dict]]:
+    """A beat's clip cut to its words, WORD_HEAD before the first and WORD_TAIL after the last, with the word timings
+    moved to match. Chatterbox can end a line with a second of breath or room noise above the clip's own floor, which
+    the waveform check still counts as silence: dry run 39998079552 held on 1.52 s between beats 2 and 3, where the
+    beat pause was 0.35 s."""
+    if not words:
+        return audio, words
+    head = max(int((min(w["start"] for w in words) - WORD_HEAD) * SAMPLE_RATE), 0)
+    tail = min(int((max(w["end"] for w in words) + WORD_TAIL) * SAMPLE_RATE), len(audio))
+    if tail <= head:
+        return audio, words
+    shift = head / SAMPLE_RATE
+    return audio[head:tail], [w | {"start": round(max(w["start"] - shift, 0.0), 3),
+                                   "end": round(max(w["end"] - shift, 0.0), 3)} for w in words]
+
+
 def _chatterbox(lines: list[str], out: Path, seed: int) -> list[dict]:
     out.mkdir(parents=True, exist_ok=True)
     job = out / "job.json"
@@ -624,7 +641,7 @@ def _chatterbox_story(story: Story, out_dir: Path) -> dict:
                 break
         if best[2] < MIN_COVERAGE:
             raise TakeRejected(f"voice: beat {i + 1} came out garbled ({best[2]:.0%} of its letters heard)")
-        clips.append(best)
+        clips.append((*_trim(best[0], best[1]), best[2]))
     pieces = [np.zeros(int(LEAD_IN * SAMPLE_RATE), np.float32)]
     t, words = LEAD_IN, []
     for index, ((audio, beat_words, _), pause) in enumerate(zip(clips, pauses)):

@@ -32,9 +32,9 @@ cast:
     colours: {hi: [लाल, खाकी, पीतल जैसा सुनहरा], image: [red, khaki, brass]}
     look_hi: लंबा, दुबला, थोड़ा झुका हुआ आदमी; खाकी कुर्ता, पुरानी शॉल, लाल मफ़लर, हाथ में लालटेन।
     image: >-
-      tall lean man about sixty, slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a
-      brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face
-      small and turned away
+      elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped,
+      khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with
+      a small bell, khaki ledger with a red spine under one arm, face small and turned away
     voice: {suggest: Algenib, alt: Gacrux, note: gravelly older male; audition then lock}
     speech_hi: >-
       छोटे, ठहरे हुए वाक्य। सवाल का जवाब अक्सर एक नियम से देता है। "बेटा" कहकर डाँटता है। कभी हँसता नहीं, पर
