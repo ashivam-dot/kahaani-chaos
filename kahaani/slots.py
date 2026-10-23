@@ -1,4 +1,4 @@
-"""When a Short goes out: the format's IST slots (config.SLOTS; F1 is 19:00 IST daily), each filled at most once
+"""When a Short goes out: the format's IST slots (config.SLOTS; F1 is 13:00 and 19:00 IST daily), each filled at most once
 from the ready buffer.
 
 A slot that passed less than GRACE ago and was never filled is filled now (public at once); otherwise the next slot

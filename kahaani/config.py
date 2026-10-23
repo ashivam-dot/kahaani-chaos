@@ -53,12 +53,12 @@ class Format:
 # F1 only for now. F2 (sawaal, choose-one) and F3 (raat, weekly long-form) register here when they are built, with
 # their own slots and buffers; nothing below assumes a single format.
 FORMATS = {
-    "micro": Format(key="micro", series_hi="सन्नाटपुर की छोटी एंट्री", slots=((19, 0),), buffer=2,
+    "micro": Format(key="micro", series_hi="सन्नाटपुर की छोटी एंट्री", slots=((13, 0), (19, 0)), buffer=3,
                     playlist_env="KC_PLAYLIST_MICRO", playlist_title="सन्नाटपुर की छोटी एंट्री (Shorts)"),
 }
 FORMAT = "micro"  # the format this pipeline produces
 
-SLOTS = FORMATS[FORMAT].slots  # IST: 19:00 IST = 13:30 UTC, daily during the pilot
+SLOTS = FORMATS[FORMAT].slots  # IST: 13:00 and 19:00 IST = 07:30 and 13:30 UTC, daily
 BUFFER_TARGET = FORMATS[FORMAT].buffer
 
 CHANNEL_ID_FORMAT = re.compile(r"^UC[0-9A-Za-z_-]{22}$")
