@@ -33,6 +33,20 @@ ANIMALS = re.compile(r"\b(cat|kitten|dog|puppy|crow|owl|parrot|peacock|sparrow|v
                      r"cow|buffalo|goat|sheep|horse|donkey|camel|elephant|tiger|leopard|lion|monkey|langur|bear|"
                      r"fox|jackal|deer|snake|cobra|frog|fish|tortoise|turtle|rat|mouse|squirrel|bird)s?\b(?!-)", re.I)
 REAL = " (a real animal, not a person: no clothes, no human body or face)"
+# The writer's "the kids" painted the seventeen-year-olds young (dry run 39939846588, beat 4), and a "rolling bicycle"
+# came back with a rider nobody planned (beat 3). Both are fixed in the words the image model reads.
+GROWN = ((re.compile(r"\b(kids|children|teens|teenagers)\b", re.I), "young people"),
+         (re.compile(r"\b(kid|child|teen|teenager)\b", re.I), "young person"),
+         (re.compile(r"\bboys\b", re.I), "young men"), (re.compile(r"\bboy\b", re.I), "young man"),
+         (re.compile(r"\bgirls\b", re.I), "young women"), (re.compile(r"\bgirl\b", re.I), "young woman"))
+BY_ITSELF = re.compile(r"\b(by itself|on its own|of its own|rolling|rolls|riderless|unmanned|self-\w+|empty)\b", re.I)
+ALONE = "Whatever moves by itself has nobody on it, pushing, pulling or holding it."
+
+
+def grown(scene: str) -> str:
+    for pattern, word in GROWN:
+        scene = pattern.sub(word, scene)
+    return scene
 
 
 def animal(look: str) -> bool:
@@ -59,7 +73,9 @@ def character(entry: dict) -> str:
 def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = False) -> str:
     """Style + scene + each present character's fixed look and expression now + what must not appear."""
     looks = {_key(c): c for c in cast}
-    parts = [scene.strip().rstrip(".") + "."]
+    parts = [grown(scene).strip().rstrip(".") + "."]
+    if BY_ITSELF.search(scene):
+        parts.append(ALONE)
     present = [(looks[p["name"].strip().lower()], p.get("expression", "").strip()) for p in people
                if p.get("name", "").strip().lower() in looks]
     if hook:

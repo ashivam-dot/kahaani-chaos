@@ -60,3 +60,18 @@ def test_bible_characters_use_their_image_token():
 
     p = look.prompt("Jhabbu on the bridge", [{"name": "jhabbu", "expression": "calm"}], [{"id": "jhabbu", "name": "झब्बू"}])
     assert bible.image_token("jhabbu").strip().rstrip(".") in p and "झब्बू" not in p
+
+
+def test_the_scene_never_calls_the_cast_kids():
+    from kahaani import look as lk
+
+    out = lk.prompt("Jhabbu raises his lantern over the kids as a boy and a girl watch.", [], []).split(". ")[0]
+    assert "kids" not in out and " boy " not in out and " girl " not in out
+    assert "young people" in out and "young man" in out and "young woman" in out
+
+
+def test_a_thing_moving_by_itself_has_nobody_on_it():
+    from kahaani import look as lk
+
+    assert lk.ALONE in lk.prompt("Shailesh lunges to grab the rolling bicycle.", [], [])
+    assert lk.ALONE not in lk.prompt("The bicycle stands on the bridge.", [], [])
