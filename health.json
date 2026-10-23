@@ -1,19 +1,17 @@
 {
  "produce": {
-  "at": "2026-10-19T15:53:55+00:00",
+  "at": "2026-10-23T20:43:51+00:00",
   "ok": true,
   "dry": false,
   "steps": [
-   "paintings: 11 of 11 made",
-   "ready: kc-20261019-1510-p027 stored as release ready-kc-20261019-1510-p027 (1 ready)"
+   "paintings: 7 of 7 made, 8 repaints",
+   "hold e01: hold: prop identity 75% of cast shots, needs 85%"
   ],
-  "made": {
-   "id": "kc-20261019-1510-p027",
-   "title": "पहाड़ का अकेला भूत रात में रास्ता भूल गया! 🕯️",
-   "duration": 64.48,
-   "voice": "gemini-narrator",
-   "wpm": 150.0
-  }
+  "picture_editor": [
+   "gemini"
+  ],
+  "prop_identity": 0.75,
+  "held": "hold: prop identity 75% of cast shots, needs 85%"
  },
  "publish": {
   "at": "2026-10-19T16:03:42+00:00",
