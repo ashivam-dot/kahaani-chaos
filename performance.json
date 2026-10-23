@@ -1,5 +1,5 @@
 {
- "at": "2026-10-19T14:20:04+00:00",
+ "at": "2026-10-23T20:45:35+00:00",
  "videos": {
   "xo7yuW_Rgbg": {
    "id": "kc-20261013-1614-p001",
@@ -70,10 +70,23 @@
      "views": 28,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 229.76,
+     "views": 30,
+     "likes": 0,
+     "comments": 0
     }
    ],
    "subgenre": "jadui-inaam",
-   "views_48h": 22.25212121212121
+   "views_48h": 22.25212121212121,
+   "format": null,
+   "skeleton": null,
+   "ending": "twist-reveal",
+   "resolution": null,
+   "heart_type": null,
+   "viewed_pct": 57.24,
+   "subs": 0
   },
   "P27OAScm5Hk": {
    "id": "kc-20261016-0630-p014",
@@ -120,10 +133,23 @@
      "views": 2,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 181.36,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
     }
    ],
    "subgenre": "shraapit-cheez",
-   "views_48h": 2.0
+   "views_48h": 2.0,
+   "format": null,
+   "skeleton": null,
+   "ending": "dilemma",
+   "resolution": null,
+   "heart_type": null,
+   "viewed_pct": 6.460000000000001,
+   "subs": 0
   },
   "nZIbcOdzCWA": {
    "id": "kc-20261016-1441-p025",
@@ -164,10 +190,23 @@
      "views": 21,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 173.11,
+     "views": 21,
+     "likes": 0,
+     "comments": 0
     }
    ],
    "subgenre": "bhoot-rahasya",
-   "views_48h": 21.0
+   "views_48h": 21.0,
+   "format": null,
+   "skeleton": null,
+   "ending": "loop-back",
+   "resolution": null,
+   "heart_type": null,
+   "viewed_pct": 74.59,
+   "subs": 0
   },
   "5rkStDyIH0o": {
    "id": "kc-20261017-0636-p039",
@@ -202,10 +241,23 @@
      "views": 2,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 157.36,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
     }
    ],
    "subgenre": "samay-chakra",
-   "views_48h": 2.0
+   "views_48h": 2.0,
+   "format": null,
+   "skeleton": null,
+   "ending": "twist-reveal",
+   "resolution": null,
+   "heart_type": null,
+   "viewed_pct": 7.8,
+   "subs": 0
   },
   "tZg7rv3aa-k": {
    "id": "kc-20261017-1439-p049",
@@ -234,10 +286,23 @@
      "views": 2,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 149.33,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
     }
    ],
    "subgenre": "chatur-chaal",
-   "views_48h": null
+   "views_48h": 2.0,
+   "format": null,
+   "skeleton": null,
+   "ending": "dilemma",
+   "resolution": null,
+   "heart_type": null,
+   "viewed_pct": 0.0,
+   "subs": 0
   },
   "j-YweGw4d0U": {
    "id": "kc-20261018-0629-p002",
@@ -260,10 +325,23 @@
      "views": 3,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "age_h": 133.61,
+     "views": 3,
+     "likes": 0,
+     "comments": 0
     }
    ],
    "subgenre": "jadui-inaam",
-   "views_48h": null
+   "views_48h": 3.0,
+   "format": null,
+   "skeleton": null,
+   "ending": "loop-back",
+   "resolution": null,
+   "heart_type": null,
+   "viewed_pct": 0.0,
+   "subs": 0
   },
   "lYDvp5VftkQ": {
    "id": "kc-20261018-1434-p015",
@@ -280,16 +358,52 @@
      "views": 2,
      "likes": 0,
      "comments": 0
+    },
+    {
+     "age_h": 125.44,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
     }
    ],
    "subgenre": "shraapit-cheez",
-   "views_48h": null
+   "views_48h": 2.0,
+   "format": null,
+   "skeleton": null,
+   "ending": "twist-reveal",
+   "resolution": null,
+   "heart_type": null,
+   "viewed_pct": 86.67,
+   "subs": 0
+  },
+  "ByKD8CjJu8E": {
+   "id": "kc-20261019-1510-p027",
+   "published_at": "2026-10-19T16:05:26+00:00",
+   "snapshots": [
+    {
+     "age_h": 100.67,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
+    }
+   ],
+   "format": null,
+   "skeleton": null,
+   "ending": "dilemma",
+   "resolution": null,
+   "heart_type": null,
+   "subgenre": "bhoot-rahasya",
+   "views_48h": 1.3810219459437656,
+   "viewed_pct": 32.62,
+   "subs": 0
   }
  },
  "learned": {
-  "scored": 4,
+  "scored": 8,
   "min_samples": 4,
   "lifts": {},
-  "baseline_views_48h": 7
- }
+  "baseline_views_48h": 4,
+  "score": "0.5 viewed% + 0.3 views + 0.2 subs/1K (z)"
+ },
+ "analytics": "ok"
 }

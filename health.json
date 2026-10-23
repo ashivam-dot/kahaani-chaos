@@ -14,16 +14,11 @@
   "held": "hold: prop identity 75% of cast shots, needs 85%"
  },
  "publish": {
-  "at": "2026-10-19T16:03:42+00:00",
+  "at": "2026-10-23T20:45:35+00:00",
   "ok": true,
   "steps": [
-   "public kc-20261019-1510-p027 for 2026-10-19T15:00:00Z: https://www.youtube.com/shorts/ByKD8CjJu8E"
+   "learn: 8 scored Shorts, lifts {}"
   ],
-  "published": {
-   "video_id": "ByKD8CjJu8E",
-   "url": "https://www.youtube.com/shorts/ByKD8CjJu8E",
-   "privacy": "public",
-   "synthetic_declared": true
-  }
+  "held": "hold: the buffer is empty; slot 2026-10-24T07:30:00Z has no Short"
  }
 }
