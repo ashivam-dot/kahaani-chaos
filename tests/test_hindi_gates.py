@@ -167,7 +167,7 @@ def test_gate_i_measured_narration_bands():
     assert voice.problems({**m, "onset": 0.6}) and voice.problems({**m, "body_wpm": 120.0})
     assert voice.problems({**m, "body_wpm": 200.0}) and voice.problems({**m, "max_gap": 1.5})
     assert voice.problems({**m, "coverage": 0.9}) and voice.problems({**m, "cer": 0.2})
-    assert voice.problems({**m, "hook_wpm": 140.0}) and voice.problems({**m, "hook_wpm": 215.0})
+    assert voice.problems({**m, "hook_wpm": 140.0}) and voice.problems({**m, "hook_wpm": 225.0})
 
 
 # Punctuation joins, inflections, brands, hashtags and nasal spellings: each one used to slip past a whole-word gate.

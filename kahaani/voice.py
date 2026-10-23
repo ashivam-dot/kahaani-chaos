@@ -66,7 +66,7 @@ DIRECTION = ("Read this Hindi story aloud as a grown man remembering a strange n
 TAKES = 3
 MIN_COVERAGE = align.MIN_COVERAGE
 TARGET_WPM, AIM_WPM, HARD_WPM = (155.0, 175.0), 165.0, (140.0, 190.0)
-HOOK_WPM, HOOK_HARD = (170.0, 185.0), (150.0, 205.0)
+HOOK_WPM = (170.0, 185.0)
 ONSET = 0.3  # seconds from the first frame to the first word
 COVERAGE = 0.95
 CER = 0.12
@@ -74,6 +74,8 @@ MAX_GAP = 1.2
 FINAL_SLACK = {"body": 5.0, "hook": 8.0}  # wpm either side of TARGET_WPM / HOOK_WPM on the finished narration
 FRAME = 0.02  # seconds per RMS frame when looking for silences
 TEMPO_LIMITS = (0.85, 1.18)
+# A take's hook may read as far off HOOK_WPM as re-timing the hook line alone (_hook_paced) can bring back.
+HOOK_HARD = (round(HOOK_WPM[0] / TEMPO_LIMITS[1], 1), round(HOOK_WPM[1] / TEMPO_LIMITS[0], 1))
 CUT_LEAD = 0.08
 TWIST_PAUSE = 0.9
 TTS_DIR = Path(__file__).resolve().parents[1] / "tts"
@@ -622,13 +624,21 @@ def _chatterbox_story(story: Story, out_dir: Path) -> dict:
         # atempo stretches time uniformly, so every timing scales by the same factor.
         words = [w | {"start": round(w["start"] / factor, 3), "end": round(w["end"] / factor, 3)} for w in words]
         wpm = round(wpm * factor, 1)
+    tokens = [(w, i) for i, b in enumerate(story.beats) for w in b.text.split()]
+    spoken = align.heard(wav)
+    heard, coverage, spoken, hook_factor = _hook_paced(wav, tokens, words, [], spoken, out_dir)
+    if hook_factor != 1.0:
+        lead = LEAD_IN / factor / hook_factor
+        words = [w | {"start": max(w["start"], lead), "end": max(w["end"], lead + 0.05)} for w in heard]
     duration = sf.info(str(wav)).duration
     record = {"engine": "chatterbox-narrator-clone", "identity": "narrator", "voice": VOICE,
               "reference": str(REFERENCE.relative_to(TTS_DIR.parent)),
               "reference_sha256": hashlib.sha256(REFERENCE.read_bytes()).hexdigest(),
-              "coverage": [round(c[2], 3) for c in clips], "wpm": wpm, "tempo": factor, **STYLE}
-    record["checks"] = measure(story, words, align.heard(wav), wav)
-    return _timing(out_dir, words, _spans(words, len(story.beats), duration, LEAD_IN / factor), duration, record)
+              "coverage": [round(c[2], 3) for c in clips], "wpm": wpm, "tempo": factor, "hook_tempo": hook_factor,
+              **STYLE}
+    record["checks"] = measure(story, words, spoken, wav)
+    lead = LEAD_IN / factor / hook_factor
+    return _timing(out_dir, words, _spans(words, len(story.beats), duration, lead), duration, record)
 
 
 def _timing(out_dir: Path, words: list[dict], spans: list, duration: float, voice: dict) -> dict:
