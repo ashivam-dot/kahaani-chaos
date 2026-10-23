@@ -28,8 +28,10 @@ CHILD_WORDS = re.compile(r"\b(child|children|kids?|toddlers?|schoolboys?|schoolg
 # to (after up to look.ALTERNATES repaints each); a shot that never does is dropped.
 PROP_RATE = 0.85
 # The local fallback editor may pass paintings for a published Short only once vision-bench shows it refusing what
-# the Gemini editor refuses (the child shots of dry run 39886731532 above all).
-LOCAL_TRUSTED = False
+# the Gemini editor refuses (the child shots of dry run 39886731532 above all). Benches 39927624755, 39927635163 and
+# 39927645982 (Gemma 4 12B, 21 shots): it refused every shot Gemini refused, both child shots included, and refused 3
+# that Gemini passed, so it errs strict and costs only repaints.
+LOCAL_TRUSTED = True
 HOOK_SUBJECT = (0.30, 0.90)  # share of the frame the hook painting's main subject covers
 
 SCHEMA = {
