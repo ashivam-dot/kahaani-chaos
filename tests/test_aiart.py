@@ -135,3 +135,53 @@ def test_a_caption_naming_a_child_refuses_the_picture():
                   "An older man with a lantern talking to a child and a young woman near a bicycle."):
         assert vision.rejected(ok | {"shows": shows}, True).startswith("child")
     assert "child" not in vision.PROMPT.lower().replace("children: chibi", "")
+
+
+def test_the_picture_editor_falls_back_to_the_local_model_and_stays_there(monkeypatch):
+    from kahaani import gemini, llm, vision
+
+    calls = []
+
+    def no_gemini(parts, schema):
+        calls.append("gemini")
+        raise gemini.Unavailable("429")
+
+    class Local:
+        name = "gemma-4-12b"
+
+        def __init__(self, name, vision=False):
+            assert vision
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            calls.append("closed")
+
+        def look(self, parts, schema):
+            calls.append("local")
+            return {"pictures": []}
+
+    monkeypatch.setattr(gemini, "available", lambda: True)
+    monkeypatch.setattr(gemini, "look", no_gemini)
+    monkeypatch.setattr(llm, "Model", Local)
+    with vision.Eye() as eye:
+        assert eye(["x"], {}) == {"pictures": []} and eye(["y"], {}) == {"pictures": []}
+    assert calls == ["gemini", "local", "local", "closed"] and eye.used == ["gemma-4-12b", "gemma-4-12b"]
+
+
+def test_no_local_model_is_a_clean_hold(monkeypatch):
+    from kahaani import gemini, llm, vision
+
+    monkeypatch.setattr(gemini, "available", lambda: False)
+
+    class Broken:
+        def __init__(self, *a, **k):
+            pass
+
+        def __enter__(self):
+            raise RuntimeError("no local model would start")
+
+    monkeypatch.setattr(llm, "Model", Broken)
+    with pytest.raises(gemini.Unavailable, match="no local model would start"):
+        vision.Eye()(["x"], {})

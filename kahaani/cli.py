@@ -196,14 +196,20 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
                                f"{sum(map(len, spares.values()))} repaints")
         who = {i: look.present([dict(p) for p in b.people], story.cast) for i, b in enumerate(story.beats)}
         report: list[dict] = []
+        eye = vision.Eye()
         try:
             pictures = aiart.pictures(found, [b.text for b in story.beats], work / "pics",
-                                      f"{story.title} — {story.description}", _cast_text(story), gemini.look, report,
+                                      f"{story.title} — {story.description}", _cast_text(story), eye, report,
                                       spares=spares, who={i: w for i, w in who.items() if w})
         except gemini.Unavailable as exc:
             raise RuntimeError(f"hold: no model can check the paintings ({exc})") from exc
         finally:
+            eye.close()
+            health["picture_editor"] = sorted(set(eye.used))
             (work / "pictures.json").write_text(json.dumps(report, indent=1, ensure_ascii=False), encoding="utf-8")
+        if not dry and not vision.LOCAL_TRUSTED and any(m != "gemini" for m in eye.used):
+            raise aiart.PictureHold("hold: the local picture editor judged the paintings and is not calibrated yet "
+                                    "(vision.LOCAL_TRUSTED; run the vision-bench workflow)")
         rate = aiart.prop_rate(report)
         if rate is not None:
             health["prop_identity"] = round(rate, 3)
@@ -373,6 +379,36 @@ def _retry_pending(now: datetime, api, health: dict):
     return api
 
 
+def vision_bench(work: Path, out: Path) -> dict:
+    """The local picture editor's verdicts on a finished run's paintings (work holds story.json, pics/beatNN.jpg and
+    the Gemini editor's pictures.json), side by side with Gemini's, to calibrate vision.Eye before it may publish."""
+    from . import vision
+
+    story = Story.load(work / "story.json")
+    who = {i: look.present([dict(p) for p in b.people], story.cast) for i, b in enumerate(story.beats)}
+    shots = sorted((work / "pics").glob("beat??.jpg"))
+    items = [(f, story.beats[int(f.stem[4:])].text, vision.expected(who.get(int(f.stem[4:]), []))) for f in shots]
+    gemini_rows = {r["beat"]: r for r in json.loads((work / "pictures.json").read_text(encoding="utf-8"))} \
+        if (work / "pictures.json").exists() else {}
+    with vision.Eye() as eye:
+        eye.gemini_down = True
+        verdicts = vision.judge(items, f"{story.title} — {story.description}", _cast_text(story), eye)
+    rows = []
+    for f, v in zip(shots, verdicts):
+        i = int(f.stem[4:])
+        g = gemini_rows.get(i + 1, {})
+        rows.append({"beat": i + 1, "local_shows": v.get("shows"),
+                     "local_rejected": vision.rejected(v, bool(who.get(i)), i == 0),
+                     "gemini_shows": g.get("shows"),
+                     "gemini_rejected": vision.rejected({"shows": g.get("shows"), "fits": True, "props_ok": True,
+                                                         "subject_share": 0.5}, bool(who.get(i)), False)
+                     if g else None, "local": v})
+    out.mkdir(parents=True, exist_ok=True)
+    report = {"model": eye.used[:1], "rows": rows}
+    (out / "vision-bench.json").write_text(json.dumps(report, indent=1, ensure_ascii=False), encoding="utf-8")
+    return report
+
+
 def main(argv: list[str] | None = None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(message)s")
     p = argparse.ArgumentParser(prog="kahaani")
@@ -389,7 +425,13 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("publish")
     sub.add_parser("next")
     sub.add_parser("health")
+    vb = sub.add_parser("vision-bench")
+    vb.add_argument("--work", type=Path, required=True)
+    vb.add_argument("--out", type=Path, required=True)
     a = p.parse_args(argv)
+    if a.cmd == "vision-bench":
+        print(json.dumps(vision_bench(a.work, a.out), indent=1, ensure_ascii=False))
+        return 0
     if a.cmd == "plan":
         status = plan(a.out, dry=a.dry, replay=a.replay)
         print(json.dumps({k: v for k, v in status.items() if k != "trace"}, indent=1, ensure_ascii=False))

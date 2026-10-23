@@ -1,0 +1,49 @@
+name: vision-bench
+
+# Calibrates the local picture editor (vision.Eye's Gemma 4 fallback) on the paintings of an earlier run: it judges
+# them with no Gemini at all and sets its verdicts beside the Gemini editor's. Uses no key.
+on:
+  workflow_dispatch:
+    inputs:
+      from_run:
+        description: the run whose short-<run> artifact holds story.json, pics/ and pictures.json
+        required: true
+      model:
+        description: local vision model (gemma-4-12b or gemma-4-e4b)
+        required: false
+        default: gemma-4-12b
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  bench:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+      - name: Free disk for the model
+        run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL
+      - uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+      - run: uv sync
+      - uses: actions/download-artifact@v7
+        with:
+          name: short-${{ inputs.from_run }}
+          path: in
+          run-id: ${{ inputs.from_run }}
+          github-token: ${{ github.token }}
+      - name: Judge with the local model
+        env:
+          KC_VLM: ${{ inputs.model }}
+        run: |
+          work=$(dirname "$(find in -name story.json | head -1)")
+          uv run --no-sync python -m kahaani.cli vision-bench --work "$work" --out out
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: vision-bench-${{ inputs.from_run }}-${{ inputs.model }}
+          path: out
+          retention-days: 14

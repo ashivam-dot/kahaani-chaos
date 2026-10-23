@@ -27,6 +27,10 @@ MODELS = {
     "qwen3.5-35b-a3b": ("unsloth/Qwen3.5-35B-A3B-GGUF", "Qwen3.5-35B-A3B-UD-IQ3_XXS.gguf"),
 }
 FALLBACKS = ("gemma-4-12b", "qwen3.5-35b-a3b")
+# Gemma 4 reads pictures through its vision projector; the picture editor's fallback (vision.Eye) loads one of these.
+MMPROJ = {"gemma-4-12b": "mmproj-gemma-4-12b-it-qat-q4_0.gguf", "gemma-4-e4b": "gemma-4-E4B-it-mmproj.gguf"}
+VISION_FALLBACKS = ("gemma-4-12b", "gemma-4-e4b")
+VISION_DEFAULT = os.environ.get("KC_VLM", "gemma-4-12b")
 DEFAULT = os.environ.get("KC_LLM", "gemma-4-12b")
 _download = net.download
 
@@ -59,6 +63,14 @@ def model_file(name: str = DEFAULT) -> Path:
     return path
 
 
+def mmproj_file(name: str) -> Path:
+    repo, file = MODELS[name][0], MMPROJ[name]
+    path = DIR / file
+    if not path.exists():
+        _download(f"https://huggingface.co/{repo}/resolve/main/{file}", path)
+    return path
+
+
 def _free_port() -> int:
     with socket.socket() as s:
         s.bind(("127.0.0.1", 0))
@@ -68,15 +80,15 @@ def _free_port() -> int:
 class Model:
     """with Model() as m: m.chat(messages, schema) -> parsed JSON."""
 
-    def __init__(self, name: str = DEFAULT, ctx: int = 12288):
-        self.name, self.ctx = name, ctx
+    def __init__(self, name: str = DEFAULT, ctx: int = 12288, vision: bool = False):
+        self.name, self.ctx, self.vision = name, ctx, vision
         self.proc = None
         self.port = _free_port()
 
     def __enter__(self) -> "Model":
         """Start the named model, or the next of FALLBACKS when it can't be downloaded or won't start."""
         errors = []
-        for name in dict.fromkeys((self.name, *FALLBACKS)):
+        for name in dict.fromkeys((self.name, *(VISION_FALLBACKS if self.vision else FALLBACKS))):
             try:
                 self._start(name)
                 self.name = name
@@ -91,11 +103,12 @@ class Model:
 
     def _start(self, name: str) -> None:
         exe, weights = server_binary(), model_file(name)
+        extra = ["--mmproj", str(mmproj_file(name))] if self.vision else []
         threads = str(os.cpu_count() or 4)
         env = dict(os.environ, LD_LIBRARY_PATH=str(exe.parent))
         self.proc = subprocess.Popen(
             [str(exe), "-m", str(weights), "--port", str(self.port), "--host", "127.0.0.1", "-c", str(self.ctx),
-             "-t", threads, "--jinja", "--no-webui"],
+             "-t", threads, "--jinja", "--no-webui", *extra],
             stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, env=env)
         deadline = time.monotonic() + 600
         while time.monotonic() < deadline:
@@ -129,3 +142,11 @@ class Model:
         r.raise_for_status()
         text = r.json()["choices"][0]["message"]["content"]
         return json.loads(text) if schema else text
+
+    def look(self, parts: list[str | bytes], schema: dict, max_tokens: int = 2500) -> dict:
+        """A JSON answer about pictures, like gemini.look: parts mixes prompt text and JPEG bytes, in order."""
+        import base64
+
+        content = [{"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + base64.b64encode(p).decode()}}
+                   if isinstance(p, bytes) else {"type": "text", "text": p} for p in parts]
+        return self.chat([{"role": "user", "content": content}], schema, temperature=0.0, max_tokens=max_tokens)

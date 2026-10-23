@@ -8,8 +8,11 @@ look, nothing is published.
 from __future__ import annotations
 
 import io
+import logging
 import re
 from pathlib import Path
+
+log = logging.getLogger(__name__)
 
 PER_PROMPT = 5
 SIDE = 768
@@ -22,6 +25,9 @@ CHILD_WORDS = re.compile(r"\b(child|children|kids?|toddlers?|(little|small|young
 # A cast shot must show each painted character's signature prop or colour; a video needs PROP_RATE of its cast shots
 # to (after up to look.ALTERNATES repaints each); a shot that never does is dropped.
 PROP_RATE = 0.85
+# The local fallback editor may pass paintings for a published Short only once vision-bench shows it refusing what
+# the Gemini editor refuses (the child shots of dry run 39886731532 above all).
+LOCAL_TRUSTED = False
 HOOK_SUBJECT = (0.30, 0.90)  # share of the frame the hook painting's main subject covers
 
 SCHEMA = {
@@ -134,3 +140,47 @@ def judge(items: list[tuple], story: str, cast: str, ask) -> list[dict]:
         for n in range(1, len(chunk) + 1):
             verdicts.append(got.get(n) or {"n": n, "shows": "", "fits": False, "reason": "no verdict"})
     return verdicts
+
+
+class Eye:
+    """The picture editor: Gemini first, then Gemma 4 with its vision projector on the runner (llama.cpp; no account,
+    key or quota), started only if needed. Once Gemini can't answer, the rest of the run stays local. Records which
+    model answered each call (used)."""
+
+    def __init__(self, local: str | None = None):
+        from . import llm
+
+        self.local_name = local or llm.VISION_DEFAULT
+        self.local = None
+        self.gemini_down = False
+        self.used: list[str] = []
+
+    def __call__(self, parts: list, schema: dict) -> dict:
+        from . import gemini, llm
+
+        if not self.gemini_down and gemini.available():
+            try:
+                answer = gemini.look(parts, schema)
+                self.used.append("gemini")
+                return answer
+            except gemini.Unavailable as exc:
+                log.warning("no Gemini model can look (%s); the local picture editor takes over", str(exc)[:300])
+                self.gemini_down = True
+        if self.local is None:
+            try:
+                self.local = llm.Model(self.local_name, vision=True).__enter__()
+            except RuntimeError as exc:
+                raise gemini.Unavailable(f"Gemini can't look and {exc}"[:600]) from exc
+        self.used.append(self.local.name)
+        return self.local.look(parts, schema)
+
+    def close(self) -> None:
+        if self.local is not None:
+            self.local.__exit__(None, None, None)
+            self.local = None
+
+    def __enter__(self) -> "Eye":
+        return self
+
+    def __exit__(self, *exc) -> None:
+        self.close()
