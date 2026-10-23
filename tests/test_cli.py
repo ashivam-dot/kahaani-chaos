@@ -40,7 +40,7 @@ def test_plan_a_replay(tmp_path, monkeypatch):
     assert status["paint"] and status["story"] == REPLAY_ID
     art = json.loads((tmp_path / "plan" / "art-plan.json").read_text(encoding="utf-8"))
     assert art["story"] == status["story"] and len(art["beats"]) == 6 and art["steps"] == 4
-    assert [len(b.get("alternates", [])) for b in art["beats"]] == [0, 2, 2, 2, 2, 0]
+    assert [len(b.get("alternates", [])) for b in art["beats"]] == [2, 2, 2, 2, 2, 0]
     out = outputs(tmp_path / "out.txt")
     assert out["paint"] == "true" and json.loads(out["chunks"]) == [str(i) for i in range(6)]
 

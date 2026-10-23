@@ -50,7 +50,8 @@ def test_plan_has_one_seeded_prompt_per_beat():
     assert look.CLOSE_THING not in plan[1]["prompt"] and look.NOBODY not in plan[1]["prompt"]
     assert "sheepish expression" in plan[4]["prompt"] and "Shailesh:" in plan[4]["prompt"]
     assert plan[3]["cast"] == ["jhabbu", "prabhat", "nuzhat"] and len(plan[3]["alternates"]) == look.ALTERNATES
-    assert "alternates" not in plan[0] and plan[5]["cast"] == []
+    # the hook's bicycle light glows on its own, so it gets spare seeds for the picture editor too
+    assert len(plan[0]["alternates"]) == look.ALTERNATES and plan[5]["cast"] == [] and "alternates" not in plan[5]
     assert len({b["seed"] for b in plan}) == len(plan)
     assert plan == look.plan(d["id"], d["beats"], d["cast"])
 
@@ -85,3 +86,16 @@ def test_a_dawn_beat_gets_the_dawn_look_and_a_dark_lamp_stays_dark():
     assert lk.DAWN_STYLE in out and lk.STYLE not in out and lk.OUT in out
     night = lk.prompt("The bicycle's headlight shines yellow on the bridge at night.", [], [])
     assert lk.STYLE in night and lk.OUT not in night
+
+
+def test_a_beat_where_something_moves_by_itself_is_painted_with_nobody_in_it():
+    from kahaani import look as lk
+
+    scene = "The bicycle is rolling slowly across the bridge. Prabhat has stood up, looking startled and pointing."
+    people = [{"name": "prabhat", "expression": "startled"}]
+    cast = [{"id": "prabhat", "name": "Prabhat", "look": "a young man in a mustard sweater"}]
+    got = lk.prompt(scene, people, cast)
+    assert "rolling slowly across the bridge" in got and "Prabhat has stood up" not in got
+    assert lk.NOBODY in got and "Characters:" not in got
+    assert lk.present(people, cast, scene) == [] and lk.present(people, cast, "Prabhat sits on the bridge.") == ["prabhat"]
+    assert lk.unpeopled("Prabhat watches the lamp. He gasps.") == "Prabhat watches the lamp."

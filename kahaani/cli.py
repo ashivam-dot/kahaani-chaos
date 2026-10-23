@@ -194,7 +194,7 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
         spares = aiart.alternates(art_dir, story.id, len(story.beats))
         health["steps"].append(f"paintings: {len(found)} of {len(story.beats)} made, "
                                f"{sum(map(len, spares.values()))} repaints")
-        who = {i: look.present([dict(p) for p in b.people], story.cast) for i, b in enumerate(story.beats)}
+        who = {i: look.present([dict(p) for p in b.people], story.cast, b.scene) for i, b in enumerate(story.beats)}
         report: list[dict] = []
         eye = vision.Eye()
         try:
@@ -386,7 +386,7 @@ def vision_bench(work: Path, out: Path) -> dict:
     from . import vision
 
     story = Story.load(work / "story.json")
-    who = {i: look.present([dict(p) for p in b.people], story.cast) for i, b in enumerate(story.beats)}
+    who = {i: look.present([dict(p) for p in b.people], story.cast, b.scene) for i, b in enumerate(story.beats)}
     shots = sorted((work / "pics").glob("beat??.jpg"))
     items = [(f, story.beats[int(f.stem[4:])].text, vision.expected(who.get(int(f.stem[4:]), [])),
               story.beats[int(f.stem[4:])].scene) for f in shots]
