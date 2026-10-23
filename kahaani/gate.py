@@ -314,7 +314,12 @@ def check(draft: dict, premise: dict, history: list[dict], rotation: bool = True
         found.append(f"needs {BEATS[0]}-{BEATS[1]} beats, has {len(beats)}")
     total = sum(len(hindi.words(b.get("text", ""))) for b in beats)
     if not WORDS[0] <= total <= WORDS[1]:
-        found.append(f"needs {WORDS[0]}-{WORDS[1]} spoken Hindi words in total, has {total}")
+        # Rewrites asked only for the band land on its edge (134 after two repairs in dry run 39878445511), so name
+        # the cut or the addition and aim for the middle.
+        aim = sum(WORDS) // 2
+        change = f"cut about {total - aim} words" if total > WORDS[1] else f"add about {aim - total} words"
+        found.append(f"needs {WORDS[0]}-{WORDS[1]} spoken Hindi words in total, has {total}: {change} so it lands "
+                     f"near {aim}")
     cast = draft.get("cast") or []
     ids = {c.get("id") for c in cast}
     if not CAST[0] <= len(cast) <= CAST[1]:
