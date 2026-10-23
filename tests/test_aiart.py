@@ -74,7 +74,8 @@ def test_repaints_are_collected_apart_from_the_painting(tmp_path):
 
 def verdict(n, props_ok=True, share=0.5):
     return {"n": n, "shows": "Jhabbu on the bridge", "fits": True, "nudity": False, "sexual": False, "gore": False,
-            "malformed": False, "text": False, "religious": False, "kids_look": False, "props_ok": props_ok,
+            "malformed": False, "text": False, "religious": False, "kids_look": False, "doubled": False,
+            "ridden": False, "props_ok": props_ok,
             "subject_share": share, "reason": "" if props_ok else "no lantern"}
 
 
@@ -199,9 +200,24 @@ def test_the_editor_sees_the_planned_picture(tmp_path):
 
     def ask(parts, schema):
         prompts.append(parts[0])
-        return {"pictures": [{"n": 1, "shows": "a bicycle", "fits": True, "subject_share": 0.5}]}
+        return {"pictures": [{"n": 1, "shows": "a bicycle", "fits": True, "ridden": False,
+                                         "subject_share": 0.5}]}
 
     aiart.pictures(aiart.collect(art, "kc-1", 1), ["a"], tmp_path / "pics", "story", "cast", ask,
                    scenes=["The bicycle rolling forward without a rider."])
     assert "planned picture: The bicycle rolling forward without a rider." in prompts[0]
     assert "someone the plan leaves" in vision.PROMPT
+
+
+def test_a_ridden_bicycle_is_refused_when_the_plan_says_it_moves_by_itself():
+    # Dry run 39969216681, beat 3: told the plan, the editor captioned a ridden bicycle "rolls forward by itself".
+    alone = "The black bicycle rolls forward on its own along the bridge. No one is touching or riding it."
+    ridden = verdict(1) | {"ridden": True, "shows": "A bicycle rolls forward by itself while four people watch."}
+    assert vision.rejected(ridden, scene=alone).startswith("ridden")
+    assert vision.rejected(verdict(1) | {"ridden": True}, scene="Prabhat pedals his bicycle down the lane.") is None
+    assert vision.rejected(verdict(1), scene=alone) is None
+    assert vision.rejected({k: v for k, v in verdict(1).items() if k != "ridden"}, scene=alone).startswith("ridden")
+
+
+def test_a_person_painted_twice_is_refused():
+    assert vision.rejected(verdict(1) | {"doubled": True}).startswith("doubled")

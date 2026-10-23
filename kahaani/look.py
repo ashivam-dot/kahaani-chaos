@@ -51,7 +51,7 @@ GROWN = ((re.compile(r"\b(kids|children|teens|teenagers)\b", re.I), "young peopl
          (re.compile(r"\b(kid|child|teen|teenager)\b", re.I), "young person"),
          (re.compile(r"\bboys\b", re.I), "young men"), (re.compile(r"\bboy\b", re.I), "young man"),
          (re.compile(r"\bgirls\b", re.I), "young women"), (re.compile(r"\bgirl\b", re.I), "young woman"))
-BY_ITSELF = re.compile(r"\b(by itself|on its own|of its own|rolling|rolls|riderless|unmanned|self-\w+|empty)\b", re.I)
+BY_ITSELF = re.compile(r"\b(by itself|on its own|of its own|rolling|rolls|riderless|unmanned|self-\w+)\b", re.I)
 ALONE = "Whatever moves by itself has nobody on it, pushing, pulling or holding it."
 
 

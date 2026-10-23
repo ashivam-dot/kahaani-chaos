@@ -16,7 +16,7 @@ log = logging.getLogger(__name__)
 
 PER_PROMPT = 5
 SIDE = 768
-FLAGS = ("nudity", "sexual", "gore", "malformed", "text", "religious", "kids_look")
+FLAGS = ("nudity", "sexual", "gore", "malformed", "text", "religious", "kids_look", "doubled")
 # The cast has no one under 17. In dry run 39886731532 the editor described two cast shots as "two younger boys" and
 # "a child" yet passed them (kids_look is about style), so a caption naming a child refuses the picture. Asking the
 # editor about children outright got every request blocked (dry run 39892698527); its own caption is the signal.
@@ -45,12 +45,13 @@ SCHEMA = {
                     "n": {"type": "integer"},
                     "shows": {"type": "string"},
                     **{f: {"type": "boolean"} for f in FLAGS},
+                    "ridden": {"type": "boolean"},
                     "props_ok": {"type": "boolean"},
                     "fits": {"type": "boolean"},
                     "subject_share": {"type": "number"},
                     "reason": {"type": "string"},
                 },
-                "required": ["n", "shows", *FLAGS, "props_ok", "fits", "subject_share", "reason"],
+                "required": ["n", "shows", *FLAGS, "ridden", "props_ok", "fits", "subject_share", "reason"],
             },
         },
     },
@@ -77,6 +78,8 @@ For each picture answer:
   crescent, sacred sign or grave.
 - kids_look: true if it looks made for children: chibi or big-eyed cartoon faces, toddler proportions, a kids'
   picture-book or nursery style. The young people are 17-18 with adult proportions.
+- doubled: true if the same person (same clothes and props) appears twice in one picture.
+- ridden: true if anyone sits on, rides, pedals, pushes, steers or holds a bicycle, cart or other vehicle.
 - props_ok: for each character the line says should appear, true only if that character is visible and shows at
   least one of their listed signature props or colours. True when the line lists no characters.
 - fits: true if the picture plausibly shows this line's moment with this story's characters and setting, in a
@@ -102,15 +105,21 @@ def _small(path: Path) -> bytes:
     return buf.getvalue()
 
 
-def rejected(verdict: dict, cast_shot: bool = False, hook: bool = False) -> str | None:
+def rejected(verdict: dict, cast_shot: bool = False, hook: bool = False, scene: str = "") -> str | None:
     """Why a verdict keeps its picture out of a Short, or None when the picture may be used. A cast shot must also
     pass prop identity, and the hook's painting must have its subject cover HOOK_SUBJECT of the frame (a missing
-    answer counts as a failure for both)."""
+    answer counts as a failure for both). A planned scene where something moves by itself refuses a picture where
+    anyone rides or holds a vehicle: told the plan, the editor captioned a ridden bicycle "rolls forward by itself"
+    and passed it (dry run 39969216681, beat 3), so that is a plain question decided here, not left to fits."""
+    from .look import BY_ITSELF
+
     for flag in FLAGS:
         if verdict.get(flag):
             return f"{flag}: {verdict.get('reason') or verdict.get('shows')}"
     if CHILD_WORDS.search(verdict.get("shows") or ""):
         return f"child: the editor sees a child ({verdict.get('shows')})"
+    if scene and BY_ITSELF.search(scene) and verdict.get("ridden") is not False:
+        return f"ridden: someone is on or holding what the plan says moves by itself ({verdict.get('shows')})"
     if cast_shot and verdict.get("props_ok") is not True:
         return f"props: the characters' signature props or colours are missing ({verdict.get('reason') or ''})"
     if not verdict.get("fits"):

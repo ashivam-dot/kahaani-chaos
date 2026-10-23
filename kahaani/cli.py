@@ -400,7 +400,7 @@ def vision_bench(work: Path, out: Path) -> dict:
         i = int(f.stem[4:])
         g = gemini_rows.get(i + 1, {})
         rows.append({"beat": i + 1, "local_shows": v.get("shows"),
-                     "local_rejected": vision.rejected(v, bool(who.get(i)), i == 0),
+                     "local_rejected": vision.rejected(v, bool(who.get(i)), i == 0, story.beats[i].scene),
                      "gemini_shows": g.get("shows"),
                      "gemini_rejected": vision.rejected({"shows": g.get("shows"), "fits": True, "props_ok": True,
                                                          "subject_share": 0.5}, bool(who.get(i)), False)
