@@ -81,17 +81,19 @@ def prop_rate(report: list[dict]) -> float | None:
 
 def pictures(found: dict[int, Path], texts: list[str], folder: Path, story: str, cast: str, ask,
              report: list[dict] | None = None, spares: dict[int, list[Path]] | None = None,
-             who: dict[int, list[str]] | None = None) -> list[Path]:
+             who: dict[int, list[str]] | None = None, scenes: list[str] | None = None) -> list[Path]:
     """One screened, upscaled picture path per beat. who: beat -> the cast ids its painting should show (a cast shot
-    must pass prop identity); spares: beat -> repaints tried in order when a painting is refused."""
+    must pass prop identity); spares: beat -> repaints tried in order when a painting is refused; scenes: the planned
+    picture per beat, which the editor checks the painting against."""
     folder.mkdir(parents=True, exist_ok=True)
     who, spares = who or {}, spares or {}
+    scene = (lambda i: scenes[i] if scenes and i < len(scenes) else "")
     order = sorted(found)
     items = []
     for i in order:
         target = folder / f"beat{i:02d}.jpg"
         _prepare(found[i], target)
-        items.append((target, texts[i], vision.expected(who.get(i, []))))
+        items.append((target, texts[i], vision.expected(who.get(i, [])), scene(i)))
     verdicts = vision.judge(items, story, cast, ask) if items else []
     passed = set()
     rows = []
@@ -102,7 +104,8 @@ def pictures(found: dict[int, Path], texts: list[str], folder: Path, story: str,
             tried += 1
             candidate = folder / f"beat{i:02d}-alt{tried}.jpg"
             _prepare(spare, candidate)
-            again = vision.judge([(candidate, texts[i], vision.expected(who.get(i, [])))], story, cast, ask)[0]
+            again = vision.judge([(candidate, texts[i], vision.expected(who.get(i, [])), scene(i))], story, cast,
+                                 ask)[0]
             log.warning("painting for beat %d refused (%s); repaint %d %s", i + 1, why, tried,
                         "passed" if vision.rejected(again, bool(who.get(i)), i == 0) is None else "refused too")
             verdict, why = again, vision.rejected(again, bool(who.get(i)), i == 0)

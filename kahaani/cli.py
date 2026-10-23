@@ -200,7 +200,8 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
         try:
             pictures = aiart.pictures(found, [b.text for b in story.beats], work / "pics",
                                       f"{story.title} — {story.description}", _cast_text(story), eye, report,
-                                      spares=spares, who={i: w for i, w in who.items() if w})
+                                      spares=spares, who={i: w for i, w in who.items() if w},
+                                      scenes=[b.scene for b in story.beats])
         except gemini.Unavailable as exc:
             raise RuntimeError(f"hold: no model can check the paintings ({exc})") from exc
         finally:
@@ -387,7 +388,8 @@ def vision_bench(work: Path, out: Path) -> dict:
     story = Story.load(work / "story.json")
     who = {i: look.present([dict(p) for p in b.people], story.cast) for i, b in enumerate(story.beats)}
     shots = sorted((work / "pics").glob("beat??.jpg"))
-    items = [(f, story.beats[int(f.stem[4:])].text, vision.expected(who.get(int(f.stem[4:]), []))) for f in shots]
+    items = [(f, story.beats[int(f.stem[4:])].text, vision.expected(who.get(int(f.stem[4:]), [])),
+              story.beats[int(f.stem[4:])].scene) for f in shots]
     gemini_rows = {r["beat"]: r for r in json.loads((work / "pictures.json").read_text(encoding="utf-8"))} \
         if (work / "pictures.json").exists() else {}
     with vision.Eye() as eye:

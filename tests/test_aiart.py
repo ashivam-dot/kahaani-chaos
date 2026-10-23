@@ -3,7 +3,7 @@ import json
 import pytest
 from PIL import Image
 
-from kahaani import aiart
+from kahaani import aiart, vision
 
 
 def test_every_beat_shows_its_own_painting_when_all_pass():
@@ -187,3 +187,21 @@ def test_no_local_model_is_a_clean_hold(monkeypatch):
     monkeypatch.setattr(llm, "Model", Broken)
     with pytest.raises(gemini.Unavailable, match="no local model would start"):
         vision.Eye()(["x"], {})
+
+
+def test_the_editor_sees_the_planned_picture(tmp_path):
+    # Dry run 39930652897: the line said the bicycle moves by itself, the painting had a boy riding it, and the editor
+    # (shown only the Hindi line) passed it.
+    art = tmp_path / "art"
+    art.mkdir()
+    paint(art, "kc-1", 0)
+    prompts = []
+
+    def ask(parts, schema):
+        prompts.append(parts[0])
+        return {"pictures": [{"n": 1, "shows": "a bicycle", "fits": True, "subject_share": 0.5}]}
+
+    aiart.pictures(aiart.collect(art, "kc-1", 1), ["a"], tmp_path / "pics", "story", "cast", ask,
+                   scenes=["The bicycle rolling forward without a rider."])
+    assert "planned picture: The bicycle rolling forward without a rider." in prompts[0]
+    assert "someone the plan leaves" in vision.PROMPT

@@ -81,7 +81,9 @@ For each picture answer:
   least one of their listed signature props or colours. True when the line lists no characters.
 - fits: true if the picture plausibly shows this line's moment with this story's characters and setting, in a
   painted (not photographic, not cartoon) style. False for an unrelated scene, the wrong characters, a modern
-  object the story doesn't have, or a sheet of several pictures.
+  object the story doesn't have, or a sheet of several pictures. Also false when it contradicts the planned
+  picture in a way a viewer would notice: the planned main action or object is missing, or someone the plan leaves
+  out is the centre of it (dry run 39930652897: a boy riding the bicycle the line says moves by itself).
 - subject_share: the share of the whole picture (0.0-1.0) that its main subject (the object or person the line is
   about) covers, by area of its outline.
 - reason: why, in a few words.
@@ -129,13 +131,14 @@ def expected(ids: list[str]) -> str:
 
 
 def judge(items: list[tuple], story: str, cast: str, ask) -> list[dict]:
-    """One verdict per (picture file, narrated line[, who should appear]), in order. ask(parts, schema) answers like gemini.look; a missing
+    """One verdict per (picture file, narrated line[, who should appear[, planned picture]]), in order. ask(parts, schema) answers like gemini.look; a missing
     or malformed verdict counts as a rejection."""
     verdicts: list[dict] = []
     for start in range(0, len(items), PER_PROMPT):
         chunk = items[start:start + PER_PROMPT]
-        lines = "\n".join(f"{n}. narrated line: {item[1]}" + (f"\n   should appear: {item[2]}" if len(item) > 2 and
-                                                              item[2] else "")
+        lines = "\n".join(f"{n}. narrated line: {item[1]}"
+                          + (f"\n   should appear: {item[2]}" if len(item) > 2 and item[2] else "")
+                          + (f"\n   planned picture: {item[3]}" if len(item) > 3 and item[3] else "")
                           for n, item in enumerate(chunk, 1))
         parts: list = [PROMPT.format(story=story, cast=cast, lines=lines)]
         for n, item in enumerate(chunk, 1):
