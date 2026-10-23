@@ -20,8 +20,10 @@ FLAGS = ("nudity", "sexual", "gore", "malformed", "text", "religious", "kids_loo
 # The cast has no one under 17. In dry run 39886731532 the editor described two cast shots as "two younger boys" and
 # "a child" yet passed them (kids_look is about style), so a caption naming a child refuses the picture. Asking the
 # editor about children outright got every request blocked (dry run 39892698527); its own caption is the signal.
-CHILD_WORDS = re.compile(r"\b(child|children|kids?|toddlers?|(little|small|young|younger) (boys?|girls?)|"
-                         r"schoolboys?|schoolgirls?)\b", re.I)
+# A bare "boy" or "girl" counts too (vision-bench on 39886731532: Gemma described the shrunken teens as "a girl in
+# green and a boy in yellow"); a correct render reads "young man" or "young woman", and "teenage boy" is allowed.
+CHILD_WORDS = re.compile(r"\b(child|children|kids?|toddlers?|schoolboys?|schoolgirls?|"
+                         r"(?<!teenage )(?<!teen )(boys?|girls?))\b", re.I)
 # A cast shot must show each painted character's signature prop or colour; a video needs PROP_RATE of its cast shots
 # to (after up to look.ALTERNATES repaints each); a shot that never does is dropped.
 PROP_RATE = 0.85
@@ -61,7 +63,8 @@ Story: {story}
 Characters: {cast}
 
 For each picture answer:
-- shows: one short sentence describing what is actually visible.
+- shows: one short sentence describing what is actually visible. Describe each person by how they look (for
+  example "an old man in a red muffler", "a young woman in green"), never by a character's name.
 - nudity: true if anyone is nude or nearly nude, or shows a bare breast, buttocks or genitals.
 - sexual: true for kissing, embrace in a sexual way, seductive poses or a sexualised focus on the body.
 - gore: true for blood, wounds, severed body parts or corpses.

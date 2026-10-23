@@ -29,7 +29,8 @@ MODELS = {
 FALLBACKS = ("gemma-4-12b", "qwen3.5-35b-a3b")
 # Gemma 4 reads pictures through its vision projector; the picture editor's fallback (vision.Eye) loads one of these.
 MMPROJ = {"gemma-4-12b": "mmproj-gemma-4-12b-it-qat-q4_0.gguf", "gemma-4-e4b": "gemma-4-E4B-it-mmproj.gguf"}
-VISION_FALLBACKS = ("gemma-4-12b", "gemma-4-e4b")
+# Not E4B: on vision-bench 39886731532 it named the characters instead of describing them and passed both child shots.
+VISION_FALLBACKS = ("gemma-4-12b",)
 VISION_DEFAULT = os.environ.get("KC_VLM", "gemma-4-12b")
 DEFAULT = os.environ.get("KC_LLM", "gemma-4-12b")
 _download = net.download

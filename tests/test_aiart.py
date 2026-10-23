@@ -131,8 +131,10 @@ def test_a_caption_naming_a_child_refuses_the_picture():
     ok = {f: False for f in vision.FLAGS} | {"fits": True, "props_ok": True, "shows": ""}
     assert vision.rejected(ok | {"shows": "Two young men walking along a canal path."}, True) is None
     assert vision.rejected(ok | {"shows": "A young woman with a torch beside a bicycle."}, True) is None
+    assert vision.rejected(ok | {"shows": "A teenage boy in a red cap beside a teenage girl."}, True) is None
     for shows in ("An older man holding a lantern stopping two younger boys on a path.",
-                  "An older man with a lantern talking to a child and a young woman near a bicycle."):
+                  "An older man with a lantern talking to a child and a young woman near a bicycle.",
+                  "Jhabbu stands with a lantern while a girl in green and a boy in yellow look on."):
         assert vision.rejected(ok | {"shows": shows}, True).startswith("child")
     assert "child" not in vision.PROMPT.lower().replace("children: chibi", "")
 
