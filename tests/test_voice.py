@@ -98,3 +98,21 @@ def test_the_hook_limit_counts_the_body_tempo(tmp_path, monkeypatch):
         [w | {"end": w["end"] * 1.3} if w["beat"] == 0 else w for w in words], [1.0], [], 165.0))
     factor = voice._hook_paced(wav, [], words, [1.0], [], tmp_path, 1.0905)[3]
     assert factor < voice.TEMPO_LIMITS[0] and factor * 1.0905 >= voice.TEMPO_LIMITS[0] - 1e-4
+
+
+def test_the_hook_retime_moves_the_timings_without_listening(tmp_path, monkeypatch, story):
+    # Dry run 39930652897: the re-listen after re-timing a 193.5 wpm hook was thrown away and the Short held at 193.5.
+    import soundfile as sf
+
+    wav = tmp_path / "n.wav"
+    _tone(wav, 0.25, 4.0)
+    words = _words(10 * 60 / 194 + 0.25)
+    monkeypatch.setattr(voice, "_listen", lambda *a: (_ for _ in ()).throw(AssertionError("listened again")))
+    before = sf.info(str(wav)).duration
+    w2, _, s2, factor = voice._hook_paced(wav, [], words, [1.0], [("क", 3.9, 4.0)], tmp_path)
+    added = sf.info(str(wav)).duration - before
+    assert 0.9 < factor < 1.0 and added > 0
+    assert voice.HOOK_WPM[0] <= voice.measure(story, w2, [], wav)["hook_wpm"] <= voice.HOOK_WPM[1] + 0.5
+    later = [(a, b) for a, b in zip(words, w2) if a["beat"] > 0]
+    assert all(abs(b["start"] - a["start"] - added) < 0.01 for a, b in later)
+    assert abs(s2[0][1] - 3.9 - added) < 0.01

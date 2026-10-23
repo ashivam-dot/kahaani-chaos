@@ -455,10 +455,13 @@ def _paced(wav: Path, tokens, words, coverage, spoken, wpm, out_dir: Path) -> tu
 
 def _hook_paced(wav: Path, tokens, words, coverage, spoken, out_dir: Path,
                 body: float = 1.0) -> tuple[list, list, list, float]:
-    """Re-time only the hook line when it reads outside HOOK_WPM (Gemini rushes a short opening line), then listen
-    again; the original stays if the re-timed one hears worse or lands no nearer the band. body is the tempo already
-    applied to the whole narration: TEMPO_LIMITS bound the hook's net change from the take, so a hook the body's
-    speed-up pushed further out can be brought back (dry run 39886731532: 210 x 1.09 body, capped at 0.85 = 194)."""
+    """Re-time only the hook line when it reads outside HOOK_WPM (Gemini rushes a short opening line). body is the
+    tempo already applied to the whole narration: TEMPO_LIMITS bound the hook's net change from the take, so a hook the
+    body's speed-up pushed further out can be brought back (dry run 39886731532: 210 x 1.09 body, capped at 0.85 = 194).
+
+    atempo stretches the hook segment uniformly, so its timings scale by the factor and everything after it shifts by
+    the added length, as in the clone path. Listening again would add nothing and lets Whisper's jitter throw a good
+    re-time away (dry run 39930652897: a 193.5 wpm hook re-timed toward 185 was dropped and the Short held at 193.5)."""
     first = [w for w in words if w["beat"] == 0]
     rest = [w for w in words if w["beat"] > 0]
     if not first or not rest:
@@ -478,17 +481,27 @@ def _hook_paced(wav: Path, tokens, words, coverage, spoken, out_dir: Path,
     aim = HOOK_WPM[1] if now > HOOK_WPM[1] else HOOK_WPM[0]
     factor = min(max(aim / now, TEMPO_LIMITS[0] / body), TEMPO_LIMITS[1] / body)
     audio, sr = sf.read(str(wav), dtype="float32")
-    cut = int((first[-1]["end"] + rest[0]["start"]) / 2 * sr)
+    cut_s = (first[-1]["end"] + rest[0]["start"]) / 2
+    cut = int(cut_s * sr)
     sf.write(out_dir / "hook.wav", audio[:cut], sr)
     slowed, _ = sf.read(str(_tempo(out_dir / "hook.wav", factor, out_dir / "hook-paced.wav")), dtype="float32")
     trial = out_dir / "narration-hook.wav"
     sf.write(trial, np.concatenate([slowed, audio[cut:]]), sr)
-    w2, c2, s2, _ = _listen(trial, tokens)
     for f in ("hook.wav", "hook-paced.wav"):
         (out_dir / f).unlink(missing_ok=True)
-    if c2 and min(c2) >= MIN_COVERAGE and off(hook(w2, trial)) < off(now):
+    shift = len(slowed) / sr - cut / sr
+
+    def moved(t: float) -> float:
+        return round(t / factor if t < cut_s else t + shift, 3)
+
+    w2 = [w | {"start": moved(w["start"]), "end": moved(w["end"])} for w in words]
+    s2 = [(t, moved(a), moved(b)) for t, a, b in spoken]
+    after = hook(w2, trial)
+    if off(after) < off(now):
         trial.replace(wav)
-        return w2, c2, s2, round(factor, 4)
+        log.info("hook re-timed x%.3f: %.1f -> %.1f wpm", factor, now, after)
+        return w2, coverage, s2, round(factor, 4)
+    log.info("hook re-time x%.3f kept the take: %.1f -> %s wpm", factor, now, after and round(after, 1))
     trial.unlink(missing_ok=True)
     return words, coverage, spoken, 1.0
 
