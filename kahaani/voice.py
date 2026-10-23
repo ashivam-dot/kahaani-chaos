@@ -453,9 +453,12 @@ def _paced(wav: Path, tokens, words, coverage, spoken, wpm, out_dir: Path) -> tu
     return words, coverage, wpm, 1.0
 
 
-def _hook_paced(wav: Path, tokens, words, coverage, spoken, out_dir: Path) -> tuple[list, list, list, float]:
+def _hook_paced(wav: Path, tokens, words, coverage, spoken, out_dir: Path,
+                body: float = 1.0) -> tuple[list, list, list, float]:
     """Re-time only the hook line when it reads outside HOOK_WPM (Gemini rushes a short opening line), then listen
-    again; the original stays if the re-timed one hears worse or lands no nearer the band."""
+    again; the original stays if the re-timed one hears worse or lands no nearer the band. body is the tempo already
+    applied to the whole narration: TEMPO_LIMITS bound the hook's net change from the take, so a hook the body's
+    speed-up pushed further out can be brought back (dry run 39886731532: 210 x 1.09 body, capped at 0.85 = 194)."""
     first = [w for w in words if w["beat"] == 0]
     rest = [w for w in words if w["beat"] > 0]
     if not first or not rest:
@@ -473,7 +476,7 @@ def _hook_paced(wav: Path, tokens, words, coverage, spoken, out_dir: Path) -> tu
     if not off(now):
         return words, coverage, spoken, 1.0
     aim = HOOK_WPM[1] if now > HOOK_WPM[1] else HOOK_WPM[0]
-    factor = min(max(aim / now, TEMPO_LIMITS[0]), TEMPO_LIMITS[1])
+    factor = min(max(aim / now, TEMPO_LIMITS[0] / body), TEMPO_LIMITS[1] / body)
     audio, sr = sf.read(str(wav), dtype="float32")
     cut = int((first[-1]["end"] + rest[0]["start"]) / 2 * sr)
     sf.write(out_dir / "hook.wav", audio[:cut], sr)
@@ -553,7 +556,7 @@ def _gemini_story(story: Story, out_dir: Path) -> dict:
     sf.write(wav, audio, SAMPLE_RATE)
     words, coverage, wpm, factor = _paced(wav, tokens, words, coverage, spoken, wpm, out_dir)
     spoken = align.heard(wav) if factor != 1.0 else spoken
-    words, coverage, spoken, hook_factor = _hook_paced(wav, tokens, words, coverage, spoken, out_dir)
+    words, coverage, spoken, hook_factor = _hook_paced(wav, tokens, words, coverage, spoken, out_dir, factor)
     duration = sf.info(str(wav)).duration
     lead = LEAD_IN / factor / hook_factor
     words = [w | {"start": max(w["start"], lead), "end": max(w["end"], lead + 0.05)} for w in words]
@@ -626,7 +629,7 @@ def _chatterbox_story(story: Story, out_dir: Path) -> dict:
         wpm = round(wpm * factor, 1)
     tokens = [(w, i) for i, b in enumerate(story.beats) for w in b.text.split()]
     spoken = align.heard(wav)
-    heard, coverage, spoken, hook_factor = _hook_paced(wav, tokens, words, [], spoken, out_dir)
+    heard, coverage, spoken, hook_factor = _hook_paced(wav, tokens, words, [], spoken, out_dir, factor)
     if hook_factor != 1.0:
         lead = LEAD_IN / factor / hook_factor
         words = [w | {"start": max(w["start"], lead), "end": max(w["end"], lead + 0.05)} for w in heard]

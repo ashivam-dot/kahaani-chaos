@@ -87,3 +87,14 @@ def test_a_rushed_hook_is_slowed_alone(tmp_path, monkeypatch):
     assert not (tmp_path / "narration-hook.wav").exists() and not (tmp_path / "hook.wav").exists()
     in_band = _words(10 * 60 / 178 + 0.25)
     assert voice._hook_paced(wav, [], in_band, [1.0, 1.0], [], tmp_path)[3] == 1.0
+
+
+def test_the_hook_limit_counts_the_body_tempo(tmp_path, monkeypatch):
+    # Dry run 39886731532: a 210 wpm hook sped up 1.09x with the body could only come back 0.85x, to 194.
+    wav = tmp_path / "n.wav"
+    _tone(wav, 0.25, 4.0)
+    words = _words(10 * 60 / 229 + 0.25)
+    monkeypatch.setattr(voice, "_listen", lambda path, tokens: (
+        [w | {"end": w["end"] * 1.3} if w["beat"] == 0 else w for w in words], [1.0], [], 165.0))
+    factor = voice._hook_paced(wav, [], words, [1.0], [], tmp_path, 1.0905)[3]
+    assert factor < voice.TEMPO_LIMITS[0] and factor * 1.0905 >= voice.TEMPO_LIMITS[0] - 1e-4
