@@ -1,17 +1,17 @@
 {
  "produce": {
-  "at": "2026-10-23T20:43:51+00:00",
+  "at": "2026-10-23T21:43:19+00:00",
   "ok": true,
   "dry": false,
   "steps": [
-   "paintings: 7 of 7 made, 8 repaints",
-   "hold e01: hold: prop identity 75% of cast shots, needs 85%"
+   "paintings: 7 of 7 made, 10 repaints",
+   "hold e01: hold: picture and sound checks: frame 0 mean luma 58, needs 90-170; frame 0 RMS contrast 0.15, needs 0.18-0.45; integrated loudness -15.3 LUFS, needs -15 to -13"
   ],
   "picture_editor": [
    "gemini"
   ],
-  "prop_identity": 0.75,
-  "held": "hold: prop identity 75% of cast shots, needs 85%"
+  "prop_identity": 1.0,
+  "held": "hold: picture and sound checks: frame 0 mean luma 58, needs 90-170; frame 0 RMS contrast 0.15, needs 0.18-0.45; integrated loudness -15.3 LUFS, needs -15 to -13"
  },
  "publish": {
   "at": "2026-10-23T20:45:35+00:00",
