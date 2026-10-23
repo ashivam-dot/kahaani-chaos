@@ -116,8 +116,8 @@ RULES (all mandatory):
   instead), and the camera. Beat 1 is the
   peak image, a close-up of the {object_token!r} doing the impossible. Faces small, backlit or three-quarters
   away; the object and props carry the picture. No text, signs, logos or labels in any picture. Call the cast
-  young men and young women, never kids, children, boys or girls; when the object moves by itself, say nobody is on
-  it or touching it.
+  young men and young women, never kids, children, boys or girls; when the object moves by itself, that beat shows
+  the object alone (nobody in the painting, people empty) and the cast react in the beats around it.
 - people: for each beat, every cast id visible in its painting with their expression at this moment; empty when
   no one is visible.
 - hook_strip: 3-5 Hindi words painted over frame 0 (a teaser, not the title), no emoji.

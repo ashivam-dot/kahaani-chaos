@@ -40,7 +40,7 @@ def test_plan_a_replay(tmp_path, monkeypatch):
     assert status["paint"] and status["story"] == REPLAY_ID
     art = json.loads((tmp_path / "plan" / "art-plan.json").read_text(encoding="utf-8"))
     assert art["story"] == status["story"] and len(art["beats"]) == 6 and art["steps"] == 4
-    assert [len(b.get("alternates", [])) for b in art["beats"]] == [0, 2, 2, 2, 2, 0]
+    assert [len(b.get("alternates", [])) for b in art["beats"]] == [2, 2, 2, 2, 2, 0]
     out = outputs(tmp_path / "out.txt")
     assert out["paint"] == "true" and json.loads(out["chunks"]) == [str(i) for i in range(6)]
 
@@ -312,8 +312,8 @@ def test_publish_holds_on_an_empty_buffer(channel):
 def test_publish_fills_the_slot_and_deletes_the_release(channel, monkeypatch):
     sid, dropped, published = buffered(monkeypatch)
     health = cli.publish(NOW)
-    assert health["ok"] and published == [(sid, "2026-10-13T13:30:00Z")] and dropped == [sid]
-    assert ledger.ready() == [] and ledger.published()[0]["slot"] == "2026-10-13T13:30:00Z"
+    assert health["ok"] and published == [(sid, "2026-10-13T07:30:00Z")] and dropped == [sid]
+    assert ledger.ready() == [] and ledger.published()[0]["slot"] == "2026-10-13T07:30:00Z"
     assert ledger.published()[0]["video_id"] == "vid1"
     assert cli.publish(NOW)["steps"] == ["the next slot is already filled"]
 
@@ -378,8 +378,8 @@ def test_a_short_found_already_public_takes_its_own_slot_and_the_next_fills_the_
     health = cli.publish(NOW)
     assert health["ok"], health
     rows = {r["video_id"]: r for r in ledger.published()}
-    assert rows["old"]["slot"] == "2026-10-12T13:30:00Z" and rows["vid2"]["slot"] == "2026-10-13T13:30:00Z"
-    assert calls == ["2026-10-13T13:30:00Z", "2026-10-13T13:30:00Z"] and ledger.ready() == []
+    assert rows["old"]["slot"] == "2026-10-12T13:30:00Z" and rows["vid2"]["slot"] == "2026-10-13T07:30:00Z"
+    assert calls == ["2026-10-13T07:30:00Z", "2026-10-13T07:30:00Z"] and ledger.ready() == []
 
 
 def test_a_pending_comment_is_tried_again_after_release(channel, monkeypatch):

@@ -1,0 +1,180 @@
+{
+ "id": "kc-20261023-1622-e01",
+ "premise": "e01",
+ "title": "साइकिल रोकी… और उसकी लाइट बिना पैडल के जल उठी! 🚲",
+ "hook": "पुल पर साइकिल की लाइट बिना पैडल के जल उठी।",
+ "beats": [
+  {
+   "text": "पुल पर साइकिल की लाइट बिना पैडल के जल उठी।",
+   "scene": "A close-up of a black steel bicycle standing alone on a narrow brick bridge. The dynamo light on the front wheel is glowing intensely yellow, casting a sharp beam onto the weathered red bricks. No one is touching the cycle. The background is a dim, misty blue night.",
+   "people": [],
+   "pause_after": 0.35
+  },
+  {
+   "text": "उन्नीस सौ छियानवे की वो ठंडी रात थी और हम सब नहर के पुराने पुल पर बैठे गप्पें मार रहे थे।",
+   "scene": "A wide shot of the old canal bridge under a moonlit sky. Young men prabhat and shailesh and young woman nuzhat are sitting on the brick parapet. Jhabbu stands nearby leaning on his bamboo staff, his brass lantern glowing softly. Prabhat wears his mustard sweater.",
+   "people": [
+    {
+     "name": "prabhat",
+     "expression": "relaxed and talking"
+    },
+    {
+     "name": "shailesh",
+     "expression": "laughing"
+    },
+    {
+     "name": "nuzhat",
+     "expression": "listening"
+    },
+    {
+     "name": "jhabbu",
+     "expression": "calm and watchful"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "तभी अँधेरे में खड़ी मेरी साइकिल खुद-ब-खुद आगे लुढ़कने लगी, मानो कोई उसे खींच रहा हो।",
+   "scene": "The bicycle is rolling slowly across the bridge. Prabhat has stood up, looking startled and pointing at the cycle. Shailesh is wide-eyed, clutching his red cricket cap. The dynamo light flickers and hums as the wheel turns by itself.",
+   "people": [
+    {
+     "name": "prabhat",
+     "expression": "startled and confused"
+    },
+    {
+     "name": "shailesh",
+     "expression": "shocked"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "झब्बू ने मेरा हाथ पकड़ लिया और नियम छः याद दिलाया कि जलती रोशनी के पीछे कभी मत भागना।",
+   "scene": "Jhabbu places a firm, steadying hand on prabhat's shoulder. Nuzhat stands beside them, her long braid visible over her shoulder, holding her broken torch but not switching it on. Jhabbu's red muffler is bright against his khaki kurta in the lantern light.",
+   "people": [
+    {
+     "name": "jhabbu",
+     "expression": "stern and commanding"
+    },
+    {
+     "name": "prabhat",
+     "expression": "anxious"
+    },
+    {
+     "name": "nuzhat",
+     "expression": "alert"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "हम चुपचाप देखते रहे, साइकिल जहाँ रुकी वहाँ शैलेश का वो चमड़े वाला ट्रांजिस्टर पड़ा था।",
+   "scene": "The bicycle has come to a stop at the end of the bridge near some dry grass. Its dynamo light is shining directly onto a small leather-covered radio lying on the ground. The group watches from a distance, the lantern light illuminating their curious faces.",
+   "people": [
+    {
+     "name": "jhabbu",
+     "expression": "knowing"
+    },
+    {
+     "name": "prabhat",
+     "expression": "intrigued"
+    },
+    {
+     "name": "shailesh",
+     "expression": "stunned"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "शैलेश ने रोते हुए मान लिया कि रेडियो चोरी नहीं हुआ था, वो उसे खुद वहीं भूल आया था।",
+   "scene": "A medium shot of shailesh looking down at the ground with a guilty, tearful expression. Prabhat and nuzhat are looking at him in surprise. The lantern light from below creates dramatic shadows on their faces. The bicycle light in the background is now very dim.",
+   "people": [
+    {
+     "name": "shailesh",
+     "expression": "guilty and emotional"
+    },
+    {
+     "name": "prabhat",
+     "expression": "surprised"
+    },
+    {
+     "name": "nuzhat",
+     "expression": "observant"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "सुबह साइकिल फिर से पुल पर थी, पर रात लाइट बिना पैडल जल उठी।",
+   "scene": "The first light of dawn over the canal. The bicycle is standing perfectly still at its original spot on the bridge. The dynamo light is off. The mist is thick over the water and the bridge is empty and silent.",
+   "people": [],
+   "pause_after": 0.35
+  }
+ ],
+ "cast": [
+  {
+   "id": "jhabbu",
+   "name": "झब्बू",
+   "look": "tall lean man about sixty, slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+  },
+  {
+   "id": "prabhat",
+   "name": "प्रभात",
+   "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+  },
+  {
+   "id": "nuzhat",
+   "name": "नुज़हत",
+   "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+  },
+  {
+   "id": "shailesh",
+   "name": "शैलेश",
+   "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+  }
+ ],
+ "subgenre": "confessed-lie",
+ "ending": "loop-back",
+ "twist_beat": 4,
+ "description": "सन्नाटपुर की एक सर्द रात जब नहर के पुराने पुल पर खड़ी साइकिल की लाइट खुद जल उठी और एक पुराना राज़ खुला।",
+ "motifs": [],
+ "hashtags": [
+  "#सन्नाटपुर",
+  "#90sकीयादें",
+  "#रहस्य",
+  "#पुरानीसाइकिल"
+ ],
+ "writer": {
+  "models": [
+   "gemini-3-flash-preview",
+   "gemini-3-flash-preview",
+   "gemini-3-flash-preview"
+  ],
+  "log": [
+   {
+    "attempt": 0,
+    "stage": "gates",
+    "problems": [
+     "beat 1 (the hook) has 11 words; at most 10"
+    ]
+   },
+   {
+    "attempt": 1,
+    "stage": "editor",
+    "problems": []
+   }
+  ]
+ },
+ "format": "micro",
+ "hook_strip": "बिना पैडल जलती लाइट",
+ "object_token": "साइकिल",
+ "anomaly": "बिना पैडल के लाइट जल उठना और साइकिल का ख़ुद चल पड़ना",
+ "niyam_id": "N06",
+ "resolution": "leave-it-be",
+ "heart_beat": 6,
+ "heart_type": "confessed-lie",
+ "skeleton": "S1",
+ "location": "नहर का पुराना पुल",
+ "place_id": "nahar"
+}

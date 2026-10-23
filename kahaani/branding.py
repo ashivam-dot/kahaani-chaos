@@ -12,6 +12,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import shlex
+import time
+import unicodedata
 from pathlib import Path
 
 from . import bible
@@ -118,6 +121,17 @@ def compose(art: Path, out: Path) -> list[Path]:
     return made
 
 
+def _same(text: str | None) -> str:
+    """Text as YouTube stores it: NFC, line ends and spaces per line normalised."""
+    text = unicodedata.normalize("NFC", text or "").replace("\r\n", "\n")
+    return "\n".join(line.rstrip() for line in text.strip().split("\n"))
+
+
+def _tags(text: str | None) -> set[str]:
+    """The keyword tags, however YouTube re-quotes them."""
+    return {t.lower() for t in shlex.split(_same(text))}
+
+
 # Sent back unchanged, these make channels.update answer 400 failedPrecondition (Pangaea Nights, 2026-10-23).
 READ_ONLY = ("title", "unsubscribedTrailer")
 
@@ -143,12 +157,23 @@ def apply(api, banner_file: Path | None, write: bool) -> dict:
             .execute()["url"]
         body["brandingSettings"]["image"] = {"bannerExternalUrl": url}
     api.channels().update(part="brandingSettings", body=body).execute()
-    back = api.channels().list(part="brandingSettings", id=me["id"]).execute()["items"][0]["brandingSettings"]
-    now = back.get("channel", {})
-    out["readback_ok"] = all(now.get(k) == wanted[k] for k in ("description", "keywords"))
+    for wait in (0, 5, 15, 30):  # the first read after an update can still show the old text
+        time.sleep(wait)
+        back = api.channels().list(part="brandingSettings", id=me["id"]).execute()["items"][0]["brandingSettings"]
+        now = back.get("channel", {})
+        off = [k for k, same in (("description", _same), ("keywords", _tags))
+               if same(now.get(k)) != same(wanted[k])]
+        if not off:
+            break
+    out["readback_ok"] = not off
+    out["mismatch"] = {"description": {"sent": wanted["description"][:120], "read": (now.get("description") or "")[:120]}
+                       if "description" in off else None,
+                       "keywords": {"missing": sorted(_tags(wanted["keywords"]) - _tags(now.get("keywords"))),
+                                    "extra": sorted(_tags(now.get("keywords")) - _tags(wanted["keywords"]))}
+                       if "keywords" in off else None}
     out["banner_set"] = bool((back.get("image") or {}).get("bannerExternalUrl")) if banner_file else None
     if not out["readback_ok"] or out["banner_set"] is False:
-        raise RuntimeError(f"branding read-back does not match: {json.dumps(out, ensure_ascii=False)[:400]}")
+        raise RuntimeError(f"branding read-back does not match: {json.dumps(out, ensure_ascii=False)[:1500]}")
     return out
 
 

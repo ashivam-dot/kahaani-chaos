@@ -1,3 +1,4 @@
+import numpy as np
 import pytest
 
 from kahaani import voice
@@ -127,3 +128,13 @@ def test_the_hook_retime_keeps_the_pause_before_line_two(tmp_path, monkeypatch, 
     gap = lambda ws: next(w for w in ws if w["beat"] == 1)["start"] - [w for w in ws if w["beat"] == 0][-1]["end"]
     assert factor < 1.0
     assert abs(gap(w2) - gap(words)) <= voice.HOOK_TAIL * (1 / factor - 1) + 0.002
+
+
+def test_a_clone_beat_is_cut_to_its_words_so_a_trailing_breath_adds_no_silence():
+    sr = voice.SAMPLE_RATE
+    audio = np.ones(int(3.0 * sr), np.float32)
+    words = [{"text": "a", "start": 0.5, "end": 0.9, "beat": 1}, {"text": "b", "start": 1.0, "end": 1.6, "beat": 1}]
+    cut, moved = voice._trim(audio, words)
+    assert abs(len(cut) / sr - (1.6 + voice.WORD_TAIL - 0.5 + voice.WORD_HEAD)) < 0.01
+    assert moved[0]["start"] == voice.WORD_HEAD and moved[1]["end"] == round(1.6 - 0.5 + voice.WORD_HEAD, 3)
+    assert voice._trim(audio, []) == (audio, [])

@@ -53,6 +53,41 @@ GROWN = ((re.compile(r"\b(kids|children|teens|teenagers)\b", re.I), "young peopl
          (re.compile(r"\bgirls\b", re.I), "young women"), (re.compile(r"\bgirl\b", re.I), "young woman"))
 BY_ITSELF = re.compile(r"\b(by itself|on its own|of its own|rolling|rolls|riderless|unmanned|self-\w+)\b", re.I)
 ALONE = "Whatever moves by itself has nobody on it, pushing, pulling or holding it."
+# With anyone in the frame the image model put a rider on the rolling bicycle in all three paintings (dry run
+# 39984130378, beat 2), so a beat where something moves by itself is painted as the object alone; the people
+# react in the beats around it.
+PERSON = re.compile(r"\b(he|she|they|his|her|their|him|man|men|woman|women|young|person|people|someone|everyone|"
+                    r"jhabbu|prabhat|shailesh|nuzhat|stands?|stood|sits?|sat|looks?|looking|watch\w*|point\w*)\b",
+                    re.I)
+
+
+# Told "no people", Z-Image still put a boy on the bicycle "rolling slowly across the bridge" in all three paintings
+# (dry run 39998079552, beat 3): a moving vehicle reads as a ridden one. The painting is a still (the motion is the
+# camera's), so a by-itself beat paints the thing standing empty in a deserted place.
+MOVING = (  # "is rolling slowly", "rolls forward", then a bare "rolling" before its noun
+    (re.compile(r"\b(?:is|are|was|were)\s+(?:slowly\s+|suddenly\s+)?(?:rolling|moving|creeping|gliding|lurching)"
+                r"(?:\s+(?:slowly|forward|ahead|away|along))?\b", re.I), "stands empty"),
+    (re.compile(r"\b(?:rolls|rolled|moves|moved|creeps|crept|glides|glided|lurches|lurched)"
+                r"(?:\s+(?:slowly|forward|ahead|away|along))?\b", re.I), "stands empty"),
+    (re.compile(r"\b(?:rolling|moving|creeping|gliding|lurching)\b", re.I), "empty"),
+)
+EMPTY = "A deserted, empty scene: nobody is there, and any seat or saddle in it is empty."
+
+
+def solo(scene: str) -> bool:
+    """Whether a beat shows something moving by itself, and so is painted with nobody in it."""
+    return bool(BY_ITSELF.search(scene))
+
+
+def unpeopled(scene: str) -> str:
+    """The scene's sentences that do not put a person in the frame (the first sentence when all of them do), with
+    whatever moves in them painted standing still and empty (MOVING)."""
+    sentences = [x.strip() for x in re.split(r"(?<=[.!?])\s+", scene.strip()) if x.strip()]
+    kept = [x for x in sentences if BY_ITSELF.search(x) or not PERSON.search(x)]
+    text = " ".join(kept or sentences[:1])
+    for pattern, word in MOVING:
+        text = pattern.sub(word, text)
+    return text
 
 
 def grown(scene: str) -> str:
@@ -85,9 +120,12 @@ def character(entry: dict) -> str:
 def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = False) -> str:
     """Style + scene + each present character's fixed look and expression now + what must not appear."""
     looks = {_key(c): c for c in cast}
+    alone = solo(scene)
+    if alone:
+        scene, people = unpeopled(scene), []
     parts = [grown(scene).strip().rstrip(".") + "."]
-    if BY_ITSELF.search(scene):
-        parts.append(ALONE)
+    if alone:
+        parts += [ALONE, EMPTY]
     if UNLIT.search(scene):
         parts.append(OUT)
     present = [(looks[p["name"].strip().lower()], p.get("expression", "").strip()) for p in people
@@ -118,22 +156,24 @@ def seed(story: str, beat: int) -> int:
 ALTERNATES = 2
 
 
-def present(people: list[dict], cast: list[dict]) -> list[str]:
-    """The cast ids visible in a beat's painting."""
+def present(people: list[dict], cast: list[dict], scene: str = "") -> list[str]:
+    """The cast ids visible in a beat's painting (nobody, when something in it moves by itself)."""
+    if solo(scene):
+        return []
     ids = {_key(c) for c in cast}
     return [p["name"].strip().lower() for p in people if p.get("name", "").strip().lower() in ids]
 
 
 def plan(story: str, beats: list[dict], cast: list[dict], hook: bool = True) -> list[dict]:
-    """One image prompt and seed per beat; a beat with cast in it also gets ALTERNATES spare seeds, painted when the
-    paint job has time, for the prop-identity check to fall back on. hook=False keeps the first picture a plain
-    scene (the wordless format's frame 0 is a wide shot, not a close-up of the impossible)."""
+    """One image prompt and seed per beat; a beat with cast in it, or with something moving by itself, also gets
+    ALTERNATES spare seeds, painted when the paint job has time, for the picture editor to fall back on. hook=False
+    keeps the first picture a plain scene (the wordless format's frame 0 is a wide shot, not a close-up)."""
     out = []
     for i, b in enumerate(beats):
-        who = present(b.get("people") or [], cast)
+        who = present(b.get("people") or [], cast, b["scene"])
         row = {"beat": i, "seed": seed(story, i), "cast": who,
                "prompt": prompt(b["scene"], b.get("people") or [], cast, hook=hook and i == 0)}
-        if who:
+        if who or solo(b["scene"]):
             row["alternates"] = [seed(story, i * 100 + k) for k in range(1, ALTERNATES + 1)]
         out.append(row)
     return out
