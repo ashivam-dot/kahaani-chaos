@@ -369,14 +369,16 @@ def measure(story: Story, words: list[dict], spoken: list[tuple[str, float, floa
     first = [w for w in words if w["beat"] == 0]
     rest = [w for w in words if w["beat"] > 0]
 
-    def pace(ws: list[dict]) -> float | None:
-        span = ws[-1]["end"] - ws[0]["start"] if ws else 0.0
+    def pace(ws: list[dict], start: float | None = None) -> float | None:
+        span = ws[-1]["end"] - max(ws[0]["start"], start or 0.0) if ws else 0.0
         return round(len(ws) * 60 / span, 1) if span > 0 else None
 
     total = sum(len(align.letters(b.text)) for b in story.beats)
     found = sum(len(align.letters(w["text"])) for w in words if w.get("heard", True))
     gaps = [b[1] - a[2] for a, b in zip(heard, heard[1:])]
-    out = {"onset": round(heard[0][1], 3) if heard else None, "hook_wpm": pace(first), "body_wpm": pace(rest),
+    # Whisper can start the first word inside the lead-in silence; the hook starts no earlier than the waveform does.
+    onset = silences(wav)[0] if wav is not None else None
+    out = {"onset": round(heard[0][1], 3) if heard else None, "hook_wpm": pace(first, onset), "body_wpm": pace(rest),
            "coverage": round(found / max(total, 1), 3),
            "cer": round(cer(spoken_numbers(story.narration), " ".join(w[0] for w in spoken)), 3),
            "max_gap": round(max(gaps, default=0.0), 3)}
@@ -449,6 +451,43 @@ def _paced(wav: Path, tokens, words, coverage, spoken, wpm, out_dir: Path) -> tu
     return words, coverage, wpm, 1.0
 
 
+def _hook_paced(wav: Path, tokens, words, coverage, spoken, out_dir: Path) -> tuple[list, list, list, float]:
+    """Re-time only the hook line when it reads outside HOOK_WPM (Gemini rushes a short opening line), then listen
+    again; the original stays if the re-timed one hears worse or lands no nearer the band."""
+    first = [w for w in words if w["beat"] == 0]
+    rest = [w for w in words if w["beat"] > 0]
+    if not first or not rest:
+        return words, coverage, spoken, 1.0
+
+    def hook(ws: list[dict], path: Path) -> float | None:
+        head = [w for w in ws if w["beat"] == 0]
+        span = head[-1]["end"] - max(head[0]["start"], silences(path)[0] or 0.0) if head else 0.0
+        return len(head) * 60 / span if span > 0 else None
+
+    def off(wpm: float | None) -> float:
+        return float("inf") if wpm is None else max(HOOK_WPM[0] - wpm, wpm - HOOK_WPM[1], 0.0)
+
+    now = hook(words, wav)
+    if not off(now):
+        return words, coverage, spoken, 1.0
+    aim = HOOK_WPM[1] if now > HOOK_WPM[1] else HOOK_WPM[0]
+    factor = min(max(aim / now, TEMPO_LIMITS[0]), TEMPO_LIMITS[1])
+    audio, sr = sf.read(str(wav), dtype="float32")
+    cut = int((first[-1]["end"] + rest[0]["start"]) / 2 * sr)
+    sf.write(out_dir / "hook.wav", audio[:cut], sr)
+    slowed, _ = sf.read(str(_tempo(out_dir / "hook.wav", factor, out_dir / "hook-paced.wav")), dtype="float32")
+    trial = out_dir / "narration-hook.wav"
+    sf.write(trial, np.concatenate([slowed, audio[cut:]]), sr)
+    w2, c2, s2, _ = _listen(trial, tokens)
+    for f in ("hook.wav", "hook-paced.wav"):
+        (out_dir / f).unlink(missing_ok=True)
+    if c2 and min(c2) >= MIN_COVERAGE and off(hook(w2, trial)) < off(now):
+        trial.replace(wav)
+        return w2, c2, s2, round(factor, 4)
+    trial.unlink(missing_ok=True)
+    return words, coverage, spoken, 1.0
+
+
 def transcript(story: Story) -> str:
     """The text Gemini reads: one line per beat, and '…' held before the twist."""
     lines = [speakable(b.text) for b in story.beats]
@@ -493,7 +532,7 @@ def _gemini_story(story: Story, out_dir: Path) -> dict:
             end = int((words[-1]["end"] - LEAD_IN + EDGE_KEEP) * SAMPLE_RATE) if after else len(raw)
             raw = raw[start:end]
         low = min(coverage) if coverage else 0.0
-        m = measure(story, words, spoken)
+        m = measure(story, words, spoken, wav)
         missed = problems(m)
         ok = bool(clean and low >= MIN_COVERAGE and wpm is not None and not missed)
         takes.append({"take": take, "model": record["served_model"], "coverage": [round(c, 3) for c in coverage],
@@ -511,14 +550,16 @@ def _gemini_story(story: Story, out_dir: Path) -> dict:
     audio, record, (words, coverage, spoken), wpm, _ = best
     sf.write(wav, audio, SAMPLE_RATE)
     words, coverage, wpm, factor = _paced(wav, tokens, words, coverage, spoken, wpm, out_dir)
-    duration = sf.info(str(wav)).duration
-    lead = LEAD_IN / factor
-    words = [w | {"start": max(w["start"], lead), "end": max(w["end"], lead + 0.05)} for w in words]
     spoken = align.heard(wav) if factor != 1.0 else spoken
+    words, coverage, spoken, hook_factor = _hook_paced(wav, tokens, words, coverage, spoken, out_dir)
+    duration = sf.info(str(wav)).duration
+    lead = LEAD_IN / factor / hook_factor
+    words = [w | {"start": max(w["start"], lead), "end": max(w["end"], lead + 0.05)} for w in words]
     record["checks"] = measure(story, words, spoken, wav)
     return _timing(out_dir, words, _spans(words, len(story.beats), duration, lead), duration,
                    {"engine": "gemini-narrator", "identity": "narrator", **record,
-                    "coverage": [round(c, 3) for c in coverage], "wpm": wpm, "tempo": factor, "takes": len(takes)})
+                    "coverage": [round(c, 3) for c in coverage], "wpm": wpm, "tempo": factor,
+                    "hook_tempo": hook_factor, "takes": len(takes)})
 
 
 def _chatterbox(lines: list[str], out: Path, seed: int) -> list[dict]:

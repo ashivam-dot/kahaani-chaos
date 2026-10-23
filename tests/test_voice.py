@@ -44,3 +44,46 @@ def test_a_key_alone_is_enough_to_plan(monkeypatch, tmp_path):
     monkeypatch.setattr(voice, "REFERENCE", tmp_path / "narrator_ref.wav")
     monkeypatch.setenv("GEMINI_API_KEY", "test-placeholder")
     assert voice.ready() is None
+
+
+def _tone(path, silence, seconds, sr=24000):
+    import numpy as np
+    import soundfile as sf
+
+    t = np.arange(int(seconds * sr)) / sr
+    sf.write(path, np.concatenate([np.zeros(int(silence * sr)), 0.5 * np.sin(2 * np.pi * 220 * t)]), sr)
+
+
+def _words(hook_end, n=10):
+    first = [{"text": "क", "beat": 0, "start": hook_end * i / n, "end": hook_end * (i + 1) / n} for i in range(n)]
+    return first + [{"text": "ख", "beat": 1, "start": hook_end + 0.3, "end": hook_end + 0.6}]
+
+
+def test_the_hook_is_timed_from_the_waveform_not_whisper(tmp_path, story):
+    # Dry run 39866905046: Whisper put the first word at 0.0 s inside the 0.2 s lead-in, so the take measured 191 wpm
+    # and passed, then the finished narration measured 204 wpm from the real onset and was held.
+    wav = tmp_path / "n.wav"
+    _tone(wav, 0.25, 4.0)
+    words = _words(3.14)
+    assert voice.measure(story, words, [])["hook_wpm"] == 191.1
+    assert voice.measure(story, words, [], wav)["hook_wpm"] == 207.6
+
+
+def test_a_rushed_hook_is_slowed_alone(tmp_path, monkeypatch):
+    wav = tmp_path / "n.wav"
+    _tone(wav, 0.25, 4.0)
+    words = _words(3.14)
+
+    def listen(path, tokens):
+        import soundfile as sf
+
+        stretch = sf.info(str(path)).duration / 4.25
+        return [w | {"start": w["start"] * stretch, "end": w["end"] * stretch} if w["beat"] == 0 else w
+                for w in words], [1.0, 1.0], [], 165.0
+
+    monkeypatch.setattr(voice, "_listen", listen)
+    _, _, _, factor = voice._hook_paced(wav, [], words, [1.0, 1.0], [], tmp_path)
+    assert voice.TEMPO_LIMITS[0] <= factor < 1.0
+    assert not (tmp_path / "narration-hook.wav").exists() and not (tmp_path / "hook.wav").exists()
+    in_band = _words(10 * 60 / 178 + 0.25)
+    assert voice._hook_paced(wav, [], in_band, [1.0, 1.0], [], tmp_path)[3] == 1.0
