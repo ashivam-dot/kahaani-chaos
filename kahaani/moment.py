@@ -44,15 +44,23 @@ def _rows(history: list[dict]) -> list[dict]:
     return [r for r in history if (r.get("format") or "") == "moment"]
 
 
-def caps_problems(entry: dict, history: list[dict]) -> list[str]:
+def card_apart(entries: list[dict] | None = None) -> int:
+    """Episodes between two uses of a card type: CARD_APART, but never more than the kinds in the bank allow (3 kinds
+    and a gap of 5 held every plan after #03 in the review's dry run)."""
+    kinds = len({e["anomaly"]["card"] for e in (entries if entries is not None else bank())})
+    return max(1, min(CARD_APART, kinds - 1))
+
+
+def caps_problems(entry: dict, history: list[dict], entries: list[dict] | None = None) -> list[str]:
     """Why this entry may not come next (empty = it may): the premise caps of the format bible."""
     rows = _rows(history)
+    apart = card_apart(entries)
     found = []
     if entry["place_id"] in {r.get("place_id") for r in rows[-(PLACE_APART - 1):]}:
         found.append(f"place {entry['place_id']} ran in the last {PLACE_APART - 1} episodes")
     kind = entry["anomaly"]["card"]
-    if kind in {r.get("anomaly_type") for r in rows[-(CARD_APART - 1):]}:
-        found.append(f"card type {kind} ran in the last {CARD_APART - 1} episodes")
+    if kind in {r.get("anomaly_type") for r in rows[-apart:]}:
+        found.append(f"card type {kind} ran in the last {apart} episodes")
     if entry.get("premise_tag") == "power_cut" and "power_cut" in {r.get("premise_tag") for r in rows[-(POWER_CUT_IN - 1):]}:
         found.append(f"a power-cut premise ran in the last {POWER_CUT_IN - 1} episodes (at most 1 in {POWER_CUT_IN})")
     return found
@@ -65,9 +73,12 @@ def select(history: list[dict], entries: list[dict] | None = None) -> dict:
     spent = {r.get("premise") for r in rows} | ledger.given_up()
     pool = sorted((e for e in (entries if entries is not None else bank()) if e["id"] not in spent),
                   key=lambda e: e["ep_n"])
-    fit = [e for e in pool if not caps_problems(e, history)]
+    pool_all = entries if entries is not None else bank()
+    why = {e["id"]: caps_problems(e, history, pool_all) for e in pool}
+    fit = [e for e in pool if not why[e["id"]]]
     if not fit:
-        raise premises.NoPremise(f"{len(pool)} unused moments, none clear of the premise caps")
+        reasons = "; ".join(f"{i}: {', '.join(p)}" for i, p in why.items())
+        raise premises.NoPremise(f"{len(pool)} unused moments, none clear of the premise caps ({reasons or 'bank is spent'})")
     last = rows[-1].get("cta_arm") if rows else None
     return sorted(fit, key=lambda e: (e["cta_arm"] == last, e["ep_n"]))[0]
 
@@ -186,10 +197,16 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
             return status
         if replay:
             story = Story.load(replay)
+            if not dry and any(r.get("id") == story.id or r.get("premise") == story.premise for r in history):
+                raise ValueError(f"replay {story.id} (premise {story.premise}) was already made for the channel")
         else:
             entry = select(history)
+            prev = previous(history)
+            if prev is None and _rows(history):
+                raise premises.NoPremise(f"the last episode's premise {_rows(history)[-1].get('premise')!r} is not in "
+                                         "the bank, so its answer (the next tail) cannot be shown")
             stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M")
-            story = build_story(entry, previous(history), f"kc-{stamp}-{entry['id']}")
+            story = build_story(entry, prev, f"kc-{stamp}-{entry['id']}")
         problems = gate.check_moment(asdict(story), history, rotation=not dry)
         if problems:
             raise ValueError("the moment fails the gates: " + "; ".join(problems))

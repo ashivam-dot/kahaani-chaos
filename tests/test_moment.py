@@ -110,7 +110,7 @@ def test_too_few_shots_are_held():
 
 
 def good_stats():
-    return {"runtime": 23.8, "duration": 23.8, "changes_per_10s": 8.0, "flicker_step": 0.02, "flicker_hz": 2.4,
+    return {"runtime": 23.8, "duration": 23.8, "changes_per_10s": 8.0, "flicker_step": 0.02,
             "loudness": {"lufs": -14.1, "true_peak": -1.4}, "quiet_stretch": 0.3, "motif_lufs": -20.0,
             "tail": 0.0, "loop_diff": 9.0}
 
@@ -136,3 +136,48 @@ def test_a_moment_voice_must_be_the_wordless_record():
     assert gate.voice_ok({"engine": "none", "identity": "wordless"}, "moment") is None
     assert gate.voice_ok({"engine": "none", "identity": "wordless"}) is not None
     assert gate.voice_ok({"engine": "edge", "identity": "narrator"}, "moment") is not None
+
+
+def moment_ledger_row(entry):
+    return {"format": "moment", "id": f"kc-{entry['id']}", "premise": entry["id"], "place_id": entry["place_id"],
+            "anomaly_type": entry["anomaly"]["card"], "cta_arm": entry["cta_arm"]}
+
+
+def test_the_card_gap_never_exceeds_what_the_bank_can_fill():
+    assert moment.card_apart() <= len({e["anomaly"]["card"] for e in moment.bank()}) - 1
+    assert moment.card_apart(moment.bank()[:1]) == 1
+
+
+def test_every_episode_of_the_bank_can_be_planned_in_turn():
+    history = []
+    for _ in moment.bank():
+        entry = moment.select(history)
+        history.append(moment_ledger_row(entry))
+    assert [r["premise"] for r in history] == [e["id"] for e in sorted(moment.bank(), key=lambda e: e["ep_n"])]
+
+
+def test_a_hold_names_why_no_moment_fits():
+    history = [moment_ledger_row(e) for e in moment.bank()]
+    with pytest.raises(premises.NoPremise, match="bank is spent|none clear"):
+        moment.select(history)
+
+
+def test_a_replay_of_a_published_moment_is_refused(tmp_path, monkeypatch):
+    from kahaani import config, ledger
+
+    monkeypatch.setattr(config, "FORMAT", "moment")
+    s = story_of(1)
+    s.save(tmp_path / "story.json")
+    ledger.add_ready({"id": s.id, "premise": s.premise, "made_at": "2026-10-13", "format": "moment"})
+    status = moment.plan(tmp_path / "plan", dry=False, replay=tmp_path / "story.json")
+    assert "already made" in status["error"] and not status["paint"]
+    assert moment.plan(tmp_path / "dry", dry=True, replay=tmp_path / "story.json")["paint"]
+
+
+def test_banned_words_and_red_lines_in_a_moment_are_held():
+    d = good()
+    d["description"] = d["description"] + " like subscribe share"
+    assert gate.check_moment(d, [], rotation=False)
+    d = good()
+    d["stills"] = [dict(d["stills"][0], scene="a cartoon with a gun and blood on the wall")] + d["stills"][1:]
+    assert has(gate.check_moment(d, [], rotation=False), "still prompt") or gate.check_moment(d, [], rotation=False)

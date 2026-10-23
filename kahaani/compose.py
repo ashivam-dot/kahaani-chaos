@@ -798,7 +798,7 @@ def render_moment(story: Story, timing: dict, pictures: list[Path], work: Path) 
     enc.stdin.close()
     if enc.wait() != 0:
         raise RuntimeError("ffmpeg failed to encode the Short")
-    sound = audio["loudness"]
+    sound = loudness(out)  # the encoded file that gets published, not the pre-encode mix.wav
     flat = [float(x.mean()) for x in thumbs]
     steps = [abs(flat[i] - flat[i - 1]) / max(flat[i - 1], 1.0) for i in range(1, n) if i not in cuts]
     changes = picture_changes(thumbs)
@@ -811,7 +811,7 @@ def render_moment(story: Story, timing: dict, pictures: list[Path], work: Path) 
         found.append(f"the answer card's text runs to {answer_info['bottom']:.0%} of the height")
     stats = {"duration": round(duration, 2), "frames": n, "pictures": len(pictures), "fps": FPS, "size": [W, H],
              "runtime": length(out), "changes": len(changes), "changes_per_10s": round(len(changes) / duration * 10, 2),
-             "flicker_step": round(max(steps or [0.0]), 4), "flicker_hz": FLICKER_HZ, "flicker_pp": 2 * FLICKER_AMP,
+             "flicker_step": round(max(steps or [0.0]), 4),
              "loudness": sound, "quiet_stretch": audio["quiet_stretch"], "motif_lufs": audio["motif_lufs"],
              "tail": round(tail[1] - tail[0], 2) if tail else 0.0,
              "loop_diff": round(float(np.abs(final.astype(np.int16) - frame0.astype(np.int16)).mean()), 2)}

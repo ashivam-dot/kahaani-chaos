@@ -462,7 +462,6 @@ MOMENT_SUFFIX = re.compile(r"\| सन्नाटपुर 1996 #(\d{2})$")
 MOMENT_LUFS, MOMENT_PEAK = (-15.0, -13.0), -1.0
 MOMENT_QUIET = 1.5  # longest stretch below -45 LUFS, seconds
 MOMENT_FLICKER = 0.08
-MOMENT_FLICKER_HZ = 3.0
 MOMENT_CARD_FRAME0 = 0.06  # the card is at most this share of frame 0 ...
 MOMENT_CARD_SEEN = 0.015  # ... and at least this much of a shot for that shot to show it
 MOMENT_CARD_TIME = (1.2, 0.35)  # seconds at least, share of the runtime at most
@@ -483,6 +482,8 @@ def check_moment(story: dict, history: list[dict], stats: dict | None = None, ro
     obj = Story.from_dict(story)
     if story.get("beats") or story.get("lines"):
         found.append("a moment has no spoken lines")
+    entry = next((e for e in moment.bank() if e["id"] == story.get("premise")), None)
+    found += moment.schema_problems(entry) if entry else []
     stills, shots = story.get("stills") or [], story.get("shots") or []
     if not MOMENT_STILLS[0] <= len(stills) <= MOMENT_STILLS[1]:
         found.append(f"{len(stills)} stills, needs {MOMENT_STILLS[0]}-{MOMENT_STILLS[1]}")
@@ -523,7 +524,17 @@ def check_moment(story: dict, history: list[dict], stats: dict | None = None, ro
     found += [f"never in a title: {w}" for w in TITLE_NEVER if w in title.lower()]
     if story.get("cta_arm") not in ("A", "B"):
         found.append("cta_arm must be A or B")
-    entry = next((e for e in moment.bank() if e["id"] == story.get("premise")), None)
+    # The same text gates F1 runs: red lines and banned phrases in every string and still prompt, hashtags, kids signals.
+    prompts = [s.get("scene", "") for s in stills] + [p.get("expression", "") for s in stills
+                                                       for p in s.get("people") or []]
+    found += [f"a still prompt touches {r}; paint something else" for t in prompts for r in red_lines_en(t)]
+    found += [f"a string on screen or in the metadata uses {b!r}: no greetings, channel name or like/subscribe asks"
+              for b in banned(text)]
+    found += [f"{r} in the metadata" for r in red_lines_en(text)]
+    found += hashtag_problems(story.get("hashtags") or [])
+    description = story.get("description", "")
+    if not description.strip() or hindi.devanagari_share(description) < 0.8 or len(description) > 600:
+        found.append("description must be 1-3 Hindi sentences (at most 600 characters)")
     if rotation and entry:
         found += moment.caps_problems(entry, history)
     if stats:
@@ -540,10 +551,9 @@ def _moment_render_problems(stats: dict, tail: bool) -> list[str]:
     if stats.get("quiet_stretch") is None or stats["quiet_stretch"] > MOMENT_QUIET:
         found.append(f"{stats.get('quiet_stretch')} s of it is quieter than -45 LUFS (no foley), at most "
                      f"{MOMENT_QUIET} s is allowed")
-    if (stats.get("flicker_step") or 0) > MOMENT_FLICKER or (stats.get("flicker_pp") or 0) > MOMENT_FLICKER:
-        found.append(f"luma flicker above {MOMENT_FLICKER:.0%}")
-    if (stats.get("flicker_hz") or 0) > MOMENT_FLICKER_HZ:
-        found.append(f"flicker faster than {MOMENT_FLICKER_HZ:.0f} Hz")
+    step = stats.get("flicker_step")  # the biggest frame-to-frame luma change away from a cut, measured on the frames
+    if step is None or step > MOMENT_FLICKER:
+        found.append(f"luma flicker {step}, needs at most {MOMENT_FLICKER:.0%}")
     sound = stats.get("loudness")
     if not sound or not MOMENT_LUFS[0] <= sound["lufs"] <= MOMENT_LUFS[1] or sound["true_peak"] > MOMENT_PEAK:
         found.append(f"loudness {sound}, needs {MOMENT_LUFS[0]:.0f} to {MOMENT_LUFS[1]:.0f} LUFS, peak at most "
