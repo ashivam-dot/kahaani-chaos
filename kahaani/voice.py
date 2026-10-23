@@ -74,6 +74,7 @@ MAX_GAP = 1.2
 FINAL_SLACK = {"body": 5.0, "hook": 8.0}  # wpm either side of TARGET_WPM / HOOK_WPM on the finished narration
 FRAME = 0.02  # seconds per RMS frame when looking for silences
 TEMPO_LIMITS = (0.85, 1.18)
+HOOK_TAIL = 0.08  # seconds of the hook's last word's decay re-timed with it
 # A take's hook may read as far off HOOK_WPM as re-timing the hook line alone (_hook_paced) can bring back.
 HOOK_HARD = (round(HOOK_WPM[0] / TEMPO_LIMITS[1], 1), round(HOOK_WPM[1] / TEMPO_LIMITS[0], 1))
 CUT_LEAD = 0.08
@@ -481,7 +482,9 @@ def _hook_paced(wav: Path, tokens, words, coverage, spoken, out_dir: Path,
     aim = HOOK_WPM[1] if now > HOOK_WPM[1] else HOOK_WPM[0]
     factor = min(max(aim / now, TEMPO_LIMITS[0] / body), TEMPO_LIMITS[1] / body)
     audio, sr = sf.read(str(wav), dtype="float32")
-    cut_s = (first[-1]["end"] + rest[0]["start"]) / 2
+    # Cut just after the hook's last word, so the pause before line two keeps its length: cut at the middle of that
+    # pause, a x0.867 re-time stretched it from 1.11 s past the 1.2 s gap limit (dry run 39969216681).
+    cut_s = min(first[-1]["end"] + HOOK_TAIL, (first[-1]["end"] + rest[0]["start"]) / 2)
     cut = int(cut_s * sr)
     sf.write(out_dir / "hook.wav", audio[:cut], sr)
     slowed, _ = sf.read(str(_tempo(out_dir / "hook.wav", factor, out_dir / "hook-paced.wav")), dtype="float32")

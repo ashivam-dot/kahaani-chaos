@@ -116,3 +116,14 @@ def test_the_hook_retime_moves_the_timings_without_listening(tmp_path, monkeypat
     later = [(a, b) for a, b in zip(words, w2) if a["beat"] > 0]
     assert all(abs(b["start"] - a["start"] - added) < 0.01 for a, b in later)
     assert abs(s2[0][1] - 3.9 - added) < 0.01
+
+
+def test_the_hook_retime_keeps_the_pause_before_line_two(tmp_path, monkeypatch, story):
+    # Dry run 39969216681: cut at the middle of the pause, a x0.867 re-time stretched it from 1.11 s past the 1.2 s limit.
+    wav = tmp_path / "n.wav"
+    _tone(wav, 0.25, 4.0)
+    words = _words(10 * 60 / 194 + 0.25)
+    w2, _, _, factor = voice._hook_paced(wav, [], words, [1.0], [("क", 3.9, 4.0)], tmp_path)
+    gap = lambda ws: next(w for w in ws if w["beat"] == 1)["start"] - [w for w in ws if w["beat"] == 0][-1]["end"]
+    assert factor < 1.0
+    assert abs(gap(w2) - gap(words)) <= voice.HOOK_TAIL * (1 / factor - 1) + 0.002
