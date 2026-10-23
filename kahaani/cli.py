@@ -55,7 +55,8 @@ def summary(story: Story) -> dict:
             "format": story.format, "skeleton": story.skeleton, "resolution": story.resolution,
             "heart_type": story.heart_type, "object_token": story.object_token, "anomaly": story.anomaly,
             "location": story.location, "place_id": story.place_id, "hook_strip": story.hook_strip,
-            "script": story.narration}
+            "script": story.narration, "mode": story.mode, "cta_arm": story.cta_arm, "anomaly_type": story.anomaly_type,
+            "premise_tag": story.subgenre if story.mode == "moment" else "", "ep_n": story.ep_n}
 
 
 def story_from(draft: dict, premise: dict, story_id: str, writer: dict) -> Story:
@@ -85,8 +86,10 @@ LOCAL_HOLD = "hold: the draft came from the local fallback model; its Hindi is n
 
 
 def art_plan(story: Story) -> dict:
-    from . import imagegen
+    from . import imagegen, moment
 
+    if story.mode == "moment":
+        return moment.art_plan(story)
     return {"story": story.id, "model": "zimage", "steps": imagegen.MODELS["zimage"]["steps"],
             "width": imagegen.WIDTH, "height": imagegen.HEIGHT,
             "beats": look.plan(story.id, [asdict(b) for b in story.beats], story.cast)}
@@ -94,8 +97,10 @@ def art_plan(story: Story) -> dict:
 
 def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
     """story.json, art-plan.json and status.json in out; status says whether to paint, or why not."""
-    from . import premises, voice, writer
+    from . import moment, premises, voice, writer
 
+    if config.FORMAT == "moment":
+        return moment.plan(out, dry, replay)
     out.mkdir(parents=True, exist_ok=True)
     status: dict = {"at": ledger.now(), "dry": dry, "paint": False}
     try:
@@ -103,8 +108,8 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
         if replay:
             story = Story.load(replay)
             if not dry:
-                if slots.buffer_full(ledger.ready()):
-                    status["skip"] = f"buffer full ({len(ledger.ready())} ready)"
+                if slots.buffer_full(ledger.ready(config.FORMAT)):
+                    status["skip"] = f"buffer full ({len(ledger.ready(config.FORMAT))} ready)"
                     return status
                 if any(r.get("id") == story.id or r.get("premise") == story.premise for r in history):
                     raise ValueError(f"replay {story.id} (premise {story.premise}) was already made for the channel")
@@ -112,8 +117,8 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
             if problems:
                 raise ValueError("replay fails the gates: " + "; ".join(problems))
         else:
-            if not dry and slots.buffer_full(ledger.ready()):
-                status["skip"] = f"buffer full ({len(ledger.ready())} ready)"
+            if not dry and slots.buffer_full(ledger.ready(config.FORMAT)):
+                status["skip"] = f"buffer full ({len(ledger.ready(config.FORMAT))} ready)"
                 return status
             if reason := voice.ready():
                 status["held"] = reason
@@ -187,21 +192,26 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
         work = out / story.id
         work.mkdir(parents=True, exist_ok=True)
         story.save(work / "story.json")
-        problems = gate.check(asdict(story), premise_of(story), ledger.history(), rotation=not dry)
+        wordless = story.mode == "moment"
+        problems = gate.check_moment(asdict(story), ledger.history(), rotation=not dry) if wordless else \
+            gate.check(asdict(story), premise_of(story), ledger.history(), rotation=not dry)
         if problems:
             raise RuntimeError("hold: the planned story fails the gates: " + "; ".join(problems))
-        found = aiart.collect(art_dir, story.id, len(story.beats))
-        spares = aiart.alternates(art_dir, story.id, len(story.beats))
-        health["steps"].append(f"paintings: {len(found)} of {len(story.beats)} made, "
+        # A moment is painted per still (a few paintings cut into many shots); the other format per beat.
+        scenes = [s["scene"] for s in story.stills] if wordless else [b.scene for b in story.beats]
+        peopled = [s["people"] for s in story.stills] if wordless else [b.people for b in story.beats]
+        found = aiart.collect(art_dir, story.id, len(scenes))
+        spares = aiart.alternates(art_dir, story.id, len(scenes))
+        health["steps"].append(f"paintings: {len(found)} of {len(scenes)} made, "
                                f"{sum(map(len, spares.values()))} repaints")
-        who = {i: look.present([dict(p) for p in b.people], story.cast) for i, b in enumerate(story.beats)}
+        who = {i: look.present([dict(p) for p in people], story.cast) for i, people in enumerate(peopled)}
         report: list[dict] = []
         eye = vision.Eye()
         try:
-            pictures = aiart.pictures(found, [b.text for b in story.beats], work / "pics",
+            pictures = aiart.pictures(found, scenes if wordless else [b.text for b in story.beats], work / "pics",
                                       f"{story.title} — {story.description}", _cast_text(story), eye, report,
-                                      spares=spares, who={i: w for i, w in who.items() if w},
-                                      scenes=[b.scene for b in story.beats])
+                                      spares=spares, who={i: w for i, w in who.items() if w}, scenes=scenes,
+                                      hook_check=not wordless)
         except gemini.Unavailable as exc:
             raise RuntimeError(f"hold: no model can check the paintings ({exc})") from exc
         finally:
@@ -216,12 +226,20 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
             health["prop_identity"] = round(rate, 3)
             if rate < vision.PROP_RATE:
                 raise aiart.PictureHold(f"hold: prop identity {rate:.0%} of cast shots, needs {vision.PROP_RATE:.0%}")
-        timing = voice.synthesize(story, work)
-        late = gate.timing_problems(story, timing)
-        if late:
-            raise voice.VoiceHold("hold: " + "; ".join(late))
-        stats = compose.render(story, timing, pictures, work)
-        runtime = gate.runtime_problems(stats.get("runtime"))
+        if wordless:
+            from . import moment
+
+            timing = moment.timeline(story)  # no narrator: nothing to synthesize
+            (work / "timing.json").write_text(json.dumps(timing, indent=1, ensure_ascii=False), encoding="utf-8")
+            stats = compose.render_moment(story, timing, pictures, work)
+            runtime = gate.check_moment(asdict(story), ledger.history(), stats, rotation=not dry)
+        else:
+            timing = voice.synthesize(story, work)
+            late = gate.timing_problems(story, timing)
+            if late:
+                raise voice.VoiceHold("hold: " + "; ".join(late))
+            stats = compose.render(story, timing, pictures, work)
+            runtime = gate.runtime_problems(stats.get("runtime"))
         if runtime:
             raise compose.ComposeHold("hold: picture and sound checks: " + "; ".join(runtime))
         stats["voice"] = {k: timing["voice"].get(k) for k in ("engine", "identity", "served_model", "wpm", "coverage",
@@ -232,12 +250,12 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
         if dry:
             health["steps"].append(f"dry run: made {story.id} ({stats['duration']} s), not stored or published")
             return health
-        refused = gate.voice_ok(timing["voice"])
+        refused = gate.voice_ok(timing["voice"], story.mode)
         if refused:
             raise RuntimeError(refused)
         tag = store.put(story.id, work, story.title)
         ledger.add_ready({**summary(story), "tag": tag, "voice": timing["voice"]["engine"]})
-        health["steps"].append(f"ready: {story.id} stored as release {tag} ({len(ledger.ready())} ready)")
+        health["steps"].append(f"ready: {story.id} stored as release {tag} ({len(ledger.ready(config.FORMAT))} ready)")
         return health
     except Exception as exc:
         reason = str(exc)
@@ -293,11 +311,11 @@ def publish(now: datetime | None = None, api=None) -> dict:
         api = _retry_pending(now, api, health)
         # Twice at most: a Short found already public takes the slot it went out in, and the next fills the due one.
         for _ in range(2):
-            due = slots.due(now, slots.taken(ledger.published()))
+            due = slots.due(now, slots.taken(ledger.published(config.FORMAT)))
             if due is None:
                 health["steps"].append("the next slot is already filled")
                 return health
-            ready = ledger.ready()
+            ready = ledger.ready(config.FORMAT)
             if not ready:
                 health["held"] = f"hold: the buffer is empty; slot {due['slot']} has no Short"
                 return health
@@ -316,7 +334,7 @@ def publish(now: datetime | None = None, api=None) -> dict:
                     health["steps"].append(f"{key}: {result[key]}")
             if result.get("already_public"):
                 slot = slots.slot_of(result["released_at"])
-                slot = None if slot in slots.taken(ledger.published()) else slot
+                slot = None if slot in slots.taken(ledger.published(config.FORMAT)) else slot
                 ledger.record_publish({**row, "slot": slot, "published_at": result["released_at"], **result})
                 health["steps"].append(f"{row['id']} was already public (since {result['released_at']}); recorded "
                                        f"for slot {slot}: {result['url']}")

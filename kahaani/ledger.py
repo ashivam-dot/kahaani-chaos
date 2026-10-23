@@ -14,7 +14,9 @@ TRIES = 3
 SUMMARY = ("id", "premise", "title", "subgenre", "motifs", "ending", "opening", "made_at", "voice",
            # F1 micro-entry rotation (premises.fits, variation.problems)
            "format", "skeleton", "resolution", "heart_type", "object_token", "anomaly", "location", "place_id",
-           "hook_strip", "script")
+           "hook_strip", "script",
+           # Format M (moment): what its caps and the answer chain compare
+           "mode", "cta_arm", "anomaly_type", "premise_tag", "ep_n")
 
 
 def now() -> str:
@@ -45,13 +47,18 @@ def set_identity() -> None:
         subprocess.run(["git", "-C", str(STATE), "config", key, value], check=False, capture_output=True)
 
 
-def published() -> list[dict]:
-    return load("published", [])
+def _of(rows: list[dict], fmt: str | None) -> list[dict]:
+    """Rows of one format (a row from before formats existed is micro); all of them when fmt is None."""
+    return rows if fmt is None else [r for r in rows if (r.get("format") or "micro") == fmt]
 
 
-def ready() -> list[dict]:
+def published(fmt: str | None = None) -> list[dict]:
+    return _of(load("published", []), fmt)
+
+
+def ready(fmt: str | None = None) -> list[dict]:
     """The buffer: finished Shorts waiting for a slot, oldest first."""
-    return sorted(load("ready", []), key=lambda r: r["made_at"])
+    return sorted(_of(load("ready", []), fmt), key=lambda r: r["made_at"])
 
 
 def history() -> list[dict]:

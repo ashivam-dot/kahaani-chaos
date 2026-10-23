@@ -19,10 +19,12 @@ def iso(at: datetime) -> str:
 
 
 def around(now: datetime) -> list[datetime]:
-    """The slots from yesterday to tomorrow (IST days), in time order."""
+    """The slots from yesterday to tomorrow (on the IST days the format publishes), in time order."""
     today = now.astimezone(config.IST).date()
     days = [today + timedelta(days=d) for d in (-1, 0, 1)]
-    return [datetime(d.year, d.month, d.day, h, m, tzinfo=config.IST) for d in days for h, m in config.SLOTS]
+    on = config.FORMATS[config.FORMAT].days
+    return [datetime(d.year, d.month, d.day, h, m, tzinfo=config.IST) for d in days if d.weekday() in on
+            for h, m in config.SLOTS]
 
 
 def due(now: datetime, taken: set[str]) -> dict | None:

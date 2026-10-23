@@ -20,10 +20,11 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import config, gate
+from . import config, gate, ledger
 from .spec import Story
 
 DESCRIPTION_BYTES = 5000  # the API counts UTF-8 bytes, and a Devanagari letter is three of them
+DISCLOSURE_MOMENT = "यह एक काल्पनिक दृश्य है। चित्र AI से बने हैं; इसमें कोई आवाज़ नहीं, ध्वनियाँ कोड से बनी हैं।"
 DISCLOSURE = "यह एक काल्पनिक कहानी है। इसके चित्र AI से बने हैं (Z-Image-Turbo) और आवाज़ AI की है ({voice})।"
 VOICE_NAME = {"gemini-narrator": "Google Gemini TTS", "chatterbox-narrator-clone": "Chatterbox Multilingual"}
 DEFAULT_TAGS = ("सन्नाटपुर", "सन्नाटपुर की रातें", "हिंदी कहानी", "रहस्यमयी कहानी", "90s गाँव", "पुरानी यादें",
@@ -113,10 +114,20 @@ def hashtag(text: str) -> str:
     return re.sub(r"[^0-9A-Za-z\u0900-\u097F]", "", text.replace("।", ""))
 
 
+def last_answer(story: Story) -> list[str]:
+    """A moment's description line for the answer to the episode before it, with that episode's link (none for #01)."""
+    prev = next((c for c in story.cards if c.get("role") == "previous"), None)
+    if not prev:
+        return []
+    rows = [r for r in ledger.published("moment") if r.get("url") and r.get("ep_n") == prev["ep_n"]]
+    return [f"पिछली कड़ी का जवाब: {prev['text'].split(': ', 1)[-1]}" + (f" {rows[-1]['url']}" if rows else ""), ""]
+
+
 def description(story: Story, voice: dict) -> str:
     tags = [hashtag(h) for h in [SERIES_TAG] + story.hashtags + ["#shorts"]]
-    lines = [story.description, "",
-             DISCLOSURE.format(voice=VOICE_NAME.get(voice.get("engine"), "AI")),
+    wordless = story.mode == "moment"
+    lines = [story.description, "", *(last_answer(story) if wordless else []),
+             DISCLOSURE_MOMENT if wordless else DISCLOSURE.format(voice=VOICE_NAME.get(voice.get("engine"), "AI")),
              "इसके पात्र, जगहें और घटनाएँ कल्पना हैं; किसी असली व्यक्ति या घटना से इनका कोई संबंध नहीं है।", "",
              " ".join("#" + t for t in dict.fromkeys(tags) if t)]
     # YouTube rejects < and > in descriptions.
@@ -230,6 +241,8 @@ def _insert(api, mp4: Path, request_body: dict, pause=time.sleep) -> str:
 
 
 def cta(story: Story) -> str:
+    if story.first_comment_hi:
+        return story.first_comment_hi
     last = story.beats[-1].text.strip() if story.beats else ""
     if story.ending == "open-question" and last.endswith("?"):
         question = re.split(r"(?<=[।!?])\s+", last)[-1]
@@ -276,7 +289,7 @@ def add_to_playlist(api, video_id: str, playlist_id: str | None) -> str:
 def publish(story: Story, mp4: Path, voice: dict, publish_at: str | None = None, api=None, max_wait: int = 900,
             pause=time.sleep) -> dict:
     """Upload and schedule for publish_at (RFC 3339 UTC, in the future), or make public now when it is None."""
-    refused = gate.voice_ok(voice)
+    refused = gate.voice_ok(voice, story.mode)
     if refused:
         raise ValueError(refused)
     api = api or client()

@@ -106,9 +106,11 @@ def _ease(u: float) -> float:
 class Plate:
     """One painting prepared for camera moves: RGB and depth at plate size, filling the frame."""
 
-    def __init__(self, path: Path):
-        img = Image.open(path).convert("RGB")
-        dep = depth.estimate(img, path.with_suffix(".depth.npy"))
+    def __init__(self, path: Path | None = None, *, img: Image.Image | None = None, dep: np.ndarray | None = None):
+        """From a painting on disk, or from a picture and its depth already in hand (a crop of a still)."""
+        if img is None:
+            img = Image.open(path).convert("RGB")
+            dep = depth.estimate(img, path.with_suffix(".depth.npy"))
         pw, ph = round(W * MARGIN), round(H * MARGIN)
         iw, ih = img.size
         scale = max(pw / iw, ph / ih)
@@ -282,9 +284,9 @@ def _fit(weight: str, size: int, text: str, width: int, floor: int = 24) -> Imag
     return font
 
 
-def _label_layer() -> tuple[np.ndarray, np.ndarray]:
+def _label_layer(text: str = AI_LABEL) -> tuple[np.ndarray, np.ndarray]:
     """The AI and fiction label: small, in the top-left corner, on every frame."""
-    return _rgba(_text_layer([(AI_LABEL, _font("SemiBold", 28), (255, 255, 255, 235))], pad=10, box=(10, 12, 16, 170)))
+    return _rgba(_text_layer([(text, _font("SemiBold", 28), (255, 255, 255, 235))], pad=10, box=(10, 12, 16, 170)))
 
 
 LABEL_AT = (SIDE - 12, 26)
@@ -592,3 +594,229 @@ def render(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict
         raise ComposeHold("hold: picture and sound checks: " + "; ".join(found))
     return {"duration": round(duration, 2), "frames": n, "pictures": len(plates), "fps": FPS, "size": [W, H],
             "runtime": length(out)}
+
+
+# ---- Format M: the wordless moment ------------------------------------------------------------------------------------
+# 16 hard cuts between crops of 4-6 paintings (an anomaly card drawn onto a wall by card.py), no captions and no voice,
+# a hook strip and a typed time stamp at the start, an end card, the last episode's answer, and a soft return to frame 0.
+MOMENT_LABEL = "AI चित्र · काल्पनिक"
+MOMENT_END_LINE = "यह दृश्य काल्पनिक है · चित्र: AI · ध्वनि: कोड से"
+HOOK_UNTIL = 3.0  # seconds the hook strip stays on
+STAMP = (0.3, 0.9, 3.0)  # the time stamp starts typing here, takes this long, and is gone by the last
+STAMP_AT = 0.60  # share of the height
+FLICKER_AMP, FLICKER_HZ = 0.04, 2.4  # a lamp's pulse: 8% peak to peak, under the 3 Hz line
+LOOP_FADE = 0.88  # how far the last frames get to frame 0 (a seamless loop feels like a cheat; a soft one doesn't)
+CUT_STEP, CUT_DIFF, CUT_MERGE = 4, 10.0, 0.4  # a picture change: thumbnails 4 frames apart differ by more than this
+QUIET_LUFS, MOTIF_MAX = -45.0, -18.0
+THUMB = (54, 96)
+
+
+def picture_changes(thumbs: list[np.ndarray]) -> list[float]:
+    """Seconds at which the picture changes (a cut): the first frame of each run where thumbnails CUT_STEP frames apart
+    differ by more than CUT_DIFF (mean over 0-255), runs closer than CUT_MERGE merged."""
+    found: list[float] = []
+    over = False
+    for i in range(CUT_STEP, len(thumbs)):
+        hit = float(np.abs(thumbs[i].astype(np.int16) - thumbs[i - CUT_STEP].astype(np.int16)).mean()) > CUT_DIFF
+        at = (i - CUT_STEP + 1) / FPS
+        if hit and not over and (not found or at - found[-1] > CUT_MERGE):
+            found.append(at)
+        over = hit
+    return found
+
+
+def quiet_stretch(path: Path, floor: float = QUIET_LUFS) -> float | None:
+    """The longest run of seconds the momentary loudness (ebur128 M) stays below floor, or None when unmeasurable."""
+    try:
+        err = subprocess.run(["ffmpeg", "-nostats", "-hide_banner", "-v", "verbose", "-i", str(path), "-filter_complex",
+                              "ebur128=framelog=verbose", "-f", "null", "-"], capture_output=True, text=True,
+                             check=True).stderr
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    rows = re.findall(r"t:\s*([\d.]+)\s+TARGET:\S+ LUFS\s+M:\s*(-?[\d.]+|-?inf|nan)", err)
+    if not rows:
+        return None
+    best, start = 0.0, None
+    for t, m in rows:
+        t = float(t)
+        if m in ("nan", "-inf", "inf") or float(m) < floor:
+            start = t if start is None else start
+            best = max(best, t - start + 0.1)
+        else:
+            start = None
+    return round(best, 2)
+
+
+def _moment_mix(story: Story, seconds: float, work: Path) -> tuple[Path, dict]:
+    """mix.wav: the foley and the motif summed, limited, and
+    moved by whole-mix gain until it measures -14 LUFS with its true peak at most TRUE_PEAK. Returns the path and the
+    measurements the gate wants (loudness, the longest quiet stretch, the motif's own loudness)."""
+    import soundfile as sf
+
+    from . import moment
+
+    bed, mo = music.foley(moment.sfx_cues(story), seconds + 0.5, story.id)
+    raw = bed + mo
+    mixed, probe = work / "mix.wav", work / "probe.wav"
+    sf.write(probe, raw, music.SR, subtype="FLOAT")
+    db, sound = 8.0, None
+    for _ in range(6):
+        chain = f"aresample=48000,volume={db:.2f}dB,alimiter=limit=0.84:attack=3:release=80:level=disabled"
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(probe), "-af", chain, "-ar", "48000", "-ac",
+                        "2", str(mixed)], check=True)
+        sound = loudness(mixed)
+        if not sound or (abs(sound["lufs"] + 14.0) <= 0.4 and sound["true_peak"] <= TRUE_PEAK):
+            break
+        db += -14.0 - sound["lufs"]
+    # the motif alone, through the same gain and no limiter: what it adds to the mix
+    sf.write(probe, mo * 10 ** (db / 20), music.SR, subtype="FLOAT")
+    motif = loudness(probe)
+    return mixed, {"loudness": sound, "quiet_stretch": quiet_stretch(mixed),
+                   "motif_lufs": motif["lufs"] if motif else None}
+
+
+class _Plates:
+    """A moment's camera plates: each shot is a crop of one of the stills with the anomaly card drawn onto its wall.
+    Built when first needed (a ticking clock needs a new one each second) and dropped once the cut has passed."""
+
+    def __init__(self, story: Story, pictures: list[Path]):
+        from . import card, moment
+
+        self.story, self.card = story, card
+        self.anomaly = moment.card_of(story)
+        self.seed = len(story.id)
+        self.base: list[tuple[np.ndarray, np.ndarray]] = []
+        for p in pictures:
+            img = Image.open(p).convert("RGB")
+            dep = depth.estimate(img, Path(p).with_suffix(".depth.npy"))
+            self.base.append((np.asarray(img.resize((img.width * 2, img.height * 2), Image.LANCZOS)), dep))
+        self.cache: dict[tuple[int, int], Plate] = {}
+
+    def at(self, k: int, t: float) -> Plate:
+        shot = self.story.shots[k]
+        places = [p for p in (self.anomaly or {}).get("placements", []) if p["still"] == shot["still"]]
+        state = self.card.state(self.anomaly["kind"], t) if places else 0
+        if (k, state) not in self.cache:
+            rgb, dep = self.base[shot["still"]]
+            for p in places:
+                art, _ = self.card.render(self.anomaly["kind"], self.anomaly["spec"], float(state))
+                rgb = self.card.composite(rgb, art, p["quad"], seed=self.seed + k)
+            x0, y0, w = shot["box"]
+            (rh, rw), (dh, dw) = rgb.shape[:2], dep.shape[:2]
+            c = rgb[round(y0 * rh):round((y0 + w) * rh), round(x0 * rw):round((x0 + w) * rw)]
+            d = dep[round(y0 * dh):round((y0 + w) * dh), round(x0 * dw):round((x0 + w) * dw)]
+            self.cache = {key: v for key, v in self.cache.items() if key[0] >= k - 1}
+            self.cache[(k, state)] = Plate(img=Image.fromarray(np.ascontiguousarray(c)), dep=np.ascontiguousarray(d))
+        return self.cache[(k, state)]
+
+
+def render_moment(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict:
+    """short.mp4 for a moment, and the numbers gate.check_moment reads (picture changes, flicker, loudness, loop)."""
+    from . import card as cardmod, moment
+
+    duration, spans, end, tail, loop = (timing["duration"], timing["beats"], timing["end"], timing["tail"],
+                                        timing["loop"])
+    plates, cam, grade = _Plates(story, pictures), Camera(), Grade(seed=len(story.id))
+    strip, label = _strip_layer(story.hook_strip), _label_layer(MOMENT_LABEL)
+    stamp = _rgba(_text_layer([(story.stamp, _font("ExtraBold", 84), ACCENT + (255,))], stroke=6))
+    ask_font = _font("Bold", 58)
+    asks = _wrap(story.cta_text, ask_font, TEXT_W - 40)
+    name = _rgba(_text_layer([(config.NAME, _fit("ExtraBold", 112, config.NAME, TEXT_W), ACCENT + (255,))]))
+    disclosure = _fit("Medium", 34, MOMENT_END_LINE, TEXT_W)
+    end_layers = [(name, 0.20), (_rgba(_text_layer([(ln, ask_font, (255, 255, 255, 250)) for ln in asks], gap=14)), 0.34),
+                  (_rgba(_text_layer([(MOMENT_END_LINE, disclosure, (255, 255, 255, 215))])), 0.60)]
+    answer, answer_info = None, None
+    if tail:
+        prev = moment.card_of(story, "previous")
+        answer, answer_info = cardmod.answer_card(prev, prev["text"], prev["register"])
+    work.mkdir(parents=True, exist_ok=True)
+    mixed, audio = _moment_mix(story, duration, work)
+    out, stills = work / "short.mp4", work / "stills"
+    stills.mkdir(exist_ok=True)
+    enc = subprocess.Popen(
+        ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
+         "-i", "-", "-i", str(mixed), "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p",
+         "-c:a", "aac", "-b:a", "192k", "-t", f"{duration:.3f}", "-movflags", "+faststart", str(out)],
+        stdin=subprocess.PIPE)
+    n = int(math.ceil(duration * FPS))
+    last = len(spans) - 1
+    motion = lambda k: MOTIONS[story.shots[k]["motion"] % len(MOTIONS)]  # noqa: E731
+    starts = [s for s, _ in spans] + [end[0]] + ([tail[0]] if tail else [])
+    cuts = {c for t0 in starts for c in range(round(t0 * FPS), round(t0 * FPS) + 3)}
+    cuts |= set(range(round(end[0] * FPS), round((end[0] + 0.4) * FPS) + 2)) | set(range(round(loop[0] * FPS), n))
+    still_at = {int(n * k / 5) for k in range(5)}
+    inked, masks = sorted(still_at | {n // 2, n - 1}), []
+    lumas, thumbs, frame0, final = [], [], None, None
+    for i in range(n):
+        t = i / FPS
+        if t < end[0]:
+            k = next(j for j, (a, b) in enumerate(spans) if t < b or j == last)
+            a, b = spans[k]
+            frame = cam.shoot(plates.at(k, t), (t - a) / (b - a), motion(k), 0.03 * max(0.0, 1 - (t - a) / 0.25))
+            frame = cv2.convertScaleAbs(frame, alpha=1 + FLICKER_AMP * math.sin(2 * math.pi * FLICKER_HZ * t))
+            phase = "shot"
+        elif tail and t >= tail[0]:
+            frame, phase = answer, "tail"
+        else:
+            fade = min(1.0, (t - end[0]) / 0.4)
+            frame = cam.shoot(plates.at(last, spans[last][1]), 1.0, motion(last))
+            frame = cv2.addWeighted(cv2.GaussianBlur(frame, (0, 0), 18), 0.55 * fade, frame, 1 - 0.8 * fade, 0)
+            phase = "end"
+        if t >= loop[0]:
+            mix = LOOP_FADE * min(1.0, (t - loop[0]) / (loop[1] - loop[0]))
+            frame = cv2.addWeighted(cam.shoot(plates.at(0, 0.0), 0.0, motion(0)), mix, frame, 1 - mix, 0)
+            phase = "loop"
+        thumbs.append(cv2.resize(frame, THUMB, interpolation=cv2.INTER_AREA))
+        frame = grade.apply(frame, i)
+
+        def overlays(canvas: np.ndarray, t=t, phase=phase) -> None:
+            if phase == "shot" and t < HOOK_UNTIL:
+                _blit(canvas, strip, TEXT_CX - strip[1].shape[1] // 2, round(H * STRIP_TOP),
+                      min(1.0, (HOOK_UNTIL - t) / 0.3))
+            elif phase == "loop":
+                _blit(canvas, strip, TEXT_CX - strip[1].shape[1] // 2, round(H * STRIP_TOP),
+                      min(1.0, (t - loop[0]) / (loop[1] - loop[0])))
+            if phase == "shot" and STAMP[0] <= t < STAMP[2]:
+                cols = max(1, round(stamp[1].shape[1] * min(1.0, (t - STAMP[0]) / STAMP[1])))
+                _blit(canvas, (stamp[0][:, :cols], stamp[1][:, :cols]), TEXT_CX - stamp[1].shape[1] // 2,
+                      round(H * STAMP_AT), min(1.0, (STAMP[2] - t) / 0.3))
+            if phase == "end":
+                for layer, y in end_layers:
+                    _blit(canvas, layer, TEXT_CX - layer[1].shape[1] // 2, round(H * y), min(1.0, (t - end[0]) / 0.4))
+            _blit(canvas, label, *LABEL_AT)
+
+        overlays(frame)
+        if i in inked:
+            masks.append(ink(overlays))
+        if i == 0:
+            frame0 = frame.copy()
+        final = frame
+        lumas.append(float(frame[::8, ::8].mean()))
+        enc.stdin.write(frame.tobytes())
+        if i in still_at:
+            Image.fromarray(frame).save(stills / f"t{i // FPS:03d}.png")
+    enc.stdin.close()
+    if enc.wait() != 0:
+        raise RuntimeError("ffmpeg failed to encode the Short")
+    sound = audio["loudness"]
+    flat = [float(x.mean()) for x in thumbs]
+    steps = [abs(flat[i] - flat[i - 1]) / max(flat[i - 1], 1.0) for i in range(1, n) if i not in cuts]
+    changes = picture_changes(thumbs)
+    # There is no voice, so there is no bed under it to measure: the bed check is passed a level that always clears.
+    found = problems(lumas, cuts, frame0, n, count_frames(out)) + audio_problems(sound, MUSIC_BED - 10) + \
+        text_problems(masks[0], masks[1:], LABEL_AT[0] + label[1].shape[1])
+    if audio["motif_lufs"] is None or audio["motif_lufs"] > MOTIF_MAX:
+        found.append(f"the register motif is {audio['motif_lufs']} LUFS, needs at most {MOTIF_MAX:.0f}")
+    if answer_info and answer_info["bottom"] > SAFE_BOTTOM:
+        found.append(f"the answer card's text runs to {answer_info['bottom']:.0%} of the height")
+    stats = {"duration": round(duration, 2), "frames": n, "pictures": len(pictures), "fps": FPS, "size": [W, H],
+             "runtime": length(out), "changes": len(changes), "changes_per_10s": round(len(changes) / duration * 10, 2),
+             "flicker_step": round(max(steps or [0.0]), 4), "flicker_hz": FLICKER_HZ, "flicker_pp": 2 * FLICKER_AMP,
+             "loudness": sound, "quiet_stretch": audio["quiet_stretch"], "motif_lufs": audio["motif_lufs"],
+             "tail": round(tail[1] - tail[0], 2) if tail else 0.0,
+             "loop_diff": round(float(np.abs(final.astype(np.int16) - frame0.astype(np.int16)).mean()), 2)}
+    (work / "picture-checks.json").write_text(json.dumps({"problems": found, **stats}, indent=1, ensure_ascii=False),
+                                              encoding="utf-8")
+    if found:
+        raise ComposeHold("hold: picture and sound checks: " + "; ".join(found))
+    return stats

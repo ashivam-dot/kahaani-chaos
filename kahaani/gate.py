@@ -22,6 +22,7 @@ TITLE_OBJECT_WITHIN = 5
 SCENE_WORDS = (12, 80)
 CAST = (1, 4)
 DURATION = (30.0, 58.0)
+MOMENT_DURATION = (20.0, 33.0)
 END_CARD = 2.4  # seconds of end card compose adds after the narration (compose.END_CARD)
 PAYOFF_BY = 0.75  # the turn lands within the first three quarters of the runtime
 ENDINGS = ("loop-back", "register-line", "open-question", "next-raat-tease")
@@ -409,12 +410,15 @@ def check(draft: dict, premise: dict, history: list[dict], rotation: bool = True
     return list(dict.fromkeys(found))
 
 
-def runtime_problems(seconds: float | None) -> list[str]:
-    """Gate (k) on the finished Short (narration and end card): inside DURATION, and measured at all."""
+def runtime_problems(seconds: float | None, mode: str = "") -> list[str]:
+    """Gate (k) on the finished Short (narration and end card): inside DURATION (MOMENT_DURATION for a moment), and
+    measured at all."""
     if seconds is None:
         return ["the finished Short's length could not be measured"]
-    if not DURATION[0] <= seconds <= DURATION[1]:
-        return [f"the finished Short runs {seconds:.1f} s; F1 needs {DURATION[0]:.0f}-{DURATION[1]:.0f} s"]
+    low, high = MOMENT_DURATION if mode == "moment" else DURATION
+    if not low <= seconds <= high:
+        who = "a moment" if mode == "moment" else "F1"
+        return [f"the finished Short runs {seconds:.1f} s; {who} needs {low:.0f}-{high:.0f} s"]
     return []
 
 
@@ -438,10 +442,116 @@ def timing_problems(story, timing: dict) -> list[str]:
 PUBLISHABLE_VOICES = ("gemini-narrator", "chatterbox-narrator-clone")
 
 
-def voice_ok(voice: dict | None) -> str | None:
-    """Why a narration may not be published (anything but the channel's narrator), or None."""
+def voice_ok(voice: dict | None, mode: str = "") -> str | None:
+    """Why a narration may not be published (anything but the channel's narrator), or None. A moment has no narration:
+    its record says so, and only that record passes."""
     if not voice:
         return "voice: no narration record"
+    if mode == "moment":
+        wordless = voice.get("engine") == "none" and voice.get("identity") == "wordless"
+        return None if wordless else "voice: a moment must be wordless"
     if voice.get("identity") != "narrator" or voice.get("engine") not in PUBLISHABLE_VOICES:
         return f"voice: {voice.get('engine')!r} is not the channel's narrator"
     return None
+
+
+# ---- Format M: the wordless moment ------------------------------------------------------------------------------------
+MOMENT_STILLS, MOMENT_SHOTS, MOMENT_CHANGES = (4, 6), (14, 20), (6.0, 12.0)
+MOMENT_TITLE_CHARS = (45, 95)
+MOMENT_SUFFIX = re.compile(r"\| सन्नाटपुर 1996 #(\d{2})$")
+MOMENT_LUFS, MOMENT_PEAK = (-15.0, -13.0), -1.0
+MOMENT_QUIET = 1.5  # longest stretch below -45 LUFS, seconds
+MOMENT_FLICKER = 0.08
+MOMENT_FLICKER_HZ = 3.0
+MOMENT_CARD_FRAME0 = 0.06  # the card is at most this share of frame 0 ...
+MOMENT_CARD_SEEN = 0.015  # ... and at least this much of a shot for that shot to show it
+MOMENT_CARD_TIME = (1.2, 0.35)  # seconds at least, share of the runtime at most
+MOMENT_TAIL = (1.2, 2.0)
+MOMENT_LOOP = (5.0, 45.0)  # mean difference (0-255) between the first and last frame
+
+
+def check_moment(story: dict, history: list[dict], stats: dict | None = None, rotation: bool = True) -> list[str]:
+    """Format M's gates on a moment's story.json (and, once rendered, on the render's stats): shape, runtime, picture
+    changes, no speech, flicker, how much of the picture the card takes, loudness, the title and every string on
+    screen. Empty means it may be published. Not in v1: blind_solve, CLIP/dHash frame-0 variation, OCR on frames."""
+    from . import moment
+    from .spec import Story
+
+    if story.get("mode") != "moment":
+        return ["not a moment"]
+    found = []
+    obj = Story.from_dict(story)
+    if story.get("beats") or story.get("lines"):
+        found.append("a moment has no spoken lines")
+    stills, shots = story.get("stills") or [], story.get("shots") or []
+    if not MOMENT_STILLS[0] <= len(stills) <= MOMENT_STILLS[1]:
+        found.append(f"{len(stills)} stills, needs {MOMENT_STILLS[0]}-{MOMENT_STILLS[1]}")
+    if not MOMENT_SHOTS[0] <= len(shots) <= MOMENT_SHOTS[1]:
+        found.append(f"{len(shots)} shots, needs {MOMENT_SHOTS[0]}-{MOMENT_SHOTS[1]}")
+    if sum(1 for s in stills if s.get("people")) > 1:
+        found.append("more than one still has cast in it (prop identity is checked on one)")
+    if any(not 0 <= s["still"] < len(stills) for s in shots):
+        return found + ["a shot uses a still that does not exist"]
+    timeline = moment.timeline(obj)
+    found += runtime_problems((stats or {}).get("runtime") if stats else timeline["duration"], "moment")
+    # The card: small in the opening frame, seen in some shots, for a bounded part of the runtime.
+    seen = [moment.exposure(obj, s) for s in shots]
+    if seen and seen[0] > MOMENT_CARD_FRAME0:
+        found.append(f"the card fills {seen[0]:.1%} of frame 0, needs at most {MOMENT_CARD_FRAME0:.0%}")
+    shown = sum(s["t1"] - s["t0"] for s, e in zip(shots, seen) if e >= MOMENT_CARD_SEEN)
+    if shown < MOMENT_CARD_TIME[0] or shown > MOMENT_CARD_TIME[1] * timeline["duration"]:
+        found.append(f"the card is seen for {shown:.1f} s, needs {MOMENT_CARD_TIME[0]} s to "
+                     f"{MOMENT_CARD_TIME[1]:.0%} of the runtime")
+    # The words: the title's suffix and numbers, and every string a viewer reads.
+    title = story.get("title", "")
+    m = MOMENT_SUFFIX.search(title)
+    if not m:
+        found.append("the title must end with '| सन्नाटपुर 1996 #NN'")
+    elif int(m.group(1)) != story.get("ep_n"):
+        found.append(f"the title says #{m.group(1)}, the episode is #{story.get('ep_n', 0):02d}")
+    if not MOMENT_TITLE_CHARS[0] <= len(title) <= MOMENT_TITLE_CHARS[1]:
+        found.append(f"the title is {len(title)} characters, needs {MOMENT_TITLE_CHARS[0]}-{MOMENT_TITLE_CHARS[1]}")
+    if not TITLE_EMOJI[0] <= len(hindi.emoji(title)) <= TITLE_EMOJI[1]:
+        found.append(f"the title needs {TITLE_EMOJI[0]}-{TITLE_EMOJI[1]} emoji")
+    strip_words = len(story.get("hook_strip", "").replace("·", " ").split())
+    if not HOOK_STRIP_WORDS[0] <= strip_words <= HOOK_STRIP_WORDS[1]:
+        found.append(f"the hook strip has {strip_words} words, needs {HOOK_STRIP_WORDS[0]}-{HOOK_STRIP_WORDS[1]}")
+    text = " ".join([title, story.get("hook_strip", ""), story.get("cta_text", ""), story.get("first_comment_hi", ""),
+                     story.get("description", ""), story.get("answer_hi", ""), story.get("register_line_hi", ""),
+                     story.get("stamp", "")] + story.get("hashtags", []))
+    found += [f"red line: {r}" for r in red_lines_hi(text)] + [f"made-for-kids signal: {w}" for w in mfk_metadata(text)]
+    found += [f"never in a title: {w}" for w in TITLE_NEVER if w in title.lower()]
+    if story.get("cta_arm") not in ("A", "B"):
+        found.append("cta_arm must be A or B")
+    entry = next((e for e in moment.bank() if e["id"] == story.get("premise")), None)
+    if rotation and entry:
+        found += moment.caps_problems(entry, history)
+    if stats:
+        found += _moment_render_problems(stats, bool(timeline["tail"]))
+    return list(dict.fromkeys(found))
+
+
+def _moment_render_problems(stats: dict, tail: bool) -> list[str]:
+    """What the render measured: picture changes, flicker, quiet, loudness, the answer's tail, the loop."""
+    found = []
+    per = stats.get("changes_per_10s")
+    if per is None or not MOMENT_CHANGES[0] <= per <= MOMENT_CHANGES[1]:
+        found.append(f"{per} picture changes per 10 s, needs {MOMENT_CHANGES[0]:.0f}-{MOMENT_CHANGES[1]:.0f}")
+    if stats.get("quiet_stretch") is None or stats["quiet_stretch"] > MOMENT_QUIET:
+        found.append(f"{stats.get('quiet_stretch')} s of it is quieter than -45 LUFS (no foley), at most "
+                     f"{MOMENT_QUIET} s is allowed")
+    if (stats.get("flicker_step") or 0) > MOMENT_FLICKER or (stats.get("flicker_pp") or 0) > MOMENT_FLICKER:
+        found.append(f"luma flicker above {MOMENT_FLICKER:.0%}")
+    if (stats.get("flicker_hz") or 0) > MOMENT_FLICKER_HZ:
+        found.append(f"flicker faster than {MOMENT_FLICKER_HZ:.0f} Hz")
+    sound = stats.get("loudness")
+    if not sound or not MOMENT_LUFS[0] <= sound["lufs"] <= MOMENT_LUFS[1] or sound["true_peak"] > MOMENT_PEAK:
+        found.append(f"loudness {sound}, needs {MOMENT_LUFS[0]:.0f} to {MOMENT_LUFS[1]:.0f} LUFS, peak at most "
+                     f"{MOMENT_PEAK} dBTP")
+    if tail and not MOMENT_TAIL[0] <= stats.get("tail", 0) <= MOMENT_TAIL[1]:
+        found.append(f"the answer tail is {stats.get('tail')} s, needs {MOMENT_TAIL[0]}-{MOMENT_TAIL[1]} s")
+    diff = stats.get("loop_diff")
+    if diff is None or not MOMENT_LOOP[0] <= diff <= MOMENT_LOOP[1]:
+        found.append(f"the last frame differs from the first by {diff}, needs {MOMENT_LOOP[0]:.0f}-"
+                     f"{MOMENT_LOOP[1]:.0f}")
+    return found
