@@ -75,3 +75,13 @@ def test_a_thing_moving_by_itself_has_nobody_on_it():
 
     assert lk.ALONE in lk.prompt("Shailesh lunges to grab the rolling bicycle.", [], [])
     assert lk.ALONE not in lk.prompt("The bicycle stands on the bridge.", [], [])
+
+
+def test_a_dawn_beat_gets_the_dawn_look_and_a_dark_lamp_stays_dark():
+    from kahaani import look as lk
+
+    scene = "Dawn light over the brick canal bridge. prabhat stands near the stationary bicycle, its dynamo light dark."
+    out = lk.prompt(scene, [], [])
+    assert lk.DAWN_STYLE in out and lk.STYLE not in out and lk.OUT in out
+    night = lk.prompt("The bicycle's headlight shines yellow on the bridge at night.", [], [])
+    assert lk.STYLE in night and lk.OUT not in night

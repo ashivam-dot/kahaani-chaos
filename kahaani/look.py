@@ -33,6 +33,18 @@ ANIMALS = re.compile(r"\b(cat|kitten|dog|puppy|crow|owl|parrot|peacock|sparrow|v
                      r"cow|buffalo|goat|sheep|horse|donkey|camel|elephant|tiger|leopard|lion|monkey|langur|bear|"
                      r"fox|jackal|deer|snake|cobra|frog|fish|tortoise|turtle|rat|mouse|squirrel|bird)s?\b(?!-)", re.I)
 REAL = " (a real animal, not a person: no clothes, no human body or face)"
+# The house style is a moonlit night with one warm light, so a "next morning, its light dark" ending came back at night
+# with the lamp on and the editor dropped it (dry run 39953890527, beat 7): a dawn scene gets the dawn look, and a
+# light the scene says is out is said to be out.
+DAWN = re.compile(r"\b(dawn|daybreak|sunrise|morning|daylight|daytime)\b", re.I)
+DAWN_STYLE = ("Early-morning 1996 north-Indian village at dawn, pale gold sunrise light and soft blue shadows, no"
+              " moon and no lamp lit, lifted shadows, painterly-cinematic, realistic adult proportions. Painterly"
+              " visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject"
+              " in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a"
+              " cartoon")
+UNLIT = re.compile(r"\b(light|lamp|headlight|bulb|lantern|torch)\b[^.]{0,30}\b(dark|off|unlit|dead)\b|"
+                   r"\b(dark|unlit|switched-off|dead)\s+(\w+\s+)?(light|lamp|headlight|bulb|lantern|torch)\b", re.I)
+OUT = "The light the scene names is switched off and unlit: no glow, no beam from it."
 # The writer's "the kids" painted the seventeen-year-olds young (dry run 39939846588, beat 4), and a "rolling bicycle"
 # came back with a rider nobody planned (beat 3). Both are fixed in the words the image model reads.
 GROWN = ((re.compile(r"\b(kids|children|teens|teenagers)\b", re.I), "young people"),
@@ -76,6 +88,8 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
     parts = [grown(scene).strip().rstrip(".") + "."]
     if BY_ITSELF.search(scene):
         parts.append(ALONE)
+    if UNLIT.search(scene):
+        parts.append(OUT)
     present = [(looks[p["name"].strip().lower()], p.get("expression", "").strip()) for p in people
                if p.get("name", "").strip().lower() in looks]
     if hook:
@@ -86,7 +100,7 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
         parts.append(FACES)
     else:
         parts.append(NOBODY)
-    parts += [STYLE + ".", AVOID, NEVER]
+    parts += [(DAWN_STYLE if DAWN.search(scene) else STYLE) + ".", AVOID, NEVER]
     return " ".join(parts)
 
 

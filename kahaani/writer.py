@@ -112,7 +112,8 @@ RULES (all mandatory):
   too: say हाय, बाप रे, अरे or उफ़, never हे भगवान or या खुदा.
 - cast: the ids of everyone painted in any beat, from {cast_ids}.
 - scene: for each beat, 20-60 English words describing ONE painting: who is in it (cast ids exactly), what they do,
-  the place, one warm practical light (lantern, torch or bulb) against moonlit blue, and the camera. Beat 1 is the
+  the place, one warm practical light (lantern, torch or bulb) against moonlit blue (a next-morning beat says dawn
+  instead), and the camera. Beat 1 is the
   peak image, a close-up of the {object_token!r} doing the impossible. Faces small, backlit or three-quarters
   away; the object and props carry the picture. No text, signs, logos or labels in any picture. Call the cast
   young men and young women, never kids, children, boys or girls; when the object moves by itself, say nobody is on
