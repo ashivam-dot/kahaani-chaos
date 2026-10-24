@@ -119,3 +119,11 @@ def test_two_reserved_previews_never_dispatch_a_third(monkeypatch):
     batch.tick(SimpleNamespace(REPO='owner/repo', WORKFLOW='run.yml', paused=lambda: False),
                'publish', save=lambda d: None)
     assert data['jobs'][2]['stage'] == 'planned'
+
+
+def test_kahaani_adapter_cannot_ignore_an_unresolved_direct_hold(tmp_path, monkeypatch):
+    from kahaani import audio_finish, batch_release
+
+    monkeypatch.setattr(audio_finish, 'finish_preview', lambda *a: pytest.fail('held media was finished'))
+    with pytest.raises(ValueError, match='direct editorial hold: visible hand'):
+        batch_release.validate({'editorial_holds': [{'reason': 'visible hand'}]}, tmp_path)

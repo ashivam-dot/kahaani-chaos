@@ -77,7 +77,7 @@ def test_repaints_are_collected_apart_from_the_painting(tmp_path):
 def verdict(n, props_ok=True, share=0.5):
     return {"n": n, "shows": "Jhabbu on the bridge", "fits": True, "nudity": False, "sexual": False, "gore": False,
             "malformed": False, "text": False, "religious": False, "kids_look": False, "doubled": False,
-            "ridden": False, "props_ok": props_ok,
+            "ridden": False, "human_present": False, "props_ok": props_ok,
             "subject_share": share, "reason": "" if props_ok else "no lantern"}
 
 
@@ -212,7 +212,7 @@ def test_the_editor_sees_the_planned_picture(tmp_path):
 
     def ask(parts, schema):
         prompts.append(parts[0])
-        return {"pictures": [{"n": 1, "shows": "a bicycle", "fits": True, "ridden": False,
+        return {"pictures": [{"n": 1, "shows": "a bicycle", "fits": True, "ridden": False, "human_present": False,
                                          "subject_share": 0.5}]}
 
     aiart.pictures(aiart.collect(art, "kc-1", 1), ["a"], tmp_path / "pics", "story", "cast", ask,
@@ -278,3 +278,15 @@ def test_a_ridden_bicycle_is_refused_when_the_plan_says_it_moves_by_itself():
 
 def test_a_person_painted_twice_is_refused():
     assert vision.rejected(verdict(1) | {"doubled": True}).startswith("doubled")
+
+
+def test_a_hand_cannot_operate_an_object_in_an_object_only_scene():
+    from kahaani import vision
+
+    scene = 'Extreme close-up of the empty iron balance dipping on the wooden counter.'
+    actual = verdict(1) | {'human_present': True, 'shows': 'A hand holds the balance above the stall.'}
+    assert vision.rejected(actual, scene=scene).startswith('unplanned human')
+    assert vision.rejected(verdict(1), scene=scene) is None
+    unknown = {k: v for k, v in verdict(1).items() if k != 'human_present'}
+    assert vision.rejected(unknown, scene=scene).startswith('unplanned human')
+    assert vision.rejected(actual, cast_shot=True, scene='Shailesh holds the balance.') is None

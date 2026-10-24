@@ -46,12 +46,13 @@ SCHEMA = {
                     "shows": {"type": "string"},
                     **{f: {"type": "boolean"} for f in FLAGS},
                     "ridden": {"type": "boolean"},
+                    "human_present": {"type": "boolean"},
                     "props_ok": {"type": "boolean"},
                     "fits": {"type": "boolean"},
                     "subject_share": {"type": "number"},
                     "reason": {"type": "string"},
                 },
-                "required": ["n", "shows", *FLAGS, "ridden", "props_ok", "fits", "subject_share", "reason"],
+                "required": ["n", "shows", *FLAGS, "ridden", "human_present", "props_ok", "fits", "subject_share", "reason"],
             },
         },
     },
@@ -80,6 +81,8 @@ For each picture answer:
   picture-book or nursery style. The young people are 17-18 with adult proportions.
 - doubled: true if the same person (same clothes and props) appears twice in one picture.
 - ridden: true if anyone sits on, rides, pedals, pushes, steers or holds a bicycle, cart or other vehicle.
+- human_present: true if any human figure, face, hand, arm or other human body part is visible, even if the rest
+  of that person is outside the frame. A hand holding a supposedly empty moving object is human presence.
 - props_ok: for each character the line says should appear, true only if that character is visible and shows at
   least one of their listed signature props or colours. True when the line lists no characters.
 - fits: true if the picture plausibly shows this line's moment with this story's characters and setting, in a
@@ -120,6 +123,8 @@ def rejected(verdict: dict, cast_shot: bool = False, hook: bool = False, scene: 
         return f"child: the editor sees a child ({verdict.get('shows')})"
     if scene and BY_ITSELF.search(scene) and verdict.get("ridden") is not False:
         return f"ridden: someone is on or holding what the plan says moves by itself ({verdict.get('shows')})"
+    if scene and not cast_shot and verdict.get("human_present") is not False:
+        return f"unplanned human: an object-only scene must confirm no visible human or body part ({verdict.get('shows')})"
     if cast_shot and verdict.get("props_ok") is not True:
         return f"props: the characters' signature props or colours are missing ({verdict.get('reason') or ''})"
     if not verdict.get("fits"):
@@ -148,7 +153,9 @@ def judge(items: list[tuple], story: str, cast: str, ask) -> list[dict]:
     for start in range(0, len(items), PER_PROMPT):
         chunk = items[start:start + PER_PROMPT]
         lines = "\n".join(f"{n}. narrated line: {item[1]}"
-                          + (f"\n   should appear: {item[2]}" if len(item) > 2 and item[2] else "")
+                          + (f"\n   should appear: {item[2]}" if len(item) > 2 and item[2] else
+                             "\n   object-only scene: no human figure, face, hand or arm may be visible"
+                             if len(item) > 2 else "")
                           + (f"\n   planned picture: {picture_scene(item[3])}" if len(item) > 3 and item[3] else "")
                           for n, item in enumerate(chunk, 1))
         parts: list = [PROMPT.format(story=story, cast=cast, lines=lines)]
