@@ -453,10 +453,20 @@
           "evidence": {
             "art-40134819856-3/beat03.png": "28b7aad5427f5a208a8cf1c88d24ae820e02527be1bf2becc614fb0a247a56c5"
           }
+        },
+        {
+          "id": "direct-floating-lantern-40134819856",
+          "run_id": 40134819856,
+          "observed_at": "2026-10-24T22:06:22.600390+00:00",
+          "reason": "Direct inspection of actual cloud opening: a large unsupported lantern floats above the scale, adding a second unexplained impossible object and distracting from the story hook. Replace only this opening and the held hand-operated scale close-up; retain other valid paintings.",
+          "evidence": {
+            "art-40134819856-0/beat00.png": "c297e5d216c354ed0826bdb0a13348db3184b7e5cd6aafed3869edde7b80dc89"
+          }
         }
       ],
       "problems": [
-        "Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required."
+        "Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required.",
+        "Direct inspection of actual cloud opening: a large unsupported lantern floats above the scale, adding a second unexplained impossible object and distracting from the story hook. Replace only this opening and the held hand-operated scale close-up; retain other valid paintings."
       ]
     },
     {
@@ -664,8 +674,8 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e04: Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required.",
-  "updated_at": "2026-10-24T21:53:58.169448+00:00",
+  "halted": "Repair held entry e04: Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required.; Direct inspection of actual cloud opening: a large unsupported lantern floats above the scale, adding a second unexplained impossible object and distracting from the story hook. Replace only this opening and the held hand-operated scale close-up; retain other valid paintings.",
+  "updated_at": "2026-10-24T22:06:22.602865+00:00",
   "complete": false,
   "health": {
     "public": 1,
