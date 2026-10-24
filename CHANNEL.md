@@ -158,6 +158,11 @@ the normal writer/editor, painter, picture checks, voice and render gates. A bri
 No preview consumes the live ledger, creates an upload, or books a release. Complete audiovisual review and a
 fresh duplicate/rotation check are required before promoting a finished story. Existing release slots stay fixed.
 
+Replay repairs reuse only matching story, beat, exact painter prompt and SHA-256 image bytes. Original alternate
+paintings retain their variant metadata and go back through the current picture editor with the base image.
+Changing a scene invalidates that beat's cached inputs. The e02 recovery reuses beats 0–5 and repaints ending 6;
+the superseded run's duplicated ending is excluded and its id is retained in the adoption record.
+
 - **Cadence:** the current `config.FORMATS` has F1 slots daily at 13:00 and 19:00 IST (07:30 and 13:30 UTC), with
   capacity for three ready Shorts. Recovery first requires two passing buffered episodes and two verified public
   slots; an empty buffer does not justify bypassing a gate. The F2 and F3 slots register when those formats are built.

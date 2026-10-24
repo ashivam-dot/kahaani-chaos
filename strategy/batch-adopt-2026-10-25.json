@@ -6,11 +6,12 @@
     "archive": "batch-reviewed-40120456012"
   },
   "e02": {
-    "run_id": 40122737348,
-    "stage": "held",
-    "source_sha": "3709b249f70f2920296effe19b04eba1d735e59d",
-    "problems": [
-      "Editorial hold: both completed ending paintings duplicate Jhabbu and contradict the unlit-lantern scene. Reuse unchanged earlier paintings and repaint only the ending before release."
-    ]
+    "run_id": 40127450982,
+    "stage": "building",
+    "source_sha": "6bc23964267261030cc2fadea14eded0e4d4f92b",
+    "obsolete_runs": [
+      40122737348
+    ],
+    "repair_reason": "Original ending duplicated Jhabbu. Replacement preserves the spoken story and thirteen exact-prompt earlier paintings with original alternate metadata; current picture editor must recheck them. Only ending beat 6 is repainted; original bad ending is excluded."
   }
 }
