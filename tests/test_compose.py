@@ -238,6 +238,32 @@ def test_a_dim_night_hook_is_lifted_until_frame_0_reads(tmp_path, monkeypatch):
     assert compose._expose_hook(bright, cam, grade, strip, label) == 1.0
 
 
+def test_real_fan_hook_restores_contrast_with_one_bounded_plate_grade(tmp_path, monkeypatch):
+    from pathlib import Path
+    from kahaani import aiart
+    root = Path(__file__).resolve().parents[1] / '.github/replay/sannatpur-fan-e09-repair'
+    story = Story.load(root.with_suffix('.json'))
+    monkeypatch.setattr(compose.depth, 'estimate', lambda img, cache=None: np.zeros(
+        (img.height, img.width), np.float32))  # opening frame has no depth displacement
+    image = tmp_path / 'beat00.jpg'
+    aiart._prepare(root / 'art/beat00.png', image)
+    plate, cam = compose.Plate(image), compose.Camera()
+    grade = compose.Grade(seed=len(story.id))
+    strip, label = compose._strip_layer(story.hook_strip), compose._label_layer()
+    shot = {'plate': plate, 'motion': compose.MOTIONS[0]}
+    compose._expose_hook(shot, cam, grade, strip, label)
+    assert 1 < plate.hook_contrast <= max(compose.HOOK_CONTRASTS)
+    assert plate.hook_new_clip <= compose.HOOK_NEW_CLIP_LIMIT
+    saved = plate.rgb.copy()
+    frame = grade.apply(cam.shoot(plate, 0, shot['motion'], 0.06), 0)
+    compose._blit(frame, strip, compose.TEXT_CX - strip[1].shape[1] // 2, round(compose.H * compose.STRIP_TOP))
+    compose._blit(frame, label, *compose.LABEL_AT)
+    assert not compose.problems([float(frame.mean())], set(), frame, 1, 1)
+    for t in (0.2, 0.6, 1.0):
+        grade.apply(cam.shoot(plate, t, shot['motion']), 0)
+    assert np.array_equal(saved, plate.rgb)
+
+
 def test_a_dark_short_is_held(tmp_path, monkeypatch):
     monkeypatch.setattr(compose.depth, "estimate", lambda img, cache=None: np.zeros((img.height, img.width),
                                                                                     np.float32))

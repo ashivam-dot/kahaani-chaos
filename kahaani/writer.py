@@ -126,8 +126,6 @@ RULES (all mandatory):
   Make the named acting character perform the narrated action, identified by their fixed clothing. When one
   character handles the key object, prefer a clear shot of that character alone; put other reactions in adjacent
   beats. A character setting down a prop must not simultaneously be described carrying the same prop.
-  Beats 5, 6, and 7 must be written in English (12-80 words each) to satisfy the F1 micro-entry gate; do not
-  write them in Hindi.
 - people: for each beat, every cast id visible in its painting with their expression at this moment; empty when
   no one is visible.
 - hook_strip: 3-5 Hindi words painted over frame 0 (a teaser, not the title), no emoji.

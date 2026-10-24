@@ -56,6 +56,8 @@ EXPOSURE = (118.0, 0.85, 1.35)  # each painting is nudged toward this mean luma,
 FRAME0_LUMA = (90.0, 170.0)
 FRAME0_AIM = 100.0  # a night hook painting too dark for frame 0 is lifted until frame 0 reaches this
 HOOK_GAMMAS = (1.0, 0.9, 0.8, 0.7, 0.6, 0.5)
+HOOK_CONTRASTS = (1.2, 1.4, 1.6)
+HOOK_NEW_CLIP_LIMIT = 0.025
 FRAME0_CONTRAST = (0.18, 0.45)
 BLINK_DROP = 0.35
 # Gate j (PLAN.md §7.4): the finished Short's integrated loudness and true peak, measured on the encoded file.
@@ -514,17 +516,48 @@ def _mix(narration: Path, story: Story, seconds: float, bell_at: float | None, o
 
 
 def _expose_hook(shot: dict, cam: "Camera", grade: "Grade", strip, label) -> float:
-    """Lift the hook painting in HOOK_GAMMAS steps until frame 0 (graded, strip and label on) reaches FRAME0_AIM;
-    returns the gamma kept."""
+    """Calibrate one constant opening grade against the finished frame, retaining the original gates."""
     plate = shot["plate"]
-    for gamma in HOOK_GAMMAS:
-        plate.lift(gamma)
+    plate.hook_contrast = 1.0
+    plate.hook_new_clip = 0.0
+
+    def finished():
         frame = grade.apply(cam.shoot(plate, 0.0, shot["motion"], 0.06), 0)
         _blit(frame, strip, TEXT_CX - strip[1].shape[1] // 2, round(H * STRIP_TOP), 1.0)
         _blit(frame, label, *LABEL_AT)
-        luma = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY).mean()
+        gray = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY).astype(np.float32)
+        return float(gray.mean()), float(gray.std() / 255.0)
+
+    for gamma in HOOK_GAMMAS:
+        plate.lift(gamma)
+        luma, contrast = finished()
         if (gamma == 1.0 and FRAME0_LUMA[0] <= luma <= FRAME0_LUMA[1]) or luma >= FRAME0_AIM:
             break
+    if FRAME0_CONTRAST[0] <= contrast <= FRAME0_CONTRAST[1]:
+        return gamma
+    # A shadow lift can make a night painting legible while flattening its contrast (e09: 0.16).
+    # Try a small, fixed contrast expansion of that painting, never a frame-by-frame adjustment.
+    # If it cannot meet both existing bands without clipping detail, the original final gates still hold it.
+    lifted = plate.rgb.copy()
+    pivot = float(np.clip(cv2.cvtColor(lifted, cv2.COLOR_RGB2GRAY).mean() / 255.0, 0.01, 0.99))
+    unit = lifted.astype(np.float32) / 255.0
+    for factor in HOOK_CONTRASTS:
+        # A continuous S curve keeps black/white endpoints and rolls off before clipping highlights.
+        # Its derivative at the pivot is factor on both sides; every frame uses the same pixels.
+        curved = np.where(unit <= pivot,
+                          pivot * np.minimum(unit / pivot, 1.0) ** factor,
+                          1 - (1 - pivot) * np.minimum((1 - unit) / (1 - pivot), 1.0) ** factor)
+        graded = np.clip(curved * 255.0, 0, 255).round().astype(np.uint8)
+        clipped = float(np.any(((graded == 0) & (lifted > 0)) |
+                              ((graded == 255) & (lifted < 255)), axis=2).mean())
+        if clipped > HOOK_NEW_CLIP_LIMIT:
+            continue
+        plate.rgb = graded
+        luma, contrast = finished()
+        if FRAME0_LUMA[0] <= luma <= FRAME0_LUMA[1] and FRAME0_CONTRAST[0] + 0.005 <= contrast <= FRAME0_CONTRAST[1]:
+            plate.hook_contrast, plate.hook_new_clip = factor, clipped
+            return gamma
+    plate.rgb = lifted
     return gamma
 
 
@@ -615,7 +648,10 @@ def render(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict
     found = problems(lumas, cuts, frame0, n, count_frames(out)) + audio_problems(sound, bed) + \
         text_problems(masks[0], masks[1:], LABEL_AT[0] + label[1].shape[1])
     (work / "picture-checks.json").write_text(json.dumps({"problems": found, "frames": n,
-                                                          "opening_gamma": opening_gamma, "loudness": sound,
+                                                          "opening_gamma": opening_gamma,
+                                                          "opening_contrast": shots[0]["plate"].hook_contrast,
+                                                          "opening_new_clip": shots[0]["plate"].hook_new_clip,
+                                                          "loudness": sound,
                                                           "bed_lufs": bed, "levels": levels},
                                                          indent=1, ensure_ascii=False), encoding="utf-8")
     if found:
