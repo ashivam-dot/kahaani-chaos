@@ -11,11 +11,56 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-cycle-e01.json"
       },
-      "stage": "building",
+      "stage": "reviewed",
       "attempts": 0,
       "run_id": 40120456012,
       "source_sha": "4c5195d8eb2ff5e0b1b661f5225feb8d85056e1a",
-      "archive": "batch-reviewed-40120456012"
+      "archive": "batch-reviewed-40120456012",
+      "cloud_status": "completed",
+      "review": {
+        "model": "gemini-3-flash-preview",
+        "video_sha256": "ec569c63296aa07ae4f0eea8498c78695ffbd672237df5162995f3d49810ed6e",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "पुल पर साइकिल की लाइट बिना पैडल के जल उठी।",
+          "heard_ending": "सुबह साइकिल फिर से पुल पर थी, पर रात लाइट बिना पैडल जल उठी।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 0,
+              "seen": "A black bicycle on a brick bridge with its dynamo light glowing brightly.",
+              "heard": "पुल पर साइकिल की लाइट बिना पैडल के जल उठी।"
+            },
+            {
+              "part": "middle",
+              "seconds": 17,
+              "seen": "Jhabbu, an old man in a khaki kurta and red muffler, places a hand on Prabhat's shoulder.",
+              "heard": "झब्बू ने मेरा हाथ पकड़ लिया और नियम छः याद दिलाया कि जलती रोशनी के पीछे कभी मत भागना।"
+            },
+            {
+              "part": "ending",
+              "seconds": 36,
+              "seen": "The bicycle stands alone on the bridge in the misty morning light.",
+              "heard": "सुबह साइकिल फिर से पुल पर थी, पर रात लाइट बिना पैडल जल उठी।"
+            }
+          ],
+          "issues": []
+        },
+        "duration": 44.096
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -265,5 +310,5 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-24T20:16:36+00:00"
+  "updated_at": "2026-10-24T20:16:49+00:00"
 }
