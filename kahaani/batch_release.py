@@ -9,6 +9,7 @@ from .spec import Story
 
 REPO = "ashivam-dot/kahaani-chaos"
 WORKFLOW = "run.yml"
+CHANNEL_ID = config.EXPECTED_CHANNEL_ID
 
 
 def paused():
@@ -69,6 +70,17 @@ def release_ready(data, job):
         return False
     # Restore a real two-episode reviewed buffer before the first new-format release.
     return sum(j["stage"] in ("reviewed", "upload_intent", "public", "scheduled") for j in data["jobs"]) >= 2
+
+
+def poll_delivery(job):
+    from . import youtube
+
+    if config.CHANNEL_ID != CHANNEL_ID:
+        raise ValueError("configured channel does not match Sannatpur")
+    api = youtube.client()
+    youtube.identity(api)
+    rows = api.videos().list(part="snippet,status", id=job["delivery"]["video_id"]).execute()["items"]
+    return rows[0] if len(rows) == 1 else {}
 
 
 def publish(job, folder, when):
