@@ -137,16 +137,44 @@ def test_reused_replay_art_still_goes_through_the_picture_editor(tmp_path, monke
     art.mkdir()
     (art / "beat00.png").write_bytes(b"png")
     (art / "beat00.json").write_text(json.dumps({"story": story.id, "beat": 0}))
+    (art / "beat00-alt1.png").write_bytes(b"alternate")
+    (art / "beat00-alt1.json").write_text(json.dumps({"story": story.id, "beat": 0, "alt": 1}))
     checked = []
 
     def refuse(found, *a, **kw):
         checked.extend(found)
+        assert kw["spares"] == {0: [art / "beat00-alt1.png"]}
         raise aiart.PictureHold("hold: replay painting does not fit")
 
     fake_render(monkeypatch, pictures=refuse)
     health = cli.render(plan, None, tmp_path / "work", dry=True)
     assert checked == [0] and "does not fit" in health["held"]
     assert ledger.ready() == []
+
+
+@pytest.mark.parametrize("broken", [None, "prompt", "hash", "alt"])
+def test_replay_alternates_keep_provenance_and_require_exact_inputs(tmp_path, broken):
+    import hashlib
+
+    replay = tmp_path / "replay.json"
+    art = {"story": "s", "beats": [{"beat": 0, "prompt": "exact scene", "alternates": [123]}]}
+    cache = replay.with_suffix("") / "art"
+    cache.mkdir(parents=True)
+    for suffix, alt in (("", 0), ("-alt1", 1)):
+        painting = cache / f"beat00{suffix}.png"
+        painting.write_bytes(f"original variant {alt}".encode())
+        meta = {"story": "s", "beat": 0, "alt": alt, "seed": 456 + alt,
+                "prompt": "exact scene", "image_sha256": hashlib.sha256(painting.read_bytes()).hexdigest()}
+        if alt and broken:
+            meta[{"prompt": "prompt", "hash": "image_sha256", "alt": "alt"}[broken]] = "wrong"
+        painting.with_suffix(".json").write_text(json.dumps(meta))
+    out = tmp_path / "plan"
+    assert cli._reuse_art(replay, art, out) == [0]
+    spare = out / "art/beat00-alt1.json"
+    assert spare.exists() is (broken is None)
+    if broken is None:
+        assert spare.read_bytes() == (cache / spare.name).read_bytes()
+        assert json.loads(spare.read_text())["alt"] == 1
 
 
 def test_a_reviewed_replay_may_be_published_once(tmp_path):

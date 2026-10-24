@@ -116,6 +116,21 @@ def _reuse_art(replay: Path, art: dict, out: Path) -> list[int]:
             target.mkdir(parents=True, exist_ok=True)
             shutil.copy2(meta, target / meta.name)
             shutil.copy2(image, target / image.name)
+            # Retain original repaint provenance and let today's picture editor choose; never
+            # relabel an alternate as a newly generated base painting just to reuse its bytes.
+            for alt in range(1, len(beat.get("alternates", [])) + 1):
+                spare = cached / f"{stem}-alt{alt}.json"
+                painting = spare.with_suffix(".png")
+                try:
+                    info = json.loads(spare.read_text(encoding="utf-8"))
+                    if not (info.get("story") == art["story"] and info.get("beat") == beat["beat"]
+                            and info.get("prompt") == beat["prompt"] and info.get("alt") == alt
+                            and hashlib.sha256(painting.read_bytes()).hexdigest() == info.get("image_sha256")):
+                        continue
+                except (OSError, ValueError):
+                    continue
+                shutil.copy2(spare, target / spare.name)
+                shutil.copy2(painting, target / painting.name)
             reused.append(beat["beat"])
     return reused
 
@@ -284,7 +299,9 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
             raise RuntimeError("hold: the planned story fails the gates: " + "; ".join(problems))
         found = aiart.collect(plan_dir / "art", story.id, len(story.beats))
         found.update(aiart.collect(art_dir, story.id, len(story.beats)))
-        spares = aiart.alternates(art_dir, story.id, len(story.beats))
+        spares = aiart.alternates(plan_dir / "art", story.id, len(story.beats))
+        for beat, candidates in aiart.alternates(art_dir, story.id, len(story.beats)).items():
+            spares.setdefault(beat, []).extend(candidates)
         health["steps"].append(f"paintings: {len(found)} of {len(story.beats)} made, "
                                f"{sum(map(len, spares.values()))} repaints")
         who = {i: look.present([dict(p) for p in b.people], story.cast, b.scene) for i, b in enumerate(story.beats)}

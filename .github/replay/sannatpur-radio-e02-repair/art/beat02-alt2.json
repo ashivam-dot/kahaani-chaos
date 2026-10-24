@@ -1,0 +1,17 @@
+{
+ "story": "kc-20261024-1859-e02",
+ "beat": 2,
+ "alt": 2,
+ "prompt": "Shailesh pauses on the ladder looking upward in surprise, his red cricket cap tilted, while Prabhat clutches his blue notebook against the dark cement structure. Characters: Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, shocked expression; Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, startled expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+ "seconds": 1012.8,
+ "model": "zimage",
+ "steps": 4,
+ "width": 576,
+ "height": 1024,
+ "seed": 1017303688,
+ "log_tail": "###########################         | 113/138 - 494.82MB/s\u001b[K\n  |##################################################| 138/138 - 472.50MB/s\u001b[K\n[I] loading tensors completed, taking 0.40s (read: 0.32s, memcpy: 0.00s, convert: 0.03s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 104.56s --- image.cpp:620\n[I] decode_first_stage completed, taking 104.56s --- image.cpp:624\n[I] generate_image completed in 1011.96s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat02-alt2.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+ "image_sha256": "f562935f12186fbf51255f3eabe17bde09e706bf070e613881741dcee049e438",
+ "source_run": 40122737348,
+ "source_artifact": "art-40122737348-2",
+ "source_sha": "3709b249f70f2920296effe19b04eba1d735e59d"
+}

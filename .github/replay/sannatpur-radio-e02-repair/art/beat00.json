@@ -1,0 +1,17 @@
+{
+ "story": "kc-20261024-1859-e02",
+ "beat": 0,
+ "alt": 0,
+ "prompt": "Close-up of a dusty leather-cased transistor radio resting on the cold iron rung of an elevated water tank ladder under faint blue moonlight, dial faintly vibrating. Peak moment, close on the impossible object doing the impossible, lit by the warm light. No people: no human figure, face, hand or arm anywhere in the picture. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+ "seconds": 1204.0,
+ "model": "zimage",
+ "steps": 4,
+ "width": 576,
+ "height": 1024,
+ "seed": 623265025,
+ "log_tail": "ached graph cut plan done (taking 0 ms) --- ggml_graph_cut.cpp:1032\n\n  |##################################################| 138/138 - 940.30MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 92.04s --- image.cpp:620\n[I] decode_first_stage completed, taking 92.04s --- image.cpp:624\n[I] generate_image completed in 1203.10s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat00.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+ "image_sha256": "794dcbbff91d31f65a5a66c432ad2e2f6fa303f9c788edb02207009ed12b2fd7",
+ "source_run": 40122737348,
+ "source_artifact": "art-40122737348-0",
+ "source_sha": "3709b249f70f2920296effe19b04eba1d735e59d"
+}
