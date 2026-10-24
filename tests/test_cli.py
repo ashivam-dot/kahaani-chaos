@@ -45,6 +45,54 @@ def test_plan_a_replay(tmp_path, monkeypatch):
     assert out["paint"] == "true" and json.loads(out["chunks"]) == [str(i) for i in range(6)]
 
 
+def test_replay_reuses_only_exact_prompts_and_bytes_and_can_skip_the_paint_matrix(tmp_path, monkeypatch):
+    import hashlib
+    from PIL import Image
+
+    replay = tmp_path / "replay.json"
+    replay.write_bytes(STORY.read_bytes())
+    story = Story.load(replay)
+    art = cli.art_plan(story)
+    folder = replay.with_suffix("") / "art"
+    folder.mkdir(parents=True)
+    for beat in art["beats"]:
+        image = folder / f"beat{beat['beat']:02d}.png"
+        Image.new("RGB", (8, 8), (60, 90, 120)).save(image)
+        image.with_suffix(".json").write_text(json.dumps({
+            "story": story.id, "beat": beat["beat"], "prompt": beat["prompt"],
+            "image_sha256": hashlib.sha256(image.read_bytes()).hexdigest()}))
+    monkeypatch.setenv("GITHUB_OUTPUT", str(tmp_path / "outputs"))
+    status = cli.plan(tmp_path / "all", dry=True, replay=replay)
+    assert status["paint"] and status["reused_beats"] == list(range(6)) and status["paint_beats"] == []
+    assert outputs(tmp_path / "outputs")["paint"] == "false"
+    # A scene change and corrupted image must each repaint just the affected beat.
+    story.beats[2].scene += " The bicycle is beside a tree."
+    story.save(replay)
+    (folder / "beat04.png").write_bytes(b"corrupt")
+    status = cli.plan(tmp_path / "partial", dry=True, replay=replay)
+    assert status["paint_beats"] == [2, 4] and status["reused_beats"] == [0, 1, 3, 5]
+    assert not (tmp_path / "partial/art/beat04.png").exists()
+
+
+def test_reused_replay_art_still_goes_through_the_picture_editor(tmp_path, monkeypatch):
+    plan = make_plan(tmp_path, monkeypatch, dry=True)
+    story = Story.load(plan / "story.json")
+    art = plan / "art"
+    art.mkdir()
+    (art / "beat00.png").write_bytes(b"png")
+    (art / "beat00.json").write_text(json.dumps({"story": story.id, "beat": 0}))
+    checked = []
+
+    def refuse(found, *a, **kw):
+        checked.extend(found)
+        raise aiart.PictureHold("hold: replay painting does not fit")
+
+    fake_render(monkeypatch, pictures=refuse)
+    health = cli.render(plan, None, tmp_path / "work", dry=True)
+    assert checked == [0] and "does not fit" in health["held"]
+    assert ledger.ready() == []
+
+
 def test_a_reviewed_replay_may_be_published_once(tmp_path):
     status = cli.plan(tmp_path / "plan", dry=False, replay=STORY)
     assert status["paint"] and status["story"] == REPLAY_ID

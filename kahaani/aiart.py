@@ -1,8 +1,8 @@
 """The paintings the paint jobs made for a story: collected, screened by the vision check, and turned into one picture
 per beat. A refused cast shot falls back on its repaints (up to look.ALTERNATES, painted by the same paint job with
-other seeds); a beat whose painting is missing or still refused is dropped and repeats the nearest earlier passing
-one. Fiction has no archive to fall back on, so a story with too few passing paintings, or none for its hook, is
-held.
+other seeds); a beat whose painting is missing or still refused may repeat the nearest earlier passing one only
+after that picture passes the new beat's own scene and prop checks. Fiction has no archive to fall back on, so a
+story with too few passing paintings, none for its hook, or an unsuitable replacement is held.
 """
 from __future__ import annotations
 
@@ -123,7 +123,24 @@ def pictures(found: dict[int, Path], texts: list[str], folder: Path, story: str,
             log.warning("painting for beat %d dropped: %s", i + 1, why)
     if report is not None:
         report.extend(rows)
-    return [folder / f"beat{i:02d}.jpg" for i in assign(passed, len(texts))]
+    assigned = assign(passed, len(texts))
+    reused = [(i, source) for i, source in enumerate(assigned) if source != i]
+    # Passing for an earlier line does not establish that a painting shows the current action or payoff.
+    checks = vision.judge([(folder / f"beat{source:02d}.jpg", texts[i], vision.expected(who.get(i, [])), scene(i))
+                           for i, source in reused], story, cast, ask) if reused else []
+    for (i, source), verdict in zip(reused, checks):
+        why = vision.rejected(verdict, bool(who.get(i)), False, scene(i))
+        row = next((r for r in rows if r["beat"] == i + 1), None)
+        if row is None:
+            row = {"beat": i + 1, "cast": who.get(i, []), "repaints_tried": 0, "rejected": "missing painting"}
+            rows.append(row)
+            if report is not None:
+                report.append(row)
+        row.update(original_rejected=row["rejected"], source_beat=source + 1, shows=verdict.get("shows"),
+                   rejected=why, props_ok=verdict.get("props_ok"))
+        if why:
+            raise PictureHold(f"hold: replacement for beat {i + 1} from beat {source + 1} {why}")
+    return [folder / f"beat{i:02d}.jpg" for i in assigned]
 
 
 def look_alternates() -> int:

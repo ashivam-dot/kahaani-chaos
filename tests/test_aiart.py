@@ -59,7 +59,9 @@ def test_pictures_screens_and_falls_back(tmp_path):
     pics = aiart.pictures(found, list("abcdefghij"), tmp_path / "pics", "story", "cast", ask, report)
     assert [int(p.stem[4:]) for p in pics] == [0, 1, 2, 2, 4, 5, 6, 6, 8, 9]
     assert Image.open(pics[0]).size == aiart.UPSCALE
-    assert [r["beat"] for r in report if r["rejected"]] == [8]
+    assert not any(r["rejected"] for r in report)
+    assert sorted(r["beat"] for r in report if r.get("original_rejected")) == [4, 8]
+    assert next(r["source_beat"] for r in report if r["beat"] == 8) == 7
 
 
 def test_repaints_are_collected_apart_from_the_painting(tmp_path):
@@ -215,8 +217,53 @@ def test_the_editor_sees_the_planned_picture(tmp_path):
 
     aiart.pictures(aiart.collect(art, "kc-1", 1), ["a"], tmp_path / "pics", "story", "cast", ask,
                    scenes=["The bicycle rolling forward without a rider."])
-    assert "planned picture: The bicycle rolling forward without a rider." in prompts[0]
+    from kahaani import look
+
+    assert f"planned picture: {look.picture_scene('The bicycle rolling forward without a rider.')}" in prompts[0]
     assert "someone the plan leaves" in vision.PROMPT
+
+
+def test_a_replacement_must_fit_its_new_line_and_props(tmp_path):
+    art = tmp_path / "art"
+    art.mkdir()
+    for i in range(4):
+        paint(art, "kc-1", i)
+    prompts = []
+
+    def ask(parts, schema):
+        prompts.append(parts[0])
+        if len(prompts) == 1:
+            return {"pictures": [verdict(k) | ({"fits": False} if k == 3 else {}) for k in range(1, 5)]}
+        return {"pictures": [verdict(1) | {"fits": False, "reason": "the radio is not on the ground"}]}
+
+    report = []
+    with pytest.raises(aiart.PictureHold, match="replacement for beat 3 from beat 2.*radio"):
+        aiart.pictures(aiart.collect(art, "kc-1", 4), ["hook", "friends", "radio on the ground", "ending"],
+                       tmp_path / "pics", "story", "cast", ask, report, who={2: ["shailesh"]},
+                       scenes=["bicycle", "friends on bridge", "A radio on the ground.", "dawn"])
+    assert "narrated line: radio on the ground" in prompts[-1]
+    assert "should appear: Shailesh" in prompts[-1]
+    assert "planned picture: A radio on the ground." in prompts[-1]
+    assert report[2]["source_beat"] == 2 and report[2]["rejected"]
+
+
+def test_editor_checks_the_same_object_only_scene_the_painter_receives(tmp_path):
+    art = tmp_path / "art"
+    art.mkdir()
+    paint(art, "kc-1", 0)
+    prompts = []
+
+    def ask(parts, schema):
+        prompts.append(parts[0])
+        return {"pictures": [verdict(1)]}
+
+    raw = "The bicycle is rolling across the bridge. Prabhat is pointing. The dynamo light glows."
+    aiart.pictures(aiart.collect(art, "kc-1", 1), ["cycle"], tmp_path / "pics", "story", "cast", ask,
+                   scenes=[raw])
+    planned = prompts[0].split("planned picture: ")[-1]
+    assert "Prabhat is pointing" not in planned
+    assert "bicycle stands empty" in planned and "dynamo light glows" in planned
+    assert "nobody is there" in planned
 
 
 def test_a_ridden_bicycle_is_refused_when_the_plan_says_it_moves_by_itself():

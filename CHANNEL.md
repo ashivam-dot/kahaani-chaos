@@ -108,6 +108,12 @@ The writer expands one entry. Nothing is invented outside the bank.
   - all text inside the safe zone.
 - No luma blink of more than 35% outside a cut is allowed, and the frame count must match the narration to within
   one frame.
+- An opening below the brightness band receives one bounded gamma lift, calibrated after the camera crop,
+  grade and overlays. The same plate is used throughout its shot and loop; the finished picture gates still apply.
+- A painting reused from an earlier beat must pass the current beat's own scene and prop checks. Object-only
+  scenes use the same plan in the painter and picture editor; an unsuitable replacement holds the Short.
+- Reviewed replays can keep original paintings in the replay's adjacent `art/` directory. Story, exact painter
+  prompt and image SHA-256 must match; only the remaining beats request paint jobs. All inputs are screened again.
 
 ## Voice and sound
 
@@ -132,9 +138,9 @@ The writer expands one entry. Nothing is invented outside the bank.
 
 ## Publishing, cadence and learning
 
-- **Cadence:** one F1 Short daily at 19:00 IST (13:30 UTC) during the pilot, from a ready buffer of two. From
-  10 Nov the plan moves F1 to Mon, Wed, Fri and Sun. The F2 and F3 slots register in `config.FORMATS` when those
-  formats are built.
+- **Cadence:** the current `config.FORMATS` has F1 slots daily at 13:00 and 19:00 IST (07:30 and 13:30 UTC), with
+  capacity for three ready Shorts. Recovery first requires two passing buffered episodes and two verified public
+  slots; an empty buffer does not justify bypassing a gate. The F2 and F3 slots register when those formats are built.
 - **Uploads:**
   - private with `publishAt` at the slot, with subscribers not notified for the first 30 days after the relaunch;
   - filed in the F1 playlist when `KC_PLAYLIST_MICRO` is set;

@@ -148,6 +148,42 @@ def test_camera_moves_with_numpy_scalars():
     assert frame.shape == (compose.H, compose.W, 3) and frame.dtype == np.uint8 and frame.mean() > 80
 
 
+def test_exposure_calibrates_after_grade_and_hook_without_pumping():
+    size = (compose.H + 120, compose.W + 120)
+    ramp = np.linspace(6, 136, size[0], dtype=np.float32)[:, None, None]
+    rgb = np.broadcast_to(ramp, (*size, 3)).astype(np.uint8).copy()
+    rgb[size[0] // 3:size[0] // 2, size[1] // 3:2 * size[1] // 3] = 255  # a practical light
+    plate = SimpleNamespace(pw=size[1], ph=size[0], base=rgb, rgb=rgb, depth=np.zeros(size, np.float32))
+    plate.lift = lambda gamma: compose.Plate.lift(plate, gamma)
+    camera, grade = compose.Camera(), compose.Grade(seed=1)
+    strip = compose._strip_layer("बिना पैडल जलती लाइट")
+    label = compose._label_layer()
+    shot = {"plate": plate, "motion": compose.MOTIONS[0]}
+
+    def overlays(frame):
+        compose._blit(frame, strip, compose.TEXT_CX - strip[1].shape[1] // 2,
+                      round(compose.H * compose.STRIP_TOP))
+        compose._blit(frame, label, *compose.LABEL_AT)
+
+    def finished(t):
+        frame = grade.apply(camera.shoot(plate, t, compose.MOTIONS[0], 0.06 if t == 0 else 0), 0)
+        overlays(frame)
+        return frame
+
+    assert any("mean luma" in p for p in compose.problems([90], set(), finished(0), 1, 1))
+    gamma = compose._expose_hook(shot, camera, grade, strip, label)
+    assert min(compose.HOOK_GAMMAS) <= gamma < 1
+    assert compose.problems([90], set(), finished(0), 1, 1) == []
+    corrected = plate.rgb.copy()
+    for t in (0.2, 0.6, 1.0, 0.0):
+        finished(t)
+    assert np.array_equal(plate.rgb, corrected)
+    # An opening already inside the gate is not graded again.
+    plate.base = corrected
+    assert compose._expose_hook(shot, camera, grade, strip, label) == 1.0
+    assert np.array_equal(plate.rgb, corrected)
+
+
 def test_a_short_story_renders(tmp_path, monkeypatch):
     monkeypatch.setattr(compose.depth, "estimate", lambda img, cache=None: np.tile(
         np.linspace(0, 1, img.height, dtype=np.float32)[:, None], (1, img.width)))
@@ -187,7 +223,7 @@ def test_a_dim_night_hook_is_lifted_until_frame_0_reads(tmp_path, monkeypatch):
     monkeypatch.setattr(compose.depth, "estimate", lambda img, cache=None: np.zeros((img.height, img.width),
                                                                                     np.float32))
     path = tmp_path / "beat00.jpg"
-    night = np.clip(np.linspace(10, 140, 1024)[:, None, None] * np.ones((1, 576, 3)), 0, 255).astype(np.uint8)
+    night = np.clip(np.linspace(10, 110, 1024)[:, None, None] * np.ones((1, 576, 3)), 0, 255).astype(np.uint8)
     night[400:440, 260:320] = 255
     Image.fromarray(night).save(path)
     cam, grade = compose.Camera(), compose.Grade(seed=1)

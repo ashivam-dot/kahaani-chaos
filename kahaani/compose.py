@@ -518,7 +518,8 @@ def _expose_hook(shot: dict, cam: "Camera", grade: "Grade", strip, label) -> flo
         frame = grade.apply(cam.shoot(plate, 0.0, shot["motion"], 0.06), 0)
         _blit(frame, strip, TEXT_CX - strip[1].shape[1] // 2, round(H * STRIP_TOP), 1.0)
         _blit(frame, label, *LABEL_AT)
-        if cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY).mean() >= FRAME0_AIM:
+        luma = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY).mean()
+        if (gamma == 1.0 and FRAME0_LUMA[0] <= luma <= FRAME0_LUMA[1]) or luma >= FRAME0_AIM:
             break
     return gamma
 
@@ -535,7 +536,7 @@ def render(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict
               "motion": MOTIONS[i % len(MOTIONS)]} for i, (s, e) in enumerate(spans)]
     strip = _strip_layer(story.hook_strip) if story.hook_strip else _headline_layer(story.title)
     label, end = _label_layer(), _end_layers(story.ending)
-    _expose_hook(shots[0], cam, grade, strip, label)
+    opening_gamma = _expose_hook(shots[0], cam, grade, strip, label)
     loop = story.ending == "loop-back"
     lumas: list[float] = []
     cuts: set[int] = set()
@@ -608,7 +609,8 @@ def render(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict
     bed = bed_level(levels, sound)
     found = problems(lumas, cuts, frame0, n, count_frames(out)) + audio_problems(sound, bed) + \
         text_problems(masks[0], masks[1:], LABEL_AT[0] + label[1].shape[1])
-    (work / "picture-checks.json").write_text(json.dumps({"problems": found, "frames": n, "loudness": sound,
+    (work / "picture-checks.json").write_text(json.dumps({"problems": found, "frames": n,
+                                                          "opening_gamma": opening_gamma, "loudness": sound,
                                                           "bed_lufs": bed, "levels": levels},
                                                          indent=1, ensure_ascii=False), encoding="utf-8")
     if found:

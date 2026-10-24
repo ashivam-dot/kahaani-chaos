@@ -69,21 +69,8 @@
   },
   {
    "text": "हम चुपचाप देखते रहे, साइकिल जहाँ रुकी वहाँ शैलेश का वो चमड़े वाला ट्रांजिस्टर पड़ा था।",
-   "scene": "The bicycle has come to a stop at the end of the bridge near some dry grass. Its dynamo light is shining directly onto a small leather-covered radio lying on the ground. The group watches from a distance, the lantern light illuminating their curious faces.",
-   "people": [
-    {
-     "name": "jhabbu",
-     "expression": "knowing"
-    },
-    {
-     "name": "prabhat",
-     "expression": "intrigued"
-    },
-    {
-     "name": "shailesh",
-     "expression": "stunned"
-    }
-   ],
+   "scene": "A close low-angle view of a small transistor radio in its brown leather case lying on the red brick ground beside dry grass. The stopped black bicycle's dynamo headlight shines directly onto the radio. The bicycle is empty. No people, hands or arms are visible. Misty blue night beyond the bridge.",
+   "people": [],
    "pause_after": 0.35
   },
   {

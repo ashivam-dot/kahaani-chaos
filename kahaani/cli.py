@@ -15,6 +15,7 @@ once, never when its story or premise was already made.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import os
@@ -92,6 +93,33 @@ def art_plan(story: Story) -> dict:
             "beats": look.plan(story.id, [asdict(b) for b in story.beats], story.cast)}
 
 
+def _reuse_art(replay: Path, art: dict, out: Path) -> list[int]:
+    """Reuse checked-in replay assets only when their story, exact painter prompt and bytes still match.
+
+    These are inputs, not acceptance receipts: render sends every painting through the current picture editor.
+    An edited scene or cast token automatically returns that beat to the paint matrix.
+    """
+    cached = replay.with_suffix("") / "art"
+    reused = []
+    for beat in art["beats"]:
+        stem = f"beat{beat['beat']:02d}"
+        meta, image = cached / f"{stem}.json", cached / f"{stem}.png"
+        try:
+            info = json.loads(meta.read_text(encoding="utf-8"))
+            valid = (info.get("story") == art["story"] and info.get("beat") == beat["beat"]
+                     and info.get("prompt") == beat["prompt"] and not info.get("alt")
+                     and hashlib.sha256(image.read_bytes()).hexdigest() == info.get("image_sha256"))
+        except (OSError, ValueError):
+            valid = False
+        if valid:
+            target = out / "art"
+            target.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(meta, target / meta.name)
+            shutil.copy2(image, target / image.name)
+            reused.append(beat["beat"])
+    return reused
+
+
 def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
     """story.json, art-plan.json and status.json in out; status says whether to paint, or why not."""
     from . import premises, voice, writer
@@ -140,8 +168,12 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
                 stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M")
                 story = story_from(draft, premise, f"kc-{stamp}-{premise['id']}", {"models": pen.used, "log": notes})
         story.save(out / "story.json")
-        (out / "art-plan.json").write_text(json.dumps(art_plan(story), indent=1, ensure_ascii=False), encoding="utf-8")
+        art = art_plan(story)
+        reused = _reuse_art(replay, art, out) if replay else []
+        (out / "art-plan.json").write_text(json.dumps(art, indent=1, ensure_ascii=False), encoding="utf-8")
         status.update(paint=True, story=story.id, premise=story.premise, beats=len(story.beats))
+        status["reused_beats"] = reused
+        status["paint_beats"] = [b["beat"] for b in art["beats"] if b["beat"] not in reused]
         return status
     except (premises.NoPremise, writer.WriterHold) as exc:
         status["held"] = (str(exc) if str(exc).startswith("hold:") else f"hold: {exc}")[:500]
@@ -151,8 +183,8 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
         return status
     finally:
         (out / "status.json").write_text(json.dumps(status, indent=1, ensure_ascii=False), encoding="utf-8")
-        _outputs(paint=str(status["paint"]).lower(),
-                 chunks=json.dumps([str(i) for i in range(status.get("beats", 0))]))
+        needed = status.get("paint_beats", list(range(status.get("beats", 0))))
+        _outputs(paint=str(status["paint"] and bool(needed)).lower(), chunks=json.dumps([str(i) for i in needed]))
 
 
 def _cast_text(story: Story) -> str:
@@ -190,7 +222,8 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
         problems = gate.check(asdict(story), premise_of(story), ledger.history(), rotation=not dry)
         if problems:
             raise RuntimeError("hold: the planned story fails the gates: " + "; ".join(problems))
-        found = aiart.collect(art_dir, story.id, len(story.beats))
+        found = aiart.collect(plan_dir / "art", story.id, len(story.beats))
+        found.update(aiart.collect(art_dir, story.id, len(story.beats)))
         spares = aiart.alternates(art_dir, story.id, len(story.beats))
         health["steps"].append(f"paintings: {len(found)} of {len(story.beats)} made, "
                                f"{sum(map(len, spares.values()))} repaints")

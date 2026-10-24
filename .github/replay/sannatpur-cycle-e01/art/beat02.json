@@ -1,0 +1,12 @@
+{
+ "story": "kc-20261023-1622-e01",
+ "beat": 2,
+ "prompt": "The bicycle stands empty across the bridge. The dynamo light flickers and hums as the wheel turns by itself. Whatever moves by itself has nobody on it, pushing, pulling or holding it. A deserted, empty scene: nobody is there, and any seat or saddle in it is empty. No people: no human figure, face, hand or arm anywhere in the picture. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+ "seed": 1297470858,
+ "model": "zimage",
+ "source_run": 40113702992,
+ "source_artifact": "art-40113702992-2",
+ "source_filename": "beat02.png",
+ "source_alt": 0,
+ "image_sha256": "6f24089c8b89a4766e951d5ddadfc62a239eacb57f620a3112037a208bb26465"
+}

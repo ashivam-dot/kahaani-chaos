@@ -96,6 +96,13 @@ def grown(scene: str) -> str:
     return scene
 
 
+def picture_scene(scene: str) -> str:
+    """The same scene for the painter and its editor, including deliberate object-only shots."""
+    if solo(scene):
+        return grown(unpeopled(scene)).rstrip(".") + ". " + ALONE + " " + EMPTY
+    return grown(scene)
+
+
 def animal(look: str) -> bool:
     """Whether a look describes an animal: judged on its first clause, so 'an old man, a crow on his shoulder' is
     not one, and never on a compound like 'fish-pattern'."""
@@ -122,10 +129,8 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
     looks = {_key(c): c for c in cast}
     alone = solo(scene)
     if alone:
-        scene, people = unpeopled(scene), []
-    parts = [grown(scene).strip().rstrip(".") + "."]
-    if alone:
-        parts += [ALONE, EMPTY]
+        people = []
+    parts = [picture_scene(scene).strip().rstrip(".") + "."]
     if UNLIT.search(scene):
         parts.append(OUT)
     present = [(looks[p["name"].strip().lower()], p.get("expression", "").strip()) for p in people

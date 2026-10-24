@@ -118,6 +118,9 @@ RULES (all mandatory):
   away; the object and props carry the picture. No text, signs, logos or labels in any picture. Call the cast
   young men and young women, never kids, children, boys or girls; when the object moves by itself, that beat shows
   the object alone (nobody in the painting, people empty) and the cast react in the beats around it.
+  When a discovered object explains the turn, show that object and its exact location clearly in a close shot;
+  put reactions in the adjacent beat. Do not crowd the reveal with the whole cast or put the same prop on a
+  character and on the ground at once.
 - people: for each beat, every cast id visible in its painting with their expression at this moment; empty when
   no one is visible.
 - hook_strip: 3-5 Hindi words painted over frame 0 (a teaser, not the title), no emoji.

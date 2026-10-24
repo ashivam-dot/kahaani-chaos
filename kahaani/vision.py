@@ -142,12 +142,14 @@ def expected(ids: list[str]) -> str:
 def judge(items: list[tuple], story: str, cast: str, ask) -> list[dict]:
     """One verdict per (picture file, narrated line[, who should appear[, planned picture]]), in order. ask(parts, schema) answers like gemini.look; a missing
     or malformed verdict counts as a rejection."""
+    from .look import picture_scene
+
     verdicts: list[dict] = []
     for start in range(0, len(items), PER_PROMPT):
         chunk = items[start:start + PER_PROMPT]
         lines = "\n".join(f"{n}. narrated line: {item[1]}"
                           + (f"\n   should appear: {item[2]}" if len(item) > 2 and item[2] else "")
-                          + (f"\n   planned picture: {item[3]}" if len(item) > 3 and item[3] else "")
+                          + (f"\n   planned picture: {picture_scene(item[3])}" if len(item) > 3 and item[3] else "")
                           for n, item in enumerate(chunk, 1))
         parts: list = [PROMPT.format(story=story, cast=cast, lines=lines)]
         for n, item in enumerate(chunk, 1):

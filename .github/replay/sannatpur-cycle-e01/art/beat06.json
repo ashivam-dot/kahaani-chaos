@@ -1,0 +1,12 @@
+{
+ "story": "kc-20261023-1622-e01",
+ "beat": 6,
+ "prompt": "The first light of dawn over the canal. The bicycle is standing perfectly still at its original spot on the bridge. The dynamo light is off. The mist is thick over the water and the bridge is empty and silent. The light the scene names is switched off and unlit: no glow, no beam from it. No people: no human figure, face, hand or arm anywhere in the picture. Early-morning 1996 north-Indian village at dawn, pale gold sunrise light and soft blue shadows, no moon and no lamp lit, lifted shadows, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+ "seed": 1286674835,
+ "model": "zimage",
+ "source_run": 40113702992,
+ "source_artifact": "art-40113702992-6",
+ "source_filename": "beat06.png",
+ "source_alt": 0,
+ "image_sha256": "7d6ef83f07356d3b62a0d692db58ae2bd6d77e31126435dcb18084681a89d473"
+}
