@@ -293,7 +293,7 @@ def publish(story: Story, mp4: Path, voice: dict, publish_at: str | None = None,
         if status.get("uploadStatus") in ("failed", "rejected", "deleted") or processing in ("failed", "terminated"):
             why = status.get("rejectionReason") or status.get("failureReason")
             raise RuntimeError(f"YouTube rejected the upload: {why}")
-        if status.get("uploadStatus") == "processed" or processing == "succeeded":
+        if status.get("uploadStatus") == "processed":
             break
         if time.monotonic() > deadline:
             raise RuntimeError("still processing; the next run will finish publishing it")
@@ -317,6 +317,7 @@ def publish(story: Story, mp4: Path, voice: dict, publish_at: str | None = None,
     else:
         when = None
         if status.get("privacyStatus") != "public":
+            preflight_private(api, video, pause)
             api.videos().update(part="status",
                                 body={"id": video_id, "status": {"privacyStatus": "public", **STATUS}}).execute()
         result = {"video_id": video_id, "url": url, "privacy": "public", "synthetic_declared": True}
@@ -345,6 +346,7 @@ def release(video_id: str, api=None, pause=time.sleep) -> dict:
     if not items or items[0]["snippet"]["channelId"] != config.CHANNEL_ID:
         raise WrongChannel(f"{video_id} is not on the channel")
     if items[0]["status"].get("privacyStatus") != "public":
+        preflight_private(api, items[0], pause)
         api.videos().update(part="status",
                             body={"id": video_id, "status": {"privacyStatus": "public", **STATUS}}).execute()
     for wait in READBACK_WAITS:
@@ -360,6 +362,26 @@ def release(video_id: str, api=None, pause=time.sleep) -> dict:
 
 
 READBACK_WAITS = (0, 5, 10, 20, 30)
+
+
+def preflight_private(api, video: dict, pause=time.sleep) -> None:
+    """Confirm private, processed and correctly classified before the first public write."""
+    video_id = video["id"]
+    for wait in READBACK_WAITS:
+        if wait:
+            pause(wait)
+            items = api.videos().list(part="snippet,status", id=video_id).execute().get("items", [])
+            video = items[0] if len(items) == 1 else {}
+        problems = [p for p in readback_problems(video, None) if not p.startswith("privacyStatus")]
+        st = video.get("status", {})
+        if st.get("privacyStatus") != "private":
+            problems.append("pre-release privacy is not private")
+        if st.get("uploadStatus") != "processed":
+            problems.append("pre-release upload is not processed")
+        if not problems:
+            return
+    kept = hold_private(api, video_id)
+    raise ReadbackMismatch(f"private pre-release read-back of {video_id} failed ({kept}): " + "; ".join(problems))
 
 
 def hold_private(api, video_id: str) -> str:

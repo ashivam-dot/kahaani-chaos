@@ -160,6 +160,41 @@ def test_immediate_publish_goes_public(pinned, story, mp4):
     assert api.updated[0]["status"]["containsSyntheticMedia"] is True
 
 
+@pytest.mark.parametrize("drift", [{"madeForKids": True}, {"madeForKids": None},
+                                  {"selfDeclaredMadeForKids": True}])
+def test_wrong_or_unknown_audience_never_gets_an_immediate_public_write(pinned, story, mp4, drift):
+    api = FakeYouTube(drift=drift)
+    with pytest.raises(youtube.ReadbackMismatch, match="private pre-release"):
+        youtube.publish(story, mp4, NARRATOR, api=api, pause=lambda s: None)
+    assert len(api.inserted) == 1
+    assert all(row["status"]["privacyStatus"] == "private" for row in api.updated)
+    assert api.comments == [] and api.filed == []
+
+
+def test_release_now_also_confirms_audience_before_any_public_write(pinned, story, mp4):
+    api = FakeYouTube()
+    youtube.publish(story, mp4, NARRATOR, publish_at="2099-10-13T07:00:00Z", api=api, pause=lambda s: None)
+    api.store["vid1"]["status"]["madeForKids"] = True
+    with pytest.raises(youtube.ReadbackMismatch, match="private pre-release"):
+        youtube.release("vid1", api=api, pause=lambda s: None)
+    assert len(api.inserted) == 1
+    assert all(row["status"]["privacyStatus"] == "private" for row in api.updated)
+
+
+def test_processing_details_do_not_replace_the_processed_upload_readback(pinned, story, mp4):
+    existing = {"id": "old", "snippet": {"channelId": CHANNEL, "tags": [config.MARKER + story.id]},
+                "status": {"privacyStatus": "private", "uploadStatus": "uploaded", "madeForKids": False,
+                           "selfDeclaredMadeForKids": False}, "processingDetails": {"processingStatus": "succeeded"}}
+    api, waits = FakeYouTube(uploads=[existing]), []
+    def pause(seconds):
+        waits.append(seconds)
+        if seconds == 15:
+            assert api.updated == []
+            api.store["old"]["status"]["uploadStatus"] = "processed"
+    result = youtube.publish(story, mp4, NARRATOR, api=api, pause=pause)
+    assert waits[0] == 15 and result["privacy"] == "public" and result["video_id"] == "old"
+
+
 def test_release_makes_a_scheduled_upload_public_now(pinned, story, mp4):
     api = FakeYouTube()
     youtube.publish(story, mp4, NARRATOR, publish_at="2099-10-13T07:00:00Z", api=api, pause=lambda s: None)
