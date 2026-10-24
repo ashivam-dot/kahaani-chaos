@@ -481,11 +481,24 @@
           "evidence": {
             "art-40134819856-0/beat00.png": "c297e5d216c354ed0826bdb0a13348db3184b7e5cd6aafed3869edde7b80dc89"
           }
+        },
+        {
+          "id": "direct-wrong-actor-scale-40134819856",
+          "run_id": 40134819856,
+          "observed_at": "2026-10-24T22:21:32.355564+00:00",
+          "reason": "Actual cloud beats 2 and 5 show mustard-sweater Prabhat handling the scale while red-cap Shailesh stands aside. Both narrated lines specifically name Shailesh lifting/delivering the scale. Beat 2 also lacks the complete balance apparatus. Repair only these shots with one clear acting character and a complete scale; preserve story and valid other paintings.",
+          "evidence": {
+            "art-40134819856-2/beat02-alt1.png": "8e5f21f2add7e92bd03a8e75d76a9164f4af13886b8776f4175d886b3110b185",
+            "art-40134819856-2/beat02.png": "d8a25ba8d25229478cfdb2966a30a01e9b8a19b109a9e0ce935bf4f901d7a5da",
+            "art-40134819856-5/beat05-alt1.png": "e80b504027ff9bf47977a9c106635c8dfa15903cc12190ba672b6ed5a23238e6",
+            "art-40134819856-5/beat05.png": "fecaa47bd768371ec0e50b692fc6eaa5656b7edea7a7011c7dbf19342382fc36"
+          }
         }
       ],
       "problems": [
         "Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required.",
-        "Direct inspection of actual cloud opening: a large unsupported lantern floats above the scale, adding a second unexplained impossible object and distracting from the story hook. Replace only this opening and the held hand-operated scale close-up; retain other valid paintings."
+        "Direct inspection of actual cloud opening: a large unsupported lantern floats above the scale, adding a second unexplained impossible object and distracting from the story hook. Replace only this opening and the held hand-operated scale close-up; retain other valid paintings.",
+        "Actual cloud beats 2 and 5 show mustard-sweater Prabhat handling the scale while red-cap Shailesh stands aside. Both narrated lines specifically name Shailesh lifting/delivering the scale. Beat 2 also lacks the complete balance apparatus. Repair only these shots with one clear acting character and a complete scale; preserve story and valid other paintings."
       ]
     },
     {
@@ -694,7 +707,7 @@
     }
   ],
   "halted": "Repair held entry e09: Direct inspection: beats 1 and 2 place cast outdoors under the moon although narration and story require the college staff room. Beat 6 depicts a ceiling fan unsupported in open dawn sky; alternate also duplicates the mustard-clad young man. Replace incorrect shots; preserve valid indoor opening and other usable art. No release of this exact production.",
-  "updated_at": "2026-10-24T22:14:52.782897+00:00",
+  "updated_at": "2026-10-24T22:21:32.355564+00:00",
   "complete": false,
   "health": {
     "public": 1,
