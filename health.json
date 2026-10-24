@@ -1,17 +1,17 @@
 {
  "produce": {
-  "at": "2026-10-24T09:06:00+00:00",
+  "at": "2026-10-24T13:19:23+00:00",
   "ok": true,
   "dry": false,
   "steps": [
-   "paintings: 7 of 7 made, 8 repaints",
-   "hold e01: hold: prop identity 80% of cast shots, needs 85%"
+   "paintings: 7 of 7 made, 5 repaints",
+   "hold e01: hold: voice: the story is read at 181.9 wpm, needs 150-180"
   ],
   "picture_editor": [
    "gemini"
   ],
-  "prop_identity": 0.8,
-  "held": "hold: prop identity 80% of cast shots, needs 85%"
+  "prop_identity": 1.0,
+  "held": "hold: voice: the story is read at 181.9 wpm, needs 150-180"
  },
  "publish": {
   "at": "2026-10-24T12:19:38+00:00",
