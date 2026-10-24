@@ -574,7 +574,7 @@
         38428830025
       ],
       "submitted_at": "2026-10-24T23:37:32+00:00",
-      "cloud_status": "queued",
+      "cloud_status": "in_progress",
       "editorial_holds": [
         {
           "id": "direct-empty-scale-hand-40134819856",
@@ -1063,7 +1063,7 @@
     }
   ],
   "halted": "Repair held entry e05: Actual closing still depicts four physical foreground people and four projected silhouettes, while the story is about a trio and this shot is planned as an object-only projector close-up. Replace only this closing art; preserve usable other paintings and all spoken text. Complete current media and audiovisual review remain mandatory.",
-  "updated_at": "2026-10-24T23:53:46+00:00",
+  "updated_at": "2026-10-24T23:53:49+00:00",
   "complete": false,
   "health": {
     "public": 1,
