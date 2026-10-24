@@ -168,6 +168,8 @@ def tick(adapter, mode, save=persist):
     for job in data["jobs"]:
         if job["stage"] in FINAL or job["stage"] == "held":
             continue
+        if job.get("review_retry_after") and now() < datetime.fromisoformat(job["review_retry_after"]):
+            continue
         if job["stage"] == "dispatch_unresolved":
             if not resolve(repo, adapter.WORKFLOW, job):
                 # Leave intent pending. Later ticks may see the run after GitHub's eventual-consistency delay.
@@ -218,6 +220,7 @@ def tick(adapter, mode, save=persist):
             save(data)
         except media_review.ReviewHold as exc:
             job["retry_reason"] = str(exc)
+            job["review_retry_after"] = (now() + timedelta(minutes=30)).isoformat()
             save(data)
             # A quota outage is not a bad story and never lowers its review requirement.
             break
@@ -265,7 +268,9 @@ def main():
         raise SystemExit("refusing a batch coordinator outside its own channel repository")
     if args.mode == "publish" and not os.environ.get("YOUTUBE_OAUTH_JSON"):
         raise SystemExit("publishing requires this channel's existing youtube environment")
-    tick(adapter, args.mode)
+    data = tick(adapter, args.mode)
+    if data.get("halted"):
+        raise SystemExit("batch held: " + data["halted"])
 
 
 if __name__ == "__main__":
