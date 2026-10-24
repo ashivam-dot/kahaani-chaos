@@ -9,7 +9,7 @@
   "held": "hold: the draft came from the local fallback model; its Hindi is never published (wait for Gemini)"
  },
  "publish": {
-  "at": "2026-10-24T02:19:18+00:00",
+  "at": "2026-10-24T06:20:25+00:00",
   "ok": true,
   "steps": [
    "learn: 8 scored Shorts, lifts {}"

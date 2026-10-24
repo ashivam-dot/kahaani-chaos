@@ -1,6 +1,6 @@
 # What this channel's own numbers say
 
-Updated 2026-10-24T02:19:18+00:00. Scored Shorts (views at 48 h): 8. Score: 0.5 viewed% + 0.3 views + 0.2 subs/1K (z). Analytics: ok. A lift needs 4 scored Shorts per value; it is shrunk toward 1 and kept within 0.75-1.35.
+Updated 2026-10-24T06:20:25+00:00. Scored Shorts (views at 48 h): 8. Score: 0.5 viewed% + 0.3 views + 0.2 subs/1K (z). Analytics: ok. A lift needs 4 scored Shorts per value; it is shrunk toward 1 and kept within 0.75-1.35.
 
 Baseline: a typical Short has 4 views at 48 h.
 - No lift yet: not enough scored Shorts per value. Selection rotates on the bank order alone.
