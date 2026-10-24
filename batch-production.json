@@ -410,13 +410,13 @@
       "attempts": 0
     }
   ],
-  "halted": null,
-  "updated_at": "2026-10-24T21:14:04+00:00",
+  "halted": "Repair held entry e02: ValueError: preview did not make a finished passing Short",
+  "updated_at": "2026-10-24T21:14:05+00:00",
   "complete": false,
   "health": {
     "public": 0,
     "scheduled": 0,
-    "held": 0,
+    "held": 1,
     "mode": "publish"
   }
 }
