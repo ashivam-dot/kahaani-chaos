@@ -75,7 +75,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e02.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 0,
       "run_id": 40127450982,
       "source_sha": "6bc23964267261030cc2fadea14eded0e4d4f92b",
@@ -83,7 +83,10 @@
         40122737348
       ],
       "repair_reason": "Original ending duplicated Jhabbu. Replacement preserves the spoken story and thirteen exact-prompt earlier paintings with original alternate metadata; current picture editor must recheck them. Only ending beat 6 is repainted; original bad ending is excluded.",
-      "cloud_status": "in_progress"
+      "cloud_status": "completed",
+      "problems": [
+        "ValueError: preview did not make a finished passing Short"
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -315,7 +318,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-24T20:56:26+00:00",
+  "updated_at": "2026-10-24T20:56:30+00:00",
   "complete": false,
   "health": {
     "public": 0,
