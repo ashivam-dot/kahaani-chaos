@@ -95,7 +95,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-radio-e02-repair.json"
       },
-      "stage": "upload_intent",
+      "stage": "scheduled",
       "attempts": 1,
       "source_sha": "fec73b8fbb36ae4a54d34a3916d8731269bd0af9",
       "obsolete_runs": [
@@ -268,7 +268,26 @@
       },
       "archive": "batch-reviewed-40132420577",
       "intended_publish_at": "2026-10-25T07:30:00Z",
-      "upload_intent_at": "2026-10-24T21:26:23+00:00"
+      "upload_intent_at": "2026-10-24T21:26:23+00:00",
+      "delivery": {
+        "video_id": "GeVr3RGu31I",
+        "url": "https://www.youtube.com/shorts/GeVr3RGu31I",
+        "privacy": "scheduled",
+        "publish_at": "2026-10-25T07:30:00Z",
+        "synthetic_declared": true,
+        "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+        "comment": "pending: HTTP 403",
+        "playlist": "skipped: no playlist",
+        "owner_readback": {
+          "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+          "privacyStatus": "private",
+          "publishAt": "2026-10-25T07:30:00Z",
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false,
+          "containsSyntheticMedia": null,
+          "uploadStatus": "processed"
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -564,7 +583,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-24T21:26:23+00:00",
+  "updated_at": "2026-10-24T21:27:02+00:00",
   "complete": false,
   "health": {
     "public": 0,

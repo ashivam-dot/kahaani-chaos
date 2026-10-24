@@ -216,5 +216,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261024-1859-e02",
+  "premise": "e02",
+  "title": "रेडियो ने कल की ख़बर आज रात सुना दी 📻 | सन्नाटपुर",
+  "subgenre": "kindness",
+  "motifs": [],
+  "ending": "register-line",
+  "opening": "टंकी पर",
+  "made_at": "2026-10-24T21:27:02+00:00",
+  "format": "micro",
+  "skeleton": "S2",
+  "resolution": "outsmart",
+  "heart_type": "kindness",
+  "object_token": "रेडियो",
+  "anomaly": "कल की ख़बर आज रात सुना देना",
+  "location": "टंकी की सबसे ऊपर वाली सीढ़ी",
+  "place_id": "tanki",
+  "hook_strip": "टंकी पर बोलता रेडियो",
+  "script": "टंकी पर रखा रेडियो कल की ख़बर सुनाने लगा। उन्नीस सौ छियानवे, उस रात हम तीनों सीढ़ियाँ चढ़ रहे थे। शैलेश की नज़र ऊपर पड़ी, बिना बैटरी वाला रेडियो साफ़ बोल रहा था कि कल हाट में भारी आँधी चलेगी। झब्बू काका का नियम याद आया, जो कल की बात बताए उससे सिर्फ़ एक ही सवाल पूछना। शैलेश रिज़ल्ट पूछना चाहता था, पर नुज़हत ने पूछा कि कल सबसे ज़्यादा नुक़सान किसका होगा। रेडियो बोला सब्ज़ी वाली अम्मा का, और हम रात में ही उनका ठेला रस्सियों से बाँध आए। सुबह झब्बू ने अपने लाल रजिस्टर में लिखा, आँधी आई पर किसी का कुछ नहीं टूटा।",
+  "slot": "2026-10-25T07:30:00Z",
+  "published_at": "2026-10-25T07:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40132420577,
+  "av_review_sha256": "8bbd8289efc3beff0e96605083d0042aadd0b4636ff15e21e36e8c9817c9a446",
+  "video_id": "GeVr3RGu31I",
+  "url": "https://www.youtube.com/shorts/GeVr3RGu31I",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-25T07:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-10-25T07:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
