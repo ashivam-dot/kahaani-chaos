@@ -298,10 +298,12 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-fan-e09-repair.json"
       },
-      "stage": "building",
-      "attempts": 3,
-      "source_sha": "8d17029a06f90d4a315d5d2ca1739c1a145c27fb",
+      "stage": "dispatch_unresolved",
+      "attempts": 4,
+      "source_sha": "fdaae1d136a4fcc8e7d2e9d53dc33b583674809b",
       "before_ids": [
+        40143503135,
+        40142724972,
         40142626858,
         40142424645,
         40142328302,
@@ -389,7 +391,7 @@
         38439489788,
         38428830025
       ],
-      "submitted_at": "2026-10-24T23:26:06+00:00",
+      "submitted_at": "2026-10-24T23:46:12+00:00",
       "cloud_status": "queued",
       "editorial_holds": [
         {
@@ -450,14 +452,24 @@
             "replay": ".github/replay/sannatpur-fan-e09-repair.json"
           },
           "repair_reason": "Replace six directly refused staff-room shots with exact inspected indoor paintings; retain valid original opening, correct actor and supported props. Current picture, voice, render and full audiovisual gates remain mandatory."
+        },
+        {
+          "run_id": 40142724972,
+          "source_sha": "8d17029a06f90d4a315d5d2ca1739c1a145c27fb",
+          "stage": "building",
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/sannatpur-fan-e09-repair.json"
+          },
+          "repair_reason": "Exact same inspected paintings and narration; failed preflight required explicit actor/support directions within the new bounded painter-description limit. Full current story, picture, voice, render and audiovisual checks remain."
         }
       ],
       "obsolete_runs": [
         40134047227,
-        40142424645
+        40142424645,
+        40142724972
       ],
-      "repair_reason": "Exact same inspected paintings and narration; failed preflight required explicit actor/support directions within the new bounded painter-description limit. Full current story, picture, voice, render and audiovisual checks remain.",
-      "run_id": 40142724972
+      "repair_reason": "Exact cached indoor paintings retained; fdaae1d applies a fixed bounded opening S-curve. Real prepared opening now passes unchanged luma/contrast bands with 0.2992 percent newly clipped pixels; full current cloud and audiovisual checks remain mandatory."
     },
     {
       "repo": "kahaani-chaos",
@@ -1036,7 +1048,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-24T23:45:48+00:00",
+  "updated_at": "2026-10-24T23:46:12+00:00",
   "complete": false,
   "health": {
     "public": 1,
