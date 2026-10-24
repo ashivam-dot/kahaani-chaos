@@ -63,6 +63,15 @@ def test_bible_characters_use_their_image_token():
     assert bible.image_token("jhabbu").strip().rstrip(".") in p and "झब्बू" not in p
 
 
+def test_a_writing_watchman_is_not_also_told_to_carry_the_register_and_lantern():
+    scene = "Jhabbu sits at dawn, dipping a pen in ink to write in his register, an unlit lantern beside him."
+    p = look.prompt(scene, [{"name": "jhabbu"}], [{"id": "jhabbu", "name": "झब्बू"}])
+    assert "Exactly one person, Jhabbu" in p
+    assert "under one arm" not in p and "holding a brass hurricane lantern" not in p
+    assert "red woollen muffler" in p and "ledger with a red spine resting before him" in p
+    assert "unlit brass hurricane lantern" in p and look.DAWN_STYLE in p
+
+
 def test_the_scene_never_calls_the_cast_kids():
     from kahaani import look as lk
 

@@ -1,0 +1,168 @@
+{
+ "id": "kc-20261024-1859-e02",
+ "premise": "e02",
+ "title": "रेडियो ने कल की ख़बर आज रात सुना दी 📻 | सन्नाटपुर",
+ "hook": "टंकी पर रखा रेडियो कल की ख़बर सुनाने लगा।",
+ "beats": [
+  {
+   "text": "टंकी पर रखा रेडियो कल की ख़बर सुनाने लगा।",
+   "scene": "Close-up of a dusty leather-cased transistor radio resting on the cold iron rung of an elevated water tank ladder under faint blue moonlight, dial faintly vibrating.",
+   "people": [],
+   "pause_after": 0.35
+  },
+  {
+   "text": "उन्नीस सौ छियानवे, उस रात हम तीनों सीढ़ियाँ चढ़ रहे थे।",
+   "scene": "Prabhat, Nuzhat, and Shailesh climbing the curved iron ladder of the cement water tank under an indigo sky, illuminated by a warm beam from Nuzhat's cracked torch.",
+   "people": [
+    {
+     "name": "prabhat",
+     "expression": "curious"
+    },
+    {
+     "name": "nuzhat",
+     "expression": "alert"
+    },
+    {
+     "name": "shailesh",
+     "expression": "cautious"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "शैलेश की नज़र ऊपर पड़ी, बिना बैटरी वाला रेडियो साफ़ बोल रहा था कि कल हाट में भारी आँधी चलेगी।",
+   "scene": "Shailesh pauses on the ladder looking upward in surprise, his red cricket cap tilted, while Prabhat clutches his blue notebook against the dark cement structure.",
+   "people": [
+    {
+     "name": "shailesh",
+     "expression": "shocked"
+    },
+    {
+     "name": "prabhat",
+     "expression": "startled"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "झब्बू काका का नियम याद आया, जो कल की बात बताए उससे सिर्फ़ एक ही सवाल पूछना।",
+   "scene": "Prabhat adjusts his steel-frame glasses thoughtfully while Jhabbu climbs lower rungs holding his brass lantern, casting long dramatic shadows along the tank struts.",
+   "people": [
+    {
+     "name": "prabhat",
+     "expression": "thoughtful"
+    },
+    {
+     "name": "jhabbu",
+     "expression": "stern"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "शैलेश रिज़ल्ट पूछना चाहता था, पर नुज़हत ने पूछा कि कल सबसे ज़्यादा नुक़सान किसका होगा।",
+   "scene": "Nuzhat leans close toward the radio on the top step, green dupatta draped over her shoulder, her face resolute in the lantern glow while Shailesh looks anxious behind.",
+   "people": [
+    {
+     "name": "nuzhat",
+     "expression": "determined"
+    },
+    {
+     "name": "shailesh",
+     "expression": "nervous"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "रेडियो बोला सब्ज़ी वाली अम्मा का, और हम रात में ही उनका ठेला रस्सियों से बाँध आए।",
+   "scene": "Prabhat and Shailesh tying strong coir ropes around a wooden vegetable cart in the empty village bazaar under misty moonlight, working briskly.",
+   "people": [
+    {
+     "name": "prabhat",
+     "expression": "focused"
+    },
+    {
+     "name": "shailesh",
+     "expression": "breathless"
+    }
+   ],
+   "pause_after": 0.35
+  },
+  {
+   "text": "सुबह झब्बू ने अपने लाल रजिस्टर में लिखा, आँधी आई पर किसी का कुछ नहीं टूटा।",
+   "scene": "Over-the-shoulder view of Jhabbu alone, seated beside the silent water tank at dawn. His reed pen touches the open red-spined khaki register resting flat before him. His red woollen muffler is visible over his khaki kurta. His unlit brass lantern and bamboo staff both rest on the ground beside him. Nobody else is present.",
+   "people": [
+    {
+     "name": "jhabbu",
+     "expression": "gentle"
+    }
+   ],
+   "pause_after": 0.35
+  }
+ ],
+ "cast": [
+  {
+   "id": "jhabbu",
+   "name": "झब्बू",
+   "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+  },
+  {
+   "id": "prabhat",
+   "name": "प्रभात",
+   "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+  },
+  {
+   "id": "nuzhat",
+   "name": "नुज़हत",
+   "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+  },
+  {
+   "id": "shailesh",
+   "name": "शैलेश",
+   "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+  }
+ ],
+ "subgenre": "kindness",
+ "ending": "register-line",
+ "twist_beat": 4,
+ "description": "उन्नीस सौ छियानवे की एक रात पानी की टंकी पर पड़ा लावारिस रेडियो आने वाले कल की अनहोनी बताने लगा।",
+ "motifs": [],
+ "hashtags": [
+  "#सन्नाटपुर",
+  "#90sकीयादें",
+  "#रहस्य"
+ ],
+ "writer": {
+  "models": [
+   "gemini-3.8-flash",
+   "gemini-3.8-flash",
+   "gemini-3.6-flash"
+  ],
+  "log": [
+   {
+    "attempt": 0,
+    "stage": "gates",
+    "problems": [
+     "beat 1 (the hook) has 11 words; at most 10"
+    ]
+   },
+   {
+    "attempt": 1,
+    "stage": "editor",
+    "problems": []
+   }
+  ]
+ },
+ "format": "micro",
+ "hook_strip": "टंकी पर बोलता रेडियो",
+ "object_token": "रेडियो",
+ "anomaly": "कल की ख़बर आज रात सुना देना",
+ "niyam_id": "N08",
+ "resolution": "outsmart",
+ "heart_beat": 5,
+ "heart_type": "kindness",
+ "skeleton": "S2",
+ "location": "टंकी की सबसे ऊपर वाली सीढ़ी",
+ "place_id": "tanki"
+}

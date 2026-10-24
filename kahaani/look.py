@@ -113,11 +113,20 @@ def _key(entry: dict) -> str:
     return (entry.get("id") or entry.get("name") or "").strip().lower()
 
 
-def character(entry: dict) -> str:
+def character(entry: dict, scene: str = "") -> str:
     """One cast member's fixed look (the bible's image token when the id is a bible character); an animal is pinned
     as a real animal, or the model paints an animal-headed man."""
     known = bible.cast().get(entry.get("id") or "")
     look = (known["image"] if known else entry["look"]).strip().rstrip(".")
+    if entry.get("id") == "jhabbu" and re.search(r"\b(writ(?:e|es|ing)|pen|ink)\b", scene, re.I):
+        # The default carried props conflict with hands writing in the register. Both base/alternate
+        # paintings of e02 rendered a standing carrier beside a second seated copy of the same man.
+        look = look.replace("holding a brass hurricane lantern, bamboo staff with a small bell, "
+                            "khaki ledger with a red spine under one arm",
+                            "an open khaki ledger with a red spine resting before him, "
+                            "brass hurricane lantern and bamboo staff with a small bell set beside him")
+        if UNLIT.search(scene):
+            look = look.replace("brass hurricane lantern", "unlit brass hurricane lantern")
     name = known["name"]["en"] if known else entry.get("name", "")
     if animal(look) and "not a person" not in look.lower():
         look += REAL
@@ -138,8 +147,12 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
     if hook:
         parts.append(CLOSE if present else CLOSE_THING)
     if present:
-        parts.append("Characters: " + "; ".join(f"{character(c)}, {mood or 'calm'} expression" for c, mood in present)
+        parts.append("Characters: " + "; ".join(f"{character(c, scene)}, {mood or 'calm'} expression" for c, mood in present)
                      + ".")
+        if len(present) == 1 and present[0][0].get("id") == "jhabbu" \
+                and re.search(r"\b(writ(?:e|es|ing)|pen|ink)\b", scene, re.I):
+            parts.append("Exactly one person, Jhabbu, seated and writing. All details describe this same man. "
+                         "Nobody else is present; his lantern and staff rest beside him.")
         parts.append(FACES)
     else:
         parts.append(NOBODY)
