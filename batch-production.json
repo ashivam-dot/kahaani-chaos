@@ -75,7 +75,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-radio-e02-repair.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 1,
       "source_sha": "fec73b8fbb36ae4a54d34a3916d8731269bd0af9",
       "obsolete_runs": [
@@ -83,7 +83,7 @@
         40127450982
       ],
       "repair_reason": "All seven passing cloud paintings retained with exact prompts, hashes and original provenance. Correct the encoder dropping four closing frames (1245 versus 1249) by writing the complete frame grid. No painter jobs; original story and voice identity retained; all current gates and full audiovisual approval still required.",
-      "cloud_status": "in_progress",
+      "cloud_status": "completed",
       "repair_history": [
         {
           "run_id": 40127450982,
@@ -176,7 +176,10 @@
         38428830025
       ],
       "submitted_at": "2026-10-24T21:01:58.290860+00:00",
-      "run_id": 40132420577
+      "run_id": 40132420577,
+      "problems": [
+        "ValueError: preview did not make a finished passing Short"
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -408,7 +411,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-24T21:14:01+00:00",
+  "updated_at": "2026-10-24T21:14:04+00:00",
   "complete": false,
   "health": {
     "public": 0,
