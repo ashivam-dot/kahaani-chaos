@@ -721,7 +721,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e05.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 1,
       "source_sha": "83144fa39f76d335d3a20b84e91c74e8cde66d80",
       "before_ids": [
@@ -787,7 +787,21 @@
         39104056474
       ],
       "submitted_at": "2026-10-24T23:20:22+00:00",
-      "run_id": 40142328302
+      "run_id": 40142328302,
+      "editorial_holds": [
+        {
+          "id": "direct-extra-cast-ending-40142328302",
+          "run_id": 40142328302,
+          "observed_at": "2026-10-24T23:50:11+00:00",
+          "reason": "Actual closing still depicts four physical foreground people and four projected silhouettes, while the story is about a trio and this shot is planned as an object-only projector close-up. Replace only this closing art; preserve usable other paintings and all spoken text. Complete current media and audiovisual review remain mandatory.",
+          "evidence": {
+            "art-40142328302-6/beat06.png": "9e509497feaedcc910d8d82ded03fd719fe97ff6369314e143f7b6c9483f6e09"
+          }
+        }
+      ],
+      "problems": [
+        "Actual closing still depicts four physical foreground people and four projected silhouettes, while the story is about a trio and this shot is planned as an object-only projector close-up. Replace only this closing art; preserve usable other paintings and all spoken text. Complete current media and audiovisual review remain mandatory."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -1048,8 +1062,8 @@
       "attempts": 0
     }
   ],
-  "halted": null,
-  "updated_at": "2026-10-24T23:46:17+00:00",
+  "halted": "Repair held entry e05: Actual closing still depicts four physical foreground people and four projected silhouettes, while the story is about a trio and this shot is planned as an object-only projector close-up. Replace only this closing art; preserve usable other paintings and all spoken text. Complete current media and audiovisual review remain mandatory.",
+  "updated_at": "2026-10-24T23:50:11+00:00",
   "complete": false,
   "health": {
     "public": 1,
