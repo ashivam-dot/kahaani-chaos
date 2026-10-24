@@ -334,6 +334,28 @@ def test_a_missed_slot_is_published_at_once(channel, monkeypatch):
     assert published == [(sid, None)]
 
 
+def test_a_ready_short_on_the_release_list_goes_public_at_once(channel, monkeypatch):
+    sid, _, published = buffered(monkeypatch)
+    ledger.save("release_now", {"ids": [sid]})
+    cli.publish(datetime(2026, 10, 13, 18, 0, tzinfo=timezone.utc))
+    assert published == [(sid, None)] and ledger.load("release_now", {}) == {"ids": []}
+    assert ledger.published()[0]["slot"] == "2026-10-13T13:30:00Z"
+
+
+def test_a_scheduled_short_on_the_release_list_is_made_public_and_frees_its_slot(channel, monkeypatch):
+    released = []
+    monkeypatch.setattr(youtube, "release", lambda vid, api=None: released.append(vid) or
+                        {"privacy": "public", "released_at": "2026-10-13T18:00:00Z"})
+    ledger.record_publish({"id": "kc-x", "made_at": "2026-10-13", "slot": "2026-10-14T07:30:00Z",
+                           "video_id": "vidX", "privacy": "scheduled", "publish_at": "2026-10-14T07:30:00Z"})
+    ledger.save("release_now", {"ids": ["kc-x"]})
+    health = cli.publish(datetime(2026, 10, 13, 18, 0, tzinfo=timezone.utc), api=object())
+    row = ledger.published()[0]
+    assert released == ["vidX"] and row["privacy"] == "public" and row["slot"] == "2026-10-13T13:30:00Z"
+    assert row["publish_at"] is None and ledger.load("release_now", {}) == {"ids": []}
+    assert health["held"].startswith("hold: the buffer is empty; slot 2026-10-14T07:30:00Z")
+
+
 def test_an_encoded_runtime_outside_the_band_holds_and_keeps_the_premise(tmp_path, monkeypatch):
     plan = make_plan(tmp_path, monkeypatch)
     fake_render(monkeypatch)

@@ -337,6 +337,28 @@ def publish(story: Story, mp4: Path, voice: dict, publish_at: str | None = None,
     return result
 
 
+def release(video_id: str, api=None, pause=time.sleep) -> dict:
+    """Make a scheduled upload public now (the owner's release_now list), read back like publish()."""
+    api = api or client()
+    identity(api)
+    items = api.videos().list(part="snippet,status", id=video_id).execute()["items"]
+    if not items or items[0]["snippet"]["channelId"] != config.CHANNEL_ID:
+        raise WrongChannel(f"{video_id} is not on the channel")
+    if items[0]["status"].get("privacyStatus") != "public":
+        api.videos().update(part="status",
+                            body={"id": video_id, "status": {"privacyStatus": "public", **STATUS}}).execute()
+    for wait in READBACK_WAITS:
+        pause(wait)
+        video = api.videos().list(part="snippet,status", id=video_id).execute()["items"][0]
+        problems = readback_problems(video, None)
+        if not problems:
+            break
+    else:
+        kept = hold_private(api, video_id)
+        raise ReadbackMismatch(f"read-back of {video_id} does not match ({kept}): " + "; ".join(problems))
+    return {"privacy": "public", "released_at": _instant(datetime.now(timezone.utc).isoformat())}
+
+
 READBACK_WAITS = (0, 5, 10, 20, 30)
 
 

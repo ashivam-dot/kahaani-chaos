@@ -160,6 +160,16 @@ def test_immediate_publish_goes_public(pinned, story, mp4):
     assert api.updated[0]["status"]["containsSyntheticMedia"] is True
 
 
+def test_release_makes_a_scheduled_upload_public_now(pinned, story, mp4):
+    api = FakeYouTube()
+    youtube.publish(story, mp4, NARRATOR, publish_at="2099-10-13T07:00:00Z", api=api, pause=lambda s: None)
+    result = youtube.release("vid1", api=api, pause=lambda s: None)
+    assert result["privacy"] == "public" and api.store["vid1"]["status"]["privacyStatus"] == "public"
+    assert api.updated[-1]["status"]["containsSyntheticMedia"] is True
+    with pytest.raises(youtube.WrongChannel):
+        youtube.release("missing", api=api, pause=lambda s: None)
+
+
 def test_an_upload_already_on_the_channel_is_not_uploaded_again(pinned, story, mp4):
     existing = {"id": "old", "snippet": {"channelId": CHANNEL, "tags": [config.MARKER + story.id]},
                 "status": {"privacyStatus": "private", "uploadStatus": "processed", "madeForKids": False,

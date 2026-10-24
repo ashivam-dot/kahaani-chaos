@@ -291,6 +291,7 @@ def publish(now: datetime | None = None, api=None) -> dict:
             except Exception as exc:
                 health["steps"].append(f"release of {row['id']} still not deleted: {exc}"[:300])
         api = _retry_pending(now, api, health)
+        api, release = _release_now(now, api, health)
         # Twice at most: a Short found already public takes the slot it went out in, and the next fills the due one.
         for _ in range(2):
             due = slots.due(now, slots.taken(ledger.published()))
@@ -301,7 +302,13 @@ def publish(now: datetime | None = None, api=None) -> dict:
             if not ready:
                 health["held"] = f"hold: the buffer is empty; slot {due['slot']} has no Short"
                 return health
-            row = ready[0]
+            row = next((r for r in ready if r["id"] in release), ready[0])
+            if row["id"] in release:
+                slot = slots.slot_of(slots.iso(now))
+                due = {"slot": slot if slot and slot not in slots.taken(ledger.published()) else due["slot"],
+                       "publish_at": None}
+                _unlist_release(row["id"])
+                health["steps"].append(f"release_now: {row['id']} goes public now")
             folder = WORK / "publish" / row["id"]
             store.fetch(row["id"], folder)
             story = Story.load(folder / "story.json")
@@ -345,6 +352,32 @@ def _drop_release(story_id: str, folder: Path, health: dict) -> None:
         ledger.mark(story_id, release_left=True)
         health["steps"].append(f"release of {story_id} not deleted yet: {exc}"[:300])
     shutil.rmtree(folder, ignore_errors=True)
+
+
+def _unlist_release(story_id: str) -> None:
+    listed = ledger.load("release_now", {"ids": []})
+    ledger.save("release_now", {**listed, "ids": [i for i in listed.get("ids", []) if i != story_id]})
+
+
+def _release_now(now: datetime, api, health: dict):
+    """The owner's state/release_now.json ({"ids": [story ids]}): a listed Short already scheduled goes public now and
+    takes the slot it went out in, freeing the one it was scheduled for; a listed ready Short is published first, at
+    once. Returns the client and the ids still waiting in the buffer."""
+    from . import youtube
+
+    ids = set(ledger.load("release_now", {}).get("ids", []))
+    for row in [r for r in ledger.published() if r["id"] in ids]:
+        if row.get("privacy") == "scheduled" and row.get("video_id"):
+            api = api or youtube.client()
+            result = youtube.release(row["video_id"], api=api)
+            slot = slots.slot_of(result["released_at"])
+            slot = slot if slot and slot not in slots.taken(ledger.published()) else None
+            ledger.mark(row["id"], slot=slot, published_at=result["released_at"], privacy="public",
+                        publish_at=None)
+            health["steps"].append(f"release_now: {row['id']} is public now (slot {slot}): {row.get('url')}")
+        _unlist_release(row["id"])
+        ids.discard(row["id"])
+    return api, ids
 
 
 def _retry_pending(now: datetime, api, health: dict):
