@@ -1,5 +1,5 @@
 {
- "at": "2026-10-24T12:19:38+00:00",
+ "at": "2026-10-24T18:05:44+00:00",
  "videos": {
   "xo7yuW_Rgbg": {
    "id": "kc-20261013-1614-p001",
@@ -54,12 +54,6 @@
      "comments": 1
     },
     {
-     "age_h": 229.76,
-     "views": 30,
-     "likes": 0,
-     "comments": 0
-    },
-    {
      "age_h": 235.32,
      "views": 30,
      "likes": 0,
@@ -73,6 +67,12 @@
     },
     {
      "age_h": 245.33,
+     "views": 30,
+     "likes": 0,
+     "comments": 0
+    },
+    {
+     "age_h": 251.1,
      "views": 30,
      "likes": 0,
      "comments": 0
@@ -135,12 +135,6 @@
      "comments": 1
     },
     {
-     "age_h": 181.36,
-     "views": 2,
-     "likes": 0,
-     "comments": 0
-    },
-    {
      "age_h": 186.92,
      "views": 2,
      "likes": 0,
@@ -154,6 +148,12 @@
     },
     {
      "age_h": 196.93,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
+    },
+    {
+     "age_h": 202.69,
      "views": 2,
      "likes": 0,
      "comments": 0
@@ -210,12 +210,6 @@
      "comments": 1
     },
     {
-     "age_h": 173.11,
-     "views": 21,
-     "likes": 0,
-     "comments": 0
-    },
-    {
      "age_h": 178.67,
      "views": 21,
      "likes": 0,
@@ -229,6 +223,12 @@
     },
     {
      "age_h": 188.68,
+     "views": 21,
+     "likes": 0,
+     "comments": 0
+    },
+    {
+     "age_h": 194.45,
      "views": 21,
      "likes": 0,
      "comments": 0
@@ -279,12 +279,6 @@
      "comments": 1
     },
     {
-     "age_h": 157.36,
-     "views": 2,
-     "likes": 0,
-     "comments": 0
-    },
-    {
      "age_h": 162.92,
      "views": 2,
      "likes": 0,
@@ -298,6 +292,12 @@
     },
     {
      "age_h": 172.93,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
+    },
+    {
+     "age_h": 178.69,
      "views": 2,
      "likes": 0,
      "comments": 0
@@ -342,12 +342,6 @@
      "comments": 1
     },
     {
-     "age_h": 149.33,
-     "views": 2,
-     "likes": 0,
-     "comments": 0
-    },
-    {
      "age_h": 154.89,
      "views": 2,
      "likes": 0,
@@ -361,6 +355,12 @@
     },
     {
      "age_h": 164.9,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
+    },
+    {
+     "age_h": 170.67,
      "views": 2,
      "likes": 0,
      "comments": 0
@@ -399,12 +399,6 @@
      "comments": 1
     },
     {
-     "age_h": 133.61,
-     "views": 3,
-     "likes": 0,
-     "comments": 0
-    },
-    {
      "age_h": 139.18,
      "views": 3,
      "likes": 0,
@@ -418,6 +412,12 @@
     },
     {
      "age_h": 149.18,
+     "views": 3,
+     "likes": 0,
+     "comments": 0
+    },
+    {
+     "age_h": 154.95,
      "views": 3,
      "likes": 0,
      "comments": 0
@@ -450,12 +450,6 @@
      "comments": 0
     },
     {
-     "age_h": 125.44,
-     "views": 2,
-     "likes": 0,
-     "comments": 0
-    },
-    {
      "age_h": 131.0,
      "views": 2,
      "likes": 0,
@@ -469,6 +463,12 @@
     },
     {
      "age_h": 141.01,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
+    },
+    {
+     "age_h": 146.77,
      "views": 2,
      "likes": 0,
      "comments": 0
@@ -489,12 +489,6 @@
    "published_at": "2026-10-19T16:05:26+00:00",
    "snapshots": [
     {
-     "age_h": 100.67,
-     "views": 2,
-     "likes": 0,
-     "comments": 0
-    },
-    {
      "age_h": 106.23,
      "views": 2,
      "likes": 0,
@@ -511,6 +505,12 @@
      "views": 2,
      "likes": 0,
      "comments": 0
+    },
+    {
+     "age_h": 122.01,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
     }
    ],
    "format": null,
@@ -519,7 +519,7 @@
    "resolution": null,
    "heart_type": null,
    "subgenre": "bhoot-rahasya",
-   "views_48h": 1.3810219459437656,
+   "views_48h": 1.3443954179553201,
    "viewed_pct": 32.62,
    "subs": 0
   }
