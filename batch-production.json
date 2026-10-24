@@ -468,7 +468,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-scale-e04-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 2,
       "source_sha": "76b80e9d4b3106bc97abd5c229973879322add57",
       "before_ids": [
@@ -561,7 +561,7 @@
         38428830025
       ],
       "submitted_at": "2026-10-24T23:37:32+00:00",
-      "cloud_status": "in_progress",
+      "cloud_status": "queued",
       "editorial_holds": [
         {
           "id": "direct-empty-scale-hand-40134819856",
@@ -696,7 +696,8 @@
       "obsolete_runs": [
         40134819856
       ],
-      "repair_reason": "Replace held opening, hand-operated scale and wrong-actor shots with exact inspected paintings. Preserve original valid art, including beat4-alt2 with original variant metadata, and exclude the two duplicate-cast variants. Full current picture, narration, render and audiovisual checks remain mandatory."
+      "repair_reason": "Replace held opening, hand-operated scale and wrong-actor shots with exact inspected paintings. Preserve original valid art, including beat4-alt2 with original variant metadata, and exclude the two duplicate-cast variants. Full current picture, narration, render and audiovisual checks remain mandatory.",
+      "run_id": 40143503135
     },
     {
       "repo": "kahaani-chaos",
@@ -1033,7 +1034,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-24T23:37:32+00:00",
+  "updated_at": "2026-10-24T23:37:38+00:00",
   "complete": false,
   "health": {
     "public": 1,
