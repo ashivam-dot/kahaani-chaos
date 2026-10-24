@@ -190,6 +190,13 @@ def archive_review(repo, job, folder):
 
 def materialize(repo, adapter, job):
     folder = ROOT / "work/batch" / str(job["run_id"])
+    if job.get("audio_finish") and job.get("archive"):
+        # The exact finished AAC bytes are durable. Do not re-encode the producer's held soundtrack on a
+        # new runner and risk changing an already approved media hash. Its receipt is checked again below.
+        folder.mkdir(parents=True, exist_ok=True)
+        gh("release", "download", job["archive"], "--pattern", "*.json", "--pattern", "short.mp4",
+           "--dir", str(folder), "--clobber", "-R", repo, raw=True)
+        return folder
     items = gh("api", f"repos/{repo}/actions/runs/{job['run_id']}/artifacts?per_page=100")["artifacts"]
     for name in adapter.artifact_names(job):
         artifact = next((a for a in items if a["name"] == name and not a.get("expired")), None)

@@ -17,3 +17,18 @@ other thirteen original paintings in `.github/replay/sannatpur-radio-e02-repair/
 image hashes are explicit. The replacement plan reuses all seven beats and requests zero painter jobs.
 Current picture, narration, sound and render checks run again; the same script and narrator identity
 remain. The new complete MP4 still needs its own full audiovisual approval before publishing.
+
+The replacement `40132420577` did retain every expected frame (1,229). Its seven pictures and original
+voice passed, but the final soundtrack measured -15.1 LUFS, below the unchanged -15 to -13 band. The old
+one-pass normalizer estimated loudness before appending the closing silence. Production now measures the
+complete finite mix and applies a second normalization pass, with -2 dBTP headroom before AAC encoding.
+
+An explicit `audio_finish` batch intent can recover this exact otherwise passing audio-level hold. It binds
+the original MP4, story, timing, picture reports and health by SHA-256; accepts only audio-level failures;
+preserves every encoded video packet and frame; retains the narrator and all timing; and measures the new
+soundtrack against the existing sound, music-bed and runtime gates. Source reports and bitstream hashes are
+archived. Picture/frame/voice or music-balance failures cannot use this path. The complete repaired MP4 needs
+a new media-bound audiovisual verdict. No previous approval is inherited.
+
+Local direct verification of the exact held MP4 produced -14.3 LUFS, -1.8 dBTP and a -25.7 LUFS music bed,
+with the same video bitstream. Those measurements are diagnostic evidence, not a cloud release approval.

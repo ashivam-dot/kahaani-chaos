@@ -28,6 +28,9 @@ def _read(folder, name):
 
 
 def validate(job, folder):
+    from .audio_finish import finish_preview
+
+    finish_preview(job, folder)
     health = _read(folder, "dry-produce-health.json")
     if not health.get("made") or health.get("held") or health.get("error") or health.get("ok") is not True:
         raise ValueError("preview did not make a finished passing Short")

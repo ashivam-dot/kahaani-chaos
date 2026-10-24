@@ -494,18 +494,22 @@ def _mix(narration: Path, story: Story, seconds: float, bell_at: float | None, o
     sf.write(out / "music.wav", bed, music.SR)
     spoken = sf.info(str(narration)).duration
     mixed = out / "mix.wav"
+    unmastered = out / "mix-unmastered.wav"
     graph = ("[0:a]aresample=48000,highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=5:release=120,"
              "volume=1.0,asplit=2[v][key];"
              "[1:a]aresample=48000,volume=0.32[m];"
              "[m][key]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=500,asplit=2[duck][b];"
              f"[b]atrim=0:{spoken:.3f}[bed];"
              "[v][duck]amix=inputs=2:duration=first:normalize=0,asplit=2[mx][pre];"
-             f"[mx]loudnorm=I=-14:TP=-1.5:LRA=9,apad,atrim=0:{seconds:.3f}[out]")
+             f"[mx]apad,atrim=0:{seconds:.3f}[out]")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(narration), "-i", str(out / "music.wav"),
-                    "-filter_complex", graph, "-map", "[out]", "-ar", "48000", "-ac", "2", str(mixed),
+                    "-filter_complex", graph, "-map", "[out]", "-ar", "48000", "-ac", "2", str(unmastered),
                     "-map", "[bed]", "-ar", "48000", str(out / "bed.wav"),
                     "-map", "[pre]", "-ar", "48000", str(out / "premix.wav")], check=True)
     levels = {k: (loudness(out / f"{k}.wav") or {}).get("lufs") for k in ("bed", "premix")}
+    from .audio_finish import normalize
+
+    normalize(unmastered, mixed)
     return mixed, levels
 
 
