@@ -148,8 +148,10 @@ and upload. Upload recovery requires both the existing story marker and the revi
 unbound upload is held for reconciliation. Private processing and audience readback must pass before making a new
 upload public. Reviewer/network outages retry with backoff; negative verdicts persist for unchanged media. Two approved episodes are required before
 the first recovery release. The ordinary producer/publisher respects the batch's durable calendar reservation.
-Workflow activation remains a separate step governed by the owner's workflow-edit rule; code alone is not proof
-of a release. No existing upload ids, disclosure settings, voices or cadence are changed.
+`batch-release.yml` serializes these checks with the existing publisher, runs on completed builds and every
+fifteen minutes when `BATCH_RELEASE_ENABLED=true`, and defaults manual runs to review only. Automatic mode
+uses the channel's existing environment credentials. Code alone is not proof of a release. No existing upload
+ids, disclosure settings, voices or cadence are changed.
 
 **Batch previews (25 October 2026).** `strategy/batch-2026-10-25.json` lists twenty distinct future entries plus
 the first corrected preview. `.github/replay/batch-2026-10-25/*.json` are bank-entry briefs, not finished stories.
