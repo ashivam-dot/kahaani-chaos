@@ -163,7 +163,7 @@ jobs:
       - run: .github/state.sh checkout
       - name: Free disk for the speech, depth and voice models
         run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL
-      - run: sudo apt-get update -q && sudo apt-get install -yq ffmpeg
+      - run: bash .github/scripts/install-media-tools.sh ffmpeg
       - uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true

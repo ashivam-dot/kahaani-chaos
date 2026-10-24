@@ -26,7 +26,7 @@ jobs:
           python-version: "3.12"
       - name: Install scorers
         run: |
-          sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+          bash .github/scripts/install-media-tools.sh ffmpeg
           pip install -q --index-url https://download.pytorch.org/whl/cpu torch torchaudio
           pip install -q requests soundfile librosa faster-whisper
       - uses: actions/download-artifact@v7
