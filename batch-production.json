@@ -78,7 +78,8 @@
       "obsolete_runs": [
         40122737348
       ],
-      "repair_reason": "Original ending duplicated Jhabbu. Replacement preserves the spoken story and thirteen exact-prompt earlier paintings with original alternate metadata; current picture editor must recheck them. Only ending beat 6 is repainted; original bad ending is excluded."
+      "repair_reason": "Original ending duplicated Jhabbu. Replacement preserves the spoken story and thirteen exact-prompt earlier paintings with original alternate metadata; current picture editor must recheck them. Only ending beat 6 is repainted; original bad ending is excluded.",
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -310,5 +311,12 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-24T20:16:49+00:00"
+  "updated_at": "2026-10-24T20:16:51+00:00",
+  "complete": false,
+  "health": {
+    "public": 0,
+    "scheduled": 0,
+    "held": 0,
+    "mode": "review"
+  }
 }
