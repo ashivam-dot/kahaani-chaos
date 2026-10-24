@@ -493,12 +493,23 @@
             "art-40134819856-5/beat05-alt1.png": "e80b504027ff9bf47977a9c106635c8dfa15903cc12190ba672b6ed5a23238e6",
             "art-40134819856-5/beat05.png": "fecaa47bd768371ec0e50b692fc6eaa5656b7edea7a7011c7dbf19342382fc36"
           }
+        },
+        {
+          "id": "direct-duplicate-cast-40134819856",
+          "run_id": 40134819856,
+          "observed_at": "2026-10-24T22:36:47+00:00",
+          "reason": "Actual beat4 base and alt1 show five people, including two mustard-clad Prabhats. Original alt2 has the intended four people and may be retained with its original alternate provenance, current picture editor and complete AV review.",
+          "evidence": {
+            "art-40134819856-4/beat04.png": "264a8297dc6a39e0e3637d95c548f1510206c4e758ed35b1a270532f8e3722fe",
+            "art-40134819856-4/beat04-alt1.png": "10c10d84fdb1c82c157f5d70729f351334e6be708901aea238a5b52a0cfa5ab2"
+          }
         }
       ],
       "problems": [
         "Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required.",
         "Direct inspection of actual cloud opening: a large unsupported lantern floats above the scale, adding a second unexplained impossible object and distracting from the story hook. Replace only this opening and the held hand-operated scale close-up; retain other valid paintings.",
-        "Actual cloud beats 2 and 5 show mustard-sweater Prabhat handling the scale while red-cap Shailesh stands aside. Both narrated lines specifically name Shailesh lifting/delivering the scale. Beat 2 also lacks the complete balance apparatus. Repair only these shots with one clear acting character and a complete scale; preserve story and valid other paintings."
+        "Actual cloud beats 2 and 5 show mustard-sweater Prabhat handling the scale while red-cap Shailesh stands aside. Both narrated lines specifically name Shailesh lifting/delivering the scale. Beat 2 also lacks the complete balance apparatus. Repair only these shots with one clear acting character and a complete scale; preserve story and valid other paintings.",
+        "Actual beat4 base and alt1 show five people, including two mustard-clad Prabhats. Original alt2 has the intended four people and may be retained with its original alternate provenance, current picture editor and complete AV review."
       ]
     },
     {
@@ -707,7 +718,7 @@
     }
   ],
   "halted": "Repair held entry e09: Direct inspection: beats 1 and 2 place cast outdoors under the moon although narration and story require the college staff room. Beat 6 depicts a ceiling fan unsupported in open dawn sky; alternate also duplicates the mustard-clad young man. Replace incorrect shots; preserve valid indoor opening and other usable art. No release of this exact production.",
-  "updated_at": "2026-10-24T22:21:32.355564+00:00",
+  "updated_at": "2026-10-24T22:36:47+00:00",
   "complete": false,
   "health": {
     "public": 1,
