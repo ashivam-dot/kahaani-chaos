@@ -298,7 +298,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-fan-e09-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 3,
       "source_sha": "8d17029a06f90d4a315d5d2ca1739c1a145c27fb",
       "before_ids": [
@@ -390,7 +390,7 @@
         38428830025
       ],
       "submitted_at": "2026-10-24T23:26:06+00:00",
-      "cloud_status": "completed",
+      "cloud_status": "queued",
       "editorial_holds": [
         {
           "id": "direct-indoor-continuity-floating-fan-40134047227",
@@ -456,7 +456,8 @@
         40134047227,
         40142424645
       ],
-      "repair_reason": "Exact same inspected paintings and narration; failed preflight required explicit actor/support directions within the new bounded painter-description limit. Full current story, picture, voice, render and audiovisual checks remain."
+      "repair_reason": "Exact same inspected paintings and narration; failed preflight required explicit actor/support directions within the new bounded painter-description limit. Full current story, picture, voice, render and audiovisual checks remain.",
+      "run_id": 40142724972
     },
     {
       "repo": "kahaani-chaos",
@@ -919,7 +920,7 @@
     }
   ],
   "halted": "Repair held entry e04: Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required.; Direct inspection of actual cloud opening: a large unsupported lantern floats above the scale, adding a second unexplained impossible object and distracting from the story hook. Replace only this opening and the held hand-operated scale close-up; retain other valid paintings.; Actual cloud beats 2 and 5 show mustard-sweater Prabhat handling the scale while red-cap Shailesh stands aside. Both narrated lines specifically name Shailesh lifting/delivering the scale. Beat 2 also lacks the complete balance apparatus. Repair only these shots with one clear acting character and a complete scale; preserve story and valid other paintings.; Actual beat4 base and alt1 show five people, including two mustard-clad Prabhats. Original alt2 has the intended four people and may be retained with its original alternate provenance, current picture editor and complete AV review.",
-  "updated_at": "2026-10-24T23:26:06+00:00",
+  "updated_at": "2026-10-24T23:26:13+00:00",
   "complete": false,
   "health": {
     "public": 1,
