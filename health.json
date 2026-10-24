@@ -1,12 +1,17 @@
 {
  "produce": {
-  "at": "2026-10-24T02:19:04+00:00",
+  "at": "2026-10-24T09:06:00+00:00",
   "ok": true,
   "dry": false,
   "steps": [
-   "hold e01: hold: the draft came from the local fallback model; its Hindi is never published (wait for Gemini)"
+   "paintings: 7 of 7 made, 8 repaints",
+   "hold e01: hold: prop identity 80% of cast shots, needs 85%"
   ],
-  "held": "hold: the draft came from the local fallback model; its Hindi is never published (wait for Gemini)"
+  "picture_editor": [
+   "gemini"
+  ],
+  "prop_identity": 0.8,
+  "held": "hold: prop identity 80% of cast shots, needs 85%"
  },
  "publish": {
   "at": "2026-10-24T07:26:05+00:00",
