@@ -298,7 +298,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e09.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 1,
       "source_sha": "5d88ec338bd0a3f9ce93e7077287b5f706fc7392",
       "before_ids": [
@@ -365,7 +365,26 @@
       ],
       "submitted_at": "2026-10-24T21:24:04+00:00",
       "run_id": 40134047227,
-      "cloud_status": "in_progress"
+      "cloud_status": "in_progress",
+      "editorial_holds": [
+        {
+          "id": "direct-indoor-continuity-floating-fan-40134047227",
+          "run_id": 40134047227,
+          "observed_at": "2026-10-24T22:14:52.782897+00:00",
+          "reason": "Direct inspection: beats 1 and 2 place cast outdoors under the moon although narration and story require the college staff room. Beat 6 depicts a ceiling fan unsupported in open dawn sky; alternate also duplicates the mustard-clad young man. Replace incorrect shots; preserve valid indoor opening and other usable art. No release of this exact production.",
+          "evidence": {
+            "art-40134047227-1/beat01-alt1.png": "0862bac7e66f4764b9f460a5aed41204d0737bc0a10ba2c7b0a7bb5eb3f17d24",
+            "art-40134047227-1/beat01.png": "88bdc435bb89b9600ba599d508a7e201575b5445eb56b7ff6e091bfb28e1d506",
+            "art-40134047227-2/beat02-alt1.png": "4acba985c4d513797cd551935ac33db5582aa9573118f275cbf5e7252fadf134",
+            "art-40134047227-2/beat02.png": "5e7032521738f09f098e1b63c92a0a0aee62c6f573fcd9730b7540c3b2237e95",
+            "art-40134047227-6/beat06-alt1.png": "cb21628c566aff72637318a1a2dba6e2c5dc44ebff3b1c58adad2727e8360adc",
+            "art-40134047227-6/beat06.png": "a5f8bbe7dbc0c5010ea8d9be76fed36bbcaa1fb121c19217600b580a343f144d"
+          }
+        }
+      ],
+      "problems": [
+        "Direct inspection: beats 1 and 2 place cast outdoors under the moon although narration and story require the college staff room. Beat 6 depicts a ceiling fan unsupported in open dawn sky; alternate also duplicates the mustard-clad young man. Replace incorrect shots; preserve valid indoor opening and other usable art. No release of this exact production."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -674,8 +693,8 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e04: Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required.; Direct inspection of actual cloud opening: a large unsupported lantern floats above the scale, adding a second unexplained impossible object and distracting from the story hook. Replace only this opening and the held hand-operated scale close-up; retain other valid paintings.",
-  "updated_at": "2026-10-24T22:06:22.602865+00:00",
+  "halted": "Repair held entry e09: Direct inspection: beats 1 and 2 place cast outdoors under the moon although narration and story require the college staff room. Beat 6 depicts a ceiling fan unsupported in open dawn sky; alternate also duplicates the mustard-clad young man. Replace incorrect shots; preserve valid indoor opening and other usable art. No release of this exact production.",
+  "updated_at": "2026-10-24T22:14:52.782897+00:00",
   "complete": false,
   "health": {
     "public": 1,
