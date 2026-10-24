@@ -74,8 +74,11 @@ def assign(passed: set[int], beats: int) -> list[int]:
 
 
 def prop_rate(report: list[dict]) -> float | None:
-    """Share of cast shots whose final painting passed prop identity (None when the story has no cast shot)."""
-    shots = [r for r in report if r.get("cast")]
+    """Share of cast shots whose final painting passed prop identity (None when the story has no cast shot). A shot
+    refused for something else (a doubled character, a child, not fitting the line) is dropped and counted by assign's
+    MIN_SHARE, not here: counted as a prop miss too, one doubled shot of four held e01 at 75% with every shot's props
+    right (run 40101837936)."""
+    shots = [r for r in report if r.get("cast") and not (r["rejected"] and not r["rejected"].startswith("props:"))]
     return sum(r.get("props_ok") is True and not r["rejected"] for r in shots) / len(shots) if shots else None
 
 

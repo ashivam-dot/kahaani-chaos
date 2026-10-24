@@ -106,6 +106,16 @@ def test_prop_rate_counts_cast_shots_only():
     assert aiart.prop_rate(report[:1]) is None
 
 
+def test_a_shot_dropped_for_something_else_is_not_a_prop_miss():
+    # Run 40101837936: four cast shots, all with their props, one refused as doubled: held at 75%.
+    ok = {"cast": ["jhabbu"], "rejected": None, "props_ok": True}
+    doubled = {"cast": ["jhabbu", "prabhat"], "rejected": "doubled: the red cap appears twice", "props_ok": True}
+    assert aiart.prop_rate([ok, ok, ok, doubled]) == 1.0
+    assert aiart.prop_rate([doubled]) is None
+    missing = {"cast": ["nuzhat"], "rejected": "props: no braid", "props_ok": False}
+    assert aiart.prop_rate([ok, ok, ok, doubled, missing]) == 0.75
+
+
 def test_the_hook_painting_needs_its_subject_to_fill_the_frame():
     assert aiart.vision.rejected(verdict(1), hook=True) is None
     for share in (0.1, 0.95, None):
