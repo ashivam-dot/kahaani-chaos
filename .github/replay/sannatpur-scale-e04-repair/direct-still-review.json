@@ -1,0 +1,55 @@
+{
+  "images": [
+    {
+      "file": "beat00.png",
+      "image_sha256": "9bc8f6888e758dcbd264e92fbca27b03e094609d61aba53639edb0c53327a1fa",
+      "decision": "pass",
+      "reason": "Empty visibly tilted scale and grounded lantern; no human body part. Still-image review only; cloud picture/voice/render and complete AV gates remain.",
+      "reviewer": "Codex direct visual inspection",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T22:24:41+00:00"
+    },
+    {
+      "file": "beat03.png",
+      "image_sha256": "4934e419a67a71444b2d52046f0f1fe471759d592ec75f85f129ba25c31467d8",
+      "decision": "pass",
+      "reason": "Empty tilted scale with complete post/crossbar/chains, no operating hand; grounded lantern. Still-image review only; current cloud and AV gates remain.",
+      "reviewer": "Codex direct visual inspection",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T22:24:41+00:00"
+    },
+    {
+      "file": "refused-giant-scale-crowd/beat02.png",
+      "image_sha256": "7ae16e18ffad11cd56562a677aa46ad6147415ea3ee362c124dd76fb746c4956",
+      "decision": "hold",
+      "reason": "Correct red-cap Shailesh, but extra people occupy the supposedly empty market and the oversized scale is still grounded. Refine to a small portable balance visibly supported in his hands, against a closed shutter.",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T22:42:16+00:00"
+    },
+    {
+      "file": "beat05.png",
+      "image_sha256": "a58a9885552f4de819bf9bc048d0b8aebcba0e13b0929926b82c5a262d5f8491",
+      "decision": "pass",
+      "reason": "Single red-cap striped-shirt Shailesh crouches at a doorstep and supports a portable balance; lantern is grounded and no duplicate cast or crowd is visible. The second pan is partly occluded. Current cloud picture and full AV gates remain required.",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T22:48:26+00:00"
+    },
+    {
+      "file": "refused-lantern-in-pan/beat02.png",
+      "image_sha256": "7415126acd7410a6b2ed665e23187e2e13e91eae4eb7284d40e405a2c66910f0",
+      "decision": "hold",
+      "reason": "Correct Shailesh, but a lit lantern occupies the right weighing pan and a white block is held in front of it. This contradicts the intended empty portable balance. Replace this shot only.",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T23:16:42.993693+00:00"
+    },
+    {
+      "file": "beat02.png",
+      "image_sha256": "2724475032c1bab6971c3d875dbfd625fdee845a2803b99a37fe555ccf468f1c",
+      "decision": "pass",
+      "reason": "One correct red-cap striped-shirt Shailesh handles a complete balance with two visibly empty pans; the separate lantern is supported overhead and no crowd is present. He supports the right pan of a hanging balance rather than gripping its top handle: this is a moment before lifting, so current picture and complete AV review must assess the narrated action alignment. No still approval is release approval.",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T23:31:43.268687+00:00"
+    }
+  ],
+  "release_approval": false
+}

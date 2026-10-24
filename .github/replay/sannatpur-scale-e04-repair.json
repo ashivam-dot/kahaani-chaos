@@ -1,0 +1,152 @@
+{
+  "id": "kc-20261024-2135-e04",
+  "premise": "e04",
+  "title": "हाट में छूटा तराज़ू… और ख़ाली पलड़ा झुक गया! ⚖️",
+  "hook": "ख़ाली हाट में रखा तराज़ू अचानक एक तरफ़ झुक गया।",
+  "beats": [
+    {
+      "text": "ख़ाली हाट में रखा तराज़ू अचानक एक तरफ़ झुक गया।",
+      "scene": "Extreme close-up still life of a crooked antique iron weighing balance. Its central post is fixed to a heavy square base on a rough wooden tabletop. The empty right weighing pan rests on the tabletop at the bottom-right corner. The empty left weighing pan hangs high above the tabletop near the upper-left corner. The tilted crossbar slopes steeply from upper left to lower right. Each empty round pan hangs from metal chains attached to that crossbar. A small brass oil lantern rests on the table at lower left. A close solid closed blue-painted wooden shutter fills the entire background behind the scale. The large scale fills the frame.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात सब्ज़ी वाली अम्मा अपना तराज़ू वहीं भूल गई थीं।",
+      "scene": "Young man Prabhat in mustard sweater, Nuzhat with green scarf, and Shailesh wearing red cricket cap standing near empty tarpaulin stalls under deep blue moonlight.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "curious"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "calm"
+        },
+        {
+          "name": "shailesh",
+          "expression": "amused"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "शैलेश ने तराज़ू उठाया, तो वह लोहे का पलड़ा अजीब तरह से कांपने लगा।",
+      "scene": "One young adult man Shailesh in a red cricket cap and striped shirt lifts a small old-fashioned handheld balance scale by its top handle with his raised right hand. Two shallow empty brass weighing bowls hang below a short horizontal iron beam on thin chains. Both bowls are clearly empty. The balance is small and portable, held in the air beside his chest. His left arm hangs naturally at his side. A closed blue wooden shutter fills the entire background. Cool blue moonlight and soft warm side lighting. Only one person and one balance scale are visible.",
+      "people": [
+        {
+          "name": "shailesh",
+          "expression": "careful and determined"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "पलड़े पर कुछ नहीं था, फिर भी डंडी नीचे झुकती जा रही थी।",
+      "scene": "Tight side-angle still life of the same crooked antique iron weighing balance fixed to a heavy square base on a rough wooden tabletop. The empty right pan touches the tabletop while the empty left pan hangs much higher. Their crossbar slopes sharply down to the right. Thin chains connect the two empty bowls to the crossbar. Warm amber light comes from a small brass lantern resting on the tabletop beside the fixed scale base. A solid closed blue-painted wooden shutter fills the complete close background.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "झब्बू काका ने लालटेन उठाई और बोले, रात की चीज़ घर मत ले जाओ, जिसकी है उस तक पहुँचाओ।",
+      "scene": "Old Jhabbu holding his brass lantern, red muffler wrapped around his neck, addressing the group calmly. Warm yellow lantern glow contrasts with blue night backdrop.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "serious"
+        },
+        {
+          "name": "prabhat",
+          "expression": "listening"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "attentive"
+        },
+        {
+          "name": "shailesh",
+          "expression": "nervous"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "शैलेश चुपचाप भारी तराज़ू उठाकर आधी रात सब्ज़ी वाली अम्मा के दरवाज़े तक ले गया।",
+      "scene": "Only Shailesh, a young adult man in a red cricket cap and striped shirt, crouches outside a closed wooden door at night. He carefully lowers a complete antique weighing balance onto the doorstep, both hands supporting its heavy square base. Its central iron post, crossbar, chains and both empty brass pans remain clearly visible. Cool blue moonlit village lane, one warm lantern resting beside the door.",
+      "people": [
+        {
+          "name": "shailesh",
+          "expression": "careful and determined"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "झब्बू काका ने अपने खाकी रजिस्टर में लिखा, रात की अमानत सही पते पर पहुँच गई।",
+      "scene": "Medium close-up of Jhabbu sitting on a bench under a dim bulb, writing carefully in a red-bound khaki register. Brass lantern glowing softly beside him.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "calm"
+        }
+      ],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "jhabbu",
+      "name": "झब्बू",
+      "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+    },
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    }
+  ],
+  "subgenre": "kindness",
+  "ending": "register-line",
+  "twist_beat": 5,
+  "description": "उन्नीस सौ छियानवे की एक रात हाट में छूटा तराज़ू अपने-आप झुकने लगा। जानिए उस रात क्या छुपा था उस ख़ाली पलड़े में।",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य",
+    "#सन्नाटपुरकीरातें"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3.6-flash",
+      "gemini-3.6-flash"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "ख़ाली हाट का रहस्य",
+  "object_token": "तराज़ू",
+  "anomaly": "ख़ाली पलड़े का ऐसे झुकना जैसे उस पर कुछ रखा हो",
+  "niyam_id": "N12",
+  "resolution": "kindness",
+  "heart_beat": 6,
+  "heart_type": "kindness",
+  "skeleton": "S1",
+  "location": "सब्ज़ी वाली का कोना",
+  "place_id": "haat"
+}

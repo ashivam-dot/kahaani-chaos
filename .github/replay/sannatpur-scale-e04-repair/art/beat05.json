@@ -1,0 +1,35 @@
+{
+  "story": "kc-20261024-2135-e04",
+  "beat": 5,
+  "alt": 0,
+  "prompt": "Only Shailesh, a young adult man in a red cricket cap and striped shirt, crouches outside a closed wooden door at night. He carefully lowers a complete antique weighing balance onto the doorstep, both hands supporting its heavy square base. Its central iron post, crossbar, chains and both empty brass pans remain clearly visible. Cool blue moonlit village lane, one warm lantern resting beside the door. Characters: Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, careful and determined expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 203.8,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 934390679,
+  "log_tail": "#####| 138/138 - 457.63MB/s\u001b[K\n[I] loading tensors completed, taking 0.41s (read: 0.33s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.00s) --- model_loader.cpp:1390\n[I] latent 1 decoded, taking 17.50s --- image.cpp:620\n[I] decode_first_stage completed, taking 17.50s --- image.cpp:624\n[I] generate_image completed in 202.24s --- image.cpp:1050\n[I] ggml: ggml_metal_free: deallocating\n[I] save result image 0 to '/Users/ashivam/Desktop/YouTube/strategy-implementation-2026-10-24/evidence/kahaani-chaos/e04-local-repair/beat05.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "a58a9885552f4de819bf9bc048d0b8aebcba0e13b0929926b82c5a262d5f8491",
+  "generation": {
+    "origin": "local-stable-diffusion.cpp",
+    "binary_tag": "master-959-d637cfb",
+    "source_sha": "331c01665634c451af17b4b3dd5b854dc8fb5483",
+    "backend": "Darwin arm64 Metal",
+    "weights": {
+      "diffusion": {
+        "file": "z_image_turbo-Q4_K.gguf",
+        "sha256": "14b375ab4f226bc5378f68f37e899ef3c2242b8541e61e2bc1aff40976086fbd"
+      },
+      "llm": {
+        "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597"
+      },
+      "vae": {
+        "file": "ae.safetensors",
+        "sha256": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38"
+      }
+    }
+  },
+  "production_approved": false
+}

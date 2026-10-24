@@ -1,0 +1,35 @@
+{
+  "story": "kc-20261024-2135-e04",
+  "beat": 3,
+  "alt": 0,
+  "prompt": "Tight side-angle still life of the same crooked antique iron weighing balance fixed to a heavy square base on a rough wooden tabletop. The empty right pan touches the tabletop while the empty left pan hangs much higher. Their crossbar slopes sharply down to the right. Thin chains connect the two empty bowls to the crossbar. Warm amber light comes from a small brass lantern resting on the tabletop beside the fixed scale base. A solid closed blue-painted wooden shutter fills the complete close background. No people: no human figure, face, hand or arm anywhere in the picture. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 197.4,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1199872674,
+  "log_tail": "#####| 138/138 - 450.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.42s (read: 0.33s, memcpy: 0.00s, convert: 0.01s, copy_to_backend: 0.00s) --- model_loader.cpp:1390\n[I] latent 1 decoded, taking 17.71s --- image.cpp:620\n[I] decode_first_stage completed, taking 17.71s --- image.cpp:624\n[I] generate_image completed in 196.51s --- image.cpp:1050\n[I] ggml: ggml_metal_free: deallocating\n[I] save result image 0 to '/Users/ashivam/Desktop/YouTube/strategy-implementation-2026-10-24/evidence/kahaani-chaos/e04-local-repair/beat03.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "4934e419a67a71444b2d52046f0f1fe471759d592ec75f85f129ba25c31467d8",
+  "generation": {
+    "origin": "local-stable-diffusion.cpp",
+    "binary_tag": "master-959-d637cfb",
+    "source_sha": "9b7c4be14bc2ca2051fb8f84f9ea8ee44e704739",
+    "backend": "Darwin arm64 Metal",
+    "weights": {
+      "diffusion": {
+        "file": "z_image_turbo-Q4_K.gguf",
+        "sha256": "14b375ab4f226bc5378f68f37e899ef3c2242b8541e61e2bc1aff40976086fbd"
+      },
+      "llm": {
+        "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597"
+      },
+      "vae": {
+        "file": "ae.safetensors",
+        "sha256": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38"
+      }
+    }
+  },
+  "production_approved": false
+}

@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261024-2135-e04",
+  "beat": 6,
+  "alt": 1,
+  "prompt": "Medium close-up of Jhabbu sitting on a bench under a dim bulb, writing carefully in a red-bound khaki register. Brass lantern glowing softly beside him. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, an open khaki ledger with a red spine resting before him, brass hurricane lantern and bamboo staff with a small bell set beside him, face small and turned away, calm expression. Exactly one person, Jhabbu, seated and writing. All details describe this same man. Nobody else is present; his lantern and staff rest beside him. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1026.0,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1163986280,
+  "log_tail": "                                     | 10/138 - 152.11MB/s\u001b[K\n  |##################################################| 138/138 - 935.65MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 105.10s --- image.cpp:620\n[I] decode_first_stage completed, taking 105.10s --- image.cpp:624\n[I] generate_image completed in 1025.20s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat06-alt1.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12577943556,
+    "run_id": 40134819856,
+    "name": "art-40134819856-6",
+    "size_in_bytes": 3421117,
+    "source_sha": "9ff60cd2b166df7b4ac85beef93196181e31f745"
+  },
+  "image_sha256": "0b3cbb4a4b41182b32eff9ef9c980bf1cbbc8b5049fb8cfb710e9ec214baa2ff"
+}
