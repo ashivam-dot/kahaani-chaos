@@ -136,3 +136,11 @@ def test_watchman_can_help_someone_when_scene_sets_down_his_props():
     assert 'resting beside him' in token
     assert 'holding a brass hurricane lantern' not in token and 'under one arm' not in token
     assert 'red woollen muffler' in token and 'ledger with a red spine' in token
+
+
+def test_separate_grounded_prop_sentences_free_the_watchmans_hands_only_when_both_are_down():
+    scene = 'The brass lantern rests on the floor beside the table. A bamboo staff leans against the wall.'
+    token = look.character({'id': 'jhabbu'}, scene)
+    assert 'resting beside him' in token and 'holding a brass hurricane lantern' not in token
+    carrying = look.character({'id': 'jhabbu'}, 'The lantern rests on the table. Jhabbu carries his bamboo staff.')
+    assert 'resting beside him' not in carrying

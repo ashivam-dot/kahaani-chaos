@@ -138,8 +138,10 @@ def character(entry: dict, scene: str = "") -> str:
                             "brass hurricane lantern and bamboo staff with a small bell set beside him")
         if UNLIT.search(scene):
             look = look.replace("brass hurricane lantern", "unlit brass hurricane lantern")
-    elif entry.get("id") == "jhabbu" and re.search(
-            r"\blantern and (?:bamboo )?staff rest\b", scene, re.I):
+    elif entry.get("id") == "jhabbu" and (re.search(
+            r"\blantern and (?:bamboo )?staff rest\b", scene, re.I) or (
+            re.search(r"\blantern\s+rests?\b", scene, re.I) and
+            re.search(r"\bstaff\s+(?:rests?|leans?)\b", scene, re.I))):
         # Helping another person needs a free hand; do not simultaneously ask him to carry every prop.
         look = look.replace("holding a brass hurricane lantern, bamboo staff with a small bell, "
                             "khaki ledger with a red spine under one arm",
