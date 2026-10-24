@@ -150,7 +150,9 @@ upload public. Reviewer/network outages retry with backoff; negative verdicts pe
 the first recovery release. The ordinary producer/publisher respects the batch's durable calendar reservation.
 `batch-release.yml` serializes these checks with the existing publisher, runs on completed builds and every
 fifteen minutes when `BATCH_RELEASE_ENABLED=true`, and defaults manual runs to review only. Automatic mode
-uses the channel's existing environment credentials. Code alone is not proof of a release. No existing upload
+uses the channel's existing environment credentials. The complete media-bound verdict is checkpointed before
+archiving, so an archive outage cannot replace a refusal with a new review on the next runner.
+Code alone is not proof of a release. No existing upload
 ids, disclosure settings, voices or cadence are changed.
 
 **Batch previews (25 October 2026).** `strategy/batch-2026-10-25.json` lists twenty distinct future entries plus
