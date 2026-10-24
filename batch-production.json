@@ -544,6 +544,24 @@
           "reason": "Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required.",
           "evidence": {
             "art-40134819856-3/beat03.png": "28b7aad5427f5a208a8cf1c88d24ae820e02527be1bf2becc614fb0a247a56c5"
+          },
+          "resolved_at": "2026-10-24T23:35:46+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "76b80e9d4b3106bc97abd5c229973879322add57",
+            "replay": ".github/replay/sannatpur-scale-e04-repair.json",
+            "replay_sha256": "735366db137490240bf120155ba3f8d12885dd8c38250bb937df380aca0aae59",
+            "selected_images": {
+              "0": "9bc8f6888e758dcbd264e92fbca27b03e094609d61aba53639edb0c53327a1fa",
+              "1": "9d322149390ed977bf7e1cbb6cce765c5c8f788326fb7aafe0cc8acc64101e97",
+              "2": "2724475032c1bab6971c3d875dbfd625fdee845a2803b99a37fe555ccf468f1c",
+              "3": "4934e419a67a71444b2d52046f0f1fe471759d592ec75f85f129ba25c31467d8",
+              "4": "949c3343b824970cfba7fdbe7401675935b59cef9cf747d7afa9a1e32cb1bfdd",
+              "5": "a58a9885552f4de819bf9bc048d0b8aebcba0e13b0929926b82c5a262d5f8491",
+              "6": "c8438b0a8e639be422484c9b1a9b300d06ff407f11457c2dba8d221ce7a7236b"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -553,6 +571,24 @@
           "reason": "Direct inspection of actual cloud opening: a large unsupported lantern floats above the scale, adding a second unexplained impossible object and distracting from the story hook. Replace only this opening and the held hand-operated scale close-up; retain other valid paintings.",
           "evidence": {
             "art-40134819856-0/beat00.png": "c297e5d216c354ed0826bdb0a13348db3184b7e5cd6aafed3869edde7b80dc89"
+          },
+          "resolved_at": "2026-10-24T23:35:46+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "76b80e9d4b3106bc97abd5c229973879322add57",
+            "replay": ".github/replay/sannatpur-scale-e04-repair.json",
+            "replay_sha256": "735366db137490240bf120155ba3f8d12885dd8c38250bb937df380aca0aae59",
+            "selected_images": {
+              "0": "9bc8f6888e758dcbd264e92fbca27b03e094609d61aba53639edb0c53327a1fa",
+              "1": "9d322149390ed977bf7e1cbb6cce765c5c8f788326fb7aafe0cc8acc64101e97",
+              "2": "2724475032c1bab6971c3d875dbfd625fdee845a2803b99a37fe555ccf468f1c",
+              "3": "4934e419a67a71444b2d52046f0f1fe471759d592ec75f85f129ba25c31467d8",
+              "4": "949c3343b824970cfba7fdbe7401675935b59cef9cf747d7afa9a1e32cb1bfdd",
+              "5": "a58a9885552f4de819bf9bc048d0b8aebcba0e13b0929926b82c5a262d5f8491",
+              "6": "c8438b0a8e639be422484c9b1a9b300d06ff407f11457c2dba8d221ce7a7236b"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -565,6 +601,24 @@
             "art-40134819856-2/beat02.png": "d8a25ba8d25229478cfdb2966a30a01e9b8a19b109a9e0ce935bf4f901d7a5da",
             "art-40134819856-5/beat05-alt1.png": "e80b504027ff9bf47977a9c106635c8dfa15903cc12190ba672b6ed5a23238e6",
             "art-40134819856-5/beat05.png": "fecaa47bd768371ec0e50b692fc6eaa5656b7edea7a7011c7dbf19342382fc36"
+          },
+          "resolved_at": "2026-10-24T23:35:46+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "76b80e9d4b3106bc97abd5c229973879322add57",
+            "replay": ".github/replay/sannatpur-scale-e04-repair.json",
+            "replay_sha256": "735366db137490240bf120155ba3f8d12885dd8c38250bb937df380aca0aae59",
+            "selected_images": {
+              "0": "9bc8f6888e758dcbd264e92fbca27b03e094609d61aba53639edb0c53327a1fa",
+              "1": "9d322149390ed977bf7e1cbb6cce765c5c8f788326fb7aafe0cc8acc64101e97",
+              "2": "2724475032c1bab6971c3d875dbfd625fdee845a2803b99a37fe555ccf468f1c",
+              "3": "4934e419a67a71444b2d52046f0f1fe471759d592ec75f85f129ba25c31467d8",
+              "4": "949c3343b824970cfba7fdbe7401675935b59cef9cf747d7afa9a1e32cb1bfdd",
+              "5": "a58a9885552f4de819bf9bc048d0b8aebcba0e13b0929926b82c5a262d5f8491",
+              "6": "c8438b0a8e639be422484c9b1a9b300d06ff407f11457c2dba8d221ce7a7236b"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -575,6 +629,24 @@
           "evidence": {
             "art-40134819856-4/beat04.png": "264a8297dc6a39e0e3637d95c548f1510206c4e758ed35b1a270532f8e3722fe",
             "art-40134819856-4/beat04-alt1.png": "10c10d84fdb1c82c157f5d70729f351334e6be708901aea238a5b52a0cfa5ab2"
+          },
+          "resolved_at": "2026-10-24T23:35:46+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "76b80e9d4b3106bc97abd5c229973879322add57",
+            "replay": ".github/replay/sannatpur-scale-e04-repair.json",
+            "replay_sha256": "735366db137490240bf120155ba3f8d12885dd8c38250bb937df380aca0aae59",
+            "selected_images": {
+              "0": "9bc8f6888e758dcbd264e92fbca27b03e094609d61aba53639edb0c53327a1fa",
+              "1": "9d322149390ed977bf7e1cbb6cce765c5c8f788326fb7aafe0cc8acc64101e97",
+              "2": "2724475032c1bab6971c3d875dbfd625fdee845a2803b99a37fe555ccf468f1c",
+              "3": "4934e419a67a71444b2d52046f0f1fe471759d592ec75f85f129ba25c31467d8",
+              "4": "949c3343b824970cfba7fdbe7401675935b59cef9cf747d7afa9a1e32cb1bfdd",
+              "5": "a58a9885552f4de819bf9bc048d0b8aebcba0e13b0929926b82c5a262d5f8491",
+              "6": "c8438b0a8e639be422484c9b1a9b300d06ff407f11457c2dba8d221ce7a7236b"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -920,7 +992,7 @@
     }
   ],
   "halted": "Repair held entry e04: Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required.; Direct inspection of actual cloud opening: a large unsupported lantern floats above the scale, adding a second unexplained impossible object and distracting from the story hook. Replace only this opening and the held hand-operated scale close-up; retain other valid paintings.; Actual cloud beats 2 and 5 show mustard-sweater Prabhat handling the scale while red-cap Shailesh stands aside. Both narrated lines specifically name Shailesh lifting/delivering the scale. Beat 2 also lacks the complete balance apparatus. Repair only these shots with one clear acting character and a complete scale; preserve story and valid other paintings.; Actual beat4 base and alt1 show five people, including two mustard-clad Prabhats. Original alt2 has the intended four people and may be retained with its original alternate provenance, current picture editor and complete AV review.",
-  "updated_at": "2026-10-24T23:26:13+00:00",
+  "updated_at": "2026-10-24T23:35:46+00:00",
   "complete": false,
   "health": {
     "public": 1,
