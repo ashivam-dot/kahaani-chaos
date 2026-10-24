@@ -75,7 +75,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-radio-e02-repair.json"
       },
-      "stage": "held",
+      "stage": "building",
       "attempts": 1,
       "source_sha": "fec73b8fbb36ae4a54d34a3916d8731269bd0af9",
       "obsolete_runs": [
@@ -91,6 +91,15 @@
           "problems": [
             "ValueError: preview did not make a finished passing Short"
           ]
+        },
+        {
+          "mode": "audio-only finishing",
+          "run_id": 40132420577,
+          "source_sha": "fec73b8fbb36ae4a54d34a3916d8731269bd0af9",
+          "problems": [
+            "ValueError: preview did not make a finished passing Short"
+          ],
+          "input_sha256": "7072794d49a4f85808f33801cc73055fb8d8eb588de3dbff2d5737e5e461e5a9"
         }
       ],
       "before_ids": [
@@ -177,9 +186,18 @@
       ],
       "submitted_at": "2026-10-24T21:01:58.290860+00:00",
       "run_id": 40132420577,
-      "problems": [
-        "ValueError: preview did not make a finished passing Short"
-      ]
+      "audio_finish": {
+        "source_files": {
+          "short.mp4": "7072794d49a4f85808f33801cc73055fb8d8eb588de3dbff2d5737e5e461e5a9",
+          "story.json": "8491a62576565e870c0825e346e935720f57f108e357d5ad847349a17305fd51",
+          "timing.json": "5c05110b90f4d60da389e80aa8e86a40f616e1a2139778a9774ecb613bf9dadd",
+          "pictures.json": "645086cacbae9ce205afa796f317b43e2d0f850a8ef578880ca7966f0e073a17",
+          "picture-checks.json": "a4b2a482d0e271156ef678555e5e38d94c17935d2b19612cd5aaa92d334d2758",
+          "dry-produce-health.json": "741f1d3b94c639fbec8d463ae44ca4f0a64764cb04f2ff28f2f82981a097988f"
+        },
+        "implementation_sha": "5d88ec338bd0a3f9ce93e7077287b5f706fc7392",
+        "reason": "All expected video frames and picture/voice gates passed; finish only the -15.1 LUFS soundtrack. Preserve exact video and narration/timing. New full AV approval and original release gates remain mandatory."
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -410,8 +428,8 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e02: ValueError: preview did not make a finished passing Short",
-  "updated_at": "2026-10-24T21:14:05+00:00",
+  "halted": null,
+  "updated_at": "2026-10-24T21:21:10+00:00",
   "complete": false,
   "health": {
     "public": 0,
