@@ -197,6 +197,54 @@
         },
         "implementation_sha": "5d88ec338bd0a3f9ce93e7077287b5f706fc7392",
         "reason": "All expected video frames and picture/voice gates passed; finish only the -15.1 LUFS soundtrack. Preserve exact video and narration/timing. New full AV approval and original release gates remain mandatory."
+      },
+      "review": {
+        "schema": 1,
+        "model": "gemini-3.8-flash",
+        "duration": 41.0,
+        "video_sha256": "8bbd8289efc3beff0e96605083d0042aadd0b4636ff15e21e36e8c9817c9a446",
+        "brief_sha256": "8db33e54c712081c0e4e47695b9300cb5ad44115afa2f0938590c1f13db9d2f0",
+        "review_video_sha256": "092c507200f43bcc082800fab198a98940a1ea356acd18ba96bf508241c6ac1b",
+        "review_audio_sha256": "0faa03db6014deed7636a6689fd3d0f3693703cd55dc2005ff3dbd3c6bdab55c",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "टंकी पर रखा रेडियो कल की ख़बर सुनाने लगा।",
+          "heard_ending": "सुबह झब्बू ने अपने लाल रजिस्टर में लिखा, आँधी आई पर किसी का कुछ नहीं टूटा।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.0,
+              "seen": "A transistor radio rests illuminated on a ladder rung against an overhead water tank.",
+              "heard": "टंकी पर रखा रेडियो कल की ख़बर सुनाने लगा।"
+            },
+            {
+              "part": "middle",
+              "seconds": 24.0,
+              "seen": "Nuzhat holding a lantern alongside Shailesh looking anxious in his red cap.",
+              "heard": "शैलेश रिज़ल्ट पूछना चाहता था, पर नुज़हत ने पूछा कि कल सबसे ज़्यादा नुक़सान किसका होगा।"
+            },
+            {
+              "part": "ending",
+              "seconds": 35.0,
+              "seen": "Jhabbu seated alone at sunrise writing into a red-spined ledger.",
+              "heard": "सुबह झब्बू ने अपने लाल रजिस्टर में लिखा, आँधी आई पर किसी का कुछ नहीं टूटा।"
+            }
+          ],
+          "issues": []
+        }
       }
     },
     {
@@ -429,7 +477,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-24T21:22:04+00:00",
+  "updated_at": "2026-10-24T21:23:46+00:00",
   "complete": false,
   "health": {
     "public": 0,
