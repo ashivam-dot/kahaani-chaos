@@ -14,7 +14,7 @@
   "held": "hold: prop identity 80% of cast shots, needs 85%"
  },
  "publish": {
-  "at": "2026-10-24T07:26:05+00:00",
+  "at": "2026-10-24T09:06:36+00:00",
   "ok": true,
   "steps": [],
   "held": "hold: the buffer is empty; slot 2026-10-24T07:30:00Z has no Short"
