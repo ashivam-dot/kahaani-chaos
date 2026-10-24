@@ -42,6 +42,17 @@ DAWN_STYLE = ("Early-morning 1996 north-Indian village at dawn, pale gold sunris
               " visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject"
               " in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a"
               " cartoon")
+# Outdoor village scenery in the house style overrode e09's staff-room scenes and put its ceiling fan in open sky.
+# Keep the palette and brushwork, but let an explicit interior determine the surroundings.
+INDOOR = re.compile(r"\b(interior|indoors|inside|staff[ -]room|classroom|bedroom|kitchen|enclosed room)\b", re.I)
+INDOOR_STYLE = ("Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling,"
+                " one warm practical light, cool blue light entering through the windows, lifted shadows."
+                " Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition"
+                " with the subject in the upper two thirds and calm space low in the frame."
+                " Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon")
+INDOOR_DAWN_STYLE = INDOOR_STYLE.replace(
+    "one warm practical light, cool blue light entering through the windows",
+    "pale gold dawn light entering through the windows, soft blue shadows, unlit lamps")
 UNLIT = re.compile(r"\b(light|lamp|headlight|bulb|lantern|torch)\b[^.]{0,30}\b(dark|off|unlit|dead)\b|"
                    r"\b(dark|unlit|switched-off|dead)\s+(\w+\s+)?(light|lamp|headlight|bulb|lantern|torch)\b", re.I)
 OUT = "The light the scene names is switched off and unlit: no glow, no beam from it."
@@ -127,6 +138,13 @@ def character(entry: dict, scene: str = "") -> str:
                             "brass hurricane lantern and bamboo staff with a small bell set beside him")
         if UNLIT.search(scene):
             look = look.replace("brass hurricane lantern", "unlit brass hurricane lantern")
+    elif entry.get("id") == "jhabbu" and re.search(
+            r"\blantern and (?:bamboo )?staff rest\b", scene, re.I):
+        # Helping another person needs a free hand; do not simultaneously ask him to carry every prop.
+        look = look.replace("holding a brass hurricane lantern, bamboo staff with a small bell, "
+                            "khaki ledger with a red spine under one arm",
+                            "brass hurricane lantern, bamboo staff with a small bell and khaki ledger "
+                            "with a red spine resting beside him")
     name = known["name"]["en"] if known else entry.get("name", "")
     if animal(look) and "not a person" not in look.lower():
         look += REAL
@@ -156,7 +174,11 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
         parts.append(FACES)
     else:
         parts.append(NOBODY)
-    parts += [(DAWN_STYLE if DAWN.search(scene) else STYLE) + ".", AVOID, NEVER]
+    if INDOOR.search(scene):
+        style = INDOOR_DAWN_STYLE if DAWN.search(scene) else INDOOR_STYLE
+    else:
+        style = DAWN_STYLE if DAWN.search(scene) else STYLE
+    parts += [style + ".", AVOID, NEVER]
     return " ".join(parts)
 
 

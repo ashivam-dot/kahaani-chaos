@@ -77,7 +77,7 @@ def test_repaints_are_collected_apart_from_the_painting(tmp_path):
 def verdict(n, props_ok=True, share=0.5):
     return {"n": n, "shows": "Jhabbu on the bridge", "fits": True, "nudity": False, "sexual": False, "gore": False,
             "malformed": False, "text": False, "religious": False, "kids_look": False, "doubled": False,
-            "ridden": False, "human_present": False, "props_ok": props_ok,
+            "ridden": False, "human_present": False, "setting_ok": True, "structure_ok": True, "props_ok": props_ok,
             "subject_share": share, "reason": "" if props_ok else "no lantern"}
 
 
@@ -213,6 +213,7 @@ def test_the_editor_sees_the_planned_picture(tmp_path):
     def ask(parts, schema):
         prompts.append(parts[0])
         return {"pictures": [{"n": 1, "shows": "a bicycle", "fits": True, "ridden": False, "human_present": False,
+                                         "setting_ok": True, "structure_ok": True,
                                          "subject_share": 0.5}]}
 
     aiart.pictures(aiart.collect(art, "kc-1", 1), ["a"], tmp_path / "pics", "story", "cast", ask,
@@ -290,3 +291,20 @@ def test_a_hand_cannot_operate_an_object_in_an_object_only_scene():
     unknown = {k: v for k, v in verdict(1).items() if k != 'human_present'}
     assert vision.rejected(unknown, scene=scene).startswith('unplanned human')
     assert vision.rejected(actual, cast_shot=True, scene='Shailesh holds the balance.') is None
+
+
+def test_indoor_story_cannot_pass_with_outdoor_surroundings_even_if_fits_is_true():
+    scene = 'Wide interior shot of the college staff room with the three young people at a table.'
+    actual = verdict(1) | {'setting_ok': False, 'shows': 'Three young people sit in a village street under the moon.'}
+    assert vision.rejected(actual, cast_shot=True, scene=scene).startswith('setting:')
+    unknown = {k: v for k, v in verdict(1).items() if k != 'setting_ok'}
+    assert vision.rejected(unknown, cast_shot=True, scene=scene).startswith('setting:')
+
+
+def test_reverse_fan_does_not_allow_a_fan_floating_in_open_sky():
+    scene = 'Inside the staff room the ceiling fan spins backwards while the cast watches.'
+    actual = verdict(1) | {'structure_ok': False, 'shows': 'A ceiling fan floats unsupported above the village.'}
+    assert vision.rejected(actual, cast_shot=True, scene=scene).startswith('structure:')
+    unknown = {k: v for k, v in verdict(1).items() if k != 'structure_ok'}
+    assert vision.rejected(unknown, cast_shot=True, scene=scene).startswith('structure:')
+    assert vision.rejected(verdict(1), cast_shot=True, scene=scene) is None

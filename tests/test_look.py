@@ -118,3 +118,21 @@ def test_a_by_itself_beat_paints_the_thing_standing_empty_not_moving():
     text = lk.prompt(scene, [{"name": "prabhat", "expression": "startled"}], [])
     assert "rolling" not in text and "bicycle stands empty across the bridge" in text
     assert lk.EMPTY in text and "Prabhat" not in text
+
+
+def test_staff_room_stays_enclosed_without_outdoor_style_at_night_and_dawn():
+    for scene, style in [('Wide interior shot of the college staff room at night.', look.INDOOR_STYLE),
+                         ('The staff-room ceiling fan stops in pale dawn light.', look.INDOOR_DAWN_STYLE)]:
+        prompt = look.prompt(scene, [], [])
+        assert style in prompt and 'visible solid ceiling' in prompt
+        assert look.STYLE not in prompt and look.DAWN_STYLE not in prompt
+    outdoor = look.prompt('The young people stand outside the college at dawn.', [], [])
+    assert look.DAWN_STYLE in outdoor and look.INDOOR_STYLE not in outdoor
+
+
+def test_watchman_can_help_someone_when_scene_sets_down_his_props():
+    scene = 'Jhabbu holds Shailesh by the wrist. The brass lantern and bamboo staff rest beside the table.'
+    token = look.character({'id': 'jhabbu'}, scene)
+    assert 'resting beside him' in token
+    assert 'holding a brass hurricane lantern' not in token and 'under one arm' not in token
+    assert 'red woollen muffler' in token and 'ledger with a red spine' in token
