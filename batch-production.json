@@ -18,8 +18,13 @@
       "archive": "batch-reviewed-40120456012",
       "cloud_status": "completed",
       "review": {
+        "schema": 1,
         "model": "gemini-3-flash-preview",
+        "duration": 44.096,
         "video_sha256": "ec569c63296aa07ae4f0eea8498c78695ffbd672237df5162995f3d49810ed6e",
+        "brief_sha256": "3620d58ebad4983f13f2a6ce0865787772460ef138357410ef39aa66f3297e58",
+        "review_video_sha256": "e73379dc1e2413869f8567cf6ee651b988f5ed3c1aa54b3f7f69db018554ea6b",
+        "review_audio_sha256": "dea6c9c1434fa4e0c03d031008653d8a9a4adb91aae4bb8ccdcdcb2f0a38efad",
         "verdict": {
           "decision": "pass",
           "audio_listened": true,
@@ -58,8 +63,7 @@
             }
           ],
           "issues": []
-        },
-        "duration": 44.096
+        }
       }
     },
     {
@@ -311,7 +315,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-24T20:40:43+00:00",
+  "updated_at": "2026-10-24T20:41:05+00:00",
   "complete": false,
   "health": {
     "public": 0,
