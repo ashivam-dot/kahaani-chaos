@@ -298,7 +298,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-fan-e09-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 4,
       "source_sha": "fdaae1d136a4fcc8e7d2e9d53dc33b583674809b",
       "before_ids": [
@@ -469,7 +469,8 @@
         40142424645,
         40142724972
       ],
-      "repair_reason": "Exact cached indoor paintings retained; fdaae1d applies a fixed bounded opening S-curve. Real prepared opening now passes unchanged luma/contrast bands with 0.2992 percent newly clipped pixels; full current cloud and audiovisual checks remain mandatory."
+      "repair_reason": "Exact cached indoor paintings retained; fdaae1d applies a fixed bounded opening S-curve. Real prepared opening now passes unchanged luma/contrast bands with 0.2992 percent newly clipped pixels; full current cloud and audiovisual checks remain mandatory.",
+      "run_id": 40144076354
     },
     {
       "repo": "kahaani-chaos",
@@ -1048,7 +1049,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-24T23:46:12+00:00",
+  "updated_at": "2026-10-24T23:46:17+00:00",
   "complete": false,
   "health": {
     "public": 1,
