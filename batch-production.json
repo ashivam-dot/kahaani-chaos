@@ -298,10 +298,12 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-fan-e09-repair.json"
       },
-      "stage": "held",
-      "attempts": 2,
-      "source_sha": "a4af1a2066f42b132aed62def56e7cd443603844",
+      "stage": "dispatch_unresolved",
+      "attempts": 3,
+      "source_sha": "8d17029a06f90d4a315d5d2ca1739c1a145c27fb",
       "before_ids": [
+        40142626858,
+        40142424645,
         40142328302,
         40134819856,
         40134047227,
@@ -387,7 +389,7 @@
         38439489788,
         38428830025
       ],
-      "submitted_at": "2026-10-24T23:21:44+00:00",
+      "submitted_at": "2026-10-24T23:26:06+00:00",
       "cloud_status": "completed",
       "editorial_holds": [
         {
@@ -435,16 +437,26 @@
             "mode": "dry-run",
             "replay": ".github/replay/batch-2026-10-25/e09.json"
           }
+        },
+        {
+          "run_id": 40142424645,
+          "source_sha": "a4af1a2066f42b132aed62def56e7cd443603844",
+          "stage": "held",
+          "problems": [
+            "production run failure"
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/sannatpur-fan-e09-repair.json"
+          },
+          "repair_reason": "Replace six directly refused staff-room shots with exact inspected indoor paintings; retain valid original opening, correct actor and supported props. Current picture, voice, render and full audiovisual gates remain mandatory."
         }
       ],
       "obsolete_runs": [
-        40134047227
+        40134047227,
+        40142424645
       ],
-      "repair_reason": "Replace six directly refused staff-room shots with exact inspected indoor paintings; retain valid original opening, correct actor and supported props. Current picture, voice, render and full audiovisual gates remain mandatory.",
-      "run_id": 40142424645,
-      "problems": [
-        "production run failure"
-      ]
+      "repair_reason": "Exact same inspected paintings and narration; failed preflight required explicit actor/support directions within the new bounded painter-description limit. Full current story, picture, voice, render and audiovisual checks remain."
     },
     {
       "repo": "kahaani-chaos",
@@ -906,8 +918,8 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e09: production run failure",
-  "updated_at": "2026-10-24T23:24:45+00:00",
+  "halted": "Repair held entry e04: Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required.; Direct inspection of actual cloud opening: a large unsupported lantern floats above the scale, adding a second unexplained impossible object and distracting from the story hook. Replace only this opening and the held hand-operated scale close-up; retain other valid paintings.; Actual cloud beats 2 and 5 show mustard-sweater Prabhat handling the scale while red-cap Shailesh stands aside. Both narrated lines specifically name Shailesh lifting/delivering the scale. Beat 2 also lacks the complete balance apparatus. Repair only these shots with one clear acting character and a complete scale; preserve story and valid other paintings.; Actual beat4 base and alt1 show five people, including two mustard-clad Prabhats. Original alt2 has the intended four people and may be retained with its original alternate provenance, current picture editor and complete AV review.",
+  "updated_at": "2026-10-24T23:26:06+00:00",
   "complete": false,
   "health": {
     "public": 1,
