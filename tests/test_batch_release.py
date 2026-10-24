@@ -123,6 +123,22 @@ def test_an_ambiguous_dispatch_is_not_submitted_again(monkeypatch):
     assert job["stage"] == "dispatch_unresolved"
 
 
+def test_model_discovery_outages_are_retryable_without_an_editorial_refusal(monkeypatch):
+    def fail(*a, **k):
+        raise review.requests.Timeout("provider unavailable")
+    monkeypatch.setattr(review.requests, "get", fail)
+    with pytest.raises(review.ReviewHold, match="network unavailable"):
+        review._models("not-a-real-key")
+
+
+def test_a_github_timeout_keeps_dispatch_ambiguity_retryable(monkeypatch):
+    def fail(*a, **k):
+        raise batch.subprocess.TimeoutExpired("gh", 180)
+    monkeypatch.setattr(batch.subprocess, "run", fail)
+    with pytest.raises(batch.TransientOperation, match="reconcile"):
+        batch.gh("api", "repos/owner/repo/actions/workflows/run.yml/dispatches", body={})
+
+
 def test_ordinary_production_resumes_only_after_the_reserved_calendar(tmp_path):
     path = tmp_path / "batch-production.json"
     path.write_text(json.dumps({"schema": 1, "enabled": True, "complete": True,
