@@ -91,7 +91,8 @@ def publish(job, folder, when):
     validate(job, folder)  # refresh rotation/variation immediately before touching the channel
     story = Story.load(next(folder.rglob("story.json")))
     timing = _read(folder, "timing.json")
-    result = youtube.publish(story, next(folder.rglob("short.mp4")), timing["voice"], publish_at=when)
+    result = youtube.publish(story, next(folder.rglob("short.mp4")), timing["voice"], publish_at=when,
+                             media_sha256=job["review"]["video_sha256"])
     api = youtube.client()
     youtube.identity(api)
     video = api.videos().list(part="snippet,status", id=result["video_id"]).execute()["items"][0]

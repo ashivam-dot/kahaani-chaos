@@ -195,6 +195,30 @@ def test_processing_details_do_not_replace_the_processed_upload_readback(pinned,
     assert waits[0] == 15 and result["privacy"] == "public" and result["video_id"] == "old"
 
 
+def test_reviewed_release_reconciles_only_the_same_media_bytes(pinned, story, mp4):
+    import hashlib
+
+    digest = hashlib.sha256(mp4.read_bytes()).hexdigest()
+    api = FakeYouTube()
+    first = youtube.publish(story, mp4, NARRATOR, api=api, pause=lambda s: None, media_sha256=digest)
+    again = youtube.publish(story, mp4, NARRATOR, api=api, pause=lambda s: None, media_sha256=digest)
+    assert first["video_id"] == again["video_id"] and len(api.inserted) == 1
+    assert api.inserted[0]["snippet"]["tags"][-2:] == ["reviewed-sha256:" + digest, config.MARKER + story.id]
+
+
+def test_an_old_unbound_upload_is_held_without_replacement_or_publication(pinned, story, mp4):
+    import hashlib
+
+    existing = {"id": "old-unreviewed", "snippet": {"channelId": CHANNEL, "tags": [config.MARKER + story.id]},
+                "status": {"privacyStatus": "private", "uploadStatus": "processed", "madeForKids": False,
+                           "selfDeclaredMadeForKids": False}}
+    api = FakeYouTube(uploads=[existing])
+    with pytest.raises(ValueError, match="old-unreviewed is not bound"):
+        youtube.publish(story, mp4, NARRATOR, api=api, pause=lambda s: None,
+                        media_sha256=hashlib.sha256(mp4.read_bytes()).hexdigest())
+    assert api.inserted == api.updated == []
+
+
 def test_release_makes_a_scheduled_upload_public_now(pinned, story, mp4):
     api = FakeYouTube()
     youtube.publish(story, mp4, NARRATOR, publish_at="2099-10-13T07:00:00Z", api=api, pause=lambda s: None)

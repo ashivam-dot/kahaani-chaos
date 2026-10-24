@@ -274,7 +274,7 @@ def add_to_playlist(api, video_id: str, playlist_id: str | None) -> str:
 
 
 def publish(story: Story, mp4: Path, voice: dict, publish_at: str | None = None, api=None, max_wait: int = 900,
-            pause=time.sleep) -> dict:
+            pause=time.sleep, media_sha256: str | None = None) -> dict:
     """Upload and schedule for publish_at (RFC 3339 UTC, in the future), or make public now when it is None."""
     refused = gate.voice_ok(voice)
     if refused:
@@ -282,7 +282,15 @@ def publish(story: Story, mp4: Path, voice: dict, publish_at: str | None = None,
     api = api or client()
     channel = identity(api)
     existing = find(api, channel, story.id)
-    video_id = existing["id"] if existing else _insert(api, mp4, body(story, voice, publish_at), pause)
+    request_body = body(story, voice, publish_at) if not existing else None
+    if media_sha256 is not None:
+        from ops import upload_identity
+
+        binding = upload_identity.media_tag(mp4, media_sha256)
+        upload_identity.check_existing(existing, binding)
+        if request_body is not None:
+            request_body["snippet"]["tags"] = upload_identity.bound_tags(request_body["snippet"]["tags"], binding)
+    video_id = existing["id"] if existing else _insert(api, mp4, request_body, pause)
     deadline = time.monotonic() + max_wait
     while True:
         video = api.videos().list(part="snippet,status,processingDetails", id=video_id).execute()["items"][0]
