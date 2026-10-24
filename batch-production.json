@@ -11,7 +11,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-cycle-e01.json"
       },
-      "stage": "upload_intent",
+      "stage": "public",
       "attempts": 0,
       "run_id": 40120456012,
       "source_sha": "4c5195d8eb2ff5e0b1b661f5225feb8d85056e1a",
@@ -66,7 +66,25 @@
         }
       },
       "intended_publish_at": null,
-      "upload_intent_at": "2026-10-24T21:25:22+00:00"
+      "upload_intent_at": "2026-10-24T21:25:22+00:00",
+      "delivery": {
+        "video_id": "MgpiNIxQLAs",
+        "url": "https://www.youtube.com/shorts/MgpiNIxQLAs",
+        "privacy": "public",
+        "synthetic_declared": true,
+        "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+        "comment": "posted",
+        "playlist": "skipped: no playlist",
+        "owner_readback": {
+          "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+          "privacyStatus": "public",
+          "publishAt": null,
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false,
+          "containsSyntheticMedia": null,
+          "uploadStatus": "processed"
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -544,7 +562,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-24T21:25:22+00:00",
+  "updated_at": "2026-10-24T21:26:10+00:00",
   "complete": false,
   "health": {
     "public": 0,
