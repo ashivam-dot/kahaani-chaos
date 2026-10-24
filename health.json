@@ -1,17 +1,17 @@
 {
  "produce": {
-  "at": "2026-10-24T15:16:47+00:00",
+  "at": "2026-10-24T17:54:59+00:00",
   "ok": true,
   "dry": false,
   "steps": [
-   "paintings: 7 of 7 made, 5 repaints",
-   "hold e01: hold: prop identity 75% of cast shots, needs 85%"
+   "paintings: 7 of 7 made, 7 repaints",
+   "hold e01: hold: picture and sound checks: frame 0 mean luma 72, needs 90-170"
   ],
   "picture_editor": [
    "gemini"
   ],
-  "prop_identity": 0.75,
-  "held": "hold: prop identity 75% of cast shots, needs 85%"
+  "prop_identity": 1.0,
+  "held": "hold: picture and sound checks: frame 0 mean luma 72, needs 90-170"
  },
  "publish": {
   "at": "2026-10-24T15:17:42+00:00",
