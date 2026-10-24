@@ -119,6 +119,23 @@ def test_the_hook_retime_moves_the_timings_without_listening(tmp_path, monkeypat
     assert abs(s2[0][1] - 3.9 - added) < 0.01
 
 
+def test_an_off_pace_take_is_retimed_without_listening(tmp_path, monkeypatch):
+    # Run 40094273058: a 179.6 wpm take was kept at its pace because the re-listen jittered; the Short held at 181.9.
+    import soundfile as sf
+
+    wav = tmp_path / "n.wav"
+    _tone(wav, 0.25, 4.0)
+    words = _words(3.14)
+    monkeypatch.setattr(voice, "_listen", lambda *a: (_ for _ in ()).throw(AssertionError("listened again")))
+    before = sf.info(str(wav)).duration
+    w2, cov, wpm, factor = voice._paced(wav, [], words, [0.9, 0.8], [], 179.6, tmp_path)
+    assert abs(factor - voice.AIM_WPM / 179.6) < 1e-3 and cov == [0.9, 0.8]
+    assert voice.TARGET_WPM[0] <= wpm <= voice.TARGET_WPM[1]
+    assert abs(sf.info(str(wav)).duration - before / factor) < 0.05
+    assert all(abs(b["end"] - a["end"] / factor) < 0.002 for a, b in zip(words, w2))
+    assert voice._paced(wav, [], words, [1.0], [], 165.0, tmp_path)[3] == 1.0
+
+
 def test_the_hook_retime_keeps_the_pause_before_line_two(tmp_path, monkeypatch, story):
     # Dry run 39969216681: cut at the middle of the pause, a x0.867 re-time stretched it from 1.11 s past the 1.2 s limit.
     wav = tmp_path / "n.wav"

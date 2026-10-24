@@ -442,17 +442,17 @@ def _spans(words: list[dict], beats: int, duration: float, lead: float) -> list[
 
 
 def _paced(wav: Path, tokens, words, coverage, spoken, wpm, out_dir: Path) -> tuple[list, list, float | None, float]:
-    """Gently re-time a take that is off TARGET_WPM, then listen again; the original stays if the re-timed one fails."""
+    """Gently re-time a take that is off TARGET_WPM. atempo stretches the whole take uniformly, so its word timings
+    scale by the factor: listening again would add nothing, and Whisper's jitter on the re-listen threw good re-times
+    away (run 40094273058: a 179.6 wpm take kept its pace and the Short held at 181.9 against the 180 ceiling). The
+    finished narration is still listened to and gated by the caller."""
     if wpm is None or TARGET_WPM[0] <= wpm <= TARGET_WPM[1]:
         return words, coverage, wpm, 1.0
     factor = min(max(AIM_WPM / wpm, TEMPO_LIMITS[0]), TEMPO_LIMITS[1])
-    paced = _tempo(wav, factor, out_dir / "narration-paced.wav")
-    w2, c2, _, wpm2 = _listen(paced, tokens)
-    if c2 and min(c2) >= MIN_COVERAGE and abs((wpm2 or 0) - AIM_WPM) < abs(wpm - AIM_WPM):
-        paced.replace(wav)
-        return w2, c2, wpm2, round(factor, 4)
-    paced.unlink(missing_ok=True)
-    return words, coverage, wpm, 1.0
+    _tempo(wav, factor, out_dir / "narration-paced.wav").replace(wav)
+    moved = [w | {"start": round(w["start"] / factor, 3), "end": round(w["end"] / factor, 3)} for w in words]
+    log.info("narration re-timed x%.3f: %.1f -> %.1f wpm", factor, wpm, wpm * factor)
+    return moved, coverage, round(wpm * factor, 1), round(factor, 4)
 
 
 def _hook_paced(wav: Path, tokens, words, coverage, spoken, out_dir: Path,
