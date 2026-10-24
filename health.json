@@ -14,11 +14,9 @@
   "held": "hold: voice: the story is read at 181.9 wpm, needs 150-180"
  },
  "publish": {
-  "at": "2026-10-24T12:19:38+00:00",
+  "at": "2026-10-24T13:21:34+00:00",
   "ok": true,
-  "steps": [
-   "learn: 8 scored Shorts, lifts {}"
-  ],
+  "steps": [],
   "held": "hold: the buffer is empty; slot 2026-10-24T13:30:00Z has no Short"
  }
 }
