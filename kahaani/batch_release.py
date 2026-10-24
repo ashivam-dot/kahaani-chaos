@@ -83,6 +83,9 @@ def publish(job, folder, when):
     api = youtube.client()
     youtube.identity(api)
     video = api.videos().list(part="snippet,status", id=result["video_id"]).execute()["items"][0]
+    problems = youtube.readback_problems(video, None if result["privacy"] == "public" else when)
+    if problems:
+        raise youtube.ReadbackMismatch("final batch readback: " + "; ".join(problems))
     st = video["status"]
     result["owner_readback"] = {"channel_id": video["snippet"]["channelId"],
                                 **{k: st.get(k) for k in ("privacyStatus", "publishAt", "madeForKids",
