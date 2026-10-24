@@ -204,10 +204,10 @@ def test_a_short_story_renders(tmp_path, monkeypatch):
     sf.write(tmp_path / "narration.wav", (0.3 * np.sin(2 * np.pi * 220 * t)).astype(np.float32), sr)
     words = [{"text": w, "start": 0.35 + k * 0.4, "end": 0.7 + k * 0.4, "beat": k // 2}
              for k, w in enumerate(" ".join(texts).split())]
-    timing = {"duration": 3.0, "words": words, "beats": [[0.35, 1.1], [1.1, 2.0], [2.0, 3.0]]}
+    timing = {"duration": 3.011, "words": words, "beats": [[0.35, 1.1], [1.1, 2.0], [2.0, 3.011]]}
     stats = compose.render(story, timing, pictures, tmp_path)
     runtime = stats.pop("runtime")
-    assert stats == {"duration": 5.4, "frames": 162, "pictures": 3, "fps": 30, "size": [1080, 1920]}
+    assert stats == {"duration": 5.41, "frames": 163, "pictures": 3, "fps": 30, "size": [1080, 1920]}
     assert abs(runtime - 5.4) < 0.1
     probe = json.loads(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration:stream=codec_type",
                                        "-of", "json", str(tmp_path / "short.mp4")], capture_output=True,
@@ -215,7 +215,8 @@ def test_a_short_story_renders(tmp_path, monkeypatch):
     assert {s["codec_type"] for s in probe["streams"]} == {"video", "audio"}
     assert abs(float(probe["format"]["duration"]) - 5.4) < 0.15
     checks = json.loads((tmp_path / "picture-checks.json").read_text(encoding="utf-8"))
-    assert checks["problems"] == [] and checks["frames"] == 162
+    assert checks["problems"] == [] and checks["frames"] == 163
+    assert compose.count_frames(tmp_path / "short.mp4") == 163
     assert compose.LUFS[0] <= checks["loudness"]["lufs"] <= compose.LUFS[1]
 
 
