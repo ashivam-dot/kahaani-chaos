@@ -6,6 +6,7 @@ story with too few passing paintings, none for its hook, or an unsuitable replac
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import math
@@ -34,12 +35,21 @@ def _paintings(art_dir: Path | None, story: str, beats: int):
             continue
         image = meta.with_suffix(".png")
         if info.get("story") == story and 0 <= int(info.get("beat", -1)) < beats and image.exists():
+            refusal = info.get("editorial_refusal")
+            if refusal is not None:
+                if not isinstance(refusal, dict) or not refusal.get("reason") or \
+                        refusal.get("image_sha256") != hashlib.sha256(image.read_bytes()).hexdigest():
+                    raise PictureHold("hold: invalid or stale image-bound editorial refusal")
+                continue
             yield int(info["beat"]), int(info.get("alt") or 0), image
 
 
 def collect(art_dir: Path | None, story: str, beats: int) -> dict[int, Path]:
     """Beat number -> painted file, for pictures painted for this story (a stale artifact never leaks in)."""
-    return {beat: image for beat, alt, image in _paintings(art_dir, story, beats) if alt == 0}
+    found = {}
+    for beat, alt, image in sorted(_paintings(art_dir, story, beats), key=lambda r: (r[0], r[1])):
+        found.setdefault(beat, image)
+    return found
 
 
 def alternates(art_dir: Path | None, story: str, beats: int) -> dict[int, list[Path]]:
@@ -48,7 +58,9 @@ def alternates(art_dir: Path | None, story: str, beats: int) -> dict[int, list[P
     for beat, alt, image in _paintings(art_dir, story, beats):
         if alt:
             found.setdefault(beat, []).append((alt, image))
-    return {b: [p for _, p in sorted(v)] for b, v in found.items()}
+    selected = collect(art_dir, story, beats)
+    return {b: [p for _, p in sorted(v) if p != selected[b]] for b, v in found.items()
+            if any(p != selected[b] for _, p in v)}
 
 
 def _prepare(source: Path, target: Path) -> None:
@@ -116,7 +128,8 @@ def pictures(found: dict[int, Path], texts: list[str], folder: Path, story: str,
                 candidate.replace(folder / f"beat{i:02d}.jpg")
                 break
         rows.append({"beat": i + 1, "shows": verdict.get("shows"), "rejected": why, "cast": who.get(i, []),
-                     "props_ok": verdict.get("props_ok"), "repaints_tried": tried})
+                     "props_ok": verdict.get("props_ok"), "repaints_tried": tried,
+                     "source_painting": str(spares[i][tried - 1] if tried else found[i])})
         if why is None:
             passed.add(i)
         else:

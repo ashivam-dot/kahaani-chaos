@@ -74,6 +74,28 @@ def test_repaints_are_collected_apart_from_the_painting(tmp_path):
     assert aiart.alternates(tmp_path, "kc-1", 3) == {1: [tmp_path / "beat01-alt1.png", tmp_path / "beat01-alt2.png"]}
 
 
+def test_refused_exact_images_cannot_override_a_good_original_alternate(tmp_path):
+    import hashlib
+
+    paint(tmp_path, "kc-1", 0)
+    for alt in (1, 2):
+        image = tmp_path / f"beat00-alt{alt}.png"
+        Image.new("RGB", (576, 1024), (alt * 40, 90, 90)).save(image)
+        image.with_suffix(".json").write_text(json.dumps({"story": "kc-1", "beat": 0, "alt": alt}))
+    for name in ("beat00", "beat00-alt1"):
+        meta = tmp_path / f"{name}.json"
+        info = json.loads(meta.read_text())
+        info["editorial_refusal"] = {"reason": "duplicated character observed",
+                                     "image_sha256": hashlib.sha256(meta.with_suffix(".png").read_bytes()).hexdigest()}
+        meta.write_text(json.dumps(info))
+    assert aiart.collect(tmp_path, "kc-1", 1) == {0: tmp_path / "beat00-alt2.png"}
+    assert aiart.alternates(tmp_path, "kc-1", 1) == {}
+    assert json.loads((tmp_path / "beat00-alt2.json").read_text())["alt"] == 2
+    (tmp_path / "beat00.png").write_bytes(b"changed")
+    with pytest.raises(aiart.PictureHold, match="stale image-bound"):
+        aiart.collect(tmp_path, "kc-1", 1)
+
+
 def verdict(n, props_ok=True, share=0.5):
     return {"n": n, "shows": "Jhabbu on the bridge", "fits": True, "nudity": False, "sexual": False, "gore": False,
             "malformed": False, "text": False, "religious": False, "kids_look": False, "doubled": False,
