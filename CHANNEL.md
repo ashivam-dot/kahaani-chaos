@@ -138,6 +138,17 @@ The writer expands one entry. Nothing is invented outside the bank.
 
 ## Publishing, cadence and learning
 
+**Reviewed batch releases (25 October 2026).** `ops/cloud_batch.py` and `kahaani/batch_release.py` add a
+resumable release path for exact successful preview artifacts. The AI editor receives the complete rendered video
+and mixed soundtrack; timestamped visual/audio observations and an approval bound to the original MP4 and brief
+are mandatory. This is AI review, never a claim of human listening. Missing quota, a negative or incomplete verdict,
+local writer output, an uncalibrated picture editor, stale rotation, duplicate premise or occupied release slot
+holds the entry. A private draft release preserves media and review receipts. State checkpoints precede dispatch
+and upload, and an uncertain upload is recovered by its existing tag. Two approved episodes are required before
+the first recovery release. The ordinary producer/publisher respects the batch's durable calendar reservation.
+Workflow activation remains a separate step governed by the owner's workflow-edit rule; code alone is not proof
+of a release. No existing upload ids, disclosure settings, voices or cadence are changed.
+
 **Batch previews (25 October 2026).** `strategy/batch-2026-10-25.json` lists twenty distinct future entries plus
 the first corrected preview. `.github/replay/batch-2026-10-25/*.json` are bank-entry briefs, not finished stories.
 The existing dry-run dispatch accepts these through `replay`, checks the planned predecessor rotation and calls

@@ -73,6 +73,34 @@ def test_batch_brief_cannot_be_promoted_or_repeat_rotation(tmp_path):
     assert not status["paint"] and "distinct" in status["error"]
 
 
+def test_batch_successor_keeps_an_already_published_predecessor_once(tmp_path, monkeypatch):
+    entry = next(p for p in premises.bank() if p["id"] == "e01")
+    previous = {**premises.row(entry, []), "id": "actual-e01", "made_at": "2026-10-25T00:00:00Z",
+                "script": "The actual published script"}
+    ledger.save("published", [previous])
+    brief = tmp_path / "brief.json"
+    brief.write_text(json.dumps({"preview_entry": "e02", "predecessors": ["e01"]}))
+    monkeypatch.setattr(voice, "ready", lambda: None)
+    monkeypatch.setattr(writer, "Pen", FakePen)
+    seen = []
+    def write(entry, history, chat):
+        seen.extend(history)
+        return draft(), []
+    monkeypatch.setattr(writer, "write", write)
+    status = cli.plan(tmp_path / "plan", dry=True, replay=brief)
+    assert status["paint"] and seen == [previous]
+    assert ledger.published() == [previous] and ledger.ready() == []
+
+
+def test_artifact_review_is_dry_only_and_never_requests_paint(tmp_path):
+    brief = tmp_path / "review.json"
+    brief.write_text(json.dumps({"review_run": 123}))
+    status = cli.plan(tmp_path / "plan", dry=True, replay=brief)
+    assert status["review_run"] == 123 and not status["paint"]
+    bad = cli.plan(tmp_path / "publish", dry=False, replay=brief)
+    assert bad.get("error") and not bad["paint"]
+
+
 def test_replay_reuses_only_exact_prompts_and_bytes_and_can_skip_the_paint_matrix(tmp_path, monkeypatch):
     import hashlib
     from PIL import Image

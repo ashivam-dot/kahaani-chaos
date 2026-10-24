@@ -127,10 +127,21 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
     out.mkdir(parents=True, exist_ok=True)
     status: dict = {"at": ledger.now(), "dry": dry, "paint": False}
     try:
+        if not dry:
+            from ops.batch_state import production_hold
+
+            if why := production_hold(ledger.STATE):
+                status["skip"] = why
+                return status
         history = ledger.history()
         preview_entry = None
         if replay:
             brief = json.loads(replay.read_text(encoding="utf-8"))
+            if "review_run" in brief:
+                if not dry or type(brief["review_run"]) is not int or brief["review_run"] <= 0:
+                    raise ValueError("an artifact review requires a positive run id and dry-run mode")
+                status["review_run"] = brief["review_run"]
+                return status
             if "preview_entry" in brief:
                 # Batch previews use distinct bank entries without consuming or altering the live ledger.
                 # This is a production brief, never a reviewed story or permission to publish.
@@ -140,9 +151,14 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
                 sequence = brief.get("predecessors", []) + [brief["preview_entry"]]
                 if len(set(sequence)) != len(sequence) or any(p not in bank for p in sequence):
                     raise ValueError("preview brief needs distinct, existing bank entry ids")
+                made = {r.get("premise") for r in history}
                 for pid in sequence:
-                    if pid in {r.get("premise") for r in history}:
-                        raise ValueError(f"preview entry {pid} was already made")
+                    if pid in made:
+                        if pid == sequence[-1]:
+                            raise ValueError(f"preview entry {pid} was already made")
+                        # A predecessor that this same batch already published is real history now. Keep its
+                        # actual title/script and do not append a second synthetic row or reject the successor.
+                        continue
                     entry = bank[pid]
                     if problems := premises.fits(entry, history):
                         raise ValueError(f"preview rotation {pid}: " + "; ".join(problems))
@@ -223,6 +239,27 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
         if (plan_dir / "status.json").exists() else {"error": "the plan job left no status"}
     premise = status.get("premise")
     try:
+        if status.get("review_run"):
+            if not dry:
+                raise RuntimeError("an artifact review can never publish")
+            from ops import cloud_batch, media_review
+            from . import batch_release
+
+            job = {"run_id": status["review_run"]}
+            run = cloud_batch.gh("api", f"repos/{batch_release.REPO}/actions/runs/{job['run_id']}")
+            if run.get("conclusion") != "success" or run.get("status") != "completed":
+                raise RuntimeError("review source is not a completed successful own-repository run")
+            folder = cloud_batch.materialize(batch_release.REPO, batch_release, job)
+            story = Story.load(next(folder.rglob("story.json")))
+            job["premise"] = story.premise
+            mp4, brief = batch_release.validate(job, folder)
+            receipt = media_review.review(mp4, brief, folder)
+            problems = media_review.receipt_problems(receipt, mp4, brief)
+            health["av_review"] = receipt
+            if problems:
+                health["held"] = "hold: audiovisual release review: " + "; ".join(problems)
+            health["steps"].append("reviewed original preview; no media generated, buffered or published")
+            return health
         if not dry:
             ledger.set_identity()
             for passed, why in status.get("passed_over", []):
@@ -328,6 +365,11 @@ def publish(now: datetime | None = None, api=None) -> dict:
     health = {"at": ledger.now(), "ok": True, "steps": []}
     try:
         ledger.set_identity()
+        from ops.batch_state import production_hold
+
+        if why := production_hold(ledger.STATE, now):
+            health["steps"].append(why)
+            return health
         if not config.channel_id_ready():
             health["held"] = "hold: KC_CHANNEL_ID is not set"
             return health
