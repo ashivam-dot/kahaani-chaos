@@ -54,6 +54,8 @@ VIGNETTE_FLOOR = 0.65
 LIFT = 14.0  # shadows lifted by this much (8-bit): moonlit, never crushed to black
 EXPOSURE = (118.0, 0.85, 1.35)  # each painting is nudged toward this mean luma, by a gain within these bounds
 FRAME0_LUMA = (90.0, 170.0)
+FRAME0_AIM = 100.0  # a night hook painting too dark for frame 0 is lifted until frame 0 reaches this
+HOOK_GAMMAS = (1.0, 0.9, 0.8, 0.7, 0.6, 0.5)
 FRAME0_CONTRAST = (0.18, 0.45)
 BLINK_DROP = 0.35
 # Gate j (PLAN.md §7.4): the finished Short's integrated loudness and true peak, measured on the encoded file.
@@ -119,9 +121,15 @@ class Plate:
         arr = np.asarray(rgb, dtype=np.float32)
         target, low, high = EXPOSURE
         gain = min(max(target / max(float(arr.mean()), 1.0), low), high)
-        self.rgb = np.clip(arr * gain, 0, 255).astype(np.uint8)
+        self.base = np.clip(arr * gain, 0, 255).astype(np.uint8)
+        self.rgb = self.base
         self.depth = cv2.GaussianBlur(d.astype(np.float32), (0, 0), 3) - 0.5
         self.pw, self.ph = pw, ph
+
+    def lift(self, gamma: float) -> None:
+        """Brighten the shadows and midtones from the exposed painting; the highlights (a lamp, the moon) stay put."""
+        self.rgb = self.base if gamma == 1.0 else \
+            (255.0 * (self.base / 255.0) ** gamma).round().astype(np.uint8)
 
 
 class Camera:
@@ -501,6 +509,20 @@ def _mix(narration: Path, story: Story, seconds: float, bell_at: float | None, o
     return mixed, levels
 
 
+def _expose_hook(shot: dict, cam: "Camera", grade: "Grade", strip, label) -> float:
+    """Lift the hook painting in HOOK_GAMMAS steps until frame 0 (graded, strip and label on) reaches FRAME0_AIM;
+    returns the gamma kept."""
+    plate = shot["plate"]
+    for gamma in HOOK_GAMMAS:
+        plate.lift(gamma)
+        frame = grade.apply(cam.shoot(plate, 0.0, shot["motion"], 0.06), 0)
+        _blit(frame, strip, TEXT_CX - strip[1].shape[1] // 2, round(H * STRIP_TOP), 1.0)
+        _blit(frame, label, *LABEL_AT)
+        if cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY).mean() >= FRAME0_AIM:
+            break
+    return gamma
+
+
 def render(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict:
     """short.mp4 (1080x1920, 30 fps, H.264 + AAC) and a few stills. pictures holds one path per beat."""
     plates = {p: Plate(p) for p in dict.fromkeys(pictures)}
@@ -513,6 +535,7 @@ def render(story: Story, timing: dict, pictures: list[Path], work: Path) -> dict
               "motion": MOTIONS[i % len(MOTIONS)]} for i, (s, e) in enumerate(spans)]
     strip = _strip_layer(story.hook_strip) if story.hook_strip else _headline_layer(story.title)
     label, end = _label_layer(), _end_layers(story.ending)
+    _expose_hook(shots[0], cam, grade, strip, label)
     loop = story.ending == "loop-back"
     lumas: list[float] = []
     cuts: set[int] = set()

@@ -183,6 +183,24 @@ def test_a_short_story_renders(tmp_path, monkeypatch):
     assert compose.LUFS[0] <= checks["loudness"]["lufs"] <= compose.LUFS[1]
 
 
+def test_a_dim_night_hook_is_lifted_until_frame_0_reads(tmp_path, monkeypatch):
+    monkeypatch.setattr(compose.depth, "estimate", lambda img, cache=None: np.zeros((img.height, img.width),
+                                                                                    np.float32))
+    path = tmp_path / "beat00.jpg"
+    night = np.clip(np.linspace(10, 140, 1024)[:, None, None] * np.ones((1, 576, 3)), 0, 255).astype(np.uint8)
+    night[400:440, 260:320] = 255
+    Image.fromarray(night).save(path)
+    cam, grade = compose.Camera(), compose.Grade(seed=1)
+    strip, label = compose._strip_layer("बिना पैडल जली लाइट"), compose._label_layer()
+    shot = {"plate": compose.Plate(path), "motion": compose.MOTIONS[0]}
+    gamma = compose._expose_hook(shot, cam, grade, strip, label)
+    assert gamma < 1.0 and shot["plate"].rgb.mean() > shot["plate"].base.mean()
+    assert shot["plate"].rgb.max() == shot["plate"].base.max()
+    Image.fromarray(np.full((1024, 576, 3), 150, np.uint8)).save(tmp_path / "bright.jpg")
+    bright = {"plate": compose.Plate(tmp_path / "bright.jpg"), "motion": compose.MOTIONS[0]}
+    assert compose._expose_hook(bright, cam, grade, strip, label) == 1.0
+
+
 def test_a_dark_short_is_held(tmp_path, monkeypatch):
     monkeypatch.setattr(compose.depth, "estimate", lambda img, cache=None: np.zeros((img.height, img.width),
                                                                                     np.float32))
