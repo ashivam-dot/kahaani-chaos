@@ -22,6 +22,20 @@ def test_the_reviewed_story_passes():
     assert problems(story_dict()) == []
 
 
+def test_explicit_repair_directions_keep_story_and_visual_checks():
+    from dataclasses import asdict
+    from pathlib import Path
+    replay = Path(__file__).resolve().parents[1] / '.github/replay/sannatpur-fan-e09-repair.json'
+    story = Story.load(replay)
+    assert not gate.check(asdict(story), cli.premise_of(story), [], rotation=False)
+    draft = asdict(story)
+    draft['beats'][4]['scene'] += ' ' + 'unnecessary ' * 30
+    assert has(problems(draft, rotation=False), 'needs an English scene')
+    draft = asdict(story)
+    draft['beats'][4]['scene'] += ' At a temple door.'
+    assert has(problems(draft, rotation=False), 'scene touches')
+
+
 def test_word_and_beat_bands_have_floor_and_ceiling():
     d = story_dict()
     d["beats"] = d["beats"][:4]

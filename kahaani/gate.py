@@ -19,7 +19,10 @@ TITLE_CHARS = (40, 75)
 TITLE_EMOJI = (1, 2)  # PLAN.md §7.2: one or two (📻😨)
 TITLE_SUFFIX = " | सन्नाटपुर"
 TITLE_OBJECT_WITHIN = 5
-SCENE_WORDS = (12, 80)
+# Complex repair directions need room to name every actor and physically support ceiling/handheld
+# props. This bounds English painter directions only; spoken words/runtime and picture checks stay separate.
+# The normal writer still targets 20-60 scene words.
+SCENE_WORDS = (12, 120)
 CAST = (1, 4)
 DURATION = (30.0, 58.0)
 END_CARD = 2.4  # seconds of end card compose adds after the narration (compose.END_CARD)

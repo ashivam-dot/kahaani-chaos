@@ -166,7 +166,10 @@ fresh duplicate/rotation check are required before promoting a finished story. E
 
 Replay repairs reuse only matching story, beat, exact painter prompt and SHA-256 image bytes. Original alternate
 paintings retain their variant metadata and go back through the current picture editor with the base image.
-Changing a scene invalidates that beat's cached inputs. The e02 recovery reuses beats 0–5 and repaints ending 6;
+Changing a scene invalidates that beat's cached inputs.
+English painter directions are bounded at 12–120 words so a repair can specify distinct actors and physical prop
+support; the normal writer still targets 20–60. Spoken Hindi, runtime, picture, voice and AV gates retain their
+existing limits. Local repair staging checks the full story before dispatch. The e02 recovery reuses beats 0–5 and repaints ending 6;
 the superseded run's duplicated ending is excluded and its id is retained in the adoption record.
 
 - **Cadence:** the current `config.FORMATS` has F1 slots daily at 13:00 and 19:00 IST (07:30 and 13:30 UTC), with
