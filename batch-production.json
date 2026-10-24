@@ -11,7 +11,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-cycle-e01.json"
       },
-      "stage": "reviewed",
+      "stage": "upload_intent",
       "attempts": 0,
       "run_id": 40120456012,
       "source_sha": "4c5195d8eb2ff5e0b1b661f5225feb8d85056e1a",
@@ -64,7 +64,9 @@
           ],
           "issues": []
         }
-      }
+      },
+      "intended_publish_at": null,
+      "upload_intent_at": "2026-10-24T21:25:22+00:00"
     },
     {
       "repo": "kahaani-chaos",
@@ -542,7 +544,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-24T21:25:21+00:00",
+  "updated_at": "2026-10-24T21:25:22+00:00",
   "complete": false,
   "health": {
     "public": 0,
