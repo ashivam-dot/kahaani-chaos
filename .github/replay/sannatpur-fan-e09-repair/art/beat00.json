@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261024-2126-e09",
+  "beat": 0,
+  "alt": 0,
+  "prompt": "Close-up of a three-bladed vintage ceiling fan spinning counterclockwise with motion blur under a dusty high ceiling, faint blue moonlight slipping through frosted transom windows, casting deep shadows across cracked plaster. Peak moment, close on the impossible object doing the impossible, lit by the warm light. No people: no human figure, face, hand or arm anywhere in the picture. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1217.3,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 722944584,
+  "log_tail": "                                               | 2/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 92.21s --- image.cpp:620\n[I] decode_first_stage completed, taking 92.21s --- image.cpp:624\n[I] generate_image completed in 1216.38s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat00.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12576678716,
+    "run_id": 40134047227,
+    "name": "art-40134047227-0",
+    "size_in_bytes": 1071350,
+    "source_sha": "5d88ec338bd0a3f9ce93e7077287b5f706fc7392"
+  },
+  "image_sha256": "43a9142c288fa8b9de455558e2ad28d5e06ba21e31b41781941cf1b0eb8ac25d"
+}

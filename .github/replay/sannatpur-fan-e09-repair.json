@@ -1,0 +1,186 @@
+{
+  "id": "kc-20261024-2126-e09",
+  "premise": "e09",
+  "title": "कॉलेज का पंखा बिजली जाते ही उल्टा क्यों घूमने लगा? 😨",
+  "hook": "बिजली कटते ही कॉलेज का पंखा उल्टा घूमने लगा।",
+  "beats": [
+    {
+      "text": "बिजली कटते ही कॉलेज का पंखा उल्टा घूमने लगा।",
+      "scene": "Close-up of a three-bladed vintage ceiling fan spinning counterclockwise with motion blur under a dusty high ceiling, faint blue moonlight slipping through frosted transom windows, casting deep shadows across cracked plaster.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात हम बारहवीं के दाख़िला फ़ार्म ज़मा करने रुके थे।",
+      "scene": "Wide interior view inside an enclosed 1996 college staff room. Solid blue plaster walls surround an old wooden table. A solid cream plaster ceiling spans the room above. Exactly three young adults sit at the table: Prabhat with mustard sweater and steel spectacles, Nuzhat in bottle-green dupatta and Shailesh wearing red cap. A brass lantern rests on the tabletop. Blue night light enters through one closed wooden window.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "focused"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "calm"
+        },
+        {
+          "name": "shailesh",
+          "expression": "tired"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "अँधेरा होते ही सिर के ऊपर हवा का रुख़ बदल गया।",
+      "scene": "Medium interior view inside the same enclosed college staff room. Prabhat with mustard sweater and small blue notebook and Nuzhat with green dupatta and metal torch look upward in confusion. A solid blue plaster wall fills the background. The upper frame shows the solid cream plaster ceiling. Warm lantern light illuminates the two young adults, with cool night light entering through a small window.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "puzzled"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "curious"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "शैलेश डरकर डंडा उठाकर घूमते पर को रोकने चढ़ गया।",
+      "scene": "Low-angle interior view inside the enclosed college staff room. Shailesh in striped shirt and red cricket cap stands on a wooden table, holding a wooden stick upward toward an old three-bladed ceiling fan. The fan has a short vertical metal downrod fixed directly to the visible solid plaster ceiling. Enclosing blue plaster walls are visible at both sides. Warm lantern light fills the room.",
+      "people": [
+        {
+          "name": "shailesh",
+          "expression": "panicked"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "झब्बू चाचा ने हाथ पकड़ा, उल्टी चलती चीज़ को ज़बरदस्ती मत छेड़ो, सब छोड़ दो।",
+      "scene": "Only two people inside an enclosed blue-plaster room. Elderly Jhabbu in khaki kurta and red muffler stands on the FLOOR at the left side of a wooden table. Young adult Shailesh in striped shirt and red cricket cap stands on the TABLETOP at right, lowering one foot toward the floor. Jhabbu gently takes Shailesh by the wrist to guide him down. Jhabbu is visibly lower than Shailesh. A brass lantern rests on the floor beside the table, and a bamboo staff leans against the left wall. Solid plaster ceiling, cool blue night light through one small window. Exactly two distinct people, a protective old man and a young man in a striped shirt.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "protective"
+        },
+        {
+          "name": "shailesh",
+          "expression": "shaken"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "पंखे की हवा से नीचे दबी वो अर्ज़ी उड़ी, तो शैलेश रोते हुए बोला कि पापा की मार के डर से उसने अर्ज़ी चुराई थी।",
+      "scene": "Close floor-level portrait of only one young adult man, Shailesh, in a striped shirt and red cricket cap. He sits cross-legged on the floor of an enclosed blue-plaster room, shoulders slumped, looking down sorrowfully. Both hands hold one small tightly folded plain cream sheet of paper, with only its completely blank reverse surface facing the lens. The paper stays folded shut. Solid blue wall and a small closed night-blue window fill the background. A brass lantern rests on the floor beside him. Exactly one person, three-quarter side view.",
+      "people": [
+        {
+          "name": "shailesh",
+          "expression": "tearful and remorseful"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "हमने उसे छूना छोड़ दिया, और भोर की रोशनी में पंखा ख़ुद शांत होकर रुक गया।",
+      "scene": "Wide interior shot inside the enclosed college staff room at dawn. A solid cream plaster ceiling occupies the upper third of the frame. A three-bladed vintage ceiling fan is fixed to this ceiling by a short metal downrod and mounting bracket, its blades now completely still. Blue plaster walls enclose the wooden table. Exactly four people, Jhabbu in khaki and red muffler, Prabhat in mustard sweater, Nuzhat in green dupatta and Shailesh in striped shirt and red cap, watch quietly from below. Pale dawn light enters through one small window. All lanterns are unlit.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "gentle"
+        },
+        {
+          "name": "prabhat",
+          "expression": "pensive"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "relieved"
+        },
+        {
+          "name": "shailesh",
+          "expression": "calm"
+        }
+      ],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "jhabbu",
+      "name": "झब्बू",
+      "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+    },
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    }
+  ],
+  "subgenre": "confessed-lie",
+  "ending": "loop-back",
+  "twist_beat": 5,
+  "description": "उन्नीस सौ छियानवे की एक रात कॉलेज के स्टाफ़-रूम की बत्ती गुल हो गई। पर छत पर लगा पुराना पंखा अचानक उल्टी दिशा में घूमने लगा।",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर1996",
+    "#90sकीयादें",
+    "#रहस्य",
+    "#कॉलेजलाइफ़"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3.7-flash",
+      "gemini-3.7-flash",
+      "gemini-3.6-flash",
+      "gemini-3.6-flash",
+      "gemini-3.6-flash"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "editor",
+        "problems": [
+          "In Beat 6, Shailesh's confession of the forged leave slip is mechanically stated without emotional stakes or resonance.",
+          "In Beat 7, the anomaly resolves simply because the electricity returns rather than through the rule of waiting until morning.",
+          "the story's logic has a gap",
+          "the rule of the night does not clearly solve it",
+          "the heart beat is stated, not felt"
+        ]
+      },
+      {
+        "attempt": 1,
+        "stage": "gates",
+        "problems": [
+          "beat 1 (the hook) has 11 words; at most 10"
+        ]
+      },
+      {
+        "attempt": 2,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "उल्टा घूमता पंखा",
+  "object_token": "पंखा",
+  "anomaly": "बिजली जाते ही पंखे का उल्टा घूमना",
+  "niyam_id": "N01",
+  "resolution": "leave-it-be",
+  "heart_beat": 6,
+  "heart_type": "confessed-lie",
+  "skeleton": "S3",
+  "location": "स्टाफ़-रूम",
+  "place_id": "college"
+}

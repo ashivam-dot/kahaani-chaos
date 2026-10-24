@@ -1,0 +1,69 @@
+{
+  "images": [
+    {
+      "file": "beat01.png",
+      "image_sha256": "ec04135f8026efd299c21603d60f887864e10a4061e8674335ba63d6de560a55",
+      "decision": "pass",
+      "reason": "Enclosed blue-walled staff room with a visible solid ceiling, one grounded lantern and the correct three distinct cast members filling forms. Actual still inspection only.",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T22:48:26+00:00"
+    },
+    {
+      "file": "beat02.png",
+      "image_sha256": "a40cadd2ae39f1efd76f44118c20c8c454e5c198cc18d79294609fe5ec76c577",
+      "decision": "pass",
+      "reason": "Distinct mustard-sweater Prabhat with spectacles/notebook and green-dupatta Nuzhat with torch look upward inside an enclosed blue-walled room with a solid ceiling. Ceiling lantern is visibly supported. Still review only; current cloud and full AV gates remain.",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T22:52:36+00:00"
+    },
+    {
+      "file": "beat03.png",
+      "image_sha256": "60cc1e00bb0dff41cb2e2bee8980f8e57e80ffb657438d6cfd09757eab768db3",
+      "decision": "pass",
+      "reason": "Main red-cap striped-shirt Shailesh stands on a table and reaches a stick toward a fan visibly fixed to a solid ceiling in an enclosed blue room. Two unnamed men are visible at the lower edges; the planned scene does not require a solo frame. Full AV review must still assess scene-to-scene cast continuity. Actual still inspection only.",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T22:55:18+00:00"
+    },
+    {
+      "file": "refused-fused-cast-wrong-position/beat04.png",
+      "image_sha256": "0265f9c4ea1d3e73e1d09a856166da9795aa90a5abab9c5d37ff7881d58953ad",
+      "decision": "hold",
+      "reason": "Actual still merges red-cap Shailesh with mustard-sweater/spectacles Prabhat and puts Jhabbu on the table instead of the floor. A radio also floats against the wall. Repaint the same narrated action with only the two acting characters, correct clothes and explicit floor/table positions.",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T22:58:36+00:00"
+    },
+    {
+      "file": "refused-duplicate-watchman-written-paper/beat05.png",
+      "image_sha256": "a968ea755fe08fcfdf76ae58d615ceb264e6a0028cf86a6c4772100228350e9e",
+      "decision": "hold",
+      "reason": "The actual still duplicates grey-haired khaki-clad Jhabbu in standing/seated forms and opens the supposedly blank folded paper to visible writing. Repaint the same emotional action as a solo Shailesh shot with a tightly folded blank reverse surface; preserve narration.",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T23:02:50+00:00"
+    },
+    {
+      "file": "beat06.png",
+      "image_sha256": "d3b88db093ce07077f3d388f60710abd86d2b5f70da1c02aa2cef2060182b2da",
+      "decision": "pass",
+      "reason": "The correct four distinct cast members watch a stationary fan visibly fixed to a solid ceiling inside the blue-walled room at dawn. Table lantern is unlit; the wall lamp remains warm. No duplicated character or floating fan. Still review only; current picture and full AV continuity/payoff checks remain.",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T23:05:36+00:00"
+    },
+    {
+      "file": "beat04.png",
+      "image_sha256": "8502f02eb5b88c4a9ffe251964f9e32cb2362bc150eb345a188f374343399e62",
+      "decision": "pass",
+      "reason": "Two distinct correct actors: khaki-clad elderly Jhabbu on floor, red-cap striped-shirt Shailesh on tabletop. Jhabbu holds his wrist protectively. Enclosed blue plaster walls/ceiling; lantern and bamboo staffs visibly grounded. Both feet are still on tabletop, a plausible moment before stepping down. Full current picture and audiovisual review remain.",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T23:17:15.493009+00:00"
+    },
+    {
+      "file": "beat05.png",
+      "image_sha256": "a85f1dc643652bfe23f461b53a05f0d8daee6749a15fb75152231445dd767e65",
+      "decision": "pass",
+      "reason": "One correct red-cap striped-shirt Shailesh, visibly downcast, seated inside enclosed blue staff room holding a small cream paper with blank reverse. No duplicate watchman or visible writing. Paper is partly opened rather than tightly folded; narration requires the stolen application, not a particular fold, so this does not contradict the spoken beat. Full current picture and audiovisual review still required.",
+      "scope": "actual still pixels",
+      "reviewed_at": "2026-10-24T23:20:37.032976+00:00"
+    }
+  ],
+  "release_approval": false
+}
