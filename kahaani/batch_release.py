@@ -79,6 +79,15 @@ def release_ready(data, job):
     return sum(j["stage"] in ("reviewed", "upload_intent", "public", "scheduled") for j in data["jobs"]) >= 2
 
 
+def review_ready(data, job):
+    before = data["jobs"][:data["jobs"].index(job)]
+    if all(j["stage"] in ("public", "scheduled") for j in before):
+        return True
+    # The first recovery release requires two reviewed episodes. Only that second episode may
+    # be reviewed before its predecessor is delivered; later rotation checks use actual history.
+    return len(before) == 1 and before[0]["stage"] == "reviewed"
+
+
 def poll_delivery(job):
     from . import youtube
 

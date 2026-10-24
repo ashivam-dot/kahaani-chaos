@@ -154,6 +154,8 @@ uses the channel's existing environment credentials. The complete media-bound ve
 archiving, so an archive outage cannot replace a refusal with a new review on the next runner.
 Code alone is not proof of a release. No existing upload
 ids, disclosure settings, voices or cadence are changed.
+A known editorial hold allows only bounded dry production ahead (four unconsumed previews maximum);
+review and release retain their predecessor checks. Every pending dispatch is reconciled before another is sent.
 
 **Batch previews (25 October 2026).** `strategy/batch-2026-10-25.json` lists twenty distinct future entries plus
 the first corrected preview. `.github/replay/batch-2026-10-25/*.json` are bank-entry briefs, not finished stories.

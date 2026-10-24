@@ -23,6 +23,7 @@ STATE_FILE = "batch-production.json"
 PLAN_FILE = "strategy/batch-2026-10-25.json"
 FINAL = {"public", "scheduled"}
 MAX_ATTEMPTS = 2
+MAX_PREVIEW_AHEAD = 4  # held and completed dry previews share a bounded buffer
 MAX_BUILDING = 2  # seven painter jobs per fiction entry; keep a bounded lookahead, with ordered release
 
 
@@ -256,6 +257,15 @@ def tick(adapter, mode, save=persist):
         save(data)
         if data.get("halted") and not entry_halt(data):
             return data
+    # Reconcile every reserved dispatch before another write, even behind a sequence hold.
+    # A repair can block release, but cannot hide an already submitted dry-preview intent.
+    for reserved in data["jobs"]:
+        if reserved["stage"] == "dispatch_unresolved":
+            if not resolve(repo, adapter.WORKFLOW, reserved):
+                if (now() - datetime.fromisoformat(reserved["submitted_at"])).total_seconds() > 900:
+                    data["halted"] = "Uncertain dispatch; reconcile the run before any replacement"
+                save(data)
+                return data
     reviewed = 0
     for job in data["jobs"]:
         if problems := editorial_problems(job):
@@ -271,13 +281,6 @@ def tick(adapter, mode, save=persist):
             continue
         if job.get("review_retry_after") and now() < datetime.fromisoformat(job["review_retry_after"]):
             continue
-        if job["stage"] == "dispatch_unresolved":
-            if not resolve(repo, adapter.WORKFLOW, job):
-                # Leave intent pending. Later ticks may see the run after GitHub's eventual-consistency delay.
-                if (now() - datetime.fromisoformat(job["submitted_at"])).total_seconds() > 900:
-                    data["halted"] = "Uncertain dispatch; reconcile the run before any replacement"
-                save(data)
-                return data
         if job["stage"] not in ("building", "reviewed", "upload_intent"):
             continue
         if job["stage"] == "building":
@@ -293,6 +296,8 @@ def tick(adapter, mode, save=persist):
                 break
         if reviewed >= 2:
             break
+        if not getattr(adapter, "review_ready", lambda d, j: True)(data, job):
+            continue
         try:
             had_intent = job["stage"] == "upload_intent"
             folder = materialize(repo, adapter, job)
@@ -340,12 +345,19 @@ def tick(adapter, mode, save=persist):
         # Rotation is a sequence. A refused entry must be repaired or deliberately re-planned before successors.
         data["halted"] = f"Repair held entry {held[0]['premise']}: " + "; ".join(held[0].get("problems", []))
     in_flight = [j for j in data["jobs"] if j["stage"] in ("building", "dispatch_unresolved")]
-    if not data.get("halted") and len(in_flight) < MAX_BUILDING:
+    pending = next((j for j in data["jobs"] if j["stage"] == "planned"), None)
+    buffered = sum(j["stage"] not in FINAL | {"planned"} for j in data["jobs"])
+    # A known editorial refusal blocks review/release in the loop above. Independent dry production
+    # may fill a small buffer while that entry is repaired; uncertain dispatch/delivery still stops all work.
+    safe_halt = not data.get("halted") or entry_halt(data)
+    dry_inputs = pending and (pending.get("inputs", {}).get("mode") == "dry-run"
+                             or pending.get("inputs", {}).get("dry_run") == "true")
+    if (safe_halt and pending and dry_inputs and len(in_flight) < MAX_BUILDING
+            and buffered < MAX_PREVIEW_AHEAD):
         # Only known, already reserved batch previews may overlap. An inherited production run still holds us.
         active = [r for r in builds(repo, adapter.WORKFLOW) if r["status"] != "completed"]
         owned = {j.get("run_id") for j in in_flight if j.get("run_id")}
-        pending = next((j for j in data["jobs"] if j["stage"] == "planned"), None)
-        if pending and all(r["id"] in owned for r in active):
+        if all(r["id"] in owned for r in active):
             head = gh("api", f"repos/{repo}/commits/main")["sha"]
             pending.update(stage="dispatch_unresolved", source_sha=head,
                            before_ids=[r["id"] for r in builds(repo, adapter.WORKFLOW)], submitted_at=stamp(),
