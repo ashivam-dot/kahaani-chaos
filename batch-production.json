@@ -75,7 +75,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-radio-e02-repair.json"
       },
-      "stage": "building",
+      "stage": "reviewed",
       "attempts": 1,
       "source_sha": "fec73b8fbb36ae4a54d34a3916d8731269bd0af9",
       "obsolete_runs": [
@@ -245,7 +245,8 @@
           ],
           "issues": []
         }
-      }
+      },
+      "archive": "batch-reviewed-40132420577"
     },
     {
       "repo": "kahaani-chaos",
@@ -477,7 +478,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-24T21:23:46+00:00",
+  "updated_at": "2026-10-24T21:23:59+00:00",
   "complete": false,
   "health": {
     "public": 0,
