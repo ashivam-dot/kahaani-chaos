@@ -1,0 +1,237 @@
+{
+  "authorization": "Owner 2026-10-25: batch production, one now and the following ten days. Release only after complete review.",
+  "release_status": "planned only; no YouTube schedules created",
+  "jobs": [
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e01",
+      "target": "now-after-review",
+      "run_id": 40120456012,
+      "stage": "building",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/sannatpur-cycle-e01.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e02",
+      "title": "रेडियो ने कल की ख़बर आज रात सुना दी 📻 | सन्नाटपुर",
+      "target": "2026-10-25T07:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e02.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e09",
+      "title": "कॉलेज का पंखा बिजली जाते ही उल्टा क्यों घूमने लगा? 😨",
+      "target": "2026-10-25T13:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e09.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e04",
+      "title": "हाट का तराज़ू ख़ाली था… फिर भी एक पलड़ा झुक गया! ⚖️",
+      "target": "2026-10-26T07:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e04.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e05",
+      "title": "पुरानी रील ने उस रात हमें ही परदे पर दिखा दिया 🎞️ | सन्नाटपुर",
+      "target": "2026-10-26T13:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e05.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e06",
+      "title": "हॉल्ट का सिग्नल बिना ट्रेन के हरा क्यों हो गया? 🚦",
+      "target": "2026-10-27T07:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e06.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e07",
+      "title": "भट्ठे की ईंटें गिनीं… और हर बार एक ज़्यादा निकली! 🧱",
+      "target": "2026-10-27T13:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e07.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e08",
+      "title": "कैरम ने आधी रात अधूरी बाज़ी फिर शुरू कर दी 🎯 | सन्नाटपुर",
+      "target": "2026-10-28T07:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e08.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e03",
+      "title": "पीसीओ का मीटर बिना कॉल के उल्टा क्यों गिन रहा था? ☎️",
+      "target": "2026-10-28T13:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e03.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e10",
+      "title": "डाकघर का अंतर्देशीय खोला… और उसमें शब्द उभर आए! ✉️",
+      "target": "2026-10-29T07:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e10.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e17",
+      "title": "पर्ची ने आज की जगह दस साल पुरानी तारीख़ छाप दी 🧾 | सन्नाटपुर",
+      "target": "2026-10-29T13:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e17.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e12",
+      "title": "टिकट आख़िरी बस की ख़ाली सीट पर कौन रख गया था? 🎫",
+      "target": "2026-10-30T07:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e12.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e16",
+      "title": "टंकी पर पतंग फँसी थी… और वो मेरा नाम पुकार रही थी! 🪁",
+      "target": "2026-10-30T13:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e16.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e26",
+      "title": "कबाड़ बस के हॉर्न ने आधी रात किसी को रास्ता दिखाया 🚌 | सन्नाटपुर",
+      "target": "2026-10-31T07:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e26.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e15",
+      "title": "बहाई हुई नाव उल्टी धार में वापस क्यों लौट आई? 🛶",
+      "target": "2026-10-31T13:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e15.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e13",
+      "title": "कुएँ में बाल्टी डाली… और वो किसी की चिट्ठियाँ ले आई! 🪣",
+      "target": "2026-11-01T07:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e13.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e11",
+      "title": "राशन कार्ड ने मेरी जेब छोड़ने से मना कर दिया 🪪 | सन्नाटपुर",
+      "target": "2026-11-01T13:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e11.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e21",
+      "title": "ठंडे भट्ठे की चिमनी पर रोशनी किसने जलाई? 🏭",
+      "target": "2026-11-02T07:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e21.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e19",
+      "title": "टॉकीज़ का पोस्टर देखा… उसमें हीरो की परछाईं पीछे छूट गई थी! 🎬",
+      "target": "2026-11-02T13:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e19.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e14",
+      "title": "लालटेन ने बिना हवा के अपनी लौ खेतों की ओर झुका दी 🏮 | सन्नाटपुर",
+      "target": "2026-11-03T07:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e14.json"
+      }
+    },
+    {
+      "repo": "kahaani-chaos",
+      "premise": "e24",
+      "title": "बरसों पुराना तार आज रात डाकघर में कैसे लौट आया? 📨",
+      "target": "2026-11-03T13:30:00Z",
+      "stage": "planned",
+      "inputs": {
+        "mode": "dry-run",
+        "replay": ".github/replay/batch-2026-10-25/e24.json"
+      }
+    }
+  ]
+}

@@ -128,6 +128,29 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
     status: dict = {"at": ledger.now(), "dry": dry, "paint": False}
     try:
         history = ledger.history()
+        preview_entry = None
+        if replay:
+            brief = json.loads(replay.read_text(encoding="utf-8"))
+            if "preview_entry" in brief:
+                # Batch previews use distinct bank entries without consuming or altering the live ledger.
+                # This is a production brief, never a reviewed story or permission to publish.
+                if not dry:
+                    raise ValueError("a preview brief is dry-run only; release requires a reviewed full story")
+                bank = {e["id"]: e for e in premises.bank()}
+                sequence = brief.get("predecessors", []) + [brief["preview_entry"]]
+                if len(set(sequence)) != len(sequence) or any(p not in bank for p in sequence):
+                    raise ValueError("preview brief needs distinct, existing bank entry ids")
+                for pid in sequence:
+                    if pid in {r.get("premise") for r in history}:
+                        raise ValueError(f"preview entry {pid} was already made")
+                    entry = bank[pid]
+                    if problems := premises.fits(entry, history):
+                        raise ValueError(f"preview rotation {pid}: " + "; ".join(problems))
+                    if pid != sequence[-1]:
+                        history.append(premises.row(entry, history))
+                    else:
+                        preview_entry = entry
+                replay = None
         if replay:
             story = Story.load(replay)
             if not dry:
@@ -151,8 +174,8 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
             with writer.Pen() as pen:
                 passed_over: list[list[str]] = []
                 while True:
-                    entry = premises.select(history, [p for p in premises.bank()
-                                                      if p["id"] not in {q for q, _ in passed_over}])
+                    entry = preview_entry or premises.select(history, [p for p in premises.bank()
+                                                                      if p["id"] not in {q for q, _ in passed_over}])
                     premise = premises.premise_for(entry, history)
                     status["premise"] = premise["id"]
                     try:
@@ -161,7 +184,7 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
                     except writer.WriterHold as exc:
                         passed_over.append([premise["id"], str(exc)[:300]])
                         status["passed_over"] = passed_over
-                        if len(passed_over) >= PREMISES_PER_RUN:
+                        if preview_entry or len(passed_over) >= PREMISES_PER_RUN:
                             raise
                 if not dry and any(not m.startswith("gemini") for m in pen.used):
                     raise writer.WriterHold(LOCAL_HOLD)

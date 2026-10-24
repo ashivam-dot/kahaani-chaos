@@ -138,6 +138,13 @@ The writer expands one entry. Nothing is invented outside the bank.
 
 ## Publishing, cadence and learning
 
+**Batch previews (25 October 2026).** `strategy/batch-2026-10-25.json` lists twenty distinct future entries plus
+the first corrected preview. `.github/replay/batch-2026-10-25/*.json` are bank-entry briefs, not finished stories.
+The existing dry-run dispatch accepts these through `replay`, checks the planned predecessor rotation and calls
+the normal writer/editor, painter, picture checks, voice and render gates. A brief is refused in publish mode.
+No preview consumes the live ledger, creates an upload, or books a release. Complete audiovisual review and a
+fresh duplicate/rotation check are required before promoting a finished story. Existing release slots stay fixed.
+
 - **Cadence:** the current `config.FORMATS` has F1 slots daily at 13:00 and 19:00 IST (07:30 and 13:30 UTC), with
   capacity for three ready Shorts. Recovery first requires two passing buffered episodes and two verified public
   slots; an empty buffer does not justify bypassing a gate. The F2 and F3 slots register when those formats are built.

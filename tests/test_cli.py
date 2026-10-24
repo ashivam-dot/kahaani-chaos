@@ -45,6 +45,34 @@ def test_plan_a_replay(tmp_path, monkeypatch):
     assert out["paint"] == "true" and json.loads(out["chunks"]) == [str(i) for i in range(6)]
 
 
+def test_batch_brief_selects_distinct_entry_and_keeps_live_history(tmp_path, monkeypatch):
+    brief = tmp_path / "brief.json"
+    brief.write_text(json.dumps({"preview_entry": "e02", "predecessors": ["e01"]}))
+    monkeypatch.setattr(voice, "ready", lambda: None)
+    monkeypatch.setattr(writer, "Pen", FakePen)
+    seen = []
+
+    def write(entry, history, chat):
+        seen.append((entry["id"], [r["premise"] for r in history]))
+        return draft(), []
+
+    monkeypatch.setattr(writer, "write", write)
+    status = cli.plan(tmp_path / "plan", dry=True, replay=brief)
+    assert status["paint"] and status["premise"] == "e02"
+    assert seen == [("e02", ["e01"])]
+    assert ledger.history() == []
+
+
+def test_batch_brief_cannot_be_promoted_or_repeat_rotation(tmp_path):
+    brief = tmp_path / "brief.json"
+    brief.write_text(json.dumps({"preview_entry": "e02", "predecessors": ["e01"]}))
+    status = cli.plan(tmp_path / "publish", dry=False, replay=brief)
+    assert not status["paint"] and "dry-run only" in status["error"]
+    brief.write_text(json.dumps({"preview_entry": "e01", "predecessors": ["e01"]}))
+    status = cli.plan(tmp_path / "duplicate", dry=True, replay=brief)
+    assert not status["paint"] and "distinct" in status["error"]
+
+
 def test_replay_reuses_only_exact_prompts_and_bytes_and_can_skip_the_paint_matrix(tmp_path, monkeypatch):
     import hashlib
     from PIL import Image
