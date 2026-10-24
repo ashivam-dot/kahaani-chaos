@@ -23,6 +23,7 @@ STATE_FILE = "batch-production.json"
 PLAN_FILE = "strategy/batch-2026-10-25.json"
 FINAL = {"public", "scheduled"}
 MAX_ATTEMPTS = 2
+MAX_BUILDING = 2  # seven painter jobs per fiction entry; keep a bounded lookahead, with ordered release
 
 
 class TransientOperation(RuntimeError):
@@ -338,11 +339,13 @@ def tick(adapter, mode, save=persist):
     if held:
         # Rotation is a sequence. A refused entry must be repaired or deliberately re-planned before successors.
         data["halted"] = f"Repair held entry {held[0]['premise']}: " + "; ".join(held[0].get("problems", []))
-    if not data.get("halted") and not any(j["stage"] in ("building", "dispatch_unresolved") for j in data["jobs"]):
-        # Avoid competing with an inherited manual or scheduled production run.
+    in_flight = [j for j in data["jobs"] if j["stage"] in ("building", "dispatch_unresolved")]
+    if not data.get("halted") and len(in_flight) < MAX_BUILDING:
+        # Only known, already reserved batch previews may overlap. An inherited production run still holds us.
         active = [r for r in builds(repo, adapter.WORKFLOW) if r["status"] != "completed"]
+        owned = {j.get("run_id") for j in in_flight if j.get("run_id")}
         pending = next((j for j in data["jobs"] if j["stage"] == "planned"), None)
-        if pending and not active:
+        if pending and all(r["id"] in owned for r in active):
             head = gh("api", f"repos/{repo}/commits/main")["sha"]
             pending.update(stage="dispatch_unresolved", source_sha=head,
                            before_ids=[r["id"] for r in builds(repo, adapter.WORKFLOW)], submitted_at=stamp(),
