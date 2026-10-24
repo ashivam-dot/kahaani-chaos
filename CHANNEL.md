@@ -144,7 +144,9 @@ and mixed soundtrack; timestamped visual/audio observations and an approval boun
 are mandatory. This is AI review, never a claim of human listening. Missing quota, a negative or incomplete verdict,
 local writer output, an uncalibrated picture editor, stale rotation, duplicate premise or occupied release slot
 holds the entry. A private draft release preserves media and review receipts. State checkpoints precede dispatch
-and upload, and an uncertain upload is recovered by its existing tag. Two approved episodes are required before
+and upload. Upload recovery requires both the existing story marker and the reviewed MP4 SHA-256 binding; an older
+unbound upload is held for reconciliation. Private processing and audience readback must pass before making a new
+upload public. Reviewer/network outages retry with backoff; negative verdicts persist for unchanged media. Two approved episodes are required before
 the first recovery release. The ordinary producer/publisher respects the batch's durable calendar reservation.
 Workflow activation remains a separate step governed by the owner's workflow-edit rule; code alone is not proof
 of a release. No existing upload ids, disclosure settings, voices or cadence are changed.
