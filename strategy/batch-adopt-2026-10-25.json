@@ -2,7 +2,8 @@
   "e01": {
     "run_id": 40120456012,
     "stage": "building",
-    "source_sha": "4c5195d8eb2ff5e0b1b661f5225feb8d85056e1a"
+    "source_sha": "4c5195d8eb2ff5e0b1b661f5225feb8d85056e1a",
+    "archive": "batch-reviewed-40120456012"
   },
   "e02": {
     "run_id": 40122737348,
