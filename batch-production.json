@@ -379,6 +379,24 @@
             "art-40134047227-2/beat02.png": "5e7032521738f09f098e1b63c92a0a0aee62c6f573fcd9730b7540c3b2237e95",
             "art-40134047227-6/beat06-alt1.png": "cb21628c566aff72637318a1a2dba6e2c5dc44ebff3b1c58adad2727e8360adc",
             "art-40134047227-6/beat06.png": "a5f8bbe7dbc0c5010ea8d9be76fed36bbcaa1fb121c19217600b580a343f144d"
+          },
+          "resolved_at": "2026-10-24T23:21:23+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "a4af1a2066f42b132aed62def56e7cd443603844",
+            "replay": ".github/replay/sannatpur-fan-e09-repair.json",
+            "replay_sha256": "a88078281635d393b81a03ee0a956fce1dcab2b7187e29a49aed275f51e65481",
+            "selected_images": {
+              "0": "43a9142c288fa8b9de455558e2ad28d5e06ba21e31b41781941cf1b0eb8ac25d",
+              "1": "ec04135f8026efd299c21603d60f887864e10a4061e8674335ba63d6de560a55",
+              "2": "a40cadd2ae39f1efd76f44118c20c8c454e5c198cc18d79294609fe5ec76c577",
+              "3": "60cc1e00bb0dff41cb2e2bee8980f8e57e80ffb657438d6cfd09757eab768db3",
+              "4": "8502f02eb5b88c4a9ffe251964f9e32cb2362bc150eb345a188f374343399e62",
+              "5": "a85f1dc643652bfe23f461b53a05f0d8daee6749a15fb75152231445dd767e65",
+              "6": "d3b88db093ce07077f3d388f60710abd86d2b5f70da1c02aa2cef2060182b2da"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -782,7 +800,7 @@
     }
   ],
   "halted": "Repair held entry e09: Direct inspection: beats 1 and 2 place cast outdoors under the moon although narration and story require the college staff room. Beat 6 depicts a ceiling fan unsupported in open dawn sky; alternate also duplicates the mustard-clad young man. Replace incorrect shots; preserve valid indoor opening and other usable art. No release of this exact production.",
-  "updated_at": "2026-10-24T23:20:25+00:00",
+  "updated_at": "2026-10-24T23:21:23+00:00",
   "complete": false,
   "health": {
     "public": 1,
