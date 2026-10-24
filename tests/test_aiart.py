@@ -77,7 +77,7 @@ def test_repaints_are_collected_apart_from_the_painting(tmp_path):
 def verdict(n, props_ok=True, share=0.5):
     return {"n": n, "shows": "Jhabbu on the bridge", "fits": True, "nudity": False, "sexual": False, "gore": False,
             "malformed": False, "text": False, "religious": False, "kids_look": False, "doubled": False,
-            "ridden": False, "human_present": False, "setting_ok": True, "structure_ok": True, "props_ok": props_ok,
+            "ridden": False, "human_present": False, "setting_ok": True, "structure_ok": True, "action_ok": True, "props_ok": props_ok,
             "subject_share": share, "reason": "" if props_ok else "no lantern"}
 
 
@@ -213,7 +213,7 @@ def test_the_editor_sees_the_planned_picture(tmp_path):
     def ask(parts, schema):
         prompts.append(parts[0])
         return {"pictures": [{"n": 1, "shows": "a bicycle", "fits": True, "ridden": False, "human_present": False,
-                                         "setting_ok": True, "structure_ok": True,
+                                         "setting_ok": True, "structure_ok": True, "action_ok": True,
                                          "subject_share": 0.5}]}
 
     aiart.pictures(aiart.collect(art, "kc-1", 1), ["a"], tmp_path / "pics", "story", "cast", ask,
@@ -308,3 +308,11 @@ def test_reverse_fan_does_not_allow_a_fan_floating_in_open_sky():
     unknown = {k: v for k, v in verdict(1).items() if k != 'structure_ok'}
     assert vision.rejected(unknown, cast_shot=True, scene=scene).startswith('structure:')
     assert vision.rejected(verdict(1), cast_shot=True, scene=scene) is None
+
+
+def test_cast_presence_does_not_pass_when_the_wrong_character_handles_the_object():
+    scene = 'Shailesh in his red cricket cap sets the complete weighing balance outside a closed door.'
+    actual = verdict(1) | {'action_ok': False, 'shows': 'Mustard-clad Prabhat handles the scale while red-cap Shailesh watches.'}
+    assert vision.rejected(actual, cast_shot=True, scene=scene).startswith('action:')
+    unknown = {k: v for k, v in verdict(1).items() if k != 'action_ok'}
+    assert vision.rejected(unknown, cast_shot=True, scene=scene).startswith('action:')

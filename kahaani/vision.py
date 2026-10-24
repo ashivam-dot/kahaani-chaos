@@ -49,12 +49,13 @@ SCHEMA = {
                     "human_present": {"type": "boolean"},
                     "setting_ok": {"type": "boolean"},
                     "structure_ok": {"type": "boolean"},
+                    "action_ok": {"type": "boolean"},
                     "props_ok": {"type": "boolean"},
                     "fits": {"type": "boolean"},
                     "subject_share": {"type": "number"},
                     "reason": {"type": "string"},
                 },
-                "required": ["n", "shows", *FLAGS, "ridden", "human_present", "setting_ok", "structure_ok", "props_ok", "fits", "subject_share", "reason"],
+                "required": ["n", "shows", *FLAGS, "ridden", "human_present", "setting_ok", "structure_ok", "action_ok", "props_ok", "fits", "subject_share", "reason"],
             },
         },
     },
@@ -91,6 +92,10 @@ For each picture answer:
 - structure_ok: true only if the objects have plausible construction and support, except for the exact anomaly
   explicitly required by the story. A ceiling fan must attach to a visible ceiling, not float in open sky.
   Reverse spinning does not imply floating. A lantern must rest on a surface, hang from a support, or be held.
+- action_ok: true only if the main action is performed by the character the line and plan name, identifiable
+  by their fixed clothing and props. If the line names red-cap Shailesh carrying a scale, mustard-sweater Prabhat
+  handling it while Shailesh stands aside is false, even though all cast members are present. For object-only
+  shots, check the object's planned state and action instead.
 - props_ok: for each character the line says should appear, true only if that character is visible and shows at
   least one of their listed signature props or colours. True when the line lists no characters.
 - fits: true if the picture plausibly shows this line's moment with this story's characters and setting, in a
@@ -137,6 +142,8 @@ def rejected(verdict: dict, cast_shot: bool = False, hook: bool = False, scene: 
         return f"setting: the planned surroundings are not confirmed ({verdict.get('shows')})"
     if scene and verdict.get("structure_ok") is not True:
         return f"structure: object construction and support are not confirmed ({verdict.get('shows')})"
+    if scene and verdict.get("action_ok") is not True:
+        return f"action: the planned actor and main action are not confirmed ({verdict.get('shows')})"
     if cast_shot and verdict.get("props_ok") is not True:
         return f"props: the characters' signature props or colours are missing ({verdict.get('reason') or ''})"
     if not verdict.get("fits"):

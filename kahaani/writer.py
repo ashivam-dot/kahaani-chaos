@@ -121,6 +121,11 @@ RULES (all mandatory):
   When a discovered object explains the turn, show that object and its exact location clearly in a close shot;
   put reactions in the adjacent beat. Do not crowd the reveal with the whole cast or put the same prop on a
   character and on the ground at once.
+  Repeat the actual location in EVERY beat's scene. An indoor story stays inside enclosing walls with a solid
+  ceiling; moonlight enters through windows. Ceiling-mounted objects remain attached to that ceiling.
+  Make the named acting character perform the narrated action, identified by their fixed clothing. When one
+  character handles the key object, prefer a clear shot of that character alone; put other reactions in adjacent
+  beats. A character setting down a prop must not simultaneously be described carrying the same prop.
 - people: for each beat, every cast id visible in its painting with their expression at this moment; empty when
   no one is visible.
 - hook_strip: 3-5 Hindi words painted over frame 0 (a teaser, not the title), no emoji.
