@@ -376,7 +376,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e04.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 1,
       "source_sha": "9ff60cd2b166df7b4ac85beef93196181e31f745",
       "before_ids": [
@@ -443,7 +443,21 @@
       ],
       "submitted_at": "2026-10-24T21:34:26+00:00",
       "run_id": 40134819856,
-      "cloud_status": "in_progress"
+      "cloud_status": "in_progress",
+      "editorial_holds": [
+        {
+          "id": "direct-empty-scale-hand-40134819856",
+          "run_id": 40134819856,
+          "observed_at": "2026-10-24T21:53:58.167489+00:00",
+          "reason": "Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required.",
+          "evidence": {
+            "art-40134819856-3/beat03.png": "28b7aad5427f5a208a8cf1c88d24ae820e02527be1bf2becc614fb0a247a56c5"
+          }
+        }
+      ],
+      "problems": [
+        "Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -650,8 +664,8 @@
       "attempts": 0
     }
   ],
-  "halted": null,
-  "updated_at": "2026-10-24T21:43:11+00:00",
+  "halted": "Repair held entry e04: Direct inspection of actual cloud beat 3: a prominent human hand holds the balance, contradicting the empty balance moving by itself. Replace only this beat; retain other usable paintings. Full current image and audiovisual review remain required.",
+  "updated_at": "2026-10-24T21:53:58.169448+00:00",
   "complete": false,
   "health": {
     "public": 1,
