@@ -646,7 +646,7 @@
         38428830025
       ],
       "submitted_at": "2026-10-25T00:16:43+00:00",
-      "cloud_status": "queued",
+      "cloud_status": "completed",
       "editorial_holds": [
         {
           "id": "direct-empty-scale-hand-40134819856",
@@ -796,7 +796,55 @@
         40143503135
       ],
       "repair_reason": "Replace only the low-contrast opening with directly reviewed tilted empty balance; actual prepared opening luma 102.95, contrast 0.18894, new clipping 0.18%; preserve other six paintings and spoken Hindi. All current cloud and full AV gates remain required.",
-      "run_id": 40146069336
+      "run_id": 40146069336,
+      "review": {
+        "schema": 1,
+        "model": "gemini-3-flash-preview",
+        "duration": 39.233333,
+        "video_sha256": "4c9b87431d2cee2e9414b921b8f976ada6bc34ec69b5a364335776deb742b0db",
+        "brief_sha256": "db8fcc14c034bebdab37d661939d826adc75d7fa6130e88c701f0862aa2c3b1f",
+        "review_video_sha256": "e8f1776e9eeba7f4ad65e92d9518182aba191b6995de2e74fbab6d04da16ac67",
+        "review_audio_sha256": "6a11b9e17fc7452ca8c3fd8f600a4484068dc56656e23c980aeea905f7c1d9d3",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "ख़ाली हाट में रखा तराज़ू अचानक एक तरफ़ झुक गया।",
+          "heard_ending": "झब्बू काका ने अपने खाकी रजिस्टर में लिखा, रात की अमानत सही पते पर पहुँच गई।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "An antique weighing scale with uneven pans on a table next to a lantern under a moonlit sky.",
+              "heard": "ख़ाली हाट में रखा तराज़ू अचानक एक तरफ़ झुक गया।"
+            },
+            {
+              "part": "middle",
+              "seconds": 20.0,
+              "seen": "Old Jhabbu holding his brass lantern, red muffler wrapped around his neck, addressing the group calmly.",
+              "heard": "झब्बू काका ने लालटेन उठाई और बोले, रात की चीज़ घर मत ले जाओ, जिसकी है उस तक पहुँचाओ।"
+            },
+            {
+              "part": "ending",
+              "seconds": 35.0,
+              "seen": "An elderly grey-haired man in a khaki kurta and grey shawl sits outdoors writing in a red-bound ledger.",
+              "heard": "झब्बू काका ने अपने खाकी रजिस्टर में लिखा, रात की अमानत सही पते पर पहुँच गई।"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -1213,7 +1261,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:26:17+00:00",
+  "updated_at": "2026-10-25T00:27:24+00:00",
   "complete": false,
   "health": {
     "public": 1,
