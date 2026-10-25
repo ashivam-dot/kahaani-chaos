@@ -4113,7 +4113,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-ration-card-e11-repair.json"
       },
-      "stage": "upload_intent",
+      "stage": "scheduled",
       "attempts": 2,
       "editorial_holds": [
         {
@@ -4310,7 +4310,26 @@
       },
       "archive": "batch-reviewed-40198165103",
       "intended_publish_at": "2026-11-01T13:30:00Z",
-      "upload_intent_at": "2026-10-25T13:48:03+00:00"
+      "upload_intent_at": "2026-10-25T13:48:03+00:00",
+      "delivery": {
+        "video_id": "TduMFF0fRlU",
+        "url": "https://www.youtube.com/shorts/TduMFF0fRlU",
+        "privacy": "scheduled",
+        "publish_at": "2026-11-01T13:30:00Z",
+        "synthetic_declared": true,
+        "comment_text": "अम्मा हफ़्तों से राशन लेने नहीं आई थीं, पर बरसों पुराने कार्ड पर उनकी तस्वीर ठीक आज जैसी क्यों थी? 👇",
+        "comment": "pending: HTTP 403",
+        "playlist": "skipped: no playlist",
+        "owner_readback": {
+          "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+          "privacyStatus": "private",
+          "publishAt": "2026-11-01T13:30:00Z",
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false,
+          "containsSyntheticMedia": null,
+          "uploadStatus": "processed"
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -4531,5 +4550,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T13:48:03+00:00"
+  "updated_at": "2026-10-25T13:49:01+00:00"
 }

@@ -846,5 +846,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-1142-e11",
+  "premise": "e11",
+  "title": "राशन कार्ड ने मेरी जेब छोड़ने से मना कर दिया 🪪 | सन्नाटपुर",
+  "subgenre": "kindness",
+  "motifs": [],
+  "ending": "open-question",
+  "opening": "राशन कार्ड",
+  "made_at": "2026-10-25T13:49:01+00:00",
+  "format": "micro",
+  "skeleton": "S2",
+  "resolution": "kindness",
+  "heart_type": "kindness",
+  "object_token": "कार्ड",
+  "anomaly": "कहीं भी रखो, कार्ड का प्रभात की जेब में लौट आना",
+  "location": "लोहे की जाली वाला काउंटर",
+  "place_id": "ration",
+  "hook_strip": "जेब में लौटता कार्ड",
+  "script": "राशन कार्ड बार-बार मेरी जेब में लौट आया। उन्नीस सौ छियानवे, उस रात राशन की दुकान के काउंटर पर एक लावारिस कार्ड मिला। मैंने उसे काउंटर की दराज़ में बंद कर दिया, पर चलते ही वो मेरी जेब में आ गया। शैलेश ने उसे बोरी के पीछे दूर फ़ेंका, पर कार्ड तुरंत मेरी जेब में थमा मिला। झब्बू बोले, रात की चीज़ घर नहीं जाती, जिसकी है उस तक पहुँचाओ। कार्ड पर गली के आख़िरी घर का पता था। मैं अपना पूरा दिन छोड़कर कार्ड वाली अम्मा का राशन उनके घर तक ढोकर ले गया। अम्मा हफ़्तों से राशन लेने नहीं आई थीं, पर बरसों पुराने कार्ड पर उनकी तस्वीर ठीक आज जैसी क्यों थी?",
+  "slot": "2026-11-01T13:30:00Z",
+  "published_at": "2026-11-01T13:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40198165103,
+  "av_review_sha256": "919549627120de0bc69e88cc915c499112063251e9f0b568f082706db1fec776",
+  "video_id": "TduMFF0fRlU",
+  "url": "https://www.youtube.com/shorts/TduMFF0fRlU",
+  "privacy": "scheduled",
+  "publish_at": "2026-11-01T13:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "अम्मा हफ़्तों से राशन लेने नहीं आई थीं, पर बरसों पुराने कार्ड पर उनकी तस्वीर ठीक आज जैसी क्यों थी? 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-11-01T13:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
