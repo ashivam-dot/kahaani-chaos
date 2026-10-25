@@ -5293,6 +5293,24 @@
           "reason": "The exact produced beat1 narration says the friends stood outside the post office, while its scene explicitly places them inside. Repair only the establishing visual direction and source art for this beat; preserve narration and accepted siblings and require every final gate.",
           "evidence": {
             "plan-40209430956/story.json": "156363e7615007e445b8f5e803f7f6a9f482f4dc70262a55bb8c121aeda87933"
+          },
+          "resolved_at": "2026-10-25T19:18:35+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "256fd8a03e6801d26da37035cbf156e5e451a31a",
+            "replay": ".github/replay/e24-reviewed-telegraph-repair.json",
+            "replay_sha256": "cf38c4a95836771577a9fb3a3160a835b628ca8551c8a78a973907cd831618d6",
+            "selected_images": {
+              "0": "9091fa7a4f1e7d9bf79ce7a1da0eae19d9c7dd36c92d80d63dd59034d7dd0f22",
+              "1": "02a8a97e19dd4ad9da5a4d5c95960da60010cfe738c1709fa77dfec921c84429",
+              "2": "5a60496bf27d147644f96dfa57418d39b189ec8df62fc067ba3537ae047f4335",
+              "3": "79dc388f4996ece1b1ea81f09f1ca4f628f9fecd1da01910a18c7a3d5726b315",
+              "4": "3483f495a3031e6c951638054a2de699f12ed48df70bb56c96dfeaa1edc4d21e",
+              "5": "f5d9bc6bb566d9867d3972c62a05bd13e3b8ec83c23f9823636b0772c3bf5d26",
+              "6": "df5a6f216058a579a3666657d456858d3caac4324ce490bd3796b6fa197caa09"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -5302,6 +5320,24 @@
           "reason": "Native-resolution review finds a second miniature childlike figure at the lower right of beat2. The declared scene has only Shailesh. Exclude the complete refused frame and use a faithful upper-body crop that removes the entire additional figure; retain the original narration and every final gate.",
           "evidence": {
             "art-40209430956-2/beat02.png": "6e19afd85fd49e16f6420be1e8c7df072d51343529755bf4ef7e8d4ed65d8614"
+          },
+          "resolved_at": "2026-10-25T19:18:35+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "256fd8a03e6801d26da37035cbf156e5e451a31a",
+            "replay": ".github/replay/e24-reviewed-telegraph-repair.json",
+            "replay_sha256": "cf38c4a95836771577a9fb3a3160a835b628ca8551c8a78a973907cd831618d6",
+            "selected_images": {
+              "0": "9091fa7a4f1e7d9bf79ce7a1da0eae19d9c7dd36c92d80d63dd59034d7dd0f22",
+              "1": "02a8a97e19dd4ad9da5a4d5c95960da60010cfe738c1709fa77dfec921c84429",
+              "2": "5a60496bf27d147644f96dfa57418d39b189ec8df62fc067ba3537ae047f4335",
+              "3": "79dc388f4996ece1b1ea81f09f1ca4f628f9fecd1da01910a18c7a3d5726b315",
+              "4": "3483f495a3031e6c951638054a2de699f12ed48df70bb56c96dfeaa1edc4d21e",
+              "5": "f5d9bc6bb566d9867d3972c62a05bd13e3b8ec83c23f9823636b0772c3bf5d26",
+              "6": "df5a6f216058a579a3666657d456858d3caac4324ce490bd3796b6fa197caa09"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -5319,7 +5355,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T19:16:50+00:00",
+  "updated_at": "2026-10-25T19:18:35+00:00",
   "measurement": {
     "at": "2026-10-25T19:16:48+00:00",
     "ok": true,
