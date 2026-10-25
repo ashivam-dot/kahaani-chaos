@@ -1348,7 +1348,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-brick-e07-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "held",
       "attempts": 6,
       "repair_history": [
         {
@@ -1516,7 +1516,12 @@
         39887835447,
         39886731532
       ],
-      "submitted_at": "2026-10-25T03:11:42+00:00"
+      "submitted_at": "2026-10-25T03:11:42+00:00",
+      "run_id": 40157308891,
+      "cloud_status": "completed",
+      "problems": [
+        "ValueError: preview did not make a finished passing Short"
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -1932,7 +1937,7 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T03:28:22+00:00",
+  "updated_at": "2026-10-25T03:28:25+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
