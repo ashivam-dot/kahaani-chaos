@@ -2979,7 +2979,55 @@
       ],
       "submitted_at": "2026-10-25T06:26:36+00:00",
       "run_id": 40169098001,
-      "cloud_status": "completed"
+      "cloud_status": "completed",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3-flash-preview",
+        "duration": 42.1,
+        "video_sha256": "ce55cea3a877ca22d209ef72f3ac3ad3f42b096b9bef3d286981d381daf02956",
+        "brief_sha256": "16652afb86c6d6df9dd1c8cacdcd343e7c0be882513a397df15956b45b760581",
+        "review_video_sha256": "73ba87c31dce36714a32bfebdb9c6bd142ecf1e88c0adde43d71fe9dfbbadc92",
+        "review_audio_sha256": "5e3f8c05f8c8ae8f6c4e45e353058edd74b60cef0682a44cdeb09ac1c040de43",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "ख़ाली बस की सीट पर कटा टिकट पड़ा था।",
+          "heard_ending": "बत्ती बुझ गई, और झब्बू काका ने लाल रजिस्टर में लिख दिया कि पुराना हिसाब बराबर हुआ।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "A rectangular paper ticket lies flat on a green vinyl bus seat.",
+              "heard": "ख़ाली बस की सीट पर कटा टिकट पड़ा था।"
+            },
+            {
+              "part": "middle",
+              "seconds": 18.0,
+              "seen": "Jhabbu Kaka stands with a bamboo staff and lantern near a bus entrance.",
+              "heard": "झब्बू काका ने लाठी ठटकाई कि रात की सीट किसी की होती है।"
+            },
+            {
+              "part": "ending",
+              "seconds": 36.0,
+              "seen": "Jhabbu writes in a red-bound register at a moonlit tea stall.",
+              "heard": "झब्बू काका ने लाल रजिस्टर में लिख दिया कि पुराना हिसाब बराबर हुआ।"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -3164,5 +3212,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T06:58:33+00:00"
+  "updated_at": "2026-10-25T06:59:13+00:00"
 }
