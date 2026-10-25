@@ -1563,7 +1563,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e03.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 1,
       "source_sha": "f70bd66602e263a3c342469fba009cd9d1c7889c",
       "before_ids": [
@@ -1630,7 +1630,22 @@
       ],
       "submitted_at": "2026-10-25T01:49:46+00:00",
       "run_id": 40152138336,
-      "cloud_status": "in_progress"
+      "cloud_status": "in_progress",
+      "editorial_holds": [
+        {
+          "id": "direct-pco-object-hands-40152138336",
+          "run_id": 40152138336,
+          "observed_at": "2026-10-25T02:21:43+00:00",
+          "reason": "Direct rendered-still review: beat 0 shows a disembodied hand protruding from the wall meter; beat 5 shows two floating arms beneath a reel-like box. Both planned scenes are object-only. Repair exact meter scenes to a faithful enclosed analog call meter without body parts; retain all spoken story and usable siblings.",
+          "evidence": {
+            "art-40152138336-0/beat00.png": "5000e820fa0dffaf040c3784270d9d04d56b68f03ff4dbf880f31cde3b6c99f8",
+            "art-40152138336-5/beat05.png": "4eac6fd22a85a155bd4a152150114f9909c6ee6ca95ee0c482ed54ff80222fa9"
+          }
+        }
+      ],
+      "problems": [
+        "Direct rendered-still review: beat 0 shows a disembodied hand protruding from the wall meter; beat 5 shows two floating arms beneath a reel-like box. Both planned scenes are object-only. Repair exact meter scenes to a faithful enclosed analog call meter without body parts; retain all spoken story and usable siblings."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -1777,7 +1792,7 @@
       "attempts": 0
     }
   ],
-  "halted": null,
+  "halted": "Repair held entry e03: Direct rendered-still review: beat 0 shows a disembodied hand protruding from the wall meter; beat 5 shows two floating arms beneath a reel-like box. Both planned scenes are object-only. Repair exact meter scenes to a faithful enclosed analog call meter without body parts; retain all spoken story and usable siblings.",
   "complete": false,
   "health": {
     "public": 1,
@@ -1785,7 +1800,7 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T02:21:16+00:00",
+  "updated_at": "2026-10-25T02:21:43+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
