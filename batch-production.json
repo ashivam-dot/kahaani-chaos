@@ -3251,7 +3251,18 @@
       ],
       "submitted_at": "2026-10-25T07:00:29+00:00",
       "run_id": 40171159505,
-      "cloud_status": "completed"
+      "cloud_status": "completed",
+      "repair_history": [
+        {
+          "run_id": 40176488651,
+          "source_sha": "d90a2f62aaf82dd5da1d9a5dbf781f2c0d325813",
+          "stage": "diagnostic",
+          "kind": "av_review_only",
+          "source_run_id": 40171159505,
+          "conclusion": "failure",
+          "reason": "Pre-review rotation validation correctly rejected register-line/S2 before e16 delivery. No audiovisual verdict, new production or delivery exists for this run."
+        }
+      ]
     },
     {
       "repo": "kahaani-chaos",
