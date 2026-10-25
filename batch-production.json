@@ -3276,7 +3276,55 @@
       ],
       "submitted_at": "2026-10-25T11:11:22+00:00",
       "run_id": 40187818735,
-      "cloud_status": "in_progress"
+      "cloud_status": "completed",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3.8-flash",
+        "duration": 47.9,
+        "video_sha256": "059908703cfdc5645a027f0daf5deb93e122cabd89c033cad4355402b856380b",
+        "brief_sha256": "53a801cd6f07f508e99edcb91ba9058958f82075292b31c8764882d7fed299d4",
+        "review_video_sha256": "a8f68f718510bc2de44a2e6e04bfd8edffe6596d9d60e34cff07e8063e8a8cb2",
+        "review_audio_sha256": "bbea78e6bc1449595d1978d2a0e61f33b52b889c46ada44c94977c74e692f9a9",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "टंकी पर फँसी पतंग मेरा नाम पुकार रही थी।",
+          "heard_ending": "उस रात पतंग ख़ामोश हो गई, पर आज भी सन्नाटे में हवा का झोंका मुझे टंकी पर फँसी पतंग की याद दिला देता है।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "Tattered kite tangled on the water tank railing under moonlit sky with lantern glow.",
+              "heard": "पतंग मेरा नाम पुकार रही थी।"
+            },
+            {
+              "part": "middle",
+              "seconds": 15.0,
+              "seen": "Shailesh flinching as Prabhat holds his arm on the moonlit platform.",
+              "heard": "शैलेश घबराकर तुरंत"
+            },
+            {
+              "part": "ending",
+              "seconds": 41.0,
+              "seen": "Hands turning the page of a notebook beside spectacles under lamplight.",
+              "heard": "पर आज भी सन्नाटे में हवा का झोंका"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -3726,5 +3774,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T11:33:29+00:00"
+  "updated_at": "2026-10-25T11:35:58+00:00"
 }
