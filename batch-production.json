@@ -4876,7 +4876,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e24.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 1,
       "source_sha": "3f2cc5c792281ce05d01aaf9b8aba181bb1877e2",
       "before_ids": [
@@ -4941,7 +4941,9 @@
         40148316893,
         40147867847
       ],
-      "submitted_at": "2026-10-25T15:58:12+00:00"
+      "submitted_at": "2026-10-25T15:58:12+00:00",
+      "run_id": 40209430956,
+      "cloud_status": "in_progress"
     }
   ],
   "halted": "Repair held entry e14: Direct review of the exact produced plan finds beat4 naming three visible walkers while declaring only Jhabbu, and beat5 introducing a visible unregistered father despite the approved offscreen-only brief. The hashtag list also contains stray CJK separators. Repair only visual4/5 and hashtag formatting, preserve every spoken line and accepted art; all current release gates remain.",
@@ -4949,10 +4951,10 @@
   "health": {
     "public": 3,
     "scheduled": 14,
-    "held": 2,
+    "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T16:00:50+00:00",
+  "updated_at": "2026-10-25T16:00:55+00:00",
   "measurement": {
     "at": "2026-10-25T16:00:50+00:00",
     "ok": true,
