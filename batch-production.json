@@ -1418,7 +1418,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e08.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 2,
       "source_sha": "ea5ee448e55ee90447597e4f691d878c021a8767",
       "before_ids": [
@@ -1535,7 +1535,9 @@
       "obsolete_runs": [
         40148316893
       ],
-      "repair_reason": "Prior writer refused the 14-word opening. Rebuild with deployed canonical bank hook binding, per-beat word budgets, unchanged editor gates, and honest retained writer provenance."
+      "repair_reason": "Prior writer refused the 14-word opening. Rebuild with deployed canonical bank hook binding, per-beat word budgets, unchanged editor gates, and honest retained writer provenance.",
+      "run_id": 40148804337,
+      "cloud_status": "queued"
     },
     {
       "repo": "kahaani-chaos",
@@ -1695,7 +1697,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:58:55+00:00",
+  "updated_at": "2026-10-25T00:59:00+00:00",
   "complete": false,
   "health": {
     "public": 1,
