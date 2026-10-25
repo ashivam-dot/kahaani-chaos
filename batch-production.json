@@ -5066,6 +5066,24 @@
           "reason": "Direct review of the exact produced plan finds beat4 naming three visible walkers while declaring only Jhabbu, and beat5 introducing a visible unregistered father despite the approved offscreen-only brief. The hashtag list also contains stray CJK separators. Repair only visual4/5 and hashtag formatting, preserve every spoken line and accepted art; all current release gates remain.",
           "evidence": {
             "plan-40207865422/story.json": "73648ae21b6e6515724e883c09f2d94bbb3d530847cacc4e00594d02de965391"
+          },
+          "resolved_at": "2026-10-25T18:50:15+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "bcfecf00036030957b2cd3bec0dc8f71feac5e6e",
+            "replay": ".github/replay/e14-reviewed-lantern-rescue-repair.json",
+            "replay_sha256": "72c50eb0654ef924342a287d41478f41d7bca9a17483a17d6e636eeb7e0dad21",
+            "selected_images": {
+              "0": "fc1f19bd9dcdf64ff2e3ff0721c8d8b717e34746e7c34d944521c7b70339d40b",
+              "1": "99512ad2a31ec587d807cd8cdad5e8290bcce9de7587c16310aecca09e5f62a3",
+              "2": "7fd32d6e68c0938182ec86317c4d37fe4786148212f53529653f37b7a384d78c",
+              "3": "24bafc00fcaa5d8e5f6d5c163bed8343cbf7b39a5a535dd969c9c21ec9e91a62",
+              "4": "1399854cf84851a60f3adb08d48b3c9ab5431e41c032afaa83bb389da0555a8f",
+              "5": "d91b89d6d569bebd7b4b87f43b14a5a3eb904671a0b8436113a94944dae2c102",
+              "6": "2a58d4e5d393d2ee3ced35fb5627351fe03c6459605283cb907373ab9713c01c"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -5075,6 +5093,24 @@
           "reason": "Direct review refuses beat2 for oversized cartoon eyes and child-like proportions in the eighteen-year-old Shailesh. Use a faithful close lantern insert or a repaired natural-proportion scene, preserving the narration and all existing holds and final gates.",
           "evidence": {
             "art-40207865422-2/beat02.png": "d60744c459af6304b34fa439831cd993c79a9741149cb525c19d2644c98b22b6"
+          },
+          "resolved_at": "2026-10-25T18:50:15+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "bcfecf00036030957b2cd3bec0dc8f71feac5e6e",
+            "replay": ".github/replay/e14-reviewed-lantern-rescue-repair.json",
+            "replay_sha256": "72c50eb0654ef924342a287d41478f41d7bca9a17483a17d6e636eeb7e0dad21",
+            "selected_images": {
+              "0": "fc1f19bd9dcdf64ff2e3ff0721c8d8b717e34746e7c34d944521c7b70339d40b",
+              "1": "99512ad2a31ec587d807cd8cdad5e8290bcce9de7587c16310aecca09e5f62a3",
+              "2": "7fd32d6e68c0938182ec86317c4d37fe4786148212f53529653f37b7a384d78c",
+              "3": "24bafc00fcaa5d8e5f6d5c163bed8343cbf7b39a5a535dd969c9c21ec9e91a62",
+              "4": "1399854cf84851a60f3adb08d48b3c9ab5431e41c032afaa83bb389da0555a8f",
+              "5": "d91b89d6d569bebd7b4b87f43b14a5a3eb904671a0b8436113a94944dae2c102",
+              "6": "2a58d4e5d393d2ee3ced35fb5627351fe03c6459605283cb907373ab9713c01c"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -5196,7 +5232,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T18:49:13+00:00",
+  "updated_at": "2026-10-25T18:50:15+00:00",
   "measurement": {
     "at": "2026-10-25T18:46:43+00:00",
     "ok": true,
