@@ -2760,76 +2760,10 @@
       "target": "2026-10-30T07:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e12.json"
+        "replay": ".github/replay/sannatpur-ticket-e12-repair.json"
       },
-      "stage": "held",
+      "stage": "planned",
       "attempts": 1,
-      "source_sha": "787674b5bc66cb1ff227e73da93f46ba8af07252",
-      "before_ids": [
-        40162491442,
-        40162007872,
-        40160199731,
-        40159235547,
-        40158580419,
-        40158338472,
-        40157308891,
-        40155939996,
-        40154809245,
-        40154557845,
-        40152921322,
-        40152845611,
-        40152138336,
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847,
-        40147346342,
-        40147002904,
-        40146579288,
-        40146069336,
-        40144076354,
-        40143503135,
-        40142724972,
-        40142626858,
-        40142424645,
-        40142328302,
-        40134819856,
-        40134047227,
-        40132420577,
-        40127450982,
-        40127055413,
-        40124707293,
-        40122737348,
-        40120456012,
-        40119789283,
-        40119725595,
-        40113702992,
-        40101837936,
-        40098975134,
-        40097886586,
-        40094273058,
-        40093452412,
-        40076072866,
-        40074101662,
-        40069802174,
-        40052825389,
-        40015352420,
-        40012868945,
-        40010294493,
-        40008947633,
-        39998079552,
-        39984130378,
-        39983471528,
-        39969216681,
-        39964227699,
-        39953890527,
-        39952503586,
-        39939846588
-      ],
-      "submitted_at": "2026-10-25T05:02:35+00:00",
-      "run_id": 40164083384,
-      "cloud_status": "queued",
       "editorial_holds": [
         {
           "id": "actual-e12-tiny-printed-ticket-40164083384",
@@ -2860,9 +2794,26 @@
           }
         }
       ],
-      "problems": [
-        "Direct full-resolution inspection rejects both original opening paintings: the ticket occupies only about five percent of the frame and contains generated printed lettering. The early picture editor independently refuses the base for text and the alternate for opening subject share. Preserve all speech and story; replace only this opener with a large blank reverse of the same perforated ticket on the green bus seat. Useful other art remains; complete picture, narrator, render and full audiovisual checks remain mandatory."
-      ]
+      "repair_history": [
+        {
+          "run_id": 40164083384,
+          "source_sha": "787674b5bc66cb1ff227e73da93f46ba8af07252",
+          "stage": "held",
+          "problems": [
+            "Direct full-resolution inspection rejects both original opening paintings: the ticket occupies only about five percent of the frame and contains generated printed lettering. The early picture editor independently refuses the base for text and the alternate for opening subject share. Preserve all speech and story; replace only this opener with a large blank reverse of the same perforated ticket on the green bus seat. Useful other art remains; complete picture, narrator, render and full audiovisual checks remain mandatory."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e12.json"
+          }
+        }
+      ],
+      "obsolete_runs": [
+        40164083384
+      ],
+      "repair_queued_at": "2026-10-25T06:25:28+00:00",
+      "repair_source_sha": "690b84d354c4f25f146aaf38b596fa3ed50d58cf",
+      "repair_reason": "Replace only the refused tiny printed-ticket hook with the exact directly reviewed large blank reverse on the green bus seat; retain all speech, title and useful original art, selecting the genuine alternate for beat two. Full current picture, narrator, render and audiovisual checks remain required."
     },
     {
       "repo": "kahaani-chaos",
@@ -2973,7 +2924,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e12: Direct full-resolution inspection rejects both original opening paintings: the ticket occupies only about five percent of the frame and contains generated printed lettering. The early picture editor independently refuses the base for text and the alternate for opening subject share. Preserve all speech and story; replace only this opener with a large blank reverse of the same perforated ticket on the green bus seat. Useful other art remains; complete picture, narrator, render and full audiovisual checks remain mandatory.",
+  "halted": null,
   "complete": false,
   "health": {
     "public": 1,
@@ -2981,5 +2932,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T06:25:22+00:00"
+  "updated_at": "2026-10-25T06:25:28+00:00"
 }
