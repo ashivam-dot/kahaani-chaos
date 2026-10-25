@@ -3796,76 +3796,10 @@
       "target": "2026-11-01T07:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e13.json"
+        "replay": ".github/replay/sannatpur-well-e13-notebook-repair.json"
       },
-      "stage": "held",
+      "stage": "planned",
       "attempts": 1,
-      "source_sha": "2d8f655212bba84f4eb33a4fc230936252775f84",
-      "before_ids": [
-        40185173569,
-        40183523788,
-        40183199244,
-        40180766036,
-        40180081031,
-        40180078790,
-        40178234124,
-        40177715903,
-        40176769163,
-        40176488651,
-        40174740535,
-        40172748055,
-        40172736622,
-        40171278752,
-        40171159505,
-        40170263222,
-        40169893361,
-        40169378463,
-        40169098001,
-        40168832723,
-        40168763687,
-        40164083384,
-        40162491442,
-        40162007872,
-        40160199731,
-        40159235547,
-        40158580419,
-        40158338472,
-        40157308891,
-        40155939996,
-        40154809245,
-        40154557845,
-        40152921322,
-        40152845611,
-        40152138336,
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847,
-        40147346342,
-        40147002904,
-        40146579288,
-        40146069336,
-        40144076354,
-        40143503135,
-        40142724972,
-        40142626858,
-        40142424645,
-        40142328302,
-        40134819856,
-        40134047227,
-        40132420577,
-        40127450982,
-        40127055413,
-        40124707293,
-        40122737348,
-        40120456012,
-        40119789283,
-        40119725595
-      ],
-      "submitted_at": "2026-10-25T11:06:12+00:00",
-      "run_id": 40187469293,
-      "cloud_status": "queued",
       "editorial_holds": [
         {
           "id": "e13-notebook-lantern-hold",
@@ -4008,13 +3942,30 @@
           }
         }
       ],
-      "problems": [
-        "The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.",
-        "All three beat02 paintings show Nuzhat holding her flashlight rather than pulling the well rope, and add a lantern where the flashlight resting on the parapet must be the only practical light. Preserve every spoken line and accepted siblings; replace only this action/detail scene. All current picture, narrator, render and full audiovisual checks remain required.",
-        "The beat03 letter reveal has an unsupported floating flashlight in its base, a duplicate character in alt1, and stick-like bucket bundles rather than envelope letters across the paintings. Preserve every spoken line and accepted siblings; repair only this letter-reading scene. All current picture, narrator, render and full audiovisual checks remain required.",
-        "The beat05 writing scene substitutes an oil lantern for Nuzhat electric metal flashlight. Preserve the correct writing action through a separately reviewed provenance-bound crop that excludes this wrong prop, or repaint only this scene. Preserve every spoken line and accepted siblings; every current picture, narrator, render and full audiovisual gate remains required.",
-        "The ending object shot adds arms, a lantern, generated writing and dripping water to the letter-filled bucket return. Replace only this visual with a provenance-bound closing reprise of the accepted bucket detail or a correctly reviewed repaint. Preserve every spoken line and all picture/narrator/render/full audiovisual checks."
-      ]
+      "repair_history": [
+        {
+          "run_id": 40187469293,
+          "source_sha": "2d8f655212bba84f4eb33a4fc230936252775f84",
+          "stage": "held",
+          "problems": [
+            "The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.",
+            "All three beat02 paintings show Nuzhat holding her flashlight rather than pulling the well rope, and add a lantern where the flashlight resting on the parapet must be the only practical light. Preserve every spoken line and accepted siblings; replace only this action/detail scene. All current picture, narrator, render and full audiovisual checks remain required.",
+            "The beat03 letter reveal has an unsupported floating flashlight in its base, a duplicate character in alt1, and stick-like bucket bundles rather than envelope letters across the paintings. Preserve every spoken line and accepted siblings; repair only this letter-reading scene. All current picture, narrator, render and full audiovisual checks remain required.",
+            "The beat05 writing scene substitutes an oil lantern for Nuzhat electric metal flashlight. Preserve the correct writing action through a separately reviewed provenance-bound crop that excludes this wrong prop, or repaint only this scene. Preserve every spoken line and accepted siblings; every current picture, narrator, render and full audiovisual gate remains required.",
+            "The ending object shot adds arms, a lantern, generated writing and dripping water to the letter-filled bucket return. Replace only this visual with a provenance-bound closing reprise of the accepted bucket detail or a correctly reviewed repaint. Preserve every spoken line and all picture/narrator/render/full audiovisual checks."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e13.json"
+          }
+        }
+      ],
+      "obsolete_runs": [
+        40187469293
+      ],
+      "repair_queued_at": "2026-10-25T13:09:57+00:00",
+      "repair_source_sha": "140f56e5394f39cf4f9a0dbfd0e5cb9a0da25417",
+      "repair_reason": "Seven directly reviewed, hash-bound inputs preserve all narration; narrow editorial details exclude refused props and cast without new painting. Require all normal picture, narration, render and full audiovisual gates."
     },
     {
       "repo": "kahaani-chaos",
@@ -4233,7 +4184,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e13: The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.; All three beat02 paintings show Nuzhat holding her flashlight rather than pulling the well rope, and add a lantern where the flashlight resting on the parapet must be the only practical light. Preserve every spoken line and accepted siblings; replace only this action/detail scene. All current picture, narrator, render and full audiovisual checks remain required.; The beat03 letter reveal has an unsupported floating flashlight in its base, a duplicate character in alt1, and stick-like bucket bundles rather than envelope letters across the paintings. Preserve every spoken line and accepted siblings; repair only this letter-reading scene. All current picture, narrator, render and full audiovisual checks remain required.; The beat05 writing scene substitutes an oil lantern for Nuzhat electric metal flashlight. Preserve the correct writing action through a separately reviewed provenance-bound crop that excludes this wrong prop, or repaint only this scene. Preserve every spoken line and accepted siblings; every current picture, narrator, render and full audiovisual gate remains required.; The ending object shot adds arms, a lantern, generated writing and dripping water to the letter-filled bucket return. Replace only this visual with a provenance-bound closing reprise of the accepted bucket detail or a correctly reviewed repaint. Preserve every spoken line and all picture/narrator/render/full audiovisual checks.",
+  "halted": "Repair held entry e11: Both hook paintings contain conspicuous invented alphanumeric headings on the ration card instead of its planned blank reverse. Repair only the card surface or this hook; preserve narration and accepted siblings. All current picture, narration, render and full audiovisual gates remain required.; The raised ration-card paintings contain invented printed writing. Repair only the visible card surface through a separately reviewed source-bound blank-paper texture edit, preserving Shailesh, grain shop, action and narration. All picture, narrator, render and full audiovisual gates remain required.",
   "complete": false,
   "health": {
     "public": 2,
@@ -4241,5 +4192,5 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T13:09:52+00:00"
+  "updated_at": "2026-10-25T13:09:57+00:00"
 }
