@@ -381,7 +381,10 @@ def tick(adapter, mode, save=persist):
     if held:
         # Rotation is a sequence. A refused entry must be repaired or deliberately re-planned before successors.
         data["halted"] = f"Repair held entry {held[0]['premise']}: " + "; ".join(held[0].get("problems", []))
-    in_flight = [j for j in data["jobs"] if j["stage"] in ("building", "dispatch_unresolved")]
+    # A completed future preview can still be "building" while ordered review waits
+    # for an earlier repair. It occupies buffer space, but no longer uses a producer.
+    in_flight = [j for j in data["jobs"] if j["stage"] == "dispatch_unresolved"
+                 or (j["stage"] == "building" and j.get("cloud_status") != "completed")]
     pending = next((j for j in data["jobs"] if j["stage"] == "planned"), None)
     buffered = sum(j["stage"] not in FINAL | {"planned"} for j in data["jobs"])
     # A known editorial refusal blocks review/release in the loop above. Independent dry production
