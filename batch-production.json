@@ -4113,7 +4113,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-ration-card-e11-repair.json"
       },
-      "stage": "building",
+      "stage": "reviewed",
       "attempts": 2,
       "editorial_holds": [
         {
@@ -4307,7 +4307,8 @@
           ],
           "issues": []
         }
-      }
+      },
+      "archive": "batch-reviewed-40198165103"
     },
     {
       "repo": "kahaani-chaos",
@@ -4528,5 +4529,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T13:47:54+00:00"
+  "updated_at": "2026-10-25T13:48:02+00:00"
 }
