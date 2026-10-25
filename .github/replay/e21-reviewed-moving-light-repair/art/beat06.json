@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-1340-e21",
+  "beat": 6,
+  "alt": 0,
+  "prompt": "A medium shot outdoors at the tall brick kiln chimney at early dawn. The dark brick chimney stands quiet and abandoned against the pale morning sky. The ground around the base door is empty as cold morning light fills the yard. The scene is outdoors. No people: no human figure, face, hand or arm anywhere in the picture. Early-morning 1996 north-Indian village at dawn, pale gold sunrise light and soft blue shadows, no moon and no lamp lit, lifted shadows, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 622.2,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 645925145,
+  "log_tail": "cached graph cut plan done (taking 0 ms) --- ggml_graph_cut.cpp:1032\n\n  |##################################################| 138/138 - 940.30MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.00s, memcpy: 0.00s, convert: 0.03s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 53.68s --- image.cpp:620\n[I] decode_first_stage completed, taking 53.68s --- image.cpp:624\n[I] generate_image completed in 621.57s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat06.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12602287086,
+    "run_id": 40198599502,
+    "name": "art-40198599502-6",
+    "size_in_bytes": 1021235,
+    "source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f"
+  },
+  "image_sha256": "7f9a600ba5a60fe674c64b76676d4ceb6bd526cab29cc9f264a31798133e10bc"
+}

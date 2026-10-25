@@ -1,0 +1,13 @@
+{
+ "story": "kc-20261025-1340-e21",
+ "beat": 2,
+ "alt": 0,
+ "prompt": "Close painting of the middle section of the cold brick kiln chimney at night. Two dark iron ladder rails and five clear rungs cross the tall red-brick surface. One unattached oval patch of warm amber light floats in empty air beside the middle rung. A short soft vertical glow trail above it suggests downward movement. The luminous patch is visibly separate from the iron and brick, with no solid object inside it. Only brick, ladder iron, blue night air and this airborne light occupy the frame. The base, ledge and people are outside this tight view. The unattached glow is the only warm light. The scene is outdoors. No people: no human figure, face, hand or arm anywhere in the picture. bright moonlit 1996 north-Indian village, one warm unattached self-luminous glow, lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+ "seconds": 1247.1,
+ "model": "zimage",
+ "steps": 4,
+ "width": 576,
+ "height": 1024,
+ "seed": 597869824,
+ "log_tail": "                                            | 14/138 - 436.04MB/s\u001b[K\n  |##################################################| 138/138 - 931.04MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 90.91s --- image.cpp:620\n[I] decode_first_stage completed, taking 90.91s --- image.cpp:624\n[I] generate_image completed in 1246.21s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat02.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n"
+}

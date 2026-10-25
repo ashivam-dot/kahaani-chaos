@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-1340-e21",
+  "beat": 4,
+  "alt": 0,
+  "prompt": "Painted medium rear view outdoors in the brick kiln yard at night. The three established friends stand together, facing toward the right frame edge where the tin shed lies offscreen. Jhabbu in khaki kurta and red muffler points calmly right with his raised hand and holds his single brass lantern low in the other. Nuzhat in green dupatta holds her electric metal flashlight; Prabhat in mustard sweater and steel glasses holds his blue notebook. They quietly watch the offscreen shed. Cool moonlight reveals the empty brick yard. The one carried lantern provides the only warm practical light. Visible painterly brushwork and realistic adult proportions. The scene is outdoors. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away, instructive and firm expression; Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, observant expression; Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, thoughtful expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1353.3,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1941699637,
+  "log_tail": "ached graph cut plan done (taking 0 ms) --- ggml_graph_cut.cpp:1032\n\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.00s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 91.08s --- image.cpp:620\n[I] decode_first_stage completed, taking 91.08s --- image.cpp:624\n[I] generate_image completed in 1352.44s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat04.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12603871840,
+    "run_id": 40203594826,
+    "name": "art-40203594826-4",
+    "size_in_bytes": 1210292,
+    "source_sha": "6ae60c701db2b41b855491637b134b97960c6501"
+  },
+  "image_sha256": "2aa98ed0a31f5cafaa7bcc3f27928874f47d5b8ab1122e8d6b78c3932480fd1a"
+}

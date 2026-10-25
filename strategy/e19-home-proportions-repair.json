@@ -1,0 +1,10 @@
+{
+  "original_scene": "Jhabbu walks Prabhat home along a dark path. Jhabbu carries his brass lantern. Prabhat looks down at his feet, and his shadow is now perfectly attached to his heels. The scene is outdoors. People: [{\"name\": \"jhabbu\", \"expression\": \"calm\"}, {\"name\": \"prabhat\", \"expression\": \"relieved\"}]",
+  "replacement_scene": "Painted rear three-quarter view on an outdoor moonlit village path. Prabhat and Jhabbu walk side by side toward a distant house. Prabhat is a tall adolescent young man with adult proportions, nearly Jhabbu's height, their shoulders level. His mustard sweater, steel glasses in profile and blue notebook identify him. Elderly Jhabbu wears khaki and a red muffler, with his staff and red-spined register tucked under his arm. He carries one brass lantern low. Prabhat looks down at his ordinary shadow beginning exactly at his heels. Calm walking poses, cool readable moonlight, one warm carried lantern, visible painterly brushwork. The scene is outdoors.",
+  "original_run": 40199355603,
+  "refused_image": "5dc7a674f9d2cfed860aef477f3c41e213f88acac6a7c01fbd2ea1ea62c2b5a6",
+  "reason": "Direct review found established seventeen-year-old Prabhat painted as a small child. Remove leaked scene schema and request realistic adult proportions and matched shoulder height, retaining the same action, cast, props and speech.",
+  "speech_changed": false,
+  "release_approval": false,
+  "remaining": "Current picture, voice, render and complete audiovisual gates"
+}

@@ -1,0 +1,18 @@
+{
+  "images": [
+    {
+      "file": "unattached-glow-closeup/beat00.png",
+      "image_sha256": "1747dd2f7428b35cdcd43acf8175f894dc666e9147d52d736568402e97d2b09c",
+      "decision": "pass",
+      "reason": "Directly inspected reconstructed crop of the newly generated unsupported amber glow. One freely floating patch fills about one third of the width above a readable cold chimney crown and upper ladder; painted style is preserved, no housing, attachments, people, text or extra practical lights appear. Cropping adds no objects. Source-art approval only; unchanged picture subject-size and complete audiovisual gates remain required."
+    },
+    {
+      "file": "unattached-glow-middle/beat02.png",
+      "image_sha256": "dc144e5e6db3aad4a8b3eaf1fc528dd31259323c0e635c459cf7c82154021b2c",
+      "decision": "pass",
+      "reason": "Direct native review of the faithfully rebuilt tight crop: the iron ladder, middle chimney bricks and one unsupported amber light with a short upward trail remain readable. All unintended edge people are outside the crop; no fixture, body parts, writing or extra light source remain. Source-art only; unchanged final gates and full audiovisual review remain required."
+    }
+  ],
+  "at": "2026-10-25T14:45:19.672158+00:00",
+  "release_approval": false
+}

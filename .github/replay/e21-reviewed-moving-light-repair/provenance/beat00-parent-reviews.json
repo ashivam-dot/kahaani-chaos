@@ -1,0 +1,31 @@
+{
+  "images": [
+    {
+      "file": "art-40200321514-0/beat00.png",
+      "image_sha256": "4fb3fbca24f1090e1d58d8d99b0645025fa22b5d9713b8ce95ccda8d75a28139",
+      "decision": "pass",
+      "reason": "Direct native review: the cold brick chimney and iron ladder are readable in the painted night style; one unsupported amber oval glow appears above the crown with a small descending trail. No lamp housing, attachment, people or text is visible. Suitable source opening illustration; rendered motion, narration and complete audiovisual gates remain required."
+    },
+    {
+      "file": "art-40200321514-0/beat00-alt2.png",
+      "image_sha256": "a5f5342b5936b853aa5080793842e3f6061232f2d096161819d0d76870a8a7bc",
+      "decision": "pass",
+      "reason": "Direct native review: the cold brick chimney and iron ladder are readable in the painted night style; one unsupported amber oval glow appears above the crown with a small descending trail. No lamp housing, attachment, people or text is visible. Suitable source opening illustration; rendered motion, narration and complete audiovisual gates remain required."
+    },
+    {
+      "file": "art-40200321514-2/beat02.png",
+      "image_sha256": "cbddd3145c150540fdfd8202b54e5a027636bd311be8d1f9b5d98507c4ad22ac",
+      "decision": "hold",
+      "reason": "Direct native review: an unsupported amber light and ladder are present, but unplanned people appear along the lower side edges of the intended object-only scene. Preserve these refused parents. A faithful tight crop may exclude only the off-frame people; unchanged final object-only and audiovisual gates remain mandatory."
+    },
+    {
+      "file": "art-40200321514-2/beat02-alt1.png",
+      "image_sha256": "672cafaf69ec1434aef2857db651356d1189e001cc42883ad5aa252446fafcc4",
+      "decision": "hold",
+      "reason": "Direct native review: an unsupported amber light and ladder are present, but unplanned people appear along the lower side edges of the intended object-only scene. Preserve these refused parents. A faithful tight crop may exclude only the off-frame people; unchanged final object-only and audiovisual gates remain mandatory."
+    }
+  ],
+  "at": "2026-10-25T14:49:20.468121+00:00",
+  "scope": "Source paintings only",
+  "release_approval": false
+}

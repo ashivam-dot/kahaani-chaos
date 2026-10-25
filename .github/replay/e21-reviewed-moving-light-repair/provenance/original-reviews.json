@@ -1,0 +1,61 @@
+{
+  "images": [
+    {
+      "file": "art-40198599502-2/beat02.png",
+      "image_sha256": "e54ce82307b5a7388b3f051968953b5cf3b5b3f6b474cc731099ed39938b76ef",
+      "decision": "hold",
+      "reason": "Directly inspected the native beat02 painting: a physical oil lamp rests on the ledge at the bottom of the chimney ladder. The planned autonomous light descending the ladder is absent; the image substitutes a fixed lamp for the episode anomaly. Repair only this image and exclude these exact bytes; all accepted sibling art, narration and current gates remain required."
+    },
+    {
+      "file": "art-40198599502-0/beat00.png",
+      "image_sha256": "89c02e998a8e6636129c6c0762c0022fad1e210a29e57978efe934866eb73546",
+      "decision": "hold",
+      "reason": "Direct native inspection: two metal/glass oil lantern fixtures are attached to the chimney ladder. The opening must show one autonomous descending light on a cold chimney; fixed lanterns replace the central anomaly. Preserve all speech and accepted siblings; replace only the opening picture and retain final gates."
+    },
+    {
+      "file": "art-40198599502-1/beat01.png",
+      "image_sha256": "6c3eb208a89189f7637ad905c1ed068b4dc86bbeee6179378bf62b5e9bf65425",
+      "decision": "pass",
+      "reason": "Direct native inspection: the three planned recurring characters gather below a cold brick chimney at night, looking upward. Prabhat has mustard sweater, steel glasses and blue notebook; Nuzhat has green dupatta and an electric white-beam metal flashlight; Jhabbu has khaki clothing, red scarf, brass lantern and supported staff/book. Coherent night palette, readable faces and no conspicuous invented writing. Establishing-scene source art only; full scene/timeline review remains required."
+    },
+    {
+      "file": "art-40198599502-3/beat03.png",
+      "image_sha256": "635a57ce53de1d13c2d07b0e1731d4c8e85190d974a58a6442686347ca442489",
+      "decision": "hold",
+      "reason": "Direct inspection: Jhabbu raises the lantern with only a short detached-looking bamboo piece above his hand; there is no full staff blocking Prabhat approaching the chimney. Preserve the refused bytes; do not select this base."
+    },
+    {
+      "file": "art-40198599502-3/beat03-alt1.png",
+      "image_sha256": "be8483ed9b49a337bac679541ac2bf15228d7e90ccf354688e707728d83b7113",
+      "decision": "pass",
+      "reason": "Direct inspection of the alternate: Prabhat in mustard sweater, steel glasses and blue notebook faces Jhabbu in khaki with red muffler, lantern and register. A full bamboo staff stands between their approach at the chimney door, supported by Jhabbu. Known cast and props are readable, with no extra person or malformed anatomy. Source-art pass only; final picture and complete audiovisual checks remain required."
+    },
+    {
+      "file": "art-40198599502-5/beat05.png",
+      "image_sha256": "8519630b01af4414a580ba46dbe1d24dffea5bf4b32392951db6f6a41e607034",
+      "decision": "hold",
+      "reason": "Direct inspection: the only older person is Jhabbu in his khaki kurta and red muffler standing inside the shed doorway. The departing clerk and tied trunk are absent, so this painting conflates Jhabbu with Munshi during the farewell. Repair the visual as the three known friends outside, looking toward the departing clerk who remains offscreen; preserve all narration."
+    },
+    {
+      "file": "art-40198599502-6/beat06.png",
+      "image_sha256": "7f9a600ba5a60fe674c64b76676d4ceb6bd526cab29cc9f264a31798133e10bc",
+      "decision": "pass",
+      "reason": "Direct native inspection: a quiet brick kiln chimney and empty yard at dawn, with a pale warm sky and no people, writing, flames or modern focal object. This provides the planned empty closing image for the remembered night. Source-art pass only; final rendered audiovisual review is still required."
+    },
+    {
+      "file": "art-40198599502-4/beat04.png",
+      "image_sha256": "65d2b08c7bc4c810617924f807914bf935682f881e45d877b4215bf0c2f40976",
+      "decision": "hold",
+      "reason": "Direct review: base painting does not retain the required painted house style; alternate adds a second attached physical lantern to the tin door and substitutes a fixed fixture for the autonomous light. Replace only beat4 with the established friends looking toward the offscreen shed, preserving narration and all current release gates."
+    },
+    {
+      "file": "art-40198599502-4/beat04-alt1.png",
+      "image_sha256": "bcd00871e65cbcfd4a6005b462cdcd98ad6cef157006c0c2e48f90375c3b742a",
+      "decision": "hold",
+      "reason": "Direct review: base painting does not retain the required painted house style; alternate adds a second attached physical lantern to the tin door and substitutes a fixed fixture for the autonomous light. Replace only beat4 with the established friends looking toward the offscreen shed, preserving narration and all current release gates."
+    }
+  ],
+  "at": "2026-10-25T14:40:54.297222+00:00",
+  "scope": "Source paintings only",
+  "release_approval": false
+}
