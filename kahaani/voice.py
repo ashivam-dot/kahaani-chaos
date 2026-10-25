@@ -360,6 +360,59 @@ def _runs(mask: np.ndarray) -> list[tuple[int, int]]:
     return list(zip(edges[::2], edges[1::2]))
 
 
+def _shorten_pauses(wav: Path, words: list[dict], spoken: list) -> tuple[list, list, dict]:
+    """Cut only the quiet centre of modest overlong internal pauses, outside every heard word.
+
+    Keep the established twist-pause length and shift actual word times by each removed interval.
+    Missing speech, long delivery failures and word-overlapping regions remain untouched and gated.
+    """
+    audio, sr = sf.read(str(wav), dtype="float32")
+    if audio.ndim != 1 or not len(audio):
+        return words, spoken, {}
+    floor = SPEECH_FLOOR * float(np.abs(audio).max(initial=0.0))
+    loud = np.flatnonzero(np.abs(audio) > floor)
+    if not loud.size or floor <= 0:
+        return words, spoken, {}
+    step = max(1, round(FRAME * sr))
+    frames = audio[:len(audio) // step * step].reshape(-1, step)
+    quiet = np.sqrt((frames ** 2).mean(axis=1)) < floor
+    occupied = [(float(a), float(b)) for _, a, b in spoken]
+    occupied += [(float(w["start"]), float(w["end"])) for w in words if w.get("heard", True)]
+    cuts = []
+    for first, last in _runs(quiet):
+        start, end = first * step, last * step
+        duration = (end - start) / sr
+        if not (start > loud[0] and end < loud[-1] and MAX_GAP < duration <= MAX_GAP + 0.6):
+            continue
+        remove = end - start - round(TWIST_PAUSE * sr)
+        a = start + (end - start - remove) // 2
+        b = a + remove
+        if any(x < b / sr and y > a / sr for x, y in occupied):
+            continue
+        if float(np.abs(audio[a:b]).max(initial=0.0)) > floor:
+            continue
+        cuts.append((a, b))
+    if not cuts:
+        return words, spoken, {}
+    original = hashlib.sha256(wav.read_bytes()).hexdigest()
+    pieces, cursor = [], 0
+    for a, b in cuts:
+        pieces.append(audio[cursor:a])
+        cursor = b
+    pieces.append(audio[cursor:])
+    sf.write(str(wav), np.concatenate(pieces), sr)
+
+    def moved(t):
+        sample = t * sr
+        return round((sample - sum(min(max(sample - a, 0), b - a) for a, b in cuts)) / sr, 3)
+
+    record = {"source_audio_sha256": original, "audio_sha256": hashlib.sha256(wav.read_bytes()).hexdigest(),
+              "removed": [{"start": a / sr, "end": b / sr} for a, b in cuts],
+              "scope": "quiet internal pause centres only; every heard word excluded"}
+    return ([w | {"start": moved(w["start"]), "end": moved(w["end"])} for w in words],
+            [(text, moved(a), moved(b)) for text, a, b in spoken], record)
+
+
 def as_words(spoken: list[tuple[str, float, float]]) -> list[tuple[str, float, float]]:
     """What Whisper heard with its digits (ASCII or Devanagari) said as Hindi words, as the script spells them."""
     return [(spoken_numbers(w) if re.search(r"[0-9०-९]", w) else w, a, b) for w, a, b in spoken]
@@ -554,11 +607,19 @@ def _gemini_story(story: Story, out_dir: Path) -> dict:
             end = int((words[-1]["end"] - LEAD_IN + EDGE_KEEP) * SAMPLE_RATE) if after else len(raw)
             raw = raw[start:end]
         low = min(coverage) if coverage else 0.0
+        pause_edit = {}
+        if clean and low >= MIN_COVERAGE:
+            words, spoken, pause_edit = _shorten_pauses(wav, words, spoken)
+            if pause_edit:
+                audio, _ = sf.read(str(wav), dtype="float32")
+                wpm = _wpm(tokens, spoken)
+                record["pause_edit"] = pause_edit
         m = measure(story, words, spoken, wav)
         missed = problems(m)
         ok = bool(clean and low >= MIN_COVERAGE and wpm is not None and not missed)
         takes.append({"take": take, "model": record["served_model"], "coverage": [round(c, 3) for c in coverage],
-                      "wpm": wpm, "clean": clean, "ok": ok, **m, "problems": missed})
+                      "wpm": wpm, "clean": clean, "ok": ok, **m, "problems": missed,
+                      **({"pause_edit": pause_edit} if pause_edit else {})})
         log.info("take %d (%s): coverage %s, %s wpm%s %s", take, record["served_model"],
                  " ".join(f"{c:.0%}" for c in coverage), wpm, "" if clean else ", extra speech", missed)
         if ok and (best is None or _rank(m) < _rank(best[4])):

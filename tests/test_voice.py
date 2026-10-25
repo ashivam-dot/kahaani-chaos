@@ -60,6 +60,41 @@ def _words(hook_end, n=10):
     return first + [{"text": "ख", "beat": 1, "start": hook_end + 0.3, "end": hook_end + 0.6}]
 
 
+def test_quiet_pause_repair_preserves_speech_and_moves_all_word_times(tmp_path):
+    import soundfile as sf
+    sr = voice.SAMPLE_RATE
+    tone = (0.4 * np.sin(2 * np.pi * 220 * np.arange(sr) / sr)).astype(np.float32)
+    audio = np.concatenate([np.zeros(int(.2 * sr)), tone, np.zeros(int(1.42 * sr)), tone])
+    path = tmp_path / 'pause.wav'
+    sf.write(path, audio, sr)
+    before, _ = sf.read(path, dtype='float32')
+    words = [{'text': 'पहले', 'start': .2, 'end': 1.2, 'beat': 0},
+             {'text': 'बाद', 'start': 2.62, 'end': 3.62, 'beat': 1}]
+    spoken = [(w['text'], w['start'], w['end']) for w in words]
+    assert voice.silences(path)[1] > voice.MAX_GAP
+    shifted, heard, receipt = voice._shorten_pauses(path, words, spoken)
+    after, _ = sf.read(path, dtype='float32')
+    assert receipt and receipt['source_audio_sha256'] != receipt['audio_sha256']
+    assert voice.silences(path)[1] <= voice.MAX_GAP
+    cut = receipt['removed'][0]
+    a, b = round(cut['start'] * sr), round(cut['end'] * sr)
+    assert np.array_equal(after, np.concatenate([before[:a], before[b:]]))
+    assert shifted[0] == words[0]
+    assert shifted[1]['start'] == pytest.approx(words[1]['start'] - (b-a)/sr, abs=.001)
+    assert heard[1][1:] == (shifted[1]['start'], shifted[1]['end'])
+
+
+@pytest.mark.parametrize('gap,spoken', [(1.42, [('protected', 1.6, 2.1)]), (2.4, [])])
+def test_word_overlaps_and_large_delivery_gaps_are_never_trimmed(tmp_path, gap, spoken):
+    import soundfile as sf
+    path = tmp_path / 'protected.wav'
+    sr = voice.SAMPLE_RATE
+    sf.write(path, np.concatenate([np.ones(sr) * .4, np.zeros(round(gap*sr)), np.ones(sr) * .4]), sr)
+    original = path.read_bytes()
+    assert voice._shorten_pauses(path, [], spoken)[2] == {}
+    assert path.read_bytes() == original
+
+
 def test_the_hook_is_timed_from_the_waveform_not_whisper(tmp_path, story):
     # Dry run 39866905046: Whisper put the first word at 0.0 s inside the 0.2 s lead-in, so the take measured 191 wpm
     # and passed, then the finished narration measured 204 wpm from the real onset and was held.

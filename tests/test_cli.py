@@ -233,6 +233,21 @@ def test_hindi_from_the_local_model_holds_and_keeps_the_premise(tmp_path, monkey
     assert cli.plan(tmp_path / "dry", dry=True)["paint"]
 
 
+def test_refused_writer_draft_is_retained_with_honest_models_and_no_paint(tmp_path, monkeypatch):
+    monkeypatch.setattr(voice, "ready", lambda: None)
+    monkeypatch.setattr(writer, "Pen", FakePen)
+    refused = writer.tidy(draft())
+    log = [{"attempt": 2, "stage": "gates", "problems": ["overlong hook"]}]
+    def fail(*args):
+        raise writer.WriterHold("hold: refused draft", draft=refused, log=log)
+    monkeypatch.setattr(writer, "write", fail)
+    status = cli.plan(tmp_path / "plan", dry=True)
+    evidence = json.loads((tmp_path / "plan/writer-hold.json").read_text())
+    assert not status["paint"] and not evidence["publishable"]
+    assert evidence["draft"] == refused and evidence["log"] == log
+    assert evidence["models"] == status["writer_models"] == ["gemini-test"]
+
+
 def test_a_low_bank_is_reported(tmp_path, monkeypatch):
     ledger.save("published", [{"id": f"kc-{e['id']}", "premise": e["id"], "made_at": f"2026-01-{i:02d}"}
                               for i, e in enumerate(premises.bank()[:31])])
