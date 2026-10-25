@@ -1,0 +1,36 @@
+{
+  "original_run": 40148804337,
+  "unbooked_replacement": "e32",
+  "target": "2026-10-28T07:30:00Z",
+  "reason": "Repeated materially wrong carrom geometry/action. Preserve old media holds, bank entry and original chronology; no upload intent or booked video exists for this slot. Existing e32 has the same skeleton/resolution/ending and the complete 21-entry sequence passes unchanged rotation rules.",
+  "exact_local_reviews": {
+    "images": [
+      {
+        "file": "beat00.png",
+        "image_sha256": "c36b91fe1206fd27ef8a57b8794bb41787ad020c2b60e2d0b97aa9678c5b66e2",
+        "decision": "hold",
+        "reason": "Direct full-resolution review: raised cup-like bowls sit on top of the surface instead of holes through the corner wood. Refuse this exact opening."
+      },
+      {
+        "file": "beat02.png",
+        "image_sha256": "b63a33f8fe06acd16198fc803027bc7779f9cd090ddf36c703b0cee64099fda6",
+        "decision": "pass",
+        "reason": "Direct full-resolution review: Nuzhat in green and Shailesh in red cap with radio, separate natural bodies and flashlight; circular corner openings connect to a net below the near corner. This depicts a pocketed board, correcting the prior flat tray; current cloud picture and full audiovisual checks remain."
+      },
+      {
+        "file": "beat03.png",
+        "image_sha256": "b59e6c335740c31c195771b2c90c12cde0b2d5a967c158fb5ebeabe515002b3e",
+        "decision": "pass",
+        "reason": "Direct full-resolution review: exactly Jhabbu alone, khaki kurta, grey shawl, red muffler, brass lantern, staff and red-spined ledger, with natural hands. Board is outside the composition, so no faulty board construction remains in this beat. Current picture and full AV checks remain."
+      },
+      {
+        "file": "beat04.png",
+        "image_sha256": "174601fb612853cc54cff11eeacc4db6c1d381d26f35d9ed6fa37c155d8ace45",
+        "decision": "hold",
+        "reason": "Direct full-resolution review: Prabhat uses a long cue-like stick vertically on raised cup-like objects. This contradicts finger-flicking a flat carrom striker into a corner pocket. Refuse these exact pixels."
+      }
+    ],
+    "release_approval": false
+  },
+  "release_approval": false
+}

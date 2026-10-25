@@ -43,7 +43,8 @@ def f1(history: list[dict]) -> list[dict]:
 
 def unused(history: list[dict], premises: list[dict] | None = None) -> list[dict]:
     spent = {r.get("premise") for r in history} | ledger.given_up()
-    return [p for p in (premises if premises is not None else bank()) if p["id"] not in spent]
+    return [p for p in (premises if premises is not None else bank())
+            if p["id"] not in spent and not p.get("production_hold")]
 
 
 def tease_allowed(entry: dict, history: list[dict]) -> bool:
@@ -67,6 +68,8 @@ def _key(text: str | None) -> str:
 
 def fits(entry: dict, history: list[dict]) -> list[str]:
     """Why this entry may not come next (empty = it may)."""
+    if entry.get("production_hold"):
+        return ["production hold: " + str(entry["production_hold"])]
     rows = f1(history)
     recent = rows[-RECENT:]
     found = []
@@ -90,22 +93,27 @@ def row(entry: dict, history: list[dict]) -> dict:
             "anomaly": entry.get("anomaly"), "location": entry.get("location"), "place_id": entry.get("place_id")}
 
 
-def _completable(pool: list[dict], history: list[dict], budget: list[int]) -> bool:
+def _completable(pool: list[dict], history: list[dict], budget: list[int], horizon: int | None = None) -> bool:
     """Whether the pool can be used up in some order under the rotation rules (depth-first, within budget)."""
-    if not pool:
+    if not pool or horizon == 0:
         return True
     budget[0] -= 1
     if budget[0] <= 0:
         return True  # out of look-ahead: assume it can, rather than refuse a fitting pick
     for e in pool:
         if not fits(e, history):
-            if _completable([p for p in pool if p is not e], history + [row(e, history)], budget):
+            if _completable([p for p in pool if p is not e], history + [row(e, history)], budget,
+                            None if horizon is None else horizon - 1):
                 return True
     return False
 
 
 def select(history: list[dict], premises: list[dict] | None = None, lift=learn.lift) -> dict:
-    pool = unused(history, premises)
+    entries = premises if premises is not None else bank()
+    pool = unused(history, entries)
+    # A held entry can unbalance the bank's three skeleton counts, making full exhaustion impossible.
+    # Keep the next ten entries feasible while it is unavailable; low-bank monitoring still requests refill.
+    horizon = RECENT if any(e.get('production_hold') for e in entries) else None
     fit = [p for p in pool if not fits(p, history)]
     if not fit:
         raise NoPremise(f"{len(pool)} unused micro entries, none clear of the rotation rules")
@@ -115,7 +123,7 @@ def select(history: list[dict], premises: list[dict] | None = None, lift=learn.l
                                         p.get("heart_type") == last.get("heart_type"), order[p["id"]]))
     for p in ranked:
         rest = [q for q in pool if q is not p]
-        if _completable(rest, history + [row(p, history)], [LOOKAHEAD]):
+        if _completable(rest, history + [row(p, history)], [LOOKAHEAD], horizon):
             return p
     return ranked[0]
 

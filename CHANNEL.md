@@ -161,6 +161,14 @@ ids, disclosure settings, voices or cadence are changed.
 A known editorial hold allows only bounded dry production ahead (four unconsumed previews maximum);
 review and release retain their predecessor checks. Every pending dispatch is reconciled before another is sent.
 
+**Explicit production holds (25 October 2026).** A bank entry with `production_hold` stays in the bible but
+is excluded from ordinary selection and refused by explicit replays, including preview replays without rotation.
+While a hold unbalances the three title-skeleton counts, selection checks a feasible ten-entry lookahead; an
+unheld bank retains the existing full-bank lookahead. Every actual pick still passes all rotation rules.
+The unbooked carrom e08 slot is replanned to existing e32 at the same time after repeated materially wrong
+board/action images. `strategy/carrom-e08-quarantine.json` records exact refusals. Old runs, media and unresolved
+holds remain quarantined; the replacement requires the normal complete production and release checks.
+
 **Batch previews (25 October 2026).** `strategy/batch-2026-10-25.json` lists twenty distinct future entries plus
 the first corrected preview. `.github/replay/batch-2026-10-25/*.json` are bank-entry briefs, not finished stories.
 The existing dry-run dispatch accepts these through `replay`, checks the planned predecessor rotation and calls

@@ -25,13 +25,16 @@ def test_first_pick_follows_bank_order():
     assert premises.select([])["id"] == "e01"
 
 
-def test_every_entry_is_used_once_and_every_pick_keeps_the_rotation():
+def test_every_entry_of_an_unheld_bank_is_used_once_and_every_pick_keeps_the_rotation(monkeypatch):
+    unheld = [{k:v for k,v in e.items() if k != 'production_hold'} for e in premises.bank()]
+    monkeypatch.setattr(premises, 'bank', lambda: unheld)
     history = []
-    for n in range(40):
+    eligible = [e for e in premises.bank() if not e.get('production_hold')]
+    for n in range(len(eligible)):
         pick = premises.select(history)
         assert premises.fits(pick, history) == [], (n, pick["id"])
         history.append(made(pick, history, n))
-    assert sorted(r["premise"] for r in history) == sorted(e["id"] for e in premises.bank())
+    assert sorted(r["premise"] for r in history) == sorted(e["id"] for e in eligible)
     for a, b in zip(history, history[1:]):
         assert a["ending"] != b["ending"] and a["resolution"] != b["resolution"]
     for a, b, c in zip(history, history[1:], history[2:]):
@@ -84,8 +87,8 @@ def test_no_premise_left():
 
 
 def test_low_bank_raises_a_health_note():
-    bank = premises.bank()
+    bank = premises.unused([])
     assert premises.low([]) is None
-    history = [{"premise": e["id"]} for e in bank[:31]]
+    history = [{"premise": e["id"]} for e in bank[:-9]]
     assert "only 9 unused" in premises.low(history)
-    assert premises.low([{"premise": e["id"]} for e in bank[:30]]) is None
+    assert premises.low([{"premise": e["id"]} for e in bank[:-10]]) is None

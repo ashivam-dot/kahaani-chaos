@@ -312,6 +312,8 @@ def check(draft: dict, premise: dict, history: list[dict], rotation: bool = True
     from . import variation
 
     found: list[str] = []
+    if premise.get("production_hold"):
+        found.append("production hold: " + str(premise["production_hold"]))
     beats = draft.get("beats") or []
     if not BEATS[0] <= len(beats) <= BEATS[1]:
         found.append(f"needs {BEATS[0]}-{BEATS[1]} beats, has {len(beats)}")
