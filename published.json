@@ -1014,5 +1014,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-1602-e24",
+  "premise": "e24",
+  "title": "बरसों पुराना तार आज रात डाकघर में कैसे लौट आया? 📨",
+  "subgenre": "goodbye",
+  "motifs": [],
+  "ending": "loop-back",
+  "opening": "तार वाली",
+  "made_at": "2026-10-25T19:46:07+00:00",
+  "format": "micro",
+  "skeleton": "S3",
+  "resolution": "leave-it-be",
+  "heart_type": "goodbye",
+  "object_token": "तार",
+  "anomaly": "बरसों पहले भेजे तार का ख़ुद लौट आना, जिस पर लिखा है: पहुँच गया",
+  "location": "तार वाली खिड़की",
+  "place_id": "dakghar",
+  "hook_strip": "पुराना तार लौट आया",
+  "script": "तार वाली खिड़की से पुराना पीला तार ख़ुद लौट आया। उन्नीस सौ छियानवे, उस रात हम डाकघर के बाहर खड़े थे। डाकबाबू ने घबराकर बताया, यह वही तार है जो बरसों पहले यहाँ से भेजा गया था। नुज़हत की टॉर्च में दिखा, काग़ज़ पर लिखा था, पहुँच गया। झब्बू काका बोले, नियम तीसरा याद रखो, जो चीज़ ख़ुद लौटे, उसे शुक्रिया कहकर रख लो, सवाल मत पूछो। काका की आवाज़ धीमी हुई, मेरा छोटा भाई भी ऐसे ही निकला था, जो कभी नहीं लौटा। उन्होंने तार जेब में रखा, पर हर रात वही पीला तार डाकघर की खिड़की पर ख़ुद लौटता सा लगता है।",
+  "slot": "2026-11-03T13:30:00Z",
+  "published_at": "2026-11-03T13:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40226427859,
+  "av_review_sha256": "68385a4ae6496b688588a96fffb1c23ef9c56cfad6e2b2c3b6b97a63686aee21",
+  "video_id": "G9rBjMQd6LU",
+  "url": "https://www.youtube.com/shorts/G9rBjMQd6LU",
+  "privacy": "scheduled",
+  "publish_at": "2026-11-03T13:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-11-03T13:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]

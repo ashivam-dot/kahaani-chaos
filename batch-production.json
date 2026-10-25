@@ -5217,7 +5217,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/e24-reviewed-telegraph-hook-repair.json"
       },
-      "stage": "upload_intent",
+      "stage": "scheduled",
       "attempts": 3,
       "editorial_holds": [
         {
@@ -5493,7 +5493,26 @@
       },
       "archive": "batch-reviewed-40226427859",
       "intended_publish_at": "2026-11-03T13:30:00Z",
-      "upload_intent_at": "2026-10-25T19:45:25+00:00"
+      "upload_intent_at": "2026-10-25T19:45:25+00:00",
+      "delivery": {
+        "video_id": "G9rBjMQd6LU",
+        "url": "https://www.youtube.com/shorts/G9rBjMQd6LU",
+        "privacy": "scheduled",
+        "publish_at": "2026-11-03T13:30:00Z",
+        "synthetic_declared": true,
+        "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+        "comment": "pending: HTTP 403",
+        "playlist": "skipped: no playlist",
+        "owner_readback": {
+          "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+          "privacyStatus": "private",
+          "publishAt": "2026-11-03T13:30:00Z",
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false,
+          "containsSyntheticMedia": null,
+          "uploadStatus": "processed"
+        }
+      }
     }
   ],
   "halted": null,
@@ -5504,7 +5523,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T19:45:25+00:00",
+  "updated_at": "2026-10-25T19:46:07+00:00",
   "measurement": {
     "at": "2026-10-25T19:43:16+00:00",
     "ok": true,
