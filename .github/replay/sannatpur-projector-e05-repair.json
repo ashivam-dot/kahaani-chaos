@@ -1,0 +1,167 @@
+{
+  "id": "kc-20261024-2322-e05",
+  "premise": "e05",
+  "title": "पुरानी रील ने उस रात हमें ही परदे पर दिखा दिया 🎞️ | सन्नाटपुर",
+  "hook": "पुरानी रील पर हम तीनों ही दिख रहे थे।",
+  "beats": [
+    {
+      "text": "पुरानी रील पर हम तीनों ही दिख रहे थे।",
+      "scene": "Inside the talkies film storage room, a rusted steel reel spins silently on an old iron projector stand. A narrow amber beam shoots forward onto a cracked wall, throwing flickering silhouettes. Dusty moonlit blue filters from high vents. Extreme close-up on the whirring reel metal teeth and celluloid strip.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे की उस रात, हम तीनों टॉकीज़ के बंद स्टोर में छिपकर घुसे थे।",
+      "scene": "Inside the talkies film storage room, three young people step quietly across damp floorboards littered with tin canisters. Young man Prabhat in mustard sweater holds a blue notebook; young woman Nuzhat grips a cracked-lens torch casting amber light; young man Shailesh in striped shirt follows. Moonlit blue filters through ceiling beams.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "cautious"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "focused"
+        },
+        {
+          "name": "shailesh",
+          "expression": "nervous"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "ज़ंग लगे डिब्बे से रील निकाली और प्रोजेक्टर पर चढ़ाई, पर लाइट जलते ही दीवार पर हमारा ही साया उभर आया।",
+      "scene": "Inside the talkies film storage room, young woman Nuzhat shines her cracked-lens torch on a rusted canister as young man Prabhat mounts the dark reel onto the hand-cranked projector. An old yellow tungsten bulb glows faintly above their heads against shadowy brick walls. Wide side-angle shot.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "intent"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "steady"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "दीवार पर हम सहमे खड़े थे, और सामने शैलेश डर के मारे सबसे आगे भागता हुआ नज़र आ रहा था।",
+      "scene": "Inside the talkies film storage room, young man Shailesh stares in terror at the illuminated wall. The bright projector beam casts an uncanny moving scene of his own silhouette fleeing backward into shadows. Shailesh clutches his leather-cased transistor against his chest under harsh projector glow. Medium shot.",
+      "people": [
+        {
+          "name": "shailesh",
+          "expression": "panicked"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "मुझे नियम याद आया कि सच दिखाने वाली चीज़ से झूठ नहीं बोलते, और रील बिना सच सुने रुकने वाली नहीं थी।",
+      "scene": "Inside the talkies film storage room, young man Prabhat adjusts his steel-frame glasses, pointing his pencil toward the spinning projector mechanism as realization strikes. Young woman Nuzhat holds her torch steady, listening intently beneath the warm tungsten bulb while shadows loom against tall metal film racks. Three-quarter profile shot.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "urgent"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "serious"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "शैलेश की आवाज़ काँपी और वो बोला, उस रात कोई बहादुरी नहीं थी, डरकर सबसे पहले मैं ही भागा था।",
+      "scene": "Inside the talkies film storage room, young man Shailesh lowers his head, clutching his red cricket cap in both hands, openly confessing with moist eyes. Prabhat and Nuzhat watch him quietly under dim lantern light and blue room haze, their shadows stretching against the projector stand. Medium three-shot.",
+      "people": [
+        {
+          "name": "shailesh",
+          "expression": "humble"
+        },
+        {
+          "name": "prabhat",
+          "expression": "empathetic"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "softened"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "सच कबूलते ही फ़िल्म उलटी घूमी, और वही पुरानी रील फिर से दीवार पर हम तीनों को दिखाने लगी।",
+      "scene": "Extreme close-up of an old metal film projector fixed to a wooden table inside an enclosed 1996 village cinema storeroom. One large rusted steel film reel fills the upper half of the picture; its motion-blurred spokes suggest backward rotation. A loose curved strip of celluloid loops between the upper reel and the dark projector mechanism beneath it. Warm amber light catches the metal teeth. The close background is a solid blank blue plaster wall with one small high window. Only the projector, reel, table and blank wall are visible. The film projection falls outside this tight crop.",
+      "people": [],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    }
+  ],
+  "subgenre": "confessed-lie",
+  "ending": "loop-back",
+  "twist_beat": 5,
+  "description": "टॉकीज़ के पुराने स्टोर में मिली एक रील जब प्रोजेक्टर पर चढ़ी, तो परदे पर कुछ ऐसा दिखा जिसने सन्नाटपुर की उस रात का रुख़ ही मोड़ दिया।",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य",
+    "#सन्नाटपुरकीरातें"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3.8-flash",
+      "gemini-3.6-flash",
+      "gemini-3.6-flash",
+      "gemini-3.6-flash"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "gates",
+        "problems": [
+          "beat 1 (the hook) has 11 words; at most 10"
+        ]
+      },
+      {
+        "attempt": 1,
+        "stage": "gates",
+        "problems": [
+          "beat 1 (the hook) has 11 words; at most 10"
+        ]
+      },
+      {
+        "attempt": 2,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "परदे पर हमारा सच",
+  "object_token": "रील",
+  "anomaly": "प्रोजेक्टर पर उसी रात का सीन दिखाना, जिसमें तीनों ख़ुद हैं",
+  "niyam_id": "N13",
+  "resolution": "bargain",
+  "heart_beat": 6,
+  "heart_type": "confessed-lie",
+  "skeleton": "S2",
+  "location": "टॉकीज़ का रील वाला स्टोर",
+  "place_id": "talkies"
+}

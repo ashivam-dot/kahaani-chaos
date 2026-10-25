@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261024-2322-e05",
+  "beat": 5,
+  "alt": 0,
+  "prompt": "Inside the talkies film storage room, young man Shailesh lowers his head, clutching his red cricket cap in both hands, openly confessing with moist eyes. Prabhat and Nuzhat watch him quietly under dim lantern light and blue room haze, their shadows stretching against the projector stand. Medium three-shot. Characters: Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, humble expression; Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, empathetic expression; Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, softened expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm practical light, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1049.4,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 296267574,
+  "log_tail": "                                           | 6/138 - 149.18MB/s\u001b[K\n  |##################################################| 138/138 - 935.65MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 105.68s --- image.cpp:620\n[I] decode_first_stage completed, taking 105.68s --- image.cpp:624\n[I] generate_image completed in 1048.58s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat05.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12580472347,
+    "run_id": 40142328302,
+    "name": "art-40142328302-5",
+    "size_in_bytes": 3287262,
+    "source_sha": "83144fa39f76d335d3a20b84e91c74e8cde66d80"
+  },
+  "image_sha256": "16026fff09f53a34fc17a9fb6da28e8a0603b5f7433485224e944050da40e356"
+}
