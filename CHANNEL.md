@@ -25,6 +25,9 @@ The full design is PLAN.md in `kahaani-recreate-2026-10-22/design/`. The world i
   niyam that exists there.
 - **90s textures:** power cuts and lanterns, PCO/STD meters, transistors and cassettes, inland letters, ration
   queues, dynamo cycle lights. Strangeness lives in these everyday objects.
+- New PCO writer drafts make bare counter scenes explicitly enclosed before editorial and picture checks.
+  Deliberate exterior establishing views stay outside. This prevents the generic outdoor house style from
+  displacing the counter room; existing replay stories and exact cached prompts remain unchanged.
 
 ## Red lines
 

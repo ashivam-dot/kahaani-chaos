@@ -6,6 +6,7 @@ never published.
 from __future__ import annotations
 
 import json
+import re
 
 from . import bible, gate, gemini, hindi, llm, variation
 
@@ -309,6 +310,28 @@ def carry(previous: dict, draft: dict) -> dict:
     return draft
 
 
+def anchor_place(draft: dict, premise: dict) -> dict:
+    """Make new PCO counter scenes explicitly indoor before the story editor and painter see them.
+
+    Bare 'PCO counter' inherited the outdoor village house style in e17. This only normalises new
+    writer drafts; replay stories and their exact cached painting prompts remain untouched.
+    """
+    if premise.get("place_id") != "pco":
+        return draft
+    for beat in draft.get("beats", []):
+        scene = beat["scene"]
+        if not re.search(r"\bPCO\b", scene, re.I):
+            continue
+        if re.search(r"\b(interior|indoors|inside|enclosed)\b", scene, re.I):
+            continue
+        # An establishing view outside the building is deliberate; blue night outside a window is not.
+        if re.search(r"\b(?:outside|exterior of|in front of)\s+(?:the\s+)?(?:village\s+)?PCO\b", scene, re.I):
+            continue
+        beat["scene"] = ("Inside an enclosed PCO counter room with solid plaster walls and a solid ceiling. "
+                         + scene)
+    return draft
+
+
 def edit(draft: dict, ask, premise: dict | None = None) -> list[str]:
     """The editor's problems with a draft that passed the code gates; empty when it is ready."""
     premise = premise or {}
@@ -337,7 +360,7 @@ def write(premise: dict, history: list[dict], ask) -> tuple[dict, list[dict]]:
     """(draft, log) for a bank entry (premises.premise_for); raises WriterHold after REPAIRS failed rewrites.
     ask(messages, schema) -> dict."""
     log: list[dict] = []
-    draft = tidy(ask(messages(premise, history), SCHEMA))
+    draft = anchor_place(tidy(ask(messages(premise, history), SCHEMA)), premise)
     for attempt in range(REPAIRS + 1):
         found = gate.check(draft, premise, history)
         stage = "gates"
@@ -348,7 +371,7 @@ def write(premise: dict, history: list[dict], ask) -> tuple[dict, list[dict]]:
             return draft, log
         if attempt == REPAIRS:
             break
-        draft = carry(draft, tidy(ask(messages(premise, history, found, draft), SCHEMA)))
+        draft = anchor_place(carry(draft, tidy(ask(messages(premise, history, found, draft), SCHEMA))), premise)
         # The bank fixes the opening already. A rewrite that keeps adding words
         # can use that exact canonical line before all code and editor checks.
         # This neither truncates Hindi nor invents a replacement; record the edit.

@@ -33,6 +33,25 @@ def test_a_clean_draft_goes_through_the_editor():
     assert [schema for _, schema in room.calls] == [writer.SCHEMA, writer.EDIT_SCHEMA]
 
 
+def test_bare_pco_counter_uses_indoor_painter_style_without_changing_spoken_story():
+    from copy import deepcopy
+    from kahaani import look
+
+    story = {"beats": [
+        {"text": "वो उसे फाड़ने लगा।", "scene": "At the yellow-tinted glass PCO counter, Shailesh grips the slip."},
+        {"text": "रात बाहर ठहरी थी।", "scene": "The PCO counter is quiet, with blue night outside the window."},
+        {"text": "हम बाहर खड़े थे।", "scene": "Outside the village PCO, Prabhat waits in the lane."},
+    ]}
+    original = deepcopy(story)
+    fixed = writer.anchor_place(deepcopy(story), {"place_id": "pco"})
+    assert [b["text"] for b in fixed["beats"]] == [b["text"] for b in original["beats"]]
+    for beat in fixed["beats"][:2]:
+        assert look.INDOOR_STYLE in look.prompt(beat["scene"], [], [])
+    assert fixed["beats"][2] == original["beats"][2]
+    assert writer.anchor_place(deepcopy(fixed), {"place_id": "pco"}) == fixed
+    assert writer.anchor_place(deepcopy(story), {"place_id": "bus_depot"}) == original
+
+
 def test_gate_problems_are_sent_back_for_a_repair():
     room = Room([long_hook(), draft()])
     out, log = writer.write(PREMISE, [], room)
