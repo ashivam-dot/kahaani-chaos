@@ -1348,7 +1348,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-brick-e07-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 7,
       "repair_history": [
         {
@@ -1530,7 +1530,9 @@
         39930652897,
         39921910994
       ],
-      "submitted_at": "2026-10-25T03:58:57+00:00"
+      "submitted_at": "2026-10-25T03:58:57+00:00",
+      "run_id": 40160199731,
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -2110,10 +2112,10 @@
   "health": {
     "public": 1,
     "scheduled": 5,
-    "held": 0,
+    "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T04:07:00+00:00",
+  "updated_at": "2026-10-25T04:07:04+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
