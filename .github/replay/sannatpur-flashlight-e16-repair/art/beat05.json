@@ -1,0 +1,39 @@
+{
+  "story": "kc-20261025-0733-e16",
+  "beat": 5,
+  "alt": 0,
+  "prompt": "Extreme close view of one pair of middle-aged prabhat_adult hands gently turning the blank reverse of a page in his faded blue notebook on a quiet balcony ledge. His steel-rimmed glasses rest beside the notebook in warm desk-lamp light. The moonlit water tank appears softly out of focus in the distance; framing ends at the wrists. Characters: Prabhat (adult narrator): close-up of a middle-aged man's hands turning pages of a faded blue notebook under a desk lamp, steel-rimmed glasses beside it, no face, nostalgic and quiet, lost in memory expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1245.5,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 588236926,
+  "log_tail": "ached graph cut plan done (taking 1 ms) --- ggml_graph_cut.cpp:1032\n\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 91.38s --- image.cpp:620\n[I] decode_first_stage completed, taking 91.38s --- image.cpp:624\n[I] generate_image completed in 1244.59s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat05.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "derivation": {
+    "operation": "crop_and_resize",
+    "parent_image_sha256": "f2f19765a893319611f88348211fdfbd359204e4aa31f540a06d4be973251c09",
+    "parent_file": "cloud art-40177715903-5/beat05.png",
+    "crop_ltrb": [
+      0,
+      360,
+      370,
+      1020
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "reason": "Frame the fixed adult narrator as hands, blue notebook and steel-rimmed glasses; exclude the generated face and torso using existing painted pixels only."
+  },
+  "image_sha256": "e8c7c0d19a6b2c8448184fba6ac6aeb1d6fc52c1c354a373a02546baf7111a5a",
+  "production_approved": false,
+  "cached_from": {
+    "id": 12592479844,
+    "run_id": 40177715903,
+    "name": "art-40177715903-5",
+    "size_in_bytes": 1044466,
+    "source_sha": "bca456f39020e18bd4fea34cc5ba2d6bbfea3d52"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "story": "kc-20261025-0733-e16",
+  "beat": 4,
+  "alt": 0,
+  "prompt": "Close view of Nuzhat alone in a plain green salwar kameez and bottle-green dupatta, kneeling beside a rusty water-tower railing. One small bird rests on her open left palm as her right fingertips loosen a kite-string loop from its foot. In the foreground beside her knee, a short cylindrical SILVER METAL BATTERY FLASHLIGHT rests horizontally on the concrete, its circular cracked glass lens emitting a narrow split white electric beam onto the bird. The electric flashlight is the only practical light. Frame her one pair of hands, bird, string and silver flashlight clearly, with her single long plait visible. The other friends are outside the frame. No oil lantern, no flame, no hanging lamp. Characters: Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, her metal battery flashlight with a cracked lens resting beside her and throwing a split beam, three-quarters turned away, gentle and focused on freeing the bird expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm-white electric battery-flashlight beam, lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1037.7,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1980553448,
+  "log_tail": "                                          | 10/138 - 152.11MB/s\u001b[K\n  |##################################################| 138/138 - 935.65MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.00s, memcpy: 0.00s, convert: 0.04s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 105.84s --- image.cpp:620\n[I] decode_first_stage completed, taking 105.84s --- image.cpp:624\n[I] generate_image completed in 1036.82s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat04.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12595203007,
+    "run_id": 40180078790,
+    "name": "art-40180078790-4",
+    "size_in_bytes": 3232387,
+    "source_sha": "8ec697d0b6252f598e607169f98dd9c11d8abdb6"
+  },
+  "image_sha256": "f68ef590ceb273287cfccb44776a08e1f4d041bf300323069c9eb11909622b85",
+  "editorial_refusal": {
+    "image_sha256": "f68ef590ceb273287cfccb44776a08e1f4d041bf300323069c9eb11909622b85",
+    "reason": "Direct native review: correct single Nuzhat/bird/electric flashlight, but an extra visibly burning oil lantern is present beside the flashlight, contrary to the exact scene."
+  }
+}

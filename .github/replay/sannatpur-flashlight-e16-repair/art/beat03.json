@@ -1,0 +1,41 @@
+{
+  "story": "kc-20261025-0733-e16",
+  "beat": 3,
+  "alt": 0,
+  "prompt": "Close insert of the restraining arm contact from the preceding moment on the water-tower platform. At left, Shailesh wears his striped cotton shirt; at right, Prabhat wears his mustard knitted sweater. Prabhat reaches across with his bare hand and grips the striped upper sleeve, stopping Shailesh from turning. The framing shows their clothed torsos and arms, the blue notebook in Prabhat’s other hand, and the rusty railing under moonlight. Their faces are outside the crop. Neither hand holds a flashlight. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, resolute, facing inward away from the railing expression; Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, tense, facing inward away from the railing expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1259.3,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 69323229,
+  "log_tail": "                                               | 2/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 931.04MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 91.09s --- image.cpp:620\n[I] decode_first_stage completed, taking 91.09s --- image.cpp:624\n[I] generate_image completed in 1258.41s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat02.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "4a4410d120799a39da7f2556494b488395c99f778c2c31822f12445c53f14aae",
+  "derivation": {
+    "operation": "crop_and_resize",
+    "source_beat": 2,
+    "parent_image_sha256": "95ee8371e90206127f1a8439152fa17e4b06a374ce165e002d98ffc99bc86124",
+    "parent_metadata_sha256": "bb0e38dd4ecc5405add52252457083d6d9ddf399de0ce8c0f821bc6721e4d1d5",
+    "generation_prompt": "On the water tank platform, young man shailesh flinches in terror and starts spinning around toward the dark railing. Prabhat quickly reaches out to grab his arm in the shadowy moonlight. Characters: Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, alarmed and wide-eyed, turning sharply expression; Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, startled, reaching out to stop shailesh expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "parent_file": "cloud art-40172736622-2/beat02.png",
+    "crop_ltrb": [
+      190,
+      370,
+      478,
+      882
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "purpose": "Editorial insert from the immediately preceding accepted shot, preserving the actual arm restraint and character clothing. No new generated take is claimed."
+  },
+  "cached_from": {
+    "id": 12591627515,
+    "run_id": 40172736622,
+    "name": "art-40172736622-2",
+    "size_in_bytes": 1026359,
+    "source_sha": "ca525b9e00b0c93dd332876d43381d617c14dfe1"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "images": [
+    {
+      "file": "art-40177715903-5/beat05.png",
+      "image_sha256": "f2f19765a893319611f88348211fdfbd359204e4aa31f540a06d4be973251c09",
+      "decision": "hold",
+      "reason": "The cloud painting includes an adult face and torso, contrary to the fixed hands-only adult-narrator framing. The existing hands, blue notebook and glasses can be retained using a provenance-bound crop."
+    }
+  ],
+  "release_approval": false,
+  "scope": "Direct source-still review only. All current picture, narrator, render and audiovisual gates remain required.",
+  "at": "2026-10-25T09:11:00.536564+00:00"
+}

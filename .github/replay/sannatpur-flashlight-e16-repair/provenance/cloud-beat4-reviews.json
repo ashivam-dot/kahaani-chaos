@@ -1,0 +1,37 @@
+{
+  "images": [
+    {
+      "file": "art-40180078790-3/beat03-alt1.png",
+      "image_sha256": "7badc449afc471d7db50fcf22ddb72eef7a48a9ea732f162d421952f77216355",
+      "decision": "hold",
+      "reason": "Direct native review: a bare hand grips Prabhat\u2019s own mustard-sweater upper arm; no mustard-cuffed hand grips Shailesh\u2019s striped upper arm. Required restraining action is reversed, with extraneous flashlight and merged lowered hands."
+    },
+    {
+      "file": "art-40180078790-3/beat03.png",
+      "image_sha256": "810d072ab6114ecc4928c03e2b6ff82c1d6bb4a69f278864ee2e5c92ff64e978",
+      "decision": "hold",
+      "reason": "Direct native review: no hand visibly grips Shailesh\u2019s striped upper arm. The two lowered hands touch near the waist and an extraneous flashlight occupies the action area; required restraint is absent."
+    },
+    {
+      "file": "art-40180078790-4/beat04.png",
+      "image_sha256": "f68ef590ceb273287cfccb44776a08e1f4d041bf300323069c9eb11909622b85",
+      "decision": "hold",
+      "reason": "Direct native review: correct single Nuzhat/bird/electric flashlight, but an extra visibly burning oil lantern is present beside the flashlight, contrary to the exact scene."
+    },
+    {
+      "file": "art-40180078790-4/beat04-alt1.png",
+      "image_sha256": "e1b5b9dc0dd24656efd5f5a0b9e488fbde465593ceeb893eeca1239c8e07a8c1",
+      "decision": "hold",
+      "reason": "Direct native review: correct single actor and battery flashlight, but an extra oil lantern is also present next to the railing; scene expressly excludes it."
+    },
+    {
+      "file": "art-40180078790-4/beat04-alt2.png",
+      "image_sha256": "3c447442a45cc6de3054d143732550e28d6ae517629975a45665e67ec4d08bbe",
+      "decision": "pass",
+      "reason": "Direct native review: exactly one Nuzhat in green salwar/bottle-green dupatta and one long plait kneels by the rusty railing, supports a small bird on her left palm and lifts loosened kite string with her right hand. Her silver cylindrical electric flashlight rests beside her; no oil lamp or flame, duplicate cast or obvious malformed hands. This is the freeing moment before release. Final picture and full AV checks remain mandatory."
+    }
+  ],
+  "release_approval": false,
+  "scope": "Source paintings only, no audiovisual approval.",
+  "at": "2026-10-25T10:15:37+00:00"
+}

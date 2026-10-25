@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-25T11:08:55.874375+00:00",
+  "images": [
+    {
+      "file": "art-v1/beat01.png",
+      "image_sha256": "831ff2e22d7ba06767a82a67f2af537d5fb29095306be6aea108b7090020f494",
+      "decision": "pass",
+      "reason": "Nuzhat now holds a recognisable cylindrical silver battery flashlight with a round lens and pale electric beam. Fixed green clothing/plait, Prabhat mustard sweater/glasses/notebook and Shailesh red cap/striped shirt/radio case/blue footwear remain distinct. Three coherent figures at the water-tower rail; all current picture and final AV checks still required."
+    },
+    {
+      "file": "ending-crop/beat05.png",
+      "image_sha256": "e8c7c0d19a6b2c8448184fba6ac6aeb1d6fc52c1c354a373a02546baf7111a5a",
+      "decision": "pass",
+      "reason": "Directly inspected crop: one pair of adult hands with a faded blue notebook and steel-rimmed glasses on the quiet balcony ledge; face/torso excluded, warm practical light retained. Natural readable hands, no extra person or visible text. Current cloud picture and full audiovisual checks remain required."
+    },
+    {
+      "file": "grip-reprise/beat03.png",
+      "image_sha256": "4a4410d120799a39da7f2556494b488395c99f778c2c31822f12445c53f14aae",
+      "decision": "pass",
+      "reason": "Direct native-size review of this exact crop: mustard-sleeved Prabhat has his bare hand around Shailesh’s striped upper sleeve. Notebook remains in the other hand and rusty railing is behind. Faces are outside the insert and no flashlight is in either hand. This is an editorial crop from the preceding already accepted shot, not a newly generated take. Some clothing/legs remain visible in the medium insert. Current cloud picture and full audiovisual checks remain required."
+    }
+  ],
+  "release_approval": false
+}
