@@ -2617,12 +2617,24 @@
           "evidence": {
             "art-40162007872-5/beat05.png": "e9a0d9caf13b50e999145e281f7df2c45c1c30d756dff9426d6f71917125f7b6"
           }
+        },
+        {
+          "id": "actual-e17-outdoor-slip-lettering-40162007872",
+          "run_id": 40162007872,
+          "observed_at": "2026-10-25T05:50:53+00:00",
+          "reason": "Direct pixel inspection rejects all three slip-tearing paintings: base and alt2 add prominent PCO lettering and outdoor street surroundings; alt1 introduces an unplanned childlike duplicate in Shailesh signature cap/clothes, while alt2 also adds an unplanned second figure. Preserve every spoken line and title. Repair only this image direction as one adult-proportioned Shailesh inside the enclosed room, hands holding a blank unmarked paper strip. Original bytes remain excluded; current picture/full audiovisual checks are mandatory.",
+          "evidence": {
+            "art-40162007872-3/beat03.png": "423742ca7bc5add99a1ea88d4135adca57816cd76d68ccdcf377dfbbf0494cae",
+            "art-40162007872-3/beat03-alt1.png": "1d638b003adb3fe2b8588bda16dbc6d48819ab6977ec70e568566791f76e96bb",
+            "art-40162007872-3/beat03-alt2.png": "b350b249e8fc887f4b23876e7bd4d53b821c7c5b5ca8dc260da6eb80229a3052"
+          }
         }
       ],
       "problems": [
         "Direct full-resolution inspection rejects both completed hook paintings: both add prominent human hands to a people-free object shot and rows of generated writing on the slip. The saved early picture editor independently refuses both exact images for those defects. Preserve every spoken line, title and story; replace only the hook scene with a blank unmarked paper strip emerging from an enclosed analogue PCO billing meter. Keep useful other art; complete current picture, narrator, render and full audiovisual checks remain required.",
         "Direct full-resolution inspection rejects all three beat2 paintings: unplanned human hands occupy the object-only shot and the PCO meter is staged in an outdoor village street rather than the enclosed yellow-glass counter room. The saved early editor independently refuses the first two for these exact defects. Preserve the paper-emergence narration and all other speech; replace only this image direction with an unattended blank-slip meter and a small service bell inside solid plaster walls.",
-        "Direct full-resolution inspection finds a red wall notice with generated Devanagari lettering in the upper left of beat5, despite the saved early editor reporting text=false. Preserve the useful distinct Jhabbu/Prabhat painting and all narration; crop only the peripheral notice with exact raw provenance and require current picture/full audiovisual checks. The original bytes stay excluded."
+        "Direct full-resolution inspection finds a red wall notice with generated Devanagari lettering in the upper left of beat5, despite the saved early editor reporting text=false. Preserve the useful distinct Jhabbu/Prabhat painting and all narration; crop only the peripheral notice with exact raw provenance and require current picture/full audiovisual checks. The original bytes stay excluded.",
+        "Direct pixel inspection rejects all three slip-tearing paintings: base and alt2 add prominent PCO lettering and outdoor street surroundings; alt1 introduces an unplanned childlike duplicate in Shailesh signature cap/clothes, while alt2 also adds an unplanned second figure. Preserve every spoken line and title. Repair only this image direction as one adult-proportioned Shailesh inside the enclosed room, hands holding a blank unmarked paper strip. Original bytes remain excluded; current picture/full audiovisual checks are mandatory."
       ]
     },
     {
@@ -2812,7 +2824,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e17: Direct full-resolution inspection rejects both completed hook paintings: both add prominent human hands to a people-free object shot and rows of generated writing on the slip. The saved early picture editor independently refuses both exact images for those defects. Preserve every spoken line, title and story; replace only the hook scene with a blank unmarked paper strip emerging from an enclosed analogue PCO billing meter. Keep useful other art; complete current picture, narrator, render and full audiovisual checks remain required.; Direct full-resolution inspection rejects all three beat2 paintings: unplanned human hands occupy the object-only shot and the PCO meter is staged in an outdoor village street rather than the enclosed yellow-glass counter room. The saved early editor independently refuses the first two for these exact defects. Preserve the paper-emergence narration and all other speech; replace only this image direction with an unattended blank-slip meter and a small service bell inside solid plaster walls.; Direct full-resolution inspection finds a red wall notice with generated Devanagari lettering in the upper left of beat5, despite the saved early editor reporting text=false. Preserve the useful distinct Jhabbu/Prabhat painting and all narration; crop only the peripheral notice with exact raw provenance and require current picture/full audiovisual checks. The original bytes stay excluded.",
+  "halted": "Repair held entry e17: Direct full-resolution inspection rejects both completed hook paintings: both add prominent human hands to a people-free object shot and rows of generated writing on the slip. The saved early picture editor independently refuses both exact images for those defects. Preserve every spoken line, title and story; replace only the hook scene with a blank unmarked paper strip emerging from an enclosed analogue PCO billing meter. Keep useful other art; complete current picture, narrator, render and full audiovisual checks remain required.; Direct full-resolution inspection rejects all three beat2 paintings: unplanned human hands occupy the object-only shot and the PCO meter is staged in an outdoor village street rather than the enclosed yellow-glass counter room. The saved early editor independently refuses the first two for these exact defects. Preserve the paper-emergence narration and all other speech; replace only this image direction with an unattended blank-slip meter and a small service bell inside solid plaster walls.; Direct full-resolution inspection finds a red wall notice with generated Devanagari lettering in the upper left of beat5, despite the saved early editor reporting text=false. Preserve the useful distinct Jhabbu/Prabhat painting and all narration; crop only the peripheral notice with exact raw provenance and require current picture/full audiovisual checks. The original bytes stay excluded.; Direct pixel inspection rejects all three slip-tearing paintings: base and alt2 add prominent PCO lettering and outdoor street surroundings; alt1 introduces an unplanned childlike duplicate in Shailesh signature cap/clothes, while alt2 also adds an unplanned second figure. Preserve every spoken line and title. Repair only this image direction as one adult-proportioned Shailesh inside the enclosed room, hands holding a blank unmarked paper strip. Original bytes remain excluded; current picture/full audiovisual checks are mandatory.",
   "complete": false,
   "health": {
     "public": 1,
@@ -2820,5 +2832,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T05:49:38+00:00"
+  "updated_at": "2026-10-25T05:50:53+00:00"
 }
