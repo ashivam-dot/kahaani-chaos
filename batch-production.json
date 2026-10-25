@@ -3906,13 +3906,24 @@
           "evidence": {
             "art-40187469293-5/beat05.png": "4be8e3f4076cc108ea04fc04cdb5e1dea9682adca4f953993d14b31fc67f50ac"
           }
+        },
+        {
+          "id": "e13-ending-bucket-hold",
+          "run_id": 40187469293,
+          "observed_at": "2026-10-25T12:49:36+00:00",
+          "reason": "The ending object shot adds arms, a lantern, generated writing and dripping water to the letter-filled bucket return. Replace only this visual with a provenance-bound closing reprise of the accepted bucket detail or a correctly reviewed repaint. Preserve every spoken line and all picture/narrator/render/full audiovisual checks.",
+          "evidence": {
+            "art-40187469293-6/beat06.png": "c900d2c7408b7160cc4d85ac26abd102c7c0dc6b3c071dabac01316f120272df",
+            "art-40187469293-6/beat06-alt1.png": "787eda36cd95ce19b10ca00188fc3c3a1ba85a1b8494169e4a59bbd9a7382d35"
+          }
         }
       ],
       "problems": [
         "The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.",
         "All three beat02 paintings show Nuzhat holding her flashlight rather than pulling the well rope, and add a lantern where the flashlight resting on the parapet must be the only practical light. Preserve every spoken line and accepted siblings; replace only this action/detail scene. All current picture, narrator, render and full audiovisual checks remain required.",
         "The beat03 letter reveal has an unsupported floating flashlight in its base, a duplicate character in alt1, and stick-like bucket bundles rather than envelope letters across the paintings. Preserve every spoken line and accepted siblings; repair only this letter-reading scene. All current picture, narrator, render and full audiovisual checks remain required.",
-        "The beat05 writing scene substitutes an oil lantern for Nuzhat electric metal flashlight. Preserve the correct writing action through a separately reviewed provenance-bound crop that excludes this wrong prop, or repaint only this scene. Preserve every spoken line and accepted siblings; every current picture, narrator, render and full audiovisual gate remains required."
+        "The beat05 writing scene substitutes an oil lantern for Nuzhat electric metal flashlight. Preserve the correct writing action through a separately reviewed provenance-bound crop that excludes this wrong prop, or repaint only this scene. Preserve every spoken line and accepted siblings; every current picture, narrator, render and full audiovisual gate remains required.",
+        "The ending object shot adds arms, a lantern, generated writing and dripping water to the letter-filled bucket return. Replace only this visual with a provenance-bound closing reprise of the accepted bucket detail or a correctly reviewed repaint. Preserve every spoken line and all picture/narrator/render/full audiovisual checks."
       ]
     },
     {
@@ -4068,7 +4079,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e13: The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.; All three beat02 paintings show Nuzhat holding her flashlight rather than pulling the well rope, and add a lantern where the flashlight resting on the parapet must be the only practical light. Preserve every spoken line and accepted siblings; replace only this action/detail scene. All current picture, narrator, render and full audiovisual checks remain required.; The beat03 letter reveal has an unsupported floating flashlight in its base, a duplicate character in alt1, and stick-like bucket bundles rather than envelope letters across the paintings. Preserve every spoken line and accepted siblings; repair only this letter-reading scene. All current picture, narrator, render and full audiovisual checks remain required.; The beat05 writing scene substitutes an oil lantern for Nuzhat electric metal flashlight. Preserve the correct writing action through a separately reviewed provenance-bound crop that excludes this wrong prop, or repaint only this scene. Preserve every spoken line and accepted siblings; every current picture, narrator, render and full audiovisual gate remains required.",
+  "halted": "Repair held entry e13: The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.; All three beat02 paintings show Nuzhat holding her flashlight rather than pulling the well rope, and add a lantern where the flashlight resting on the parapet must be the only practical light. Preserve every spoken line and accepted siblings; replace only this action/detail scene. All current picture, narrator, render and full audiovisual checks remain required.; The beat03 letter reveal has an unsupported floating flashlight in its base, a duplicate character in alt1, and stick-like bucket bundles rather than envelope letters across the paintings. Preserve every spoken line and accepted siblings; repair only this letter-reading scene. All current picture, narrator, render and full audiovisual checks remain required.; The beat05 writing scene substitutes an oil lantern for Nuzhat electric metal flashlight. Preserve the correct writing action through a separately reviewed provenance-bound crop that excludes this wrong prop, or repaint only this scene. Preserve every spoken line and accepted siblings; every current picture, narrator, render and full audiovisual gate remains required.; The ending object shot adds arms, a lantern, generated writing and dripping water to the letter-filled bucket return. Replace only this visual with a provenance-bound closing reprise of the accepted bucket detail or a correctly reviewed repaint. Preserve every spoken line and all picture/narrator/render/full audiovisual checks.",
   "complete": false,
   "health": {
     "public": 2,
@@ -4076,5 +4087,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T12:47:13+00:00"
+  "updated_at": "2026-10-25T12:49:36+00:00"
 }
