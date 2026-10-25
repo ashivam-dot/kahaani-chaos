@@ -2367,6 +2367,24 @@
           "evidence": {
             "art-40158580419-1/beat01.png": "b84c0bcb7ba0de2d74e804cc86785ade708e63bad4e90f27da66180a8f7f7206",
             "art-40158580419-6/beat06.png": "e6c71e1ea70c3d89d1e671eefeae6fdf2039c45889edc5ae6dac6056e0312e0b"
+          },
+          "resolved_at": "2026-10-25T04:34:51+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "787674b5bc66cb1ff227e73da93f46ba8af07252",
+            "replay": ".github/replay/sannatpur-letter-e10-repair.json",
+            "replay_sha256": "63c72f5c28fcf1c37ee590a9e33aa8ff98fe9d972e3dbe2cf2b34d7576e93169",
+            "selected_images": {
+              "0": "38aa1902a15b3911a649ec7d024e4aad1e7ba0b9a11baee4f4864e83273f4230",
+              "1": "5ec9ef3e0f7b070115add03ca83c736096b4a7938d55114dabd4f8dff634eece",
+              "2": "a0d18d407cf090b0fa57357e57f7361c705cbce56904802ec65a9737d5a5bdb0",
+              "3": "538036901745911be97dad104b467d595365721c26641a6a27e676ebffabaf8d",
+              "4": "5a5873112b9277e1940814afd5f062bf2928be38d143163072c854437972bcd5",
+              "5": "6f781c2053881ea7894c39381b73ed5243bdbad11be87f8e89ed6d7a95c198c1",
+              "6": "43cde13c398c1b796a54232f2906309463ca0034be4870ecc50812c72dd7d839"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -2379,6 +2397,24 @@
             "art-40158580419-0/beat00.png": "726ba46313a946a800e5ecdf69ef29aff838ce0b0c47727d0547d24bf277cf0a",
             "art-40158580419-4/beat04-alt1.png": "6f919198dc9e7b0e87262ca87ac2cfd7e799d98b466344fde480418dfc31e322",
             "art-40158580419-4/beat04.png": "f71c7c4d3513ca178e6487416b228006f4d073d508240821ee33d0793975f206"
+          },
+          "resolved_at": "2026-10-25T04:34:51+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "787674b5bc66cb1ff227e73da93f46ba8af07252",
+            "replay": ".github/replay/sannatpur-letter-e10-repair.json",
+            "replay_sha256": "63c72f5c28fcf1c37ee590a9e33aa8ff98fe9d972e3dbe2cf2b34d7576e93169",
+            "selected_images": {
+              "0": "38aa1902a15b3911a649ec7d024e4aad1e7ba0b9a11baee4f4864e83273f4230",
+              "1": "5ec9ef3e0f7b070115add03ca83c736096b4a7938d55114dabd4f8dff634eece",
+              "2": "a0d18d407cf090b0fa57357e57f7361c705cbce56904802ec65a9737d5a5bdb0",
+              "3": "538036901745911be97dad104b467d595365721c26641a6a27e676ebffabaf8d",
+              "4": "5a5873112b9277e1940814afd5f062bf2928be38d143163072c854437972bcd5",
+              "5": "6f781c2053881ea7894c39381b73ed5243bdbad11be87f8e89ed6d7a95c198c1",
+              "6": "43cde13c398c1b796a54232f2906309463ca0034be4870ecc50812c72dd7d839"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -2592,5 +2628,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T04:28:34+00:00"
+  "updated_at": "2026-10-25T04:34:51+00:00"
 }
