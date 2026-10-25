@@ -384,5 +384,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261024-2327-e06",
+  "premise": "e06",
+  "title": "हॉल्ट का सिग्नल बिना ट्रेन के हरा क्यों हो गया? 🚦",
+  "subgenre": "goodbye",
+  "motifs": [],
+  "ending": "register-line",
+  "opening": "बिना ट्रेन",
+  "made_at": "2026-10-25T01:15:04+00:00",
+  "format": "micro",
+  "skeleton": "S3",
+  "resolution": "leave-it-be",
+  "heart_type": "goodbye",
+  "object_token": "सिग्नल",
+  "anomaly": "बिना ट्रेन के सिग्नल का अपने-आप हरा हो जाना",
+  "location": "प्लेटफ़ॉर्म का छोर",
+  "place_id": "halt",
+  "hook_strip": "अचानक हरा सिग्नल",
+  "script": "बिना ट्रेन के हॉल्ट का सिग्नल हरा हो गया। उन्नीस सौ छियानवे, उस रात हम तीनों प्लेटफ़ॉर्म की लोहे वाली बेंच पर बैठे थे। आख़िरी सवारी गाड़ी कब की निकल चुकी थी, पर खाली पटरी पर हरी बत्ती जलती रही। मैं पटरी की तरफ़ बढ़ा तो झब्बू ने रोक लिया, सुबह की पहली साइकिल-घंटी तक चुपचाप यहीं बैठो। भोर में पहली घंटी बजी, सिग्नल लाल हुआ, और स्टेशन मास्टर ने अपनी आख़िरी ड्यूटी पर उसे धीरे से हाथ हिला दिया। झब्बू ने अपने खाकी रजिस्टर में बस इतना लिखा, सिग्नल ने विदा कर दिया।",
+  "slot": "2026-10-27T07:30:00Z",
+  "published_at": "2026-10-27T07:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40148639705,
+  "av_review_sha256": "038a74de81d5cf2025684ea90a90f76051af846e0976ad72eb8cb2a3b2591c07",
+  "video_id": "2Hij0QcwzcU",
+  "url": "https://www.youtube.com/shorts/2Hij0QcwzcU",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-27T07:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-10-27T07:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
