@@ -1,0 +1,13 @@
+{
+ "story": "kc-20261025-1602-e24",
+ "beat": 3,
+ "alt": 1,
+ "prompt": "Inside the one-room post office, a young woman wearing a green scarf holds her electric metal flashlight with a cracked lens, aiming its split electric beam onto the wooden desk counter. The electric flashlight is the only practical light. Characters: Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, serious and focused expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm-white electric battery-flashlight beam, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+ "seconds": 1243.5,
+ "model": "zimage",
+ "steps": 4,
+ "width": 576,
+ "height": 1024,
+ "seed": 1117689415,
+ "log_tail": "                                          | 2/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 940.30MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 90.89s --- image.cpp:620\n[I] decode_first_stage completed, taking 90.89s --- image.cpp:624\n[I] generate_image completed in 1242.61s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat03-alt1.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n"
+}

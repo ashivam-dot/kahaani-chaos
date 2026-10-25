@@ -1,0 +1,48 @@
+{
+  "story": "kc-20261025-1602-e24",
+  "beat": 2,
+  "alt": 0,
+  "prompt": "Inside the enclosed post office, a close upper-body reaction view of tall eighteen-year-old Shailesh in his red cricket cap, striped shirt and brown-cased transistor radio. He braces his hands on the sorting counter, listening with surprise to the postmaster outside the frame. Only Shailesh is visible. The lower counter and floor are outside the portrait. Natural adolescent adult proportions and painterly brushwork, warm hanging electric light and blue night shadows. Characters: Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, startled and wide-eyed expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm practical light, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1234.1,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1310469495,
+  "log_tail": "###                                         | 24/138 - 617.40MB/s\u001b[K\n  |##################################################| 138/138 - 913.05MB/s\u001b[K\n[I] loading tensors completed, taking 0.21s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 91.91s --- image.cpp:620\n[I] decode_first_stage completed, taking 91.91s --- image.cpp:624\n[I] generate_image completed in 1233.20s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat02.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "derivation": {
+    "operation": "crop_and_resize",
+    "crop_ltrb": [
+      118,
+      60,
+      424,
+      604
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "parent_image_sha256": "6e19afd85fd49e16f6420be1e8c7df072d51343529755bf4ef7e8d4ed65d8614",
+    "parent_metadata_sha256": "1b4eabb9a172ebf7597d8de9b186842c1dce1536642697e5c5274d8a65bdbef5",
+    "source_beat": 2,
+    "source_alt": 0,
+    "target_role": "editorial_derived_base",
+    "generation_prompt": "Inside the one-room post office, a tall young man wearing a red cricket cap and striped shirt leans over the wooden sorting desk with a shocked look. Warm light from a hanging electric bulb falls across his face against dark blue night shadows. Characters: Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, startled and wide-eyed expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm practical light, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "parent_review_decision": "hold",
+    "parent_refusal_reason": "The complete frame includes an additional miniature childlike figure below the desk. A faithful upper-body crop can exclude the entire extra figure while retaining Shailesh, both hands, the red cap, striped shirt and transistor. Preserve the raw refusal and all final gates.",
+    "excluded_defects": [
+      "The entire miniature additional figure and lower counter are excluded."
+    ],
+    "purpose": "Faithful reaction insert, preserving original narration and character identity."
+  },
+  "image_sha256": "5a60496bf27d147644f96dfa57418d39b189ec8df62fc067ba3537ae047f4335",
+  "production_approved": false,
+  "cached_from": {
+    "id": 12605622577,
+    "run_id": 40209430956,
+    "name": "art-40209430956-2",
+    "size_in_bytes": 1127659,
+    "source_sha": "3f2cc5c792281ce05d01aaf9b8aba181bb1877e2"
+  }
+}

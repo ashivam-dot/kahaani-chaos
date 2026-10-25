@@ -1,0 +1,13 @@
+{
+  "images": [
+    {
+      "file": "art-40223008297-1/beat01.png",
+      "image_sha256": "9bba829e0b7923a6737eb6d6e10a499c0c607488985d1c15221b6bb7a4c521ed",
+      "decision": "hold",
+      "reason": "The exterior, cast, glasses, sweater, dupatta and electric flashlight are correct, but the full frame adds a second lantern in the lower hand of Nuzhat that the scene does not assign. A faithful waist-up crop can exclude the complete lower-hand lantern while preserving the exterior location, both characters, notebook and electric flashlight. Keep the original refusal."
+    }
+  ],
+  "at": "2026-10-25T19:17:02.748077+00:00",
+  "scope": "Source paintings only",
+  "release_approval": false
+}
