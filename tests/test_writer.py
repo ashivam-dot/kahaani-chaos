@@ -60,6 +60,41 @@ def test_gate_problems_are_sent_back_for_a_repair():
     assert repair[-2]["role"] == "assistant" and "the hook" in repair[-1]["content"]
 
 
+@pytest.mark.parametrize("suffix", [
+    " People: empty.",
+    ' People: [{"name": "nuzhat", "expression": "focused"}]',
+    " Cast: {'name': 'prabhat', 'expression': 'shocked'}",
+])
+def test_character_json_in_scene_returns_to_the_bounded_writer_before_editor(suffix):
+    bad = draft()
+    bad["beats"][2]["scene"] += suffix
+    room = Room([bad, draft()])
+    out, log = writer.write(PREMISE, [], room)
+    assert log[0]["stage"] == "gates"
+    assert any("character metadata or JSON" in p for p in log[0]["problems"])
+    assert [schema for _, schema in room.calls] == [writer.SCHEMA, writer.SCHEMA, writer.EDIT_SCHEMA]
+    assert [b["text"] for b in out["beats"]] == [b["text"] for b in draft()["beats"]]
+    assert "separate people array" in room.calls[1][0][-1]["content"]
+
+
+def test_persistent_scene_json_is_held_with_existing_rewrite_limit():
+    bad = draft()
+    bad["beats"][2]["scene"] += ' People: [{"name": "nuzhat"}]'
+    room = Room([bad] * (writer.REPAIRS + 1))
+    with pytest.raises(writer.WriterHold) as held:
+        writer.write(PREMISE, [], room)
+    assert len(room.calls) == writer.REPAIRS + 1
+    assert all(schema is writer.SCHEMA for _, schema in room.calls)
+    assert "character metadata or JSON" in str(held.value)
+
+
+def test_scene_metadata_check_preserves_visual_prose_and_structured_cast():
+    clean = writer.tidy(draft())
+    clean["beats"][2]["scene"] = "Two people stand beside the wall, their expressions focused."
+    assert writer.scene_metadata_problems(clean) == []
+    assert clean["beats"][2]["people"]
+
+
 def test_overlong_hindi_hook_repair_supplies_exact_valid_bank_opening():
     from kahaani import hindi
 

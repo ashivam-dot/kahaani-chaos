@@ -126,6 +126,7 @@ RULES (all mandatory):
   a wide room with a tiny object. For a paper ticket, slip, receipt, letter or postcard, show its blank unprinted
   reverse or turn the marked surface away; the Hindi narration supplies any written date, name or message.
   Faces small, backlit or three-quarters away; the object and props carry the picture.
+  Never append "People: empty" or serialized character JSON to scene; put structured cast data only in people.
   Nuzhat's light is her metal battery flashlight with a cracked lens and a split electric beam. Call it
   "electric metal flashlight" in English scenes; the English word "torch" can produce a burning stick instead.
   When it is the scene's sole practical light, include "The electric flashlight is the only practical light."
@@ -380,13 +381,22 @@ def edit(draft: dict, ask, premise: dict | None = None) -> list[str]:
     return list(dict.fromkeys(found))
 
 
+def scene_metadata_problems(draft: dict) -> list[str]:
+    """Reject leaked schema before new drafts spend a painter job; exact saved replays keep their prompts."""
+    leaked = re.compile(r'\b(?:people|cast)\s*:\s*(?:empty\b|none\b|\[|\{)|'
+                        r'["\'](?:name|expression|people|cast)["\']\s*:', re.I)
+    return [f"beat {i} painter scene contains character metadata or JSON; write English visual prose only. "
+            "Keep character ids and expressions in the separate people array, and preserve spoken text."
+            for i, beat in enumerate(draft.get("beats") or [], 1) if leaked.search(beat.get("scene", ""))]
+
+
 def write(premise: dict, history: list[dict], ask) -> tuple[dict, list[dict]]:
     """(draft, log) for a bank entry (premises.premise_for); raises WriterHold after REPAIRS failed rewrites.
     ask(messages, schema) -> dict."""
     log: list[dict] = []
     draft = anchor_place(tidy(ask(messages(premise, history), SCHEMA)), premise)
     for attempt in range(REPAIRS + 1):
-        found = gate.check(draft, premise, history)
+        found = gate.check(draft, premise, history) + scene_metadata_problems(draft)
         stage = "gates"
         if not found:
             found, stage = edit(draft, ask, premise), "editor"

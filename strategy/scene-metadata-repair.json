@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-25T14:50:21.229586+00:00",
+  "source_run": 40199355603,
+  "source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f",
+  "finding": "E19 painter scenes contained People: empty and serialized name/expression objects; actual outputs included name labels, cast-sheet panels and no planned poster.",
+  "change": "Reject embedded cast metadata inside the existing bounded new-draft writer loop before the story editor or painter; keep structured people separate.",
+  "exact_saved_replay_prompts_changed": false,
+  "rewrites_added": false,
+  "quality_gates_weakened": false,
+  "focused_tests": 93,
+  "release_approval": false
+}
