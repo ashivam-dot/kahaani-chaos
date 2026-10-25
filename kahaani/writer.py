@@ -117,13 +117,15 @@ RULES (all mandatory):
   too: say हाय, बाप रे, अरे or उफ़, never हे भगवान or या खुदा.
 - cast: the ids of everyone painted in any beat, from {cast_ids}.
 - scene: for each beat, 20-60 English words describing ONE painting: who is in it (cast ids exactly), what they do,
-  the place, one warm practical light (lantern, torch or bulb) against moonlit blue (a next-morning beat says dawn
+  the place, one warm practical light (lantern, electric battery flashlight or bulb) against moonlit blue (a next-morning beat says dawn
   instead), and the camera. Beat 1 is the
   peak image, an extreme close view of the {object_token!r} doing the impossible. Its subject must occupy
   30%-90% of the frame: describe the large foreground object before the softly blurred setting, rather than
   a wide room with a tiny object. For a paper ticket, slip, receipt, letter or postcard, show its blank unprinted
   reverse or turn the marked surface away; the Hindi narration supplies any written date, name or message.
   Faces small, backlit or three-quarters away; the object and props carry the picture.
+  Nuzhat's light is her metal battery flashlight with a cracked lens and a split electric beam. Call it
+  "electric metal flashlight" in English scenes; the English word "torch" can produce a burning stick instead.
   No text, signs, logos or labels in any picture. Call the cast
   young men and young women, never kids, children, boys or girls; when the object moves by itself, that beat shows
   the object alone (nobody in the painting, people empty) and the cast react in the beats around it.
