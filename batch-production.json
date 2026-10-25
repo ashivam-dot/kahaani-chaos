@@ -4859,12 +4859,22 @@
           "evidence": {
             "plan-40207865422/story.json": "73648ae21b6e6515724e883c09f2d94bbb3d530847cacc4e00594d02de965391"
           }
+        },
+        {
+          "id": "e14-beat2-age-style-held",
+          "run_id": 40207865422,
+          "observed_at": "2026-10-25T16:13:41+00:00",
+          "reason": "Direct review refuses beat2 for oversized cartoon eyes and child-like proportions in the eighteen-year-old Shailesh. Use a faithful close lantern insert or a repaired natural-proportion scene, preserving the narration and all existing holds and final gates.",
+          "evidence": {
+            "art-40207865422-2/beat02.png": "d60744c459af6304b34fa439831cd993c79a9741149cb525c19d2644c98b22b6"
+          }
         }
       ],
       "run_id": 40207865422,
       "cloud_status": "queued",
       "problems": [
-        "Direct review of the exact produced plan finds beat4 naming three visible walkers while declaring only Jhabbu, and beat5 introducing a visible unregistered father despite the approved offscreen-only brief. The hashtag list also contains stray CJK separators. Repair only visual4/5 and hashtag formatting, preserve every spoken line and accepted art; all current release gates remain."
+        "Direct review of the exact produced plan finds beat4 naming three visible walkers while declaring only Jhabbu, and beat5 introducing a visible unregistered father despite the approved offscreen-only brief. The hashtag list also contains stray CJK separators. Repair only visual4/5 and hashtag formatting, preserve every spoken line and accepted art; all current release gates remain.",
+        "Direct review refuses beat2 for oversized cartoon eyes and child-like proportions in the eighteen-year-old Shailesh. Use a faithful close lantern insert or a repaired natural-proportion scene, preserving the narration and all existing holds and final gates."
       ]
     },
     {
@@ -4946,7 +4956,7 @@
       "cloud_status": "queued"
     }
   ],
-  "halted": "Repair held entry e14: Direct review of the exact produced plan finds beat4 naming three visible walkers while declaring only Jhabbu, and beat5 introducing a visible unregistered father despite the approved offscreen-only brief. The hashtag list also contains stray CJK separators. Repair only visual4/5 and hashtag formatting, preserve every spoken line and accepted art; all current release gates remain.",
+  "halted": "Repair held entry e14: Direct review of the exact produced plan finds beat4 naming three visible walkers while declaring only Jhabbu, and beat5 introducing a visible unregistered father despite the approved offscreen-only brief. The hashtag list also contains stray CJK separators. Repair only visual4/5 and hashtag formatting, preserve every spoken line and accepted art; all current release gates remain.; Direct review refuses beat2 for oversized cartoon eyes and child-like proportions in the eighteen-year-old Shailesh. Use a faithful close lantern insert or a repaired natural-proportion scene, preserving the narration and all existing holds and final gates.",
   "complete": false,
   "health": {
     "public": 3,
@@ -4954,7 +4964,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T16:12:32+00:00",
+  "updated_at": "2026-10-25T16:13:41+00:00",
   "measurement": {
     "at": "2026-10-25T16:11:44+00:00",
     "ok": true,
