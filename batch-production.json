@@ -3234,74 +3234,71 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e15.json"
       },
-      "stage": "building",
+      "stage": "planned",
       "attempts": 1,
-      "source_sha": "b60481b8a493f0e0b2ac37b869e982213ab22cfd",
-      "before_ids": [
-        40171159505,
-        40170263222,
-        40169893361,
-        40169378463,
-        40169098001,
-        40168832723,
-        40168763687,
-        40164083384,
-        40162491442,
-        40162007872,
-        40160199731,
-        40159235547,
-        40158580419,
-        40158338472,
-        40157308891,
-        40155939996,
-        40154809245,
-        40154557845,
-        40152921322,
-        40152845611,
-        40152138336,
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847,
-        40147346342,
-        40147002904,
-        40146579288,
-        40146069336,
-        40144076354,
-        40143503135,
-        40142724972,
-        40142626858,
-        40142424645,
-        40142328302,
-        40134819856,
-        40134047227,
-        40132420577,
-        40127450982,
-        40127055413,
-        40124707293,
-        40122737348,
-        40120456012,
-        40119789283,
-        40119725595,
-        40113702992,
-        40101837936,
-        40098975134,
-        40097886586,
-        40094273058,
-        40093452412,
-        40076072866,
-        40074101662,
-        40069802174,
-        40052825389,
-        40015352420,
-        40012868945,
-        40010294493,
-        40008947633
+      "repair_history": [
+        {
+          "run_id": 40171278752,
+          "source_sha": "b60481b8a493f0e0b2ac37b869e982213ab22cfd",
+          "stage": "building",
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e15.json"
+          },
+          "writer_refusal": {
+            "file": "evidence/kahaani-chaos/e15-40171278752/incremental/plan-40171278752/writer-hold.json",
+            "sha256": "c6fda356e77c62d16a31cb8d631e407a314d3e4ba96b68bbac65fec3fdf8a410",
+            "log": [
+              {
+                "attempt": 0,
+                "stage": "editor",
+                "problems": [
+                  "Beat 1 features a generic wooden boat rather than a distinct 90s nostalgia object.",
+                  "Beat 5 states the rule to accept the returning object with thanks, but the characters neither apply it nor does it solve the situation.",
+                  "Beat 7 creates a contradiction by claiming the boat was left untouched while simultaneously describing reading the diary inside it.",
+                  "the story's logic has a gap",
+                  "the rule of the night does not clearly solve it",
+                  "beat 1 must show the object and its impossible behaviour"
+                ],
+                "canonical_hook_repair": {
+                  "original": "बहाई गई लकड़ी की नाव उल्टी धार में तैरकर लौट आई।",
+                  "replacement": "बहाई नाव धार के उल्टे तैरकर सीढ़ियों पर लौट आई।"
+                }
+              },
+              {
+                "attempt": 1,
+                "stage": "editor",
+                "problems": [
+                  "Beat 1: A wooden canal boat is a timeless transport object rather than a distinct 90s nostalgia object.",
+                  "Beat 1 and Beat 3: Beat 1 describes the boat as cast away ('बहाई नाव'), contradicting Beat 3 and Beat 6 where it was untied from a mooring peg.",
+                  "Beat 7: The narrator ends by asking why Shailesh's name was written on the diary, directly violating Rule N03's mandate to accept returned things without asking questions.",
+                  "the story's logic has a gap",
+                  "beat 1 must show the object and its impossible behaviour"
+                ]
+              },
+              {
+                "attempt": 2,
+                "stage": "editor",
+                "problems": [
+                  "Beat 1 mentions a generic canal boat rather than a specific 90s nostalgia object.",
+                  "Beat 4 and 7 introduce an unexplained diary that has no causal connection to Shailesh untying the boat.",
+                  "Beat 6 violates rule N03 because the rule instructs to keep the returned object ('रखो'), but they leave the boat behind ('छोड़ दिया').",
+                  "the story's logic has a gap",
+                  "the rule of the night does not clearly solve it",
+                  "beat 1 must show the object and its impossible behaviour"
+                ]
+              }
+            ],
+            "publishable": false
+          }
+        }
       ],
-      "submitted_at": "2026-10-25T07:02:18+00:00",
-      "run_id": 40171278752,
-      "cloud_status": "completed"
+      "obsolete_runs": [
+        40171278752
+      ],
+      "repair_queued_at": "2026-10-25T07:26:32+00:00",
+      "repair_source_sha": "ca525b9e00b0c93dd332876d43381d617c14dfe1",
+      "repair_reason": "Actual three-attempt editor refusal: toy/transport scale ambiguous; unrelated diary has no causal setup; leaving boat contradicts keep-with-thanks rule. Clarify only existing bank logline, retaining every other bank field, exact hook/title/anomaly/rule/heart/rotation and location. Ordinary writer/editor and all production/release gates still required."
     },
     {
       "repo": "kahaani-chaos",
@@ -3384,5 +3381,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T07:25:53+00:00"
+  "updated_at": "2026-10-25T07:26:32+00:00"
 }
