@@ -3799,7 +3799,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-well-e13-notebook-repair.json"
       },
-      "stage": "building",
+      "stage": "reviewed",
       "attempts": 2,
       "editorial_holds": [
         {
@@ -4080,7 +4080,8 @@
           ],
           "issues": []
         }
-      }
+      },
+      "archive": "batch-reviewed-40197267045"
     },
     {
       "repo": "kahaani-chaos",
@@ -4345,5 +4346,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T13:32:30+00:00"
+  "updated_at": "2026-10-25T13:32:38+00:00"
 }
