@@ -5171,10 +5171,20 @@
           "evidence": {
             "plan-40209430956/story.json": "156363e7615007e445b8f5e803f7f6a9f482f4dc70262a55bb8c121aeda87933"
           }
+        },
+        {
+          "id": "e24-extra-figure-beat2-held",
+          "run_id": 40209430956,
+          "observed_at": "2026-10-25T18:49:13+00:00",
+          "reason": "Native-resolution review finds a second miniature childlike figure at the lower right of beat2. The declared scene has only Shailesh. Exclude the complete refused frame and use a faithful upper-body crop that removes the entire additional figure; retain the original narration and every final gate.",
+          "evidence": {
+            "art-40209430956-2/beat02.png": "6e19afd85fd49e16f6420be1e8c7df072d51343529755bf4ef7e8d4ed65d8614"
+          }
         }
       ],
       "problems": [
-        "The exact produced beat1 narration says the friends stood outside the post office, while its scene explicitly places them inside. Repair only the establishing visual direction and source art for this beat; preserve narration and accepted siblings and require every final gate."
+        "The exact produced beat1 narration says the friends stood outside the post office, while its scene explicitly places them inside. Repair only the establishing visual direction and source art for this beat; preserve narration and accepted siblings and require every final gate.",
+        "Native-resolution review finds a second miniature childlike figure at the lower right of beat2. The declared scene has only Shailesh. Exclude the complete refused frame and use a faithful upper-body crop that removes the entire additional figure; retain the original narration and every final gate."
       ]
     }
   ],
@@ -5186,7 +5196,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T18:48:20+00:00",
+  "updated_at": "2026-10-25T18:49:13+00:00",
   "measurement": {
     "at": "2026-10-25T18:46:43+00:00",
     "ok": true,
