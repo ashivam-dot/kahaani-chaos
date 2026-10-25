@@ -1619,6 +1619,24 @@
             "incremental/art-40154809245-2/beat02-alt1.png": "d5d86a242cf0004a0bd258615c2f507ca68917b229e9ed850904a614070fa551",
             "incremental/art-40154809245-2/beat02-alt2.png": "f4c8d4cdb83c8dac5f43b1f3d057001a1ec155b7c18f31c8cf6769aaef2faa56",
             "incremental/art-40154809245-2/beat02.png": "e9a4ec4b013757316b585326a85bd783ba2094bd53cb02d3573f6f51f173ee40"
+          },
+          "resolved_at": "2026-10-25T03:26:09+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "87de2d7ab5816ab90077c7211471018153029984",
+            "replay": ".github/replay/sannatpur-sewing-e32-repair.json",
+            "replay_sha256": "611d6ad11eae8b52c1551dca02b9ee5a234e1ca8d22c1fd5c1d6fb5b575ecd54",
+            "selected_images": {
+              "0": "4383dbc5f82b801fdc2b07b221f6af1f861aba6ca88cd58f8f4a56b520d44bfa",
+              "1": "40590b2fcef12822b5389ddda6b973e7d9736606bf47a6ce283a3ffc49417df3",
+              "2": "77d1b3b1a9dbc6cfdc8b69e7c4ee90b616bd3c9ae98f728f4fdd127d1b448e00",
+              "3": "a6d6e5e89f3ea9ea6852ffa2ff227ff35fc92ed0a4d5b67111b28f67cf0fce76",
+              "4": "eadf0e402281fa64f0f3bbaf9db04582df4456fe7b09dffa3ba9e5e31c62071c",
+              "5": "ef2e334e96d8382b4ca4f1875a07c95d6d2ed78e12903adb0208a544defcce46",
+              "6": "1d16188fcfd77e751c1c4b654ae371bd66592de392ec99be9990ba80a3ca074b"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -1629,6 +1647,24 @@
           "evidence": {
             "incremental/art-40154809245-0/beat00-alt1.png": "366b85d43eb1cb8f77dc83f6800ab4d4d14e4ac7fe9e1c2de93740668b24e40a",
             "incremental/art-40154809245-0/beat00.png": "de12d86c1b720b9757f931343d8bc8d1207a87047fc37fe2efd21cee4373191d"
+          },
+          "resolved_at": "2026-10-25T03:26:09+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "87de2d7ab5816ab90077c7211471018153029984",
+            "replay": ".github/replay/sannatpur-sewing-e32-repair.json",
+            "replay_sha256": "611d6ad11eae8b52c1551dca02b9ee5a234e1ca8d22c1fd5c1d6fb5b575ecd54",
+            "selected_images": {
+              "0": "4383dbc5f82b801fdc2b07b221f6af1f861aba6ca88cd58f8f4a56b520d44bfa",
+              "1": "40590b2fcef12822b5389ddda6b973e7d9736606bf47a6ce283a3ffc49417df3",
+              "2": "77d1b3b1a9dbc6cfdc8b69e7c4ee90b616bd3c9ae98f728f4fdd127d1b448e00",
+              "3": "a6d6e5e89f3ea9ea6852ffa2ff227ff35fc92ed0a4d5b67111b28f67cf0fce76",
+              "4": "eadf0e402281fa64f0f3bbaf9db04582df4456fe7b09dffa3ba9e5e31c62071c",
+              "5": "ef2e334e96d8382b4ca4f1875a07c95d6d2ed78e12903adb0208a544defcce46",
+              "6": "1d16188fcfd77e751c1c4b654ae371bd66592de392ec99be9990ba80a3ca074b"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -1639,6 +1675,24 @@
           "evidence": {
             "incremental/art-40154809245-5/beat05-alt1.png": "223f7738f718c37500f0cebaa69bd7815292976ff8c96a6c98ebad7f5cbe047d",
             "incremental/art-40154809245-5/beat05.png": "abc60698791d85a5b80e3e5438a166e648ee79824a0690a97d4a9ee846f33a49"
+          },
+          "resolved_at": "2026-10-25T03:26:09+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "87de2d7ab5816ab90077c7211471018153029984",
+            "replay": ".github/replay/sannatpur-sewing-e32-repair.json",
+            "replay_sha256": "611d6ad11eae8b52c1551dca02b9ee5a234e1ca8d22c1fd5c1d6fb5b575ecd54",
+            "selected_images": {
+              "0": "4383dbc5f82b801fdc2b07b221f6af1f861aba6ca88cd58f8f4a56b520d44bfa",
+              "1": "40590b2fcef12822b5389ddda6b973e7d9736606bf47a6ce283a3ffc49417df3",
+              "2": "77d1b3b1a9dbc6cfdc8b69e7c4ee90b616bd3c9ae98f728f4fdd127d1b448e00",
+              "3": "a6d6e5e89f3ea9ea6852ffa2ff227ff35fc92ed0a4d5b67111b28f67cf0fce76",
+              "4": "eadf0e402281fa64f0f3bbaf9db04582df4456fe7b09dffa3ba9e5e31c62071c",
+              "5": "ef2e334e96d8382b4ca4f1875a07c95d6d2ed78e12903adb0208a544defcce46",
+              "6": "1d16188fcfd77e751c1c4b654ae371bd66592de392ec99be9990ba80a3ca074b"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -1929,7 +1983,7 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T03:20:50+00:00",
+  "updated_at": "2026-10-25T03:26:09+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
