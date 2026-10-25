@@ -2839,6 +2839,24 @@
           "evidence": {
             "art-40164083384-0/beat00.png": "316932f75dad0e0cc86c9600408cb66c49a6ef52972a312441f9a46dd47970d8",
             "art-40164083384-0/beat00-alt1.png": "163924f718888de0fa8f957559576bc3908d06e27fa5be27008526eb180d703f"
+          },
+          "resolved_at": "2026-10-25T06:25:22+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "690b84d354c4f25f146aaf38b596fa3ed50d58cf",
+            "replay": ".github/replay/sannatpur-ticket-e12-repair.json",
+            "replay_sha256": "31941204d7471703cc5e7701a2624e4e9ab234ac406e32fe31db4b26910dd103",
+            "selected_images": {
+              "0": "14c72186fc97e52d173f29082a22bb36fecaafca02230e340b6eeb2db06ff9dc",
+              "1": "8a9fda6299429b41f2b2957607a1b74ef89e15f17c4faed96801944393cd5db9",
+              "2": "9eba09d6283e827e85ea5644f166b3ca509e90c51f7f44940adda9465fad8a25",
+              "3": "648c8bdb79dc474e964f0ae6d1113f7a0cd3ee6c9efc563828bead06fa1cb738",
+              "4": "54ecbe697e14c3cac1f9bfdde0866ae436c0afebed3c3b22c193fa27b8439d32",
+              "5": "753a1ef38be38cf3a059b7bf05dad4985e204b46faf9e504f72a23854603bda5",
+              "6": "0f4f13a82f1da0921e098d6358f8f2ac0ec66714e3c934e6a6ca4ce5828aacf1"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -2963,5 +2981,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T06:22:03+00:00"
+  "updated_at": "2026-10-25T06:25:22+00:00"
 }
