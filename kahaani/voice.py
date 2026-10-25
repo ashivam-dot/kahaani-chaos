@@ -382,7 +382,7 @@ def _shorten_pauses(wav: Path, words: list[dict], spoken: list) -> tuple[list, l
     quiet = np.sqrt((frames ** 2).mean(axis=1)) < floor
     occupied = [(float(a), float(b)) for _, a, b in spoken]
     occupied += [(float(w["start"]), float(w["end"])) for w in words if w.get("heard", True)]
-    cuts = []
+    cuts, diagnostics = [], []
     for first, last in _runs(quiet):
         start, end = int(loud[0]) + first * step, int(loud[0]) + last * step
         duration = (end - start) / sr
@@ -391,11 +391,21 @@ def _shorten_pauses(wav: Path, words: list[dict], spoken: list) -> tuple[list, l
         remove = end - start - round(TWIST_PAUSE * sr)
         a = start + (end - start - remove) // 2
         b = a + remove
-        if any(x < b / sr and y > a / sr for x, y in occupied):
+        overlaps = [(x, y) for x, y in occupied if x < b / sr and y > a / sr]
+        peak = float(np.abs(audio[a:b]).max(initial=0.0))
+        diagnostics.append({"quiet_start": start / sr, "quiet_end": end / sr,
+                            "candidate_start": a / sr, "candidate_end": b / sr,
+                            "overlapping_words": overlaps, "peak": peak, "speech_floor": floor,
+                            "decision": "protected_word" if overlaps else
+                            "protected_sample" if peak > floor else "cut"})
+        if overlaps:
             continue
-        if float(np.abs(audio[a:b]).max(initial=0.0)) > floor:
+        if peak > floor:
             continue
         cuts.append((a, b))
+    (wav.parent / "pause-diagnostics.json").write_text(json.dumps({
+        "audio_sha256": hashlib.sha256(wav.read_bytes()).hexdigest(),
+        "sample_rate": sr, "candidates": diagnostics}, indent=2) + "\n")
     if not cuts:
         return words, spoken, {}
     original = hashlib.sha256(wav.read_bytes()).hexdigest()

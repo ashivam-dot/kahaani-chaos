@@ -206,3 +206,7 @@ the superseded run's duplicated ending is excluded and its id is retained in the
     `state/LEARNINGS.md`.
   - Health alerts open when fewer than 10 bank entries are unused.
 - No views are promised.
+
+### Narration failure evidence (25 October 2026)
+
+The production artifact retains `narration.wav` even when the voice gate holds. The quiet-pause editor records candidate intervals and the exact word/sample protection that refused each cut in `pause-diagnostics.json`. `diagnose-voice.yml` reproduces an existing replay with the established narrator clone only; it has read-only repository access, no secrets, no painting, no state writes and no publishing. A diagnosis never approves a release.

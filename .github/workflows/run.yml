@@ -210,6 +210,7 @@ jobs:
           name: short-${{ github.run_id }}
           path: |
             work/*/short.mp4
+            work/*/narration.wav
             work/*/*.json
             work/*/pics/*.jpg
             work/dry-produce-health.json
