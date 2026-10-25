@@ -2108,10 +2108,23 @@
             "art-40158580419-1/beat01.png": "b84c0bcb7ba0de2d74e804cc86785ade708e63bad4e90f27da66180a8f7f7206",
             "art-40158580419-6/beat06.png": "e6c71e1ea70c3d89d1e671eefeae6fdf2039c45889edc5ae6dac6056e0312e0b"
           }
+        },
+        {
+          "id": "direct-e10-new-opening-doubled-cast-40158580419",
+          "run_id": 40158580419,
+          "observed_at": "2026-10-25T04:26:18+00:00",
+          "reason": "Direct full-resolution inspection of newly available originals: both opening takes add a human hand and pseudo-printing despite the empty letter-only brief; both beat 4 takes duplicate mustard-sweater Prabhat around Jhabbu. Replace these two scenes only, preserving title, narration and useful beat 2/3/5 paintings. Original electronic-prop/extra-arm holds remain.",
+          "evidence": {
+            "art-40158580419-0/beat00-alt1.png": "a437d07086eb3c3c5aa5c7b3208fec2848295f1f4ff5984421db41aa2f7c3bbf",
+            "art-40158580419-0/beat00.png": "726ba46313a946a800e5ecdf69ef29aff838ce0b0c47727d0547d24bf277cf0a",
+            "art-40158580419-4/beat04-alt1.png": "6f919198dc9e7b0e87262ca87ac2cfd7e799d98b466344fde480418dfc31e322",
+            "art-40158580419-4/beat04.png": "f71c7c4d3513ca178e6487416b228006f4d073d508240821ee33d0793975f206"
+          }
         }
       ],
       "problems": [
-        "Direct full-resolution inspection: beat 1 adds an unexplained open black electronic screen on the 1996 village sorting desk. Beat 6 gives Jhabbu an extra disembodied writing hand while his two visible hands already hold a lantern and a closed register; it also adds a white printed-picture border. These materially fail the fixed world/prop/anatomy brief. Replace only these two stills with an analogue sorting-table scene and a seated two-arm register-writing scene, preserving speech and other useful images."
+        "Direct full-resolution inspection: beat 1 adds an unexplained open black electronic screen on the 1996 village sorting desk. Beat 6 gives Jhabbu an extra disembodied writing hand while his two visible hands already hold a lantern and a closed register; it also adds a white printed-picture border. These materially fail the fixed world/prop/anatomy brief. Replace only these two stills with an analogue sorting-table scene and a seated two-arm register-writing scene, preserving speech and other useful images.",
+        "Direct full-resolution inspection of newly available originals: both opening takes add a human hand and pseudo-printing despite the empty letter-only brief; both beat 4 takes duplicate mustard-sweater Prabhat around Jhabbu. Replace these two scenes only, preserving title, narration and useful beat 2/3/5 paintings. Original electronic-prop/extra-arm holds remain."
       ]
     },
     {
@@ -2247,7 +2260,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e10: Direct full-resolution inspection: beat 1 adds an unexplained open black electronic screen on the 1996 village sorting desk. Beat 6 gives Jhabbu an extra disembodied writing hand while his two visible hands already hold a lantern and a closed register; it also adds a white printed-picture border. These materially fail the fixed world/prop/anatomy brief. Replace only these two stills with an analogue sorting-table scene and a seated two-arm register-writing scene, preserving speech and other useful images.",
+  "halted": "Repair held entry e10: Direct full-resolution inspection: beat 1 adds an unexplained open black electronic screen on the 1996 village sorting desk. Beat 6 gives Jhabbu an extra disembodied writing hand while his two visible hands already hold a lantern and a closed register; it also adds a white printed-picture border. These materially fail the fixed world/prop/anatomy brief. Replace only these two stills with an analogue sorting-table scene and a seated two-arm register-writing scene, preserving speech and other useful images.; Direct full-resolution inspection of newly available originals: both opening takes add a human hand and pseudo-printing despite the empty letter-only brief; both beat 4 takes duplicate mustard-sweater Prabhat around Jhabbu. Replace these two scenes only, preserving title, narration and useful beat 2/3/5 paintings. Original electronic-prop/extra-arm holds remain.",
   "complete": false,
   "health": {
     "public": 1,
@@ -2255,7 +2268,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T04:24:36+00:00",
+  "updated_at": "2026-10-25T04:26:18+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
