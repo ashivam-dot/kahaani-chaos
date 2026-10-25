@@ -3516,7 +3516,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-toy-boat-e15-repair.json"
       },
-      "stage": "upload_intent",
+      "stage": "scheduled",
       "attempts": 3,
       "repair_history": [
         {
@@ -3768,7 +3768,26 @@
       },
       "archive": "batch-reviewed-40185173569",
       "intended_publish_at": "2026-10-31T13:30:00Z",
-      "upload_intent_at": "2026-10-25T11:44:08+00:00"
+      "upload_intent_at": "2026-10-25T11:44:08+00:00",
+      "delivery": {
+        "video_id": "832xX0F-0M8",
+        "url": "https://www.youtube.com/shorts/832xX0F-0M8",
+        "privacy": "scheduled",
+        "publish_at": "2026-10-31T13:30:00Z",
+        "synthetic_declared": true,
+        "comment_text": "आज तीस साल बाद भी सोचता हूँ, बिना चप्पू के वह नन्हीं नाव उल्टी धार कैसे चढ़ी थी? 👇",
+        "comment": "pending: HTTP 403",
+        "playlist": "skipped: no playlist",
+        "owner_readback": {
+          "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+          "privacyStatus": "private",
+          "publishAt": "2026-10-31T13:30:00Z",
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false,
+          "containsSyntheticMedia": null,
+          "uploadStatus": "processed"
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -3983,5 +4002,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T11:44:08+00:00"
+  "updated_at": "2026-10-25T11:45:04+00:00"
 }

@@ -762,5 +762,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-0832-e15",
+  "premise": "e15",
+  "title": "बहाई हुई नाव उल्टी धार में वापस क्यों लौट आई? 🛶",
+  "subgenre": "confessed-lie",
+  "motifs": [],
+  "ending": "open-question",
+  "opening": "बहाई छोटी",
+  "made_at": "2026-10-25T11:45:04+00:00",
+  "format": "micro",
+  "skeleton": "S3",
+  "resolution": "leave-it-be",
+  "heart_type": "confessed-lie",
+  "object_token": "नाव",
+  "anomaly": "खोलकर बहाई नाव का धार के उल्टे तैरकर लौट आना",
+  "location": "नहर की कपड़े धोने वाली सीढ़ियाँ",
+  "place_id": "nahar",
+  "hook_strip": "उल्टी तैरती नन्हीं नाव",
+  "script": "बहाई छोटी नाव उल्टी धार तैरकर सीढ़ियों पर लौट आई। उन्नीस सौ छियानवे, उस रात हम तीनों नहर की सीढ़ियों पर बैठे थे। शैलेश की लकड़ी वाली नाव पानी में बहते-बहते अचानक रुक गई। तेज़ बहाव के ख़िलाफ़, वह नन्हीं नाव छप-छप करती उल्टी हमारी तरफ़ मुड़ आई। झब्बू चाचा का नियम याद आया—जो चीज़ ख़ुद लौटे, उसे शुक्रिया कहकर रखो, सवाल मत पूछो। शैलेश बुदबुदाया कि हवा ने नहीं, शरारत में उसी ने गांठ खोली थी, फिर उसने हाथ जोड़कर नाव उठा ली। आज तीस साल बाद भी सोचता हूँ, बिना चप्पू के वह नन्हीं नाव उल्टी धार कैसे चढ़ी थी?",
+  "slot": "2026-10-31T13:30:00Z",
+  "published_at": "2026-10-31T13:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40185173569,
+  "av_review_sha256": "1c0ab78f864e56952c0f799ad77e920bf5e94dced36cf3b6fd58ff90749282ae",
+  "video_id": "832xX0F-0M8",
+  "url": "https://www.youtube.com/shorts/832xX0F-0M8",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-31T13:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आज तीस साल बाद भी सोचता हूँ, बिना चप्पू के वह नन्हीं नाव उल्टी धार कैसे चढ़ी थी? 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-10-31T13:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
