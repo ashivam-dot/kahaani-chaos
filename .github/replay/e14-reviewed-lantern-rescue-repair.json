@@ -1,0 +1,146 @@
+{
+  "id": "kc-20261025-1540-e14",
+  "premise": "e14",
+  "title": "लालटेन ने बिना हवा के अपनी लौ खेतों की ओर झुका दी 🏮 | सन्नाटपुर",
+  "hook": "लालटेन की लौ बिना हवा के एक तरफ़ झुक गई।",
+  "beats": [
+    {
+      "text": "लालटेन की लौ बिना हवा के एक तरफ़ झुक गई।",
+      "scene": "An extreme close-up shot of the brass lantern on the wooden desk inside the gatekeeper hut. The flame inside the glass chimney is tilted sharply to the side despite no breeze. The lantern occupies most of the frame. Warm orange light glows against the dark background.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात हम फाटक वाली कोठरी में बैठे थे।",
+      "scene": "Inside the gatekeeper hut. Young Prabhat, wearing a mustard yellow sweater and steel-framed glasses, is sitting at the wooden desk holding a small blue notebook. The room is lit by the warm glow of the lantern. Moonlight peeks through the small window.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "curious and attentive"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "खिड़की-दरवाज़े सब बंद थे, फिर भी मेज़ पर रखी लौ मुड़ी रही।",
+      "scene": "Inside the gatekeeper hut, a close detail of the same brass hurricane lantern on the wooden table. Its leaning flame is seen through the glass chimney, with the closed blue window panes outside the detail frame. Shailesh reacts outside this close view; no person is visible. The room stays enclosed with readable warm light and painterly brushwork.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "शैलेश घबराया, पर झब्बू बोले, नियम पंद्रह—लौ झुके तो कोई इंतज़ार कर रहा है।",
+      "scene": "Inside the gatekeeper hut. Old Jhabbu, in a khaki kurta and red wool muffler, stands by the desk pointing at the lantern. Prabhat and Shailesh listen to him with serious faces. The brass lantern is the primary light source.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "solemn and calm"
+        },
+        {
+          "name": "prabhat",
+          "expression": "intrigued"
+        },
+        {
+          "name": "shailesh",
+          "expression": "scared"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "पुराना इशारा याद आते ही झब्बू ने लालटेन उठाई और खेतों की ओर चल दिए।",
+      "scene": "Outdoors in a moonlit field, a close portrait of elderly Jhabbu walking through tall grass. He wears his khaki kurta, grey shawl and red muffler, carrying one brass lantern aloft. Only Jhabbu is visible; all other people, his staff and register are outside this close view. Readable natural adult proportions and continuous painterly brushwork. The scene is outdoors.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "determined"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "वहाँ शैलेश के पापा मिले, जो आख़िरी बस छूटने पर रास्ता भूल गए थे।",
+      "scene": "Outdoors beside the moonlit field, a close upper-body portrait of elderly Jhabbu in khaki, grey shawl and red muffler. He raises the one brass lantern and looks with relief toward Shailesh and his father outside the left edge of the picture. His bamboo staff is at the right edge. Only Jhabbu is visible; Shailesh, his father and Prabhat all stay offscreen. Natural adult proportions and readable painterly brushwork. The scene is outdoors.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "gentle"
+        },
+        {
+          "name": "shailesh",
+          "expression": "immensely relieved"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "कोठरी लौटकर झब्बू ने रजिस्टर में बस एक लाइन लिखी—लौ ने घर पहुँचाया।",
+      "scene": "Inside the gatekeeper hut. Old Jhabbu is sitting at the desk, writing with a pencil in the red-bound khaki register. The register is turned away so the writing is not visible. The brass lantern sits nearby on the desk, its flame now straight.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "peaceful"
+        }
+      ],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "jhabbu",
+      "name": "झब्बू",
+      "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+    },
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    }
+  ],
+  "subgenre": "kindness",
+  "ending": "register-line",
+  "twist_beat": 5,
+  "description": "सन्नाटपुर की कोठरी में लालटेन की लौ बिना किसी हवा के खेतों की तरफ़ झुक गई। क्या यह किसी भटकते हुए इंसान का बुलावा था?",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3.6-flash",
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "gates",
+        "problems": [
+          "beat 1 (the hook) has 11 words; at most 10"
+        ]
+      },
+      {
+        "attempt": 1,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "बिना हवा झुकी लौ",
+  "object_token": "लालटेन",
+  "anomaly": "बिना हवा के लौ का एक तरफ़ झुककर झुके रहना",
+  "niyam_id": "N15",
+  "resolution": "kindness",
+  "heart_beat": 6,
+  "heart_type": "kindness",
+  "skeleton": "S2",
+  "location": "कोठरी की मेज़",
+  "place_id": "chowki"
+}

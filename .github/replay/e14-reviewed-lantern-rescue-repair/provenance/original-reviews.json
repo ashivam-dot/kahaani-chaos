@@ -1,0 +1,55 @@
+{
+  "images": [
+    {
+      "file": "art-40207865422-0/beat00.png",
+      "image_sha256": "fc1f19bd9dcdf64ff2e3ff0721c8d8b717e34746e7c34d944521c7b70339d40b",
+      "decision": "pass",
+      "reason": "Direct native inspection: a single brass hurricane lantern on the wooden table, lifted amber detail and closed blue window panes in the hut. The flame has an off-centre leaning tip; final moving opening and audiovisual review must still judge whether that anomaly reads clearly. No people or labels. Source-art approval only."
+    },
+    {
+      "file": "art-40207865422-1/beat01.png",
+      "image_sha256": "ec9e1a9490441c510a3b5d82ef023542ab214aa29fed7a32e70e7dfef3259dba",
+      "decision": "hold",
+      "reason": "The base duplicates Prabhat as two mustard-sweater young men at the table. This exact base cannot support the single-character beat."
+    },
+    {
+      "file": "art-40207865422-1/beat01-alt1.png",
+      "image_sha256": "99512ad2a31ec587d807cd8cdad5e8290bcce9de7587c16310aecca09e5f62a3",
+      "decision": "pass",
+      "reason": "Direct native inspection: one adolescent Prabhat in mustard sweater and steel glasses writes in his blue notebook inside the hut, under one brass lantern. Closed blue window panes remain visible behind him; the foreground opening is the camera viewpoint. No duplicate person or labels. Source-art approval only; full current final gates remain."
+    },
+    {
+      "file": "art-40207865422-2/beat02.png",
+      "image_sha256": "d60744c459af6304b34fa439831cd993c79a9741149cb525c19d2644c98b22b6",
+      "decision": "hold",
+      "reason": "Shailesh has oversized cartoon eyes and a child-like head/body treatment rather than the fixed natural proportions of an eighteen-year-old. The foreground opening also makes a poor illustration of the narration that windows and doors are closed. Preserve this refusal; replace only the beat2 visual input."
+    },
+    {
+      "file": "art-40207865422-3/beat03.png",
+      "image_sha256": "24bafc00fcaa5d8e5f6d5c163bed8343cbf7b39a5a535dd969c9c21ec9e91a62",
+      "decision": "pass",
+      "reason": "Direct native inspection: consistent Jhabbu, Prabhat and Shailesh in the hut with the correct clothes and props, natural seated young-adult proportions, one lantern and readable light. Source art only; final audiovisual review must verify story alignment."
+    },
+    {
+      "file": "art-40207865422-6/beat06.png",
+      "image_sha256": "2a58d4e5d393d2ee3ced35fb5627351fe03c6459605283cb907373ab9713c01c",
+      "decision": "pass",
+      "reason": "Direct native inspection: Jhabbu in khaki and red muffler writes in the red-spined ledger beside the brass lantern in the hut. No legible text or additional person. Source art only; complete audiovisual review remains required."
+    },
+    {
+      "file": "art-40207865422-4/beat04.png",
+      "image_sha256": "6808ebeec5fa3bd60bd02d2938c3bdc343ad5a0c88eb9cffa303e4476706f4f6",
+      "decision": "hold",
+      "reason": "The complete frame includes an unregistered adult walking behind Jhabbu. A faithful close crop may exclude that person; preserve this raw refusal and require current image and complete audiovisual checks."
+    },
+    {
+      "file": "art-40207865422-5/beat05-alt2.png",
+      "image_sha256": "7987ff8ddbd7e5d4ea8c0cbded0214740e575f454a64c8099cd87be0a5f3145a",
+      "decision": "hold",
+      "reason": "The complete frame includes the unregistered father silhouette and childlike foreground companions. A faithful close crop of Jhabbu and the lantern may exclude every other figure; preserve this raw refusal and all final gates."
+    }
+  ],
+  "at": "2026-10-25T18:46:01.108065+00:00",
+  "scope": "Source paintings only",
+  "release_approval": false
+}

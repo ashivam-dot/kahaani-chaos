@@ -1,0 +1,136 @@
+{
+  "id": "kc-20261025-1602-e24",
+  "premise": "e24",
+  "title": "बरसों पुराना तार आज रात डाकघर में कैसे लौट आया? 📨",
+  "hook": "तार वाली खिड़की से पुराना पीला तार ख़ुद लौट आया।",
+  "beats": [
+    {
+      "text": "तार वाली खिड़की से पुराना पीला तार ख़ुद लौट आया।",
+      "scene": "An extreme close view of a yellowed paper telegraph ribbon lying on the wooden ledge of the telegraph window inside the one-room post office. The yellow paper strip occupies 60% of the foreground frame, with its blank reverse side facing upward. Soft brass lantern light warms the wooden ledge against moonlit blue shadows.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात हम डाकघर के बाहर खड़े थे।",
+      "scene": "Outdoors beside the closed post-office wall at night, Prabhat in his mustard sweater and steel glasses stands beside Nuzhat in her bottle-green dupatta and long braid. Prabhat holds only his small blue notebook; Nuzhat carries her electric metal flashlight lowered in her hand. Both look toward the closed telegraph window outside this portrait frame. Natural adolescent adult proportions, readable moonlit village lane, continuous painterly scene. The scene is outdoors.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "curious and attentive"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "alert and observant"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "डाकबाबू ने घबराकर बताया, यह वही तार है जो बरसों पहले यहाँ से भेजा गया था।",
+      "scene": "Inside the enclosed post office, a close upper-body reaction view of tall eighteen-year-old Shailesh in his red cricket cap, striped shirt and brown-cased transistor radio. He braces his hands on the sorting counter, listening with surprise to the postmaster outside the frame. Only Shailesh is visible. The lower counter and floor are outside the portrait. Natural adolescent adult proportions and painterly brushwork, warm hanging electric light and blue night shadows.",
+      "people": [
+        {
+          "name": "shailesh",
+          "expression": "startled and wide-eyed"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "नुज़हत की टॉर्च में दिखा, काग़ज़ पर लिखा था, पहुँच गया।",
+      "scene": "Inside the one-room post office, a young woman wearing a green scarf holds her electric metal flashlight with a cracked lens, aiming its split electric beam onto the wooden desk counter. The electric flashlight is the only practical light.",
+      "people": [
+        {
+          "name": "nuzhat",
+          "expression": "serious and focused"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "झब्बू काका बोले, नियम तीसरा याद रखो, जो चीज़ ख़ुद लौटे, उसे शुक्रिया कहकर रख लो, सवाल मत पूछो।",
+      "scene": "Inside the one-room post office, an elderly thin man in a khaki kurta, red muffler, and dark wool shawl stands holding a brass oil lantern. Warm lantern light lights up his stern, solemn face against dark blue moonlit walls.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "stern and resolute"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "काका की आवाज़ धीमी हुई, मेरा छोटा भाई भी ऐसे ही निकला था, जो कभी नहीं लौटा।",
+      "scene": "Inside the one-room post office, the elderly thin man in a khaki kurta and red muffler looks downward with a softened expression, holding his brass oil lantern close. Warm lantern light softly illuminates his wistful face against deep blue night ambient glow.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "pensive and softened"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्होंने तार जेब में रखा, पर हर रात वही पीला तार डाकघर की खिड़की पर ख़ुद लौटता सा लगता है।",
+      "scene": "An extreme close view of the wooden telegraph window ledge inside the one-room post office. A yellowed paper slip rests on the wooden counter with its blank unprinted side visible. Warm oil lantern light grazes the counter edge against moonlit blue darkness outside.",
+      "people": [],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "jhabbu",
+      "name": "झब्बू",
+      "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+    },
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    }
+  ],
+  "subgenre": "goodbye",
+  "ending": "loop-back",
+  "twist_beat": 5,
+  "description": "सन्नाटपुर के डाकघर में आधी रात को बरसों पुराना पीला तार ख़ुद लौट आया। उस पर लिखे बस दो शब्दों ने सबका दिल दहला दिया।",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य",
+    "#डाकघर"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3.6-flash",
+      "gemini-3.5-flash-lite"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "पुराना तार लौट आया",
+  "object_token": "तार",
+  "anomaly": "बरसों पहले भेजे तार का ख़ुद लौट आना, जिस पर लिखा है: पहुँच गया",
+  "niyam_id": "N03",
+  "resolution": "leave-it-be",
+  "heart_beat": 6,
+  "heart_type": "goodbye",
+  "skeleton": "S3",
+  "location": "तार वाली खिड़की",
+  "place_id": "dakghar"
+}

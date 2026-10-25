@@ -1,0 +1,48 @@
+{
+  "story": "kc-20261025-1540-e14",
+  "beat": 5,
+  "alt": 0,
+  "prompt": "Outdoors beside the moonlit field, a close upper-body portrait of elderly Jhabbu in khaki, grey shawl and red muffler. He raises the one brass lantern and looks with relief toward Shailesh and his father outside the left edge of the picture. His bamboo staff is at the right edge. Only Jhabbu is visible; Shailesh, his father and Prabhat all stay offscreen. Natural adult proportions and readable painterly brushwork. The scene is outdoors. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away, gentle expression; Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, immensely relieved expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 752.5,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1882952476,
+  "log_tail": "                                         | 6/138 - 149.18MB/s\u001b[K\n  |##################################################| 138/138 - 935.65MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.04s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 57.35s --- image.cpp:620\n[I] decode_first_stage completed, taking 57.35s --- image.cpp:624\n[I] generate_image completed in 751.73s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat05-alt2.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "derivation": {
+    "operation": "crop_and_resize",
+    "crop_ltrb": [
+      204,
+      50,
+      492,
+      562
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "parent_image_sha256": "7987ff8ddbd7e5d4ea8c0cbded0214740e575f454a64c8099cd87be0a5f3145a",
+    "parent_metadata_sha256": "724c6c069090f60949af9718ab549ec1045f0c9c90c7fb42f54ed6db248562a5",
+    "source_beat": 5,
+    "source_alt": 2,
+    "target_role": "editorial_derived_base",
+    "generation_prompt": "The scene is outdoors. In the misty fields under moonlight, Jhabbu raises the lantern to reveal a dark silhouette of a man. Young Shailesh, in his red cap and blue slippers, looks relieved as he recognizes his father. The golden lantern light cuts through the darkness. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away, gentle expression; Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, immensely relieved expression; Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, surprised expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "parent_review_decision": "hold",
+    "parent_refusal_reason": "The complete frame includes the unregistered father silhouette and childlike foreground companions. A faithful close crop of Jhabbu and the lantern may exclude every other figure; preserve this raw refusal and all final gates.",
+    "excluded_defects": [
+      "Every unregistered or childlike background/foreground figure is outside the crop."
+    ],
+    "purpose": "Faithful close reaction/walking insert; no objects added and narration unchanged."
+  },
+  "image_sha256": "d91b89d6d569bebd7b4b87f43b14a5a3eb904671a0b8436113a94944dae2c102",
+  "production_approved": false,
+  "cached_from": {
+    "id": 12606178305,
+    "run_id": 40207865422,
+    "name": "art-40207865422-5",
+    "size_in_bytes": 3372255,
+    "source_sha": "b66ce33ea61c498a6fc251875ebbe18aad265992"
+  }
+}

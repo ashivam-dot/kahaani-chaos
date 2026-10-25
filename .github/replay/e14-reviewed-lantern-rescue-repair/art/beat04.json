@@ -1,0 +1,48 @@
+{
+  "story": "kc-20261025-1540-e14",
+  "beat": 4,
+  "alt": 0,
+  "prompt": "Outdoors in a moonlit field, a close portrait of elderly Jhabbu walking through tall grass. He wears his khaki kurta, grey shawl and red muffler, carrying one brass lantern aloft. Only Jhabbu is visible; all other people, his staff and register are outside this close view. Readable natural adult proportions and continuous painterly brushwork. The scene is outdoors. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away, determined expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1245.3,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 350218426,
+  "log_tail": "ached graph cut plan done (taking 0 ms) --- ggml_graph_cut.cpp:1032\n\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 91.70s --- image.cpp:620\n[I] decode_first_stage completed, taking 91.70s --- image.cpp:624\n[I] generate_image completed in 1244.36s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat04.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "derivation": {
+    "operation": "crop_and_resize",
+    "crop_ltrb": [
+      64,
+      140,
+      424,
+      780
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "parent_image_sha256": "6808ebeec5fa3bd60bd02d2938c3bdc343ad5a0c88eb9cffa303e4476706f4f6",
+    "parent_metadata_sha256": "e40c352769a48bea5fbf59fef7ecfd24391477e0ae222eb88b66759f1d4a721d",
+    "source_beat": 4,
+    "source_alt": 0,
+    "target_role": "editorial_derived_base",
+    "generation_prompt": "The scene is outdoors. Old Jhabbu is walking through a dark field at night, holding his brass lantern high. The golden light illuminates the tall grass and his khaki kurta. Prabhat and Shailesh follow closely behind him in the cool moonlight. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away, determined expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "parent_review_decision": "hold",
+    "parent_refusal_reason": "The complete frame includes an unregistered adult walking behind Jhabbu. A faithful close crop may exclude that person; preserve this raw refusal and require current image and complete audiovisual checks.",
+    "excluded_defects": [
+      "Every unregistered or childlike background/foreground figure is outside the crop."
+    ],
+    "purpose": "Faithful close reaction/walking insert; no objects added and narration unchanged."
+  },
+  "image_sha256": "1399854cf84851a60f3adb08d48b3c9ab5431e41c032afaa83bb389da0555a8f",
+  "production_approved": false,
+  "cached_from": {
+    "id": 12605263623,
+    "run_id": 40207865422,
+    "name": "art-40207865422-4",
+    "size_in_bytes": 1077217,
+    "source_sha": "b66ce33ea61c498a6fc251875ebbe18aad265992"
+  }
+}

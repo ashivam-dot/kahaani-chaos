@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-25T18:46:31.762854+00:00",
+  "scope": "Source paintings only",
+  "release_approval": false,
+  "images": [
+    {
+      "file": "closed-lantern-detail/beat02.png",
+      "image_sha256": "7fd32d6e68c0938182ec86317c4d37fe4786148212f53529653f37b7a384d78c",
+      "decision": "pass",
+      "reason": "Direct native inspection: faithful close insert of the original brass lantern on the hut table. No people or open foreground window; off-centre flame tip retained. Source art only: full moving audiovisual review must judge whether the leaning-flame anomaly reads clearly."
+    },
+    {
+      "file": "walking-close/beat04.png",
+      "image_sha256": "1399854cf84851a60f3adb08d48b3c9ab5431e41c032afaa83bb389da0555a8f",
+      "decision": "pass",
+      "reason": "Direct native inspection: Jhabbu in correct khaki, grey shawl and red muffler carries one brass lantern through the field. The unregistered background walker is fully excluded. No new objects or pixels invented; source art only, final audiovisual review required."
+    },
+    {
+      "file": "rescue-close/beat05.png",
+      "image_sha256": "d91b89d6d569bebd7b4b87f43b14a5a3eb904671a0b8436113a94944dae2c102",
+      "decision": "pass",
+      "reason": "Direct native inspection: Jhabbu with his lantern and staff in the moonlit field. The father silhouette and both childlike foreground figures are completely excluded. The candidate declares only Jhabbu visible and keeps the reunion offscreen; all narration and final audiovisual checks remain."
+    }
+  ]
+}

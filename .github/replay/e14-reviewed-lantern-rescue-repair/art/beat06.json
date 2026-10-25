@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-1540-e14",
+  "beat": 6,
+  "alt": 0,
+  "prompt": "Inside the gatekeeper hut. Old Jhabbu is sitting at the desk, writing with a pencil in the red-bound khaki register. The register is turned away so the writing is not visible. The brass lantern sits nearby on the desk, its flame now straight. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, an open khaki ledger with a red spine resting before him, brass hurricane lantern and bamboo staff with a small bell set beside him, face small and turned away, peaceful expression. Exactly one person, Jhabbu, seated and writing. All details describe this same man. Nobody else is present; his lantern and staff rest beside him. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm practical light, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1107.4,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 208036246,
+  "log_tail": "                                             | 2/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.04s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 114.12s --- image.cpp:620\n[I] decode_first_stage completed, taking 114.12s --- image.cpp:624\n[I] generate_image completed in 1106.79s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat06.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12605878454,
+    "run_id": 40207865422,
+    "name": "art-40207865422-6",
+    "size_in_bytes": 1132302,
+    "source_sha": "b66ce33ea61c498a6fc251875ebbe18aad265992"
+  },
+  "image_sha256": "2a58d4e5d393d2ee3ced35fb5627351fe03c6459605283cb907373ab9713c01c"
+}
