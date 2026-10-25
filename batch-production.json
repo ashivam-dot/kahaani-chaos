@@ -1348,10 +1348,12 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-brick-e07-repair.json"
       },
-      "stage": "held",
-      "attempts": 4,
-      "source_sha": "5aab8b3faf16f29f08909e9f8a74e206d86455d1",
+      "stage": "dispatch_unresolved",
+      "attempts": 5,
+      "source_sha": "944a11a20cecc347a5373ce39b2eef3acbb479a3",
       "before_ids": [
+        40152921322,
+        40152845611,
         40152138336,
         40148804337,
         40148651151,
@@ -1449,10 +1451,9 @@
         38448247359,
         38446573325,
         38444924599,
-        38439489788,
-        38428830025
+        38439489788
       ],
-      "submitted_at": "2026-10-25T02:01:04+00:00",
+      "submitted_at": "2026-10-25T02:28:10+00:00",
       "repair_history": [
         {
           "run_id": 40147002904,
@@ -1485,14 +1486,28 @@
             "replay": ".github/replay/batch-2026-10-25/e07.json"
           },
           "repair_reason": "Stop repeated hook growth by binding an overlong rewrite to the exact valid bank opening before all code and Gemini editor checks. Provide measured per-beat word budgets; retain any failed full draft and honest model provenance for targeted recovery."
+        },
+        {
+          "run_id": 40152845611,
+          "source_sha": "5aab8b3faf16f29f08909e9f8a74e206d86455d1",
+          "stage": "held",
+          "problems": [
+            "ValueError: preview did not make a finished passing Short"
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/sannatpur-brick-e07-repair.json"
+          },
+          "repair_reason": "Exact direct visual repair: object-only brick opening, two separate characters as Nuzhat stops Shailesh, and Nuzhat alone holding the blank reverse of the clue brick. Preserve all narration, plot, cast identities and passing sibling art; final current picture/voice/render and full audiovisual checks remain."
         }
       ],
       "obsolete_runs": [
         40147002904,
         40147867847,
-        40148651151
+        40148651151,
+        40152845611
       ],
-      "repair_reason": "Exact direct visual repair: object-only brick opening, two separate characters as Nuzhat stops Shailesh, and Nuzhat alone holding the blank reverse of the clue brick. Preserve all narration, plot, cast identities and passing sibling art; final current picture/voice/render and full audiovisual checks remain.",
+      "repair_reason": "Preserve all exact reviewed repaired art and narration. Apply deployed word-protected quiet-pause editor to cloned narration before unchanged final waveform, picture, render and full audiovisual gates; prior clone gap was 1.22 seconds.",
       "cloud_status": "completed",
       "editorial_holds": [
         {
@@ -1526,10 +1541,6 @@
             "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
-      ],
-      "run_id": 40152845611,
-      "problems": [
-        "ValueError: preview did not make a finished passing Short"
       ]
     },
     {
@@ -1795,7 +1806,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e07: ValueError: preview did not make a finished passing Short",
+  "halted": "Repair held entry e03: Direct rendered-still review: beat 0 shows a disembodied hand protruding from the wall meter; beat 5 shows two floating arms beneath a reel-like box. Both planned scenes are object-only. Repair exact meter scenes to a faithful enclosed analog call meter without body parts; retain all spoken story and usable siblings.",
   "complete": false,
   "health": {
     "public": 1,
@@ -1803,7 +1814,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T02:23:16+00:00",
+  "updated_at": "2026-10-25T02:28:10+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
