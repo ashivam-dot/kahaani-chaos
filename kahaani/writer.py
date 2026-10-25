@@ -115,7 +115,9 @@ RULES (all mandatory):
   preta); nobody is possessed, cursed or killed. No real places, people, films, songs or brands (say "रेडियो",
   "बिस्कुट", "पुरानी सफ़ेद कार"). No gore, sexual content, self-harm, caste or community markers. Exclamations
   too: say हाय, बाप रे, अरे or उफ़, never हे भगवान or या खुदा.
-- cast: the ids of everyone painted in any beat, from {cast_ids}.
+- cast: the ids of everyone painted in any beat, from {cast_ids}. At most four ids across the whole Short,
+  including prabhat_adult if his present-day hands appear. Choose the few people this entry needs; never add
+  all the available cast. A memory narrated by adult Prabhat need not paint his present-day hands.
 - scene: for each beat, 20-60 English words describing ONE painting: who is in it (cast ids exactly), what they do,
   the place, one warm practical light (lantern, electric battery flashlight or bulb) against moonlit blue (a next-morning beat says dawn
   instead), and the camera. Beat 1 is the
