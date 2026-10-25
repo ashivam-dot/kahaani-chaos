@@ -972,5 +972,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-1540-e14",
+  "premise": "e14",
+  "title": "लालटेन ने बिना हवा के अपनी लौ खेतों की ओर झुका दी 🏮 | सन्नाटपुर",
+  "subgenre": "kindness",
+  "motifs": [],
+  "ending": "register-line",
+  "opening": "लालटेन की",
+  "made_at": "2026-10-25T19:12:59+00:00",
+  "format": "micro",
+  "skeleton": "S2",
+  "resolution": "kindness",
+  "heart_type": "kindness",
+  "object_token": "लालटेन",
+  "anomaly": "बिना हवा के लौ का एक तरफ़ झुककर झुके रहना",
+  "location": "कोठरी की मेज़",
+  "place_id": "chowki",
+  "hook_strip": "बिना हवा झुकी लौ",
+  "script": "लालटेन की लौ बिना हवा के एक तरफ़ झुक गई। उन्नीस सौ छियानवे, उस रात हम फाटक वाली कोठरी में बैठे थे। खिड़की-दरवाज़े सब बंद थे, फिर भी मेज़ पर रखी लौ मुड़ी रही। शैलेश घबराया, पर झब्बू बोले, नियम पंद्रह—लौ झुके तो कोई इंतज़ार कर रहा है। पुराना इशारा याद आते ही झब्बू ने लालटेन उठाई और खेतों की ओर चल दिए। वहाँ शैलेश के पापा मिले, जो आख़िरी बस छूटने पर रास्ता भूल गए थे। कोठरी लौटकर झब्बू ने रजिस्टर में बस एक लाइन लिखी—लौ ने घर पहुँचाया।",
+  "slot": "2026-11-03T07:30:00Z",
+  "published_at": "2026-11-03T07:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40223879188,
+  "av_review_sha256": "6c90ba805aa257d67d8a7d0ca3cf5fcd47d73661d71e80cafc6e50e9b7504451",
+  "video_id": "NqCDDSzyWI0",
+  "url": "https://www.youtube.com/shorts/NqCDDSzyWI0",
+  "privacy": "scheduled",
+  "publish_at": "2026-11-03T07:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-11-03T07:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
