@@ -2519,7 +2519,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-billing-slip-e17-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "held",
       "attempts": 2,
       "editorial_holds": [
         {
@@ -2751,7 +2751,12 @@
         39964227699,
         39953890527
       ],
-      "submitted_at": "2026-10-25T06:22:00+00:00"
+      "submitted_at": "2026-10-25T06:22:00+00:00",
+      "run_id": 40168832723,
+      "cloud_status": "completed",
+      "problems": [
+        "ValueError: preview did not make a finished passing Short"
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -2932,5 +2937,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T06:26:26+00:00"
+  "updated_at": "2026-10-25T06:26:31+00:00"
 }
