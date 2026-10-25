@@ -203,14 +203,13 @@ def present(people: list[dict], cast: list[dict], scene: str = "") -> list[str]:
 
 
 def plan(story: str, beats: list[dict], cast: list[dict]) -> list[dict]:
-    """One image prompt and seed per beat; a beat with cast in it, or with something moving by itself, also gets
-    ALTERNATES spare seeds, painted when the paint job has time, for the picture editor to fall back on."""
+    """One image prompt and bounded spare seeds per beat. The exact early picture check skips unused spares;
+    an object-only still life needs the same recovery path as cast and moving-object shots."""
     out = []
     for i, b in enumerate(beats):
         who = present(b.get("people") or [], cast, b["scene"])
         row = {"beat": i, "prompt": prompt(b["scene"], b.get("people") or [], cast, hook=i == 0), "seed": seed(story, i),
                "cast": who}
-        if who or solo(b["scene"]):
-            row["alternates"] = [seed(story, i * 100 + k) for k in range(1, ALTERNATES + 1)]
+        row["alternates"] = [seed(story, i * 100 + k) for k in range(1, ALTERNATES + 1)]
         out.append(row)
     return out

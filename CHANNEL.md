@@ -161,6 +161,10 @@ ids, disclosure settings, voices or cadence are changed.
 A known editorial hold allows only bounded dry production ahead (four unconsumed previews maximum);
 review and release retain their predecessor checks. Every pending dispatch is reconciled before another is sent.
 
+Object-only still-life scenes also receive at most two spare seeds. The early exact-image editor skips
+unused spares after a passing base; a failed empty-object shot retains the same bounded repaint path as cast
+shots. Final picture and AV checks remain mandatory.
+
 **Explicit production holds (25 October 2026).** A bank entry with `production_hold` stays in the bible but
 is excluded from ordinary selection and refused by explicit replays, including preview replays without rotation.
 While a hold unbalances the three title-skeleton counts, selection checks a feasible ten-entry lookahead; an

@@ -51,7 +51,8 @@ def test_plan_has_one_seeded_prompt_per_beat():
     assert "sheepish expression" in plan[4]["prompt"] and "Shailesh:" in plan[4]["prompt"]
     assert plan[3]["cast"] == ["jhabbu", "prabhat", "nuzhat"] and len(plan[3]["alternates"]) == look.ALTERNATES
     # the hook's bicycle light glows on its own, so it gets spare seeds for the picture editor too
-    assert len(plan[0]["alternates"]) == look.ALTERNATES and plan[5]["cast"] == [] and "alternates" not in plan[5]
+    assert len(plan[0]["alternates"]) == look.ALTERNATES and plan[5]["cast"] == []
+    assert len(plan[5]["alternates"]) == look.ALTERNATES
     assert len({b["seed"] for b in plan}) == len(plan)
     assert plan == look.plan(d["id"], d["beats"], d["cast"])
 
@@ -157,3 +158,10 @@ def test_reflected_light_and_dark_surroundings_do_not_switch_a_lit_bulb_off():
     for scene in ["its dynamo light dark", "the lamp is switched off", "the bulb has gone dark",
                   "an unlit lantern beside him", "the headlight turns off"]:
         assert look.UNLIT.search(scene), scene
+
+
+def test_object_only_call_meter_can_repaint_under_the_same_human_presence_gate():
+    beat = {'scene':'Inside the booth, the analog call meter is fixed to the wall.', 'people':[]}
+    plan = look.plan('pco-recovery', [beat], [])
+    assert plan[0]['cast'] == [] and look.NOBODY in plan[0]['prompt']
+    assert len(set([plan[0]['seed']] + plan[0]['alternates'])) == look.ALTERNATES + 1
