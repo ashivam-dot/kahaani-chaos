@@ -4871,7 +4871,55 @@
       "run_id": 40213863576,
       "cloud_status": "completed",
       "retry_reason": "audiovisual review unavailable: gemini-3.8-flash: HTTP 429; gemini-3-flash-preview: HTTP 429; gemini-3.1-flash-lite: HTTP 503",
-      "review_retry_after": "2026-10-25T18:26:42.652245+00:00"
+      "review_retry_after": "2026-10-25T18:26:42.652245+00:00",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3-flash-preview",
+        "duration": 42.933333,
+        "video_sha256": "d6f54953020c17efe97ab50540f0ea9d560ff23a74c7bf34b3128b57282e6154",
+        "brief_sha256": "487101de40b8efa1955292b04551d5819607e67d07fde5c2d1b3bf3358c2c399",
+        "review_video_sha256": "9fa255c8a64b0e752850b330bd7aab333a35702771ceb7c9b06d439cbc428f9a",
+        "review_audio_sha256": "894fbd1292b8cacad19471f04af4f811b67bc334353362e35dcefbe11c14181e",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "टॉकीज़ के पोस्टर पर हीरो की परछाईं पीछे छूट गई।",
+          "heard_ending": "मेरा झूठ तो पकड़ा गया, पर पोस्टर वाले उस हीरो ने किससे झूठ बोला होगा?",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "A hand-painted yellow cinema poster on a brick wall showing a grey figure with a detached shadow below it.",
+              "heard": "हीरो की परछाईं पीछे छूट गई।"
+            },
+            {
+              "part": "middle",
+              "seconds": 20.0,
+              "seen": "Elderly Jhabbu in a khaki kurta and red muffler, holding a brass lantern and a red-spined register.",
+              "heard": "झब्बू बोले—झूठ बोलने वाले की परछाईं"
+            },
+            {
+              "part": "ending",
+              "seconds": 38.0,
+              "seen": "The yellowed paper cinema poster on the brick wall with the grey figure and the disconnected shadow.",
+              "heard": "उस हीरो ने किससे झूठ बोला होगा?"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -5116,7 +5164,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T18:46:43+00:00",
+  "updated_at": "2026-10-25T18:47:24+00:00",
   "measurement": {
     "at": "2026-10-25T18:46:43+00:00",
     "ok": true,
