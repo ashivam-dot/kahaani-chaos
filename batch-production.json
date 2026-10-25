@@ -551,7 +551,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-scale-e04-repair.json"
       },
-      "stage": "upload_intent",
+      "stage": "scheduled",
       "attempts": 3,
       "source_sha": "0b1871ed060525998fc994a3a94767192b7b67c9",
       "before_ids": [
@@ -847,7 +847,26 @@
       },
       "archive": "batch-reviewed-40146069336",
       "intended_publish_at": "2026-10-26T07:30:00Z",
-      "upload_intent_at": "2026-10-25T00:30:53+00:00"
+      "upload_intent_at": "2026-10-25T00:30:53+00:00",
+      "delivery": {
+        "video_id": "cm2SqWAyil4",
+        "url": "https://www.youtube.com/shorts/cm2SqWAyil4",
+        "privacy": "scheduled",
+        "publish_at": "2026-10-26T07:30:00Z",
+        "synthetic_declared": true,
+        "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+        "comment": "pending: HTTP 403",
+        "playlist": "skipped: no playlist",
+        "owner_readback": {
+          "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+          "privacyStatus": "private",
+          "publishAt": "2026-10-26T07:30:00Z",
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false,
+          "containsSyntheticMedia": null,
+          "uploadStatus": "processed"
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -1281,7 +1300,7 @@
     }
   ],
   "halted": "Repair held entry e06: Actual beat 2 base duplicates the mustard-sweater Prabhat into two physical people; preserve the correct alternate. All three actual beat 4 takes show only Jhabbu in khaki/red muffler waving, with no distinct retiring station master, contradicting the bank heart beat and narration. Replace only farewell painting; retain other usable art and all spoken Hindi. Full current cloud and AV checks remain mandatory.",
-  "updated_at": "2026-10-25T00:30:53+00:00",
+  "updated_at": "2026-10-25T00:30:56+00:00",
   "complete": false,
   "health": {
     "public": 1,

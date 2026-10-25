@@ -300,5 +300,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261024-2135-e04",
+  "premise": "e04",
+  "title": "हाट में छूटा तराज़ू… और ख़ाली पलड़ा झुक गया! ⚖️",
+  "subgenre": "kindness",
+  "motifs": [],
+  "ending": "register-line",
+  "opening": "खाली हाट",
+  "made_at": "2026-10-25T00:30:56+00:00",
+  "format": "micro",
+  "skeleton": "S1",
+  "resolution": "kindness",
+  "heart_type": "kindness",
+  "object_token": "तराज़ू",
+  "anomaly": "ख़ाली पलड़े का ऐसे झुकना जैसे उस पर कुछ रखा हो",
+  "location": "सब्ज़ी वाली का कोना",
+  "place_id": "haat",
+  "hook_strip": "ख़ाली हाट का रहस्य",
+  "script": "ख़ाली हाट में रखा तराज़ू अचानक एक तरफ़ झुक गया। उन्नीस सौ छियानवे, उस रात सब्ज़ी वाली अम्मा अपना तराज़ू वहीं भूल गई थीं। शैलेश ने तराज़ू उठाया, तो वह लोहे का पलड़ा अजीब तरह से कांपने लगा। पलड़े पर कुछ नहीं था, फिर भी डंडी नीचे झुकती जा रही थी। झब्बू काका ने लालटेन उठाई और बोले, रात की चीज़ घर मत ले जाओ, जिसकी है उस तक पहुँचाओ। शैलेश चुपचाप भारी तराज़ू उठाकर आधी रात सब्ज़ी वाली अम्मा के दरवाज़े तक ले गया। झब्बू काका ने अपने खाकी रजिस्टर में लिखा, रात की अमानत सही पते पर पहुँच गई।",
+  "slot": "2026-10-26T07:30:00Z",
+  "published_at": "2026-10-26T07:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40146069336,
+  "av_review_sha256": "4c9b87431d2cee2e9414b921b8f976ada6bc34ec69b5a364335776deb742b0db",
+  "video_id": "cm2SqWAyil4",
+  "url": "https://www.youtube.com/shorts/cm2SqWAyil4",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-26T07:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-10-26T07:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
