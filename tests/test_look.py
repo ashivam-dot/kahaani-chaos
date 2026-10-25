@@ -166,6 +166,17 @@ def test_staff_room_stays_enclosed_without_outdoor_style_at_night_and_dawn():
     assert look.DAWN_STYLE in outdoor and look.INDOOR_STYLE not in outdoor
 
 
+def test_explicit_outdoors_does_not_turn_a_boats_interior_into_a_room():
+    scene = ("Macro view of a wooden toy boat with an empty interior beside outdoor canal steps. "
+             "The scene is outdoors. The electric flashlight is the only practical light.")
+    prompt = look.prompt(scene, [], [])
+    assert "solid plaster walls" not in prompt and "visible solid ceiling" not in prompt
+    assert "warm-white electric battery-flashlight beam" in prompt
+    assert "moonlit" in prompt and look.NOBODY in prompt
+    indoor = look.prompt("Inside an enclosed room, a toy boat rests on a table.", [], [])
+    assert look.INDOOR_STYLE in indoor
+
+
 def test_watchman_can_help_someone_when_scene_sets_down_his_props():
     scene = 'Jhabbu holds Shailesh by the wrist. The brass lantern and bamboo staff rest beside the table.'
     token = look.character({'id': 'jhabbu'}, scene)

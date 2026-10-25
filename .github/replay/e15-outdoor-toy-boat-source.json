@@ -1,0 +1,144 @@
+{
+  "id": "kc-20261025-0832-e15",
+  "premise": "e15",
+  "title": "बहाई हुई नाव उल्टी धार में वापस क्यों लौट आई? 🛶",
+  "hook": "बहाई छोटी नाव उल्टी धार तैरकर सीढ़ियों पर लौट आई।",
+  "beats": [
+    {
+      "text": "बहाई छोटी नाव उल्टी धार तैरकर सीढ़ियों पर लौट आई।",
+      "scene": "Extreme macro close-up of a palm-sized handmade wooden toy boat floating against dark rippling water toward stone canal washing steps. The wet wooden boat occupies sixty percent of the frame, bathed in cool moonlit blue with soft amber water ripples, no people visible.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात हम तीनों नहर की सीढ़ियों पर बैठे थे।",
+      "scene": "On brick canal washing steps at night, young man Prabhat in a mustard sweater and young man Shailesh in a striped shirt sit near dark flowing water, illuminated by the pale beam of a cracked flashlight under a moonlit blue sky.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "quiet and observant"
+        },
+        {
+          "name": "shailesh",
+          "expression": "restless and uneasy"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "शैलेश की लकड़ी वाली नाव पानी में बहते-बहते अचानक रुक गई।",
+      "scene": "On the canal washing steps, young woman Nuzhat points a cracked glass flashlight down toward the canal water, while young man Prabhat beside her peers through steel-frame spectacles into the moonlit blue gloom.",
+      "people": [
+        {
+          "name": "nuzhat",
+          "expression": "curious and focused"
+        },
+        {
+          "name": "prabhat",
+          "expression": "surprised and squinting"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "तेज़ बहाव के ख़िलाफ़, वह नन्हीं नाव छप-छप करती उल्टी हमारी तरफ़ मुड़ आई।",
+      "scene": "The scene is outdoors. Macro close view of one palm-sized hand-carved wooden toy boat floating beside stone canal washing steps under open moonlit sky. Its simple low wooden hull is empty, with smooth plain sides and no projecting parts. A fallen peepal leaf floats beside it at the same scale. Silver ripples curl around the tiny boat as it heads toward the steps. The electric flashlight is the only practical light, an offscreen warm beam reflected on the water. No lamp or lantern aboard, no oar, paddle, mast, seats, people or hands. Readable miniature wood grain, painterly-cinematic vertical close-up.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "झब्बू चाचा का नियम याद आया—जो चीज़ ख़ुद लौटे, उसे शुक्रिया कहकर रखो, सवाल मत पूछो।",
+      "scene": "On the brick canal washing steps, young man Prabhat holds a small blue notebook, speaking softly, while young woman Nuzhat lowers her cracked flashlight slightly, both backlit by deep blue night and soft lantern glow across the canal.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "solemn and mindful"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "tense and nodding"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "शैलेश बुदबुदाया कि हवा ने नहीं, शरारत में उसी ने गांठ खोली थी, फिर उसने हाथ जोड़कर नाव उठा ली।",
+      "scene": "On a dry upper brick step of the canal, young man Shailesh in his striped shirt kneels alone with bowed head, carefully placing the wet wooden toy boat beside his knees, lit gently by warm moonlit reflection.",
+      "people": [
+        {
+          "name": "shailesh",
+          "expression": "apologetic and humbled"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "आज तीस साल बाद भी सोचता हूँ, बिना चप्पू के वह नन्हीं नाव उल्टी धार कैसे चढ़ी थी?",
+      "scene": "Top-down extreme close view of one pair of middle-aged hands turning the blank reverse of a page in a faded old blue notebook on a wooden desk inside an enclosed room. Worn corners and the blue cover of the notebook are clearly visible. Thin steel-rimmed glasses rest beside the notebook under the warm light of a small desk lamp. Only hands and wrists are within the frame. The whole painted view is the desktop, the notebook, spectacles and the two hands; faces and bodies are outside the frame.",
+      "people": [
+        {
+          "name": "prabhat_adult",
+          "expression": "hands gently turning a blank page, only wrists visible"
+        }
+      ],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    },
+    {
+      "id": "prabhat_adult",
+      "name": "प्रभात",
+      "look": "close-up of a middle-aged man's hands turning pages of a faded blue notebook under a desk lamp, steel-rimmed glasses beside it, no face"
+    }
+  ],
+  "subgenre": "confessed-lie",
+  "ending": "open-question",
+  "twist_beat": 5,
+  "description": "उन्नीस सौ छियानवे की रात बूढ़ी नहर की सीढ़ियों पर एक खिलौना नाव बहाव के ख़िलाफ़ तैरने लगी। क्या नहर ने वह चीज़ खुद वापस लौटाई थी?",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#बूढ़ीनहर",
+    "#रहस्यमयीरात"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3.8-flash",
+      "gemini-3.6-flash"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "उल्टी तैरती नन्हीं नाव",
+  "object_token": "नाव",
+  "anomaly": "खोलकर बहाई नाव का धार के उल्टे तैरकर लौट आना",
+  "niyam_id": "N03",
+  "resolution": "leave-it-be",
+  "heart_beat": 6,
+  "heart_type": "confessed-lie",
+  "skeleton": "S3",
+  "location": "नहर की कपड़े धोने वाली सीढ़ियाँ",
+  "place_id": "nahar"
+}

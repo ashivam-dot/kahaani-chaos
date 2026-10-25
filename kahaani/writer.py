@@ -133,6 +133,8 @@ RULES (all mandatory):
   blue notebook and steel-rimmed glasses beside a desk lamp. Frame at the wrists: never a portrait, chin-on-hand
   pose, visible face, full body or a second younger Prabhat in the same painting.
   Include the exact framing sentence "Only hands and wrists are within the frame."
+  For an outdoor object close-up, include "The scene is outdoors." so an object's interior or a look inside a
+  bucket does not turn the canal or well into an enclosed room. Reserve room/interior directions for actual rooms.
   No text, signs, logos or labels in any picture. Call the cast
   young men and young women, never kids, children, boys or girls; when the object moves by itself, that beat shows
   the object alone (nobody in the painting, people empty) and the cast react in the beats around it.

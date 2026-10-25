@@ -45,6 +45,9 @@ DAWN_STYLE = ("Early-morning 1996 north-Indian village at dawn, pale gold sunris
 # Outdoor village scenery in the house style overrode e09's staff-room scenes and put its ceiling fan in open sky.
 # Keep the palette and brushwork, but let an explicit interior determine the surroundings.
 INDOOR = re.compile(r"\b(interior|indoors|inside|staff[ -]room|classroom|bedroom|kitchen|enclosed room)\b", re.I)
+# An object's interior (e.g. a toy boat's hull) does not make its outdoor surroundings a room.
+# Only an explicit scene declaration overrides the existing interior detection.
+OUTDOORS = re.compile(r"\bthe scene is outdoors\b", re.I)
 INDOOR_STYLE = ("Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling,"
                 " one warm practical light, cool blue light entering through the windows, lifted shadows."
                 " Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition"
@@ -189,7 +192,7 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
             parts.append(FACES)
     else:
         parts.append(NOBODY)
-    if INDOOR.search(scene):
+    if INDOOR.search(scene) and not OUTDOORS.search(scene):
         style = INDOOR_DAWN_STYLE if DAWN.search(scene) else INDOOR_STYLE
     else:
         style = DAWN_STYLE if DAWN.search(scene) else STYLE
