@@ -1647,7 +1647,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-pco-e03-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 2,
       "editorial_holds": [
         {
@@ -1762,7 +1762,8 @@
         39886731532,
         39878445511
       ],
-      "submitted_at": "2026-10-25T02:49:52+00:00"
+      "submitted_at": "2026-10-25T02:49:52+00:00",
+      "run_id": 40155939996
     },
     {
       "repo": "kahaani-chaos",
@@ -1917,7 +1918,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T02:50:26+00:00",
+  "updated_at": "2026-10-25T02:50:29+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
