@@ -2438,7 +2438,55 @@
       ],
       "submitted_at": "2026-10-25T04:36:16+00:00",
       "run_id": 40162491442,
-      "cloud_status": "in_progress"
+      "cloud_status": "completed",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3-flash-preview",
+        "duration": 40.6,
+        "video_sha256": "8e6511fe2710c0e00d066d58a5ccdb14a4bbcf34263f03ee8bf5b88004f44f04",
+        "brief_sha256": "058e7bfe8efd671a420287727a3e963857a4da194452189e5f4ff18e25a8981e",
+        "review_video_sha256": "d69370dbe88f6231e39112c0f1331984e7fe0d2eae85f57b662779612f77d0f0",
+        "review_audio_sha256": "0cc39d259db94e5477973851c2cec8c90132dd8aa988aac2fcb2a8e230291e47",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "डाकघर का ख़ाली अंतर्देशीय खोला, तो उसमें शब्द उभरने लगे।",
+          "heard_ending": "झब्बू ने अपने रजिस्टर में दर्ज किया, एक जवाब, बिना पते का।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "Blue inland letter paper on a wooden table with a lantern.",
+              "heard": "डाकघर का ख़ाली अंतर्देशीय खोला, तो उसमें शब्द उभरने लगे।"
+            },
+            {
+              "part": "middle",
+              "seconds": 22.0,
+              "seen": "Elderly Jhabbu in a red muffler speaking to Prabhat.",
+              "heard": "झब्बू ने टोकते हुए नियम याद दिलाया।"
+            },
+            {
+              "part": "ending",
+              "seconds": 37.0,
+              "seen": "Jhabbu writing in a ledger under lantern light.",
+              "heard": "एक जवाब, बिना पते का।"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -2647,5 +2695,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T05:00:54+00:00"
+  "updated_at": "2026-10-25T05:01:34+00:00"
 }
