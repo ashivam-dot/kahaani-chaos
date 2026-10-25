@@ -5217,7 +5217,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/e24-reviewed-telegraph-hook-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 3,
       "editorial_holds": [
         {
@@ -5440,7 +5440,57 @@
         40008947633,
         39998079552
       ],
-      "submitted_at": "2026-10-25T19:31:19+00:00"
+      "submitted_at": "2026-10-25T19:31:19+00:00",
+      "run_id": 40226427859,
+      "cloud_status": "completed",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3-flash-preview",
+        "duration": 41.366667,
+        "video_sha256": "68385a4ae6496b688588a96fffb1c23ef9c56cfad6e2b2c3b6b97a63686aee21",
+        "brief_sha256": "2e3623951537f3d6d392e03605c5ebbad76fe523dbbdcf7929ace53a39d6afc4",
+        "review_video_sha256": "e0ff341b0ba82f21b0c5b597ea32d50b31d02aaca1dc9a82e08b2a87453537f2",
+        "review_audio_sha256": "6f483e1ae30d27d5ea46717afbaf65dc1e7dc5ed77fce877b7f8244b41159d50",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "तार वाली खिड़की से पुराना पीला तार ख़ुद लौट आया।",
+          "heard_ending": "उन्होंने तार जेब में रखा, पर हर रात वही पीला तार डाकघर की खिड़की पर ख़ुद लौटता सा लगता है।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "Yellow paper strip on a wooden ledge.",
+              "heard": "Narrator describes the yellow telegram returning."
+            },
+            {
+              "part": "middle",
+              "seconds": 21.0,
+              "seen": "Elderly man in khaki kurta holding a lantern.",
+              "heard": "Jhabbu Kaka explains the third rule."
+            },
+            {
+              "part": "ending",
+              "seconds": 36.5,
+              "seen": "Lantern and paper on the post office counter.",
+              "heard": "Final reflection on the telegram's return."
+            }
+          ],
+          "issues": []
+        }
+      }
     }
   ],
   "halted": null,
@@ -5451,7 +5501,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T19:43:16+00:00",
+  "updated_at": "2026-10-25T19:45:17+00:00",
   "measurement": {
     "at": "2026-10-25T19:43:16+00:00",
     "ok": true,
