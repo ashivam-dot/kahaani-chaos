@@ -30,7 +30,10 @@ def test_explicit_repair_directions_keep_story_and_visual_checks():
     assert not gate.check(asdict(story), cli.premise_of(story), [], rotation=False)
     draft = asdict(story)
     draft['beats'][4]['scene'] += ' ' + 'unnecessary ' * 30
-    assert has(problems(draft, rotation=False), 'needs an English scene')
+    found = problems(draft, rotation=False)
+    assert has(found, 'painter scene has') and not has(found, 'scene contains Devanagari')
+    draft['beats'][4]['scene'] = 'प्रभात पंखे को देखता है।'
+    assert has(problems(draft, rotation=False), 'scene contains Devanagari')
     draft = asdict(story)
     draft['beats'][4]['scene'] += ' At a temple door.'
     assert has(problems(draft, rotation=False), 'scene touches')

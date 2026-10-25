@@ -341,8 +341,14 @@ def check(draft: dict, premise: dict, history: list[dict], rotation: bool = True
         found += [f"beat {i} uses the retired name {n!r}; the cast is झब्बू, प्रभात, नुज़हत and शैलेश"
                   for n in RETIRED_NAMES if hindi.norm(n) in hindi.words(text)]
         scene = beat.get("scene", "")
-        if not scene_ok(scene):
-            found.append(f"beat {i} needs an English scene of {SCENE_WORDS[0]}-{SCENE_WORDS[1]} words")
+        scene_words = len(scene.split())
+        if not SCENE_WORDS[0] <= scene_words <= SCENE_WORDS[1]:
+            found.append(f"beat {i} painter scene has {scene_words} words; needs {SCENE_WORDS[0]}-"
+                         f"{SCENE_WORDS[1]} English words describing the painting. Change only the scene field; "
+                         "keep spoken text in Hindi.")
+        if _DEVANAGARI.search(scene):
+            found.append(f"beat {i} painter scene contains Devanagari; write only that scene field in English. "
+                         "Keep spoken text in Hindi.")
         found += [f"beat {i} scene touches {r}; paint something else" for r in red_lines_en(scene)]
         for p in beat.get("people") or []:
             if p.get("name", "").strip() not in ids:
