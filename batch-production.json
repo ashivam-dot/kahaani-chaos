@@ -3158,10 +3158,21 @@
           "evidence": {
             "art-40172736622-1/beat01.png": "7b833539dc3a129ae3742b05f3750f67e2d2bab511609bd23ac390cf07b89d52"
           }
+        },
+        {
+          "id": "direct-e16-duplicate-adult-ending",
+          "run_id": 40172736622,
+          "observed_at": "2026-10-25T08:39:12+00:00",
+          "reason": "The ending painting shows adult Prabhat plus an extra foreground younger man, contradicting its single adult-narrator scene and the fixed hands/notebook/glasses close-up. Retain all speech and useful siblings; replace only the ending picture with one pair of adult hands, faded blue notebook and steel-rimmed glasses. All normal picture, narrator, render and audiovisual gates remain mandatory.",
+          "evidence": {
+            "art-40172736622-5/beat05.png": "62df0dab409ac42769aa86a1d2658514a8351f135ef01ec5861a047213c60fd2",
+            "art-40172736622-5/beat05-alt1.png": "e09167d8b57bd0dca4bd57d1ebe57dc1e69cb94cc8f1d31d173f40a7fd821c56"
+          }
         }
       ],
       "problems": [
-        "Direct native-resolution review rejects beat 1: Nuzhat holds a flaming torch with visible fire and smoke rather than her fixed metal battery flashlight with a cracked lens. Preserve the exact spoken story and all useful siblings; replace only this image with a clearly cylindrical metal flashlight emitting a split electric light beam. Current picture, narrator, render and audiovisual gates remain mandatory."
+        "Direct native-resolution review rejects beat 1: Nuzhat holds a flaming torch with visible fire and smoke rather than her fixed metal battery flashlight with a cracked lens. Preserve the exact spoken story and all useful siblings; replace only this image with a clearly cylindrical metal flashlight emitting a split electric light beam. Current picture, narrator, render and audiovisual gates remain mandatory.",
+        "The ending painting shows adult Prabhat plus an extra foreground younger man, contradicting its single adult-narrator scene and the fixed hands/notebook/glasses close-up. Retain all speech and useful siblings; replace only the ending picture with one pair of adult hands, faded blue notebook and steel-rimmed glasses. All normal picture, narrator, render and audiovisual gates remain mandatory."
       ]
     },
     {
@@ -3456,7 +3467,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e16: Direct native-resolution review rejects beat 1: Nuzhat holds a flaming torch with visible fire and smoke rather than her fixed metal battery flashlight with a cracked lens. Preserve the exact spoken story and all useful siblings; replace only this image with a clearly cylindrical metal flashlight emitting a split electric light beam. Current picture, narrator, render and audiovisual gates remain mandatory.",
+  "halted": "Repair held entry e16: Direct native-resolution review rejects beat 1: Nuzhat holds a flaming torch with visible fire and smoke rather than her fixed metal battery flashlight with a cracked lens. Preserve the exact spoken story and all useful siblings; replace only this image with a clearly cylindrical metal flashlight emitting a split electric light beam. Current picture, narrator, render and audiovisual gates remain mandatory.; The ending painting shows adult Prabhat plus an extra foreground younger man, contradicting its single adult-narrator scene and the fixed hands/notebook/glasses close-up. Retain all speech and useful siblings; replace only the ending picture with one pair of adult hands, faded blue notebook and steel-rimmed glasses. All normal picture, narrator, render and audiovisual gates remain mandatory.",
   "complete": false,
   "health": {
     "public": 2,
@@ -3464,5 +3475,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T08:35:55+00:00"
+  "updated_at": "2026-10-25T08:39:12+00:00"
 }
