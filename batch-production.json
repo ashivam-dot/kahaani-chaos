@@ -3516,7 +3516,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-toy-boat-e15-repair.json"
       },
-      "stage": "building",
+      "stage": "reviewed",
       "attempts": 3,
       "repair_history": [
         {
@@ -3765,7 +3765,8 @@
           ],
           "issues": []
         }
-      }
+      },
+      "archive": "batch-reviewed-40185173569"
     },
     {
       "repo": "kahaani-chaos",
@@ -3980,5 +3981,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T11:43:59+00:00"
+  "updated_at": "2026-10-25T11:44:07+00:00"
 }
