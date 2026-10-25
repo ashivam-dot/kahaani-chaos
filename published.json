@@ -594,5 +594,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-0431-e17",
+  "premise": "e17",
+  "title": "पर्ची ने आज की जगह दस साल पुरानी तारीख़ छाप दी 🧾 | सन्नाटपुर",
+  "subgenre": "goodbye",
+  "motifs": [],
+  "ending": "loop-back",
+  "opening": "पीसीओ की",
+  "made_at": "2026-10-25T06:58:33+00:00",
+  "format": "micro",
+  "skeleton": "S2",
+  "resolution": "leave-it-be",
+  "heart_type": "goodbye",
+  "object_token": "पर्ची",
+  "anomaly": "पर्ची पर आज की जगह दस साल पुरानी तारीख़ छपना",
+  "location": "पीसीओ का काउंटर",
+  "place_id": "pco",
+  "hook_strip": "दस साल पुरानी तारीख़",
+  "script": "पीसीओ की पर्ची पर दस साल पुरानी तारीख़ छपी थी। उन्नीस सौ छियानवे, उस रात बस्ती के पीले शीशे वाले पीसीओ में हम खड़े थे। ट्रंक कॉल कटते ही मशीन की छोटी घंटी बजी, और सरसराती हुई सफ़ेद पर्ची बाहर निकली। शैलेश ने तारीख़ देखकर कहा अरे बाप रे, ये तो छियासी की है, और वो उसे फाड़ने लगा। झब्बू ने उसका हाथ थामकर कहा, अपने-आप बदली तारीख़ को फाड़ते नहीं, वो कुछ याद दिलाती है। काँपते हाथों से पर्ची छूकर चाचा बोले, इसी दिन बेटा शहर गया था और मैं उसे स्टेशन छोड़ने नहीं गया था। चाचा ने वो काग़ज़ संभालकर रख लिया, पर उस रात पीसीओ की पर्ची पर वही दस साल पुरानी तारीख़ छपी रह गई।",
+  "slot": "2026-10-29T13:30:00Z",
+  "published_at": "2026-10-29T13:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40170263222,
+  "av_review_sha256": "b1dad98c1265ae1ca57df8b3371d884caadb3fe44d495cc708f276f7b29bfa00",
+  "video_id": "W360oeaMnn4",
+  "url": "https://www.youtube.com/shorts/W360oeaMnn4",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-29T13:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-10-29T13:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
