@@ -877,7 +877,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-projector-e05-repair.json"
       },
-      "stage": "building",
+      "stage": "reviewed",
       "attempts": 2,
       "source_sha": "43649a8a8f2c3066cd6242ac6036145c3f083277",
       "before_ids": [
@@ -1069,7 +1069,8 @@
           ],
           "issues": []
         }
-      }
+      },
+      "archive": "batch-reviewed-40146579288"
     },
     {
       "repo": "kahaani-chaos",
@@ -1526,7 +1527,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:50:09+00:00",
+  "updated_at": "2026-10-25T00:50:17+00:00",
   "complete": false,
   "health": {
     "public": 1,
