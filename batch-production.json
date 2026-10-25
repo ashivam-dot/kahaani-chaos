@@ -3435,7 +3435,55 @@
           "conclusion": "failure",
           "reason": "Pre-review rotation validation correctly rejected register-line/S2 before e16 delivery. No audiovisual verdict, new production or delivery exists for this run."
         }
-      ]
+      ],
+      "review": {
+        "schema": 1,
+        "model": "gemini-3.8-flash",
+        "duration": 38.9,
+        "video_sha256": "c8320ed1c0150a20eb168319686e4a6bd414f5641eb47842e724f3a7806f4489",
+        "brief_sha256": "068309c179937bd946f651669967b8e97cc8ce56e539113b89a158fdd32c7add",
+        "review_video_sha256": "a918371292b9f9d2837a8ab0143cd1e70de3f908edebdd651d23939defa97148",
+        "review_audio_sha256": "365b0d8599586a6e50dc6f97e960909aaa23bca7b459eb4e552bdf4c35789107",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "कबाड़ बस का हॉर्न बिना ड्राइवर के रात में बजा।",
+          "heard_ending": "झब्बू चाचा ने अपने लाल जिल्द वाले रजिस्टर में बस एक बात लिखी, एक भटका, घर पहुँचा।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "A large rusty metal horn attached to the steering column inside a scrapped bus under moonlit glass.",
+              "heard": "बिना ड्राइवर के रात में बजा।"
+            },
+            {
+              "part": "middle",
+              "seconds": 18.5,
+              "seen": "Elderly Jhabbu Chacha in a khaki kurta and red muffler raising a glowing hurricane lantern high.",
+              "heard": "कहा, अपने-आप बजी आवाज़ का मतलब है"
+            },
+            {
+              "part": "ending",
+              "seconds": 33.5,
+              "seen": "Jhabbu Chacha writing in his red-covered register by lantern light beside Prabhat sitting near the bus.",
+              "heard": "बस एक बात लिखी, एक भटका,"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -3796,5 +3844,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T11:36:48+00:00"
+  "updated_at": "2026-10-25T11:40:50+00:00"
 }
