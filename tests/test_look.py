@@ -7,6 +7,19 @@ CAST = [{"name": "Dhaniram", "look": "plump middle-aged moneylender with a thick
         {"name": "Meera", "look": "young woman in a fish-pattern scarf, braided hair"}]
 
 
+def test_explicit_electric_only_scene_does_not_offer_a_flame_or_require_a_third_hand():
+    scene = ('Nuzhat frees a bird with both hands. Her metal battery flashlight rests beside her. '
+             'The electric flashlight is the only practical light.')
+    out = look.prompt(scene, [{'name': 'nuzhat'}], [{'id': 'nuzhat'}])
+    assert '(lantern, torch or bulb)' not in out
+    assert 'one warm-white electric battery-flashlight beam' in out
+    assert 'holding a metal flashlight' not in out
+    assert 'cracked lens resting beside her' in out and 'bottle-green dupatta' in out
+    original = look.prompt('Nuzhat holds her flashlight on the platform.',
+                           [{'name': 'nuzhat'}], [{'id': 'nuzhat'}])
+    assert look.STYLE in original and 'holding a metal flashlight' in original
+
+
 def test_prompt_order_and_parts():
     p = look.prompt("Wide shot of a misty lane at night", [{"name": "dhaniram", "expression": "greedy grin"}], CAST)
     assert p.startswith("Wide shot of a misty lane at night. Characters: Dhaniram: plump middle-aged")

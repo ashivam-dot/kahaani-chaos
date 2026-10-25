@@ -73,6 +73,7 @@ PERSON = re.compile(r"\b(he|she|they|his|her|their|him|man|men|woman|women|young
                     r"jhabbu|prabhat|shailesh|nuzhat|stands?|stood|sits?|sat|looks?|looking|watch\w*|point\w*)\b",
                     re.I)
 WRITING = re.compile(r"\b(writ(?:e|es|ing)|pen|ink|pencil)\b", re.I)
+ELECTRIC_ONLY = re.compile(r"\belectric flashlight is the only practical light\b", re.I)
 
 
 # Told "no people", Z-Image still put a boy on the bicycle "rolling slowly across the bridge" in all three paintings
@@ -132,6 +133,10 @@ def character(entry: dict, scene: str = "") -> str:
     as a real animal, or the model paints an animal-headed man."""
     known = bible.cast().get(entry.get("id") or "")
     look = (known["image"] if known else entry["look"]).strip().rstrip(".")
+    if entry.get("id") == "nuzhat" and ELECTRIC_ONLY.search(scene) and re.search(
+            r"\bflashlight rests\b", scene, re.I):
+        look = look.replace("holding a metal flashlight with a cracked lens throwing a split beam",
+                            "her metal battery flashlight with a cracked lens resting beside her and throwing a split beam")
     if entry.get("id") == "jhabbu" and WRITING.search(scene):
         # The default carried props conflict with hands writing in the register. Both base/alternate
         # paintings of e02 rendered a standing carrier beside a second seated copy of the same man.
@@ -183,6 +188,10 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
         style = INDOOR_DAWN_STYLE if DAWN.search(scene) else INDOOR_STYLE
     else:
         style = DAWN_STYLE if DAWN.search(scene) else STYLE
+    if ELECTRIC_ONLY.search(scene):
+        style = style.replace("one warm practical light (lantern, torch or bulb)",
+                              "one warm-white electric battery-flashlight beam")
+        style = style.replace("one warm practical light", "one warm-white electric battery-flashlight beam")
     parts += [style + ".", AVOID, NEVER]
     return " ".join(parts)
 

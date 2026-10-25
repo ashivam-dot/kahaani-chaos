@@ -1,0 +1,165 @@
+{
+  "id": "kc-20261025-0733-e16",
+  "premise": "e16",
+  "title": "टंकी पर पतंग फँसी थी… और वो मेरा नाम पुकार रही थी! 🪁",
+  "hook": "टंकी पर फँसी पतंग मेरा नाम पुकार रही थी।",
+  "beats": [
+    {
+      "text": "टंकी पर फँसी पतंग मेरा नाम पुकार रही थी।",
+      "scene": "Extreme close-up of a dark tattered paper kite tangled in the rusty iron railing of the water tank top. Wind shakes the dried paper frame under moonlit night, with faint lantern light glinting off the cement ledge.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात हम तीनों टंकी की लोहे की सीढ़ी चढ़कर छत पर खड़े थे।",
+      "scene": "Exactly three friends on a moonlit concrete village water-tower platform with rusty safety railings. Prabhat at left wears a mustard sweater and steel-rimmed glasses, holding his blue notebook. Nuzhat at centre wears a green salwar kameez and bottle-green dupatta, her hair in one long plait. She holds a short cylindrical silver-metal BATTERY FLASHLIGHT with a round cracked glass lens, casting a narrow split WHITE ELECTRIC BEAM across the railing. Shailesh at right wears a striped shirt and faded red cricket cap, with a small transistor radio in a brown leather shoulder case and blue flip-flops. Natural anatomy, exactly three people, cool moonlight, full-bleed painterly image.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "curious and alert, looking around"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "calm and focused, directing torch light"
+        },
+        {
+          "name": "shailesh",
+          "expression": "nervous, holding his leather radio tight"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "पीछे से पतंग के फटने और हवा के घिसटने की तीखी आवाज़ आई—प्रभात। शैलेश घबराकर तुरंत पीछे मुड़ने लगा।",
+      "scene": "On the water tank platform, young man shailesh flinches in terror and starts spinning around toward the dark railing. Prabhat quickly reaches out to grab his arm in the shadowy moonlight.",
+      "people": [
+        {
+          "name": "shailesh",
+          "expression": "alarmed and wide-eyed, turning sharply"
+        },
+        {
+          "name": "prabhat",
+          "expression": "startled, reaching out to stop shailesh"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "मैंने उसकी बाँह भींच ली; झब्बू का नियम था—तीसरी पुकार पर ही पलटो। दूसरी बार फिर वही फड़फड़ाहट मेरा नाम दोहरा गई, पर हम चुपचाप पीठ किए खड़े रहे।",
+      "scene": "Tight close-up from shoulders to waist of exactly two friends at the water-tower railing. Prabhat is at RIGHT in a mustard sweater; his right hand comes from the mustard cuff and closes firmly around the striped UPPER ARM of Shailesh at LEFT. Clearly show Prabhat’s thumb and fingers wrapping the striped upper arm to restrain him. Shailesh’s own hands are lowered at his sides and touch nobody. Their backs face the railing, bodies face inward. Prabhat’s blue notebook is tucked under his other arm, and Shailesh’s radio hangs on his own shoulder strap. The grip occupies the centre. The electric flashlight is the only practical light. Crop faces and legs outside the image.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "resolute, facing inward away from the railing"
+        },
+        {
+          "name": "shailesh",
+          "expression": "tense, facing inward away from the railing"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "तीसरी पुकार पर हम घूमे। हवा ने फटा कागज़ उठाया, तो पीछे डोर में उलझी एक चिड़िया दिखी, जिसे नुज़हत ने आहिस्ता से छुड़ाकर उड़ा दिया।",
+      "scene": "Close view of Nuzhat alone in a plain green salwar kameez and bottle-green dupatta, kneeling beside a rusty water-tower railing. One small bird rests on her open left palm as her right fingertips loosen a kite-string loop from its foot. In the foreground beside her knee, a short cylindrical SILVER METAL BATTERY FLASHLIGHT rests horizontally on the concrete, its circular cracked glass lens emitting a narrow split white electric beam onto the bird. The electric flashlight is the only practical light. Frame her one pair of hands, bird, string and silver flashlight clearly, with her single long plait visible. The other friends are outside the frame. No oil lantern, no flame, no hanging lamp.",
+      "people": [
+        {
+          "name": "nuzhat",
+          "expression": "gentle and focused on freeing the bird"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उस रात पतंग ख़ामोश हो गई, पर आज भी सन्नाटे में हवा का झोंका मुझे टंकी पर फँसी पतंग की याद दिला देता है।",
+      "scene": "Extreme close view of one pair of middle-aged prabhat_adult hands gently turning the blank reverse of a page in his faded blue notebook on a quiet balcony ledge. His steel-rimmed glasses rest beside the notebook in warm desk-lamp light. The moonlit water tank appears softly out of focus in the distance; framing ends at the wrists.",
+      "people": [
+        {
+          "name": "prabhat_adult",
+          "expression": "nostalgic and quiet, lost in memory"
+        }
+      ],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    },
+    {
+      "id": "prabhat_adult",
+      "name": "प्रभात",
+      "look": "close-up of a middle-aged man's hands turning pages of a faded blue notebook under a desk lamp, steel-rimmed glasses beside it, no face"
+    }
+  ],
+  "subgenre": "kindness",
+  "ending": "loop-back",
+  "twist_beat": 4,
+  "description": "उन्नीस सौ छियानवे की एक रात जब टंकी की रेलिंग पर फँसी पतंग से प्रभात का नाम गूँजने लगा। झब्बू के नियम ने उस रात तीनों को भटकने से कैसे बचाया?",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य",
+    "#पानीकीटंकी"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3.8-flash",
+      "gemini-3.7-flash",
+      "gemini-3.5-flash",
+      "gemini-3.6-flash",
+      "gemini-3.6-flash"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "editor",
+        "problems": [
+          "Beat 5: The narration turns on 'तीसरी आहट' without actually depicting the second and third calls demanded by the rule.",
+          "Beat 5: It is completely unexplained how a trapped bird fluttering in kite strings produced a clear voice calling out 'प्रभात'.",
+          "Title and Beat 5: The emoji in the title and the juvenile trapped-bird rescue read like children's moral fiction rather than an atmospheric mystery for adults.",
+          "the story's logic has a gap",
+          "the rule of the night does not clearly solve it",
+          "the heart beat is stated, not felt",
+          "the editor reads it as made for kids; write it for adults who grew up in the 90s"
+        ]
+      },
+      {
+        "attempt": 1,
+        "stage": "gates",
+        "problems": [
+          "cast needs 1-4 characters, has 5"
+        ]
+      },
+      {
+        "attempt": 2,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "पतंग की पुकार",
+  "object_token": "पतंग",
+  "anomaly": "फड़फड़ाहट का रात भर किसी का नाम पुकारने जैसा सुनाई देना",
+  "niyam_id": "N07",
+  "resolution": "outsmart",
+  "heart_beat": 5,
+  "heart_type": "kindness",
+  "skeleton": "S1",
+  "location": "टंकी की ऊपरी रेलिंग",
+  "place_id": "tanki"
+}

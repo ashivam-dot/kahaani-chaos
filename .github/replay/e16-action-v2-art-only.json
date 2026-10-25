@@ -1,0 +1,9 @@
+{
+  "art_only": {
+    "story": ".github/replay/e16-action-v2-art-source.json",
+    "beats": [
+      3,
+      4
+    ]
+  }
+}
