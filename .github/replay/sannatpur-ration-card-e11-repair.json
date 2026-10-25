@@ -1,0 +1,146 @@
+{
+  "id": "kc-20261025-1142-e11",
+  "premise": "e11",
+  "title": "राशन कार्ड ने मेरी जेब छोड़ने से मना कर दिया 🪪 | सन्नाटपुर",
+  "hook": "राशन कार्ड बार-बार मेरी जेब में लौट आया।",
+  "beats": [
+    {
+      "text": "राशन कार्ड बार-बार मेरी जेब में लौट आया।",
+      "scene": "An extreme close view of a faded paper ration card sitting inside the pocket of a mustard-yellow sweater. The blank reverse side of the card faces front. The scene is indoors inside the ration shop under moonlit blue, lit by a soft brass oil lantern.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात राशन की दुकान के काउंटर पर एक लावारिस कार्ड मिला।",
+      "scene": "A thin young man in a mustard-yellow sweater and steel-frame glasses stands inside the ration shop. He looks at a wooden counter next to iron mesh. The indoor room has deep night blue light, illuminated by a warm brass oil lantern.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "curious"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "मैंने उसे काउंटर की दराज़ में बंद कर दिया, पर चलते ही वो मेरी जेब में आ गया।",
+      "scene": "A thin young man in a mustard-yellow sweater puts a paper card into a wooden drawer inside the dark ration shop with stacked grain sacks. Cool moonlit blue ambiance fills the room, contrastingly lit by a brass oil lantern.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "puzzled"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "शैलेश ने उसे बोरी के पीछे दूर फ़ेंका, पर कार्ड तुरंत मेरी जेब में थमा मिला।",
+      "scene": "Inside the enclosed moonlit ration shop, Shailesh in his faded red cricket cap and striped shirt raises one arm with an unmarked aged paper ration card in his hand, at the wind-up before throwing it beside the stacked grain sacks. His brown leather transistor-radio case hangs naturally from its shoulder strap. One blue rubber flip-flop is lifted slightly as he shifts his weight. Warm brass lantern light and cool blue window light reveal the plaster walls and solid wooden ceiling. The plain reverse of the card faces the viewer with no writing. Only Shailesh is present.",
+      "people": [
+        {
+          "name": "shailesh",
+          "expression": "surprised"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "झब्बू बोले, रात की चीज़ घर नहीं जाती, जिसकी है उस तक पहुँचाओ। कार्ड पर गली के आख़िरी घर का पता था।",
+      "scene": "An elderly tall man in a khaki kurta and red scarf holds a brass oil lantern near the indoor iron mesh counter. The dark ration shop interior has moonlit blue shadows. Warm lantern light illuminates his quiet stern face.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "serious"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "मैं अपना पूरा दिन छोड़कर कार्ड वाली अम्मा का राशन उनके घर तक ढोकर ले गया।",
+      "scene": "Prabhat carries a heavy cloth ration sack over one shoulder beside a wooden village house door in a quiet narrow outdoor lane at night. His mustard-yellow sweater, steel-rimmed glasses and blue notebook in his free hand identify him. He supports the sack strap naturally with the other hand. Warm light from one wall-mounted brass lantern contrasts with a moonlit-blue lane and distant plaster houses. His gaze is turned toward the house door. This is the delivery-to-home moment named by the unchanged narration, with no other people or readable writing.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "determined"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "अम्मा हफ़्तों से राशन लेने नहीं आई थीं, पर बरसों पुराने कार्ड पर उनकी तस्वीर ठीक आज जैसी क्यों थी?",
+      "scene": "Tight editorial detail of one pair of middle-aged hands and wrists resting on the open faded blue notebook on a dark wooden tabletop. Part of the steel-rimmed glasses lies at the left edge beside the notebook. The lined pages contain no writing. Warm off-frame light reveals the fingers and worn blue cover, with a softly dark background. Only hands and wrists are within the frame. Face, torso, village view and light fixture are outside the crop.",
+      "people": [
+        {
+          "name": "prabhat_adult",
+          "expression": "thoughtful"
+        }
+      ],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    },
+    {
+      "id": "jhabbu",
+      "name": "झब्बू",
+      "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+    },
+    {
+      "id": "prabhat_adult",
+      "name": "प्रभात",
+      "look": "close-up of a middle-aged man's hands turning pages of a faded blue notebook under a desk lamp, steel-rimmed glasses beside it, no face"
+    }
+  ],
+  "subgenre": "kindness",
+  "ending": "open-question",
+  "twist_beat": 5,
+  "description": "सरकारी राशन दुकान के काउंटर पर मिला पुराना कार्ड बार-बार प्रभात की जेब में लौट आता है। झब्बू के नियम N12 से सुलझती 1996 की एक अनोखी रात।",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य",
+    "#सन्नाटपुरकीरातें"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3.6-flash",
+      "gemini-3.6-flash",
+      "gemini-3.6-flash"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "gates",
+        "problems": [
+          "needs 85-130 spoken Hindi words in total, has 132: cut about 25 words so it lands near 107",
+          "beat 1 (the hook) has 11 words; at most 10"
+        ]
+      },
+      {
+        "attempt": 1,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "जेब में लौटता कार्ड",
+  "object_token": "कार्ड",
+  "anomaly": "कहीं भी रखो, कार्ड का प्रभात की जेब में लौट आना",
+  "niyam_id": "N12",
+  "resolution": "kindness",
+  "heart_beat": 6,
+  "heart_type": "kindness",
+  "skeleton": "S2",
+  "location": "लोहे की जाली वाला काउंटर",
+  "place_id": "ration"
+}

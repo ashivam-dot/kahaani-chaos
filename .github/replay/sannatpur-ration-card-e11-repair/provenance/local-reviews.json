@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-25T13:25:26.070190+00:00",
+  "images": [
+    {
+      "file": "blank-card/beat00.png",
+      "image_sha256": "edef7e9318e41e764fef2ac77f1c2bc377e944b6003fc9747453f5dc0213488e",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: the full aged card is clearly visible in the mustard sweater pocket, with its clean unmarked reverse facing the viewer. The perspective texture clone removes every invented heading while preserving paper edges, folds, pocket, interior, lantern and blue windows. The slightly smoother upper paper surface is acceptable. No new generated object or writing is claimed. Independent current picture, render and full audiovisual checks remain mandatory."
+    },
+    {
+      "file": "delivery-scene/beat05.png",
+      "image_sha256": "a57976d229f3254231f0cb735729274b0c4018b12d94dde9f247c434d087c0b4",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: the accepted source painting is pixel-identical after identity framing. Prabhat naturally carries the ration sack and established notebook to a village house door under a wall lantern. The corrected scene direction accurately describes the outdoor delivery already named by the unchanged narration. Clothing, glasses, hands and setting are consistent. Independent current picture/narrator/render/full audiovisual checks remain mandatory."
+    },
+    {
+      "file": "throw-card/beat03.png",
+      "image_sha256": "f212239c7a0dad3e4dd0b18e99691c78a70df4f64b1dacce81240f1fca19e6cd",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: Shailesh in his red cap, striped shirt, radio case and blue flip-flops raises a now unmarked ration card beside grain sacks, illustrating the throw wind-up. The card texture edit removes printed marks while retaining the card outline, natural supporting fingers and the enclosed lantern-lit shop. Pose and all other pixels remain as in the original painting. Current independent picture/narrator/render/full audiovisual gates remain mandatory."
+    },
+    {
+      "file": "ending-insert/beat06.png",
+      "image_sha256": "d6bb8573c744ecf5c27efd7c65f8e9f39b05e02b1013c7a9a7d0816cd99e7df5",
+      "decision": "pass",
+      "reason": "Direct native inspection: one pair of adult hands and wrists on a faded blue notebook, blank lined pages and part of the steel-rimmed glasses. No face, torso, light fixture, readable writing or village buildings. This is a quiet narrator detail for the unchanged closing question, derived from the original base rather than newly generated art."
+    }
+  ],
+  "release_approval": false,
+  "scope": "Edited input art only"
+}

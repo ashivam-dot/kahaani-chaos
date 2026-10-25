@@ -1,0 +1,41 @@
+{
+  "story": "kc-20261025-1142-e11",
+  "beat": 5,
+  "alt": 0,
+  "prompt": "Prabhat carries a heavy cloth ration sack over one shoulder beside a wooden village house door in a quiet narrow outdoor lane at night. His mustard-yellow sweater, steel-rimmed glasses and blue notebook in his free hand identify him. He supports the sack strap naturally with the other hand. Warm light from one wall-mounted brass lantern contrasts with a moonlit-blue lane and distant plaster houses. His gaze is turned toward the house door. This is the delivery-to-home moment named by the unchanged narration, with no other people or readable writing. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, determined expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 668.0,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 942327522,
+  "log_tail": "cached graph cut plan done (taking 0 ms) --- ggml_graph_cut.cpp:1032\n\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.03s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 55.49s --- image.cpp:620\n[I] decode_first_stage completed, taking 55.49s --- image.cpp:624\n[I] generate_image completed in 667.35s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat05.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "a57976d229f3254231f0cb735729274b0c4018b12d94dde9f247c434d087c0b4",
+  "production_approved": false,
+  "derivation": {
+    "operation": "crop_and_resize",
+    "source_beat": 5,
+    "parent_image_sha256": "fcb5505d646b84d5a38de47e1062fc57b08b2734701af065e2ec9c8d0d728019",
+    "parent_metadata_sha256": "ca3fbc9c2a0c96dcfcace43d64c46e2f4bedf4b22614eb113def17e81d76c831",
+    "generation_prompt": "A thin young man in a mustard-yellow sweater carries a heavy cloth sack over his shoulder along a dark indoor corridor of the ration shop towards the wooden door. The night is cool blue, lit by the lantern light. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, determined expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "crop_ltrb": [
+      0,
+      0,
+      576,
+      1024
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "reason": "Identity framing with no pixel changes; record the actual outdoor delivery composition through scene-only directions, preserving the source generation prompt."
+  },
+  "cached_from": {
+    "id": 12598992099,
+    "run_id": 40189938585,
+    "name": "art-40189938585-5",
+    "size_in_bytes": 1045047,
+    "source_sha": "4362bbb9b90edfac8759356338f5544867a22ccf"
+  }
+}

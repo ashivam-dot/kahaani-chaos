@@ -1,0 +1,73 @@
+{
+  "at": "2026-10-25T13:25:25.663380+00:00",
+  "images": [
+    {
+      "file": "art-40189938585-1/beat01.png",
+      "image_sha256": "e11bb35b22b08c442ae5c0df35580f97cfdcc097c3aaf93c4a18f55cf9e189ef",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: one Prabhat in mustard sweater and steel-rimmed glasses at the indoor iron-mesh ration counter, carrying his blue notebook and pencil. Moonlit-blue enclosed shop and warm lantern, ordinary adult proportions, no extra person or visible writing. Fits the discovery/context beat; source art only."
+    },
+    {
+      "file": "art-40189938585-2/beat02.png",
+      "image_sha256": "42c87318df199767600b5354eb8dfef3f6d5b38a2a7d43a8228098f624c2b25c",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: one Prabhat in mustard sweater and glasses examines a pale ration card at an open wooden drawer, blue notebook visible at his side, grain sacks behind. Correct indoor shop, moonlight and lantern, natural hands and no readable writing. The still shows the card at the open drawer before closing; it does not independently establish motion. Source art only."
+    },
+    {
+      "file": "art-40189938585-4/beat04.png",
+      "image_sha256": "1a38c871620a208bf70da4473ec0c7bb9060633c594a394090c2ab4e9971c953",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: one elderly Jhabbu in khaki kurta, red muffler and grey shawl holds a brass hurricane lantern and red-spined ledger beside the ration-shop iron mesh, with his bamboo staff resting by the counter. Correct indoor night setting and natural limbs, no visible writing, gore or duplicate person. Fits his calm rule explanation; source art only, independent picture/render/full audiovisual release checks remain required."
+    },
+    {
+      "file": "art-40189938585-0/beat00.png",
+      "image_sha256": "66a488887737908dc70aae10eaff06f6df9a0c33ce78ae04c297aef1a5b5130d",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: ration-card hook base and alternate show prominent invented alphanumeric headings including 1990 and gibberish. The plan specifies an unmarked reverse and the channel prohibits generated writing. Preserve the original paintings and narrator; repair the visible paper surface only or repaint this hook. Current independent picture/narrator/render/full audiovisual gates remain required."
+    },
+    {
+      "file": "art-40189938585-0/beat00-alt1.png",
+      "image_sha256": "6661b478efeeada29d5ceb44d9cc168ef18dbd676a2876146634a76c023dfae3",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: ration-card hook base and alternate show prominent invented alphanumeric headings including 1990 and gibberish. The plan specifies an unmarked reverse and the channel prohibits generated writing. Preserve the original paintings and narrator; repair the visible paper surface only or repaint this hook. Current independent picture/narrator/render/full audiovisual gates remain required."
+    },
+    {
+      "file": "art-40189938585-5/beat05.png",
+      "image_sha256": "fcb5505d646b84d5a38de47e1062fc57b08b2734701af065e2ec9c8d0d728019",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: Prabhat carries a heavy natural cloth ration sack with one hand and holds his blue notebook with the other; mustard sweater and steel-rimmed glasses preserve his identity. The quiet moonlit village lane and house door match the spoken delivery-to-home action, with natural hands, no writing or modern objects. The original indoor-corridor direction needs an explicit scene-only reframing to the actual outdoor delivery image, retaining generation provenance and all spoken lines. Every independent picture/narrator/render/full audiovisual gate remains required."
+    },
+    {
+      "file": "art-40189938585-3/beat03.png",
+      "image_sha256": "c5ce0500da50c86ab233b56b5f070f6c667a57428c72f655fa4b7e4565ffd61c",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: Shailesh has the red cap, striped shirt and radio in the correct grain shop, but the raised ration card contains invented printed writing. The frame can illustrate the wind-up before a throw; only the card surface needs a provenance-bound blank-paper edit. Preserve the actual pose, room, narration and signature props. Independent picture/narrator/render/full audiovisual gates remain required."
+    },
+    {
+      "file": "art-40189938585-3/beat03-alt1.png",
+      "image_sha256": "ae68c1be4d2a15db2fd790ba668e2dc250649a5859637c472473feabd7fc2851",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: Shailesh has the red cap, striped shirt and radio in the correct grain shop, but the raised ration card contains invented printed writing. The frame can illustrate the wind-up before a throw; only the card surface needs a provenance-bound blank-paper edit. Preserve the actual pose, room, narration and signature props. Independent picture/narrator/render/full audiovisual gates remain required."
+    },
+    {
+      "file": "art-40189938585-6/beat06.png",
+      "image_sha256": "a0e415488584e8b1d4eceb6b6ad483f6548502b5eb5e22cdee869de9101739ae",
+      "decision": "hold",
+      "reason": "The ending requires the present-day narrator hands at a desk, but the full pictures show an outdoor village lantern and torso; both alternates also expose his face. Keep only a separately reviewed provenance-bound hands/notebook detail from the base. Full parents remain refused."
+    },
+    {
+      "file": "art-40189938585-6/beat06-alt1.png",
+      "image_sha256": "e78160af2d388f096af3729d200a8517a6ff20de3d1405959fe4da692be3f3ce",
+      "decision": "hold",
+      "reason": "The ending requires the present-day narrator hands at a desk, but the full pictures show an outdoor village lantern and torso; both alternates also expose his face. Keep only a separately reviewed provenance-bound hands/notebook detail from the base. Full parents remain refused."
+    },
+    {
+      "file": "art-40189938585-6/beat06-alt2.png",
+      "image_sha256": "27ce3f9ca17714210fec719c2eb61880f7d2f96d72e70b4c2dd09714543709a3",
+      "decision": "hold",
+      "reason": "The ending requires the present-day narrator hands at a desk, but the full pictures show an outdoor village lantern and torso; both alternates also expose his face. Keep only a separately reviewed provenance-bound hands/notebook detail from the base. Full parents remain refused."
+    }
+  ],
+  "release_approval": false,
+  "scope": "Source paintings only"
+}

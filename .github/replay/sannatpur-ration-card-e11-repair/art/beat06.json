@@ -1,0 +1,47 @@
+{
+  "story": "kc-20261025-1142-e11",
+  "beat": 6,
+  "alt": 0,
+  "prompt": "Tight editorial detail of one pair of middle-aged hands and wrists resting on the open faded blue notebook on a dark wooden tabletop. Part of the steel-rimmed glasses lies at the left edge beside the notebook. The lined pages contain no writing. Warm off-frame light reveals the fingers and worn blue cover, with a softly dark background. Only hands and wrists are within the frame. Face, torso, village view and light fixture are outside the crop. Characters: Prabhat (adult narrator): close-up of a middle-aged man's hands turning pages of a faded blue notebook under a desk lamp, steel-rimmed glasses beside it, no face, thoughtful expression. Only one pair of middle-aged hands and wrists is visible, with the faded blue notebook and steel-rimmed glasses. The face, head, shoulders and torso are outside the frame. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1104.9,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 912853848,
+  "log_tail": "                                             | 2/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.04s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 123.26s --- image.cpp:620\n[I] decode_first_stage completed, taking 123.26s --- image.cpp:624\n[I] generate_image completed in 1104.26s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat06.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "d6bb8573c744ecf5c27efd7c65f8e9f39b05e02b1013c7a9a7d0816cd99e7df5",
+  "production_approved": false,
+  "derivation": {
+    "operation": "crop_and_resize",
+    "source_beat": 6,
+    "parent_image_sha256": "a0e415488584e8b1d4eceb6b6ad483f6548502b5eb5e22cdee869de9101739ae",
+    "parent_metadata_sha256": "2a62135c2f8a1cd0e4de816311add81c60265e109ff5868d06807c84b8d95708",
+    "generation_prompt": "Close-up of a pair of middle-aged hands resting beside a faded blue notebook and steel-rimmed glasses under the warm glow of a desk lamp on a dark wooden table. Deep night ambiance outside. Only hands and wrists are within the frame. Characters: Prabhat (adult narrator): close-up of a middle-aged man's hands turning pages of a faded blue notebook under a desk lamp, steel-rimmed glasses beside it, no face, thoughtful expression. Only one pair of middle-aged hands and wrists is visible, with the faded blue notebook and steel-rimmed glasses. The face, head, shoulders and torso are outside the frame. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "crop_ltrb": [
+      125,
+      526,
+      405,
+      1024
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "parent_review_decision": "hold",
+    "parent_refusal_reason": "The ending requires the present-day narrator hands at a desk, but the full pictures show an outdoor village lantern and torso; both alternates also expose his face. Keep only a separately reviewed provenance-bound hands/notebook detail from the base. Full parents remain refused.",
+    "excluded_defects": [
+      "Outdoor village context, full torso and lantern fixture are outside the crop.",
+      "No face or other character is within the crop."
+    ],
+    "reason": "Directly inspected present-day narrator detail; the full parent remains refused."
+  },
+  "cached_from": {
+    "id": 12600727208,
+    "run_id": 40189938585,
+    "name": "art-40189938585-6",
+    "size_in_bytes": 3234285,
+    "source_sha": "4362bbb9b90edfac8759356338f5544867a22ccf"
+  }
+}
