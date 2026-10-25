@@ -3061,7 +3061,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e16.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 2,
       "repair_history": [
         {
@@ -3148,7 +3148,21 @@
       ],
       "submitted_at": "2026-10-25T07:25:51+00:00",
       "run_id": 40172736622,
-      "cloud_status": "queued"
+      "cloud_status": "queued",
+      "editorial_holds": [
+        {
+          "id": "direct-e16-burning-torch",
+          "run_id": 40172736622,
+          "observed_at": "2026-10-25T07:57:58+00:00",
+          "reason": "Direct native-resolution review rejects beat 1: Nuzhat holds a flaming torch with visible fire and smoke rather than her fixed metal battery flashlight with a cracked lens. Preserve the exact spoken story and all useful siblings; replace only this image with a clearly cylindrical metal flashlight emitting a split electric light beam. Current picture, narrator, render and audiovisual gates remain mandatory.",
+          "evidence": {
+            "art-40172736622-1/beat01.png": "7b833539dc3a129ae3742b05f3750f67e2d2bab511609bd23ac390cf07b89d52"
+          }
+        }
+      ],
+      "problems": [
+        "Direct native-resolution review rejects beat 1: Nuzhat holds a flaming torch with visible fire and smoke rather than her fixed metal battery flashlight with a cracked lens. Preserve the exact spoken story and all useful siblings; replace only this image with a clearly cylindrical metal flashlight emitting a split electric light beam. Current picture, narrator, render and audiovisual gates remain mandatory."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -3376,7 +3390,7 @@
       "attempts": 0
     }
   ],
-  "halted": null,
+  "halted": "Repair held entry e16: Direct native-resolution review rejects beat 1: Nuzhat holds a flaming torch with visible fire and smoke rather than her fixed metal battery flashlight with a cracked lens. Preserve the exact spoken story and all useful siblings; replace only this image with a clearly cylindrical metal flashlight emitting a split electric light beam. Current picture, narrator, render and audiovisual gates remain mandatory.",
   "complete": false,
   "health": {
     "public": 2,
@@ -3384,5 +3398,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T07:33:34+00:00"
+  "updated_at": "2026-10-25T07:57:58+00:00"
 }
