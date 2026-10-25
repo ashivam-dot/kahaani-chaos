@@ -5136,7 +5136,55 @@
       ],
       "submitted_at": "2026-10-25T18:59:45+00:00",
       "run_id": 40223879188,
-      "cloud_status": "in_progress"
+      "cloud_status": "completed",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3.6-flash",
+        "duration": 35.4,
+        "video_sha256": "6c90ba805aa257d67d8a7d0ca3cf5fcd47d73661d71e80cafc6e50e9b7504451",
+        "brief_sha256": "05693019dcabd3f3a13787392ec28ff5be2daffaba69a81f13bfae0c1c1392a6",
+        "review_video_sha256": "f0b14c0d1cd576617348d30caf165160a841847ddca017874f4eb3a9fa733045",
+        "review_audio_sha256": "3abcf2dab6166c84f866bd769b4e1604803d6c0da123f3b77827b8cd7be4ffcc",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "लालटेन की लौ बिना हवा के एक तरफ़ झुक गई।",
+          "heard_ending": "कोठरी लौटकर झब्बू ने रजिस्टर में बस एक लाइन लिखी—लौ ने घर पहुँचाया।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "Brass hurricane lantern glowing with a tilted flame on a wooden table.",
+              "heard": "लालटेन की लौ बिना हवा के एक तरफ़ झुक गई।"
+            },
+            {
+              "part": "middle",
+              "seconds": 15.0,
+              "seen": "Old Jhabbu holding up the lantern in the hut while two boys listen.",
+              "heard": "नियम पंद्रह—लौ झुके तो कोई इंतज़ार कर रहा है।"
+            },
+            {
+              "part": "ending",
+              "seconds": 30.0,
+              "seen": "Old Jhabbu sitting at the desk writing in the register next to the lantern.",
+              "heard": "कोठरी लौटकर झब्बू ने रजिस्टर में बस एक लाइन लिखी—लौ ने घर पहुँचाया।"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -5249,7 +5297,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T19:11:05+00:00",
+  "updated_at": "2026-10-25T19:11:43+00:00",
   "measurement": {
     "at": "2026-10-25T19:11:05+00:00",
     "ok": true,
