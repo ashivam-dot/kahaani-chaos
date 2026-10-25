@@ -1795,15 +1795,15 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e03: Direct rendered-still review: beat 0 shows a disembodied hand protruding from the wall meter; beat 5 shows two floating arms beneath a reel-like box. Both planned scenes are object-only. Repair exact meter scenes to a faithful enclosed analog call meter without body parts; retain all spoken story and usable siblings.",
+  "halted": "Repair held entry e07: ValueError: preview did not make a finished passing Short",
   "complete": false,
   "health": {
     "public": 1,
     "scheduled": 5,
-    "held": 0,
+    "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T02:23:14+00:00",
+  "updated_at": "2026-10-25T02:23:16+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
