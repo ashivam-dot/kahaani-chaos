@@ -233,3 +233,13 @@ def test_kahaani_review_order_preserves_initial_two_episode_buffer():
     assert not review_ready(data, third)
     second['stage'] = 'scheduled'
     assert review_ready(data, third)
+
+
+def test_both_channel_preview_fanouts_leave_six_account_runners():
+    from pathlib import Path
+    import yaml
+    workflow = Path(__file__).resolve().parents[1] / '.github/workflows/run.yml'
+    paint = yaml.safe_load(workflow.read_text())['jobs']['paint']
+    # Pangaea's paired limit is four image jobs per producer, two producers.
+    # Include both channels: checking this repository alone allowed starvation.
+    assert batch.MAX_BUILDING * paint['strategy']['max-parallel'] + 2 * 4 <= 20 - 6
