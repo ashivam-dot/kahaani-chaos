@@ -1,0 +1,10 @@
+{
+  "original_scene": "A single rectangular yellowed paper cinema poster is pasted flat to the old talkies brick wall at night. All four paper edges and corners are clearly visible against the brick. The invented hero is a flat hand-painted adult silhouette on this paper, wearing plain grey clothes with a small turned-away face. Inside the same paper surface, his dark painted shadow starts one painted footstep behind his heels, with a clear blank ochre gap between shoes and shadow. The poster contains only the fictional painted figure, its detached painted shadow and blank ochre background. Moonlit blue bricks and a soft amber reflection reveal the paper texture. The painted figure stays entirely within the visible poster paper. The scene is outdoors.",
+  "replacement_scene": "One rectangular yellowed paper cinema poster is pasted flat to a moonlit brick wall. All four paper edges and corners are visible. A fictional adult hero is a flat hand-painted grey figure entirely inside the paper. His black painted shoes end in the upper two thirds of the poster. A separate dark human-shaped painted shadow lies diagonally near the bottom edge. A wide strip of untouched golden paper, one shoe-length tall, clearly separates both shoes from the entire shadow. The disconnected shadow never touches either shoe. Only the painted hero, separate painted shadow and blank ochre texture appear on the paper. The painted figure stays entirely within the visible poster paper. The scene is outdoors.",
+  "source_run": 40204793444,
+  "refused_image": "45be49303d4698134ec634fd2fb42b3981f2aef3c358cb9cad68d2aaf70be85c",
+  "reason": "The generated flat poster fixes the physical-person error but its painted shadow remains attached. Explicitly separate the full shadow from both shoes using a visible strip of blank paper. Repaint only opening0; closing6 remains a declared same-poster reprise.",
+  "speech_changed": false,
+  "release_approval": false,
+  "remaining": "Current picture, voice, render and complete audiovisual gates"
+}
