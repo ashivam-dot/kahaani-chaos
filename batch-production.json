@@ -4637,7 +4637,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/e19-reviewed-poster-shadow-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 3,
       "repair_history": [
         {
@@ -4797,7 +4797,9 @@
         40148639705,
         40148316893
       ],
-      "submitted_at": "2026-10-25T16:53:44+00:00"
+      "submitted_at": "2026-10-25T16:53:44+00:00",
+      "run_id": 40213863576,
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -5042,7 +5044,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T16:58:24+00:00",
+  "updated_at": "2026-10-25T16:58:27+00:00",
   "measurement": {
     "at": "2026-10-25T16:58:24+00:00",
     "ok": true,
