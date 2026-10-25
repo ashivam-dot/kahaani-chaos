@@ -3170,7 +3170,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e15.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 1,
       "source_sha": "b60481b8a493f0e0b2ac37b869e982213ab22cfd",
       "before_ids": [
@@ -3235,7 +3235,9 @@
         40010294493,
         40008947633
       ],
-      "submitted_at": "2026-10-25T07:02:18+00:00"
+      "submitted_at": "2026-10-25T07:02:18+00:00",
+      "run_id": 40171278752,
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -3315,8 +3317,8 @@
   "health": {
     "public": 1,
     "scheduled": 11,
-    "held": 1,
+    "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T07:04:21+00:00"
+  "updated_at": "2026-10-25T07:04:24+00:00"
 }
