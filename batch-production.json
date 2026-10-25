@@ -5407,7 +5407,7 @@
       ]
     }
   ],
-  "halted": null,
+  "halted": "Repair held entry e24: ValueError: preview did not make a finished passing Short",
   "complete": false,
   "health": {
     "public": 3,
@@ -5415,7 +5415,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T19:23:23+00:00",
+  "updated_at": "2026-10-25T19:23:25+00:00",
   "measurement": {
     "at": "2026-10-25T19:23:19+00:00",
     "ok": true,
