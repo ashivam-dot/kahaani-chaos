@@ -1,0 +1,16 @@
+{
+  "reviewed_at": "2026-10-25T06:29:18.773774+00:00",
+  "original_run": 40168832723,
+  "original_current_picture_refusal": "hook subject share 0.25 < unchanged minimum 0.30",
+  "images": [
+    {
+      "file": "art/beat00.png",
+      "image_sha256": "7d03cb35ce5a56a8dd888a51afaac4799ffbc3dc7face840861f54ee40e25ad7",
+      "decision": "pass",
+      "reason": "Direct full-resolution view shows the complete billing meter and large blank paper strip filling the opening. Enclosed counter and natural support remain; no hands, visible letters or extra subjects. Deterministic crop verified against preserved original."
+    }
+  ],
+  "speech_preserved": true,
+  "release_approval": false,
+  "remaining": "Current cloud picture, narrator, render and full audiovisual gates"
+}
