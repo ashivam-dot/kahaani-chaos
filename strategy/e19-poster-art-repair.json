@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-25T14:55:09.503562+00:00",
+  "changed_scenes": [
+    0,
+    2,
+    3,
+    6
+  ],
+  "art_only": [
+    0,
+    2,
+    3
+  ],
+  "speech_changed": false,
+  "cast_changed": false,
+  "release_approval": false,
+  "reason": "Make the paper poster and the flat fictional hero explicit; strip embedded schema from refused scenes. Beat3 shows the detached ground shadow without giving Prabhat the offscreen Nuzhat flashlight. The closing can faithfully reframe the same accepted poster after direct review, rather than invent another poster. Accepted beat1 and remaining original siblings keep exact prompts until their real art can be reviewed. Every current picture, voice, render and complete AV gate remains required.",
+  "original_run": 40199355603,
+  "original_source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f"
+}

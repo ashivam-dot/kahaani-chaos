@@ -1,0 +1,10 @@
+{
+  "art_only": {
+    "story": ".github/replay/e19-poster-art-source.json",
+    "beats": [
+      0,
+      2,
+      3
+    ]
+  }
+}
