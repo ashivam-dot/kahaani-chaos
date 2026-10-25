@@ -3157,6 +3157,23 @@
           "reason": "Direct native-resolution review rejects beat 1: Nuzhat holds a flaming torch with visible fire and smoke rather than her fixed metal battery flashlight with a cracked lens. Preserve the exact spoken story and all useful siblings; replace only this image with a clearly cylindrical metal flashlight emitting a split electric light beam. Current picture, narrator, render and audiovisual gates remain mandatory.",
           "evidence": {
             "art-40172736622-1/beat01.png": "7b833539dc3a129ae3742b05f3750f67e2d2bab511609bd23ac390cf07b89d52"
+          },
+          "resolved_at": "2026-10-25T11:09:41+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "4362bbb9b90edfac8759356338f5544867a22ccf",
+            "replay": ".github/replay/sannatpur-flashlight-e16-repair.json",
+            "replay_sha256": "1505475c3e3b5ec65269966a65110899800e326e2eea8c777e41e01be2208836",
+            "selected_images": {
+              "0": "69de5f730bbbf6a30763340eda2baceabca9f3d72100ee8a1ac77e9a69e81d7b",
+              "1": "831ff2e22d7ba06767a82a67f2af537d5fb29095306be6aea108b7090020f494",
+              "2": "95ee8371e90206127f1a8439152fa17e4b06a374ce165e002d98ffc99bc86124",
+              "3": "4a4410d120799a39da7f2556494b488395c99f778c2c31822f12445c53f14aae",
+              "4": "3c447442a45cc6de3054d143732550e28d6ae517629975a45665e67ec4d08bbe",
+              "5": "e8c7c0d19a6b2c8448184fba6ac6aeb1d6fc52c1c354a373a02546baf7111a5a"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -3167,6 +3184,23 @@
           "evidence": {
             "art-40172736622-5/beat05.png": "62df0dab409ac42769aa86a1d2658514a8351f135ef01ec5861a047213c60fd2",
             "art-40172736622-5/beat05-alt1.png": "e09167d8b57bd0dca4bd57d1ebe57dc1e69cb94cc8f1d31d173f40a7fd821c56"
+          },
+          "resolved_at": "2026-10-25T11:09:41+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "4362bbb9b90edfac8759356338f5544867a22ccf",
+            "replay": ".github/replay/sannatpur-flashlight-e16-repair.json",
+            "replay_sha256": "1505475c3e3b5ec65269966a65110899800e326e2eea8c777e41e01be2208836",
+            "selected_images": {
+              "0": "69de5f730bbbf6a30763340eda2baceabca9f3d72100ee8a1ac77e9a69e81d7b",
+              "1": "831ff2e22d7ba06767a82a67f2af537d5fb29095306be6aea108b7090020f494",
+              "2": "95ee8371e90206127f1a8439152fa17e4b06a374ce165e002d98ffc99bc86124",
+              "3": "4a4410d120799a39da7f2556494b488395c99f778c2c31822f12445c53f14aae",
+              "4": "3c447442a45cc6de3054d143732550e28d6ae517629975a45665e67ec4d08bbe",
+              "5": "e8c7c0d19a6b2c8448184fba6ac6aeb1d6fc52c1c354a373a02546baf7111a5a"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -3178,6 +3212,23 @@
             "art-40172736622-3/beat03.png": "adebc638ef8724a199294644df26fde42c822ae60e276a9f2b35df7262b69cb2",
             "art-40172736622-3/beat03-alt1.png": "c2cd40a87d522a3ab421dbdfb3e6ba72e43e60fa72060c5d28f156cabf678806",
             "art-40172736622-3/beat03-alt2.png": "4e3e9b93e8ccff8551ef7e7c25215f859ac9cbdffec9536be448751c0e3a937f"
+          },
+          "resolved_at": "2026-10-25T11:09:41+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "4362bbb9b90edfac8759356338f5544867a22ccf",
+            "replay": ".github/replay/sannatpur-flashlight-e16-repair.json",
+            "replay_sha256": "1505475c3e3b5ec65269966a65110899800e326e2eea8c777e41e01be2208836",
+            "selected_images": {
+              "0": "69de5f730bbbf6a30763340eda2baceabca9f3d72100ee8a1ac77e9a69e81d7b",
+              "1": "831ff2e22d7ba06767a82a67f2af537d5fb29095306be6aea108b7090020f494",
+              "2": "95ee8371e90206127f1a8439152fa17e4b06a374ce165e002d98ffc99bc86124",
+              "3": "4a4410d120799a39da7f2556494b488395c99f778c2c31822f12445c53f14aae",
+              "4": "3c447442a45cc6de3054d143732550e28d6ae517629975a45665e67ec4d08bbe",
+              "5": "e8c7c0d19a6b2c8448184fba6ac6aeb1d6fc52c1c354a373a02546baf7111a5a"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -3189,6 +3240,23 @@
             "art-40172736622-4/beat04.png": "7a7ff012deb58f27b22d3fa0b143372da887353a05ea1b0a8fb260e01243ad69",
             "art-40172736622-4/beat04-alt1.png": "4f208613611a16d38e6e336fa2d102b64c75b8c1cb2afcd45cdcc19f59c407a0",
             "art-40172736622-4/beat04-alt2.png": "4eb58ad9a3ecad0903d9387505b7c663663576f4e04566778c00e8673bc77bcf"
+          },
+          "resolved_at": "2026-10-25T11:09:41+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "4362bbb9b90edfac8759356338f5544867a22ccf",
+            "replay": ".github/replay/sannatpur-flashlight-e16-repair.json",
+            "replay_sha256": "1505475c3e3b5ec65269966a65110899800e326e2eea8c777e41e01be2208836",
+            "selected_images": {
+              "0": "69de5f730bbbf6a30763340eda2baceabca9f3d72100ee8a1ac77e9a69e81d7b",
+              "1": "831ff2e22d7ba06767a82a67f2af537d5fb29095306be6aea108b7090020f494",
+              "2": "95ee8371e90206127f1a8439152fa17e4b06a374ce165e002d98ffc99bc86124",
+              "3": "4a4410d120799a39da7f2556494b488395c99f778c2c31822f12445c53f14aae",
+              "4": "3c447442a45cc6de3054d143732550e28d6ae517629975a45665e67ec4d08bbe",
+              "5": "e8c7c0d19a6b2c8448184fba6ac6aeb1d6fc52c1c354a373a02546baf7111a5a"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -3647,5 +3715,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T11:09:22+00:00"
+  "updated_at": "2026-10-25T11:09:41+00:00"
 }
