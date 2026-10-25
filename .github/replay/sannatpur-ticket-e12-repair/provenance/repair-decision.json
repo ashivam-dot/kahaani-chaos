@@ -1,0 +1,316 @@
+{
+  "source_run": 40164083384,
+  "source_sha": "787674b5bc66cb1ff227e73da93f46ba8af07252",
+  "original": {
+    "id": "kc-20261025-0505-e12",
+    "premise": "e12",
+    "title": "टिकट आख़िरी बस की ख़ाली सीट पर कौन रख गया? 🎫",
+    "hook": "ख़ाली बस की सीट पर कटा टिकट पड़ा था।",
+    "beats": [
+      {
+        "text": "ख़ाली बस की सीट पर कटा टिकट पड़ा था।",
+        "scene": "Close-up of a small paper ticket resting on the cracked green seat of a silent parked bus at the tin-roof bus depot. Outside, deep blue moonlight filters through open windows, contrasting with a faint yellow bulb glow from the ceiling.",
+        "people": [],
+        "pause_after": 0.35
+      },
+      {
+        "text": "उन्नीस सौ छियानवे, उस रात टीन की छत वाले बस अड्डे पर सन्नाटा पसरा था।",
+        "scene": "Prabhat in his mustard sweater and Shailesh in his red cricket cap walk alongside the row of silent parked buses at the tin-roof bus depot. The warm amber beam of an oil lantern at the distant tea stall cuts against cool midnight blue shadows.",
+        "people": [
+          {
+            "name": "prabhat",
+            "expression": "curious and observant"
+          },
+          {
+            "name": "shailesh",
+            "expression": "carefree and smiling"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "शैलेश हँसते हुए उसी सीट पर जा बैठा, और बस की पीली बत्ती अपने-आप जल उठी।",
+        "scene": "Inside the bus at the tin-roof bus depot, Shailesh sits down casually on the window seat beside the ticket. Suddenly, an overhead yellow bulb flickers to life directly above him, cutting through the heavy blue gloom of the parked vehicle.",
+        "people": [
+          {
+            "name": "shailesh",
+            "expression": "startled and uneasy"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "झब्बू काका ने लाठी ठटकाई कि रात की सीट किसी की होती है, बिना किराया दिए नहीं उठ सकते।",
+        "scene": "At the entrance of the bus at the tin-roof bus depot, Jhabbu stands in his khaki kurta and red muffler, resting his bamboo stick firmly on the floor while holding his brass lantern. Prabhat stands behind him, glancing anxiously down the aisle.",
+        "people": [
+          {
+            "name": "jhabbu",
+            "expression": "stern and resolute"
+          },
+          {
+            "name": "prabhat",
+            "expression": "tense and alert"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "शैलेश ने आँखें झुकाकर माना कि वो दर्जनों बार बिना टिकट शहर भागा था।",
+        "scene": "Inside the bus at the tin-roof bus depot, Shailesh remains frozen on the seat with his transistor clutched against his chest. His head is lowered under the dim yellow ceiling bulb, while blue moonlight edges his shoulders.",
+        "people": [
+          {
+            "name": "shailesh",
+            "expression": "guilty and sheepish"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "उसने डरते हुए समोसे वाले चार रुपये कंडक्टर की लोहे की पेटी में डाल दिए।",
+        "scene": "Near the front door inside the bus at the tin-roof bus depot, Shailesh carefully drops metal coins into a metal conductor cash box mounted on the pipe. The flickering yellow dome light casts long blue shadows along the empty aisle.",
+        "people": [
+          {
+            "name": "shailesh",
+            "expression": "nervous and respectful"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "बत्ती बुझ गई, और झब्बू काका ने लाल रजिस्टर में लिख दिया कि पुराना हिसाब बराबर हुआ।",
+        "scene": "At the wooden counter of the tea stall beside the tin-roof bus depot, Jhabbu rests his brass lantern and marks an entry into his red-bound register with a short pencil. Prabhat watches from the side in the tranquil moonlit blue night.",
+        "people": [
+          {
+            "name": "jhabbu",
+            "expression": "calm and focused"
+          },
+          {
+            "name": "prabhat",
+            "expression": "thoughtful and quiet"
+          }
+        ],
+        "pause_after": 0.35
+      }
+    ],
+    "cast": [
+      {
+        "id": "jhabbu",
+        "name": "झब्बू",
+        "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+      },
+      {
+        "id": "prabhat",
+        "name": "प्रभात",
+        "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+      },
+      {
+        "id": "shailesh",
+        "name": "शैलेश",
+        "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+      }
+    ],
+    "subgenre": "confessed-lie",
+    "ending": "register-line",
+    "twist_beat": 4,
+    "description": "बस अड्डे पर खड़ी आख़िरी बस की सीट पर पहले से कटा टिकट रखा था। शैलेश मज़ाक में उस सीट पर जा बैठा और अचानक बस की बत्ती जल उठी।",
+    "motifs": [],
+    "hashtags": [
+      "#सन्नाटपुर",
+      "#90sकीयादें",
+      "#रहस्य",
+      "#किस्सा"
+    ],
+    "writer": {
+      "models": [
+        "gemini-3.8-flash",
+        "gemini-3.6-flash",
+        "gemini-3.5-flash-lite"
+      ],
+      "log": [
+        {
+          "attempt": 0,
+          "stage": "gates",
+          "problems": [
+            "beat 1 (the hook) has 11 words; at most 10"
+          ]
+        },
+        {
+          "attempt": 1,
+          "stage": "editor",
+          "problems": []
+        }
+      ]
+    },
+    "format": "micro",
+    "hook_strip": "बस का अनसुना क़र्ज़",
+    "object_token": "टिकट",
+    "anomaly": "ख़ाली बस की एक सीट पर पहले से कटा टिकट रखा मिलना",
+    "niyam_id": "N09",
+    "resolution": "bargain",
+    "heart_beat": 5,
+    "heart_type": "confessed-lie",
+    "skeleton": "S3",
+    "location": "टीन की छत वाला आख़िरी स्टैंड",
+    "place_id": "busadda"
+  },
+  "replacement": {
+    "id": "kc-20261025-0505-e12",
+    "premise": "e12",
+    "title": "टिकट आख़िरी बस की ख़ाली सीट पर कौन रख गया? 🎫",
+    "hook": "ख़ाली बस की सीट पर कटा टिकट पड़ा था।",
+    "beats": [
+      {
+        "text": "ख़ाली बस की सीट पर कटा टिकट पड़ा था।",
+        "scene": "Top-down macro view looking straight down at one small rectangular paper bus ticket lying completely flat on a cracked green vinyl bus seat. The perforated cream ticket reverse is blank and unprinted. The camera is very close, so this small flat ticket occupies half the image. Green seat texture fills every edge; a warm ceiling-bulb reflection and a cool blue window reflection softly cross the vinyl. Inside the parked depot bus. No people or hands.",
+        "people": [],
+        "pause_after": 0.35
+      },
+      {
+        "text": "उन्नीस सौ छियानवे, उस रात टीन की छत वाले बस अड्डे पर सन्नाटा पसरा था।",
+        "scene": "Prabhat in his mustard sweater and Shailesh in his red cricket cap walk alongside the row of silent parked buses at the tin-roof bus depot. The warm amber beam of an oil lantern at the distant tea stall cuts against cool midnight blue shadows.",
+        "people": [
+          {
+            "name": "prabhat",
+            "expression": "curious and observant"
+          },
+          {
+            "name": "shailesh",
+            "expression": "carefree and smiling"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "शैलेश हँसते हुए उसी सीट पर जा बैठा, और बस की पीली बत्ती अपने-आप जल उठी।",
+        "scene": "Inside the bus at the tin-roof bus depot, Shailesh sits down casually on the window seat beside the ticket. Suddenly, an overhead yellow bulb flickers to life directly above him, cutting through the heavy blue gloom of the parked vehicle.",
+        "people": [
+          {
+            "name": "shailesh",
+            "expression": "startled and uneasy"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "झब्बू काका ने लाठी ठटकाई कि रात की सीट किसी की होती है, बिना किराया दिए नहीं उठ सकते।",
+        "scene": "At the entrance of the bus at the tin-roof bus depot, Jhabbu stands in his khaki kurta and red muffler, resting his bamboo stick firmly on the floor while holding his brass lantern. Prabhat stands behind him, glancing anxiously down the aisle.",
+        "people": [
+          {
+            "name": "jhabbu",
+            "expression": "stern and resolute"
+          },
+          {
+            "name": "prabhat",
+            "expression": "tense and alert"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "शैलेश ने आँखें झुकाकर माना कि वो दर्जनों बार बिना टिकट शहर भागा था।",
+        "scene": "Inside the bus at the tin-roof bus depot, Shailesh remains frozen on the seat with his transistor clutched against his chest. His head is lowered under the dim yellow ceiling bulb, while blue moonlight edges his shoulders.",
+        "people": [
+          {
+            "name": "shailesh",
+            "expression": "guilty and sheepish"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "उसने डरते हुए समोसे वाले चार रुपये कंडक्टर की लोहे की पेटी में डाल दिए।",
+        "scene": "Near the front door inside the bus at the tin-roof bus depot, Shailesh carefully drops metal coins into a metal conductor cash box mounted on the pipe. The flickering yellow dome light casts long blue shadows along the empty aisle.",
+        "people": [
+          {
+            "name": "shailesh",
+            "expression": "nervous and respectful"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "बत्ती बुझ गई, और झब्बू काका ने लाल रजिस्टर में लिख दिया कि पुराना हिसाब बराबर हुआ।",
+        "scene": "At the wooden counter of the tea stall beside the tin-roof bus depot, Jhabbu rests his brass lantern and marks an entry into his red-bound register with a short pencil. Prabhat watches from the side in the tranquil moonlit blue night.",
+        "people": [
+          {
+            "name": "jhabbu",
+            "expression": "calm and focused"
+          },
+          {
+            "name": "prabhat",
+            "expression": "thoughtful and quiet"
+          }
+        ],
+        "pause_after": 0.35
+      }
+    ],
+    "cast": [
+      {
+        "id": "jhabbu",
+        "name": "झब्बू",
+        "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+      },
+      {
+        "id": "prabhat",
+        "name": "प्रभात",
+        "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+      },
+      {
+        "id": "shailesh",
+        "name": "शैलेश",
+        "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+      }
+    ],
+    "subgenre": "confessed-lie",
+    "ending": "register-line",
+    "twist_beat": 4,
+    "description": "बस अड्डे पर खड़ी आख़िरी बस की सीट पर पहले से कटा टिकट रखा था। शैलेश मज़ाक में उस सीट पर जा बैठा और अचानक बस की बत्ती जल उठी।",
+    "motifs": [],
+    "hashtags": [
+      "#सन्नाटपुर",
+      "#90sकीयादें",
+      "#रहस्य",
+      "#किस्सा"
+    ],
+    "writer": {
+      "models": [
+        "gemini-3.8-flash",
+        "gemini-3.6-flash",
+        "gemini-3.5-flash-lite"
+      ],
+      "log": [
+        {
+          "attempt": 0,
+          "stage": "gates",
+          "problems": [
+            "beat 1 (the hook) has 11 words; at most 10"
+          ]
+        },
+        {
+          "attempt": 1,
+          "stage": "editor",
+          "problems": []
+        }
+      ]
+    },
+    "format": "micro",
+    "hook_strip": "बस का अनसुना क़र्ज़",
+    "object_token": "टिकट",
+    "anomaly": "ख़ाली बस की एक सीट पर पहले से कटा टिकट रखा मिलना",
+    "niyam_id": "N09",
+    "resolution": "bargain",
+    "heart_beat": 5,
+    "heart_type": "confessed-lie",
+    "skeleton": "S3",
+    "location": "टीन की छत वाला आख़िरी स्टैंड",
+    "place_id": "busadda"
+  },
+  "changed_beats": [
+    0
+  ],
+  "speech_unchanged": true,
+  "release_approval": false,
+  "reason": "Both original hook paintings have generated writing on a tiny ticket. Image-only close framing and blank reverse preserve the exact story and useful cast art; all current gates remain. First local candidate is also excluded for an unsupported upright-sheet composition; use a top-down macro camera for the same small flat ticket.",
+  "local_refused_candidate": "77159dae0b0a3f1ef80440a30ed63d3289bf53c8f7b4265836289c5054923470",
+  "additional_image_derivation": "Exact portrait crop of local v2 image plus deterministic same-paper clone stamp removing faint generated ink; both raw parents retained with hashes. No narration/title change and no gate relaxed."
+}

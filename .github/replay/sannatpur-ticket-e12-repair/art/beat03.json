@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-0505-e12",
+  "beat": 3,
+  "alt": 0,
+  "prompt": "At the entrance of the bus at the tin-roof bus depot, Jhabbu stands in his khaki kurta and red muffler, resting his bamboo stick firmly on the floor while holding his brass lantern. Prabhat stands behind him, glancing anxiously down the aisle. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away, stern and resolute expression; Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, tense and alert expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1278.4,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1079031752,
+  "log_tail": "                                               | 1/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 940.30MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 91.80s --- image.cpp:620\n[I] decode_first_stage completed, taking 91.80s --- image.cpp:624\n[I] generate_image completed in 1277.47s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat03.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12588583026,
+    "run_id": 40164083384,
+    "name": "art-40164083384-3",
+    "size_in_bytes": 1163051,
+    "source_sha": "787674b5bc66cb1ff227e73da93f46ba8af07252"
+  },
+  "image_sha256": "648c8bdb79dc474e964f0ae6d1113f7a0cd3ee6c9efc563828bead06fa1cb738"
+}

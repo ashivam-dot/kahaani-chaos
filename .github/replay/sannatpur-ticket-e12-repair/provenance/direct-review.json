@@ -1,0 +1,29 @@
+{
+  "images": [
+    {
+      "file": "beat00.png",
+      "image_sha256": "77159dae0b0a3f1ef80440a30ed63d3289bf53c8f7b4265836289c5054923470",
+      "decision": "hold",
+      "reason": "Direct full-resolution inspection: lettering is removed and the subject is large, but the ticket reads as an upright unsupported sheet rather than a small ticket resting on the bus seat. Do not deploy these pixels. Repaint the same blank reverse lying flat, with the close framing achieved by a top-down macro camera."
+    },
+    {
+      "file": "raw-ticket-frame/beat00.png",
+      "image_sha256": "fad7c987df78f925bddbc2ecda0d9b937d41ca6f88395e0e57e369d8b07ff01d",
+      "decision": "hold",
+      "reason": "Direct full-resolution inspection: useful blank reverse and seat texture, but the uncropped small ticket is below the 30% opening-subject minimum. Keep the raw source for an exact portrait macro crop, without adding content; final picture and AV checks remain mandatory."
+    },
+    {
+      "file": "raw-ticket-crop/beat00.png",
+      "image_sha256": "c185ab94d1f9488805b806f402b632e0434fb978b21787c32238c2f899cfc99d",
+      "decision": "hold",
+      "reason": "Direct full-resolution crop inspection: macro subject share is useful, but faint generated ruling and small ink traces remain on the reverse. Exclude these bytes and retain the raw crop as the parent of a documented deterministic same-paper clone-stamp; current final picture and AV checks remain required."
+    },
+    {
+      "file": "flat-ticket/beat00.png",
+      "image_sha256": "14c72186fc97e52d173f29082a22bb36fecaafca02230e340b6eeb2db06ff9dc",
+      "decision": "pass",
+      "reason": "Direct full-resolution inspection after the documented crop and same-paper clone-stamp: cream perforated ticket reverse against cracked green bus-seat vinyl, no generated lettering or symbols, no hand or figure. The paper occupies about 35% of the frame, preserving the existing minimum without changing it. Raw uncropped and cropped parents remain available. Current cloud picture, narrator, render and full AV checks remain mandatory."
+    }
+  ],
+  "full_video_approved": false
+}

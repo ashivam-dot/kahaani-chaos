@@ -1,0 +1,59 @@
+{
+  "images": [
+    {
+      "file": "art-40164083384-1/beat01.png",
+      "image_sha256": "8a9fda6299429b41f2b2957607a1b74ef89e15f17c4faed96801944393cd5db9",
+      "decision": "pass",
+      "reason": "Direct pixel review: Exactly two young men with their distinct fixed sweater/glasses/notebook and red cap/stripes/transistor, beside parked buses in moonlit depot. No doubled cast."
+    },
+    {
+      "file": "art-40164083384-2/beat02.png",
+      "image_sha256": "bf19898b2dcf1ef54caf50c52a83d7dae7f8907ee13ee9abb1086e9a80b2889b",
+      "decision": "hold",
+      "reason": "Direct pixel review: Direct full-resolution inspection sees generated printed writing on the long ticket at left. Existing early editor independently refuses text=true; usable alternate is available."
+    },
+    {
+      "file": "art-40164083384-2/beat02-alt1.png",
+      "image_sha256": "9eba09d6283e827e85ea5644f166b3ca509e90c51f7f44940adda9465fad8a25",
+      "decision": "pass",
+      "reason": "Direct pixel review: Exactly one red-capped striped-shirt Shailesh with transistor and flip-flops seated inside metal bus under lit bulb; no lettering or doubled figure. Natural adult proportions. Full AV still required."
+    },
+    {
+      "file": "art-40164083384-3/beat03.png",
+      "image_sha256": "648c8bdb79dc474e964f0ae6d1113f7a0cd3ee6c9efc563828bead06fa1cb738",
+      "decision": "pass",
+      "reason": "Direct full-resolution inspection of available still: one elderly khaki/red-muffler Jhabbu at bus entry with staff and supported lantern, one distinct mustard/glasses/notebook Prabhat behind. Coherent natural adult anatomy, night bus context, no visible generated lettering or duplicated actor. Full AV remains required."
+    },
+    {
+      "file": "art-40164083384-4/beat04.png",
+      "image_sha256": "54ecbe697e14c3cac1f9bfdde0866ae436c0afebed3c3b22c193fa27b8439d32",
+      "decision": "pass",
+      "reason": "Direct full-resolution inspection: exactly one adult-proportioned red-cap/striped-shirt Shailesh seated inside the bus with lowered head and naturally held transistor; blue flip-flops, warm ceiling bulb and moonlit windows. No generated writing or doubled character. Matches the guilt line; current final picture and full AV remain required."
+    },
+    {
+      "file": "art-40164083384-0/beat00.png",
+      "image_sha256": "316932f75dad0e0cc86c9600408cb66c49a6ef52972a312441f9a46dd47970d8",
+      "decision": "hold",
+      "reason": "Direct full-resolution inspection: the paper ticket is only a tiny part of the frame and contains generated printed lettering. The opening cannot meet the existing 30%-90% subject-share gate. Preserve the speech; reframe only this opening picture as the large blank reverse of a perforated paper ticket on the cracked green bus seat. Current full picture and AV checks remain required."
+    },
+    {
+      "file": "art-40164083384-0/beat00-alt1.png",
+      "image_sha256": "163924f718888de0fa8f957559576bc3908d06e27fa5be27008526eb180d703f",
+      "decision": "hold",
+      "reason": "Direct full-resolution inspection: the paper ticket is only a tiny part of the frame and contains generated printed lettering. The opening cannot meet the existing 30%-90% subject-share gate. Preserve the speech; reframe only this opening picture as the large blank reverse of a perforated paper ticket on the cracked green bus seat. Current full picture and AV checks remain required."
+    },
+    {
+      "file": "art-40164083384-5/beat05.png",
+      "image_sha256": "753a1ef38be38cf3a059b7bf05dad4985e204b46faf9e504f72a23854603bda5",
+      "decision": "pass",
+      "reason": "Direct full-resolution inspection: exactly one red-capped, striped-shirt adult-proportioned Shailesh drops a coin into the conductor cash box by the bus door. Natural hands, fixed transistor, enclosed bus aisle and warm dome light; no lettering or duplicated character. Matches repayment narration. Current picture and full AV checks remain mandatory."
+    },
+    {
+      "file": "art-40164083384-6/beat06.png",
+      "image_sha256": "0f4f13a82f1da0921e098d6358f8f2ac0ec66714e3c934e6a6ca4ce5828aacf1",
+      "decision": "pass",
+      "reason": "Direct full-resolution inspection: one elderly khaki/red-muffler Jhabbu writes in his red-bound ledger at the tea-stall counter, beside distinct mustard/glasses/notebook Prabhat. Natural adult proportions and hands, supported lantern/staff, blank page surfaces without generated lettering. Matches the planned closing location and account-settling payoff. Current picture, narrator, render and full AV checks remain required."
+    }
+  ],
+  "full_video_approved": false
+}

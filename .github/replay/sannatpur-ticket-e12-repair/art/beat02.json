@@ -1,0 +1,25 @@
+{
+  "story": "kc-20261025-0505-e12",
+  "beat": 2,
+  "alt": 0,
+  "prompt": "Inside the bus at the tin-roof bus depot, Shailesh sits down casually on the window seat beside the ticket. Suddenly, an overhead yellow bulb flickers to life directly above him, cutting through the heavy blue gloom of the parked vehicle. Characters: Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, startled and uneasy expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm practical light, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 673.8,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1229711198,
+  "log_tail": "                                                | 1/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.03s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 57.26s --- image.cpp:620\n[I] decode_first_stage completed, taking 57.26s --- image.cpp:624\n[I] generate_image completed in 673.20s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat02.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12588616265,
+    "run_id": 40164083384,
+    "name": "art-40164083384-2",
+    "size_in_bytes": 2252227,
+    "source_sha": "787674b5bc66cb1ff227e73da93f46ba8af07252"
+  },
+  "image_sha256": "bf19898b2dcf1ef54caf50c52a83d7dae7f8907ee13ee9abb1086e9a80b2889b",
+  "editorial_refusal": {
+    "image_sha256": "bf19898b2dcf1ef54caf50c52a83d7dae7f8907ee13ee9abb1086e9a80b2889b",
+    "reason": "Direct pixel review: Direct full-resolution inspection sees generated printed writing on the long ticket at left. Existing early editor independently refuses text=true; usable alternate is available."
+  }
+}
