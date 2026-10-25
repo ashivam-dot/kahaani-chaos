@@ -1,0 +1,54 @@
+{
+  "story": "kc-20261025-0431-e17",
+  "beat": 2,
+  "alt": 0,
+  "prompt": "Inside an enclosed village PCO room, a close view shows the unattended boxy grey analogue billing meter on a yellow-tinted glass counter. A blank unmarked white paper strip curls from the front slot. A small brass service bell rests beside the meter. Solid plaster wall behind the machine, dark blue window at one edge, warm overhead tungsten bulb, empty counter with nobody present. No people: no human figure, face, hand or arm anywhere in the picture. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm practical light, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 267.1,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 884734470,
+  "log_tail": ".59MB/s\u001b[K\n  |##################################################| 138/138 - 293.94MB/s\u001b[K\n[I] loading tensors completed, taking 0.64s (read: 0.34s, memcpy: 0.00s, convert: 0.03s, copy_to_backend: 0.20s) --- model_loader.cpp:1390\n[I] latent 1 decoded, taking 24.81s --- image.cpp:620\n[I] decode_first_stage completed, taking 24.81s --- image.cpp:624\n[I] generate_image completed in 265.18s --- image.cpp:1050\n[I] ggml: ggml_metal_free: deallocating\n[I] save result image 0 to 'evidence/kahaani-chaos/e17-billing-slip-repair/beat02.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "17ac8cca399c53b361eae1386456e70f52997d6f64259934acc584db6ef2cb9a",
+  "generation": {
+    "origin": "local-stable-diffusion.cpp",
+    "binary_tag": "master-959-d637cfb",
+    "source_sha": "787674b5bc66cb1ff227e73da93f46ba8af07252",
+    "backend": "Darwin arm64 Metal",
+    "weights": {
+      "diffusion": {
+        "file": "z_image_turbo-Q4_K.gguf",
+        "sha256": "14b375ab4f226bc5378f68f37e899ef3c2242b8541e61e2bc1aff40976086fbd"
+      },
+      "llm": {
+        "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597"
+      },
+      "vae": {
+        "file": "ae.safetensors",
+        "sha256": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38"
+      }
+    }
+  },
+  "production_approved": false,
+  "derivation": {
+    "operation": "clone_stamp",
+    "parent_file": "../provenance/raw-meter-label/beat02.png",
+    "parent_image_sha256": "cd78199e66f3157c7a0837be79afef90dc574546f2b5b44d84c7969b0ae6d85c",
+    "source_ltrb": [
+      238,
+      646,
+      273,
+      674
+    ],
+    "destination_ltrb": [
+      201,
+      650,
+      236,
+      678
+    ],
+    "mask": "35x28 L mask; filled rectangle 3,3,31,24; GaussianBlur radius1",
+    "reason": "Remove the unplanned tiny generated label from the fictional blank metal meter face using adjacent unmarked metal texture. Preserve the period meter, paper strip, bell, enclosed room and every other pixel."
+  }
+}

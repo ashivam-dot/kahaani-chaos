@@ -1,0 +1,288 @@
+{
+  "source_run": 40162007872,
+  "source_sha": "ec57858391b8a52f659e6187efe844662ef19aa7",
+  "original": {
+    "id": "kc-20261025-0431-e17",
+    "premise": "e17",
+    "title": "पर्ची ने आज की जगह दस साल पुरानी तारीख़ छाप दी 🧾 | सन्नाटपुर",
+    "hook": "पीसीओ की पर्ची पर दस साल पुरानी तारीख़ छपी थी।",
+    "beats": [
+      {
+        "text": "पीसीओ की पर्ची पर दस साल पुरानी तारीख़ छपी थी।",
+        "scene": "Extreme close-up of a narrow paper billing slip inching out of an old mechanical billing machine on the yellow-tinted glass PCO counter, lit by an overhead yellow bulb against deep moonlit blue shadows.",
+        "people": [],
+        "pause_after": 0.35
+      },
+      {
+        "text": "उन्नीस सौ छियानवे, उस रात बस्ती के पीले शीशे वाले पीसीओ में हम खड़े थे।",
+        "scene": "Inside the yellow-tinted glass PCO counter room, prabhat in his mustard sweater and shailesh in his striped shirt stand watching the counter under warm tungsten light, dark night pressing against the yellow glass panes.",
+        "people": [
+          {
+            "name": "prabhat",
+            "expression": "curious"
+          },
+          {
+            "name": "shailesh",
+            "expression": "relaxed"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "ट्रंक कॉल कटते ही मशीन की छोटी घंटी बजी, और सरसराती हुई सफ़ेद पर्ची बाहर निकली।",
+        "scene": "A close shot of the metal meter and billing machine on the yellow-tinted glass PCO counter as the paper slip curls upward under harsh amber light, casting thin shadows across the wooden ledge.",
+        "people": [],
+        "pause_after": 0.35
+      },
+      {
+        "text": "शैलेश ने तारीख़ देखकर कहा अरे बाप रे, ये तो छियासी की है, और वो उसे फाड़ने लगा।",
+        "scene": "At the yellow-tinted glass PCO counter, shailesh in his red cricket cap grips the printed slip between two fingers, about to rip it under the swinging yellow bulb light.",
+        "people": [
+          {
+            "name": "shailesh",
+            "expression": "startled"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "झब्बू ने उसका हाथ थामकर कहा, अपने-आप बदली तारीख़ को फाड़ते नहीं, वो कुछ याद दिलाती है।",
+        "scene": "jhabbu in his khaki kurta and red woollen muffler gently catches shailesh's wrist near the yellow-tinted glass PCO counter, his brass lantern resting beside the phone receiver.",
+        "people": [
+          {
+            "name": "jhabbu",
+            "expression": "stern"
+          },
+          {
+            "name": "shailesh",
+            "expression": "hesitant"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "काँपते हाथों से पर्ची छूकर चाचा बोले, इसी दिन बेटा शहर गया था और मैं उसे स्टेशन छोड़ने नहीं गया था।",
+        "scene": "jhabbu and prabhat stand quietly by the yellow-tinted glass PCO counter, looking downward in soft warm lamplight while the cold blue night stays still outside the window.",
+        "people": [
+          {
+            "name": "jhabbu",
+            "expression": "gentle"
+          },
+          {
+            "name": "prabhat",
+            "expression": "somber"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "चाचा ने वो काग़ज़ संभालकर रख लिया, पर उस रात पीसीओ की पर्ची पर वही दस साल पुरानी तारीख़ छपी रह गई।",
+        "scene": "Wide shot of the yellow-tinted glass PCO counter lying quiet under the hanging bulb, the lone billing machine standing silent on the wooden shelf while moonlight washes across the glass.",
+        "people": [],
+        "pause_after": 0.35
+      }
+    ],
+    "cast": [
+      {
+        "id": "jhabbu",
+        "name": "झब्बू",
+        "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+      },
+      {
+        "id": "prabhat",
+        "name": "प्रभात",
+        "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+      },
+      {
+        "id": "shailesh",
+        "name": "शैलेश",
+        "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+      }
+    ],
+    "subgenre": "goodbye",
+    "ending": "loop-back",
+    "twist_beat": 5,
+    "description": "उन्नीस सौ छियानवे की रात सन्नाटपुर के पीसीओ की मशीन से निकली पर्ची पर एक अजीब तारीख़ छपी थी। शैलेश उसे फाड़ने चला, पर उस काग़ज़ में एक पुरानी टीस दबी थी।",
+    "motifs": [],
+    "hashtags": [
+      "#सन्नाटपुरKeyWord1",
+      "#सन्नाटपुर",
+      "#90sकीयादें",
+      "#रहस्य",
+      "#सन्नाटपुरकीरातें"
+    ],
+    "writer": {
+      "models": [
+        "gemini-3.8-flash",
+        "gemini-3.6-flash"
+      ],
+      "log": [
+        {
+          "attempt": 0,
+          "stage": "editor",
+          "problems": []
+        }
+      ]
+    },
+    "format": "micro",
+    "hook_strip": "दस साल पुरानी तारीख़",
+    "object_token": "पर्ची",
+    "anomaly": "पर्ची पर आज की जगह दस साल पुरानी तारीख़ छपना",
+    "niyam_id": "N19",
+    "resolution": "leave-it-be",
+    "heart_beat": 6,
+    "heart_type": "goodbye",
+    "skeleton": "S2",
+    "location": "पीसीओ का काउंटर",
+    "place_id": "pco"
+  },
+  "replacement": {
+    "id": "kc-20261025-0431-e17",
+    "premise": "e17",
+    "title": "पर्ची ने आज की जगह दस साल पुरानी तारीख़ छाप दी 🧾 | सन्नाटपुर",
+    "hook": "पीसीओ की पर्ची पर दस साल पुरानी तारीख़ छपी थी।",
+    "beats": [
+      {
+        "text": "पीसीओ की पर्ची पर दस साल पुरानी तारीख़ छपी थी।",
+        "scene": "An unattended boxy analogue PCO billing meter rests on a yellow-tinted glass counter in an enclosed village room. A completely blank unmarked narrow white paper strip curls out of the small front paper slot and hangs freely over the counter edge. The clean paper is the main subject. A warm tungsten bulb hangs above; solid plaster walls and a dark blue window sit behind. The empty counter has no person or hand.",
+        "people": [],
+        "pause_after": 0.35
+      },
+      {
+        "text": "उन्नीस सौ छियानवे, उस रात बस्ती के पीले शीशे वाले पीसीओ में हम खड़े थे।",
+        "scene": "Inside the yellow-tinted glass PCO counter room, prabhat in his mustard sweater and shailesh in his striped shirt stand watching the counter under warm tungsten light, dark night pressing against the yellow glass panes.",
+        "people": [
+          {
+            "name": "prabhat",
+            "expression": "curious"
+          },
+          {
+            "name": "shailesh",
+            "expression": "relaxed"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "ट्रंक कॉल कटते ही मशीन की छोटी घंटी बजी, और सरसराती हुई सफ़ेद पर्ची बाहर निकली।",
+        "scene": "Inside an enclosed village PCO room, a close view shows the unattended boxy grey analogue billing meter on a yellow-tinted glass counter. A blank unmarked white paper strip curls from the front slot. A small brass service bell rests beside the meter. Solid plaster wall behind the machine, dark blue window at one edge, warm overhead tungsten bulb, empty counter with nobody present.",
+        "people": [],
+        "pause_after": 0.35
+      },
+      {
+        "text": "शैलेश ने तारीख़ देखकर कहा अरे बाप रे, ये तो छियासी की है, और वो उसे फाड़ने लगा।",
+        "scene": "Inside an enclosed PCO counter room with solid plaster walls and a visible solid ceiling, Shailesh stands alone at the yellow-tinted glass counter. The single adult-proportioned young man in his striped shirt and red cricket cap holds one completely blank unmarked white paper strip between his two natural hands, ready to tear it. His small transistor hangs at his hip; warm overhead tungsten bulb, dark blue window behind him.",
+        "people": [
+          {
+            "name": "shailesh",
+            "expression": "startled"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "झब्बू ने उसका हाथ थामकर कहा, अपने-आप बदली तारीख़ को फाड़ते नहीं, वो कुछ याद दिलाती है।",
+        "scene": "Medium view inside the enclosed PCO room with solid plaster walls and ceiling. Jhabbu stands left and adult-proportioned Shailesh stands right beside the yellow glass counter. Jhabbu gently steadies the young man’s left wrist with his right hand; their free hands rest on the counter. The lantern and staff rest beside them, with the closed ledger. One warm bulb, moonlit window.",
+        "people": [
+          {
+            "name": "jhabbu",
+            "expression": "stern"
+          },
+          {
+            "name": "shailesh",
+            "expression": "hesitant"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "काँपते हाथों से पर्ची छूकर चाचा बोले, इसी दिन बेटा शहर गया था और मैं उसे स्टेशन छोड़ने नहीं गया था।",
+        "scene": "jhabbu and prabhat stand quietly by the yellow-tinted glass PCO counter, looking downward in soft warm lamplight while the cold blue night stays still outside the window.",
+        "people": [
+          {
+            "name": "jhabbu",
+            "expression": "gentle"
+          },
+          {
+            "name": "prabhat",
+            "expression": "somber"
+          }
+        ],
+        "pause_after": 0.35
+      },
+      {
+        "text": "चाचा ने वो काग़ज़ संभालकर रख लिया, पर उस रात पीसीओ की पर्ची पर वही दस साल पुरानी तारीख़ छपी रह गई।",
+        "scene": "Wide shot of the yellow-tinted glass PCO counter lying quiet under the hanging bulb, the lone billing machine standing silent on the wooden shelf while moonlight washes across the glass.",
+        "people": [],
+        "pause_after": 0.35
+      }
+    ],
+    "cast": [
+      {
+        "id": "jhabbu",
+        "name": "झब्बू",
+        "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+      },
+      {
+        "id": "prabhat",
+        "name": "प्रभात",
+        "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+      },
+      {
+        "id": "shailesh",
+        "name": "शैलेश",
+        "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+      }
+    ],
+    "subgenre": "goodbye",
+    "ending": "loop-back",
+    "twist_beat": 5,
+    "description": "उन्नीस सौ छियानवे की रात सन्नाटपुर के पीसीओ की मशीन से निकली पर्ची पर एक अजीब तारीख़ छपी थी। शैलेश उसे फाड़ने चला, पर उस काग़ज़ में एक पुरानी टीस दबी थी।",
+    "motifs": [],
+    "hashtags": [
+      "#सन्नाटपुरKeyWord1",
+      "#सन्नाटपुर",
+      "#90sकीयादें",
+      "#रहस्य",
+      "#सन्नाटपुरकीरातें"
+    ],
+    "writer": {
+      "models": [
+        "gemini-3.8-flash",
+        "gemini-3.6-flash"
+      ],
+      "log": [
+        {
+          "attempt": 0,
+          "stage": "editor",
+          "problems": []
+        }
+      ]
+    },
+    "format": "micro",
+    "hook_strip": "दस साल पुरानी तारीख़",
+    "object_token": "पर्ची",
+    "anomaly": "पर्ची पर आज की जगह दस साल पुरानी तारीख़ छपना",
+    "niyam_id": "N19",
+    "resolution": "leave-it-be",
+    "heart_beat": 6,
+    "heart_type": "goodbye",
+    "skeleton": "S2",
+    "location": "पीसीओ का काउंटर",
+    "place_id": "pco"
+  },
+  "changed_beats": [
+    0,
+    2,
+    3,
+    4,
+    5
+  ],
+  "speech_unchanged": true,
+  "release_approval": false,
+  "additional_reason": "All three original beat2 takes also show unplanned hands and an outdoor counter; exclude them and paint the same paper-emergence beat inside the PCO room.",
+  "additional_reasons": [
+    "Actual beat3 adds outdoor surroundings, large generated lettering and unplanned duplicate/childlike cast. Reframe that one painting as a single Shailesh holding blank paper inside the room. Preserve all speech and title. Beat5 retains useful original cast art with a provenance-bound peripheral wall-notice crop.",
+    "Both original beat4 paintings remain outdoors; the alternate adds a third Jhabbu arm. Repaint that same wrist-stopping action inside the enclosed room with his carried props resting so the hands are free. Preserve every spoken line and title."
+  ]
+}

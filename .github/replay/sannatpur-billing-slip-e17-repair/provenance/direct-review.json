@@ -1,0 +1,35 @@
+{
+  "images": [
+    {
+      "file": "beat00.png",
+      "image_sha256": "154f38a38000971c6dd1415360d857f5cc3b1ace32c99bc319a590b78ad07874",
+      "decision": "pass",
+      "reason": "Direct full-resolution inspection: unattended period-style box billing meter, clean blank paper curling from its slot, yellow glass counter, enclosed plaster room with solid ceiling and warm bulb. No person, hand, generated writing on the slip or intrusive modern monitor. Current cloud picture and full AV checks remain required."
+    },
+    {
+      "file": "beat02.png",
+      "image_sha256": "17ac8cca399c53b361eae1386456e70f52997d6f64259934acc584db6ef2cb9a",
+      "decision": "pass",
+      "reason": "Direct full-resolution still inspection after documented label removal: unattended grey period billing meter, blank curling paper and small brass bell on yellow glass counter, enclosing plaster walls/ceiling and warm bulb. No people, hands or generated lettering. Exact raw image and deterministic clone-stamp provenance retained. Current cloud picture and full audiovisual checks remain mandatory."
+    },
+    {
+      "file": "beat05.png",
+      "image_sha256": "767eb641576edb0ca9b968fd35d037d3462fecbe75cb5bf629e9cd446341c905",
+      "decision": "pass",
+      "reason": "Direct full-resolution inspection: Documented portrait crop removes the peripheral generated wall notice while retaining distinct red-muffler elderly Jhabbu and mustard/glasses Prabhat, their natural hands, notebook, staff and supported lantern. No lettering remains; enclosing counter/window context stays. Current cloud picture/full AV still required."
+    },
+    {
+      "file": "beat03.png",
+      "image_sha256": "bffc56f821c6ce411ad40f741f5994183ee0f6d022da4738ed94b427cf211e97",
+      "decision": "pass",
+      "reason": "Direct full-resolution inspection: one adult-proportioned Shailesh wearing his red cap and striped shirt, natural hands holding a blank paper strip, transistor in leather case at hip and blue flip-flops. Solid plaster walls and ceiling enclose the yellow-glass counter; warm hanging bulb. No generated lettering, duplicate character or outdoor street. Current cloud picture and full audiovisual checks remain mandatory."
+    },
+    {
+      "file": "beat04.png",
+      "image_sha256": "1cf2405484ba30a711158af721ae87366c776447cca878d2ceb70442a0b4762a",
+      "decision": "pass",
+      "reason": "Direct full-resolution inspection: exactly two distinct adult-proportioned characters inside solid plaster walls and ceiling. Grey-haired khaki/red-muffler Jhabbu naturally steadies red-cap/striped-shirt Shailesh at the wrist above the yellow-glass counter. Each has two coherent arms; the old extra-arm defect is absent. Staff, ledger, lantern and transistor tokens remain readable. No lettering, duplicate person or street setting. Current cloud picture, narrator, render and complete AV remain mandatory."
+    }
+  ],
+  "full_video_approved": false
+}

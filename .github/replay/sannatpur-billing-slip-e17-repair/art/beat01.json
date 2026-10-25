@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-0431-e17",
+  "beat": 1,
+  "alt": 0,
+  "prompt": "Inside the yellow-tinted glass PCO counter room, prabhat in his mustard sweater and shailesh in his striped shirt stand watching the counter under warm tungsten light, dark night pressing against the yellow glass panes. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, curious expression; Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, relaxed expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm practical light, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1246.5,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 855171004,
+  "log_tail": "                                               | 1/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 940.30MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 92.59s --- image.cpp:620\n[I] decode_first_stage completed, taking 92.59s --- image.cpp:624\n[I] generate_image completed in 1245.48s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat01.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12587287758,
+    "run_id": 40162007872,
+    "name": "art-40162007872-1",
+    "size_in_bytes": 1117426,
+    "source_sha": "ec57858391b8a52f659e6187efe844662ef19aa7"
+  },
+  "image_sha256": "33212ec543fc074e0ef275d4339bf4f6bb382dab405d9c852d519a896be82650"
+}

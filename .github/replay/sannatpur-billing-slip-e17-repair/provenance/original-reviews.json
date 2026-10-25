@@ -1,0 +1,83 @@
+{
+  "images": [
+    {
+      "file": "art-40162007872-1/beat01.png",
+      "image_sha256": "33212ec543fc074e0ef275d4339bf4f6bb382dab405d9c852d519a896be82650",
+      "decision": "pass",
+      "reason": "Direct pixel review: Exactly two distinct young men: mustard sweater/glasses/notebook and striped shirt/red cricket cap/transistor. Enclosed yellow-glass room with natural anatomy. Current cloud/full AV still required."
+    },
+    {
+      "file": "art-40162007872-0/beat00.png",
+      "image_sha256": "c32e7f3268077b560cb273894d7f2c9c128552944ad95866dc6cf21ffd66f12f",
+      "decision": "hold",
+      "reason": "Direct pixel review: Unplanned hand and generated writing on an object-only slip shot; preserved exact remote hold."
+    },
+    {
+      "file": "art-40162007872-0/beat00-alt1.png",
+      "image_sha256": "7c70617392cb16f4b7ee8624aeaf4e8aa616c59a1ba2c61c5f3d9693169936f4",
+      "decision": "hold",
+      "reason": "Direct pixel review: Unplanned hands and printed rows on an object-only hook; preserved exact remote hold."
+    },
+    {
+      "file": "art-40162007872-2/beat02.png",
+      "image_sha256": "31adc2a7f0ff240fb1e9e562555f68bb7dac26ac8852f1e29f71d5ca6010cdb8",
+      "decision": "hold",
+      "reason": "Direct pixel review: Hands and writing intrude on meter shot in outdoor village; preserved exact remote hold."
+    },
+    {
+      "file": "art-40162007872-2/beat02-alt1.png",
+      "image_sha256": "a3b97932f9263b5473b4a64b81a51c15fbc70f92a64449f0a8f7f245d932ac90",
+      "decision": "hold",
+      "reason": "Direct pixel review: Hands and writing intrude on meter shot in outdoor village; preserved exact remote hold."
+    },
+    {
+      "file": "art-40162007872-2/beat02-alt2.png",
+      "image_sha256": "e0ef652e20f74bd701042ab4f61e07613f98ffe09a9aec6afc58c80324754922",
+      "decision": "hold",
+      "reason": "Direct pixel review: Hands intrude on unattended meter shot in outdoor village; preserved exact remote hold."
+    },
+    {
+      "file": "art-40162007872-5/beat05.png",
+      "image_sha256": "e9a0d9caf13b50e999145e281f7df2c45c1c30d756dff9426d6f71917125f7b6",
+      "decision": "hold",
+      "reason": "Direct full-resolution inspection: Generated Devanagari wall notice at upper-left edge. Both useful distinct characters are sound; exact original excluded and retained for a bounded peripheral crop."
+    },
+    {
+      "file": "art-40162007872-3/beat03-alt1.png",
+      "image_sha256": "1d638b003adb3fe2b8588bda16dbc6d48819ab6977ec70e568566791f76e96bb",
+      "decision": "hold",
+      "reason": "Direct full-resolution review: outdoor surroundings plus generated PCO lettering and/or an unplanned duplicate/childlike figure. Bound remote hold excludes all three; narration is preserved for explicit enclosed-room single-Shailesh replacement."
+    },
+    {
+      "file": "art-40162007872-3/beat03-alt2.png",
+      "image_sha256": "b350b249e8fc887f4b23876e7bd4d53b821c7c5b5ca8dc260da6eb80229a3052",
+      "decision": "hold",
+      "reason": "Direct full-resolution review: outdoor surroundings plus generated PCO lettering and/or an unplanned duplicate/childlike figure. Bound remote hold excludes all three; narration is preserved for explicit enclosed-room single-Shailesh replacement."
+    },
+    {
+      "file": "art-40162007872-3/beat03.png",
+      "image_sha256": "423742ca7bc5add99a1ea88d4135adca57816cd76d68ccdcf377dfbbf0494cae",
+      "decision": "hold",
+      "reason": "Direct full-resolution review: outdoor surroundings plus generated PCO lettering and/or an unplanned duplicate/childlike figure. Bound remote hold excludes all three; narration is preserved for explicit enclosed-room single-Shailesh replacement."
+    },
+    {
+      "file": "art-40162007872-4/beat04.png",
+      "image_sha256": "c52976e04e691828767a45681e337cd87c5bba9f6f87ab29d432a73dc92feb7d",
+      "decision": "hold",
+      "reason": "Direct full-resolution inspection: the counter is outdoors under open sky; Shailesh wears an unplanned red muffler and his wrist is not held. The early editor also refuses the missing action."
+    },
+    {
+      "file": "art-40162007872-4/beat04-alt1.png",
+      "image_sha256": "f1a48f0413738ceb797ae529a8af3a78d609a7d33ffd07c97ef97a68766588a6",
+      "decision": "hold",
+      "reason": "Direct full-resolution inspection: the counter remains outdoors under open sky, and Jhabbu has an extra yellow-sleeved arm reaching to the wrist in addition to his lantern arm and book-supporting arm. The early editor missed the malformed anatomy. Exclude these exact bytes; current cloud checks remain required for any repair."
+    },
+    {
+      "file": "art-40162007872-6/beat06.png",
+      "image_sha256": "b2561dca4a28ab2764d4d8d1179d053cc4dde634cd3e116c8b6dc28424cd483c",
+      "decision": "pass",
+      "reason": "Direct full-resolution inspection: quiet unoccupied enclosed yellow-glass billing counter shown in a wide exterior-facing closing view, with one period meter, warm hanging practical and blue moonlit surroundings. No person, generated writing or malformed object. This matches the original wide closing scene; the view does not put the actors outdoors. Retain useful original art; current full picture/AV continuity checks remain mandatory."
+    }
+  ],
+  "full_video_approved": false
+}

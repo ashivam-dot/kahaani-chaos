@@ -1,0 +1,35 @@
+{
+  "story": "kc-20261025-0431-e17",
+  "beat": 3,
+  "alt": 0,
+  "prompt": "Inside an enclosed PCO counter room with solid plaster walls and a visible solid ceiling, Shailesh stands alone at the yellow-tinted glass counter. The single adult-proportioned young man in his striped shirt and red cricket cap holds one completely blank unmarked white paper strip between his two natural hands, ready to tear it. His small transistor hangs at his hip; warm overhead tungsten bulb, dark blue window behind him. Characters: Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, startled expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm practical light, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 206.2,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1707158160,
+  "log_tail": ".13MB/s\u001b[K\n  |##################################################| 138/138 - 465.52MB/s\u001b[K\n[I] loading tensors completed, taking 0.41s (read: 0.32s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.00s) --- model_loader.cpp:1390\n[I] latent 1 decoded, taking 20.02s --- image.cpp:620\n[I] decode_first_stage completed, taking 20.02s --- image.cpp:624\n[I] generate_image completed in 205.36s --- image.cpp:1050\n[I] ggml: ggml_metal_free: deallocating\n[I] save result image 0 to 'evidence/kahaani-chaos/e17-billing-slip-repair/beat03.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "bffc56f821c6ce411ad40f741f5994183ee0f6d022da4738ed94b427cf211e97",
+  "generation": {
+    "origin": "local-stable-diffusion.cpp",
+    "binary_tag": "master-959-d637cfb",
+    "source_sha": "6be3adb78043130e6f1cafe59d5200a1f987be0c",
+    "backend": "Darwin arm64 Metal",
+    "weights": {
+      "diffusion": {
+        "file": "z_image_turbo-Q4_K.gguf",
+        "sha256": "14b375ab4f226bc5378f68f37e899ef3c2242b8541e61e2bc1aff40976086fbd"
+      },
+      "llm": {
+        "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597"
+      },
+      "vae": {
+        "file": "ae.safetensors",
+        "sha256": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38"
+      }
+    }
+  },
+  "production_approved": false
+}
