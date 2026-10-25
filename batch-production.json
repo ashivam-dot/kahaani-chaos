@@ -4119,6 +4119,24 @@
           "evidence": {
             "art-40189938585-0/beat00.png": "66a488887737908dc70aae10eaff06f6df9a0c33ce78ae04c297aef1a5b5130d",
             "art-40189938585-0/beat00-alt1.png": "6661b478efeeada29d5ceb44d9cc168ef18dbd676a2876146634a76c023dfae3"
+          },
+          "resolved_at": "2026-10-25T13:30:20+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "a8aebdd88909f9f46e231456cb66464385b0d051",
+            "replay": ".github/replay/sannatpur-ration-card-e11-repair.json",
+            "replay_sha256": "c7d92aa88ee6599032f7ddde3a12ee16227d112713ce78b9a182ec9535112a11",
+            "selected_images": {
+              "0": "edef7e9318e41e764fef2ac77f1c2bc377e944b6003fc9747453f5dc0213488e",
+              "1": "e11bb35b22b08c442ae5c0df35580f97cfdcc097c3aaf93c4a18f55cf9e189ef",
+              "2": "42c87318df199767600b5354eb8dfef3f6d5b38a2a7d43a8228098f624c2b25c",
+              "3": "f212239c7a0dad3e4dd0b18e99691c78a70df4f64b1dacce81240f1fca19e6cd",
+              "4": "1a38c871620a208bf70da4473ec0c7bb9060633c594a394090c2ab4e9971c953",
+              "5": "a57976d229f3254231f0cb735729274b0c4018b12d94dde9f247c434d087c0b4",
+              "6": "d6bb8573c744ecf5c27efd7c65f8e9f39b05e02b1013c7a9a7d0816cd99e7df5"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -4129,6 +4147,24 @@
           "evidence": {
             "art-40189938585-3/beat03.png": "c5ce0500da50c86ab233b56b5f070f6c667a57428c72f655fa4b7e4565ffd61c",
             "art-40189938585-3/beat03-alt1.png": "ae68c1be4d2a15db2fd790ba668e2dc250649a5859637c472473feabd7fc2851"
+          },
+          "resolved_at": "2026-10-25T13:30:20+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "a8aebdd88909f9f46e231456cb66464385b0d051",
+            "replay": ".github/replay/sannatpur-ration-card-e11-repair.json",
+            "replay_sha256": "c7d92aa88ee6599032f7ddde3a12ee16227d112713ce78b9a182ec9535112a11",
+            "selected_images": {
+              "0": "edef7e9318e41e764fef2ac77f1c2bc377e944b6003fc9747453f5dc0213488e",
+              "1": "e11bb35b22b08c442ae5c0df35580f97cfdcc097c3aaf93c4a18f55cf9e189ef",
+              "2": "42c87318df199767600b5354eb8dfef3f6d5b38a2a7d43a8228098f624c2b25c",
+              "3": "f212239c7a0dad3e4dd0b18e99691c78a70df4f64b1dacce81240f1fca19e6cd",
+              "4": "1a38c871620a208bf70da4473ec0c7bb9060633c594a394090c2ab4e9971c953",
+              "5": "a57976d229f3254231f0cb735729274b0c4018b12d94dde9f247c434d087c0b4",
+              "6": "d6bb8573c744ecf5c27efd7c65f8e9f39b05e02b1013c7a9a7d0816cd99e7df5"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -4324,5 +4360,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T13:27:52+00:00"
+  "updated_at": "2026-10-25T13:30:20+00:00"
 }
