@@ -5217,7 +5217,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/e24-reviewed-telegraph-hook-repair.json"
       },
-      "stage": "building",
+      "stage": "reviewed",
       "attempts": 3,
       "editorial_holds": [
         {
@@ -5490,7 +5490,8 @@
           ],
           "issues": []
         }
-      }
+      },
+      "archive": "batch-reviewed-40226427859"
     }
   ],
   "halted": null,
@@ -5501,7 +5502,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T19:45:17+00:00",
+  "updated_at": "2026-10-25T19:45:24+00:00",
   "measurement": {
     "at": "2026-10-25T19:43:16+00:00",
     "ok": true,
