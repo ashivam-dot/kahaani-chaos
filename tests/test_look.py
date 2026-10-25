@@ -73,6 +73,18 @@ def test_a_writing_watchman_is_not_also_told_to_carry_the_register_and_lantern()
     assert "unlit brass hurricane lantern" in p and look.DAWN_STYLE in p
 
 
+def test_pencil_register_scene_does_not_demand_an_extra_carrier_hand():
+    # Actual e10 cloud/local paintings added a third arm to carry the cast's lantern.
+    scene = ("Inside the post office, Jhabbu sits at the sorting table with his red-bound khaki register "
+             "open under the gentle lantern beam, pencil in hand as soft moonlight touches his shoulder.")
+    prompt = look.prompt(scene, [{"name": "jhabbu"}], [{"id": "jhabbu", "name": "Jhabbu"}])
+    assert "Exactly one person, Jhabbu, seated and writing" in prompt
+    assert "under one arm" not in prompt and "holding a brass hurricane lantern" not in prompt
+    assert "red woollen muffler" in prompt and "lantern and bamboo staff" in prompt
+    carrying = look.character({'id': 'jhabbu'}, 'Jhabbu raises his lantern by the sorting table.')
+    assert 'holding a brass hurricane lantern' in carrying
+
+
 def test_the_scene_never_calls_the_cast_kids():
     from kahaani import look as lk
 

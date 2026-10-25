@@ -72,6 +72,7 @@ ALONE = "Whatever moves by itself has nobody on it, pushing, pulling or holding 
 PERSON = re.compile(r"\b(he|she|they|his|her|their|him|man|men|woman|women|young|person|people|someone|everyone|"
                     r"jhabbu|prabhat|shailesh|nuzhat|stands?|stood|sits?|sat|looks?|looking|watch\w*|point\w*)\b",
                     re.I)
+WRITING = re.compile(r"\b(writ(?:e|es|ing)|pen|ink|pencil)\b", re.I)
 
 
 # Told "no people", Z-Image still put a boy on the bicycle "rolling slowly across the bridge" in all three paintings
@@ -131,7 +132,7 @@ def character(entry: dict, scene: str = "") -> str:
     as a real animal, or the model paints an animal-headed man."""
     known = bible.cast().get(entry.get("id") or "")
     look = (known["image"] if known else entry["look"]).strip().rstrip(".")
-    if entry.get("id") == "jhabbu" and re.search(r"\b(writ(?:e|es|ing)|pen|ink)\b", scene, re.I):
+    if entry.get("id") == "jhabbu" and WRITING.search(scene):
         # The default carried props conflict with hands writing in the register. Both base/alternate
         # paintings of e02 rendered a standing carrier beside a second seated copy of the same man.
         look = look.replace("holding a brass hurricane lantern, bamboo staff with a small bell, "
@@ -172,7 +173,7 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
         parts.append("Characters: " + "; ".join(f"{character(c, scene)}, {mood or 'calm'} expression" for c, mood in present)
                      + ".")
         if len(present) == 1 and present[0][0].get("id") == "jhabbu" \
-                and re.search(r"\b(writ(?:e|es|ing)|pen|ink)\b", scene, re.I):
+                and WRITING.search(scene):
             parts.append("Exactly one person, Jhabbu, seated and writing. All details describe this same man. "
                          "Nobody else is present; his lantern and staff rest beside him.")
         parts.append(FACES)
