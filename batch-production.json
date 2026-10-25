@@ -3886,11 +3886,23 @@
             "art-40187469293-2/beat02-alt1.png": "5bdbea0431699c13f37bb5ac77d6c7ebb146b68e1008441879e733f8fd0012a2",
             "art-40187469293-2/beat02-alt2.png": "56d8a3bc2afaafb007e99d7274e3bcafb6c5f64636f971b915ad3b36ca38e38f"
           }
+        },
+        {
+          "id": "e13-letter-reveal-hold",
+          "run_id": 40187469293,
+          "observed_at": "2026-10-25T12:10:00+00:00",
+          "reason": "The beat03 letter reveal has an unsupported floating flashlight in its base, a duplicate character in alt1, and stick-like bucket bundles rather than envelope letters across the paintings. Preserve every spoken line and accepted siblings; repair only this letter-reading scene. All current picture, narrator, render and full audiovisual checks remain required.",
+          "evidence": {
+            "art-40187469293-3/beat03.png": "f0cc68c5001c0b76769dde024eab1ed72c7fe90a072c1c493aa5edd976a5594a",
+            "art-40187469293-3/beat03-alt1.png": "301cd073157274e9b863d2dad8ff4ad3222e23f390bec5171943867804c7d289",
+            "art-40187469293-3/beat03-alt2.png": "2e8dbc5cdd997002077899dc2f6894b0d77abc8cb0f72d05637a0d18778c5503"
+          }
         }
       ],
       "problems": [
         "The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.",
-        "All three beat02 paintings show Nuzhat holding her flashlight rather than pulling the well rope, and add a lantern where the flashlight resting on the parapet must be the only practical light. Preserve every spoken line and accepted siblings; replace only this action/detail scene. All current picture, narrator, render and full audiovisual checks remain required."
+        "All three beat02 paintings show Nuzhat holding her flashlight rather than pulling the well rope, and add a lantern where the flashlight resting on the parapet must be the only practical light. Preserve every spoken line and accepted siblings; replace only this action/detail scene. All current picture, narrator, render and full audiovisual checks remain required.",
+        "The beat03 letter reveal has an unsupported floating flashlight in its base, a duplicate character in alt1, and stick-like bucket bundles rather than envelope letters across the paintings. Preserve every spoken line and accepted siblings; repair only this letter-reading scene. All current picture, narrator, render and full audiovisual checks remain required."
       ]
     },
     {
@@ -4020,7 +4032,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e13: The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.; All three beat02 paintings show Nuzhat holding her flashlight rather than pulling the well rope, and add a lantern where the flashlight resting on the parapet must be the only practical light. Preserve every spoken line and accepted siblings; replace only this action/detail scene. All current picture, narrator, render and full audiovisual checks remain required.",
+  "halted": "Repair held entry e13: The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.; All three beat02 paintings show Nuzhat holding her flashlight rather than pulling the well rope, and add a lantern where the flashlight resting on the parapet must be the only practical light. Preserve every spoken line and accepted siblings; replace only this action/detail scene. All current picture, narrator, render and full audiovisual checks remain required.; The beat03 letter reveal has an unsupported floating flashlight in its base, a duplicate character in alt1, and stick-like bucket bundles rather than envelope letters across the paintings. Preserve every spoken line and accepted siblings; repair only this letter-reading scene. All current picture, narrator, render and full audiovisual checks remain required.",
   "complete": false,
   "health": {
     "public": 2,
@@ -4028,5 +4040,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T12:08:38+00:00"
+  "updated_at": "2026-10-25T12:10:00+00:00"
 }
