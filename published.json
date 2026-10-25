@@ -930,5 +930,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-1351-e19",
+  "premise": "e19",
+  "title": "टॉकीज़ का वो पोस्टर… और हीरो की वो परछाईं! 🎬",
+  "subgenre": "confessed-lie",
+  "motifs": [],
+  "ending": "open-question",
+  "opening": "टॉकीज के",
+  "made_at": "2026-10-25T18:48:19+00:00",
+  "format": "micro",
+  "skeleton": "S1",
+  "resolution": "bargain",
+  "heart_type": "confessed-lie",
+  "object_token": "पोस्टर",
+  "anomaly": "पोस्टर के हीरो की परछाईं का रातोंरात एक क़दम पीछे खिसक जाना",
+  "location": "टॉकीज़ के बाहर पोस्टर वाली दीवार",
+  "place_id": "talkies",
+  "hook_strip": "पोस्टर की अनहोनी",
+  "script": "टॉकीज़ के पोस्टर पर हीरो की परछाईं पीछे छूट गई। उन्नीस सौ छियानवे, उस रात हम सन्नाटपुर टॉकीज़ के बाहर खड़े थे। नुज़हत ने टूटे शीशे वाली टॉर्च जलाई, तो वो नज़ारा साफ़ दिखा। बाप रे, ज़मीन पर मेरा अपना साया भी मुझसे पीछे छूट रहा था। झब्बू बोले—झूठ बोलने वाले की परछाईं एक क़दम पीछे चलती है; उन्होंने घर पहुँचाने के बदले सच बोलने का सौदा किया। माना कि माँ से छत पर सोने का झूठ बोला था, और घर पहुँचकर सच कहते ही साया फिर जुड़ गया। मेरा झूठ तो पकड़ा गया, पर पोस्टर वाले उस हीरो ने किससे झूठ बोला होगा?",
+  "slot": "2026-11-02T13:30:00Z",
+  "published_at": "2026-11-02T13:30:00Z",
+  "voice": "chatterbox-narrator-clone",
+  "batch_run": 40213863576,
+  "av_review_sha256": "d6f54953020c17efe97ab50540f0ea9d560ff23a74c7bf34b3128b57282e6154",
+  "video_id": "vKk1YdpX-oE",
+  "url": "https://www.youtube.com/shorts/vKk1YdpX-oE",
+  "privacy": "scheduled",
+  "publish_at": "2026-11-02T13:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "मेरा झूठ तो पकड़ा गया, पर पोस्टर वाले उस हीरो ने किससे झूठ बोला होगा? 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-11-02T13:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
