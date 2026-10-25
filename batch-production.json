@@ -5281,6 +5281,24 @@
           "reason": "The current cloud picture editor accepted all six later scenes but measured the opening telegram at 25 percent of the frame, below the unchanged 30 percent minimum. Tighten only this exact opening crop to make the yellow paper the hero; preserve the accepted siblings, every spoken line and all final gates.",
           "evidence": {
             "plan-40225550383/art/beat00.png": "9091fa7a4f1e7d9bf79ce7a1da0eae19d9c7dd36c92d80d63dd59034d7dd0f22"
+          },
+          "resolved_at": "2026-10-25T19:29:21+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "62f9f387e8cb2ff2f5ae21fefdcead0cc7118b98",
+            "replay": ".github/replay/e24-reviewed-telegraph-hook-repair.json",
+            "replay_sha256": "d0367c5dfa14af47351a351ed63c73a3e2598e62abdcfb19a87fbf92e9e5cb92",
+            "selected_images": {
+              "0": "a151aa378a0ad385c5ce9b7b373d3f0f2887993d3f636ce5fc82374395de56bf",
+              "1": "02a8a97e19dd4ad9da5a4d5c95960da60010cfe738c1709fa77dfec921c84429",
+              "2": "5a60496bf27d147644f96dfa57418d39b189ec8df62fc067ba3537ae047f4335",
+              "3": "79dc388f4996ece1b1ea81f09f1ca4f628f9fecd1da01910a18c7a3d5726b315",
+              "4": "3483f495a3031e6c951638054a2de699f12ed48df70bb56c96dfeaa1edc4d21e",
+              "5": "f5d9bc6bb566d9867d3972c62a05bd13e3b8ec83c23f9823636b0772c3bf5d26",
+              "6": "df5a6f216058a579a3666657d456858d3caac4324ce490bd3796b6fa197caa09"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -5424,7 +5442,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T19:27:14+00:00",
+  "updated_at": "2026-10-25T19:29:21+00:00",
   "measurement": {
     "at": "2026-10-25T19:27:13+00:00",
     "ok": true,
