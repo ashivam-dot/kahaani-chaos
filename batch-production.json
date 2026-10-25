@@ -1111,6 +1111,23 @@
             "art-40142626858-4/beat04-alt1.png": "31a2b645d3147395dc8252367ac511521e2ab7e5749c26551258d8cc1787a2ad",
             "art-40142626858-4/beat04-alt2.png": "0c6d705998ad731fa9851592a3006a1ccee69d0916ec02d0e2bf742786ef0163",
             "art-40142626858-4/beat04.png": "2301a179da3989a3be3a21b6d702854cc93db932533373066c94b7cd59fbe74d"
+          },
+          "resolved_at": "2026-10-25T00:35:26+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "be386ced4a1e8726db88417c05e552d34f9d89dc",
+            "replay": ".github/replay/sannatpur-signal-e06-repair.json",
+            "replay_sha256": "32bb5a851f25dde3244717aed9d2f823aebcf5c68f29e99bfa6d7fd850d251c7",
+            "selected_images": {
+              "0": "48134758959421b69354c4effb19e12be5a66aac1f854ca50f98c6410e6de56f",
+              "1": "3a0c608237067fc0b8a13743eb879a68d7c8f411e314c28a7c7da643306380e5",
+              "2": "6c80431e3f0a448e80dbbe6ef3315e176c96bccefb0c89f65ed1c4e29fa3b8c2",
+              "3": "fe43b5801ff1cfd4a300802eeb77829c58f38d2c67eaf52b0a539ecbc925971a",
+              "4": "a8205abf51804fe7bba1d27e282b39fc50620220ff10ced0a62f91e54797571e",
+              "5": "411066eafaae654564c34fb2b5cb0fa6fa07567a9b047b19b6b23dbb40f229ae"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -1365,7 +1382,7 @@
     }
   ],
   "halted": "Repair held entry e06: Actual beat 2 base duplicates the mustard-sweater Prabhat into two physical people; preserve the correct alternate. All three actual beat 4 takes show only Jhabbu in khaki/red muffler waving, with no distinct retiring station master, contradicting the bank heart beat and narration. Replace only farewell painting; retain other usable art and all spoken Hindi. Full current cloud and AV checks remain mandatory.",
-  "updated_at": "2026-10-25T00:35:00+00:00",
+  "updated_at": "2026-10-25T00:35:26+00:00",
   "complete": false,
   "health": {
     "public": 1,
