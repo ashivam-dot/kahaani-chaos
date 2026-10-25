@@ -1523,15 +1523,16 @@
       "premise": "e32",
       "title": "सिलाई मशीन ने आधी रात अधूरा कुर्ता ख़ुद सीना शुरू किया 🧵 | सन्नाटपुर",
       "target": "2026-10-28T07:30:00Z",
-      "stage": "held",
+      "stage": "planned",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e32.json"
+        "replay": ".github/replay/sannatpur-sewing-e32-repair.json"
       },
       "editorial_replan": "Unbooked slot retained. Quarantine e08 after repeated exact carrom construction/action defects; use existing e32 with the same S2 skeleton, bargain resolution and loop-back ending. Original holds and all media remain excluded; no release approval.",
       "obsolete_runs": [
         40148316893,
-        40148804337
+        40148804337,
+        40154809245
       ],
       "editorial_replan_history": [
         {
@@ -1542,73 +1543,7 @@
           "release_approval": false
         }
       ],
-      "source_sha": "3d74ac0244a14f2a83964bfdc0e16fc7572fd64a",
-      "before_ids": [
-        40154557845,
-        40152921322,
-        40152845611,
-        40152138336,
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847,
-        40147346342,
-        40147002904,
-        40146579288,
-        40146069336,
-        40144076354,
-        40143503135,
-        40142724972,
-        40142626858,
-        40142424645,
-        40142328302,
-        40134819856,
-        40134047227,
-        40132420577,
-        40127450982,
-        40127055413,
-        40124707293,
-        40122737348,
-        40120456012,
-        40119789283,
-        40119725595,
-        40113702992,
-        40101837936,
-        40098975134,
-        40097886586,
-        40094273058,
-        40093452412,
-        40076072866,
-        40074101662,
-        40069802174,
-        40052825389,
-        40015352420,
-        40012868945,
-        40010294493,
-        40008947633,
-        39998079552,
-        39984130378,
-        39983471528,
-        39969216681,
-        39964227699,
-        39953890527,
-        39952503586,
-        39939846588,
-        39939303531,
-        39930652897,
-        39921910994,
-        39892698527,
-        39892494946,
-        39887835447,
-        39886731532,
-        39878445511,
-        39866905046
-      ],
-      "submitted_at": "2026-10-25T02:32:02+00:00",
       "attempts": 1,
-      "run_id": 40154809245,
-      "cloud_status": "in_progress",
       "editorial_holds": [
         {
           "id": "direct-empty-tailor-stall-40154809245",
@@ -1696,11 +1631,25 @@
           }
         }
       ],
-      "problems": [
-        "Beat 2 narration says nobody is at the tailor station, but all three exact paintings show Jhabbu standing beside the machine. The draft incorrectly lists him in people merely because the scene mentions his lantern. Repair this scene to an unattended lantern and empty station, preserving every spoken line and usable sibling.",
-        "Both available hook paintings include an operator hand on the khaki cloth although the self-running-machine scene is object-only. Refuse these exact bytes; rebuild only the close-up scene with an unoccupied sewing station. Preserve the full spoken story.",
-        "Both available garment-reveal paintings prominently feature Jhabbu instead of the planned finished-kurta close-up; both early exact-image checks already refuse this staging. Repair only this object-reveal scene and inconsistent people annotation; preserve every spoken line and passing siblings."
-      ]
+      "repair_history": [
+        {
+          "run_id": 40154809245,
+          "source_sha": "3d74ac0244a14f2a83964bfdc0e16fc7572fd64a",
+          "stage": "held",
+          "problems": [
+            "Beat 2 narration says nobody is at the tailor station, but all three exact paintings show Jhabbu standing beside the machine. The draft incorrectly lists him in people merely because the scene mentions his lantern. Repair this scene to an unattended lantern and empty station, preserving every spoken line and usable sibling.",
+            "Both available hook paintings include an operator hand on the khaki cloth although the self-running-machine scene is object-only. Refuse these exact bytes; rebuild only the close-up scene with an unoccupied sewing station. Preserve the full spoken story.",
+            "Both available garment-reveal paintings prominently feature Jhabbu instead of the planned finished-kurta close-up; both early exact-image checks already refuse this staging. Repair only this object-reveal scene and inconsistent people annotation; preserve every spoken line and passing siblings."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e32.json"
+          }
+        }
+      ],
+      "repair_queued_at": "2026-10-25T03:26:13+00:00",
+      "repair_source_sha": "87de2d7ab5816ab90077c7211471018153029984",
+      "repair_reason": "Replace only the hook, empty-station and finished-garment paintings after exact original takes introduced hands or an unplanned watchman. All seven cached inputs match current story and prompts; all speech and four passing siblings remain. Current cloud picture, voice, render and complete AV checks remain mandatory; queue at normal capacity."
     },
     {
       "repo": "kahaani-chaos",
@@ -1975,7 +1924,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e32: Beat 2 narration says nobody is at the tailor station, but all three exact paintings show Jhabbu standing beside the machine. The draft incorrectly lists him in people merely because the scene mentions his lantern. Repair this scene to an unattended lantern and empty station, preserving every spoken line and usable sibling.; Both available hook paintings include an operator hand on the khaki cloth although the self-running-machine scene is object-only. Refuse these exact bytes; rebuild only the close-up scene with an unoccupied sewing station. Preserve the full spoken story.; Both available garment-reveal paintings prominently feature Jhabbu instead of the planned finished-kurta close-up; both early exact-image checks already refuse this staging. Repair only this object-reveal scene and inconsistent people annotation; preserve every spoken line and passing siblings.",
+  "halted": null,
   "complete": false,
   "health": {
     "public": 1,
@@ -1983,7 +1932,7 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T03:26:09+00:00",
+  "updated_at": "2026-10-25T03:26:13+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
