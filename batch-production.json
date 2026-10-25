@@ -5516,14 +5516,14 @@
     }
   ],
   "halted": null,
-  "complete": false,
+  "complete": true,
   "health": {
     "public": 3,
-    "scheduled": 17,
-    "held": 1,
+    "scheduled": 18,
+    "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T19:46:07+00:00",
+  "updated_at": "2026-10-25T19:46:08+00:00",
   "measurement": {
     "at": "2026-10-25T19:43:16+00:00",
     "ok": true,
