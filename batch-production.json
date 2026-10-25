@@ -5273,6 +5273,15 @@
             "release_approval": false,
             "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
+        },
+        {
+          "id": "e24-hook-subject-area-held",
+          "run_id": 40225550383,
+          "observed_at": "2026-10-25T19:25:30+00:00",
+          "reason": "The current cloud picture editor accepted all six later scenes but measured the opening telegram at 25 percent of the frame, below the unchanged 30 percent minimum. Tighten only this exact opening crop to make the yellow paper the hero; preserve the accepted siblings, every spoken line and all final gates.",
+          "evidence": {
+            "plan-40225550383/art/beat00.png": "9091fa7a4f1e7d9bf79ce7a1da0eae19d9c7dd36c92d80d63dd59034d7dd0f22"
+          }
         }
       ],
       "repair_history": [
@@ -5403,11 +5412,11 @@
       "run_id": 40225550383,
       "cloud_status": "completed",
       "problems": [
-        "ValueError: preview did not make a finished passing Short"
+        "The current cloud picture editor accepted all six later scenes but measured the opening telegram at 25 percent of the frame, below the unchanged 30 percent minimum. Tighten only this exact opening crop to make the yellow paper the hero; preserve the accepted siblings, every spoken line and all final gates."
       ]
     }
   ],
-  "halted": "Repair held entry e24: ValueError: preview did not make a finished passing Short",
+  "halted": "Repair held entry e24: The current cloud picture editor accepted all six later scenes but measured the opening telegram at 25 percent of the frame, below the unchanged 30 percent minimum. Tighten only this exact opening crop to make the yellow paper the hero; preserve the accepted siblings, every spoken line and all final gates.",
   "complete": false,
   "health": {
     "public": 3,
@@ -5415,7 +5424,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T19:24:17+00:00",
+  "updated_at": "2026-10-25T19:25:30+00:00",
   "measurement": {
     "at": "2026-10-25T19:24:16+00:00",
     "ok": true,
