@@ -468,5 +468,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-0233-e32",
+  "premise": "e32",
+  "title": "सिलाई मशीन ने आधी रात अधूरा कुर्ता ख़ुद सीना शुरू किया 🧵 | सन्नाटपुर",
+  "subgenre": "kindness",
+  "motifs": [],
+  "ending": "loop-back",
+  "opening": "दर्जी की",
+  "made_at": "2026-10-25T04:21:37+00:00",
+  "format": "micro",
+  "skeleton": "S2",
+  "resolution": "bargain",
+  "heart_type": "kindness",
+  "object_token": "सिलाई",
+  "anomaly": "मशीन का रात में अपने-आप चलकर एक अधूरा कुर्ता सीना",
+  "location": "टीन-शेड वाले दर्ज़ी का ठिया",
+  "place_id": "haat",
+  "hook_strip": "चलती हुई सुई",
+  "script": "दर्ज़ी की सिलाई मशीन रात में अपने-आप चलने लगी। उन्नीस सौ छियानवे, उस रात हाट की सिलाई मशीन से खटर-खटर की आवाज़ आई। खाली ठिये पर कोई नहीं था, बस सुई के नीचे एक खाकी कुर्ता खिसक रहा था। झब्बू बोले कि रात को अधूरा काम पूरा कर दो, तो रात चुप हो जाती है। नुज़हत को सिलाई से चिढ़ थी, पर उसने झब्बू के लिए आख़िरी तुरपाई ख़ुद कर दी। वो कुर्ता झब्बू का ही था, जो दर्ज़ी बरसों पहले उनके लिए बना रहा था। काम पूरा होते ही, हाट की सिलाई मशीन फिर से एकदम खामोश हो गई।",
+  "slot": "2026-10-28T07:30:00Z",
+  "published_at": "2026-10-28T07:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40159235547,
+  "av_review_sha256": "e6399f4799503482116c71f439c79748865dc6fa591f33cbceb9833c2653c716",
+  "video_id": "GDrfdpwhdtw",
+  "url": "https://www.youtube.com/shorts/GDrfdpwhdtw",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-28T07:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-10-28T07:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
