@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import json
 
-from . import bible, gate, gemini, llm, variation
+from . import bible, gate, gemini, hindi, llm, variation
 
 REPAIRS = 2
 
@@ -215,11 +215,21 @@ def messages(premise: dict, history: list[dict], problems: list[str] | None = No
                          openings=", ".join(f"'{o}'" for o in openings) or "(none yet)")
     out = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": brief}]
     if problems and previous:
+        hook_help = ""
+        hook = (previous.get("beats") or [{}])[0].get("text", "")
+        if len(hindi.words(hook)) > gate.HOOK_WORDS:
+            counted = " | ".join(f"{i}: {word}" for i, word in enumerate(hindi.words(hook), 1))
+            hook_help = f"\nThe actual Hindi hook tokens are: {counted}."
+            bank_hook = premise.get("hook_line", "")
+            if bank_hook and len(hindi.words(bank_hook)) <= gate.HOOK_WORDS:
+                hook_help += (f"\nUse this bank opening verbatim as beat 1's spoken text: {bank_hook}"
+                              f"\nIt has {len(hindi.words(bank_hook))} Hindi words. Do not add a name or setup "
+                              "to that line. Preserve the other valid story beats while fixing the listed checks.")
         out += [{"role": "assistant", "content": json.dumps(untidy(previous), ensure_ascii=False)},
                 {"role": "user", "content": "Your draft failed these checks. Fix every one and return the full "
                                             "corrected JSON, every beat's text, scene and people written out in "
                                             "full even where nothing changed:\n"
-                                            + "\n".join(f"- {p}" for p in problems)}]
+                                            + "\n".join(f"- {p}" for p in problems) + hook_help}]
     return out
 
 

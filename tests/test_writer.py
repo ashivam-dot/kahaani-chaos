@@ -41,6 +41,25 @@ def test_gate_problems_are_sent_back_for_a_repair():
     assert repair[-2]["role"] == "assistant" and "the hook" in repair[-1]["content"]
 
 
+def test_overlong_hindi_hook_repair_supplies_exact_valid_bank_opening():
+    from kahaani import hindi
+
+    entry = next(p for p in premises.bank() if p["id"] == "e07")
+    premise = premises.premise_for(entry, [])
+    previous = writer.tidy(long_hook())
+    message = writer.messages(premise, [], ["beat 1 (the hook) has 11 words; at most 10"], previous)[-1]["content"]
+    assert len(hindi.words(premise["hook_line"])) == 10
+    assert f"verbatim as beat 1's spoken text: {premise['hook_line']}" in message
+    assert "actual Hindi hook tokens" in message and "1: उस" in message
+    assert previous["beats"][0]["text"] == long_hook()["beats"][0]["text"]
+
+
+def test_overlong_bank_hook_is_never_offered_as_a_valid_repair():
+    premise = {**PREMISE, "hook_line": long_hook()["beats"][0]["text"]}
+    message = writer.messages(premise, [], ["overlong hook"], writer.tidy(long_hook()))[-1]["content"]
+    assert "actual Hindi hook tokens" in message and "Use this bank opening verbatim" not in message
+
+
 def test_editor_problems_are_sent_back_for_a_repair():
     unclear = {**EDITOR_OK, "rule_clear": False, "problems": ["Beat 4 should say what Jhabbu tells them."]}
     room = Room([draft(), draft()], [unclear, EDITOR_OK])
