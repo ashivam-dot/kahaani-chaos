@@ -4635,9 +4635,9 @@
       "target": "2026-11-02T13:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e19.json"
+        "replay": ".github/replay/e19-reviewed-poster-shadow-repair.json"
       },
-      "stage": "held",
+      "stage": "planned",
       "attempts": 2,
       "repair_history": [
         {
@@ -4678,80 +4678,28 @@
             ],
             "publishable": false
           }
+        },
+        {
+          "run_id": 40199355603,
+          "source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f",
+          "stage": "held",
+          "problems": [
+            "The opening shows a physical human in the street instead of the planned painted cinema poster; beat2 copies character metadata as labels or split panels and omits the illuminated poster. Repair only refused scenes with clean visual directions, preserve narration and accepted siblings, and retain all current release gates."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e19.json"
+          },
+          "repair_reason": "The actual drafts exceed the four-character limit and invent an unmotivated bargain with a projector operator. Clarify only the bank logline: three necessary visible cast, a simple supported bargain with Jhabbu that leads to the existing confessed lie and a complete personal payoff. Preserve every other bank field, original hook, rule, title, anomaly and rotation. The writer now sees its existing four-character limit explicitly. No refused draft is accepted; all normal writer, editor, picture, voice and audiovisual gates remain."
         }
       ],
       "obsolete_runs": [
-        40197721800
-      ],
-      "repair_queued_at": "2026-10-25T13:39:27+00:00",
-      "repair_source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f",
-      "repair_reason": "The actual drafts exceed the four-character limit and invent an unmotivated bargain with a projector operator. Clarify only the bank logline: three necessary visible cast, a simple supported bargain with Jhabbu that leads to the existing confessed lie and a complete personal payoff. Preserve every other bank field, original hook, rule, title, anomaly and rotation. The writer now sees its existing four-character limit explicitly. No refused draft is accepted; all normal writer, editor, picture, voice and audiovisual gates remain.",
-      "source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f",
-      "before_ids": [
-        40198599502,
-        40198506719,
-        40198165103,
         40197721800,
-        40197267045,
-        40196244177,
-        40192580429,
-        40192011575,
-        40189938585,
-        40187818735,
-        40187469293,
-        40185173569,
-        40183523788,
-        40183199244,
-        40180766036,
-        40180081031,
-        40180078790,
-        40178234124,
-        40177715903,
-        40176769163,
-        40176488651,
-        40174740535,
-        40172748055,
-        40172736622,
-        40171278752,
-        40171159505,
-        40170263222,
-        40169893361,
-        40169378463,
-        40169098001,
-        40168832723,
-        40168763687,
-        40164083384,
-        40162491442,
-        40162007872,
-        40160199731,
-        40159235547,
-        40158580419,
-        40158338472,
-        40157308891,
-        40155939996,
-        40154809245,
-        40154557845,
-        40152921322,
-        40152845611,
-        40152138336,
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847,
-        40147346342,
-        40147002904,
-        40146579288,
-        40146069336,
-        40144076354,
-        40143503135,
-        40142724972,
-        40142626858,
-        40142424645
+        40199355603
       ],
-      "submitted_at": "2026-10-25T13:49:07+00:00",
-      "run_id": 40199355603,
-      "cloud_status": "queued",
+      "repair_queued_at": "2026-10-25T15:59:56+00:00",
+      "repair_source_sha": "3f2cc5c792281ce05d01aaf9b8aba181bb1877e2",
+      "repair_reason": "All seven exact reviewed source scenes are staged with original narration. Reuse the framed poster/shadow recomposition, faithful character inserts, original accepted beat1 and reviewed homecoming alternate. Preserve raw refusals; current cloud picture, voice, render and complete audiovisual gates must pass.",
       "editorial_holds": [
         {
           "id": "e19-poster-schema-held",
@@ -4785,9 +4733,6 @@
             "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
-      ],
-      "problems": [
-        "The opening shows a physical human in the street instead of the planned painted cinema poster; beat2 copies character metadata as labels or split panels and omits the illuminated poster. Repair only refused scenes with clean visual directions, preserve narration and accepted siblings, and retain all current release gates."
       ]
     },
     {
@@ -4999,7 +4944,7 @@
       "submitted_at": "2026-10-25T15:58:12+00:00"
     }
   ],
-  "halted": "Repair held entry e19: The opening shows a physical human in the street instead of the planned painted cinema poster; beat2 copies character metadata as labels or split panels and omits the illuminated poster. Repair only refused scenes with clean visual directions, preserve narration and accepted siblings, and retain all current release gates.",
+  "halted": "Repair held entry e14: Direct review of the exact produced plan finds beat4 naming three visible walkers while declaring only Jhabbu, and beat5 introducing a visible unregistered father despite the approved offscreen-only brief. The hashtag list also contains stray CJK separators. Repair only visual4/5 and hashtag formatting, preserve every spoken line and accepted art; all current release gates remain.",
   "complete": false,
   "health": {
     "public": 3,
@@ -5007,7 +4952,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T15:59:51+00:00",
+  "updated_at": "2026-10-25T15:59:56+00:00",
   "measurement": {
     "at": "2026-10-25T15:58:05+00:00",
     "ok": true,
