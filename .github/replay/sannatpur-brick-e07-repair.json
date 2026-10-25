@@ -1,0 +1,159 @@
+{
+  "id": "kc-20261025-0059-e07",
+  "premise": "e07",
+  "title": "भट्ठे की ईंटें गिनीं… और हर बार एक ज़्यादा निकली! 🧱",
+  "hook": "भट्ठे की ईंटें गिनते ही एक ईंट ज़्यादा निकल आती।",
+  "beats": [
+    {
+      "text": "भट्ठे की ईंटें गिनते ही एक ईंट ज़्यादा निकल आती।",
+      "scene": "Object-only close-up of a small stack of raw clay bricks at the cold brick kiln. A single extra clay brick protrudes sideways from the top of the orderly stack. Rough blank clay surfaces are lit by a warm lantern just outside the frame against cold blue moonlight. Empty kiln chimney blurred in the distance. No people or human body parts.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात हम मुंशी के कहने पर पूरब वाले ठंडे ढेर की ईंटें गिन रहे थे।",
+      "scene": "At the brick kiln, young man prabhat in his mustard sweater and young woman nuzhat with her green dupatta stand by a large pile of bricks. Young man shailesh wears his red cricket cap and carries a transistor. Nuzhat holds a torch.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "curious"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "serious"
+        },
+        {
+          "name": "shailesh",
+          "expression": "busy"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "शैलेश ने सत्तर गिनी, नुज़हत ने इकहत्तर और मैंने बहत्तर; जबकि वहाँ सिर्फ़ उनहत्तर ईंटें थीं।",
+      "scene": "Shailesh looks panicked, pointing his finger at the bricks while his transistor hangs from his shoulder at the brick kiln. Nuzhat shines the torch directly on the stack of bricks. The tall chimney of the brick kiln looms in the background.",
+      "people": [
+        {
+          "name": "shailesh",
+          "expression": "scared"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "concentrated"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "शैलेश डरकर भागने लगा, पर नुज़हत ने हाथ पकड़ लिया क्योंकि रात की गिनती अधूरी छोड़ना मना है।",
+      "scene": "Exactly two separate people at the cold brick kiln. Nuzhat, wearing her bottle-green dupatta, stands on the left and firmly holds Shailesh by one wrist. Shailesh, wearing his faded red cricket cap and striped shirt with the transistor in its brown shoulder case, leans back toward the open path. Their silhouettes are separate and their arms have natural anatomy. A metal flashlight lies on a flat brick stack, casting a split pale beam across the ground. No third person. Faces turned three-quarters away.",
+      "people": [
+        {
+          "name": "nuzhat",
+          "expression": "determined"
+        },
+        {
+          "name": "shailesh",
+          "expression": "anxious"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "नियम चौदह के मुताबिक़ हमने थकी हुई नुज़हत की बात मानी और बारी-बारी से आख़िरी ईंट तक गिना।",
+      "scene": "Nuzhat alone at the cold brick kiln, wearing her bottle-green dupatta and a long plait, seen three-quarters from behind. She holds one raw clay brick in both hands at waist height. Its smooth blank reverse face is toward the camera, completely unmarked; the opposite face is turned away and invisible. A metal flashlight rests securely on a level brick stack beside her, casting a split pale beam on the blank clay. No other person, no writing or marks anywhere.",
+      "people": [
+        {
+          "name": "nuzhat",
+          "expression": "thoughtful"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उस आख़िरी ईंट पर किसी पुराने मज़दूर का नाम लिखा था जिसकी मज़दूरी मुंशी खा गया था, पर वो नाम आज रात वहाँ लिखा किसने?",
+      "scene": "The elderly man jhabbu stands in the distance at the brick kiln, his red muffler bright under his lantern's glow. Young man prabhat and young woman nuzhat look towards the dark chimney, holding the marked brick.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "calm"
+        },
+        {
+          "name": "prabhat",
+          "expression": "puzzled"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "serious"
+        }
+      ],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "jhabbu",
+      "name": "झब्बू",
+      "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+    },
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    }
+  ],
+  "subgenre": "kindness",
+  "ending": "open-question",
+  "twist_beat": 4,
+  "description": "भट्ठे के ठंडे ढेर पर मुंशी की ईंटें गिनते हुए हर बार गिनती एक ज़्यादा आती है। क्या ये कोई पुरानी उधारी का हिसाब था?",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य",
+    "#ईंटें"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "gates",
+        "problems": [
+          "beat 6 expression touches ritual ('grave')",
+          "beat 6 touches a red line: religion ('खुदा'); remove that word, even in an exclamation or idiom (say हाय, बाप रे or अरे instead of हे भगवान or या खुदा)"
+        ]
+      },
+      {
+        "attempt": 1,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "एक ईंट ज़्यादा",
+  "object_token": "ईंटें",
+  "anomaly": "गिनने पर हर बार एक ईंट ज़्यादा निकलना",
+  "niyam_id": "N14",
+  "resolution": "outsmart",
+  "heart_beat": 5,
+  "heart_type": "kindness",
+  "skeleton": "S1",
+  "location": "ठंडा पड़ा पूरब वाला ढेर",
+  "place_id": "bhatta"
+}

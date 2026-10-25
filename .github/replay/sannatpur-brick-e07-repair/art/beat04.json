@@ -1,0 +1,35 @@
+{
+  "story": "kc-20261025-0059-e07",
+  "beat": 4,
+  "alt": 0,
+  "prompt": "Nuzhat alone at the cold brick kiln, wearing her bottle-green dupatta and a long plait, seen three-quarters from behind. She holds one raw clay brick in both hands at waist height. Its smooth blank reverse face is toward the camera, completely unmarked; the opposite face is turned away and invisible. A metal flashlight rests securely on a level brick stack beside her, casting a split pale beam on the blank clay. No other person, no writing or marks anywhere. Characters: Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, thoughtful expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 194.4,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1380080314,
+  "log_tail": "#####| 138/138 - 463.24MB/s\u001b[K\n[I] loading tensors completed, taking 0.41s (read: 0.34s, memcpy: 0.00s, convert: 0.01s, copy_to_backend: 0.00s) --- model_loader.cpp:1390\n[I] latent 1 decoded, taking 16.00s --- image.cpp:620\n[I] decode_first_stage completed, taking 16.00s --- image.cpp:624\n[I] generate_image completed in 192.97s --- image.cpp:1050\n[I] ggml: ggml_metal_free: deallocating\n[I] save result image 0 to '/Users/ashivam/Desktop/YouTube/strategy-implementation-2026-10-24/evidence/kahaani-chaos/e07-local-repair/beat04.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "1cbe4bd172aad311b32790abf4a76349e104af23a9864a1ec69ea66e56a1b527",
+  "generation": {
+    "origin": "local-stable-diffusion.cpp",
+    "binary_tag": "master-959-d637cfb",
+    "source_sha": "f70bd66602e263a3c342469fba009cd9d1c7889c",
+    "backend": "Darwin arm64 Metal",
+    "weights": {
+      "diffusion": {
+        "file": "z_image_turbo-Q4_K.gguf",
+        "sha256": "14b375ab4f226bc5378f68f37e899ef3c2242b8541e61e2bc1aff40976086fbd"
+      },
+      "llm": {
+        "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597"
+      },
+      "vae": {
+        "file": "ae.safetensors",
+        "sha256": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38"
+      }
+    }
+  },
+  "production_approved": false
+}
