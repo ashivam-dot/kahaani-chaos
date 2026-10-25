@@ -2862,7 +2862,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-ticket-e12-repair.json"
       },
-      "stage": "upload_intent",
+      "stage": "scheduled",
       "attempts": 2,
       "editorial_holds": [
         {
@@ -3030,7 +3030,26 @@
       },
       "archive": "batch-reviewed-40169098001",
       "intended_publish_at": "2026-10-30T07:30:00Z",
-      "upload_intent_at": "2026-10-25T06:59:25+00:00"
+      "upload_intent_at": "2026-10-25T06:59:25+00:00",
+      "delivery": {
+        "video_id": "Dg6qVmjCwj4",
+        "url": "https://www.youtube.com/shorts/Dg6qVmjCwj4",
+        "privacy": "scheduled",
+        "publish_at": "2026-10-30T07:30:00Z",
+        "synthetic_declared": true,
+        "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+        "comment": "pending: HTTP 403",
+        "playlist": "skipped: no playlist",
+        "owner_readback": {
+          "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+          "privacyStatus": "private",
+          "publishAt": "2026-10-30T07:30:00Z",
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false,
+          "containsSyntheticMedia": null,
+          "uploadStatus": "processed"
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -3215,5 +3234,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T06:59:25+00:00"
+  "updated_at": "2026-10-25T07:00:24+00:00"
 }

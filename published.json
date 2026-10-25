@@ -636,5 +636,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-0505-e12",
+  "premise": "e12",
+  "title": "टिकट आख़िरी बस की ख़ाली सीट पर कौन रख गया? 🎫",
+  "subgenre": "confessed-lie",
+  "motifs": [],
+  "ending": "register-line",
+  "opening": "खाली बस",
+  "made_at": "2026-10-25T07:00:24+00:00",
+  "format": "micro",
+  "skeleton": "S3",
+  "resolution": "bargain",
+  "heart_type": "confessed-lie",
+  "object_token": "टिकट",
+  "anomaly": "ख़ाली बस की एक सीट पर पहले से कटा टिकट रखा मिलना",
+  "location": "टीन की छत वाला आख़िरी स्टैंड",
+  "place_id": "busadda",
+  "hook_strip": "बस का अनसुना क़र्ज़",
+  "script": "ख़ाली बस की सीट पर कटा टिकट पड़ा था। उन्नीस सौ छियानवे, उस रात टीन की छत वाले बस अड्डे पर सन्नाटा पसरा था। शैलेश हँसते हुए उसी सीट पर जा बैठा, और बस की पीली बत्ती अपने-आप जल उठी। झब्बू काका ने लाठी ठटकाई कि रात की सीट किसी की होती है, बिना किराया दिए नहीं उठ सकते। शैलेश ने आँखें झुकाकर माना कि वो दर्जनों बार बिना टिकट शहर भागा था। उसने डरते हुए समोसे वाले चार रुपये कंडक्टर की लोहे की पेटी में डाल दिए। बत्ती बुझ गई, और झब्बू काका ने लाल रजिस्टर में लिख दिया कि पुराना हिसाब बराबर हुआ।",
+  "slot": "2026-10-30T07:30:00Z",
+  "published_at": "2026-10-30T07:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40169098001,
+  "av_review_sha256": "ce55cea3a877ca22d209ef72f3ac3ad3f42b096b9bef3d286981d381daf02956",
+  "video_id": "Dg6qVmjCwj4",
+  "url": "https://www.youtube.com/shorts/Dg6qVmjCwj4",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-30T07:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-10-30T07:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
