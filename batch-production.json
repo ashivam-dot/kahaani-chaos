@@ -1672,7 +1672,7 @@
       ],
       "submitted_at": "2026-10-25T02:49:52+00:00",
       "run_id": 40155939996,
-      "cloud_status": "in_progress"
+      "cloud_status": "completed"
     },
     {
       "repo": "kahaani-chaos",
@@ -1827,7 +1827,7 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T03:08:12+00:00",
+  "updated_at": "2026-10-25T03:08:14+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
