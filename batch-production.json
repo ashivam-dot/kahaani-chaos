@@ -1102,10 +1102,13 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-signal-e06-repair.json"
       },
-      "stage": "held",
-      "attempts": 2,
-      "source_sha": "be386ced4a1e8726db88417c05e552d34f9d89dc",
+      "stage": "dispatch_unresolved",
+      "attempts": 3,
+      "source_sha": "ea5ee448e55ee90447597e4f691d878c021a8767",
       "before_ids": [
+        40148316893,
+        40147867847,
+        40147346342,
         40147002904,
         40146579288,
         40146069336,
@@ -1199,7 +1202,7 @@
         38439489788,
         38428830025
       ],
-      "submitted_at": "2026-10-25T00:36:19+00:00",
+      "submitted_at": "2026-10-25T00:56:19+00:00",
       "cloud_status": "completed",
       "editorial_holds": [
         {
@@ -1244,16 +1247,26 @@
             "mode": "dry-run",
             "replay": ".github/replay/batch-2026-10-25/e06.json"
           }
+        },
+        {
+          "run_id": 40147346342,
+          "source_sha": "be386ced4a1e8726db88417c05e552d34f9d89dc",
+          "stage": "held",
+          "problems": [
+            "production run failure"
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/sannatpur-signal-e06-repair.json"
+          },
+          "repair_reason": "Retain five usable original paintings and exact spoken Hindi; replace farewell with distinct retiring station master waving and Jhabbu watching, and exclude duplicated-Prabhat base in favor of correct original alternate. All six beats and prepared opening pass preflight; current cloud, voice, render and full AV checks remain mandatory."
         }
       ],
       "obsolete_runs": [
-        40142626858
+        40142626858,
+        40147346342
       ],
-      "repair_reason": "Retain five usable original paintings and exact spoken Hindi; replace farewell with distinct retiring station master waving and Jhabbu watching, and exclude duplicated-Prabhat base in favor of correct original alternate. All six beats and prepared opening pass preflight; current cloud, voice, render and full AV checks remain mandatory.",
-      "run_id": 40147346342,
-      "problems": [
-        "production run failure"
-      ]
+      "repair_reason": "Keep exact repaired paintings and all Hindi. The prior Gemini takes heard every line but failed only modest overlong quiet pauses; source now cuts verified quiet centres outside all heard words, retains Charon and all final voice/AV gates. Full406 local tests and59 focused follow-up checks passed."
     },
     {
       "repo": "kahaani-chaos",
@@ -1615,8 +1628,8 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e06: production run failure",
-  "updated_at": "2026-10-25T00:53:10+00:00",
+  "halted": null,
+  "updated_at": "2026-10-25T00:56:19+00:00",
   "complete": false,
   "health": {
     "public": 1,
