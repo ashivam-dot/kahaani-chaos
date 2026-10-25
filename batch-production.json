@@ -4338,9 +4338,9 @@
       "target": "2026-11-02T07:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e21.json"
+        "replay": ".github/replay/e21-reviewed-moving-light-repair.json"
       },
-      "stage": "held",
+      "stage": "planned",
       "attempts": 2,
       "repair_history": [
         {
@@ -4383,80 +4383,31 @@
             ],
             "publishable": false
           }
+        },
+        {
+          "run_id": 40198599502,
+          "source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f",
+          "stage": "held",
+          "problems": [
+            "The beat02 painting substitutes a physical oil lamp resting on the chimney ledge for the planned autonomous light descending the ladder. Repair only this visual; preserve narration and accepted siblings, exclude these exact bytes, and retain every picture, narrator, render and full audiovisual gate.",
+            "The opening painting attaches two physical lantern fixtures to the chimney ladder instead of one autonomous light. Repair only this opening picture, preserving narration and accepted siblings; every current picture, voice, render and full audiovisual gate remains required.",
+            "The farewell painting places Jhabbu in the shed doorway as the departing elder, conflating him with Munshi. Replace only this scene with the three established friends outside saying goodbye toward the offscreen clerk. Preserve narration, accepted siblings and all current picture/voice/render/full audiovisual gates.",
+            "The beat4 alternate adds a second attached physical lantern on the tin door, substituting a fixed fixture for the autonomous light; the base also fails the painted house style. Repair only this scene with the established friends watching the offscreen shed. Preserve narration, accepted siblings and every current release gate."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e21.json"
+          },
+          "repair_reason": "The actual editor repeatedly invents a requirement for technology exclusive to the 1990s while the canonical bank explicitly selects the kiln chimney. Supply its exact bank object/anomaly to the editor, preserve every negative verdict and narrative/visual quality gate, shorten the canonical hook to the existing ten-word limit, and clarify the wait-until-light-stops action and complete goodbye. No rejected draft or image is approved. Another normal writer/editor/production/release attempt is required."
         }
       ],
       "obsolete_runs": [
-        40196244177
-      ],
-      "repair_queued_at": "2026-10-25T13:30:29+00:00",
-      "repair_source_sha": "a8aebdd88909f9f46e231456cb66464385b0d051",
-      "repair_reason": "The actual editor repeatedly invents a requirement for technology exclusive to the 1990s while the canonical bank explicitly selects the kiln chimney. Supply its exact bank object/anomaly to the editor, preserve every negative verdict and narrative/visual quality gate, shorten the canonical hook to the existing ten-word limit, and clarify the wait-until-light-stops action and complete goodbye. No rejected draft or image is approved. Another normal writer/editor/production/release attempt is required.",
-      "source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f",
-      "before_ids": [
-        40198506719,
-        40198165103,
-        40197721800,
-        40197267045,
         40196244177,
-        40192580429,
-        40192011575,
-        40189938585,
-        40187818735,
-        40187469293,
-        40185173569,
-        40183523788,
-        40183199244,
-        40180766036,
-        40180081031,
-        40180078790,
-        40178234124,
-        40177715903,
-        40176769163,
-        40176488651,
-        40174740535,
-        40172748055,
-        40172736622,
-        40171278752,
-        40171159505,
-        40170263222,
-        40169893361,
-        40169378463,
-        40169098001,
-        40168832723,
-        40168763687,
-        40164083384,
-        40162491442,
-        40162007872,
-        40160199731,
-        40159235547,
-        40158580419,
-        40158338472,
-        40157308891,
-        40155939996,
-        40154809245,
-        40154557845,
-        40152921322,
-        40152845611,
-        40152138336,
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847,
-        40147346342,
-        40147002904,
-        40146579288,
-        40146069336,
-        40144076354,
-        40143503135,
-        40142724972,
-        40142626858,
-        40142424645,
-        40142328302
+        40198599502
       ],
-      "submitted_at": "2026-10-25T13:39:18+00:00",
-      "run_id": 40198599502,
-      "cloud_status": "queued",
+      "repair_queued_at": "2026-10-25T15:15:33+00:00",
+      "repair_source_sha": "b3dfbc9ee67a2192ca91660f8d9dc49cde8b9711",
+      "repair_reason": "Reviewed repairs preserve all spoken text and replace only the refused chimney-light, shed-direction and farewell pictures. All current picture, narrator, render and complete audiovisual checks remain mandatory.",
       "editorial_holds": [
         {
           "id": "e21-autonomous-light-held",
@@ -4567,12 +4518,6 @@
             "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
-      ],
-      "problems": [
-        "The beat02 painting substitutes a physical oil lamp resting on the chimney ledge for the planned autonomous light descending the ladder. Repair only this visual; preserve narration and accepted siblings, exclude these exact bytes, and retain every picture, narrator, render and full audiovisual gate.",
-        "The opening painting attaches two physical lantern fixtures to the chimney ladder instead of one autonomous light. Repair only this opening picture, preserving narration and accepted siblings; every current picture, voice, render and full audiovisual gate remains required.",
-        "The farewell painting places Jhabbu in the shed doorway as the departing elder, conflating him with Munshi. Replace only this scene with the three established friends outside saying goodbye toward the offscreen clerk. Preserve narration, accepted siblings and all current picture/voice/render/full audiovisual gates.",
-        "The beat4 alternate adds a second attached physical lantern on the tin door, substituting a fixed fixture for the autonomous light; the base also fails the painted house style. Repair only this scene with the established friends watching the offscreen shed. Preserve narration, accepted siblings and every current release gate."
       ]
     },
     {
@@ -4744,7 +4689,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e21: The beat02 painting substitutes a physical oil lamp resting on the chimney ledge for the planned autonomous light descending the ladder. Repair only this visual; preserve narration and accepted siblings, exclude these exact bytes, and retain every picture, narrator, render and full audiovisual gate.; The opening painting attaches two physical lantern fixtures to the chimney ladder instead of one autonomous light. Repair only this opening picture, preserving narration and accepted siblings; every current picture, voice, render and full audiovisual gate remains required.; The farewell painting places Jhabbu in the shed doorway as the departing elder, conflating him with Munshi. Replace only this scene with the three established friends outside saying goodbye toward the offscreen clerk. Preserve narration, accepted siblings and all current picture/voice/render/full audiovisual gates.; The beat4 alternate adds a second attached physical lantern on the tin door, substituting a fixed fixture for the autonomous light; the base also fails the painted house style. Repair only this scene with the established friends watching the offscreen shed. Preserve narration, accepted siblings and every current release gate.",
+  "halted": "Repair held entry e19: The opening shows a physical human in the street instead of the planned painted cinema poster; beat2 copies character metadata as labels or split panels and omits the illuminated poster. Repair only refused scenes with clean visual directions, preserve narration and accepted siblings, and retain all current release gates.",
   "complete": false,
   "health": {
     "public": 3,
@@ -4752,7 +4697,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T15:15:27+00:00",
+  "updated_at": "2026-10-25T15:15:33+00:00",
   "measurement": {
     "at": "2026-10-25T15:11:53+00:00",
     "ok": true,
