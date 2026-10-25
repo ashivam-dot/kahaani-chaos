@@ -2,7 +2,7 @@
 
 Z-Image-Turbo (Alibaba Tongyi-MAI, Apache-2.0) Q4_K with its Qwen3-4B text encoder (Apache-2.0) and the
 FLUX.1-schnell VAE (Apache-2.0), 576x1024 in 4 steps: 11-20 minutes a picture on a free 4-vCPU runner (measured
-October 2026). Standard library only, so the paint jobs need no Python environment.
+October 2026). Generation uses the standard library; the optional early editor also needs Pillow, requests, PyYAML.
 
 python -m kahaani.imagegen fetch --root DIR
 python -m kahaani.imagegen beats --prompts art-plan.json --only 0,3 --out DIR --root DIR [--alternates 2 --budget 60]
@@ -10,11 +10,14 @@ python -m kahaani.imagegen beats --prompts art-plan.json --only 0,3 --out DIR --
 With --alternates N, a beat whose plan lists spare seeds (a cast shot) is repainted with up to N of them after its
 main painting, as beatNN-altK.png, while the job's --budget minutes still leave room for one more painting; the
 render step falls back on them when the vision check refuses the main one.
+With --review-story, an image that passes the existing picture rules can skip remaining spares. The independent
+render review still checks every selected image. Editor outages retain the usual bounded spare generation.
 """
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import shutil
@@ -133,6 +136,7 @@ def main(argv: list[str] | None = None) -> int:
     beats.add_argument("--height", type=int, default=0)
     beats.add_argument("--alternates", type=int, default=0, help="repaints per cast shot, from the plan's spare seeds")
     beats.add_argument("--budget", type=float, default=0, help="minutes this job may spend; 0 means no limit")
+    beats.add_argument("--review-story", type=Path, help="optional exact story for an early spare-generation check")
     args = parser.parse_args(argv)
     if args.command == "fetch":
         started = time.monotonic()
@@ -174,7 +178,31 @@ def main(argv: list[str] | None = None) -> int:
                                                                "prompt": beat["prompt"], **timing},
                                                               ensure_ascii=False, indent=1), encoding="utf-8")
             print(json.dumps({"beat": i, "alt": alt, "seconds": timing["seconds"], "model": model}), flush=True)
+            if alt < seeds[-1][0] and args.review_story and skip_spares(args.review_story, args.out / f"{stem}.png", i):
+                print(json.dumps({"beat": i, "alt": alt, "spares_skipped": "early picture check passed",
+                                  "final_picture_review_required": True}), flush=True)
+                break
     return 1 if failed and failed == len(wanted) else 0
+
+
+def skip_spares(story: Path, image: Path, beat: int) -> bool:
+    """Only an exact, positive early verdict skips spares; failures retain the old bounded painting path."""
+    if not os.environ.get('GEMINI_API_KEY'):
+        return False
+    try:
+        result = subprocess.run([sys.executable, '-m', 'kahaani.art_precheck', '--story', str(story),
+                                 '--image', str(image), '--beat', str(beat)],
+                                capture_output=True, text=True, check=True, timeout=120)
+        receipt = json.loads(result.stdout)
+        valid = (receipt.get('image_sha256') == hashlib.sha256(image.read_bytes()).hexdigest()
+                 and receipt.get('release_approval') is False)
+        if not valid:
+            return False
+        image.with_suffix('.precheck.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n')
+        return receipt.get('skip_remaining_spares') is True
+    except (subprocess.SubprocessError, OSError, ValueError):
+        # No cloud key/provider outage/invalid verdict changes the final gate or discards the planned spares.
+        return False
 
 
 if __name__ == "__main__":

@@ -117,6 +117,7 @@ jobs:
     needs: plan
     if: needs.plan.outputs.paint == 'true'
     runs-on: ubuntu-24.04
+    environment: youtube
     timeout-minutes: 75
     continue-on-error: true
     strategy:
@@ -127,7 +128,9 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          sparse-checkout: kahaani
+          sparse-checkout: |
+            kahaani
+            bible
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: plan-${{ github.run_id }}
@@ -136,12 +139,18 @@ jobs:
         with:
           path: ${{ env.ART_ROOT }}
           key: ${{ env.ART_CACHE_KEY }}
-      - name: Paint one beat (and, while time allows, two repaints of a cast shot for the prop-identity check)
+      - name: Prepare the lightweight early picture editor
+        run: |
+          python3 -m venv "$RUNNER_TEMP/paint-venv"
+          "$RUNNER_TEMP/paint-venv/bin/pip" install -q Pillow==12.3.0 requests==2.34.2 PyYAML==6.0.3
+      - name: Paint one beat and check it before spending time on up to two spares
         env:
           BEAT: ${{ matrix.beat }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: >-
-          python3 -m kahaani.imagegen beats --prompts "$RUNNER_TEMP/plan/art-plan.json" --only "$BEAT"
+          "$RUNNER_TEMP/paint-venv/bin/python" -m kahaani.imagegen beats --prompts "$RUNNER_TEMP/plan/art-plan.json" --only "$BEAT"
           --out "$RUNNER_TEMP/art" --root "$ART_ROOT" --alternates 2 --budget 62
+          --review-story "$RUNNER_TEMP/plan/story.json"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:

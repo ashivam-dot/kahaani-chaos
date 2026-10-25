@@ -100,6 +100,10 @@ The writer expands one entry. Nothing is invented outside the bank.
 - The vision check refuses gore, nudity, malformed bodies, text and pictures that do not fit the line.
 - **Prop identity:** 85% of a video's cast shots must show each painted character's signature prop or colour. A cast
   shot may be repainted from two spare seeds before it is dropped.
+  An early check can stop spare generation once a painting passes these same picture rules. Its verdict is bound
+  to the exact image and story prompt; a missing key, unavailable editor or timeout keeps ordinary spare generation.
+  This saves painting time only. Render independently checks the selected pictures and full audiovisual approval
+  remains mandatory before batch release.
 - A refused beat repeats the nearest earlier passing painting. The Short is held when fewer than 70% of its beats
   pass, or when the hook painting fails.
 - **Frame 0 is the peak image:**
