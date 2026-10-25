@@ -20,6 +20,16 @@ def test_explicit_electric_only_scene_does_not_offer_a_flame_or_require_a_third_
     assert look.STYLE in original and 'holding a metal flashlight' in original
 
 
+def test_explicit_wrists_only_narrator_does_not_request_a_face():
+    scene = 'Inside the room, adult hands turn a blue notebook. Only hands and wrists are within the frame.'
+    prompt = look.prompt(scene, [{'name': 'prabhat_adult'}], [{'id': 'prabhat_adult'}])
+    assert look.FACES not in prompt and 'head, shoulders and torso are outside the frame' in prompt
+    assert 'steel-rimmed glasses' in prompt and look.INDOOR_STYLE in prompt
+    previous = look.prompt('Adult hands turn a blue notebook.',
+                            [{'name': 'prabhat_adult'}], [{'id': 'prabhat_adult'}])
+    assert look.FACES in previous
+
+
 def test_prompt_order_and_parts():
     p = look.prompt("Wide shot of a misty lane at night", [{"name": "dhaniram", "expression": "greedy grin"}], CAST)
     assert p.startswith("Wide shot of a misty lane at night. Characters: Dhaniram: plump middle-aged")

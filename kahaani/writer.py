@@ -132,6 +132,7 @@ RULES (all mandatory):
   The present-day prabhat_adult is always the bible's close-up of one pair of middle-aged hands with the faded
   blue notebook and steel-rimmed glasses beside a desk lamp. Frame at the wrists: never a portrait, chin-on-hand
   pose, visible face, full body or a second younger Prabhat in the same painting.
+  Include the exact framing sentence "Only hands and wrists are within the frame."
   No text, signs, logos or labels in any picture. Call the cast
   young men and young women, never kids, children, boys or girls; when the object moves by itself, that beat shows
   the object alone (nobody in the painting, people empty) and the cast react in the beats around it.

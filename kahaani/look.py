@@ -74,6 +74,7 @@ PERSON = re.compile(r"\b(he|she|they|his|her|their|him|man|men|woman|women|young
                     re.I)
 WRITING = re.compile(r"\b(writ(?:e|es|ing)|pen|ink|pencil)\b", re.I)
 ELECTRIC_ONLY = re.compile(r"\belectric flashlight is the only practical light\b", re.I)
+WRISTS_ONLY = re.compile(r"\bonly hands and wrists are within the frame\b", re.I)
 
 
 # Told "no people", Z-Image still put a boy on the bicycle "rolling slowly across the bridge" in all three paintings
@@ -181,7 +182,11 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
                 and WRITING.search(scene):
             parts.append("Exactly one person, Jhabbu, seated and writing. All details describe this same man. "
                          "Nobody else is present; his lantern and staff rest beside him.")
-        parts.append(FACES)
+        if len(present) == 1 and present[0][0].get("id") == "prabhat_adult" and WRISTS_ONLY.search(scene):
+            parts.append("Only one pair of middle-aged hands and wrists is visible, with the faded blue notebook "
+                         "and steel-rimmed glasses. The face, head, shoulders and torso are outside the frame.")
+        else:
+            parts.append(FACES)
     else:
         parts.append(NOBODY)
     if INDOOR.search(scene):
