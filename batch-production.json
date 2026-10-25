@@ -1507,7 +1507,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e08.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 2,
       "source_sha": "ea5ee448e55ee90447597e4f691d878c021a8767",
       "before_ids": [
@@ -1626,7 +1626,28 @@
       ],
       "repair_reason": "Prior writer refused the 14-word opening. Rebuild with deployed canonical bank hook binding, per-beat word budgets, unchanged editor gates, and honest retained writer provenance.",
       "run_id": 40148804337,
-      "cloud_status": "in_progress"
+      "cloud_status": "in_progress",
+      "editorial_holds": [
+        {
+          "id": "direct-carrom-construction-40148804337",
+          "run_id": 40148804337,
+          "observed_at": "2026-10-25T01:51:12+00:00",
+          "reason": "Direct full-resolution review: both hook and beat 2 paintings show flat trays or patterned table tops without the four circular corner pockets of a carrom board; beats 3/5 repeat that object. Narration explicitly pots a queen and the final black disk, so this is a material object/action mismatch. Repair board depictions, keep narration and identities.",
+          "evidence": {
+            "art-40148804337-0/beat00-alt1.png": "4c31e2d908d08f70fd654f51bdd7b18ceda49772557757788ad95696485c4582",
+            "art-40148804337-0/beat00.png": "07f227628bb38b9f3b5125ac406f1ae88a6ac4fbf3b767b2c734e4dc967252ff",
+            "art-40148804337-2/beat02-alt1.png": "f2b9138974e4ee46627546e2906cd5a8296c5cc5868d79c3ca92afc33b2dd561",
+            "art-40148804337-2/beat02.png": "c509338a58e811f2687df0874be24ec964d6e261512be65676c149193a9a33ff",
+            "art-40148804337-3/beat03-alt1.png": "39b1b4d0de59e6dd5f6a4b226725f646f61e0678f617e30014b44d8ad4fb1cea",
+            "art-40148804337-3/beat03-alt2.png": "7b0c8feaa9c95f7b77c39d15fad75913d8aeadae50d7018a0bf87db7f762097a",
+            "art-40148804337-3/beat03.png": "63b2ea199aab65610534b527c64c2e1fb826f0bb6fda327872897f9a1f3673c3",
+            "art-40148804337-5/beat05.png": "0c9ec75d9e72453a9cc9e646072888fb35acfe24770b1a639ee79d275d08a2f1"
+          }
+        }
+      ],
+      "problems": [
+        "Direct full-resolution review: both hook and beat 2 paintings show flat trays or patterned table tops without the four circular corner pockets of a carrom board; beats 3/5 repeat that object. Narration explicitly pots a queen and the final black disk, so this is a material object/action mismatch. Repair board depictions, keep narration and identities."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -1857,5 +1878,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T01:49:50+00:00"
+  "updated_at": "2026-10-25T01:51:12+00:00"
 }
