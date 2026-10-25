@@ -1390,7 +1390,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e08.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 1,
       "source_sha": "d00710d686fe1824fcc45e3d9134ea4bd7b0f040",
       "before_ids": [
@@ -1455,7 +1455,8 @@
         39556034181,
         39552636855
       ],
-      "submitted_at": "2026-10-25T00:51:21+00:00"
+      "submitted_at": "2026-10-25T00:51:21+00:00",
+      "run_id": 40148316893
     },
     {
       "repo": "kahaani-chaos",
@@ -1615,7 +1616,7 @@
     }
   ],
   "halted": "Repair held entry e06: production run failure",
-  "updated_at": "2026-10-25T00:51:53+00:00",
+  "updated_at": "2026-10-25T00:51:55+00:00",
   "complete": false,
   "health": {
     "public": 1,
