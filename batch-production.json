@@ -1278,7 +1278,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e07.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 3,
       "source_sha": "ea5ee448e55ee90447597e4f691d878c021a8767",
       "before_ids": [
@@ -1406,7 +1406,8 @@
         40147867847
       ],
       "repair_reason": "Stop repeated hook growth by binding an overlong rewrite to the exact valid bank opening before all code and Gemini editor checks. Provide measured per-beat word budgets; retain any failed full draft and honest model provenance for targeted recovery.",
-      "cloud_status": "in_progress"
+      "cloud_status": "queued",
+      "run_id": 40148651151
     },
     {
       "repo": "kahaani-chaos",
@@ -1643,7 +1644,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:56:30+00:00",
+  "updated_at": "2026-10-25T00:56:37+00:00",
   "complete": false,
   "health": {
     "public": 1,
