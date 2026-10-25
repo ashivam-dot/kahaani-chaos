@@ -551,7 +551,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-scale-e04-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 3,
       "source_sha": "0b1871ed060525998fc994a3a94767192b7b67c9",
       "before_ids": [
@@ -646,7 +646,7 @@
         38428830025
       ],
       "submitted_at": "2026-10-25T00:16:43+00:00",
-      "cloud_status": "completed",
+      "cloud_status": "queued",
       "editorial_holds": [
         {
           "id": "direct-empty-scale-hand-40134819856",
@@ -795,7 +795,8 @@
         40134819856,
         40143503135
       ],
-      "repair_reason": "Replace only the low-contrast opening with directly reviewed tilted empty balance; actual prepared opening luma 102.95, contrast 0.18894, new clipping 0.18%; preserve other six paintings and spoken Hindi. All current cloud and full AV gates remain required."
+      "repair_reason": "Replace only the low-contrast opening with directly reviewed tilted empty balance; actual prepared opening luma 102.95, contrast 0.18894, new clipping 0.18%; preserve other six paintings and spoken Hindi. All current cloud and full AV gates remain required.",
+      "run_id": 40146069336
     },
     {
       "repo": "kahaani-chaos",
@@ -1148,7 +1149,7 @@
     }
   ],
   "halted": "Repair held entry e05: Actual closing still depicts four physical foreground people and four projected silhouettes, while the story is about a trio and this shot is planned as an object-only projector close-up. Replace only this closing art; preserve usable other paintings and all spoken text. Complete current media and audiovisual review remain mandatory.",
-  "updated_at": "2026-10-25T00:16:43+00:00",
+  "updated_at": "2026-10-25T00:16:48+00:00",
   "complete": false,
   "health": {
     "public": 1,
