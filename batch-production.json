@@ -1203,7 +1203,7 @@
         38428830025
       ],
       "submitted_at": "2026-10-25T00:56:19+00:00",
-      "cloud_status": "queued",
+      "cloud_status": "completed",
       "editorial_holds": [
         {
           "id": "direct-station-master-and-extra-prabhat-40142626858",
@@ -1267,7 +1267,55 @@
         40147346342
       ],
       "repair_reason": "Keep exact repaired paintings and all Hindi. The prior Gemini takes heard every line but failed only modest overlong quiet pauses; source now cuts verified quiet centres outside all heard words, retains Charon and all final voice/AV gates. Full406 local tests and59 focused follow-up checks passed.",
-      "run_id": 40148639705
+      "run_id": 40148639705,
+      "review": {
+        "schema": 1,
+        "model": "gemini-3-flash-preview",
+        "duration": 36.866667,
+        "video_sha256": "038a74de81d5cf2025684ea90a90f76051af846e0976ad72eb8cb2a3b2591c07",
+        "brief_sha256": "7a2824ef4d03245a1e856903675f5c4a14d5480bf42d784dd7dc85e9a33ce9c2",
+        "review_video_sha256": "e0b551d69ab1fdae34f3c1180ec45ba2fb57f91e83d74b55af014a3db10b3498",
+        "review_audio_sha256": "d0ad1249b0e3adc727ec0b90b5dec78d6ab1ef29b1961d938a80fbc9cc537717",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "बिना ट्रेन के हॉल्ट का सिग्नल हरा हो गया।",
+          "heard_ending": "झब्बू ने अपने खाकी रजिस्टर में बस इतना लिखा, सिग्नल ने विदा कर दिया।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "A vintage mechanical railway signal with a glowing green lens and a hanging lantern against a dark sky.",
+              "heard": "बिना ट्रेन के हॉल्ट का सिग्नल हरा हो गया।"
+            },
+            {
+              "part": "middle",
+              "seconds": 18.5,
+              "seen": "Jhabbu, an elderly man in a khaki kurta and red muffler, holds a lantern and stops young Prabhat from moving forward.",
+              "heard": "मैं पटरी की तरफ़ बढ़ा तो झब्बू ने रोक लिया, सुबह की पहली साइकिल-घंटी तक चुपचाप यहीं बैठो।"
+            },
+            {
+              "part": "ending",
+              "seconds": 32.0,
+              "seen": "Close-up of Jhabbu writing in a red-bound khaki register with a pencil on the platform.",
+              "heard": "झब्बू ने अपने खाकी रजिस्टर में बस इतना लिखा, सिग्नल ने विदा कर दिया।"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -1697,7 +1745,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T01:13:43+00:00",
+  "updated_at": "2026-10-25T01:14:11+00:00",
   "complete": false,
   "health": {
     "public": 1,
