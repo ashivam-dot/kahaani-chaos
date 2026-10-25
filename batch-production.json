@@ -5044,10 +5044,10 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T17:54:41+00:00",
+  "updated_at": "2026-10-25T17:54:43+00:00",
   "measurement": {
-    "at": "2026-10-25T17:22:18+00:00",
+    "at": "2026-10-25T17:54:43+00:00",
     "ok": true,
-    "updated": false
+    "updated": true
   }
 }
