@@ -1032,7 +1032,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-signal-e06-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 2,
       "source_sha": "be386ced4a1e8726db88417c05e552d34f9d89dc",
       "before_ids": [
@@ -1130,7 +1130,7 @@
         38428830025
       ],
       "submitted_at": "2026-10-25T00:36:19+00:00",
-      "cloud_status": "in_progress",
+      "cloud_status": "queued",
       "editorial_holds": [
         {
           "id": "direct-station-master-and-extra-prabhat-40142626858",
@@ -1179,7 +1179,8 @@
       "obsolete_runs": [
         40142626858
       ],
-      "repair_reason": "Retain five usable original paintings and exact spoken Hindi; replace farewell with distinct retiring station master waving and Jhabbu watching, and exclude duplicated-Prabhat base in favor of correct original alternate. All six beats and prepared opening pass preflight; current cloud, voice, render and full AV checks remain mandatory."
+      "repair_reason": "Retain five usable original paintings and exact spoken Hindi; replace farewell with distinct retiring station master waving and Jhabbu watching, and exclude duplicated-Prabhat base in favor of correct original alternate. All six beats and prepared opening pass preflight; current cloud, voice, render and full AV checks remain mandatory.",
+      "run_id": 40147346342
     },
     {
       "repo": "kahaani-chaos",
@@ -1428,7 +1429,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:36:19+00:00",
+  "updated_at": "2026-10-25T00:36:25+00:00",
   "complete": false,
   "health": {
     "public": 1,
