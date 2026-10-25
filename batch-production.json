@@ -1888,7 +1888,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e10.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 1,
       "source_sha": "87de2d7ab5816ab90077c7211471018153029984",
       "before_ids": [
@@ -1955,7 +1955,22 @@
       ],
       "submitted_at": "2026-10-25T03:32:14+00:00",
       "run_id": 40158580419,
-      "cloud_status": "in_progress"
+      "cloud_status": "in_progress",
+      "editorial_holds": [
+        {
+          "id": "direct-postoffice-props-anatomy-40158580419",
+          "run_id": 40158580419,
+          "observed_at": "2026-10-25T04:02:31+00:00",
+          "reason": "Direct full-resolution inspection: beat 1 adds an unexplained open black electronic screen on the 1996 village sorting desk. Beat 6 gives Jhabbu an extra disembodied writing hand while his two visible hands already hold a lantern and a closed register; it also adds a white printed-picture border. These materially fail the fixed world/prop/anatomy brief. Replace only these two stills with an analogue sorting-table scene and a seated two-arm register-writing scene, preserving speech and other useful images.",
+          "evidence": {
+            "art-40158580419-1/beat01.png": "b84c0bcb7ba0de2d74e804cc86785ade708e63bad4e90f27da66180a8f7f7206",
+            "art-40158580419-6/beat06.png": "e6c71e1ea70c3d89d1e671eefeae6fdf2039c45889edc5ae6dac6056e0312e0b"
+          }
+        }
+      ],
+      "problems": [
+        "Direct full-resolution inspection: beat 1 adds an unexplained open black electronic screen on the 1996 village sorting desk. Beat 6 gives Jhabbu an extra disembodied writing hand while his two visible hands already hold a lantern and a closed register; it also adds a white printed-picture border. These materially fail the fixed world/prop/anatomy brief. Replace only these two stills with an analogue sorting-table scene and a seated two-arm register-writing scene, preserving speech and other useful images."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -2090,7 +2105,7 @@
       "attempts": 0
     }
   ],
-  "halted": null,
+  "halted": "Repair held entry e10: Direct full-resolution inspection: beat 1 adds an unexplained open black electronic screen on the 1996 village sorting desk. Beat 6 gives Jhabbu an extra disembodied writing hand while his two visible hands already hold a lantern and a closed register; it also adds a white printed-picture border. These materially fail the fixed world/prop/anatomy brief. Replace only these two stills with an analogue sorting-table scene and a seated two-arm register-writing scene, preserving speech and other useful images.",
   "complete": false,
   "health": {
     "public": 1,
@@ -2098,7 +2113,7 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T03:59:00+00:00",
+  "updated_at": "2026-10-25T04:02:31+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
