@@ -1,0 +1,52 @@
+{
+  "story": "kc-20261025-0335-e10",
+  "beat": 6,
+  "alt": 0,
+  "prompt": "Inside the 1996 village post office. Elderly grey-haired Jhabbu in his khaki kurta, grey shawl and red muffler sits on a wooden chair at the sorting table, seen over his shoulder. One open khaki register with a red spine lies flat in front of him. His right hand holds one pencil against the page, his left hand rests flat on the opposite page. Exactly two natural arms. A single brass hurricane lantern stands securely on the far side of the table, casting warm amber light. His face is small and turned away, cold moonlight through a mesh window. The scene extends continuously to every edge of the image. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, an open khaki ledger with a red spine resting before him, brass hurricane lantern and bamboo staff with a small bell set beside him, face small and turned away, softened and dignified contentment expression. Exactly one person, Jhabbu, seated and writing. All details describe this same man. Nobody else is present; his lantern and staff rest beside him. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm practical light, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 191.9,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 972887360,
+  "log_tail": " - 485.13MB/s\u001b[K\n  |##################################################| 138/138 - 441.59MB/s\u001b[K\n[I] loading tensors completed, taking 0.43s (read: 0.40s, memcpy: 0.00s, convert: 0.01s, copy_to_backend: 0.00s) --- model_loader.cpp:1390\n[I] latent 1 decoded, taking 17.63s --- image.cpp:620\n[I] decode_first_stage completed, taking 17.63s --- image.cpp:624\n[I] generate_image completed in 191.14s --- image.cpp:1050\n[I] ggml: ggml_metal_free: deallocating\n[I] save result image 0 to 'evidence/kahaani-chaos/e10-pencil-repair/beat06.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "43cde13c398c1b796a54232f2906309463ca0034be4870ecc50812c72dd7d839",
+  "generation": {
+    "origin": "local-stable-diffusion.cpp",
+    "binary_tag": "master-959-d637cfb",
+    "source_sha": "ec57858391b8a52f659e6187efe844662ef19aa7",
+    "backend": "Darwin arm64 Metal",
+    "weights": {
+      "diffusion": {
+        "file": "z_image_turbo-Q4_K.gguf",
+        "sha256": "14b375ab4f226bc5378f68f37e899ef3c2242b8541e61e2bc1aff40976086fbd"
+      },
+      "llm": {
+        "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597"
+      },
+      "vae": {
+        "file": "ae.safetensors",
+        "sha256": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38"
+      }
+    }
+  },
+  "production_approved": false,
+  "derivation": {
+    "operation": "crop_and_resize",
+    "parent_image_sha256": "4fbdbe47aa82f7098c36e0369b50eccf8c1b6e4b4163908e7661c32619486cc3",
+    "parent_file": "../provenance/raw-writing/source.png",
+    "crop_ltrb": [
+      32,
+      32,
+      544,
+      942
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "reason": "Remove generated picture border and signature-like bottom mark; preserve register, two arms, lantern, staff and face."
+  }
+}

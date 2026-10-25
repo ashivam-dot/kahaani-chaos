@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-0335-e10",
+  "beat": 2,
+  "alt": 0,
+  "prompt": "Inside the post office, Prabhat and Nuzhat in her green salwar-kameez lean toward the sorting table. Nuzhat aims her cracked-lens torch beside the lantern glow, casting harsh overlapping shadows onto the back wall. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, tense focus as he reads expression; Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, sharp and practical alertness expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm practical light, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1265.9,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1049678169,
+  "log_tail": "                                               | 3/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 92.56s --- image.cpp:620\n[I] decode_first_stage completed, taking 92.56s --- image.cpp:624\n[I] generate_image completed in 1264.95s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat02.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12585817013,
+    "run_id": 40158580419,
+    "name": "art-40158580419-2",
+    "size_in_bytes": 1126370,
+    "source_sha": "87de2d7ab5816ab90077c7211471018153029984"
+  },
+  "image_sha256": "a0d18d407cf090b0fa57357e57f7361c705cbce56904802ec65a9737d5a5bdb0"
+}

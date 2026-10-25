@@ -24,6 +24,14 @@ FLAGS = ("nudity", "sexual", "gore", "malformed", "text", "religious", "kids_loo
 # green and a boy in yellow"); a correct render reads "young man" or "young woman", and "teenage boy" is allowed.
 CHILD_WORDS = re.compile(r"\b(child|children|kids?|toddlers?|schoolboys?|schoolgirls?|"
                          r"(?<!teenage )(?<!teen )(boys?|girls?))\b", re.I)
+# e10 (40158580419): the caption saw two mustard-sweater Prabhats beside Jhabbu,
+# but doubled was False. A plural group in one recurring character's signature clothes
+# is independently contradictory. Generic groups and differently dressed friends stay valid.
+DOUBLED_CLOTHES = re.compile(
+    r"\b(?:two|three|four|[2-4])\s+(?:(?:young|adult|teenage)\s+)?(?:men|women|people|figures)"
+    r"\s+(?:in|wearing)\s+(?:matching\s+)?(?:"
+    r"mustard(?:[- ]yellow)?(?:\s+knitted)?\s+sweaters|"
+    r"(?:bottle[- ])?green\s+dupattas|red\s+(?:cricket\s+)?caps|red\s+(?:woollen\s+)?mufflers)\b", re.I)
 # A cast shot must show each painted character's signature prop or colour; a video needs PROP_RATE of its cast shots
 # to (after up to look.ALTERNATES repaints each); a shot that never does is dropped.
 PROP_RATE = 0.85
@@ -82,7 +90,8 @@ For each picture answer:
   crescent, sacred sign or grave.
 - kids_look: true if it looks made for children: chibi or big-eyed cartoon faces, toddler proportions, a kids'
   picture-book or nursery style. The young people are 17-18 with adult proportions.
-- doubled: true if the same person (same clothes and props) appears twice in one picture.
+- doubled: true if the same person (same clothes and props) appears twice in one picture. Count each distinct
+  body: an old man beside two young men both in mustard sweaters contains two Prabhats, even if their faces differ.
 - ridden: true if anyone sits on, rides, pedals, pushes, steers or holds a bicycle, cart or other vehicle.
 - human_present: true if any human figure, face, hand, arm or other human body part is visible, even if the rest
   of that person is outside the frame. A hand holding a supposedly empty moving object is human presence.
@@ -132,6 +141,8 @@ def rejected(verdict: dict, cast_shot: bool = False, hook: bool = False, scene: 
     for flag in FLAGS:
         if verdict.get(flag):
             return f"{flag}: {verdict.get('reason') or verdict.get('shows')}"
+    if cast_shot and DOUBLED_CLOTHES.search(verdict.get("shows") or ""):
+        return f"doubled: the editor describes repeated signature clothes ({verdict.get('shows')})"
     if CHILD_WORDS.search(verdict.get("shows") or ""):
         return f"child: the editor sees a child ({verdict.get('shows')})"
     if scene and BY_ITSELF.search(scene) and verdict.get("ridden") is not False:

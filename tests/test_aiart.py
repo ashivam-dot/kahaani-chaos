@@ -303,6 +303,22 @@ def test_a_person_painted_twice_is_refused():
     assert vision.rejected(verdict(1) | {"doubled": True}).startswith("doubled")
 
 
+def test_actual_e10_caption_cannot_pass_two_prabhats_with_doubled_false():
+    actual = verdict(1) | {
+        "doubled": False,
+        "shows": "An elderly man in a red muffler holding a lantern, standing near two young men in mustard sweaters.",
+    }
+    assert vision.rejected(actual, cast_shot=True).startswith("doubled:")
+    # Multiple friends and a single man's several signature props are legitimate.
+    for caption in (
+        "Two young men walking along a canal path.",
+        "A young man in a mustard sweater and a young man in a red cap.",
+        "An elderly man in a red muffler beside a young man in a mustard sweater.",
+        "Two young men, one wearing a mustard sweater and the other wearing a red cap.",
+    ):
+        assert vision.rejected(actual | {"shows": caption}, cast_shot=True) is None
+
+
 def test_a_hand_cannot_operate_an_object_in_an_object_only_scene():
     from kahaani import vision
 

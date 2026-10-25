@@ -1,0 +1,23 @@
+{
+  "images": [
+    {
+      "file": "art-40158580419-2/beat02.png",
+      "image_sha256": "a0d18d407cf090b0fa57357e57f7361c705cbce56904802ec65a9737d5a5bdb0",
+      "decision": "pass",
+      "reason": "Direct full-resolution review: one mustard/glasses Prabhat and one green/plait/torch Nuzhat in an enclosed analogue post office, natural anatomy and house style."
+    },
+    {
+      "file": "art-40158580419-3/beat03.png",
+      "image_sha256": "538036901745911be97dad104b467d595365721c26641a6a27e676ebffabaf8d",
+      "decision": "pass",
+      "reason": "Direct full-resolution review: one red-cap/striped-shirt Shailesh, shoulder radio case and blue sandals, natural anatomy in an enclosed moonlit post office."
+    },
+    {
+      "file": "art-40158580419-5/beat05.png",
+      "image_sha256": "6f781c2053881ea7894c39381b73ed5243bdbad11be87f8e89ed6d7a95c198c1",
+      "decision": "pass",
+      "reason": "Direct full-resolution review: one Prabhat writes while one Nuzhat supplies torchlight; no doubled cast, extra arms, white frame or electronic screen."
+    }
+  ],
+  "full_video_approved": false
+}

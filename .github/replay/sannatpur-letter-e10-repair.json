@@ -1,0 +1,156 @@
+{
+  "id": "kc-20261025-0335-e10",
+  "premise": "e10",
+  "title": "डाकघर का अंतर्देशीय खोला… और शब्द उभर आए! ✉️",
+  "hook": "डाकघर का ख़ाली अंतर्देशीय खोला, तो उसमें शब्द उभरने लगे।",
+  "beats": [
+    {
+      "text": "डाकघर का ख़ाली अंतर्देशीय खोला, तो उसमें शब्द उभरने लगे।",
+      "scene": "Object-only still life, viewed directly down onto a worn wooden sorting table. One pale-blue inland paper letter is unfolded into three connected blank rectangular panels, creased neatly, with completely blank paper surfaces. A single brass hurricane lantern rests at the top-left corner of the table, casting warm amber light. Cool moonlight crosses the wood from an unseen mesh window. Only paper, wood and the lantern; the entire composition is an empty still life with no human body or hands. Continuous full-bleed painting to every edge.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात डाकघर में लालटेन की रोशनी काँप रही थी।",
+      "scene": "Full-frame painting inside the small 1996 village post office. Prabhat in his mustard-yellow sweater and thin steel-rimmed glasses stands beside a plain wooden sorting table, seen three-quarters from behind. His two hands hang naturally by his sides as he looks at one pale blue folded paper letter lying flat on the bare wooden table. A brass hurricane lantern rests on the table beside the letter and casts a warm amber glow. Only paper envelopes and a wooden pencil tray on the table. Cool moonlight through the mesh window, plain plaster walls.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "wide-eyed curiosity mixed with nervous hesitation"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "मेज़ पर पड़े उस बेनाम काग़ज़ पर लिखा था, क्या सन्नाटपुर में अब भी रोज़ बिजली जाती है?",
+      "scene": "Inside the post office, Prabhat and Nuzhat in her green salwar-kameez lean toward the sorting table. Nuzhat aims her cracked-lens torch beside the lantern glow, casting harsh overlapping shadows onto the back wall.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "tense focus as he reads"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "sharp and practical alertness"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "शैलेश डरकर पीछे हटा, क्योंकि पते की जगह पर किसी का नाम ही नहीं था।",
+      "scene": "Inside the post office, Shailesh in his red cricket cap and striped shirt steps back toward the barred sorting window, clutching his transistor tightly against his chest in the dim golden lantern light.",
+      "people": [
+        {
+          "name": "shailesh",
+          "expression": "frightened disbelief and apprehension"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "झब्बू ने टोकते हुए नियम याद दिलाया, किसी और का ख़त खोला है तो आज ही जवाब देना होगा।",
+      "scene": "Exactly two separate people inside the small 1996 village post office. On the left, elderly grey-haired Jhabbu in his khaki kurta, grey shawl and red woollen muffler stands beside a wooden sorting table, holding one brass hurricane lantern at shoulder height. His bamboo staff with its small bell leans securely against the table; his red-spined khaki register rests flat on the table. On the right stands exactly one Prabhat, in a mustard-yellow sweater and steel-rimmed glasses, viewed from behind. A small blue notebook lies beside him. Clear space separates the two figures. Plain plaster walls, mesh window with cold moonlight. Both figures have two natural arms. Continuous full-bleed painting to every edge.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "stern and unyielding authority"
+        },
+        {
+          "name": "prabhat",
+          "expression": "guilty understanding and sudden realization"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "हमने लालटेन के पास बैठकर उस अजनबी के लिए गाँव का हर छोटा-बड़ा हाल प्यार से लिख दिया।",
+      "scene": "Inside the post office, Prabhat sits at the sorting table writing with a pencil while Nuzhat leans over the wooden surface. Warm yellow lantern light envelops them beneath a deep blue moonlit ceiling.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "calm concentration and quiet warmth"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "gentle and patient cooperation"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "झब्बू ने अपने रजिस्टर में दर्ज किया, एक जवाब, बिना पते का।",
+      "scene": "Inside the 1996 village post office. Elderly grey-haired Jhabbu in his khaki kurta, grey shawl and red muffler sits on a wooden chair at the sorting table, seen over his shoulder. One open khaki register with a red spine lies flat in front of him. His right hand holds one pencil against the page, his left hand rests flat on the opposite page. Exactly two natural arms. A single brass hurricane lantern stands securely on the far side of the table, casting warm amber light. His face is small and turned away, cold moonlight through a mesh window. The scene extends continuously to every edge of the image.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "softened and dignified contentment"
+        }
+      ],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    },
+    {
+      "id": "jhabbu",
+      "name": "झब्बू",
+      "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+    }
+  ],
+  "subgenre": "kindness",
+  "ending": "register-line",
+  "twist_beat": 5,
+  "description": "डाकघर की मेज़ पर पड़े एक ख़ाली अंतर्देशीय को खोलते ही उस पर सवाल उभरने लगे। उन्नीस सौ छियानवे की उस रात का रहस्य क्या था?",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3.8-flash",
+      "gemini-3.8-flash",
+      "gemini-3.6-flash"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "gates",
+        "problems": [
+          "beat 1 (the hook) has 12 words; at most 10"
+        ]
+      },
+      {
+        "attempt": 1,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "ख़ाली अंतर्देशीय का रहस्य",
+  "object_token": "अंतर्देशीय",
+  "anomaly": "खोलते ही ख़ाली पन्ने पर शब्द अपने-आप उभरना",
+  "niyam_id": "N05",
+  "resolution": "bargain",
+  "heart_beat": 6,
+  "heart_type": "kindness",
+  "skeleton": "S1",
+  "location": "लकड़ी की छँटाई वाली मेज़",
+  "place_id": "dakghar"
+}

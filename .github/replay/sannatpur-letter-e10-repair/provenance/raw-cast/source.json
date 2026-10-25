@@ -1,0 +1,35 @@
+{
+  "story": "kc-20261025-0335-e10",
+  "beat": 4,
+  "alt": 0,
+  "prompt": "Exactly two separate people inside the small 1996 village post office. On the left, elderly grey-haired Jhabbu in his khaki kurta, grey shawl and red woollen muffler stands beside a wooden sorting table, holding one brass hurricane lantern at shoulder height. His bamboo staff with its small bell leans securely against the table; his red-spined khaki register rests flat on the table. On the right stands exactly one Prabhat, in a mustard-yellow sweater and steel-rimmed glasses, viewed from behind. A small blue notebook lies beside him. Clear space separates the two figures. Plain plaster walls, mesh window with cold moonlight. Both figures have two natural arms. Continuous full-bleed painting to every edge. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away, stern and unyielding authority expression; Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, guilty understanding and sudden realization expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm practical light, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 265.5,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1623056492,
+  "log_tail": "####| 138/138 - 422.82MB/s\u001b[K\n[I] loading tensors completed, taking 0.45s (read: 0.40s, memcpy: 0.00s, convert: 0.02s, copy_to_backend: 0.01s) --- model_loader.cpp:1390\n[I] latent 1 decoded, taking 22.85s --- image.cpp:620\n[I] decode_first_stage completed, taking 22.85s --- image.cpp:624\n[I] generate_image completed in 264.19s --- image.cpp:1050\n[I] ggml: ggml_metal_free: deallocating\n[I] save result image 0 to '/Users/ashivam/Desktop/YouTube/strategy-implementation-2026-10-24/evidence/kahaani-chaos/e10-pencil-repair/beat04.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "f162211d3557ca74bc784030e1fbab5421dda92004f4d4d7ac631b6729d368c9",
+  "generation": {
+    "origin": "local-stable-diffusion.cpp",
+    "binary_tag": "master-959-d637cfb",
+    "source_sha": "ec57858391b8a52f659e6187efe844662ef19aa7",
+    "backend": "Darwin arm64 Metal",
+    "weights": {
+      "diffusion": {
+        "file": "z_image_turbo-Q4_K.gguf",
+        "sha256": "14b375ab4f226bc5378f68f37e899ef3c2242b8541e61e2bc1aff40976086fbd"
+      },
+      "llm": {
+        "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597"
+      },
+      "vae": {
+        "file": "ae.safetensors",
+        "sha256": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38"
+      }
+    }
+  },
+  "production_approved": false
+}

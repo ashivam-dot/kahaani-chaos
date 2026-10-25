@@ -1,0 +1,35 @@
+{
+  "images": [
+    {
+      "file": "beat01.png",
+      "image_sha256": "5ec9ef3e0f7b070115add03ca83c736096b4a7938d55114dabd4f8dff634eece",
+      "decision": "pass",
+      "reason": "Direct full-resolution review: Prabhat retains mustard sweater and glasses at a simple analogue sorting desk. Pale-blue letter, paper envelopes, pencils and resting brass lantern; no electronic screen, extra limb, border or readable writing. Warm interior and cool window light match the 1996 fictional-village look."
+    },
+    {
+      "file": "beat06.png",
+      "image_sha256": "43cde13c398c1b796a54232f2906309463ca0034be4870ecc50812c72dd7d839",
+      "decision": "pass",
+      "reason": "Direct full-resolution review after documented crop: exactly two natural arms, one writing hand and one resting hand, open red-spined register, grey shawl/red muffler, lantern and staff set beside Jhabbu. No frame or signature remains. Unreadable page strokes fit the register scene. Source pixels and exact crop retained. Cloud picture and full audiovisual review still required."
+    },
+    {
+      "file": "beat00.png",
+      "image_sha256": "38aa1902a15b3911a649ec7d024e4aad1e7ba0b9a11baee4f4864e83273f4230",
+      "decision": "pass",
+      "reason": "Direct full-resolution review: one blank pale-blue unfolded inland paper on a wooden table, one brass hurricane lantern, cool mesh-window moonlight, no hand/person, printed marks, border or signature. Matches the opening object scene; visual narration alignment remains subject to cloud review."
+    },
+    {
+      "file": "raw-cast/beat04.png",
+      "image_sha256": "f162211d3557ca74bc784030e1fbab5421dda92004f4d4d7ac631b6729d368c9",
+      "decision": "hold",
+      "reason": "Unplanned black screen-like object on the extreme left edge of the sorting table. Raw image must not be selected."
+    },
+    {
+      "file": "beat04.png",
+      "image_sha256": "5a5873112b9277e1940814afd5f062bf2928be38d143163072c854437972bcd5",
+      "decision": "pass",
+      "reason": "Direct full-resolution review of documented crop: exactly one elderly Jhabbu and one mustard-sweater/glasses Prabhat; two natural arms each, red muffler and shawl, notebook, red-spined register on table and supported lantern/staff. The screen-like object is completely outside the crop. No white border, signature, duplicate character or modern electronic screen remains. The partial lantern at the frame edge remains visibly supported in Jhabbu hand."
+    }
+  ],
+  "full_video_approved": false
+}
