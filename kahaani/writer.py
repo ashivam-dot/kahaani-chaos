@@ -168,7 +168,10 @@ EDITOR = """You are the story editor of "सन्नाटपुर की र�
 this draft as a viewer would and answer honestly:
 - logic_ok: every event follows from what came before; nothing happens without a cause.
 - rule_clear: the rule of the night (below) is what solves it, and a viewer hearing it once understands how.
-- hook_has_anomaly: beat 1 names a 90s object AND the impossible thing it does.
+- hook_has_anomaly: beat 1 names the selected bank object below AND the impossible thing it does.
+  Judge its concrete role in this 1996 village. The bank includes fixtures and structures as well as
+  portable objects; do not require technology exclusive to the 1990s or substitute a different object.
+  Still refuse an absent object, a missing impossible action, or a scene that fails to show that action.
 - heart_lands: the heart beat (a kindness, a confessed lie or a goodbye) is felt, not just stated.
 - natural_hindi: the narration sounds like natural everyday spoken Hindi, not a translation.
 - canon_ok: the people, their ages, props and the rule match the bible below; nobody else has a proper name.
@@ -180,6 +183,8 @@ this draft as a viewer would and answer honestly:
 - problems: each concrete fix needed, in a short English sentence naming the beat; empty when it is ready.
 
 RULE OF THE NIGHT {niyam_id}: {niyam}
+SELECTED BANK PREMISE:
+{premise}
 BIBLE:
 {bible}
 
@@ -355,6 +360,8 @@ def edit(draft: dict, ask, premise: dict | None = None) -> list[str]:
     rule = bible.niyam().get(draft.get("niyam_id"), {})
     verdict = ask([{"role": "user", "content": EDITOR.format(
         niyam_id=draft.get("niyam_id"), niyam=rule.get("hi", ""), bible=bible.writer_context(premise),
+        premise=json.dumps({k: premise[k] for k in ("object", "object_token", "anomaly", "logline")
+                            if k in premise}, ensure_ascii=False),
         draft=json.dumps(shown, ensure_ascii=False, indent=1))}], EDIT_SCHEMA)
     found = [p for p in verdict.get("problems") or [] if isinstance(p, str) and p.strip()]
     flags = {"logic_ok": "the story's logic has a gap", "rule_clear": "the rule of the night does not clearly solve it",

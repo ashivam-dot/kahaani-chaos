@@ -165,3 +165,20 @@ def test_the_brief_carries_the_entry_the_bible_and_used_openings():
     assert PREMISE["ending_type"] in brief and "'उस रात'" in brief and PREMISE["logline"] in brief
     assert PREMISE["object_token"] in brief and PREMISE["niyam_id"] in brief and "झब्बू" in brief
     assert PREMISE["title_skeleton"] in brief
+
+
+def test_editor_receives_the_selected_bank_object_and_retains_anomaly_refusal():
+    premise = next(p for p in bible.micro_bank() if p["id"] == "e21")
+    captured = []
+
+    def ask(messages, schema):
+        captured.append(messages[0]["content"])
+        return {**EDITOR_OK, "hook_has_anomaly": False,
+                "problems": ["Beat 1 shows a chimney without its impossible light."]}
+
+    found = writer.edit(draft(), ask, premise)
+    assert premise["object"] in captured[0] and premise["anomaly"] in captured[0]
+    assert premise["logline"] in captured[0]
+    assert "fixtures and structures" in captured[0]
+    assert "Beat 1 shows a chimney without its impossible light." in found
+    assert "beat 1 must show the object and its impossible behaviour" in found
