@@ -4625,8 +4625,8 @@
       "submitted_at": "2026-10-25T15:15:59+00:00",
       "run_id": 40206121370,
       "cloud_status": "completed",
-      "retry_reason": "audiovisual review unavailable: gemini-3.8-flash: HTTP 503; gemini-3-flash-preview: HTTP 503; gemini-3.1-flash-lite: HTTP 503",
-      "review_retry_after": "2026-10-25T16:06:38.918650+00:00"
+      "retry_reason": "audiovisual review unavailable: gemini-3.8-flash: HTTP 429; gemini-3-flash-preview: HTTP 503; gemini-3.1-flash-lite: HTTP 503",
+      "review_retry_after": "2026-10-25T16:42:29.497106+00:00"
     },
     {
       "repo": "kahaani-chaos",
@@ -4943,7 +4943,7 @@
       ],
       "submitted_at": "2026-10-25T15:58:12+00:00",
       "run_id": 40209430956,
-      "cloud_status": "in_progress"
+      "cloud_status": "queued"
     }
   ],
   "halted": "Repair held entry e14: Direct review of the exact produced plan finds beat4 naming three visible walkers while declaring only Jhabbu, and beat5 introducing a visible unregistered father despite the approved offscreen-only brief. The hashtag list also contains stray CJK separators. Repair only visual4/5 and hashtag formatting, preserve every spoken line and accepted art; all current release gates remain.",
@@ -4954,7 +4954,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T16:11:44+00:00",
+  "updated_at": "2026-10-25T16:12:29+00:00",
   "measurement": {
     "at": "2026-10-25T16:11:44+00:00",
     "ok": true,
