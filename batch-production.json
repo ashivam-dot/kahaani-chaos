@@ -551,10 +551,12 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-scale-e04-repair.json"
       },
-      "stage": "held",
-      "attempts": 2,
-      "source_sha": "76b80e9d4b3106bc97abd5c229973879322add57",
+      "stage": "dispatch_unresolved",
+      "attempts": 3,
+      "source_sha": "0b1871ed060525998fc994a3a94767192b7b67c9",
       "before_ids": [
+        40144076354,
+        40143503135,
         40142724972,
         40142626858,
         40142424645,
@@ -643,7 +645,7 @@
         38439489788,
         38428830025
       ],
-      "submitted_at": "2026-10-24T23:37:32+00:00",
+      "submitted_at": "2026-10-25T00:16:43+00:00",
       "cloud_status": "completed",
       "editorial_holds": [
         {
@@ -774,16 +776,26 @@
             "mode": "dry-run",
             "replay": ".github/replay/batch-2026-10-25/e04.json"
           }
+        },
+        {
+          "run_id": 40143503135,
+          "source_sha": "76b80e9d4b3106bc97abd5c229973879322add57",
+          "stage": "held",
+          "problems": [
+            "ValueError: preview did not make a finished passing Short"
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/sannatpur-scale-e04-repair.json"
+          },
+          "repair_reason": "Replace held opening, hand-operated scale and wrong-actor shots with exact inspected paintings. Preserve original valid art, including beat4-alt2 with original variant metadata, and exclude the two duplicate-cast variants. Full current picture, narration, render and audiovisual checks remain mandatory."
         }
       ],
       "obsolete_runs": [
-        40134819856
+        40134819856,
+        40143503135
       ],
-      "repair_reason": "Replace held opening, hand-operated scale and wrong-actor shots with exact inspected paintings. Preserve original valid art, including beat4-alt2 with original variant metadata, and exclude the two duplicate-cast variants. Full current picture, narration, render and audiovisual checks remain mandatory.",
-      "run_id": 40143503135,
-      "problems": [
-        "ValueError: preview did not make a finished passing Short"
-      ]
+      "repair_reason": "Replace only the low-contrast opening with directly reviewed tilted empty balance; actual prepared opening luma 102.95, contrast 0.18894, new clipping 0.18%; preserve other six paintings and spoken Hindi. All current cloud and full AV gates remain required."
     },
     {
       "repo": "kahaani-chaos",
@@ -1135,8 +1147,8 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e04: ValueError: preview did not make a finished passing Short",
-  "updated_at": "2026-10-25T00:15:54+00:00",
+  "halted": "Repair held entry e05: Actual closing still depicts four physical foreground people and four projected silhouettes, while the story is about a trio and this shot is planned as an object-only projector close-up. Replace only this closing art; preserve usable other paintings and all spoken text. Complete current media and audiovisual review remain mandatory.",
+  "updated_at": "2026-10-25T00:16:43+00:00",
   "complete": false,
   "health": {
     "public": 1,
