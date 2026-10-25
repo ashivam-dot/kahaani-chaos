@@ -1,0 +1,41 @@
+{
+  "story": "kc-20261025-1111-e13",
+  "beat": 4,
+  "alt": 0,
+  "prompt": "Close insert of Prabhat’s mustard-yellow sweater sleeves and hands supporting his open small blue notebook beside the village well. The notebook has a blue cover and plain pale pages with no readable writing. His dark trousers and a small edge of the mossy well parapet are visible below and beside the notebook. His face and all light sources are outside the crop. This is an editorial detail insert from the earlier accepted well-side moment as the narrator recalls the rule. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, serious and realizing expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1265.1,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1531693676,
+  "log_tail": "                                            | 12/138 - 102.05MB/s\u001b[K\n  |##################################################| 138/138 - 931.04MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 91.18s --- image.cpp:620\n[I] decode_first_stage completed, taking 91.18s --- image.cpp:624\n[I] generate_image completed in 1264.17s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat01.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "bcbc6514d7f9b538d3277153f17d7b63445a13487feb890cfc0d3171281f1981",
+  "production_approved": false,
+  "derivation": {
+    "operation": "crop_and_resize",
+    "source_beat": 1,
+    "parent_image_sha256": "bbb00875a77a72da1b5f6a893dc6acb1f8faec6463578f4b1dc6d02779103b32",
+    "parent_metadata_sha256": "bba8911422d50b293e3168efc6ae44d31fc514606b4cc6e968cd3b055135be3f",
+    "generation_prompt": "Outdoors at the stone well at the lane's end under a deep blue moonlit sky. Prabhat in a mustard sweater and steel-rimmed glasses sits on the mossy parapet, while Shailesh in a red cricket cap stands nearby holding his transistor. Cool night shadows, soft moonlit atmosphere. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, pensive and relaxed expression; Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, calm and listening expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "crop_ltrb": [
+      150,
+      450,
+      366,
+      834
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "reason": "A close detail insert from the previously accepted notebook moment replaces the refused wide rule-remembrance scene. It is an editorial crop, not a newly generated painting."
+  },
+  "cached_from": {
+    "id": 12597064106,
+    "run_id": 40187469293,
+    "name": "art-40187469293-1",
+    "size_in_bytes": 1091937,
+    "source_sha": "2d8f655212bba84f4eb33a4fc230936252775f84"
+  }
+}

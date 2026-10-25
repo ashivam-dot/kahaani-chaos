@@ -1,0 +1,130 @@
+{
+  "id": "kc-20261025-1111-e13",
+  "premise": "e13",
+  "title": "कुएँ की बाल्टी डाली… और वो चिट्ठियाँ ले आई! 🪣",
+  "hook": "कुएँ की बाल्टी पानी नहीं, धागे से बँधी चिट्ठियाँ लाई।",
+  "beats": [
+    {
+      "text": "कुएँ की बाल्टी पानी नहीं, धागे से बँधी चिट्ठियाँ लाई।",
+      "scene": "The scene is outdoors. Extreme close-up of a rustic galvanized iron well bucket resting on a stone parapet at the lane's end, overflowing with aged yellowed envelopes tied with faded red thread instead of water. Cool moonlit blue night, illuminated by the split beam of an electric metal flashlight from off-frame.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात हम गली के आख़िरी कुएँ पर बैठे थे।",
+      "scene": "Outdoors at the stone well at the lane's end under a deep blue moonlit sky. Prabhat in a mustard sweater and steel-rimmed glasses sits on the mossy parapet, while Shailesh in a red cricket cap stands nearby holding his transistor. Cool night shadows, soft moonlit atmosphere.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "pensive and relaxed"
+        },
+        {
+          "name": "shailesh",
+          "expression": "calm and listening"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "नुज़हत ने मुंडेर से रस्सी खींची, पर कुएँ में कोई छपाक नहीं हुआ।",
+      "scene": "Tight editorial detail insert of a thick taut twisted jute well-rope passing over the far mossy stone lip and running diagonally down across the dark mouth of the village well. The rope enters at the upper left and continues beyond the lower crop edge. Cool moonlit-blue stone and a small patch of warm torch light reveal the rounded far parapet. The dark opening and rope occupy the lower half. The person pulling, hands, flashlight, bucket, near-rim attachment and all other props are outside the crop. No water surface or readable markings are visible. This is a detail of the same rope-pulling moment, with no visible cast or light fixture.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "बाल्टी ऊपर आई तो उसमें पीले ख़त भरे थे, और शैलेश ने एक खोल दिया।",
+      "scene": "Outdoors at the village well, a close editorial crop of Shailesh looking down at an unfolded aged yellow paper sheet held naturally in both hands. His faded red cricket cap, striped shirt and small transistor radio in its brown leather shoulder case are visible. At the right edge, only a section of Nuzhat’s bottle-green sleeve and her hand holding the electric metal flashlight are visible; her face is outside the crop. Cool moonlit-blue trees and sky behind. The warm-white flashlight beam lights the letter. The well bucket, lower parapet and all other light sources are outside the crop. The paper has natural aged folds and no readable writing.",
+      "people": [
+        {
+          "name": "shailesh",
+          "expression": "startled and guilty"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "attentive, face outside the crop"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "तभी याद आया—किसी और की चिट्ठी खोली, तो उसी रात जवाब भेजना पड़ता है।",
+      "scene": "Close insert of Prabhat’s mustard-yellow sweater sleeves and hands supporting his open small blue notebook beside the village well. The notebook has a blue cover and plain pale pages with no readable writing. His dark trousers and a small edge of the mossy well parapet are visible below and beside the notebook. His face and all light sources are outside the crop. This is an editorial detail insert from the earlier accepted well-side moment as the narrator recalls the rule.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "serious and realizing"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "वो बिना अलविदा कहे शहर गए लड़के का दर्द था; हमने जवाब लिखकर बाल्टी में रख दिया।",
+      "scene": "Tight editorial insert of Prabhat’s mustard-yellow sweater sleeves and natural hands as his pencil writes a reply on a pale page in his small blue notebook. A small edge of the mossy well parapet is visible below, with a soft patch of green cloth in the background. Faces, heads, light sources, bucket and other cast details are outside the crop. The page has no readable writing. This is an editorial crop of the same well-side writing moment.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "earnest and gentle"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "बाल्टी वापस अंधेरे में उतर गई, वही बाल्टी जो पानी नहीं, चिट्ठियाँ लाती है।",
+      "scene": "Closing editorial detail reprise of the same galvanized iron well bucket from the opening, filled with aged yellow envelope letters tied with faded red thread, resting on the mossy stone parapet. Tight object framing shows the bucket, folded unmarked envelopes, thread and a narrow edge of the well stone, with the blue night lane softly blurred behind. Faces, people and all light sources are outside the crop. This memory insert returns to the letter-bringing bucket as the final line completes the loop; it does not depict a new live action.",
+      "people": [],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    }
+  ],
+  "subgenre": "goodbye",
+  "ending": "loop-back",
+  "twist_beat": 5,
+  "description": "सन्नाटपुर के पुराने कुएँ में जब नुज़हत ने बाल्टी डाली, तो पानी की बूँद तक नहीं आई। शैलेश ने एक पुराना ख़त खोल दिया, पर गाँव का नियम कुछ और ही कहता था।",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य",
+    "#कुआँ"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3.8-flash",
+      "gemini-3.6-flash"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "पानी नहीं, चिट्ठियाँ निकलीं",
+  "object_token": "बाल्टी",
+  "anomaly": "पानी की जगह धागे में बँधी पुरानी चिट्ठियाँ भरकर ऊपर आना",
+  "niyam_id": "N05",
+  "resolution": "bargain",
+  "heart_beat": 6,
+  "heart_type": "goodbye",
+  "skeleton": "S1",
+  "location": "गली के आख़िर वाला मुंडेर वाला कुआँ",
+  "place_id": "kuan"
+}

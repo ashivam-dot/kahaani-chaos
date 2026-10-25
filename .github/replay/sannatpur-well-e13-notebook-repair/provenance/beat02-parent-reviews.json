@@ -1,0 +1,31 @@
+{
+  "images": [
+    {
+      "file": "art-40192011575-3/beat03.png",
+      "image_sha256": "45862eb460728d9fed23fcf8ae7f4d7f2777bba2a8c5e371c18286dd97835f04",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: Shailesh has the red cap, striped shirt, radio, electric flashlight and unfolded yellow letter, but the lower left includes a reddish bucket without the established thread-bound letters and a small unexplained blue/yellow prop on the well. The full frame is refused. A separately reviewed editorial crop may exclude both lower-left defects while retaining the letter-reading action, natural hands and signature props. All current independent picture/narrator/render/full audiovisual gates remain required."
+    },
+    {
+      "file": "art-40192011575-2/beat02.png",
+      "image_sha256": "82840762049413c790445a3d46d13e4835abb6e6caf798f50321cfb44e6c9358",
+      "decision": "hold",
+      "reason": "Direct native inspection: full-frame object-only rope insert includes a visible person and a hand-held flashlight; alternate paintings additionally include an empty bucket and a rope tied to the front rim. These conflict with the specified unoccupied rope/stone detail and off-frame light source. Full frame must not be used."
+    },
+    {
+      "file": "art-40192011575-2/beat02-alt1.png",
+      "image_sha256": "06b3163b1509498f0e4a770e56a13576b91cfdc34f6972d5f6a506995b4ea96f",
+      "decision": "hold",
+      "reason": "Direct native inspection: full-frame object-only rope insert includes a visible person and a hand-held flashlight; alternate paintings additionally include an empty bucket and a rope tied to the front rim. These conflict with the specified unoccupied rope/stone detail and off-frame light source. Full frame must not be used."
+    },
+    {
+      "file": "art-40192011575-2/beat02-alt2.png",
+      "image_sha256": "8b2962b9500a063c4a371280ce71716e5ab096fbb338573ecb912cec473cb2c3",
+      "decision": "hold",
+      "reason": "Direct native inspection: full-frame object-only rope insert includes a visible person and a hand-held flashlight; alternate paintings additionally include an empty bucket and a rope tied to the front rim. These conflict with the specified unoccupied rope/stone detail and off-frame light source. Full frame must not be used."
+    }
+  ],
+  "at": "2026-10-25T13:07:49.922792+00:00",
+  "scope": "Source paintings only",
+  "release_approval": false
+}

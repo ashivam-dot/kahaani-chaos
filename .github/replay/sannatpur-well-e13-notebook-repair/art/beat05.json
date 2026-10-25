@@ -1,0 +1,43 @@
+{
+  "story": "kc-20261025-1111-e13",
+  "beat": 5,
+  "alt": 0,
+  "prompt": "Tight editorial insert of Prabhat’s mustard-yellow sweater sleeves and natural hands as his pencil writes a reply on a pale page in his small blue notebook. A small edge of the mossy well parapet is visible below, with a soft patch of green cloth in the background. Faces, heads, light sources, bucket and other cast details are outside the crop. The page has no readable writing. This is an editorial crop of the same well-side writing moment. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, earnest and gentle expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1292.2,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1589053045,
+  "log_tail": "                                            | 10/138 - 101.40MB/s\u001b[K\n  |##################################################| 138/138 - 931.04MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 90.86s --- image.cpp:620\n[I] decode_first_stage completed, taking 90.86s --- image.cpp:624\n[I] generate_image completed in 1291.35s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat05.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "e3ab67b6a5e33ea445b24f44b2bb63d4a5eabdc72d9ff3cfbbcb082152fe2c8a",
+  "production_approved": false,
+  "derivation": {
+    "operation": "crop_and_resize",
+    "source_beat": 5,
+    "parent_image_sha256": "4be8e3f4076cc108ea04fc04cdb5e1dea9682adca4f953993d14b31fc67f50ac",
+    "parent_metadata_sha256": "29627fa47c5271c63a723a6e82fb1fea5080bb300942a5c37e2dac1325dc1506",
+    "generation_prompt": "Outdoors at the well. Close view of Prabhat writing intently in his small blue notebook with a pencil, while Nuzhat leans in holding her electric metal flashlight steady with its cracked lens so he can see. Shailesh watches quietly from behind. Cool blue moonlight envelops the quiet lane. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, earnest and gentle expression; Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, softened and attentive expression; Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, relieved and quiet expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "crop_ltrb": [
+      160,
+      735,
+      322,
+      1023
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "parent_review_decision": "hold",
+    "parent_refusal_reason": "Direct native-resolution review: Prabhat writes naturally in his blue notebook and the cast has its expected clothing and radio, but Nuzhat carries a glowing oil lantern rather than her required electric metal flashlight. The entire original full frame is refused. The correct writing hands and notebook can be considered only as a separately hash-bound editorial crop that fully excludes this lantern.",
+    "excluded_defects": "The lantern is in the original upper half near Nuzhat’s shoulder. This crop starts at y735 and shows only the reply-writing detail below it; no light source or substituted prop is present."
+  },
+  "cached_from": {
+    "id": 12597823646,
+    "run_id": 40187469293,
+    "name": "art-40187469293-5",
+    "size_in_bytes": 1137729,
+    "source_sha": "2d8f655212bba84f4eb33a4fc230936252775f84"
+  }
+}

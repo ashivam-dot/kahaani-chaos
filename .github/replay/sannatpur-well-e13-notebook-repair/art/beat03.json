@@ -1,0 +1,45 @@
+{
+  "story": "kc-20261025-1111-e13",
+  "beat": 3,
+  "alt": 0,
+  "prompt": "Outdoors at the village well, a close editorial crop of Shailesh looking down at an unfolded aged yellow paper sheet held naturally in both hands. His faded red cricket cap, striped shirt and small transistor radio in its brown leather shoulder case are visible. At the right edge, only a section of Nuzhat’s bottle-green sleeve and her hand holding the electric metal flashlight are visible; her face is outside the crop. Cool moonlit-blue trees and sky behind. The warm-white flashlight beam lights the letter. The well bucket, lower parapet and all other light sources are outside the crop. The paper has natural aged folds and no readable writing. Characters: Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, startled and guilty expression; Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, attentive, face outside the crop expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 724.9,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 274148155,
+  "log_tail": "d graph cut plan done (taking 0 ms) --- ggml_graph_cut.cpp:1032\n\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.03s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 56.84s --- image.cpp:620\n[I] decode_first_stage completed, taking 56.84s --- image.cpp:624\n[I] generate_image completed in 724.15s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat03-alt2.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "4f8de65f0ae552237d6aa58e31652347349e66eb02196b8b740009a8b389d08c",
+  "production_approved": false,
+  "derivation": {
+    "operation": "crop_and_resize",
+    "source_beat": 3,
+    "parent_image_sha256": "2e8dbc5cdd997002077899dc2f6894b0d77abc8cb0f72d05637a0d18778c5503",
+    "parent_metadata_sha256": "146bd6434b162bac2f4b4e69cc74db56dab9403f8010fe4bff02b5ed020cf36d",
+    "generation_prompt": "Outdoors at the well parapet. Shailesh in a striped shirt and red cricket cap holds an unfolded, blank-backed yellow paper slip, taken from the bucket. Nuzhat points her electric metal flashlight at the open bucket, its split beam revealing bundles of paper tied with red twine. Characters: Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, startled and guilty expression; Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, sharp and alert expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "crop_ltrb": [
+      0,
+      0,
+      405,
+      720
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "parent_review_decision": "hold",
+    "parent_refusal_reason": "Direct native-resolution review: Correct cast holds the opened yellow letter and flashlight, but the focal bucket contains prominent upright stick-like bundles rather than aged envelopes, contradicting the central letter reveal. Exact full-frame bytes refused.",
+    "excluded_defects": "The lower bucket with stick-like bundles and the ground lantern begin below the crop. They are fully excluded at y720. Shailesh, his letter and radio, and the partially framed green sleeve with the supported electric flashlight remain. No duplicate character or unsupported flashlight appears.",
+    "source_alt": 2,
+    "target_role": "editorial_derived_base"
+  },
+  "cached_from": {
+    "id": 12598421240,
+    "run_id": 40187469293,
+    "name": "art-40187469293-3",
+    "size_in_bytes": 3385659,
+    "source_sha": "2d8f655212bba84f4eb33a4fc230936252775f84"
+  }
+}

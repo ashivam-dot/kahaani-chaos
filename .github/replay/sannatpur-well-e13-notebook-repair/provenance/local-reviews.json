@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-25T13:08:35.221767+00:00",
+  "images": [
+    {
+      "file": "notebook-insert/beat04.png",
+      "image_sha256": "bcbc6514d7f9b538d3277153f17d7b63445a13487feb890cfc0d3171281f1981",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: a faithful editorial insert from the preceding accepted well-side painting shows mustard sweater cuffs, natural clasped hands supporting the established blue notebook, dark trousers and mossy stone parapet. Faces, light sources and bucket are outside the crop. It fits the unchanged spoken rule-remembrance line without showing the refused lantern/empty-bucket substitution. No new generation or written content is claimed. Exact source pixels, prompt/metadata provenance and current independent picture/render/full audiovisual checks remain required."
+    },
+    {
+      "file": "reply-insert/beat05.png",
+      "image_sha256": "e3ab67b6a5e33ea445b24f44b2bb63d4a5eabdc72d9ff3cfbbcb082152fe2c8a",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: natural mustard-cuffed writing hand, pencil and blue notebook with pale pages, supporting hand beneath, dark trousers and mossy well rim. The electric-light substitution is outside the exact crop; no lantern, face or readable writing is visible. This is the actual reply-writing action from the same source beat. Some source softness remains from the tight crop; independent current picture and final audiovisual checks remain mandatory."
+    },
+    {
+      "file": "letter-insert/beat03.png",
+      "image_sha256": "4f8de65f0ae552237d6aa58e31652347349e66eb02196b8b740009a8b389d08c",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: natural red-capped Shailesh in striped shirt holds and reads one unfolded yellow sheet, with his radio visible. A partial green sleeve supports the electric flashlight at the right edge, without an extra character or unsupported light. The crop fully excludes the stick-like bucket bundles and ground lantern. The paper has aged fold texture with no readable writing. This faithful crop preserves the action and period props. Independent current picture, narrator, render and full audiovisual checks remain required."
+    },
+    {
+      "file": "bucket-insert/beat06.png",
+      "image_sha256": "3df15120d1dd12d711453c445bbb14717eb2d7967abe09d163192b54c1a99061",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: a clear galvanized bucket holds folded yellow envelope letters bound with red thread, supported by the well parapet, with the blue night lane behind. No water drips, generated writing, hands or light fixture appear. This faithful closing reprise of the accepted opening object suits the final same-bucket loop; it does not claim to show a fresh lowering action. Current independent picture and complete audiovisual checks must still judge its fit to the full ending."
+    },
+    {
+      "file": "rope-insert/beat02.png",
+      "image_sha256": "7be25626840b39c6212da242686f55f5cc2d81f290bd79d9e92ea0d1cea5e6b9",
+      "decision": "pass",
+      "reason": "Direct native inspection: a single taut jute rope over mossy blue well stone, running down across the dark opening beyond the lower edge. The crop excludes all people, hands, torch fixtures, bucket and the near-rim attachment. No water, writing or anatomical issue. An editorial detail insert, not a claim of newly generated art or visible pulling action."
+    }
+  ],
+  "release_approval": false,
+  "scope": "Derived input art only"
+}

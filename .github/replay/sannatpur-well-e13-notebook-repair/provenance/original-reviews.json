@@ -1,0 +1,79 @@
+{
+  "at": "2026-10-25T12:49:34.333311+00:00",
+  "images": [
+    {
+      "file": "art-40187469293-1/beat01.png",
+      "image_sha256": "bbb00875a77a72da1b5f6a893dc6acb1f8faec6463578f4b1dc6d02779103b32",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: Prabhat in mustard sweater and steel-rimmed glasses holds his blue notebook seated on mossy well parapet; Shailesh in red cricket cap, striped shirt, blue flip-flops and brown leather-cased radio stands beside him. Correct moonlit village setting, warm lantern, adult proportions and natural limbs. No visible text, gore or extra people. This is source-art review only; independent final picture and full audiovisual release checks remain required."
+    },
+    {
+      "file": "art-40187469293-0/beat00.png",
+      "image_sha256": "ff84f1cda283671acb2764f97e00d5e97af134c27eb98c80d3efe01e26acd56a",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: aged sealed envelopes bound in red thread overflow a galvanized bucket on stone well parapet. Correct moonlit village setting and visible metal electric flashlight beam. Warm hanging lantern, no people/body parts, no readable writing or printed logo. Source art only; final hook exposure, picture and complete audiovisual release checks remain required."
+    },
+    {
+      "file": "art-40187469293-4/beat04.png",
+      "image_sha256": "36f7ad0285f5e7dfb8d92a51ae644601ac3058de3bfc9a9802983ee0d1b472e3",
+      "decision": "hold",
+      "reason": "Correct cast colours, notebook, radio and well, but the required electric metal flashlight is replaced by a lantern and the foreground bucket is empty despite the letters remaining in it at this moment. Repair only this scene; do not accept these full-frame bytes."
+    },
+    {
+      "file": "art-40187469293-2/beat02.png",
+      "image_sha256": "3e8a840bc30c27cf130866141c318a75fb1d520e574d8817100549d60d2f2f4e",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: Nuzhat holds the electric flashlight in her hand while the well rope hangs beside her; she is not gripping and pulling it over the parapet. A glowing lantern is also visible although this planned scene requires the flashlight resting on the stone as the only practical light. Preserve accepted siblings and every spoken line; these exact full-frame bytes are refused."
+    },
+    {
+      "file": "art-40187469293-2/beat02-alt1.png",
+      "image_sha256": "5bdbea0431699c13f37bb5ac77d6c7ebb146b68e1008441879e733f8fd0012a2",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: Nuzhat holds the electric flashlight in her hand while the well rope hangs beside her; she is not gripping and pulling it over the parapet. A glowing lantern is also visible although this planned scene requires the flashlight resting on the stone as the only practical light. Preserve accepted siblings and every spoken line; these exact full-frame bytes are refused."
+    },
+    {
+      "file": "art-40187469293-2/beat02-alt2.png",
+      "image_sha256": "56d8a3bc2afaafb007e99d7274e3bcafb6c5f64636f971b915ad3b36ca38e38f",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: Nuzhat holds the electric flashlight in her hand while the well rope hangs beside her; she is not gripping and pulling it over the parapet. A glowing lantern is also visible although this planned scene requires the flashlight resting on the stone as the only practical light. Preserve accepted siblings and every spoken line; these exact full-frame bytes are refused."
+    },
+    {
+      "file": "art-40187469293-3/beat03.png",
+      "image_sha256": "f0cc68c5001c0b76769dde024eab1ed72c7fe90a072c1c493aa5edd976a5594a",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: The opened yellow letter, correct cast and their props are present, but a second electric flashlight floats unsupported above the bucket. The bound bucket contents resemble upright narrow sticks rather than aged envelopes. Exact full-frame bytes refused."
+    },
+    {
+      "file": "art-40187469293-3/beat03-alt1.png",
+      "image_sha256": "301cd073157274e9b863d2dad8ff4ad3222e23f390bec5171943867804c7d289",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: Duplicate Shailesh appears in the foreground holding a second flashlight, besides the planned Shailesh and Nuzhat. Bucket contents resemble sticks rather than envelope bundles. Exact full-frame bytes refused."
+    },
+    {
+      "file": "art-40187469293-3/beat03-alt2.png",
+      "image_sha256": "2e8dbc5cdd997002077899dc2f6894b0d77abc8cb0f72d05637a0d18778c5503",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: Correct cast holds the opened yellow letter and flashlight, but the focal bucket contains prominent upright stick-like bundles rather than aged envelopes, contradicting the central letter reveal. Exact full-frame bytes refused."
+    },
+    {
+      "file": "art-40187469293-5/beat05.png",
+      "image_sha256": "4be8e3f4076cc108ea04fc04cdb5e1dea9682adca4f953993d14b31fc67f50ac",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: Prabhat writes naturally in his blue notebook and the cast has its expected clothing and radio, but Nuzhat carries a glowing oil lantern rather than her required electric metal flashlight. The entire original full frame is refused. The correct writing hands and notebook can be considered only as a separately hash-bound editorial crop that fully excludes this lantern."
+    },
+    {
+      "file": "art-40187469293-6/beat06.png",
+      "image_sha256": "c900d2c7408b7160cc4d85ac26abd102c7c0dc6b3c071dabac01316f120272df",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: ending paintings add visible human arms to the object-only well shot, carry a glowing oil lantern into the planned flashlight-lit lowering moment, put generated writing on the sheets and drip water from the bucket despite the story explicitly returning letters rather than water. Preserve this refusal and narration. A separately reviewed closing detail reprise of the already accepted letter-filled bucket can complete the loop without inventing a new lowering image. All independent picture/narrator/render/full audiovisual gates remain required."
+    },
+    {
+      "file": "art-40187469293-6/beat06-alt1.png",
+      "image_sha256": "787eda36cd95ce19b10ca00188fc3c3a1ba85a1b8494169e4a59bbd9a7382d35",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: ending paintings add visible human arms to the object-only well shot, carry a glowing oil lantern into the planned flashlight-lit lowering moment, put generated writing on the sheets and drip water from the bucket despite the story explicitly returning letters rather than water. Preserve this refusal and narration. A separately reviewed closing detail reprise of the already accepted letter-filled bucket can complete the loop without inventing a new lowering image. All independent picture/narrator/render/full audiovisual gates remain required."
+    }
+  ],
+  "release_approval": false,
+  "scope": "Source paintings only"
+}

@@ -1,0 +1,48 @@
+{
+  "story": "kc-20261025-1111-e13",
+  "beat": 2,
+  "alt": 0,
+  "prompt": "Tight editorial detail insert of a thick taut twisted jute well-rope passing over the far mossy stone lip and running diagonally down across the dark mouth of the village well. The rope enters at the upper left and continues beyond the lower crop edge. Cool moonlit-blue stone and a small patch of warm torch light reveal the rounded far parapet. The dark opening and rope occupy the lower half. The person pulling, hands, flashlight, bucket, near-rim attachment and all other props are outside the crop. No water surface or readable markings are visible. This is a detail of the same rope-pulling moment, with no visible cast or light fixture. No people: no human figure, face, hand or arm anywhere in the picture. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1012.1,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1267208150,
+  "log_tail": "hed graph cut plan done (taking 0 ms) --- ggml_graph_cut.cpp:1032\n\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.04s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 106.51s --- image.cpp:620\n[I] decode_first_stage completed, taking 106.51s --- image.cpp:624\n[I] generate_image completed in 1011.21s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat02.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "7be25626840b39c6212da242686f55f5cc2d81f290bd79d9e92ea0d1cea5e6b9",
+  "production_approved": false,
+  "derivation": {
+    "operation": "crop_and_resize",
+    "source_beat": 2,
+    "parent_image_sha256": "82840762049413c790445a3d46d13e4835abb6e6caf798f50321cfb44e6c9358",
+    "parent_metadata_sha256": "25eb2062c5f4d306ff27e93f3b0295f6a999845960be9b68b1f300567d978125",
+    "generation_prompt": "The scene is outdoors. Extreme close insert of one thick taut twisted jute well-rope crossing the rounded mossy stone lip of the village well, then descending diagonally into its dark opening. The taut strand is lifted toward the upper edge of the composition, continuing outside the crop. The stone parapet and rope fill the picture; the bucket and the person pulling are outside the frame. Readable rope fibres, cool moonlit-blue stone, one soft warm-white split beam arriving from an off-frame battery torch. The electric flashlight is the only practical light. No visible light source, no water surface, no written markings. No people: no human figure, face, hand or arm anywhere in the picture. bright moonlit 1996 north-Indian village, one warm-white electric battery-flashlight beam, lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "crop_ltrb": [
+      140,
+      250,
+      500,
+      890
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "parent_review_decision": "hold",
+    "parent_refusal_reason": "Direct native inspection: full-frame object-only rope insert includes a visible person and a hand-held flashlight; alternate paintings additionally include an empty bucket and a rope tied to the front rim. These conflict with the specified unoccupied rope/stone detail and off-frame light source. Full frame must not be used.",
+    "excluded_defects": [
+      "Visible person and hand-held torch are above/left of the crop.",
+      "Near parapet attachment and lower rope end are below the crop.",
+      "No bucket or other character prop is within this crop."
+    ],
+    "reason": "Directly inspected object-only detail from the same rope moment; full parent remains refused."
+  },
+  "cached_from": {
+    "id": 12599696674,
+    "run_id": 40192011575,
+    "name": "art-40192011575-2",
+    "size_in_bytes": 3685636,
+    "source_sha": "1857f9365bf7787cf1c13d9d4bfc4b3e16dd7e15"
+  }
+}
