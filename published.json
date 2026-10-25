@@ -552,5 +552,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-0335-e10",
+  "premise": "e10",
+  "title": "डाकघर का अंतर्देशीय खोला… और शब्द उभर आए! ✉️",
+  "subgenre": "kindness",
+  "motifs": [],
+  "ending": "register-line",
+  "opening": "डाकघर का",
+  "made_at": "2026-10-25T05:02:29+00:00",
+  "format": "micro",
+  "skeleton": "S1",
+  "resolution": "bargain",
+  "heart_type": "kindness",
+  "object_token": "अंतर्देशीय",
+  "anomaly": "खोलते ही ख़ाली पन्ने पर शब्द अपने-आप उभरना",
+  "location": "लकड़ी की छँटाई वाली मेज़",
+  "place_id": "dakghar",
+  "hook_strip": "ख़ाली अंतर्देशीय का रहस्य",
+  "script": "डाकघर का ख़ाली अंतर्देशीय खोला, तो उसमें शब्द उभरने लगे। उन्नीस सौ छियानवे, उस रात डाकघर में लालटेन की रोशनी काँप रही थी। मेज़ पर पड़े उस बेनाम काग़ज़ पर लिखा था, क्या सन्नाटपुर में अब भी रोज़ बिजली जाती है? शैलेश डरकर पीछे हटा, क्योंकि पते की जगह पर किसी का नाम ही नहीं था। झब्बू ने टोकते हुए नियम याद दिलाया, किसी और का ख़त खोला है तो आज ही जवाब देना होगा। हमने लालटेन के पास बैठकर उस अजनबी के लिए गाँव का हर छोटा-बड़ा हाल प्यार से लिख दिया। झब्बू ने अपने रजिस्टर में दर्ज किया, एक जवाब, बिना पते का।",
+  "slot": "2026-10-29T07:30:00Z",
+  "published_at": "2026-10-29T07:30:00Z",
+  "voice": "chatterbox-narrator-clone",
+  "batch_run": 40162491442,
+  "av_review_sha256": "8e6511fe2710c0e00d066d58a5ccdb14a4bbcf34263f03ee8bf5b88004f44f04",
+  "video_id": "g7qgK_iPyzg",
+  "url": "https://www.youtube.com/shorts/g7qgK_iPyzg",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-29T07:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-10-29T07:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
