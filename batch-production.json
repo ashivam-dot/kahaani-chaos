@@ -3717,7 +3717,55 @@
       ],
       "submitted_at": "2026-10-25T10:32:04+00:00",
       "run_id": 40185173569,
-      "cloud_status": "completed"
+      "cloud_status": "completed",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3-flash-preview",
+        "duration": 40.566667,
+        "video_sha256": "1c0ab78f864e56952c0f799ad77e920bf5e94dced36cf3b6fd58ff90749282ae",
+        "brief_sha256": "daf00677c2b061c8687926a83bc820a42d19af1d03cd0c95f85c8ba4c0a87a69",
+        "review_video_sha256": "d4e9c3d5b96266e2ee19fb7d48ff85de1163cd365f4273fe06fa01737bf79756",
+        "review_audio_sha256": "75a24efc355ed6d6761c41e2620ea80ca7e94db445fd2bec0829a9a75cd3e8c8",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "बहाई छोटी नाव उल्टी धार तैरकर सीढ़ियों पर लौट आई।",
+          "heard_ending": "आज तीस साल बाद भी सोचता हूँ, बिना चप्पू के वह नन्हीं नाव उल्टी धार कैसे चढ़ी थी?",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "Two youths sitting on brick canal steps at night.",
+              "heard": "उन्नीस सौ छियानवे, उस रात हम तीनों नहर की सीढ़ियों पर बैठे थे।"
+            },
+            {
+              "part": "middle",
+              "seconds": 15.0,
+              "seen": "A small wooden boat floating against the current in moonlight.",
+              "heard": "वह नन्हीं नाव छप-छप करती उल्टी हमारी तरफ़ मुड़ आई।"
+            },
+            {
+              "part": "ending",
+              "seconds": 36.5,
+              "seen": "Middle-aged hands turning a page in a blue notebook.",
+              "heard": "आज तीस साल बाद भी सोचता हूँ, बिना चप्पू के वह नन्हीं नाव उल्टी धार कैसे चढ़ी थी?"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -3806,7 +3854,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e11.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 1,
       "source_sha": "4362bbb9b90edfac8759356338f5544867a22ccf",
       "before_ids": [
@@ -3871,7 +3919,9 @@
         40122737348,
         40120456012
       ],
-      "submitted_at": "2026-10-25T11:41:42+00:00"
+      "submitted_at": "2026-10-25T11:41:42+00:00",
+      "run_id": 40189938585,
+      "cloud_status": "queued"
     },
     {
       "repo": "kahaani-chaos",
@@ -3930,5 +3980,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T11:43:18+00:00"
+  "updated_at": "2026-10-25T11:43:59+00:00"
 }
