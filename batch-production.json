@@ -1508,7 +1508,7 @@
         40152845611
       ],
       "repair_reason": "Preserve all exact reviewed repaired art and narration. Apply deployed word-protected quiet-pause editor to cloned narration before unchanged final waveform, picture, render and full audiovisual gates; prior clone gap was 1.22 seconds.",
-      "cloud_status": "queued",
+      "cloud_status": "in_progress",
       "editorial_holds": [
         {
           "id": "direct-brick-cast-and-text-40148651151",
@@ -1812,10 +1812,10 @@
   "health": {
     "public": 1,
     "scheduled": 5,
-    "held": 2,
+    "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T02:29:55+00:00",
+  "updated_at": "2026-10-25T02:29:58+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
