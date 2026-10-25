@@ -1641,76 +1641,10 @@
       "target": "2026-10-28T13:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e03.json"
+        "replay": ".github/replay/sannatpur-pco-e03-repair.json"
       },
-      "stage": "held",
+      "stage": "planned",
       "attempts": 1,
-      "source_sha": "f70bd66602e263a3c342469fba009cd9d1c7889c",
-      "before_ids": [
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847,
-        40147346342,
-        40147002904,
-        40146579288,
-        40146069336,
-        40144076354,
-        40143503135,
-        40142724972,
-        40142626858,
-        40142424645,
-        40142328302,
-        40134819856,
-        40134047227,
-        40132420577,
-        40127450982,
-        40127055413,
-        40124707293,
-        40122737348,
-        40120456012,
-        40119789283,
-        40119725595,
-        40113702992,
-        40101837936,
-        40098975134,
-        40097886586,
-        40094273058,
-        40093452412,
-        40076072866,
-        40074101662,
-        40069802174,
-        40052825389,
-        40015352420,
-        40012868945,
-        40010294493,
-        40008947633,
-        39998079552,
-        39984130378,
-        39983471528,
-        39969216681,
-        39964227699,
-        39953890527,
-        39952503586,
-        39939846588,
-        39939303531,
-        39930652897,
-        39921910994,
-        39892698527,
-        39892494946,
-        39887835447,
-        39886731532,
-        39878445511,
-        39866905046,
-        39797864995,
-        39794086791,
-        39734657240,
-        39731228102
-      ],
-      "submitted_at": "2026-10-25T01:49:46+00:00",
-      "run_id": 40152138336,
-      "cloud_status": "in_progress",
       "editorial_holds": [
         {
           "id": "direct-pco-object-hands-40152138336",
@@ -1741,9 +1675,26 @@
           }
         }
       ],
-      "problems": [
-        "Direct rendered-still review: beat 0 shows a disembodied hand protruding from the wall meter; beat 5 shows two floating arms beneath a reel-like box. Both planned scenes are object-only. Repair exact meter scenes to a faithful enclosed analog call meter without body parts; retain all spoken story and usable siblings."
-      ]
+      "repair_history": [
+        {
+          "run_id": 40152138336,
+          "source_sha": "f70bd66602e263a3c342469fba009cd9d1c7889c",
+          "stage": "held",
+          "problems": [
+            "Direct rendered-still review: beat 0 shows a disembodied hand protruding from the wall meter; beat 5 shows two floating arms beneath a reel-like box. Both planned scenes are object-only. Repair exact meter scenes to a faithful enclosed analog call meter without body parts; retain all spoken story and usable siblings."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e03.json"
+          }
+        }
+      ],
+      "obsolete_runs": [
+        40152138336
+      ],
+      "repair_queued_at": "2026-10-25T02:45:29+00:00",
+      "repair_source_sha": "802e6cac33e52929cea7750db1507e39437645b7",
+      "repair_reason": "Exact direct-reviewed PCO scene repair, all seven inputs cached; speech, plot, identity and passing siblings retained. Current cloud picture, narration, render and full AV checks remain. Queue before later episodes under the existing two-producer cap."
     },
     {
       "repo": "kahaani-chaos",
@@ -1890,7 +1841,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e03: Direct rendered-still review: beat 0 shows a disembodied hand protruding from the wall meter; beat 5 shows two floating arms beneath a reel-like box. Both planned scenes are object-only. Repair exact meter scenes to a faithful enclosed analog call meter without body parts; retain all spoken story and usable siblings.",
+  "halted": null,
   "complete": false,
   "health": {
     "public": 1,
@@ -1898,7 +1849,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T02:45:00+00:00",
+  "updated_at": "2026-10-25T02:45:29+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
