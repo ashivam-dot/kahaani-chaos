@@ -78,6 +78,14 @@ PERSON = re.compile(r"\b(he|she|they|his|her|their|him|man|men|woman|women|young
 WRITING = re.compile(r"\b(writ(?:e|es|ing)|pen|ink|pencil)\b", re.I)
 ELECTRIC_ONLY = re.compile(r"\belectric flashlight is the only practical light\b", re.I)
 WRISTS_ONLY = re.compile(r"\bonly hands and wrists are within the frame\b", re.I)
+# The e16 restraining-grip repairs ignored their crop when the appended full-body
+# cast tokens requested caps, glasses and flip-flops. This explicit close detail
+# keeps the same clothing identities without requesting offscreen anatomy.
+ARMS_ONLY = re.compile(r"\bonly arms and hands are within the frame\b", re.I)
+ARM_DETAILS = {
+    "prabhat": "Prabhat: one mustard-yellow knitted sweater cuff and the natural bare hand extending from it",
+    "shailesh": "Shailesh: one adult upper arm covered by a striped cotton shirt sleeve",
+}
 
 
 # Told "no people", Z-Image still put a boy on the bicycle "rolling slowly across the bridge" in all three paintings
@@ -176,9 +184,15 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
         parts.append(OUT)
     present = [(looks[p["name"].strip().lower()], p.get("expression", "").strip()) for p in people
                if p.get("name", "").strip().lower() in looks]
+    arms_only = bool(ARMS_ONLY.search(scene)) and len(present) == 2 \
+        and {c.get("id") for c, _ in present} == set(ARM_DETAILS)
     if hook:
         parts.append(CLOSE if present else CLOSE_THING)
-    if present:
+    if arms_only:
+        parts.append("Visible character details: " + "; ".join(ARM_DETAILS[c["id"]] for c, _ in present) + ".")
+        parts.append("Only the two friends' arm detail is visible. Their heads, faces, torsos and legs are "
+                     "outside this tight crop. The mustard-cuffed hand grips the striped upper arm.")
+    elif present:
         parts.append("Characters: " + "; ".join(f"{character(c, scene)}, {mood or 'calm'} expression" for c, mood in present)
                      + ".")
         if len(present) == 1 and present[0][0].get("id") == "jhabbu" \

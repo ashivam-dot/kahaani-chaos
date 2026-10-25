@@ -7,6 +7,25 @@ CAST = [{"name": "Dhaniram", "look": "plump middle-aged moneylender with a thick
         {"name": "Meera", "look": "young woman in a fish-pattern scarf, braided hair"}]
 
 
+def test_explicit_two_friend_arm_detail_keeps_colours_without_requesting_full_bodies():
+    scene = ('A mustard-cuffed hand grips a striped upper arm at the water tower. '
+             'Only arms and hands are within the frame.')
+    cast = [{'id': 'prabhat'}, {'id': 'shailesh'}]
+    people = [{'name': 'prabhat', 'expression': 'resolute'}, {'name': 'shailesh', 'expression': 'tense'}]
+    prompt = look.prompt(scene, people, cast)
+    assert 'mustard-yellow knitted sweater cuff' in prompt and 'striped cotton shirt sleeve' in prompt
+    assert 'the two friends\' arm detail' in prompt and look.FACES not in prompt
+    assert 'cricket cap' not in prompt and 'flip-flops' not in prompt and 'glasses' not in prompt
+    assert 'tense expression' not in prompt and look.STYLE in prompt
+    original = look.prompt('The two friends stand on the platform.', people, cast)
+    assert look.FACES in original and 'cricket cap' in original and 'steel-rimmed glasses' in original
+    # The narrow crop rule cannot silently rewrite another cast or a crowd.
+    other = look.prompt(scene, [{'name': 'Meera'}], CAST)
+    assert look.FACES in other and 'fish-pattern scarf' in other
+    crowd = look.prompt(scene, people + [{'name': 'nuzhat'}], cast + [{'id': 'nuzhat'}])
+    assert look.FACES in crowd and 'bottle-green dupatta' in crowd
+
+
 def test_explicit_electric_only_scene_does_not_offer_a_flame_or_require_a_third_hand():
     scene = ('Nuzhat frees a bird with both hands. Her metal battery flashlight rests beside her. '
              'The electric flashlight is the only practical light.')
