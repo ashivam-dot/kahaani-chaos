@@ -551,7 +551,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-scale-e04-repair.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 2,
       "source_sha": "76b80e9d4b3106bc97abd5c229973879322add57",
       "before_ids": [
@@ -780,7 +780,10 @@
         40134819856
       ],
       "repair_reason": "Replace held opening, hand-operated scale and wrong-actor shots with exact inspected paintings. Preserve original valid art, including beat4-alt2 with original variant metadata, and exclude the two duplicate-cast variants. Full current picture, narration, render and audiovisual checks remain mandatory.",
-      "run_id": 40143503135
+      "run_id": 40143503135,
+      "problems": [
+        "ValueError: preview did not make a finished passing Short"
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -1133,7 +1136,7 @@
     }
   ],
   "halted": "Repair held entry e05: Actual closing still depicts four physical foreground people and four projected silhouettes, while the story is about a trio and this shot is planned as an object-only projector close-up. Replace only this closing art; preserve usable other paintings and all spoken text. Complete current media and audiovisual review remain mandatory.",
-  "updated_at": "2026-10-25T00:15:47+00:00",
+  "updated_at": "2026-10-25T00:15:50+00:00",
   "complete": false,
   "health": {
     "public": 1,
