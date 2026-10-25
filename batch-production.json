@@ -1543,7 +1543,8 @@
       ],
       "submitted_at": "2026-10-25T02:32:02+00:00",
       "attempts": 1,
-      "run_id": 40154809245
+      "run_id": 40154809245,
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -1670,7 +1671,8 @@
         39878445511
       ],
       "submitted_at": "2026-10-25T02:49:52+00:00",
-      "run_id": 40155939996
+      "run_id": 40155939996,
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -1822,10 +1824,10 @@
   "health": {
     "public": 1,
     "scheduled": 5,
-    "held": 1,
+    "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T03:02:36+00:00",
+  "updated_at": "2026-10-25T03:02:38+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
