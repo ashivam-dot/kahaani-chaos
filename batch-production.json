@@ -2290,7 +2290,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-letter-e10-repair.json"
       },
-      "stage": "reviewed",
+      "stage": "upload_intent",
       "attempts": 2,
       "editorial_holds": [
         {
@@ -2487,7 +2487,9 @@
           "issues": []
         }
       },
-      "archive": "batch-reviewed-40162491442"
+      "archive": "batch-reviewed-40162491442",
+      "intended_publish_at": "2026-10-29T07:30:00Z",
+      "upload_intent_at": "2026-10-25T05:01:45+00:00"
     },
     {
       "repo": "kahaani-chaos",
@@ -2696,5 +2698,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T05:01:43+00:00"
+  "updated_at": "2026-10-25T05:01:45+00:00"
 }
