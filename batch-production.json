@@ -5217,7 +5217,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/e24-reviewed-telegraph-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "held",
       "attempts": 2,
       "editorial_holds": [
         {
@@ -5399,7 +5399,12 @@
         39998079552,
         39984130378
       ],
-      "submitted_at": "2026-10-25T19:20:15+00:00"
+      "submitted_at": "2026-10-25T19:20:15+00:00",
+      "run_id": 40225550383,
+      "cloud_status": "completed",
+      "problems": [
+        "ValueError: preview did not make a finished passing Short"
+      ]
     }
   ],
   "halted": null,
@@ -5410,7 +5415,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T19:23:19+00:00",
+  "updated_at": "2026-10-25T19:23:23+00:00",
   "measurement": {
     "at": "2026-10-25T19:23:19+00:00",
     "ok": true,
