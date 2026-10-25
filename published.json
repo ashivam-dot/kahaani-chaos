@@ -888,5 +888,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-1340-e21",
+  "premise": "e21",
+  "title": "ठंडे भट्ठे की चिमनी पर रोशनी किसने जलाई? 🏭",
+  "subgenre": "goodbye",
+  "motifs": [],
+  "ending": "loop-back",
+  "opening": "ठंडी चिमनी",
+  "made_at": "2026-10-25T17:56:20+00:00",
+  "format": "micro",
+  "skeleton": "S3",
+  "resolution": "leave-it-be",
+  "heart_type": "goodbye",
+  "object_token": "चिमनी",
+  "anomaly": "ठंडे भट्ठे की चिमनी पर रोशनी जलना और धीरे-धीरे नीचे उतरना",
+  "location": "ऊँची चिमनी का निचला दरवाज़ा",
+  "place_id": "bhatta",
+  "hook_strip": "चिमनी पर जलती रोशनी",
+  "script": "ठंडी चिमनी पर रोशनी जलकर धीरे-धीरे नीचे उतरने लगी। उन्नीस सौ छियानवे, उस रात पुराना भट्ठा बिल्कुल ठंडा था। मैं, नुज़हत और झब्बू काका सन्नाटे में खड़े थे। अचानक ऊँची चिमनी की लोहे की सीढ़ी पर वो रोशनी सरकने लगी। मैं सीढ़ी की तरफ़ लपका, पर काका ने बाँस अड़ा दिया। नियम था, अपने-आप जली रोशनी के पीछे मत भागो, बस देखो कहाँ रुकती है। रोशनी मुंशी की टीन की कोठरी पर ठहर गई। कल गाँव छोड़ रहे मुंशी जी बाहर आए, और हम तीनों चुपचाप उनके साथ विदा में खड़े रहे। राख की तरह ठंडी चिमनी पर जलती रोशनी आज भी यादों में उतरती है।",
+  "slot": "2026-11-02T07:30:00Z",
+  "published_at": "2026-11-02T07:30:00Z",
+  "voice": "chatterbox-narrator-clone",
+  "batch_run": 40206121370,
+  "av_review_sha256": "a8e49733c20e187b237a905dc82d9a3415d953c6758041571e1c399e74e6f89d",
+  "video_id": "SsG0A5bNeKg",
+  "url": "https://www.youtube.com/shorts/SsG0A5bNeKg",
+  "privacy": "scheduled",
+  "publish_at": "2026-11-02T07:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-11-02T07:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]

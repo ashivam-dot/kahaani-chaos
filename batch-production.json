@@ -4340,7 +4340,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/e21-reviewed-moving-light-repair.json"
       },
-      "stage": "upload_intent",
+      "stage": "scheduled",
       "attempts": 3,
       "repair_history": [
         {
@@ -4677,7 +4677,26 @@
       },
       "archive": "batch-reviewed-40206121370",
       "intended_publish_at": "2026-11-02T07:30:00Z",
-      "upload_intent_at": "2026-10-25T17:55:25+00:00"
+      "upload_intent_at": "2026-10-25T17:55:25+00:00",
+      "delivery": {
+        "video_id": "SsG0A5bNeKg",
+        "url": "https://www.youtube.com/shorts/SsG0A5bNeKg",
+        "privacy": "scheduled",
+        "publish_at": "2026-11-02T07:30:00Z",
+        "synthetic_declared": true,
+        "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+        "comment": "pending: HTTP 403",
+        "playlist": "skipped: no playlist",
+        "owner_readback": {
+          "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+          "privacyStatus": "private",
+          "publishAt": "2026-11-02T07:30:00Z",
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false,
+          "containsSyntheticMedia": null,
+          "uploadStatus": "processed"
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -5095,7 +5114,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T17:55:25+00:00",
+  "updated_at": "2026-10-25T17:56:20+00:00",
   "measurement": {
     "at": "2026-10-25T17:54:43+00:00",
     "ok": true,
