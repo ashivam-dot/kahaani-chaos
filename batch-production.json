@@ -3924,7 +3924,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e11.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 1,
       "source_sha": "4362bbb9b90edfac8759356338f5544867a22ccf",
       "before_ids": [
@@ -3991,7 +3991,22 @@
       ],
       "submitted_at": "2026-10-25T11:41:42+00:00",
       "run_id": 40189938585,
-      "cloud_status": "queued"
+      "cloud_status": "queued",
+      "editorial_holds": [
+        {
+          "id": "e11-generated-card-writing-hold",
+          "run_id": 40189938585,
+          "observed_at": "2026-10-25T12:32:41+00:00",
+          "reason": "Both hook paintings contain conspicuous invented alphanumeric headings on the ration card instead of its planned blank reverse. Repair only the card surface or this hook; preserve narration and accepted siblings. All current picture, narration, render and full audiovisual gates remain required.",
+          "evidence": {
+            "art-40189938585-0/beat00.png": "66a488887737908dc70aae10eaff06f6df9a0c33ce78ae04c297aef1a5b5130d",
+            "art-40189938585-0/beat00-alt1.png": "6661b478efeeada29d5ceb44d9cc168ef18dbd676a2876146634a76c023dfae3"
+          }
+        }
+      ],
+      "problems": [
+        "Both hook paintings contain conspicuous invented alphanumeric headings on the ration card instead of its planned blank reverse. Repair only the card surface or this hook; preserve narration and accepted siblings. All current picture, narration, render and full audiovisual gates remain required."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -4050,5 +4065,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T12:20:16+00:00"
+  "updated_at": "2026-10-25T12:32:41+00:00"
 }
