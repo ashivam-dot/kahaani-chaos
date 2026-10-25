@@ -165,7 +165,8 @@ RULES (all mandatory):
   {object_token!r} within the first five words; never बच्चों, kids, cartoon, चौकीदार. You may keep or improve
   the seed title. Never reveal the turn.
 - description: 1-2 Hindi sentences that tease the night without the turn.
-- hashtags: 3-5, always #सन्नाटपुर, e.g. #सन्नाटपुर #90sकीयादें #रहस्य.
+- hashtags: 3-5, always #सन्नाटपुर. Each hashtag is a SEPARATE array item, for example
+  ["#सन्नाटपुर", "#90sकीयादें", "#रहस्य"]. No separators or joined hashtags inside an item.
 Return only the JSON."""
 EDITOR = """You are the story editor of "सन्नाटपुर की रातें", Hindi 90s-nostalgia mystery Shorts for adults. Read
 this draft as a viewer would and answer honestly:

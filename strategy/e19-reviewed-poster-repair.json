@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-25T15:55:56.700152+00:00",
+  "premise": "e19",
+  "run_id": 40199355603,
+  "source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f",
+  "manifest": ".github/replay/e19-reviewed-poster-shadow-repair.json",
+  "manifest_sha256": "49a110d94a56d7835290cda5196340e0af9d6692d3a6d054a86599aa87f4e538",
+  "selected_images": {
+    "0": "47b3ee09e5877b29c70d7e4f3c8986ead496a08b90a75f4d2e5423c93c81ddd1",
+    "1": "8e50b8a2530b40e491d0ec40a35e3626fcad25103f62416d32b49ec314a953c1",
+    "2": "b26be073399c2a72da245a9545c40ba374f61f13e46757d92edc30ff23f20db0",
+    "3": "432fd3217d0c329ee7286fd94bbeb8aeef9f7cbb7b79599ad3baec724c5993d4",
+    "4": "0c86128afd4cfb6757ed1c9f5334e1f4b6a2814a4a74367209c2eb127af4567d",
+    "5": "84920023bbbe1279e177d71bd62168c67e9e1f40e7c6359a75399ce58edcfa61",
+    "6": "47b3ee09e5877b29c70d7e4f3c8986ead496a08b90a75f4d2e5423c93c81ddd1"
+  },
+  "speech_changed": false,
+  "release_approval": false,
+  "remaining": "Current cloud picture, narrator, render and complete audiovisual checks",
+  "scope": "Reviewed exact source art repair; all release gates still required",
+  "voice_and_narration_preserved": true,
+  "raw_parent_refusals_preserved": true,
+  "opening_and_closing": "Declared reprise of the same framed reviewed painted poster",
+  "reproducible_edits": "Source-bound whole-poster recomposition and faithful character detail crops"
+}

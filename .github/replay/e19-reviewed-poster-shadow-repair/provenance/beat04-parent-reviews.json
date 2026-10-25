@@ -1,0 +1,73 @@
+{
+  "images": [
+    {
+      "file": "art-40199355603-1/beat01.png",
+      "image_sha256": "8e50b8a2530b40e491d0ec40a35e3626fcad25103f62416d32b49ec314a953c1",
+      "decision": "pass",
+      "reason": "Direct native inspection: planned Prabhat and Nuzhat stand together in a moonlit village lane, with mustard sweater, steel glasses, blue notebook, green dupatta and a metal electric white-beam flashlight. Main cast identities and primary props are readable; no conspicuous invented writing or anatomy defect. Establishing-scene source art only, with final picture/timeline and audiovisual checks still required."
+    },
+    {
+      "file": "art-40199355603-0/beat00.png",
+      "image_sha256": "ec38224fe3915551fd4abd1f2f44820c0f7e887a9ad44b1c4236cdd5869a2685",
+      "decision": "hold",
+      "reason": "Direct native review: all three opening paintings show a large physical human in a village street rather than a hand-painted cinema poster attached to a brick wall. The poster surface and painted hero/shadow anomaly are absent; no variant may be used as the object-only hook."
+    },
+    {
+      "file": "art-40199355603-0/beat00-alt1.png",
+      "image_sha256": "4c2a1192cd797beb88105557ef7473d8e5c0c6ee4699f1b2e63d8b63478bdda7",
+      "decision": "hold",
+      "reason": "Direct native review: all three opening paintings show a large physical human in a village street rather than a hand-painted cinema poster attached to a brick wall. The poster surface and painted hero/shadow anomaly are absent; no variant may be used as the object-only hook."
+    },
+    {
+      "file": "art-40199355603-0/beat00-alt2.png",
+      "image_sha256": "5da55249ac217ceec04de024da2f1cb98facd8f4da17d5d7a47320894fd0146c",
+      "decision": "hold",
+      "reason": "Direct native review: all three opening paintings show a large physical human in a village street rather than a hand-painted cinema poster attached to a brick wall. The poster surface and painted hero/shadow anomaly are absent; no variant may be used as the object-only hook."
+    },
+    {
+      "file": "art-40199355603-2/beat02.png",
+      "image_sha256": "60eb92323da19527c5f44650f2210b0f3d59a525e800c9659e045fafa1394019",
+      "decision": "hold",
+      "reason": "Direct native review: the paintings include character name labels, schema-like text and split panels, while the planned poster being illuminated is absent. Refuse all these images; preserve the story and clean descriptive directions before targeted repair."
+    },
+    {
+      "file": "art-40199355603-2/beat02-alt1.png",
+      "image_sha256": "57aa47e62327860a8d3f3d5c9cfa6db53dec767a3567d94b50e7538cb8994fe7",
+      "decision": "hold",
+      "reason": "Direct native review: the paintings include character name labels, schema-like text and split panels, while the planned poster being illuminated is absent. Refuse all these images; preserve the story and clean descriptive directions before targeted repair."
+    },
+    {
+      "file": "art-40199355603-2/beat02-alt2.png",
+      "image_sha256": "55290faafe10316729725fda96bdd889fb643bbd1383dedf60e82b28fea18e32",
+      "decision": "hold",
+      "reason": "Direct native review: the paintings include character name labels, schema-like text and split panels, while the planned poster being illuminated is absent. Refuse all these images; preserve the story and clean descriptive directions before targeted repair."
+    },
+    {
+      "file": "art-40199355603-3/beat03.png",
+      "image_sha256": "709fa1fe652494777d369e2ced97891b97f52cf5268b55e7294f3a8a3838d717",
+      "decision": "hold",
+      "reason": "Direct native review: Prabhat holds the flashlight himself rather than receiving the offscreen Nuzhat beam, multiple unplanned bystanders appear, and the ground shadow stays attached to his feet instead of beginning a step behind. The source does not show the planned detached-shadow anomaly."
+    },
+    {
+      "file": "art-40199355603-3/beat03-alt1.png",
+      "image_sha256": "b1390ec2594b7ee3bc4af4efb6d24fed0f8ddbf389243289bd36a5a5a7599100",
+      "decision": "hold",
+      "reason": "Direct native review: Prabhat holds the flashlight himself rather than receiving the offscreen Nuzhat beam, multiple unplanned bystanders appear, and the ground shadow stays attached to his feet instead of beginning a step behind. The source does not show the planned detached-shadow anomaly."
+    },
+    {
+      "file": "art-40199355603-5/beat05.png",
+      "image_sha256": "5dc7a674f9d2cfed860aef477f3c41e213f88acac6a7c01fbd2ea1ea62c2b5a6",
+      "decision": "hold",
+      "reason": "Prabhat is painted as a small child, roughly waist-high beside Jhabbu, rather than the established seventeen-year-old with realistic adult proportions. The early automated picture pass does not override this direct continuity refusal. Preserve narration and replace only this painting."
+    },
+    {
+      "file": "art-40199355603-4/beat04.png",
+      "image_sha256": "6deacbee6d219d069953e72c61f53aa20f61bd34994285db3654c47799cf6382",
+      "decision": "hold",
+      "reason": "The picture is split into two panels and adds an unplanned small child between Prabhat and Nuzhat. Preserve this refusal and all speech. A separately reviewed faithful close portrait of Jhabbu from the upper panel may be considered only if the split seam and entire lower panel are excluded and current scene/prop checks pass."
+    }
+  ],
+  "at": "2026-10-25T15:13:57.949062+00:00",
+  "scope": "Source paintings only",
+  "release_approval": false
+}

@@ -1,0 +1,19 @@
+{
+  "images": [
+    {
+      "file": "art-40205912773-5/beat05.png",
+      "image_sha256": "b25cc4c03914b69c0922107cb8eb4494161d2762cae044718ddc38c0fda9e8cb",
+      "decision": "hold",
+      "reason": "The base swaps character props: Prabhat has Jhabbu-like khaki clothing/red scarf and carries a second brass lantern, while the older man is much shorter. It does not preserve the fixed cast and one-lantern scene."
+    },
+    {
+      "file": "art-40205912773-5/beat05-alt1.png",
+      "image_sha256": "84920023bbbe1279e177d71bd62168c67e9e1f40e7c6359a75399ce58edcfa61",
+      "decision": "pass",
+      "reason": "Direct native inspection: one tall adolescent Prabhat with mustard sweater, steel glasses and blue notebook walks beside elderly grey-haired Jhabbu in khaki and red muffler, who has the red register, staff and only brass lantern. Ordinary ground shadows attach to their feet; village path and readable moonlight match the homecoming. No extra person, labels or split scene. Source-art approval only; full current picture, voice, render and audiovisual gates remain."
+    }
+  ],
+  "at": "2026-10-25T15:55:56.252707+00:00",
+  "scope": "Source paintings only",
+  "release_approval": false
+}

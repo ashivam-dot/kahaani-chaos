@@ -1,0 +1,47 @@
+{
+  "story": "kc-20261025-1351-e19",
+  "beat": 4,
+  "alt": 0,
+  "prompt": "Close painted portrait outdoors of elderly Jhabbu from head to hips, looking toward offscreen Prabhat. His khaki kurta and red muffler are clearly visible. He holds one brass lantern at the left and an open red-spined register at the right. The register has no readable writing. Cool blue moonlit sky fills the background. The carried lantern supplies the only warm light. Jhabbu has realistic adult proportions and visible painterly brushwork. The scene is outdoors. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, an open khaki ledger with a red spine resting before him, brass hurricane lantern and bamboo staff with a small bell set beside him, face small and turned away, stern expression. Exactly one person, Jhabbu, seated and writing. All details describe this same man. Nobody else is present; his lantern and staff rest beside him. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 744.0,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 96471369,
+  "log_tail": "                                                | 1/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.00s, memcpy: 0.00s, convert: 0.03s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 57.52s --- image.cpp:620\n[I] decode_first_stage completed, taking 57.52s --- image.cpp:624\n[I] generate_image completed in 743.30s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat04.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "derivation": {
+    "operation": "crop_and_resize",
+    "crop_ltrb": [
+      70,
+      0,
+      357,
+      510
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "parent_image_sha256": "6deacbee6d219d069953e72c61f53aa20f61bd34994285db3654c47799cf6382",
+    "parent_metadata_sha256": "74645773020ee3240c869bc8bf20912f9827e46b6c4116c3309b9859f56b6d20",
+    "source_beat": 4,
+    "generation_prompt": "Jhabbu enters, wearing his khaki kurta and red muffler. He holds his brass lantern and red register. He looks at Prabhat. The lantern's warm glow illuminates the group. The scene is outdoors. People: [{\"name\": \"jhabbu\", \"expression\": \"stern\"}, {\"name\": \"prabhat\", \"expression\": \"guilty\"}, {\"name\": \"nuzhat\", \"expression\": \"surprised\"}]. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away, stern expression; Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, guilty expression; Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, surprised expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "parent_review_decision": "hold",
+    "parent_refusal_reason": "The picture is split into two panels and adds an unplanned small child between Prabhat and Nuzhat. Preserve this refusal and all speech. A separately reviewed faithful close portrait of Jhabbu from the upper panel may be considered only if the split seam and entire lower panel are excluded and current scene/prop checks pass.",
+    "excluded_defects": [
+      "Entire lower panel, including unplanned small child, is outside the upper-portrait crop.",
+      "Split-panel seam at y512 is outside crop ending y510."
+    ],
+    "purpose": "Faithful single portrait of the speaking watchman with original lantern and register; no objects added."
+  },
+  "image_sha256": "0c86128afd4cfb6757ed1c9f5334e1f4b6a2814a4a74367209c2eb127af4567d",
+  "production_approved": false,
+  "cached_from": {
+    "id": 12603727513,
+    "run_id": 40199355603,
+    "name": "art-40199355603-4",
+    "size_in_bytes": 2225262,
+    "source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "story": "kc-20261025-1351-e19",
+  "beat": 2,
+  "alt": 0,
+  "prompt": "Close painted side view outdoors of Nuzhat in her green dupatta, holding her electric metal flashlight with both hands and directing its bright beam upward toward the offscreen poster. Her braid, green clothing and flashlight are clearly visible. Cool blue brick fills the background, with only a narrow blank paper edge at the far right; no painted poster figures are visible in this close view. The electric flashlight is the only practical light. Readable painterly brushwork and realistic proportions. The scene is outdoors. Characters: Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, focused expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm-white electric battery-flashlight beam, lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1297.4,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1970149500,
+  "log_tail": "ached graph cut plan done (taking 0 ms) --- ggml_graph_cut.cpp:1032\n\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 91.46s --- image.cpp:620\n[I] decode_first_stage completed, taking 91.46s --- image.cpp:624\n[I] generate_image completed in 1296.51s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat02.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "derivation": {
+    "operation": "crop_and_resize",
+    "crop_ltrb": [
+      202,
+      438,
+      364,
+      726
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "parent_image_sha256": "d1f2cb4b6dbc864c6f5788241577b00c41c1fcb01f1f8fbb42074078762c4f97",
+    "parent_metadata_sha256": "7a5bd49e88e25e6245ab9818952878cf727a4de389e5cbec56e32dce0d7b7285",
+    "source_beat": 2,
+    "generation_prompt": "Outdoors beside the old talkies brick wall at night, one continuous painted scene. Prabhat in his mustard sweater and steel glasses stands at the left with his blue notebook. Beside him Nuzhat in her green dupatta aims her electric metal flashlight at one paper cinema poster pasted flat on the wall to the right. Its four paper edges are visible. The flat fictional painted hero and his detached painted shadow appear only inside that paper. Both friends look toward the illuminated poster. The electric flashlight is the only practical light. Moonlit blue brick stays readable. The painted figure stays entirely within the visible poster paper. The scene is outdoors. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, shocked expression; Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, focused expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm-white electric battery-flashlight beam, lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "parent_review_decision": "hold",
+    "parent_refusal_reason": "The two friends and electric flashlight are correct, but the visible poster substitutes a pair of human figures for the single hero and detached painted shadow, breaking continuity. Preserve this parent refusal. A faithful close detail of Nuzhat using the flashlight may exclude the incorrect poster figures if directly reviewed and all current scene/prop gates pass.",
+    "excluded_defects": [
+      "Both incorrect painted poster figures are outside the tight flashlight reaction shot."
+    ],
+    "purpose": "Faithful detail of Nuzhat using the existing battery flashlight. No objects added; Prabhat and the poster remain established by adjacent shots."
+  },
+  "image_sha256": "b26be073399c2a72da245a9545c40ba374f61f13e46757d92edc30ff23f20db0",
+  "production_approved": false,
+  "cached_from": {
+    "id": 12603639176,
+    "run_id": 40204793444,
+    "name": "art-40204793444-2",
+    "size_in_bytes": 1213843,
+    "source_sha": "fafc3b1434fb4de80b5bf0ce6ce1c4e99c75c7b6"
+  }
+}

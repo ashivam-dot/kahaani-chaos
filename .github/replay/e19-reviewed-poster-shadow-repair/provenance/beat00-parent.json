@@ -1,0 +1,13 @@
+{
+ "story": "kc-20261025-1351-e19",
+ "beat": 0,
+ "alt": 0,
+ "prompt": "One rectangular yellowed paper cinema poster is pasted flat to a moonlit brick wall. All four paper edges and corners are visible. A fictional adult hero is a flat hand-painted grey figure entirely inside the paper. His black painted shoes end in the upper two thirds of the poster. A separate dark human-shaped painted shadow lies diagonally near the bottom edge. A wide strip of untouched golden paper, one shoe-length tall, clearly separates both shoes from the entire shadow. The disconnected shadow never touches either shoe. Only the painted hero, separate painted shadow and blank ochre texture appear on the paper. The painted figure stays entirely within the visible poster paper. The scene is outdoors. Peak moment, close on the impossible object doing the impossible, lit by the warm light. No physically present people, faces, hands or arms outside the poster. The only human-shaped forms are flat fictional artwork confined within the clearly visible paper edges on the wall. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+ "seconds": 1217.4,
+ "model": "zimage",
+ "steps": 4,
+ "width": 576,
+ "height": 1024,
+ "seed": 44944720,
+ "log_tail": "                                             | 3/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 940.30MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.04s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 130.93s --- image.cpp:620\n[I] decode_first_stage completed, taking 130.93s --- image.cpp:624\n[I] generate_image completed in 1216.69s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat00.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n"
+}

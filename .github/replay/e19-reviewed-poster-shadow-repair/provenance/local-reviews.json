@@ -1,0 +1,85 @@
+{
+  "images": [
+    {
+      "file": "jhabbu-portrait/beat04.png",
+      "image_sha256": "0c86128afd4cfb6757ed1c9f5334e1f4b6a2814a4a74367209c2eb127af4567d",
+      "decision": "pass",
+      "reason": "Direct native inspection of the exact faithful portrait crop: Jhabbu alone with khaki kurta, red muffler, one brass lantern and open red register. Continuous painterly shot, readable at phone size, no lower panel, unplanned child, seam or readable labels. The partly cropped register remains clear. This is source art approval only."
+    },
+    {
+      "file": "poster-detached-shadow-preview.png",
+      "image_sha256": "45a2a637a0b31f799410a0354564fc5bf5baecef0c0828e94df8fceeec3eaae1",
+      "decision": "hold",
+      "reason": "Deterministic clone preview makes an obvious paper patch and truncates the painted shadow. Do not stage. A new cloud painting is required."
+    },
+    {
+      "file": "poster-detached-shadow-preview-v2.png",
+      "image_sha256": "e50ae8d9c78d4bb8464f2823314307cb55d4ffa8b82579f3aacd3f5d3b51a25b",
+      "decision": "hold",
+      "reason": "Deterministic clone preview makes an obvious paper patch and truncates the painted shadow. Do not stage. A new cloud painting is required."
+    },
+    {
+      "file": "poster-shadow-translation-preview.png",
+      "image_sha256": "d2aedd27794bc60e1b181997f58184d49c006cce568fe7d2402c02275f567aca",
+      "decision": "hold",
+      "reason": "Translation/inpainting preview creates false dark smears beneath the shoes and an obvious paper repair. Do not stage; retain the new cloud art request."
+    },
+    {
+      "file": "nuzhat-flashlight/beat02.png",
+      "image_sha256": "b26be073399c2a72da245a9545c40ba374f61f13e46757d92edc30ff23f20db0",
+      "decision": "pass",
+      "reason": "Direct native inspection: Nuzhat in green with braid operates the electric metal flashlight; its beam goes up toward the offscreen poster. The narrow paper edge has no figures or writing; incorrect painted pair is entirely excluded. Soft enlarged painterly detail remains readable. Current final picture and full audiovisual review must still judge the rendered shot."
+    },
+    {
+      "file": "poster-recomposed-opening/beat00.png",
+      "image_sha256": "aca40161a548566c2f2bd6db57d5bc6de26324f5f03157893f1438ceafd48e7e",
+      "decision": "pass",
+      "reason": "Direct native inspection of the exact full-paper recomposition: one painted grey hero and one complete dark painted shadow are separated by a broad continuous paper gap. The poster has four visible edges on the brick wall. Existing figure, shadow and clean paper texture retain painterly brushwork; there are no patch seams or contact at either shoe. No real person, labels or extra figures are introduced. Opening and declared closing reprise receive all current final picture/AV checks."
+    },
+    {
+      "file": "poster-closing-reprise/beat06.png",
+      "image_sha256": "aca40161a548566c2f2bd6db57d5bc6de26324f5f03157893f1438ceafd48e7e",
+      "decision": "pass",
+      "reason": "Direct native inspection of the exact full-paper recomposition: one painted grey hero and one complete dark painted shadow are separated by a broad continuous paper gap. The poster has four visible edges on the brick wall. Existing figure, shadow and clean paper texture retain painterly brushwork; there are no patch seams or contact at either shoe. No real person, labels or extra figures are introduced. Opening and declared closing reprise receive all current final picture/AV checks."
+    },
+    {
+      "file": "new-poster-paper-gap-preview.png",
+      "image_sha256": "03219b0048d4bb0db3add1cf7e3829f9ce05ee8ee4bd57d9d7360410fe528749",
+      "decision": "hold",
+      "reason": "Two small texture patches create obvious rectangles and truncate the shadow."
+    },
+    {
+      "file": "poster-recomposed-preview.png",
+      "image_sha256": "7425d61f482b8cbc15b4bfa7f88b56e297e93e015549d65a4edba6206d67ce21",
+      "decision": "hold",
+      "reason": "The threshold mask retains a black shoe fragment at the top of the moved shadow."
+    },
+    {
+      "file": "poster-recomposed-preview-v2.png",
+      "image_sha256": "251a28899a4449916b51409248f28de640356135ba24849178bb13e408e7d2f8",
+      "decision": "hold",
+      "reason": "A broad value-range mask makes false holes through the shadow."
+    },
+    {
+      "file": "poster-recomposed-opening-v2/beat00.png",
+      "image_sha256": "47b3ee09e5877b29c70d7e4f3c8986ead496a08b90a75f4d2e5423c93c81ddd1",
+      "decision": "pass",
+      "reason": "Direct native and prepared opening inspection: broad continuous paper gap separates both shoes from the entire painted shadow, and the framed composition keeps all four poster edges and surrounding brick visible under the actual camera crop. Existing painted figure/shadow and same-source paper/brick texture retain visible brushwork without patch seams. Prepared opening luma142.28 and RMS contrast0.299 pass; complete moving picture/voice/full AV gates remain."
+    },
+    {
+      "file": "poster-closing-reprise-v2/beat06.png",
+      "image_sha256": "47b3ee09e5877b29c70d7e4f3c8986ead496a08b90a75f4d2e5423c93c81ddd1",
+      "decision": "pass",
+      "reason": "Direct native and prepared opening inspection: broad continuous paper gap separates both shoes from the entire painted shadow, and the framed composition keeps all four poster edges and surrounding brick visible under the actual camera crop. Existing painted figure/shadow and same-source paper/brick texture retain visible brushwork without patch seams. Prepared opening luma142.28 and RMS contrast0.299 pass; complete moving picture/voice/full AV gates remain."
+    },
+    {
+      "file": "prabhat-reaction/beat03.png",
+      "image_sha256": "432fd3217d0c329ee7286fd94bbeb8aeef9f7cbb7b79599ad3baec724c5993d4",
+      "decision": "pass",
+      "reason": "Direct native inspection: faithful upper-body portrait of adolescent Prabhat in mustard sweater and steel glasses, looking down with alarm while holding his blue notebook. No extra flashlight. Both shoes and the incorrect attached ground shadow are completely outside the crop. Readable painted mid-tones and continuous scene; no seams or labels. Source art only; current complete rendered picture, voice and audiovisual checks remain."
+    }
+  ],
+  "at": "2026-10-25T15:51:46.043105+00:00",
+  "release_approval": false,
+  "scope": "Source art and reproducible editorial compositing only"
+}

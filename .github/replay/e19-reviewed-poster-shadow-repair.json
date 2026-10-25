@@ -1,0 +1,161 @@
+{
+  "id": "kc-20261025-1351-e19",
+  "premise": "e19",
+  "title": "टॉकीज़ का वो पोस्टर… और हीरो की वो परछाईं! 🎬",
+  "hook": "टॉकीज़ के पोस्टर पर हीरो की परछाईं पीछे छूट गई।",
+  "beats": [
+    {
+      "text": "टॉकीज़ के पोस्टर पर हीरो की परछाईं पीछे छूट गई।",
+      "scene": "One rectangular yellowed paper cinema poster is pasted flat to a moonlit brick wall. All four paper edges and corners are visible. A fictional adult hero is a flat hand-painted grey figure entirely inside the paper. His black painted shoes end in the upper two thirds of the poster. A separate dark human-shaped painted shadow lies diagonally near the bottom edge. A wide strip of untouched golden paper, one shoe-length tall, clearly separates both shoes from the entire shadow. The disconnected shadow never touches either shoe. Only the painted hero, separate painted shadow and blank ochre texture appear on the paper. The painted figure stays entirely within the visible poster paper. The scene is outdoors.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात हम सन्नाटपुर टॉकीज़ के बाहर खड़े थे।",
+      "scene": "Outside the talkies wall. Young Prabhat in his mustard sweater and steel-frame glasses stands with young Nuzhat. Nuzhat wears a green dupatta and holds her metal battery flashlight. The scene is outdoors. People: [{\"name\": \"prabhat\", \"expression\": \"puzzled\"}, {\"name\": \"nuzhat\", \"expression\": \"curious\"}]",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "puzzled"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "curious"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "नुज़हत ने टूटे शीशे वाली टॉर्च जलाई, तो वो नज़ारा साफ़ दिखा।",
+      "scene": "Close painted side view outdoors of Nuzhat in her green dupatta, holding her electric metal flashlight with both hands and directing its bright beam upward toward the offscreen poster. Her braid, green clothing and flashlight are clearly visible. Cool blue brick fills the background, with only a narrow blank paper edge at the far right; no painted poster figures are visible in this close view. The electric flashlight is the only practical light. Readable painterly brushwork and realistic proportions. The scene is outdoors.",
+      "people": [
+        {
+          "name": "nuzhat",
+          "expression": "focused"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "बाप रे, ज़मीन पर मेरा अपना साया भी मुझसे पीछे छूट रहा था।",
+      "scene": "Outdoors beside the old talkies wall, a close upper-body reaction portrait of Prabhat in his mustard sweater and thin steel glasses. He looks down in alarm at his lagging shadow outside the frame, holding only his small blue notebook and pencil. His shoes and the ground shadow remain outside this close shot. Nuzhat and her electric flashlight remain offscreen to the right. One continuous painterly view with natural adolescent adult proportions and readable moonlit mid-tones. The scene is outdoors.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "terrified"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "झब्बू बोले—झूठ बोलने वाले की परछाईं एक क़दम पीछे चलती है; उन्होंने घर पहुँचाने के बदले सच बोलने का सौदा किया।",
+      "scene": "Close painted portrait outdoors of elderly Jhabbu from head to hips, looking toward offscreen Prabhat. His khaki kurta and red muffler are clearly visible. He holds one brass lantern at the left and an open red-spined register at the right. The register has no readable writing. Cool blue moonlit sky fills the background. The carried lantern supplies the only warm light. Jhabbu has realistic adult proportions and visible painterly brushwork. The scene is outdoors.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "stern"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "माना कि माँ से छत पर सोने का झूठ बोला था, और घर पहुँचकर सच कहते ही साया फिर जुड़ गया।",
+      "scene": "Painted rear three-quarter view on an outdoor moonlit village path. Prabhat and Jhabbu walk side by side toward a distant house. Prabhat is a tall adolescent young man with adult proportions, nearly Jhabbu's height, their shoulders level. His mustard sweater, steel glasses in profile and blue notebook identify him. Elderly Jhabbu wears khaki and a red muffler, with his staff and red-spined register tucked under his arm. He carries one brass lantern low. Prabhat looks down at his ordinary shadow beginning exactly at his heels. Calm walking poses, cool readable moonlight, one warm carried lantern, visible painterly brushwork. The scene is outdoors.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "calm"
+        },
+        {
+          "name": "prabhat",
+          "expression": "relieved"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "मेरा झूठ तो पकड़ा गया, पर पोस्टर वाले उस हीरो ने किससे झूठ बोला होगा?",
+      "scene": "One rectangular yellowed paper cinema poster is pasted flat to a moonlit brick wall. All four paper edges and corners are visible. A fictional adult hero is a flat hand-painted grey figure entirely inside the paper. His black painted shoes end in the upper two thirds of the poster. A separate dark human-shaped painted shadow lies diagonally near the bottom edge. A wide strip of untouched golden paper, one shoe-length tall, clearly separates both shoes from the entire shadow. The disconnected shadow never touches either shoe. Only the painted hero, separate painted shadow and blank ochre texture appear on the paper. The painted figure stays entirely within the visible poster paper. The scene is outdoors.",
+      "people": [],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "jhabbu",
+      "name": "झब्बू",
+      "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+    },
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    }
+  ],
+  "subgenre": "confessed-lie",
+  "ending": "open-question",
+  "twist_beat": 5,
+  "description": "सन्नाटपुर टॉकीज़ के बाहर हाथ से रंगे पोस्टर में हीरो की परछाईं अपनी जगह से हिल गई थी, और प्रभात के साथ भी वही होने लगा।",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य",
+    "#टॉकीज़"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "editor",
+        "problems": [
+          "title: The title explicitly mentions the shadow lagging, which spoils the central mystery and the rule.",
+          "beat 6: The confession is too brief; it needs to specify the lie about sleeping on the roof to make the emotional resolution feel real rather than just stated.",
+          "the heart beat is stated, not felt",
+          "the title or description gives the turn away"
+        ]
+      },
+      {
+        "attempt": 1,
+        "stage": "editor",
+        "problems": [
+          "Beat 5: Jhabbu must state the rule exactly as 'एक क़दम पीछे चलती है' rather than 'साथ छोड़ देती है' to maintain consistency with the night's rule.",
+          "Beat 5: The narration text needs to explicitly mention the bargain where Jhabbu offers to walk Prabhat home in exchange for the truth as required by the premise."
+        ],
+        "canonical_hook_repair": {
+          "original": "हाथ से रंगे पोस्टर पर हीरो की परछाईं पीछे खिसक गई थी।",
+          "replacement": "टॉकीज़ के पोस्टर पर हीरो की परछाईं पीछे छूट गई।"
+        }
+      },
+      {
+        "attempt": 2,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "पोस्टर की अनहोनी",
+  "object_token": "पोस्टर",
+  "anomaly": "पोस्टर के हीरो की परछाईं का रातोंरात एक क़दम पीछे खिसक जाना",
+  "niyam_id": "N11",
+  "resolution": "bargain",
+  "heart_beat": 6,
+  "heart_type": "confessed-lie",
+  "skeleton": "S1",
+  "location": "टॉकीज़ के बाहर पोस्टर वाली दीवार",
+  "place_id": "talkies"
+}

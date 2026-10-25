@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-1351-e19",
+  "beat": 5,
+  "alt": 1,
+  "prompt": "Painted rear three-quarter view on an outdoor moonlit village path. Prabhat and Jhabbu walk side by side toward a distant house. Prabhat is a tall adolescent young man with adult proportions, nearly Jhabbu's height, their shoulders level. His mustard sweater, steel glasses in profile and blue notebook identify him. Elderly Jhabbu wears khaki and a red muffler, with his staff and red-spined register tucked under his arm. He carries one brass lantern low. Prabhat looks down at his ordinary shadow beginning exactly at his heels. Calm walking poses, cool readable moonlight, one warm carried lantern, visible painterly brushwork. The scene is outdoors. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away, calm expression; Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, relieved expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1121.8,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 531526441,
+  "log_tail": "                                        | 3/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 940.30MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.04s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 119.88s --- image.cpp:620\n[I] decode_first_stage completed, taking 119.88s --- image.cpp:624\n[I] generate_image completed in 1121.23s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat05-alt1.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12605216104,
+    "run_id": 40205912773,
+    "name": "art-40205912773-5",
+    "size_in_bytes": 2268465,
+    "source_sha": "b3dfbc9ee67a2192ca91660f8d9dc49cde8b9711"
+  },
+  "image_sha256": "84920023bbbe1279e177d71bd62168c67e9e1f40e7c6359a75399ce58edcfa61"
+}

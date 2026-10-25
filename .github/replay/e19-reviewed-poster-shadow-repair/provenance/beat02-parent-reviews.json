@@ -1,0 +1,31 @@
+{
+  "images": [
+    {
+      "file": "art-40204793444-0/beat00.png",
+      "image_sha256": "45be49303d4698134ec634fd2fb42b3981f2aef3c358cb9cad68d2aaf70be85c",
+      "decision": "hold",
+      "reason": "The hero is now correctly a flat fictional painting inside a bounded poster, but the painted brown shadow still touches the heels. The hook requires a visible blank-paper gap showing that the painted shadow has fallen a footstep behind. Preserve this refusal. Any deterministic edit must be explicitly documented and must pass current scene, picture and final audiovisual gates."
+    },
+    {
+      "file": "art-40204793444-2/beat02.png",
+      "image_sha256": "d1f2cb4b6dbc864c6f5788241577b00c41c1fcb01f1f8fbb42074078762c4f97",
+      "decision": "hold",
+      "reason": "The two friends and electric flashlight are correct, but the visible poster substitutes a pair of human figures for the single hero and detached painted shadow, breaking continuity. Preserve this parent refusal. A faithful close detail of Nuzhat using the flashlight may exclude the incorrect poster figures if directly reviewed and all current scene/prop gates pass."
+    },
+    {
+      "file": "art-40204793444-3/beat03.png",
+      "image_sha256": "615fb5da577cabb86b0e3be252b3b822ee0089053e83b7a7bf9f9cf8c3f6ab65",
+      "decision": "hold",
+      "reason": "Prabhat carries an extra flashlight reserved for Nuzhat, and his shadow still touches his shoes instead of lagging behind. Preserve this raw refusal; do not stage the complete image."
+    },
+    {
+      "file": "art-40204793444-3/beat03-alt1.png",
+      "image_sha256": "193a44eb6adc0821cf4650883feb5ddcb1452954962ead90cf2f15d80e36994a",
+      "decision": "hold",
+      "reason": "Prabhat has the correct adolescent proportions, mustard sweater, glasses and blue notebook, with no extra flashlight. However, his ground shadow still touches his shoes. Preserve this raw refusal; a faithful upper-body reaction crop may exclude the incorrect ground effect, with current scene and final audiovisual checks still required."
+    }
+  ],
+  "at": "2026-10-25T15:51:36.739244+00:00",
+  "scope": "Source paintings only",
+  "release_approval": false
+}

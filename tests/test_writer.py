@@ -179,6 +179,28 @@ def test_tidy_takes_the_hook_from_beat_one():
     assert out["twist_beat"] == 4 and out["hashtags"] == ["#कहानी"]
 
 
+@pytest.mark.parametrize("tag", ["#सन्नाटपुर射#90sकीयादें射#रहस्य", "#सन्नाटपुर#रहस्य", "#a b"])
+def test_joined_or_malformed_hashtags_return_to_writer_before_painting(tag):
+    from kahaani import gate
+
+    bad = draft()
+    bad["hashtags"] = [tag]
+    # The strict gate also protects loaded replays that do not use writer.tidy.
+    assert any("separate" in p for p in gate.hashtag_problems(bad["hashtags"]))
+    if " " not in tag:
+        room = Room([bad, draft()])
+        out, log = writer.write(PREMISE, [], room)
+        assert log[0]["stage"] == "gates" and any("separate" in p for p in log[0]["problems"])
+        assert out["hashtags"] == draft()["hashtags"]
+
+
+def test_separate_hindi_and_latin_hashtags_retain_existing_red_line_checks():
+    from kahaani import gate
+
+    assert gate.hashtag_problems(["#सन्नाटपुर", "#90sकीयादें", "#रहस्य"]) == []
+    assert any("made for kids" in p for p in gate.hashtag_problems(["#kidsstories"]))
+
+
 def test_tidy_takes_the_cast_looks_from_the_bible():
     d = draft()
     d["cast"] = ["jhabbu"]

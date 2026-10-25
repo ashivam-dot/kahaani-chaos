@@ -1,0 +1,48 @@
+{
+  "story": "kc-20261025-1351-e19",
+  "beat": 3,
+  "alt": 0,
+  "prompt": "Outdoors beside the old talkies wall, a close upper-body reaction portrait of Prabhat in his mustard sweater and thin steel glasses. He looks down in alarm at his lagging shadow outside the frame, holding only his small blue notebook and pencil. His shoes and the ground shadow remain outside this close shot. Nuzhat and her electric flashlight remain offscreen to the right. One continuous painterly view with natural adolescent adult proportions and readable moonlit mid-tones. The scene is outdoors. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, terrified expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1274.1,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 456386459,
+  "log_tail": "                                          | 2/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 90.45s --- image.cpp:620\n[I] decode_first_stage completed, taking 90.45s --- image.cpp:624\n[I] generate_image completed in 1273.16s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat03-alt1.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "derivation": {
+    "operation": "crop_and_resize",
+    "crop_ltrb": [
+      48,
+      160,
+      336,
+      672
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "parent_image_sha256": "193a44eb6adc0821cf4650883feb5ddcb1452954962ead90cf2f15d80e36994a",
+    "parent_metadata_sha256": "6bb0f1e621d259a1f37c3d10658ee78f45ca700b6099258fc140ad6fe36a2fa9",
+    "source_beat": 3,
+    "source_alt": 1,
+    "target_role": "editorial_derived_base",
+    "generation_prompt": "Outdoors on the empty dirt beside the old talkies wall, Prabhat in his mustard sweater and steel glasses stands at the left, looking down with alarm. His hands hold only his small blue notebook. His plain sandals rest on pale dirt. A dark human-shaped shadow lies on the ground one footstep behind his heels, separated from both sandals by a clear strip of bare illuminated dirt. Nuzhat remains outside this frame; her electric flashlight beam enters from the right and lights the dirt and shadow. The electric flashlight is the only practical light. One continuous painted view, natural adult proportions. The scene is outdoors. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, terrified expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm-white electric battery-flashlight beam, lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "parent_review_decision": "hold",
+    "parent_refusal_reason": "Prabhat has the correct adolescent proportions, mustard sweater, glasses and blue notebook, with no extra flashlight. However, his ground shadow still touches his shoes. Preserve this raw refusal; a faithful upper-body reaction crop may exclude the incorrect ground effect, with current scene and final audiovisual checks still required.",
+    "excluded_defects": [
+      "The attached ground shadow and both shoes are completely outside the crop."
+    ],
+    "purpose": "A faithful reaction insert using the existing painted character and notebook. No objects added; the opening establishes the detached-shadow anomaly."
+  },
+  "image_sha256": "432fd3217d0c329ee7286fd94bbeb8aeef9f7cbb7b79599ad3baec724c5993d4",
+  "production_approved": false,
+  "cached_from": {
+    "id": 12604532632,
+    "run_id": 40204793444,
+    "name": "art-40204793444-3",
+    "size_in_bytes": 2124380,
+    "source_sha": "fafc3b1434fb4de80b5bf0ce6ce1c4e99c75c7b6"
+  }
+}

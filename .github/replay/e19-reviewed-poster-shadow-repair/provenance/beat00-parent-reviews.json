@@ -1,0 +1,13 @@
+{
+  "images": [
+    {
+      "file": "art-40206417025-0/beat00.png",
+      "image_sha256": "b8b7bff7e381d75470dff97cb31545655a485e48deb069b000f2dfaad2c1058c",
+      "decision": "hold",
+      "reason": "The full poster is bounded and painted, but a direct enlarged shoe detail shows the right painted shoe still touching the brown shadow. The left gap is visible, so the single connected right side remains a substantive failure of the detached-shadow opening. The early automatic precheck is a false positive; preserve this refusal."
+    }
+  ],
+  "at": "2026-10-25T15:45:13.013603+00:00",
+  "scope": "Source paintings only",
+  "release_approval": false
+}

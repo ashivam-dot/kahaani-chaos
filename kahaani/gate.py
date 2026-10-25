@@ -181,6 +181,10 @@ def hashtag_problems(tags: list[str]) -> list[str]:
     """Hashtags that hide a made-for-kids word, a red line or a brand inside one run of letters."""
     found = []
     for tag in tags:
+        if not isinstance(tag, str) or not re.fullmatch(r"#[A-Za-z0-9_\u0900-\u097F]+", tag):
+            found.append("each hashtag must be a separate Hindi/Latin hashtag without separators")
+        if not isinstance(tag, str):
+            continue
         flat = _flat(tag)
         hit = next((w for w in _FLAT_WATCH if w and w in flat), None)
         if hit:

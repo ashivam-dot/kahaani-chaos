@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-1351-e19",
+  "beat": 1,
+  "alt": 0,
+  "prompt": "Outside the talkies wall. Young Prabhat in his mustard sweater and steel-frame glasses stands with young Nuzhat. Nuzhat wears a green dupatta and holds her metal battery flashlight. The scene is outdoors. People: [{\"name\": \"prabhat\", \"expression\": \"puzzled\"}, {\"name\": \"nuzhat\", \"expression\": \"curious\"}]. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, puzzled expression; Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, curious expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 652.4,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1974140358,
+  "log_tail": "                                                | 1/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.03s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 52.22s --- image.cpp:620\n[I] decode_first_stage completed, taking 52.22s --- image.cpp:624\n[I] generate_image completed in 651.86s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat01.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12601298465,
+    "run_id": 40199355603,
+    "name": "art-40199355603-1",
+    "size_in_bytes": 1096648,
+    "source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f"
+  },
+  "image_sha256": "8e50b8a2530b40e491d0ec40a35e3626fcad25103f62416d32b49ec314a953c1"
+}
