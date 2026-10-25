@@ -1278,10 +1278,13 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e07.json"
       },
-      "stage": "building",
-      "attempts": 2,
-      "source_sha": "d00710d686fe1824fcc45e3d9134ea4bd7b0f040",
+      "stage": "dispatch_unresolved",
+      "attempts": 3,
+      "source_sha": "ea5ee448e55ee90447597e4f691d878c021a8767",
       "before_ids": [
+        40148639705,
+        40148316893,
+        40147867847,
         40147346342,
         40147002904,
         40146579288,
@@ -1376,7 +1379,7 @@
         38439489788,
         38428830025
       ],
-      "submitted_at": "2026-10-25T00:44:25+00:00",
+      "submitted_at": "2026-10-25T00:56:30+00:00",
       "repair_history": [
         {
           "run_id": 40147002904,
@@ -1386,13 +1389,23 @@
             "mode": "dry-run",
             "replay": ".github/replay/batch-2026-10-25/e07.json"
           }
+        },
+        {
+          "run_id": 40147867847,
+          "source_sha": "d00710d686fe1824fcc45e3d9134ea4bd7b0f040",
+          "stage": "building",
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e07.json"
+          },
+          "repair_reason": "Original draft exhausted bounded rewrites on an eleven-word hook. Repair now provides the measured Hindi token list and the exact valid ten-word bank opening; retain every story and full media gate."
         }
       ],
       "obsolete_runs": [
-        40147002904
+        40147002904,
+        40147867847
       ],
-      "repair_reason": "Original draft exhausted bounded rewrites on an eleven-word hook. Repair now provides the measured Hindi token list and the exact valid ten-word bank opening; retain every story and full media gate.",
-      "run_id": 40147867847,
+      "repair_reason": "Stop repeated hook growth by binding an overlong rewrite to the exact valid bank opening before all code and Gemini editor checks. Provide measured per-beat word budgets; retain any failed full draft and honest model provenance for targeted recovery.",
       "cloud_status": "in_progress"
     },
     {
@@ -1630,7 +1643,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:56:24+00:00",
+  "updated_at": "2026-10-25T00:56:30+00:00",
   "complete": false,
   "health": {
     "public": 1,
