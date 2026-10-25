@@ -1102,7 +1102,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-signal-e06-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 3,
       "source_sha": "ea5ee448e55ee90447597e4f691d878c021a8767",
       "before_ids": [
@@ -1203,7 +1203,7 @@
         38428830025
       ],
       "submitted_at": "2026-10-25T00:56:19+00:00",
-      "cloud_status": "completed",
+      "cloud_status": "queued",
       "editorial_holds": [
         {
           "id": "direct-station-master-and-extra-prabhat-40142626858",
@@ -1266,7 +1266,8 @@
         40142626858,
         40147346342
       ],
-      "repair_reason": "Keep exact repaired paintings and all Hindi. The prior Gemini takes heard every line but failed only modest overlong quiet pauses; source now cuts verified quiet centres outside all heard words, retains Charon and all final voice/AV gates. Full406 local tests and59 focused follow-up checks passed."
+      "repair_reason": "Keep exact repaired paintings and all Hindi. The prior Gemini takes heard every line but failed only modest overlong quiet pauses; source now cuts verified quiet centres outside all heard words, retains Charon and all final voice/AV gates. Full406 local tests and59 focused follow-up checks passed.",
+      "run_id": 40148639705
     },
     {
       "repo": "kahaani-chaos",
@@ -1629,7 +1630,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:56:19+00:00",
+  "updated_at": "2026-10-25T00:56:24+00:00",
   "complete": false,
   "health": {
     "public": 1,
