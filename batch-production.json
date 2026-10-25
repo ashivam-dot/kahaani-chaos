@@ -1348,7 +1348,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-brick-e07-repair.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 4,
       "source_sha": "5aab8b3faf16f29f08909e9f8a74e206d86455d1",
       "before_ids": [
@@ -1493,7 +1493,7 @@
         40148651151
       ],
       "repair_reason": "Exact direct visual repair: object-only brick opening, two separate characters as Nuzhat stops Shailesh, and Nuzhat alone holding the blank reverse of the clue brick. Preserve all narration, plot, cast identities and passing sibling art; final current picture/voice/render and full audiovisual checks remain.",
-      "cloud_status": "in_progress",
+      "cloud_status": "completed",
       "editorial_holds": [
         {
           "id": "direct-brick-cast-and-text-40148651151",
@@ -1527,7 +1527,10 @@
           }
         }
       ],
-      "run_id": 40152845611
+      "run_id": 40152845611,
+      "problems": [
+        "ValueError: preview did not make a finished passing Short"
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -1800,7 +1803,7 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T02:23:12+00:00",
+  "updated_at": "2026-10-25T02:23:14+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
