@@ -1,0 +1,9 @@
+{
+  "art_only": {
+    "story": ".github/replay/e13-rope-letter-art-source.json",
+    "beats": [
+      2,
+      3
+    ]
+  }
+}
