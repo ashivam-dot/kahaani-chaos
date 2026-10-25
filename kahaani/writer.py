@@ -127,6 +127,8 @@ RULES (all mandatory):
   character and on the ground at once. Choose the smallest visible cast the narrated moment needs, usually
   one or two people. An introspective question ending can show the narrator alone; do not add a four-person
   group merely to include everyone, because their distinct clothing and carried props must stay clear.
+  If the narration says nobody is at the object or station, paint that station unoccupied and leave people
+  empty. A lantern can rest unattended on a shelf; its owner's name does not put that person in the shot.
   Repeat the actual location in EVERY beat's scene. An indoor story stays inside enclosing walls with a solid
   ceiling; moonlight enters through windows. Ceiling-mounted objects remain attached to that ceiling.
   Make the named acting character perform the narrated action, identified by their fixed clothing. When one

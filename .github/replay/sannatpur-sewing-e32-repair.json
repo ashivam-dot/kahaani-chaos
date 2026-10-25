@@ -1,0 +1,176 @@
+{
+  "id": "kc-20261025-0233-e32",
+  "premise": "e32",
+  "title": "सिलाई मशीन ने आधी रात अधूरा कुर्ता ख़ुद सीना शुरू किया 🧵 | सन्नाटपुर",
+  "hook": "दर्ज़ी की सिलाई मशीन रात में अपने-आप चलने लगी।",
+  "beats": [
+    {
+      "text": "दर्ज़ी की सिलाई मशीन रात में अपने-आप चलने लगी।",
+      "scene": "Object-only close view inside an enclosed empty tailor stall at night. A standalone old black iron treadle sewing machine sits on a wooden table. Its small needle and metal presser foot rest against the unfinished hem of a khaki cotton kurta, with a single cotton thread running down from the top spool. The dark iron machine, needle assembly and khaki fabric fill the picture. A brass hurricane lantern stands unattended on a shelf behind it. Solid plaster wall and tin ceiling, warm lantern glow with cool blue window light. An unoccupied still life with nobody working at the machine.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात हाट की सिलाई मशीन से खटर-खटर की आवाज़ आई।",
+      "scene": "Jhabbu in a khaki kurta and red muffler, Prabhat in a mustard sweater, Nuzhat with a green dupatta, and Shailesh with a red cricket cap walk into the tailor's stall in the market. Jhabbu holds a brass lantern casting a warm glow.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "serious"
+        },
+        {
+          "name": "prabhat",
+          "expression": "curious"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "alert"
+        },
+        {
+          "name": "shailesh",
+          "expression": "anxious"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "खाली ठिये पर कोई नहीं था, बस सुई के नीचे एक खाकी कुर्ता खिसक रहा था।",
+      "scene": "Object-only medium side view inside the enclosed night-market tailor stall. The round iron handwheel is attached to the old black treadle sewing machine mounted securely on a scuffed wooden table. A khaki cotton kurta lies beneath its needle. An empty wooden stool stands beside the treadle. Warm light comes from an unattended brass hurricane lantern resting on a wall shelf. Cool blue moonlight enters a small window beneath the corrugated tin roof. The handwheel, cloth and empty stool are clearly visible. The stall is unoccupied, with no person or body part anywhere.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "झब्बू बोले कि रात को अधूरा काम पूरा कर दो, तो रात चुप हो जाती है।",
+      "scene": "Jhabbu stands in the tailor's stall in the market, holding his lantern high towards the machine. Prabhat, Nuzhat, and Shailesh stand behind him, looking at the unfinished hem of the khaki kurta on the machine.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "knowing"
+        },
+        {
+          "name": "prabhat",
+          "expression": "confused"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "determined"
+        },
+        {
+          "name": "shailesh",
+          "expression": "nervous"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "नुज़हत को सिलाई से चिढ़ थी, पर उसने झब्बू के लिए आख़िरी तुरपाई ख़ुद कर दी।",
+      "scene": "Nuzhat sits on the wooden stool in the tailor's stall in the market, sewing the edge of the khaki cloth with a small hand needle. Warm lantern light illuminates her hands and the fabric while the others watch in the blue moonlight.",
+      "people": [
+        {
+          "name": "nuzhat",
+          "expression": "concentrated"
+        },
+        {
+          "name": "jhabbu",
+          "expression": "calm"
+        },
+        {
+          "name": "prabhat",
+          "expression": "amazed"
+        },
+        {
+          "name": "shailesh",
+          "expression": "relieved"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "वो कुर्ता झब्बू का ही था, जो दर्ज़ी बरसों पहले उनके लिए बना रहा था।",
+      "scene": "Object-only close-up inside the enclosed tailor stall at night. A finished khaki cotton kurta lies flat and neatly arranged across a scuffed wooden table, showing its completed hem, collar and plain cloth buttons. The entire garment rests on the solid table surface. An old black iron sewing machine stands stationary farther back on the table. Warm light comes from a brass hurricane lantern resting unattended on a nearby shelf; cool blue moonlight enters through a small window. Solid plaster walls and corrugated tin ceiling enclose the quiet empty stall. No person or body part is present.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "काम पूरा होते ही, हाट की सिलाई मशीन फिर से एकदम खामोश हो गई।",
+      "scene": "A wide shot of the empty tailor's stall in the market under the cold blue moonlight. The sewing machine sits perfectly still on the table. No people are visible as the night turns quiet.",
+      "people": [],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "jhabbu",
+      "name": "झब्बू",
+      "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+    },
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    }
+  ],
+  "subgenre": "kindness",
+  "ending": "loop-back",
+  "twist_beat": 4,
+  "description": "सन्नाटपुर के हाट में दर्ज़ी की पुरानी सिलाई मशीन अपने-आप चलने लगी। झब्बू ने बताया कि रात का अधूरा काम पूरा किए बिना चैन नहीं मिलता।",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य",
+    "#सिलाईमशीन",
+    "#पुरानीयादें"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview",
+      "gemini-3.5-flash-lite"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "gates",
+        "problems": [
+          "beat 1 (the hook) has 12 words; at most 10"
+        ]
+      },
+      {
+        "attempt": 1,
+        "stage": "editor",
+        "problems": [
+          "Beat 4: Jhabbu's dialogue should use the exact wording of Rule N10 ('रात चुप हो जाती है') rather than 'रास्ता साफ़ हो जाता है'."
+        ]
+      },
+      {
+        "attempt": 2,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "चलती हुई सुई",
+  "object_token": "सिलाई",
+  "anomaly": "मशीन का रात में अपने-आप चलकर एक अधूरा कुर्ता सीना",
+  "niyam_id": "N10",
+  "resolution": "bargain",
+  "heart_beat": 5,
+  "heart_type": "kindness",
+  "skeleton": "S2",
+  "location": "टीन-शेड वाले दर्ज़ी का ठिया",
+  "place_id": "haat"
+}

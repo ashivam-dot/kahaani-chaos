@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-0233-e32",
+  "beat": 4,
+  "alt": 0,
+  "prompt": "Nuzhat sits on the wooden stool in the tailor's stall in the market, sewing the edge of the khaki cloth with a small hand needle. Warm lantern light illuminates her hands and the fabric while the others watch in the blue moonlight. Characters: Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, concentrated expression; Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away, calm expression; Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, amazed expression; Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, relieved expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1071.8,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 181750256,
+  "log_tail": "                                             | 1/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 940.30MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.04s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 105.44s --- image.cpp:620\n[I] decode_first_stage completed, taking 105.44s --- image.cpp:624\n[I] generate_image completed in 1071.00s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat04.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12584319309,
+    "run_id": 40154809245,
+    "name": "art-40154809245-4",
+    "size_in_bytes": 1263810,
+    "source_sha": "3d74ac0244a14f2a83964bfdc0e16fc7572fd64a"
+  },
+  "image_sha256": "eadf0e402281fa64f0f3bbaf9db04582df4456fe7b09dffa3ba9e5e31c62071c"
+}

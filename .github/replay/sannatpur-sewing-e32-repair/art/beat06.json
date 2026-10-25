@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-0233-e32",
+  "beat": 6,
+  "alt": 0,
+  "prompt": "A wide shot of the empty tailor's stall in the market under the cold blue moonlight. The sewing machine sits perfectly still on the table. No people are visible as the night turns quiet. No people: no human figure, face, hand or arm anywhere in the picture. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1205.2,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1839568092,
+  "log_tail": "                                               | 2/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 940.30MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 92.80s --- image.cpp:620\n[I] decode_first_stage completed, taking 92.80s --- image.cpp:624\n[I] generate_image completed in 1204.30s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat06.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12584675770,
+    "run_id": 40154809245,
+    "name": "art-40154809245-6",
+    "size_in_bytes": 1082874,
+    "source_sha": "3d74ac0244a14f2a83964bfdc0e16fc7572fd64a"
+  },
+  "image_sha256": "1d16188fcfd77e751c1c4b654ae371bd66592de392ec99be9990ba80a3ca074b"
+}
