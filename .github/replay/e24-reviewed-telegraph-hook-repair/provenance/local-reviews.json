@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-25T19:17:32.430034+00:00",
+  "scope": "Source paintings only",
+  "release_approval": false,
+  "images": [
+    {
+      "file": "desk-reaction/beat02.png",
+      "image_sha256": "5a60496bf27d147644f96dfa57418d39b189ec8df62fc067ba3537ae047f4335",
+      "decision": "pass",
+      "reason": "Direct native inspection of the exact crop: preserves the correct character, clothes and signature prop, with no additional figure and the complete refused area excluded. Source-art approval only; full cloud image and audiovisual checks remain."
+    },
+    {
+      "file": "torch-reaction/beat03.png",
+      "image_sha256": "79dc388f4996ece1b1ea81f09f1ca4f628f9fecd1da01910a18c7a3d5726b315",
+      "decision": "pass",
+      "reason": "Direct native inspection of the exact crop: preserves the correct character, clothes and signature prop, with no additional figure and the complete refused area excluded. Source-art approval only; full cloud image and audiovisual checks remain."
+    },
+    {
+      "file": "exterior-waist-up/beat01.png",
+      "image_sha256": "02a8a97e19dd4ad9da5a4d5c95960da60010cfe738c1709fa77dfec921c84429",
+      "decision": "pass",
+      "reason": "Direct inspection of the exact aspect-preserving crop: both adolescent characters have natural adult proportions; Prabhat keeps glasses, mustard sweater and blue notebook, Nuzhat keeps green dupatta, braid and electric flashlight. Exterior wall, roof, open sky and moon clearly establish outdoors. The complete unassigned lantern and lower holding hand are excluded. Source-only pass; full current picture and audiovisual checks remain."
+    },
+    {
+      "file": "telegram-hero/beat00.png",
+      "image_sha256": "fa7ccf589b79313ef287693c6a6c2e5776112df5a3a7f653375dbfab6e79af0f",
+      "decision": "hold",
+      "reason": "The faithful close crop exposes generated pseudo lettering on the telegram; unsuitable for the no-written-text house style.",
+      "reviewed_at": "2026-10-25T19:28:27.862058+00:00"
+    },
+    {
+      "file": "telegram-hero-clean/beat00.png",
+      "image_sha256": "a151aa378a0ad385c5ce9b7b373d3f0f2887993d3f636ce5fc82374395de56bf",
+      "decision": "pass",
+      "reason": "Direct native-resolution inspection: yellow telegram ribbon is the dominant clear opening object on the wooden counter. The bounded deterministic paper-interior edit removes pseudo lettering while preserving the paper outline, table and painterly texture. No legible or garbled text, extra prop, person or anatomical issue. Input-art approval only; final picture and audiovisual gates remain required.",
+      "reviewed_at": "2026-10-25T19:28:27.862560+00:00"
+    }
+  ]
+}

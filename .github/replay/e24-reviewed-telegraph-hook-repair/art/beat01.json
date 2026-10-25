@@ -1,0 +1,48 @@
+{
+  "story": "kc-20261025-1602-e24",
+  "beat": 1,
+  "alt": 0,
+  "prompt": "Outside beside the closed post-office wall at night, a waist-up view shows Prabhat in his mustard sweater and steel glasses beside Nuzhat in her bottle-green dupatta and long braid. Prabhat holds his small blue notebook at the window ledge; Nuzhat holds her metal electric flashlight at shoulder height. Both look toward the closed telegraph window. Their lower hands and the lower lane are outside the portrait. Natural adolescent adult proportions, moonlit outdoor village lane and continuous painterly scene. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, curious and attentive expression; Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, alert and observant expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1277.5,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1549308109,
+  "log_tail": "                                            | 14/138 - 436.04MB/s\u001b[K\n  |##################################################| 138/138 - 931.04MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 91.46s --- image.cpp:620\n[I] decode_first_stage completed, taking 91.46s --- image.cpp:624\n[I] generate_image completed in 1276.62s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat01.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "02a8a97e19dd4ad9da5a4d5c95960da60010cfe738c1709fa77dfec921c84429",
+  "production_approved": false,
+  "derivation": {
+    "operation": "crop_and_resize",
+    "crop_ltrb": [
+      36,
+      0,
+      486,
+      800
+    ],
+    "output_size": [
+      576,
+      1024
+    ],
+    "resampling": "Pillow LANCZOS",
+    "parent_image_sha256": "9bba829e0b7923a6737eb6d6e10a499c0c607488985d1c15221b6bb7a4c521ed",
+    "parent_metadata_sha256": "e0f4309798273815820936791b36ef49f8b8c5d0b26a9c7f41d26863080657c4",
+    "source_beat": 1,
+    "source_alt": 0,
+    "target_role": "editorial_derived_base",
+    "generation_prompt": "Outdoors beside the closed post-office wall at night, Prabhat in his mustard sweater and steel glasses stands beside Nuzhat in her bottle-green dupatta and long braid. Prabhat holds only his small blue notebook; Nuzhat carries her electric metal flashlight lowered in her hand. Both look toward the closed telegraph window outside this portrait frame. Natural adolescent adult proportions, readable moonlit village lane, continuous painterly scene. The scene is outdoors. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, curious and attentive expression; Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, alert and observant expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+    "parent_review_decision": "hold",
+    "parent_refusal_reason": "The exterior, cast, glasses, sweater, dupatta and electric flashlight are correct, but the full frame adds a second lantern in the lower hand of Nuzhat that the scene does not assign. A faithful waist-up crop can exclude the complete lower-hand lantern while preserving the exterior location, both characters, notebook and electric flashlight. Keep the original refusal.",
+    "excluded_defects": [
+      "Complete unassigned lower-hand lantern and its holding hand are outside the crop."
+    ],
+    "purpose": "Faithful exterior waist-up insert; no narration or character changes."
+  },
+  "cached_from": {
+    "id": 12611225822,
+    "run_id": 40223008297,
+    "name": "art-40223008297-1",
+    "size_in_bytes": 1075327,
+    "source_sha": "bcfecf00036030957b2cd3bec0dc8f71feac5e6e"
+  }
+}

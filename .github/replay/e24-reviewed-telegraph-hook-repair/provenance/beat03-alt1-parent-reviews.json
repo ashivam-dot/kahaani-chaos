@@ -1,0 +1,49 @@
+{
+  "images": [
+    {
+      "file": "art-40209430956-0/beat00.png",
+      "image_sha256": "9091fa7a4f1e7d9bf79ce7a1da0eae19d9c7dd36c92d80d63dd59034d7dd0f22",
+      "decision": "pass",
+      "reason": "Direct native inspection: yellowed telegram paper on the wooden telegraph-window ledge in the enclosed post office, warm lantern and blue night window, with no person or legible lettering. Source art only; finished opening/ending and audiovisual checks remain."
+    },
+    {
+      "file": "art-40209430956-6/beat06.png",
+      "image_sha256": "df5a6f216058a579a3666657d456858d3caac4324ce490bd3796b6fa197caa09",
+      "decision": "pass",
+      "reason": "Direct native inspection: yellowed telegram paper on the wooden telegraph-window ledge in the enclosed post office, warm lantern and blue night window, with no person or legible lettering. Source art only; finished opening/ending and audiovisual checks remain."
+    },
+    {
+      "file": "art-40209430956-0/beat00-alt1.png",
+      "image_sha256": "b1b57c8cef15a15bfcc92aa2dd7f884814652c839c1ddc97ba438c8b4e8b5f64",
+      "decision": "hold",
+      "reason": "The alternate contains conspicuous rows of pseudo-printed lettering on the yellow paper, contrary to the text-free illustration brief. Preserve the exact refusal and use the reviewed base instead."
+    },
+    {
+      "file": "art-40209430956-2/beat02.png",
+      "image_sha256": "6e19afd85fd49e16f6420be1e8c7df072d51343529755bf4ef7e8d4ed65d8614",
+      "decision": "hold",
+      "reason": "The complete frame includes an additional miniature childlike figure below the desk. A faithful upper-body crop can exclude the entire extra figure while retaining Shailesh, both hands, the red cap, striped shirt and transistor. Preserve the raw refusal and all final gates."
+    },
+    {
+      "file": "art-40209430956-3/beat03-alt1.png",
+      "image_sha256": "e569f11552385ed2ff4a42c3f584bec7733177d00d55eb00972a1fe8e5a3a7de",
+      "decision": "hold",
+      "reason": "The full frame directs the flashlight toward the window rather than the paper described in the narration. A faithful close reaction insert can exclude the target window and place the paper offscreen in the beam direction. Preserve this raw refusal and require final audiovisual alignment."
+    },
+    {
+      "file": "art-40209430956-4/beat04.png",
+      "image_sha256": "3483f495a3031e6c951638054a2de699f12ed48df70bb56c96dfeaa1edc4d21e",
+      "decision": "pass",
+      "reason": "Direct native inspection: consistent elderly Jhabbu in khaki, grey shawl and red muffler, holding one brass hurricane lantern and the red-spined register inside the post office. Appropriate solemn/softened expression, natural adult proportions, no extra people or text. Source art only, full audiovisual review remains."
+    },
+    {
+      "file": "art-40209430956-5/beat05.png",
+      "image_sha256": "f5d9bc6bb566d9867d3972c62a05bd13e3b8ec83c23f9823636b0772c3bf5d26",
+      "decision": "pass",
+      "reason": "Direct native inspection: consistent elderly Jhabbu in khaki, grey shawl and red muffler, holding one brass hurricane lantern and the red-spined register inside the post office. Appropriate solemn/softened expression, natural adult proportions, no extra people or text. Source art only, full audiovisual review remains."
+    }
+  ],
+  "at": "2026-10-25T19:00:44.519217+00:00",
+  "scope": "Source paintings only",
+  "release_approval": false
+}
