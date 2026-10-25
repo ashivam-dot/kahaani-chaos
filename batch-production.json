@@ -3297,7 +3297,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e15.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 2,
       "repair_history": [
         {
@@ -3427,7 +3427,21 @@
       ],
       "submitted_at": "2026-10-25T08:28:40+00:00",
       "run_id": 40176769163,
-      "cloud_status": "in_progress"
+      "cloud_status": "in_progress",
+      "editorial_holds": [
+        {
+          "id": "direct-e15-toy-boat-oar",
+          "run_id": 40176769163,
+          "observed_at": "2026-10-25T09:15:04+00:00",
+          "reason": "The upstream toy-boat painting contains a long oar/paddle and an onboard burning lantern, contradicting the tiny unpowered boat and the spoken without-oars mystery. Preserve all speech and useful siblings; replace only this scene with a clearly miniature empty toy boat. All current picture, narrator, render and audiovisual gates remain required.",
+          "evidence": {
+            "art-40176769163-3/beat03.png": "a8a15bd12882a7c2825ac6fd596c0fe2aea13d407011aa281068e0b456b6abd1"
+          }
+        }
+      ],
+      "problems": [
+        "The upstream toy-boat painting contains a long oar/paddle and an onboard burning lantern, contradicting the tiny unpowered boat and the spoken without-oars mystery. Preserve all speech and useful siblings; replace only this scene with a clearly miniature empty toy boat. All current picture, narrator, render and audiovisual gates remain required."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -3510,5 +3524,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T09:12:51+00:00"
+  "updated_at": "2026-10-25T09:15:04+00:00"
 }
