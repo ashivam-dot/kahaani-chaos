@@ -4952,7 +4952,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/e14-reviewed-lantern-rescue-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 2,
       "editorial_holds": [
         {
@@ -5134,7 +5134,9 @@
         39984130378,
         39983471528
       ],
-      "submitted_at": "2026-10-25T18:59:45+00:00"
+      "submitted_at": "2026-10-25T18:59:45+00:00",
+      "run_id": 40223879188,
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -5244,10 +5246,10 @@
   "health": {
     "public": 3,
     "scheduled": 16,
-    "held": 2,
+    "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T19:01:58+00:00",
+  "updated_at": "2026-10-25T19:02:02+00:00",
   "measurement": {
     "at": "2026-10-25T19:01:58+00:00",
     "ok": true,
