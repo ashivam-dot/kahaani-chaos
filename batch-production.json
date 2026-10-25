@@ -4781,7 +4781,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e14.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "held",
       "attempts": 1,
       "source_sha": "b66ce33ea61c498a6fc251875ebbe18aad265992",
       "before_ids": [
@@ -4886,7 +4886,23 @@
         39953890527,
         39952503586
       ],
-      "submitted_at": "2026-10-25T15:38:00+00:00"
+      "submitted_at": "2026-10-25T15:38:00+00:00",
+      "editorial_holds": [
+        {
+          "id": "e14-produced-plan-visual-cast-hold",
+          "run_id": 40207865422,
+          "observed_at": "2026-10-25T15:43:22+00:00",
+          "reason": "Direct review of the exact produced plan finds beat4 naming three visible walkers while declaring only Jhabbu, and beat5 introducing a visible unregistered father despite the approved offscreen-only brief. The hashtag list also contains stray CJK separators. Repair only visual4/5 and hashtag formatting, preserve every spoken line and accepted art; all current release gates remain.",
+          "evidence": {
+            "plan-40207865422/story.json": "73648ae21b6e6515724e883c09f2d94bbb3d530847cacc4e00594d02de965391"
+          }
+        }
+      ],
+      "run_id": 40207865422,
+      "cloud_status": "queued",
+      "problems": [
+        "Direct review of the exact produced plan finds beat4 naming three visible walkers while declaring only Jhabbu, and beat5 introducing a visible unregistered father despite the approved offscreen-only brief. The hashtag list also contains stray CJK separators. Repair only visual4/5 and hashtag formatting, preserve every spoken line and accepted art; all current release gates remain."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -4909,7 +4925,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T15:38:00+00:00",
+  "updated_at": "2026-10-25T15:43:22+00:00",
   "measurement": {
     "at": "2026-10-25T15:35:39+00:00",
     "ok": true,
