@@ -4340,7 +4340,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e21.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 2,
       "repair_history": [
         {
@@ -4456,7 +4456,21 @@
       ],
       "submitted_at": "2026-10-25T13:39:18+00:00",
       "run_id": 40198599502,
-      "cloud_status": "queued"
+      "cloud_status": "queued",
+      "editorial_holds": [
+        {
+          "id": "e21-autonomous-light-held",
+          "run_id": 40198599502,
+          "observed_at": "2026-10-25T13:55:41+00:00",
+          "reason": "The beat02 painting substitutes a physical oil lamp resting on the chimney ledge for the planned autonomous light descending the ladder. Repair only this visual; preserve narration and accepted siblings, exclude these exact bytes, and retain every picture, narrator, render and full audiovisual gate.",
+          "evidence": {
+            "art-40198599502-2/beat02.png": "e54ce82307b5a7388b3f051968953b5cf3b5b3f6b474cc731099ed39938b76ef"
+          }
+        }
+      ],
+      "problems": [
+        "The beat02 painting substitutes a physical oil lamp resting on the chimney ledge for the planned autonomous light descending the ladder. Repair only this visual; preserve narration and accepted siblings, exclude these exact bytes, and retain every picture, narrator, render and full audiovisual gate."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -4608,7 +4622,7 @@
       "attempts": 0
     }
   ],
-  "halted": null,
+  "halted": "Repair held entry e21: The beat02 painting substitutes a physical oil lamp resting on the chimney ledge for the planned autonomous light descending the ladder. Repair only this visual; preserve narration and accepted siblings, exclude these exact bytes, and retain every picture, narrator, render and full audiovisual gate.",
   "complete": false,
   "health": {
     "public": 3,
@@ -4616,5 +4630,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T13:52:24+00:00"
+  "updated_at": "2026-10-25T13:55:41+00:00"
 }
