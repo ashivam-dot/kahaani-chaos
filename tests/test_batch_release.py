@@ -215,3 +215,13 @@ def test_durable_review_cannot_be_restored_onto_changed_inputs(tmp_path, changed
     with pytest.raises(ValueError, match="reconcile"):
         batch.restore_review({"review": receipt}, mp4, brief, tmp_path)
     assert not (tmp_path / "av-review.json").exists()
+
+def test_reviewer_discovers_only_verified_free_models_and_prefers_full_flash(monkeypatch):
+    names = ['gemini-3.8-pro', 'gemini-3.5-flash-lite', 'gemini-3.6-flash',
+             'gemini-3.8-flash', 'gemini-3.1-flash-lite', 'gemini-3-flash-preview',
+             'gemini-omni-1.1-flash', 'unreviewed-new-model']
+    response = SimpleNamespace(status_code=200, json=lambda: {'models': [
+        {'name': 'models/' + name, 'supportedGenerationMethods': ['generateContent']} for name in names]})
+    monkeypatch.setattr(review.requests, 'get', lambda *a, **k: response)
+    assert review._models('fake') == ['gemini-3.8-flash', 'gemini-3.6-flash', 'gemini-3-flash-preview',
+                                    'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite']
