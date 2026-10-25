@@ -685,6 +685,29 @@ def _chatterbox(lines: list[str], out: Path, seed: int) -> list[dict]:
     return json.loads((out / "lines.json").read_text(encoding="utf-8"))
 
 
+def _boundary_pauses(clips: list, pauses: list[float]) -> tuple[list[float], dict]:
+    """Budget newly inserted zeros around the silence already present at clip edges.
+
+    Never trim a clip or edit a heard word. Reserve room for the permitted slowest
+    whole-story tempo and two RMS frames before the unchanged final silence gate.
+    """
+    peak = max((float(np.abs(c[0]).max(initial=0.0)) for c in clips), default=0.0)
+    floor = SPEECH_FLOOR * peak
+    voiced = [np.flatnonzero(np.abs(c[0]) > floor) for c in clips]
+    result, edits = list(pauses), []
+    ceiling = MAX_GAP * TEMPO_LIMITS[0] - 2 * FRAME
+    for i in range(len(clips) - 1):
+        if not len(voiced[i]) or not len(voiced[i + 1]):
+            continue  # a silent clip remains a failed delivery, never repaired into speech
+        edges = (len(clips[i][0]) - 1 - voiced[i][-1] + voiced[i + 1][0]) / SAMPLE_RATE
+        result[i] = min(pauses[i], max(0.0, ceiling - edges))
+        if result[i] < pauses[i]:
+            edits.append({"after_beat": i, "requested": pauses[i], "inserted": result[i],
+                          "existing_quiet_edges": float(edges)})
+    return result, {"scope": "newly inserted inter-beat zero samples only; original clips unchanged",
+                    "adjustments": edits} if edits else {}
+
+
 def _chatterbox_story(story: Story, out_dir: Path) -> dict:
     """Chatterbox Multilingual in Hindi cloning the narrator, one take per beat, each checked by Whisper."""
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -717,6 +740,7 @@ def _chatterbox_story(story: Story, out_dir: Path) -> dict:
         if best[2] < MIN_COVERAGE:
             raise TakeRejected(f"voice: beat {i + 1} came out garbled ({best[2]:.0%} of its letters heard)")
         clips.append((*_trim(best[0], best[1]), best[2]))
+    pauses, boundary_pauses = _boundary_pauses(clips, pauses)
     pieces = [np.zeros(int(LEAD_IN * SAMPLE_RATE), np.float32)]
     t, words = LEAD_IN, []
     for index, ((audio, beat_words, _), pause) in enumerate(zip(clips, pauses)):
@@ -751,7 +775,8 @@ def _chatterbox_story(story: Story, out_dir: Path) -> dict:
               "reference": str(REFERENCE.relative_to(TTS_DIR.parent)),
               "reference_sha256": hashlib.sha256(REFERENCE.read_bytes()).hexdigest(),
               "coverage": [round(c[2], 3) for c in clips], "wpm": wpm, "tempo": factor, "hook_tempo": hook_factor,
-              **STYLE, **({"pause_edit": pause_edit} if pause_edit else {})}
+              **STYLE, **({"pause_edit": pause_edit} if pause_edit else {}),
+              **({"boundary_pauses": boundary_pauses} if boundary_pauses else {})}
     record["checks"] = measure(story, words, spoken, wav)
     lead = LEAD_IN / factor / hook_factor
     return _timing(out_dir, words, _spans(words, len(story.beats), duration, lead), duration, record)

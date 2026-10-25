@@ -142,6 +142,35 @@ def test_pause_editor_uses_the_final_gates_voiced_sample_grid(tmp_path):
     assert heard[1][1:] == (shifted[1]['start'], shifted[1]['end'])
 
 
+def test_actual_e07_boundary_budgets_inserted_silence_without_editing_either_clip(tmp_path):
+    from pathlib import Path
+    import soundfile as sf
+    fixture = Path(__file__).parent / 'fixtures/e07-join-silence.wav'
+    original = tmp_path / 'original.wav'
+    original.write_bytes(fixture.read_bytes())
+    assert voice.silences(original)[1] == 1.22
+    # The actual full-take Whisper interval covers the otherwise quiet centre.
+    assert voice._shorten_pauses(original, [], [('protected', 1.02, 2.1)])[2] == {}
+    assert original.read_bytes() == fixture.read_bytes()
+    audio, sr = sf.read(original, dtype='float32')
+    a, b = round(1.5 * sr), round(2.4 * sr)
+    assert np.count_nonzero(audio[a:b]) == 0
+    clips = [(audio[:a],), (audio[b:],)]
+    pauses, receipt = voice._boundary_pauses(clips, [.9, .35])
+    assert 0 < pauses[0] < .9 and pauses[1] == .35
+    assert receipt['adjustments'][0]['existing_quiet_edges'] > .2
+    zeros = np.zeros(int(pauses[0] * sr), np.float32)
+    joined = np.concatenate([clips[0][0], zeros, clips[1][0]])
+    assert np.array_equal(joined[:a], audio[:a])
+    assert np.array_equal(joined[a + len(zeros):], audio[b:])
+    assert np.count_nonzero(joined) == np.count_nonzero(audio)
+    final = tmp_path / 'joined.wav'
+    sf.write(final, joined, sr)
+    assert voice.silences(final)[1] <= voice.MAX_GAP
+    slowed = voice._tempo(final, voice.TEMPO_LIMITS[0], tmp_path / 'slowest.wav')
+    assert voice.silences(slowed)[1] <= voice.MAX_GAP
+
+
 @pytest.mark.parametrize('gap,spoken', [(1.42, [('protected', 1.6, 2.1)]), (2.4, [])])
 def test_word_overlaps_and_large_delivery_gaps_are_never_trimmed(tmp_path, gap, spoken):
     import soundfile as sf

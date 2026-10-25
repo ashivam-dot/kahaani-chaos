@@ -1,0 +1,15 @@
+{
+  "source_run": 40158648541,
+  "source_sha": "9ae8d51aa411fef20a1df2eb5df3e6c0d7456e97",
+  "source_audio_sha256": "9b52cf2393b101a7ad7ff25ce3fb1d640e9cdb2a43dc7172bfaa85efc6c3650f",
+  "excerpt_seconds": [
+    16,
+    20
+  ],
+  "fixture_sha256": "a65363131dce666cfc5666c143b173ecd2e084d3be603b61e925091911c0f03c",
+  "existing_zero_interval": [
+    1.5,
+    2.4
+  ],
+  "scope": "Actual failed narration boundary; interval lies wholly inside exact zero samples, including the inserted twist pause. Never an approved recording."
+}
