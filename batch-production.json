@@ -2646,7 +2646,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e12.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 1,
       "source_sha": "787674b5bc66cb1ff227e73da93f46ba8af07252",
       "before_ids": [
@@ -2713,7 +2713,22 @@
       ],
       "submitted_at": "2026-10-25T05:02:35+00:00",
       "run_id": 40164083384,
-      "cloud_status": "queued"
+      "cloud_status": "queued",
+      "editorial_holds": [
+        {
+          "id": "actual-e12-tiny-printed-ticket-40164083384",
+          "run_id": 40164083384,
+          "observed_at": "2026-10-25T06:00:17+00:00",
+          "reason": "Direct full-resolution inspection rejects both original opening paintings: the ticket occupies only about five percent of the frame and contains generated printed lettering. The early picture editor independently refuses the base for text and the alternate for opening subject share. Preserve all speech and story; replace only this opener with a large blank reverse of the same perforated ticket on the green bus seat. Useful other art remains; complete picture, narrator, render and full audiovisual checks remain mandatory.",
+          "evidence": {
+            "art-40164083384-0/beat00.png": "316932f75dad0e0cc86c9600408cb66c49a6ef52972a312441f9a46dd47970d8",
+            "art-40164083384-0/beat00-alt1.png": "163924f718888de0fa8f957559576bc3908d06e27fa5be27008526eb180d703f"
+          }
+        }
+      ],
+      "problems": [
+        "Direct full-resolution inspection rejects both original opening paintings: the ticket occupies only about five percent of the frame and contains generated printed lettering. The early picture editor independently refuses the base for text and the alternate for opening subject share. Preserve all speech and story; replace only this opener with a large blank reverse of the same perforated ticket on the green bus seat. Useful other art remains; complete picture, narrator, render and full audiovisual checks remain mandatory."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -2832,5 +2847,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T05:50:53+00:00"
+  "updated_at": "2026-10-25T06:00:17+00:00"
 }
