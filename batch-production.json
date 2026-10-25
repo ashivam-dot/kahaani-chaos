@@ -4626,7 +4626,55 @@
       "run_id": 40206121370,
       "cloud_status": "completed",
       "retry_reason": "audiovisual review unavailable: gemini-3.8-flash: HTTP 429; gemini-3-flash-preview: HTTP 503; gemini-3.1-flash-lite: HTTP 503",
-      "review_retry_after": "2026-10-25T17:23:38.414188+00:00"
+      "review_retry_after": "2026-10-25T17:23:38.414188+00:00",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3-flash-preview",
+        "duration": 42.166667,
+        "video_sha256": "a8e49733c20e187b237a905dc82d9a3415d953c6758041571e1c399e74e6f89d",
+        "brief_sha256": "2c8c1da353615e0d44ec7026a9ab620ce560b95ef9fd7792aead9ec7060a794d",
+        "review_video_sha256": "3972ae9f24937f6bd3967772587fafe0ee9b8dce8c383700c5f60ab5f642d63f",
+        "review_audio_sha256": "7c005bfe3ab585129d4010c62af2c1f623b3878e5d0b22c8ead872fc24929655",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "ठंडी चिमनी पर रोशनी जलकर धीरे-धीरे नीचे उतरने लगी।",
+          "heard_ending": "राख की तरह ठंडी चिमनी पर जलती रोशनी आज भी यादों में उतरती है।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "A glowing amber oval light floats near the top of a brick chimney at night.",
+              "heard": "ठंडी चिमनी पर रोशनी जलकर धीरे-धीरे नीचे उतरने लगी।"
+            },
+            {
+              "part": "middle",
+              "seconds": 22.0,
+              "seen": "Jhabbu points towards a tin shed while standing with Nuzhat and Prabhat.",
+              "heard": "नियम था, अपने-आप जली रोशनी के पीछे मत भागो, बस देखो कहाँ रुकती है।"
+            },
+            {
+              "part": "ending",
+              "seconds": 38.0,
+              "seen": "The brick chimney stands alone in the pale morning light.",
+              "heard": "राख की तरह ठंडी चिमनी पर जलती रोशनी आज भी यादों में उतरती है।"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -5044,7 +5092,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T17:54:43+00:00",
+  "updated_at": "2026-10-25T17:55:15+00:00",
   "measurement": {
     "at": "2026-10-25T17:54:43+00:00",
     "ok": true,
