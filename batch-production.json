@@ -805,12 +805,19 @@
       "target": "2026-10-26T13:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e05.json"
+        "replay": ".github/replay/sannatpur-projector-e05-repair.json"
       },
-      "stage": "held",
-      "attempts": 1,
-      "source_sha": "83144fa39f76d335d3a20b84e91c74e8cde66d80",
+      "stage": "dispatch_unresolved",
+      "attempts": 2,
+      "source_sha": "43649a8a8f2c3066cd6242ac6036145c3f083277",
       "before_ids": [
+        40146069336,
+        40144076354,
+        40143503135,
+        40142724972,
+        40142626858,
+        40142424645,
+        40142328302,
         40134819856,
         40134047227,
         40132420577,
@@ -870,10 +877,32 @@
         39207467555,
         39136542737,
         39134127739,
-        39104056474
+        39104056474,
+        39102124492,
+        39041233609,
+        39038963383,
+        39009970260,
+        39007953446,
+        38917788732,
+        38913908585,
+        38861606273,
+        38858483528,
+        38753598513,
+        38749717591,
+        38693020536,
+        38689654616,
+        38582416078,
+        38578001758,
+        38522731692,
+        38519475643,
+        38451022187,
+        38448247359,
+        38446573325,
+        38444924599,
+        38439489788,
+        38428830025
       ],
-      "submitted_at": "2026-10-24T23:20:22+00:00",
-      "run_id": 40142328302,
+      "submitted_at": "2026-10-25T00:24:34+00:00",
       "editorial_holds": [
         {
           "id": "direct-extra-cast-ending-40142328302",
@@ -903,9 +932,24 @@
           }
         }
       ],
-      "problems": [
-        "Actual closing still depicts four physical foreground people and four projected silhouettes, while the story is about a trio and this shot is planned as an object-only projector close-up. Replace only this closing art; preserve usable other paintings and all spoken text. Complete current media and audiovisual review remain mandatory."
-      ]
+      "repair_history": [
+        {
+          "run_id": 40142328302,
+          "source_sha": "83144fa39f76d335d3a20b84e91c74e8cde66d80",
+          "stage": "held",
+          "problems": [
+            "Actual closing still depicts four physical foreground people and four projected silhouettes, while the story is about a trio and this shot is planned as an object-only projector close-up. Replace only this closing art; preserve usable other paintings and all spoken text. Complete current media and audiovisual review remain mandatory."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e05.json"
+          }
+        }
+      ],
+      "obsolete_runs": [
+        40142328302
+      ],
+      "repair_reason": "Preserve six usable original paintings and all spoken Hindi; replace closing with the directly inspected complete projector close-up and exclude exact duplicate-Prabhat alternate. All seven beats preflight, prepared opening luma98.84/contrast0.23174; full current cloud and AV gates remain required."
     },
     {
       "repo": "kahaani-chaos",
@@ -1166,8 +1210,8 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e05: Actual closing still depicts four physical foreground people and four projected silhouettes, while the story is about a trio and this shot is planned as an object-only projector close-up. Replace only this closing art; preserve usable other paintings and all spoken text. Complete current media and audiovisual review remain mandatory.",
-  "updated_at": "2026-10-25T00:22:34+00:00",
+  "halted": null,
+  "updated_at": "2026-10-25T00:24:34+00:00",
   "complete": false,
   "health": {
     "public": 1,
