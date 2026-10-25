@@ -392,7 +392,7 @@
         38428830025
       ],
       "submitted_at": "2026-10-24T23:46:12+00:00",
-      "cloud_status": "in_progress",
+      "cloud_status": "completed",
       "editorial_holds": [
         {
           "id": "direct-indoor-continuity-floating-fan-40134047227",
@@ -470,7 +470,55 @@
         40142724972
       ],
       "repair_reason": "Exact cached indoor paintings retained; fdaae1d applies a fixed bounded opening S-curve. Real prepared opening now passes unchanged luma/contrast bands with 0.2992 percent newly clipped pixels; full current cloud and audiovisual checks remain mandatory.",
-      "run_id": 40144076354
+      "run_id": 40144076354,
+      "review": {
+        "schema": 1,
+        "model": "gemini-3.8-flash",
+        "duration": 39.133333,
+        "video_sha256": "4e2922409699c4389b825e2d9891d6ba021751fbfbbeefe792b80f713cb56d84",
+        "brief_sha256": "74b1927131fff089f8577612431f4c4c028892ba34b6c2d81b629210116ac3d4",
+        "review_video_sha256": "c71348217df3ee2016d5d27ca077f9695c580335519776a0c4fefe33aa82260e",
+        "review_audio_sha256": "9bc8aca97899d6f85c498e29788edd669f629ca535c748a4b7f626cfdc3a23d5",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "बिजली कटते ही कॉलेज का पंखा उल्टा घूमने लगा।",
+          "heard_ending": "हमने उसे छूना छोड़ दिया, और भोर की रोशनी में पंखा ख़ुद शांत होकर रुक गया।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "A vintage three-bladed ceiling fan spinning with motion blur under a high ceiling in dim blue-toned light.",
+              "heard": "कॉलेज का पंखा उल्टा घूमने लगा।"
+            },
+            {
+              "part": "middle",
+              "seconds": 20.0,
+              "seen": "Elderly Jhabbu in a khaki kurta and red muffler holding the wrist of Shailesh standing on a wooden table.",
+              "heard": "उल्टी चलती चीज़ को ज़बरदस्ती मत छेड़ो,"
+            },
+            {
+              "part": "ending",
+              "seconds": 34.5,
+              "seen": "Four people watching quietly from below inside the blue staff room as dawn light enters through the window.",
+              "heard": "और भोर की रोशनी में पंखा"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -1063,7 +1111,7 @@
     }
   ],
   "halted": "Repair held entry e05: Actual closing still depicts four physical foreground people and four projected silhouettes, while the story is about a trio and this shot is planned as an object-only projector close-up. Replace only this closing art; preserve usable other paintings and all spoken text. Complete current media and audiovisual review remain mandatory.",
-  "updated_at": "2026-10-25T00:12:48+00:00",
+  "updated_at": "2026-10-25T00:14:43+00:00",
   "complete": false,
   "health": {
     "public": 1,
