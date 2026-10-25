@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-0832-e15",
+  "beat": 3,
+  "alt": 0,
+  "prompt": "The scene is outdoors. Macro close view of one palm-sized hand-carved wooden toy boat floating beside stone canal washing steps under open moonlit sky. Its simple low wooden hull is empty, with smooth plain sides and no projecting parts. A fallen peepal leaf floats beside it at the same scale. Silver ripples curl around the tiny boat as it heads toward the steps. The electric flashlight is the only practical light, an offscreen warm beam reflected on the water. No lamp or lantern aboard, no oar, paddle, mast, seats, people or hands. Readable miniature wood grain, painterly-cinematic vertical close-up. No people: no human figure, face, hand or arm anywhere in the picture. bright moonlit 1996 north-Indian village, one warm-white electric battery-flashlight beam, lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 702.6,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 145654647,
+  "log_tail": "                                                | 3/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.00s, memcpy: 0.00s, convert: 0.04s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 56.04s --- image.cpp:620\n[I] decode_first_stage completed, taking 56.04s --- image.cpp:624\n[I] generate_image completed in 701.89s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat03.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12595690989,
+    "run_id": 40183199244,
+    "name": "art-40183199244-3",
+    "size_in_bytes": 1076365,
+    "source_sha": "5919ff7f152674b19461677e5016c162e8f6ed94"
+  },
+  "image_sha256": "73d2e4f2d7d438b78b65c0eeacc54b79df511e50cf548380d60f9837fdba8669"
+}

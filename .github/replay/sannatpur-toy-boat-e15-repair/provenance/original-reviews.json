@@ -1,0 +1,55 @@
+{
+  "images": [
+    {
+      "file": "art-40176769163-1/beat01.png",
+      "image_sha256": "1256994fc0a03e9dedc0ca4e0c00a61ef1a1695a75ac9beaaee6a4d439fecf55",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: two distinct young men sit naturally on the brick canal steps. Mustard sweater, glasses and blue notebook identify Prabhat; red cap, striped shirt and strapped transistor identify Shailesh. Electric flashlight, readable moonlit water, coherent limbs and no extra people or text."
+    },
+    {
+      "file": "art-40176769163-2/beat02.png",
+      "image_sha256": "efe6dba3f568cec0d93647fe26677da45c05c69e84ee52d47809800862cf2067",
+      "decision": "hold",
+      "reason": "Direct native-resolution review: base painting contains two Prabhats in mustard sweaters. The producer\u2019s early check also rejected this duplicate; the passing alternate must replace it in any final render."
+    },
+    {
+      "file": "art-40176769163-2/beat02-alt1.png",
+      "image_sha256": "a4d18fb47c00478b95ac6f20723aed116b86391477a678d9866d9b4dacb1fefd",
+      "decision": "pass",
+      "reason": "Direct native-resolution review: one Nuzhat in green holds an electric flashlight down toward the canal; one Prabhat in mustard sweater/glasses holds his blue notebook. Coherent limbs, readable water, no duplicate cast or text."
+    },
+    {
+      "file": "art-40176769163-3/beat03.png",
+      "image_sha256": "a8a15bd12882a7c2825ac6fd596c0fe2aea13d407011aa281068e0b456b6abd1",
+      "decision": "hold",
+      "reason": "Directly viewed: the upstream boat carries a burning onboard lantern and a long oar/paddle projecting into the foreground. The spoken mystery explicitly concerns a tiny unpowered wooden toy boat returning without oars. Preserve speech; replace only this object scene with a clearly miniature empty toy boat without rowing gear."
+    },
+    {
+      "file": "art-40176769163-0/beat00.png",
+      "image_sha256": "c3c7e9797d9ff3a9326d4d56fe6fda248bedadf023a62eea09eaba2e4019747a",
+      "decision": "pass",
+      "reason": "Directly reviewed opening plus later pickup scene: the wooden boat is coherent with the miniature toy held beside Shailesh\u2019s knees in beat 5. The macro perspective alone does not establish a human-sized craft. Readable empty object-only moonlit opening; no oar visible."
+    },
+    {
+      "file": "art-40176769163-4/beat04.png",
+      "image_sha256": "af422c231bd3b77d4045e1fc649d892537225bc6637b63319ad5e9496f7ef6c7",
+      "decision": "pass",
+      "reason": "Directly reviewed: exactly one Prabhat with mustard sweater/glasses/blue notebook and one Nuzhat in green with her metal electric flashlight and white beam on the canal steps. Correct actor count and props, natural anatomy."
+    },
+    {
+      "file": "art-40176769163-5/beat05.png",
+      "image_sha256": "841ced3d4aba851e72467bc0c63b83fb9020d7bbfc15e74531feb98756417c91",
+      "decision": "pass",
+      "reason": "Directly reviewed: Shailesh alone kneels on an upper canal step with the small wooden toy boat beside his knees; red cap, striped shirt, radio in brown leather case and blue flip-flops remain coherent. Pickup/put-down action and miniature boat scale are readable."
+    },
+    {
+      "file": "art-40176769163-6/beat06.png",
+      "image_sha256": "080b6c2eda53389aa46abe02e5f7c19dae88d674cd53d1935ac68ae0dd769613",
+      "decision": "hold",
+      "reason": "Directly viewed: a large adult portrait with chin resting on one hand contradicts the fixed adult narrator, who may appear only as hands with the faded blue notebook and steel-rimmed glasses. Preserve every spoken line; replace this ending painting with a wrists-only desk close-up."
+    }
+  ],
+  "at": "2026-10-25T09:26:57.485708+00:00",
+  "release_approval": false,
+  "scope": "Available source paintings only; boat scale/continuity and full finished audiovisual review remain required."
+}

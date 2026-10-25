@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-0832-e15",
+  "beat": 5,
+  "alt": 0,
+  "prompt": "On a dry upper brick step of the canal, young man Shailesh in his striped shirt kneels alone with bowed head, carefully placing the wet wooden toy boat beside his knees, lit gently by warm moonlit reflection. Characters: Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, apologetic and humbled expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1238.9,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1788318274,
+  "log_tail": "                                               | 1/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 92.66s --- image.cpp:620\n[I] decode_first_stage completed, taking 92.66s --- image.cpp:624\n[I] generate_image completed in 1237.98s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat05.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12594317044,
+    "run_id": 40176769163,
+    "name": "art-40176769163-5",
+    "size_in_bytes": 1181761,
+    "source_sha": "d90a2f62aaf82dd5da1d9a5dbf781f2c0d325813"
+  },
+  "image_sha256": "841ced3d4aba851e72467bc0c63b83fb9020d7bbfc15e74531feb98756417c91"
+}

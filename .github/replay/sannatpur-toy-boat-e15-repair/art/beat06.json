@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-0832-e15",
+  "beat": 6,
+  "alt": 0,
+  "prompt": "Top-down extreme close view of one pair of middle-aged hands turning the blank reverse of a page in a faded old blue notebook on a wooden desk inside an enclosed room. Worn corners and the blue cover of the notebook are clearly visible. Thin steel-rimmed glasses rest beside the notebook under the warm light of a small desk lamp. Only hands and wrists are within the frame. The whole painted view is the desktop, the notebook, spectacles and the two hands; faces and bodies are outside the frame. Characters: Prabhat (adult narrator): close-up of a middle-aged man's hands turning pages of a faded blue notebook under a desk lamp, steel-rimmed glasses beside it, no face, hands gently turning a blank page, only wrists visible expression. Only one pair of middle-aged hands and wrists is visible, with the faded blue notebook and steel-rimmed glasses. The face, head, shoulders and torso are outside the frame. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm practical light, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1269.1,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 26141688,
+  "log_tail": "                                               | 2/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 92.66s --- image.cpp:620\n[I] decode_first_stage completed, taking 92.66s --- image.cpp:624\n[I] generate_image completed in 1268.15s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat06.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12594504088,
+    "run_id": 40180766036,
+    "name": "art-40180766036-6",
+    "size_in_bytes": 1120755,
+    "source_sha": "ad687238289d98f84f3f1fd569683d7c2eb6e699"
+  },
+  "image_sha256": "e29aa7743ea48921c96a2bc0ddcfc8b69dec3eede3fed42d98ac4ca6111b9a31"
+}

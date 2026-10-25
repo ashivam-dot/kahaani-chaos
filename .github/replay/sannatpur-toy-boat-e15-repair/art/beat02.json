@@ -1,0 +1,25 @@
+{
+  "story": "kc-20261025-0832-e15",
+  "beat": 2,
+  "alt": 0,
+  "prompt": "On the canal washing steps, young woman Nuzhat points a cracked glass flashlight down toward the canal water, while young man Prabhat beside her peers through steel-frame spectacles into the moonlit blue gloom. Characters: Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, curious and focused expression; Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, surprised and squinting expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 709.3,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 141828065,
+  "log_tail": "cached graph cut plan done (taking 0 ms) --- ggml_graph_cut.cpp:1032\n\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.03s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 56.22s --- image.cpp:620\n[I] decode_first_stage completed, taking 56.22s --- image.cpp:624\n[I] generate_image completed in 708.60s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat02.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12592319468,
+    "run_id": 40176769163,
+    "name": "art-40176769163-2",
+    "size_in_bytes": 2311509,
+    "source_sha": "d90a2f62aaf82dd5da1d9a5dbf781f2c0d325813"
+  },
+  "image_sha256": "efe6dba3f568cec0d93647fe26677da45c05c69e84ee52d47809800862cf2067",
+  "editorial_refusal": {
+    "image_sha256": "efe6dba3f568cec0d93647fe26677da45c05c69e84ee52d47809800862cf2067",
+    "reason": "Direct native-resolution review: base painting contains two Prabhats in mustard sweaters. The producer’s early check also rejected this duplicate; the passing alternate must replace it in any final render."
+  }
+}

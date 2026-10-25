@@ -1,0 +1,13 @@
+{
+  "images": [
+    {
+      "file": "art-40183199244-3/beat03.png",
+      "image_sha256": "73d2e4f2d7d438b78b65c0eeacc54b79df511e50cf548380d60f9837fdba8669",
+      "decision": "pass",
+      "reason": "Direct native review and comparison with the existing opening/pickup art: coherent empty wooden model boat beside outdoor canal steps beneath an open moonlit sky, leaf and ripples visible. No oar, paddle, onboard lamp, person, writing or impossible room/ceiling. Its low crosspieces do not introduce rowing equipment; macro perspective alone does not establish full-size scale. The spoken upstream-without-oars mystery matches. Final visual continuity and audiovisual checks remain required."
+    }
+  ],
+  "at": "2026-10-25T10:19:28+00:00",
+  "release_approval": false,
+  "scope": "Source still only; no final-video or release approval."
+}
