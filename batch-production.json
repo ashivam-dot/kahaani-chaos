@@ -4113,7 +4113,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-ration-card-e11-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 2,
       "editorial_holds": [
         {
@@ -4257,7 +4257,9 @@
         40134819856,
         40134047227
       ],
-      "submitted_at": "2026-10-25T13:33:37+00:00"
+      "submitted_at": "2026-10-25T13:33:37+00:00",
+      "run_id": 40198165103,
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -4268,8 +4270,8 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e21.json"
       },
-      "stage": "planned",
-      "attempts": 1,
+      "stage": "dispatch_unresolved",
+      "attempts": 2,
       "repair_history": [
         {
           "run_id": 40196244177,
@@ -4318,7 +4320,71 @@
       ],
       "repair_queued_at": "2026-10-25T13:30:29+00:00",
       "repair_source_sha": "a8aebdd88909f9f46e231456cb66464385b0d051",
-      "repair_reason": "The actual editor repeatedly invents a requirement for technology exclusive to the 1990s while the canonical bank explicitly selects the kiln chimney. Supply its exact bank object/anomaly to the editor, preserve every negative verdict and narrative/visual quality gate, shorten the canonical hook to the existing ten-word limit, and clarify the wait-until-light-stops action and complete goodbye. No rejected draft or image is approved. Another normal writer/editor/production/release attempt is required."
+      "repair_reason": "The actual editor repeatedly invents a requirement for technology exclusive to the 1990s while the canonical bank explicitly selects the kiln chimney. Supply its exact bank object/anomaly to the editor, preserve every negative verdict and narrative/visual quality gate, shorten the canonical hook to the existing ten-word limit, and clarify the wait-until-light-stops action and complete goodbye. No rejected draft or image is approved. Another normal writer/editor/production/release attempt is required.",
+      "source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f",
+      "before_ids": [
+        40198506719,
+        40198165103,
+        40197721800,
+        40197267045,
+        40196244177,
+        40192580429,
+        40192011575,
+        40189938585,
+        40187818735,
+        40187469293,
+        40185173569,
+        40183523788,
+        40183199244,
+        40180766036,
+        40180081031,
+        40180078790,
+        40178234124,
+        40177715903,
+        40176769163,
+        40176488651,
+        40174740535,
+        40172748055,
+        40172736622,
+        40171278752,
+        40171159505,
+        40170263222,
+        40169893361,
+        40169378463,
+        40169098001,
+        40168832723,
+        40168763687,
+        40164083384,
+        40162491442,
+        40162007872,
+        40160199731,
+        40159235547,
+        40158580419,
+        40158338472,
+        40157308891,
+        40155939996,
+        40154809245,
+        40154557845,
+        40152921322,
+        40152845611,
+        40152138336,
+        40148804337,
+        40148651151,
+        40148639705,
+        40148316893,
+        40147867847,
+        40147346342,
+        40147002904,
+        40146579288,
+        40146069336,
+        40144076354,
+        40143503135,
+        40142724972,
+        40142626858,
+        40142424645,
+        40142328302
+      ],
+      "submitted_at": "2026-10-25T13:39:18+00:00"
     },
     {
       "repo": "kahaani-chaos",
@@ -4396,7 +4462,7 @@
       ],
       "submitted_at": "2026-10-25T13:27:49+00:00",
       "run_id": 40197721800,
-      "cloud_status": "in_progress"
+      "cloud_status": "completed"
     },
     {
       "repo": "kahaani-chaos",
@@ -4431,5 +4497,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T13:39:09+00:00"
+  "updated_at": "2026-10-25T13:39:18+00:00"
 }
