@@ -804,5 +804,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-1111-e13",
+  "premise": "e13",
+  "title": "कुएँ की बाल्टी डाली… और वो चिट्ठियाँ ले आई! 🪣",
+  "subgenre": "goodbye",
+  "motifs": [],
+  "ending": "loop-back",
+  "opening": "कुएं की",
+  "made_at": "2026-10-25T13:33:32+00:00",
+  "format": "micro",
+  "skeleton": "S1",
+  "resolution": "bargain",
+  "heart_type": "goodbye",
+  "object_token": "बाल्टी",
+  "anomaly": "पानी की जगह धागे में बँधी पुरानी चिट्ठियाँ भरकर ऊपर आना",
+  "location": "गली के आख़िर वाला मुंडेर वाला कुआँ",
+  "place_id": "kuan",
+  "hook_strip": "पानी नहीं, चिट्ठियाँ निकलीं",
+  "script": "कुएँ की बाल्टी पानी नहीं, धागे से बँधी चिट्ठियाँ लाई। उन्नीस सौ छियानवे, उस रात हम गली के आख़िरी कुएँ पर बैठे थे। नुज़हत ने मुंडेर से रस्सी खींची, पर कुएँ में कोई छपाक नहीं हुआ। बाल्टी ऊपर आई तो उसमें पीले ख़त भरे थे, और शैलेश ने एक खोल दिया। तभी याद आया—किसी और की चिट्ठी खोली, तो उसी रात जवाब भेजना पड़ता है। वो बिना अलविदा कहे शहर गए लड़के का दर्द था; हमने जवाब लिखकर बाल्टी में रख दिया। बाल्टी वापस अंधेरे में उतर गई, वही बाल्टी जो पानी नहीं, चिट्ठियाँ लाती है।",
+  "slot": "2026-11-01T07:30:00Z",
+  "published_at": "2026-11-01T07:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40197267045,
+  "av_review_sha256": "0c1db597a7333a0e9910daffcc6626f210720d25747b0c25fea0a7ec7ec5634f",
+  "video_id": "m2izl1g9Ijo",
+  "url": "https://www.youtube.com/shorts/m2izl1g9Ijo",
+  "privacy": "scheduled",
+  "publish_at": "2026-11-01T07:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-11-01T07:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
