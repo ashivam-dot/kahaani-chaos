@@ -84,6 +84,31 @@ def test_quiet_pause_repair_preserves_speech_and_moves_all_word_times(tmp_path):
     assert heard[1][1:] == (shifted[1]['start'], shifted[1]['end'])
 
 
+def test_pause_editor_uses_the_final_gates_voiced_sample_grid(tmp_path):
+    # Actual e07 rebuild held at 1.22 s with no edit. A file-zero frame grid
+    # can see only 1.20 s, while the final gate starts its grid at voiced onset.
+    import soundfile as sf
+    sr = voice.SAMPLE_RATE
+    path = tmp_path / 'offset.wav'
+    sf.write(path, np.concatenate([np.zeros(round(.201 * sr)), np.full(sr, .4),
+                                   np.zeros(round(1.221 * sr)), np.full(sr, .4)]), sr)
+    words = [{'text': 'पहले', 'start': .201, 'end': 1.201, 'beat': 0},
+             {'text': 'बाद', 'start': 2.422, 'end': 3.422, 'beat': 1}]
+    spoken = [(w['text'], w['start'], w['end']) for w in words]
+    before, _ = sf.read(path, dtype='float32')
+    assert voice.silences(path)[1] == 1.22
+    shifted, heard, receipt = voice._shorten_pauses(path, words, spoken)
+    assert receipt and voice.silences(path)[1] <= voice.MAX_GAP
+    after, _ = sf.read(path, dtype='float32')
+    cut = receipt['removed'][0]
+    a, b = round(cut['start'] * sr), round(cut['end'] * sr)
+    assert np.count_nonzero(before) == np.count_nonzero(after) == 2 * sr
+    assert np.array_equal(after, np.concatenate([before[:a], before[b:]]))
+    assert shifted[0] == words[0]
+    assert shifted[1]['start'] == pytest.approx(words[1]['start'] - (b-a)/sr, abs=.001)
+    assert heard[1][1:] == (shifted[1]['start'], shifted[1]['end'])
+
+
 @pytest.mark.parametrize('gap,spoken', [(1.42, [('protected', 1.6, 2.1)]), (2.4, [])])
 def test_word_overlaps_and_large_delivery_gaps_are_never_trimmed(tmp_path, gap, spoken):
     import soundfile as sf

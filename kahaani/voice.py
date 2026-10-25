@@ -373,14 +373,18 @@ def _shorten_pauses(wav: Path, words: list[dict], spoken: list) -> tuple[list, l
     loud = np.flatnonzero(np.abs(audio) > floor)
     if not loud.size or floor <= 0:
         return words, spoken, {}
-    step = max(1, round(FRAME * sr))
-    frames = audio[:len(audio) // step * step].reshape(-1, step)
+    # Match silences() exactly: its RMS grid begins at the first voiced sample.
+    # A grid anchored at file zero can round a real 1.22 s gap down to 1.20 s,
+    # leaving an otherwise safely editable pause untouched before the final gate.
+    step = max(1, int(FRAME * sr))
+    body = audio[loud[0]:loud[-1] + 1]
+    frames = body[:len(body) // step * step].reshape(-1, step)
     quiet = np.sqrt((frames ** 2).mean(axis=1)) < floor
     occupied = [(float(a), float(b)) for _, a, b in spoken]
     occupied += [(float(w["start"]), float(w["end"])) for w in words if w.get("heard", True)]
     cuts = []
     for first, last in _runs(quiet):
-        start, end = first * step, last * step
+        start, end = int(loud[0]) + first * step, int(loud[0]) + last * step
         duration = (end - start) / sr
         if not (start > loud[0] and end < loud[-1] and MAX_GAP < duration <= MAX_GAP + 0.6):
             continue
