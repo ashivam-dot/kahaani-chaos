@@ -2519,7 +2519,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e17.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 1,
       "source_sha": "ec57858391b8a52f659e6187efe844662ef19aa7",
       "before_ids": [
@@ -2586,7 +2586,22 @@
       ],
       "submitted_at": "2026-10-25T04:28:31+00:00",
       "run_id": 40162007872,
-      "cloud_status": "queued"
+      "cloud_status": "queued",
+      "editorial_holds": [
+        {
+          "id": "actual-e17-printed-hook-hands-40162007872",
+          "run_id": 40162007872,
+          "observed_at": "2026-10-25T05:19:21+00:00",
+          "reason": "Direct full-resolution inspection rejects both completed hook paintings: both add prominent human hands to a people-free object shot and rows of generated writing on the slip. The saved early picture editor independently refuses both exact images for those defects. Preserve every spoken line, title and story; replace only the hook scene with a blank unmarked paper strip emerging from an enclosed analogue PCO billing meter. Keep useful other art; complete current picture, narrator, render and full audiovisual checks remain required.",
+          "evidence": {
+            "art-40162007872-0/beat00.png": "c32e7f3268077b560cb273894d7f2c9c128552944ad95866dc6cf21ffd66f12f",
+            "art-40162007872-0/beat00-alt1.png": "7c70617392cb16f4b7ee8624aeaf4e8aa616c59a1ba2c61c5f3d9693169936f4"
+          }
+        }
+      ],
+      "problems": [
+        "Direct full-resolution inspection rejects both completed hook paintings: both add prominent human hands to a people-free object shot and rows of generated writing on the slip. The saved early picture editor independently refuses both exact images for those defects. Preserve every spoken line, title and story; replace only the hook scene with a blank unmarked paper strip emerging from an enclosed analogue PCO billing meter. Keep useful other art; complete current picture, narrator, render and full audiovisual checks remain required."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -2775,7 +2790,7 @@
       "attempts": 0
     }
   ],
-  "halted": null,
+  "halted": "Repair held entry e17: Direct full-resolution inspection rejects both completed hook paintings: both add prominent human hands to a people-free object shot and rows of generated writing on the slip. The saved early picture editor independently refuses both exact images for those defects. Preserve every spoken line, title and story; replace only the hook scene with a blank unmarked paper strip emerging from an enclosed analogue PCO billing meter. Keep useful other art; complete current picture, narrator, render and full audiovisual checks remain required.",
   "complete": false,
   "health": {
     "public": 1,
@@ -2783,5 +2798,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T05:14:28+00:00"
+  "updated_at": "2026-10-25T05:19:21+00:00"
 }
