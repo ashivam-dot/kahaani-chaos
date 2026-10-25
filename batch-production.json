@@ -1030,12 +1030,19 @@
       "target": "2026-10-27T07:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e06.json"
+        "replay": ".github/replay/sannatpur-signal-e06-repair.json"
       },
-      "stage": "held",
-      "attempts": 1,
-      "source_sha": "a4af1a2066f42b132aed62def56e7cd443603844",
+      "stage": "dispatch_unresolved",
+      "attempts": 2,
+      "source_sha": "be386ced4a1e8726db88417c05e552d34f9d89dc",
       "before_ids": [
+        40147002904,
+        40146579288,
+        40146069336,
+        40144076354,
+        40143503135,
+        40142724972,
+        40142626858,
         40142424645,
         40142328302,
         40134819856,
@@ -1095,10 +1102,34 @@
         39267975180,
         39210901682,
         39207467555,
-        39136542737
+        39136542737,
+        39134127739,
+        39104056474,
+        39102124492,
+        39041233609,
+        39038963383,
+        39009970260,
+        39007953446,
+        38917788732,
+        38913908585,
+        38861606273,
+        38858483528,
+        38753598513,
+        38749717591,
+        38693020536,
+        38689654616,
+        38582416078,
+        38578001758,
+        38522731692,
+        38519475643,
+        38451022187,
+        38448247359,
+        38446573325,
+        38444924599,
+        38439489788,
+        38428830025
       ],
-      "submitted_at": "2026-10-24T23:24:43+00:00",
-      "run_id": 40142626858,
+      "submitted_at": "2026-10-25T00:36:19+00:00",
       "cloud_status": "in_progress",
       "editorial_holds": [
         {
@@ -1131,9 +1162,24 @@
           }
         }
       ],
-      "problems": [
-        "Actual beat 2 base duplicates the mustard-sweater Prabhat into two physical people; preserve the correct alternate. All three actual beat 4 takes show only Jhabbu in khaki/red muffler waving, with no distinct retiring station master, contradicting the bank heart beat and narration. Replace only farewell painting; retain other usable art and all spoken Hindi. Full current cloud and AV checks remain mandatory."
-      ]
+      "repair_history": [
+        {
+          "run_id": 40142626858,
+          "source_sha": "a4af1a2066f42b132aed62def56e7cd443603844",
+          "stage": "held",
+          "problems": [
+            "Actual beat 2 base duplicates the mustard-sweater Prabhat into two physical people; preserve the correct alternate. All three actual beat 4 takes show only Jhabbu in khaki/red muffler waving, with no distinct retiring station master, contradicting the bank heart beat and narration. Replace only farewell painting; retain other usable art and all spoken Hindi. Full current cloud and AV checks remain mandatory."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e06.json"
+          }
+        }
+      ],
+      "obsolete_runs": [
+        40142626858
+      ],
+      "repair_reason": "Retain five usable original paintings and exact spoken Hindi; replace farewell with distinct retiring station master waving and Jhabbu watching, and exclude duplicated-Prabhat base in favor of correct original alternate. All six beats and prepared opening pass preflight; current cloud, voice, render and full AV checks remain mandatory."
     },
     {
       "repo": "kahaani-chaos",
@@ -1381,8 +1427,8 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e06: Actual beat 2 base duplicates the mustard-sweater Prabhat into two physical people; preserve the correct alternate. All three actual beat 4 takes show only Jhabbu in khaki/red muffler waving, with no distinct retiring station master, contradicting the bank heart beat and narration. Replace only farewell painting; retain other usable art and all spoken Hindi. Full current cloud and AV checks remain mandatory.",
-  "updated_at": "2026-10-25T00:35:26+00:00",
+  "halted": null,
+  "updated_at": "2026-10-25T00:36:19+00:00",
   "complete": false,
   "health": {
     "public": 1,
