@@ -2519,7 +2519,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-billing-slip-e17-repair.json"
       },
-      "stage": "reviewed",
+      "stage": "upload_intent",
       "attempts": 4,
       "editorial_holds": [
         {
@@ -2830,7 +2830,9 @@
           "issues": []
         }
       },
-      "archive": "batch-reviewed-40170263222"
+      "archive": "batch-reviewed-40170263222",
+      "intended_publish_at": "2026-10-29T13:30:00Z",
+      "upload_intent_at": "2026-10-25T06:57:19+00:00"
     },
     {
       "repo": "kahaani-chaos",
@@ -3143,5 +3145,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T06:57:18+00:00"
+  "updated_at": "2026-10-25T06:57:19+00:00"
 }
