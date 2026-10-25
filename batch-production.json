@@ -1620,10 +1620,21 @@
             "incremental/art-40154809245-2/beat02-alt2.png": "f4c8d4cdb83c8dac5f43b1f3d057001a1ec155b7c18f31c8cf6769aaef2faa56",
             "incremental/art-40154809245-2/beat02.png": "e9a4ec4b013757316b585326a85bd783ba2094bd53cb02d3573f6f51f173ee40"
           }
+        },
+        {
+          "id": "direct-sewing-hook-hand-40154809245",
+          "run_id": 40154809245,
+          "observed_at": "2026-10-25T03:16:46+00:00",
+          "reason": "Both available hook paintings include an operator hand on the khaki cloth although the self-running-machine scene is object-only. Refuse these exact bytes; rebuild only the close-up scene with an unoccupied sewing station. Preserve the full spoken story.",
+          "evidence": {
+            "incremental/art-40154809245-0/beat00-alt1.png": "366b85d43eb1cb8f77dc83f6800ab4d4d14e4ac7fe9e1c2de93740668b24e40a",
+            "incremental/art-40154809245-0/beat00.png": "de12d86c1b720b9757f931343d8bc8d1207a87047fc37fe2efd21cee4373191d"
+          }
         }
       ],
       "problems": [
-        "Beat 2 narration says nobody is at the tailor station, but all three exact paintings show Jhabbu standing beside the machine. The draft incorrectly lists him in people merely because the scene mentions his lantern. Repair this scene to an unattended lantern and empty station, preserving every spoken line and usable sibling."
+        "Beat 2 narration says nobody is at the tailor station, but all three exact paintings show Jhabbu standing beside the machine. The draft incorrectly lists him in people merely because the scene mentions his lantern. Repair this scene to an unattended lantern and empty station, preserving every spoken line and usable sibling.",
+        "Both available hook paintings include an operator hand on the khaki cloth although the self-running-machine scene is object-only. Refuse these exact bytes; rebuild only the close-up scene with an unoccupied sewing station. Preserve the full spoken story."
       ]
     },
     {
@@ -1899,7 +1910,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e32: Beat 2 narration says nobody is at the tailor station, but all three exact paintings show Jhabbu standing beside the machine. The draft incorrectly lists him in people merely because the scene mentions his lantern. Repair this scene to an unattended lantern and empty station, preserving every spoken line and usable sibling.",
+  "halted": "Repair held entry e32: Beat 2 narration says nobody is at the tailor station, but all three exact paintings show Jhabbu standing beside the machine. The draft incorrectly lists him in people merely because the scene mentions his lantern. Repair this scene to an unattended lantern and empty station, preserving every spoken line and usable sibling.; Both available hook paintings include an operator hand on the khaki cloth although the self-running-machine scene is object-only. Refuse these exact bytes; rebuild only the close-up scene with an unoccupied sewing station. Preserve the full spoken story.",
   "complete": false,
   "health": {
     "public": 1,
@@ -1907,7 +1918,7 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T03:13:01+00:00",
+  "updated_at": "2026-10-25T03:16:46+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
