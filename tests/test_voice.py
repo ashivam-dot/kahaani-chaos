@@ -41,6 +41,39 @@ def test_without_any_narrator_synthesis_holds_cleanly(tmp_path, monkeypatch, sto
         voice.synthesize(story, tmp_path / "out")
 
 
+@pytest.mark.parametrize('clone_passes', [True, False])
+def test_final_gemini_rejection_uses_same_narrator_fallback_and_still_gates_it(
+        tmp_path, monkeypatch, story, clone_passes):
+    from copy import deepcopy
+    passing = {'onset': .2, 'hook_wpm': 175., 'body_wpm': 165.,
+               'coverage': 1., 'cer': .05, 'max_gap': .8}
+    out = tmp_path / 'out'
+    out.mkdir()
+    rejected_audio = b'exact failed final Gemini audio'
+    monkeypatch.setattr(voice.gemini, 'key', lambda: 'configured')
+    monkeypatch.setattr(voice, 'reference_ready', lambda: True)
+    monkeypatch.setattr(voice, 'missing_fallback', lambda: None)
+    def gemini_story(story, folder):
+        (folder / 'narration.wav').write_bytes(rejected_audio)
+        return {'voice': {'checks': passing | {'cer': .325}}}
+    monkeypatch.setattr(voice, '_gemini_story', gemini_story)
+    calls = []
+    def clone(story, folder):
+        calls.append('same-narrator-clone')
+        checks = deepcopy(passing)
+        if not clone_passes:
+            checks['max_gap'] = 1.22
+        return {'voice': {'engine': 'chatterbox-narrator-clone', 'checks': checks}}
+    monkeypatch.setattr(voice, '_chatterbox_story', clone)
+    if clone_passes:
+        assert voice.synthesize(story, out)['voice']['engine'] == 'chatterbox-narrator-clone'
+    else:
+        with pytest.raises(voice.VoiceHold, match='silence of 1.22'):
+            voice.synthesize(story, out)
+    assert calls == ['same-narrator-clone']
+    assert (out / 'gemini-rejected.wav').read_bytes() == rejected_audio
+
+
 def test_a_key_alone_is_enough_to_plan(monkeypatch, tmp_path):
     monkeypatch.setattr(voice, "REFERENCE", tmp_path / "narrator_ref.wav")
     monkeypatch.setenv("GEMINI_API_KEY", "test-placeholder")

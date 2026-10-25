@@ -211,6 +211,7 @@ jobs:
           path: |
             work/*/short.mp4
             work/*/narration.wav
+            work/*/gemini-rejected.wav
             work/*/*.json
             work/*/pics/*.jpg
             work/dry-produce-health.json

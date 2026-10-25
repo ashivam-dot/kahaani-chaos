@@ -777,7 +777,20 @@ def _synthesize(story: Story, out_dir: Path) -> dict:
     reason = None
     if gemini.key():
         try:
-            return _gemini_story(story, out_dir)
+            timing = _gemini_story(story, out_dir)
+            # Pacing can change the final recognizer result. e32 producer40158338472
+            # selected a passing take but its finished narration had CER .325.
+            # Reject it inside the same bounded fallback path as other bad takes.
+            if missed := problems(timing["voice"].get("checks") or {}, final=True):
+                wav = out_dir / "narration.wav"
+                rejected = out_dir / "gemini-rejected.wav"
+                rejected.write_bytes(wav.read_bytes())
+                (out_dir / "gemini-rejected.json").write_text(json.dumps({
+                    "timing": timing, "problems": missed,
+                    "audio_sha256": hashlib.sha256(rejected.read_bytes()).hexdigest(),
+                    "release_approval": False}, indent=2) + "\n")
+                raise TakeRejected("voice: final Gemini narration: " + "; ".join(missed))
+            return timing
         except TTSUnavailable as exc:
             reason = str(exc)
         except TakeRejected as exc:

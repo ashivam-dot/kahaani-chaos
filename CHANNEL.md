@@ -212,3 +212,5 @@ the superseded run's duplicated ending is excluded and its id is retained in the
 The production artifact retains `narration.wav` even when the voice gate holds. The quiet-pause editor records candidate intervals and the exact word/sample protection that refused each cut in `pause-diagnostics.json`. `diagnose-voice.yml` reproduces an existing replay with the established narrator clone only; it has read-only repository access, no secrets, no painting, no state writes and no publishing. A diagnosis never approves a release.
 
 Producer metadata is refreshed independently of ordered review, including behind an editorial hold. A completed later preview still occupies the bounded buffer but never an active producer slot. This cannot clear a hold or approve media.
+
+A final Gemini narration that fails after pacing is rejected before returning from synthesis. Its exact WAV and checks are retained as `gemini-rejected.*`; the existing narrator clone gets one ordinary bounded attempt and must pass every final voice gate itself. The same failing audio is never approved or retried for a different verdict.
