@@ -150,8 +150,26 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
                 return status
         history = ledger.history()
         preview_entry = None
+        art_only = None
         if replay:
             brief = json.loads(replay.read_text(encoding="utf-8"))
+            if "art_only" in brief:
+                if not dry:
+                    raise ValueError("an art-only repair is dry-run only")
+                request = brief["art_only"]
+                if set(brief) != {"art_only"} or not isinstance(request, dict) or \
+                        set(request) != {"story", "beats"}:
+                    raise ValueError("an art-only repair needs only story and beats")
+                source = (ROOT / request["story"]).resolve()
+                if not source.is_relative_to((ROOT / ".github/replay").resolve()) or source.suffix != ".json":
+                    raise ValueError("art-only story must be JSON within .github/replay")
+                story = Story.load(source)
+                art_only = request["beats"]
+                if not isinstance(art_only, list) or not art_only or \
+                        any(type(i) is not int or not 0 <= i < len(story.beats) for i in art_only) or \
+                        len(set(art_only)) != len(art_only):
+                    raise ValueError("art-only beats must be distinct in-range integers")
+                replay = source
             if "review_run" in brief:
                 if not dry or type(brief["review_run"]) is not int or brief["review_run"] <= 0:
                     raise ValueError("an artifact review requires a positive run id and dry-run mode")
@@ -234,6 +252,9 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
         status.update(paint=True, story=story.id, premise=story.premise, beats=len(story.beats))
         status["reused_beats"] = reused
         status["paint_beats"] = [b["beat"] for b in art["beats"] if b["beat"] not in reused]
+        if art_only is not None:
+            status["art_only_beats"] = art_only
+            status["paint_beats"] = [i for i in status["paint_beats"] if i in art_only]
         return status
     except (premises.NoPremise, writer.WriterHold) as exc:
         status["held"] = (str(exc) if str(exc).startswith("hold:") else f"hold: {exc}")[:500]
@@ -260,6 +281,8 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
         if (plan_dir / "status.json").exists() else {"error": "the plan job left no status"}
     premise = status.get("premise")
     try:
+        if "art_only_beats" in status and not dry:
+            raise RuntimeError("an art-only repair can never publish")
         if status.get("review_run"):
             if not dry:
                 raise RuntimeError("an artifact review can never publish")
@@ -305,6 +328,15 @@ def render(plan_dir: Path, art_dir: Path | None, out: Path, dry: bool = False) -
             raise RuntimeError("hold: the planned story fails the gates: " + "; ".join(problems))
         found = aiart.collect(plan_dir / "art", story.id, len(story.beats))
         found.update(aiart.collect(art_dir, story.id, len(story.beats)))
+        if "art_only_beats" in status:
+            requested = status["art_only_beats"]
+            if not isinstance(requested, list) or not requested or \
+                    any(type(i) is not int or not 0 <= i < len(story.beats) for i in requested) or \
+                    len(set(requested)) != len(requested) or any(i not in found for i in requested):
+                raise RuntimeError("art-only repair is missing its requested paintings")
+            health["art_only_beats"] = requested
+            health["steps"].append("collected requested repair paintings; no narration, video or release approval")
+            return health
         spares = aiart.alternates(plan_dir / "art", story.id, len(story.beats))
         for beat, candidates in aiart.alternates(art_dir, story.id, len(story.beats)).items():
             spares.setdefault(beat, []).extend(candidates)

@@ -121,6 +121,9 @@ The writer expands one entry. Nothing is invented outside the bank.
   scenes use the same plan in the painter and picture editor; an unsuitable replacement holds the Short.
 - Reviewed replays can keep original paintings in the replay's adjacent `art/` directory. Story, exact painter
   prompt and image SHA-256 must match; only the remaining beats request paint jobs. All inputs are screened again.
+- A dry-only `art_only` brief can paint selected beats from a gated story inside `.github/replay` on cloud runners.
+  It collects art without narration, rendering, buffering or release approval. These artifacts cannot pass the
+  finished-video release adapter; a later full replay still requires every ordinary picture and audiovisual gate.
 
 ## Voice and sound
 
