@@ -2288,76 +2288,10 @@
       "target": "2026-10-29T07:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e10.json"
+        "replay": ".github/replay/sannatpur-letter-e10-repair.json"
       },
-      "stage": "held",
+      "stage": "planned",
       "attempts": 1,
-      "source_sha": "87de2d7ab5816ab90077c7211471018153029984",
-      "before_ids": [
-        40158338472,
-        40157308891,
-        40155939996,
-        40154809245,
-        40154557845,
-        40152921322,
-        40152845611,
-        40152138336,
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847,
-        40147346342,
-        40147002904,
-        40146579288,
-        40146069336,
-        40144076354,
-        40143503135,
-        40142724972,
-        40142626858,
-        40142424645,
-        40142328302,
-        40134819856,
-        40134047227,
-        40132420577,
-        40127450982,
-        40127055413,
-        40124707293,
-        40122737348,
-        40120456012,
-        40119789283,
-        40119725595,
-        40113702992,
-        40101837936,
-        40098975134,
-        40097886586,
-        40094273058,
-        40093452412,
-        40076072866,
-        40074101662,
-        40069802174,
-        40052825389,
-        40015352420,
-        40012868945,
-        40010294493,
-        40008947633,
-        39998079552,
-        39984130378,
-        39983471528,
-        39969216681,
-        39964227699,
-        39953890527,
-        39952503586,
-        39939846588,
-        39939303531,
-        39930652897,
-        39921910994,
-        39892698527,
-        39892494946
-      ],
-      "submitted_at": "2026-10-25T03:32:14+00:00",
-      "run_id": 40158580419,
-      "cloud_status": "in_progress",
       "editorial_holds": [
         {
           "id": "direct-postoffice-props-anatomy-40158580419",
@@ -2418,10 +2352,27 @@
           }
         }
       ],
-      "problems": [
-        "Direct full-resolution inspection: beat 1 adds an unexplained open black electronic screen on the 1996 village sorting desk. Beat 6 gives Jhabbu an extra disembodied writing hand while his two visible hands already hold a lantern and a closed register; it also adds a white printed-picture border. These materially fail the fixed world/prop/anatomy brief. Replace only these two stills with an analogue sorting-table scene and a seated two-arm register-writing scene, preserving speech and other useful images.",
-        "Direct full-resolution inspection of newly available originals: both opening takes add a human hand and pseudo-printing despite the empty letter-only brief; both beat 4 takes duplicate mustard-sweater Prabhat around Jhabbu. Replace these two scenes only, preserving title, narration and useful beat 2/3/5 paintings. Original electronic-prop/extra-arm holds remain."
-      ]
+      "repair_history": [
+        {
+          "run_id": 40158580419,
+          "source_sha": "87de2d7ab5816ab90077c7211471018153029984",
+          "stage": "held",
+          "problems": [
+            "Direct full-resolution inspection: beat 1 adds an unexplained open black electronic screen on the 1996 village sorting desk. Beat 6 gives Jhabbu an extra disembodied writing hand while his two visible hands already hold a lantern and a closed register; it also adds a white printed-picture border. These materially fail the fixed world/prop/anatomy brief. Replace only these two stills with an analogue sorting-table scene and a seated two-arm register-writing scene, preserving speech and other useful images.",
+            "Direct full-resolution inspection of newly available originals: both opening takes add a human hand and pseudo-printing despite the empty letter-only brief; both beat 4 takes duplicate mustard-sweater Prabhat around Jhabbu. Replace these two scenes only, preserving title, narration and useful beat 2/3/5 paintings. Original electronic-prop/extra-arm holds remain."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e10.json"
+          }
+        }
+      ],
+      "obsolete_runs": [
+        40158580419
+      ],
+      "repair_queued_at": "2026-10-25T04:35:24+00:00",
+      "repair_source_sha": "787674b5bc66cb1ff227e73da93f46ba8af07252",
+      "repair_reason": "Exact held post-office stills replaced; title and narration preserved; seven matched reviewed inputs, transparent crop parents, current picture/voice/render/full audiovisual gates required."
     },
     {
       "repo": "kahaani-chaos",
@@ -2620,7 +2571,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e10: Direct full-resolution inspection: beat 1 adds an unexplained open black electronic screen on the 1996 village sorting desk. Beat 6 gives Jhabbu an extra disembodied writing hand while his two visible hands already hold a lantern and a closed register; it also adds a white printed-picture border. These materially fail the fixed world/prop/anatomy brief. Replace only these two stills with an analogue sorting-table scene and a seated two-arm register-writing scene, preserving speech and other useful images.; Direct full-resolution inspection of newly available originals: both opening takes add a human hand and pseudo-printing despite the empty letter-only brief; both beat 4 takes duplicate mustard-sweater Prabhat around Jhabbu. Replace these two scenes only, preserving title, narration and useful beat 2/3/5 paintings. Original electronic-prop/extra-arm holds remain.",
+  "halted": null,
   "complete": false,
   "health": {
     "public": 1,
@@ -2628,5 +2579,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T04:34:51+00:00"
+  "updated_at": "2026-10-25T04:35:24+00:00"
 }
