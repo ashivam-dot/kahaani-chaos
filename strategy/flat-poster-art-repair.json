@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-25T14:54:20.947339+00:00",
+  "basis": "The E19 premise intentionally contains a fictional person painted on a cinema poster. The old empty-scene painter prompt forbade every human-shaped depiction, while the picture check could not distinguish a bounded drawing from a physically present stranger. Actual refused outputs omit the paper poster and show physical people.",
+  "change": "Only an explicit flat-poster cue permits a fictional drawing inside all four visible paper edges attached to a wall; a separate positive vision verdict must confirm every human-shaped form is confined to that paper. A physical person, hand holding paper, unbounded painting, collage, missing verdict, text or incorrect action stays refused.",
+  "literal_cue": "The painted figure stays entirely within the visible poster paper.",
+  "existing_replay_prompts_changed": false,
+  "full_tests": 484,
+  "release_approval": false,
+  "remaining": "Generate and inspect the repaired poster scene; all current picture, voice, render and complete AV gates remain required."
+}

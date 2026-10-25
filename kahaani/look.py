@@ -26,6 +26,9 @@ NEVER = ("Realistic adult proportions, no chibi, no big eyes, not a kids' book, 
          " idol, religious sign or holy thread. No brand, logo or label.")
 # The model fills an empty scene with a stranger (a woman pouring the tea), which the vision check then refuses.
 NOBODY = "No people: no human figure, face, hand or arm anywhere in the picture."
+POSTER_ONLY = re.compile(r"\bthe painted figure stays entirely within the visible poster paper\b", re.I)
+POSTER_NOBODY = ("No physically present people, faces, hands or arms outside the poster. The only human-shaped "
+                 "forms are flat fictional artwork confined within the clearly visible paper edges on the wall.")
 AVOID = ("No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully"
          " clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not"
          " anime, not a 3D render.")
@@ -206,7 +209,7 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
         else:
             parts.append(FACES)
     else:
-        parts.append(NOBODY)
+        parts.append(POSTER_NOBODY if POSTER_ONLY.search(scene) else NOBODY)
     if INDOOR.search(scene) and not OUTDOORS.search(scene):
         style = INDOOR_DAWN_STYLE if DAWN.search(scene) else INDOOR_STYLE
     else:

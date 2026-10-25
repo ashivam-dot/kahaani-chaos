@@ -7,6 +7,17 @@ CAST = [{"name": "Dhaniram", "look": "plump middle-aged moneylender with a thick
         {"name": "Meera", "look": "young woman in a fish-pattern scarf, braided hair"}]
 
 
+def test_explicit_flat_poster_keeps_drawing_without_requesting_a_physical_person():
+    scene = ('A fictional hero and detached painted shadow on a paper poster attached to a brick wall. '
+             'The painted figure stays entirely within the visible poster paper.')
+    out = look.prompt(scene, [], [], hook=True)
+    assert look.POSTER_NOBODY in out and look.NOBODY not in out
+    assert look.STYLE in out and look.NEVER in out and look.AVOID in out
+    assert look.NOBODY in look.prompt('A cinema poster hangs on a wall.', [], [])
+    cast = look.prompt(scene, [{'name': 'prabhat'}], [{'id': 'prabhat'}])
+    assert look.POSTER_NOBODY not in cast and 'mustard-yellow' in cast
+
+
 def test_explicit_two_friend_arm_detail_keeps_colours_without_requesting_full_bodies():
     scene = ('A mustard-cuffed hand grips a striped upper arm at the water tower. '
              'Only arms and hands are within the frame.')

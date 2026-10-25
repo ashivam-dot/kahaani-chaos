@@ -10,6 +10,36 @@ def test_every_beat_shows_its_own_painting_when_all_pass():
     assert aiart.assign(set(range(5)), 5) == [0, 1, 2, 3, 4]
 
 
+def test_only_explicit_bounded_poster_depiction_can_pass_an_object_only_human_shape():
+    scene = ('A paper poster attached flat to a brick wall, all four paper edges visible. '
+             'The painted figure stays entirely within the visible poster paper.')
+    v = verdict(1) | {'human_present': True, 'poster_depiction_only': True,
+                      'shows': 'A flat fictional hero and separate painted shadow inside a paper poster.'}
+    assert vision.rejected(v, hook=True, scene=scene) is None
+    assert 'unplanned human' in vision.rejected(v, scene='A cinema poster on a wall.')
+    for value in (False, None):
+        assert 'unplanned human' in vision.rejected(v | {'poster_depiction_only': value}, scene=scene)
+    assert 'unplanned human' in vision.rejected(v | {'human_present': None}, scene=scene)
+    assert 'text:' in vision.rejected(v | {'text': True}, scene=scene)
+    assert 'structure:' in vision.rejected(v | {'structure_ok': False}, scene=scene)
+    assert 'action:' in vision.rejected(v | {'action_ok': False}, scene=scene)
+    assert 'needs 30%-90%' in vision.rejected(v | {'subject_share': 0.1}, hook=True, scene=scene)
+
+
+def test_poster_editor_instruction_keeps_other_object_only_scenes_strict(tmp_path):
+    image = tmp_path / 'poster.png'
+    Image.new('RGB', (100, 150)).save(image)
+    seen = []
+    def ask(parts, schema):
+        seen.append(parts[0])
+        return {'pictures': []}
+    scene = 'The painted figure stays entirely within the visible poster paper.'
+    vision.judge([(image, 'poster', '', scene), (image, 'balance', '', 'An empty market balance.')],
+                 'fiction', '', ask)
+    assert 'object-only poster scene: only a flat fictional figure' in seen[0]
+    assert 'object-only scene: no human figure, face, hand or arm may be visible' in seen[0]
+
+
 def test_a_refused_beat_repeats_the_nearest_earlier_passing_painting():
     assert aiart.assign({0, 1, 2, 4, 5, 6, 8, 9}, 10) == [0, 1, 2, 2, 4, 5, 6, 6, 8, 9]
 
