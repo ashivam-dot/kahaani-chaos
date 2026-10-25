@@ -1418,10 +1418,13 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e08.json"
       },
-      "stage": "building",
-      "attempts": 1,
-      "source_sha": "d00710d686fe1824fcc45e3d9134ea4bd7b0f040",
+      "stage": "dispatch_unresolved",
+      "attempts": 2,
+      "source_sha": "ea5ee448e55ee90447597e4f691d878c021a8767",
       "before_ids": [
+        40148651151,
+        40148639705,
+        40148316893,
         40147867847,
         40147346342,
         40147002904,
@@ -1481,10 +1484,58 @@
         39618988094,
         39615267569,
         39556034181,
-        39552636855
+        39552636855,
+        39441424003,
+        39437477074,
+        39380862309,
+        39377813809,
+        39271505350,
+        39267975180,
+        39210901682,
+        39207467555,
+        39136542737,
+        39134127739,
+        39104056474,
+        39102124492,
+        39041233609,
+        39038963383,
+        39009970260,
+        39007953446,
+        38917788732,
+        38913908585,
+        38861606273,
+        38858483528,
+        38753598513,
+        38749717591,
+        38693020536,
+        38689654616,
+        38582416078,
+        38578001758,
+        38522731692,
+        38519475643,
+        38451022187,
+        38448247359,
+        38446573325,
+        38444924599,
+        38439489788,
+        38428830025
       ],
-      "submitted_at": "2026-10-25T00:51:21+00:00",
-      "run_id": 40148316893
+      "submitted_at": "2026-10-25T00:58:55+00:00",
+      "repair_history": [
+        {
+          "run_id": 40148316893,
+          "source_sha": "d00710d686fe1824fcc45e3d9134ea4bd7b0f040",
+          "stage": "building",
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e08.json"
+          }
+        }
+      ],
+      "obsolete_runs": [
+        40148316893
+      ],
+      "repair_reason": "Prior writer refused the 14-word opening. Rebuild with deployed canonical bank hook binding, per-beat word budgets, unchanged editor gates, and honest retained writer provenance."
     },
     {
       "repo": "kahaani-chaos",
@@ -1644,7 +1695,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:56:37+00:00",
+  "updated_at": "2026-10-25T00:58:55+00:00",
   "complete": false,
   "health": {
     "public": 1,
