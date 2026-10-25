@@ -1493,7 +1493,7 @@
         40148651151
       ],
       "repair_reason": "Exact direct visual repair: object-only brick opening, two separate characters as Nuzhat stops Shailesh, and Nuzhat alone holding the blank reverse of the clue brick. Preserve all narration, plot, cast identities and passing sibling art; final current picture/voice/render and full audiovisual checks remain.",
-      "cloud_status": "queued",
+      "cloud_status": "in_progress",
       "editorial_holds": [
         {
           "id": "direct-brick-cast-and-text-40148651151",
@@ -1910,5 +1910,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T02:10:57+00:00"
+  "updated_at": "2026-10-25T02:11:01+00:00"
 }
