@@ -1476,7 +1476,7 @@
         40147867847
       ],
       "repair_reason": "Stop repeated hook growth by binding an overlong rewrite to the exact valid bank opening before all code and Gemini editor checks. Provide measured per-beat word budgets; retain any failed full draft and honest model provenance for targeted recovery.",
-      "cloud_status": "queued",
+      "cloud_status": "in_progress",
       "run_id": 40148651151
     },
     {
@@ -1607,7 +1607,7 @@
       ],
       "repair_reason": "Prior writer refused the 14-word opening. Rebuild with deployed canonical bank hook binding, per-beat word budgets, unchanged editor gates, and honest retained writer provenance.",
       "run_id": 40148804337,
-      "cloud_status": "queued"
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -1767,12 +1767,12 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T01:15:04+00:00",
+  "updated_at": "2026-10-25T01:15:06+00:00",
   "complete": false,
   "health": {
     "public": 1,
-    "scheduled": 4,
-    "held": 1,
+    "scheduled": 5,
+    "held": 0,
     "mode": "publish"
   }
 }
