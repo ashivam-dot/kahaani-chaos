@@ -144,3 +144,16 @@ def test_separate_grounded_prop_sentences_free_the_watchmans_hands_only_when_bot
     assert 'resting beside him' in token and 'holding a brass hurricane lantern' not in token
     carrying = look.character({'id': 'jhabbu'}, 'The lantern rests on the table. Jhabbu carries his bamboo staff.')
     assert 'resting beside him' not in carrying
+
+
+def test_reflected_light_and_dark_surroundings_do_not_switch_a_lit_bulb_off():
+    for scene in [
+        "The warm yellow light from the booth bulb reflects off his steel-frame glasses.",
+        "The bulb illuminates the dark booth.",
+        "A lantern lights the dark street.",
+    ]:
+        assert not look.UNLIT.search(scene)
+        assert look.OUT not in look.prompt(scene, [], [])
+    for scene in ["its dynamo light dark", "the lamp is switched off", "the bulb has gone dark",
+                  "an unlit lantern beside him", "the headlight turns off"]:
+        assert look.UNLIT.search(scene), scene

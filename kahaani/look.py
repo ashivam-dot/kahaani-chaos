@@ -53,7 +53,9 @@ INDOOR_STYLE = ("Enclosed 1996 north-Indian village interior, solid plaster wall
 INDOOR_DAWN_STYLE = INDOOR_STYLE.replace(
     "one warm practical light, cool blue light entering through the windows",
     "pale gold dawn light entering through the windows, soft blue shadows, unlit lamps")
-UNLIT = re.compile(r"\b(light|lamp|headlight|bulb|lantern|torch)\b[^.]{0,30}\b(dark|off|unlit|dead)\b|"
+UNLIT = re.compile(r"\b(light|lamp|headlight|bulb|lantern|torch)\b"
+                   r"(?:\s+(?:is|was|now|has|gone|goes|went|remains|stays|turns|turned|switched)){0,3}"
+                   r"\s+(dark|off|unlit|dead)\b|"
                    r"\b(dark|unlit|switched-off|dead)\s+(\w+\s+)?(light|lamp|headlight|bulb|lantern|torch)\b", re.I)
 OUT = "The light the scene names is switched off and unlit: no glow, no beam from it."
 # The writer's "the kids" painted the seventeen-year-olds young (dry run 39939846588, beat 4), and a "rolling bicycle"
