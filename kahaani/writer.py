@@ -126,6 +126,9 @@ RULES (all mandatory):
   Faces small, backlit or three-quarters away; the object and props carry the picture.
   Nuzhat's light is her metal battery flashlight with a cracked lens and a split electric beam. Call it
   "electric metal flashlight" in English scenes; the English word "torch" can produce a burning stick instead.
+  When it is the scene's sole practical light, include "The electric flashlight is the only practical light."
+  If she needs both hands, explicitly say "Her metal battery flashlight rests beside her"; retain its cracked
+  lens and split electric beam, rather than giving her a third hand or replacing it with an oil lantern.
   The present-day prabhat_adult is always the bible's close-up of one pair of middle-aged hands with the faded
   blue notebook and steel-rimmed glasses beside a desk lamp. Frame at the wrists: never a portrait, chin-on-hand
   pose, visible face, full body or a second younger Prabhat in the same painting.
