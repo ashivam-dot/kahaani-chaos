@@ -99,6 +99,19 @@ def poll_delivery(job):
     return rows[0] if len(rows) == 1 else {}
 
 
+def refresh_metrics(batch):
+    """Collect actual-age observations while the batch reserves ordinary publishing.
+
+    This collector has a three-hour throttle and keeps measured counts separate
+    from the legacy learner's estimates. It never changes content, weights or slots.
+    """
+    from . import batch_observations
+
+    if config.CHANNEL_ID != CHANNEL_ID:
+        raise ValueError("configured channel does not match Sannatpur")
+    return batch_observations.refresh(batch)
+
+
 def publish(job, folder, when):
     from . import youtube
 

@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-25",
+  "source_before": "c8caf5ca0663c077823cab23c6e33996c67373dd",
+  "finding": "ordinary publish returns at the batch reservation before learn.refresh, suppressing performance collection during the reserved calendar",
+  "repair": "publish-mode batch coordinator collects actual public-batch counts every three hours; the source/age/count observations are separate from legacy estimates and learning",
+  "unchanged": [
+    "publishing order",
+    "release reservations",
+    "quality gates",
+    "voices",
+    "premises",
+    "selection weights",
+    "review-only credential boundary"
+  ],
+  "storage_bound": "64 early points plus one latest point per public video",
+  "tests": {
+    "focused_passed": 66,
+    "cases": [
+      "known editorial hold",
+      "release order",
+      "read outage",
+      "review-only boundary",
+      "public identity and visibility",
+      "missing counts",
+      "actual observation ages",
+      "publication date changes",
+      "throttle",
+      "early-window retention and storage cap"
+    ]
+  },
+  "live_collection": "pending CI and next coordinator tick",
+  "release_approval": false
+}

@@ -285,3 +285,42 @@ def test_active_held_owned_preview_consumes_a_slot_without_blocking_the_other(
     assert all(j['stage'] == 'held' and not j.get('review') and not j.get('delivery') for j in held)
     assert pending['stage'] == ('dispatch_unresolved' if expected else 'planned')
     assert data['halted'] == 'Repair held entry held-11: wrong image'
+
+
+def test_metrics_continue_through_an_editorial_hold_without_changing_release_order(scenario):
+    data, adapter, calls = scenario
+    adapter.refresh_metrics = lambda d: calls.append(("metrics", None)) or {"recorded": 0}
+    batch.tick(adapter, "publish", save=lambda d: None)
+    assert calls[0] == ("metrics", None)
+    assert data["measurement"]["ok"] and data["measurement"]["updated"]
+    assert [j["stage"] for j in data["jobs"]] == ["public", "held", "reviewed"]
+
+
+def test_a_metric_read_failure_does_not_block_or_reorder_a_release(scenario):
+    data, adapter, calls = scenario
+
+    def fail(data):
+        raise ConnectionError("transient read outage")
+
+    adapter.refresh_metrics = fail
+    batch.tick(adapter, "publish", save=lambda d: None)
+    assert data["measurement"]["ok"] is False
+    assert data["measurement"]["error"] == "ConnectionError"
+    assert [j["stage"] for j in data["jobs"]] == ["public", "held", "reviewed"]
+
+
+def test_review_only_never_calls_authenticated_metrics(scenario):
+    data, adapter, calls = scenario
+    adapter.refresh_metrics = lambda d: pytest.fail("read credentials in review-only mode")
+    batch.tick(adapter, "review", save=lambda d: None)
+    assert "measurement" not in data
+
+
+def test_batch_metrics_keep_the_existing_learner_throttle(monkeypatch):
+    from kahaani import batch_release, batch_observations, config
+
+    monkeypatch.setattr(config, "CHANNEL_ID", batch_release.CHANNEL_ID)
+    calls = []
+    monkeypatch.setattr(batch_observations, "refresh", lambda d: calls.append("refresh") or None)
+    assert batch_release.refresh_metrics({}) is None
+    assert calls == ["refresh"]

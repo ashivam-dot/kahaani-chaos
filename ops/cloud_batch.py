@@ -294,6 +294,15 @@ def tick(adapter, mode, save=persist):
         save(data)
         if data.get("halted") and not entry_halt(data):
             return data
+        if refresh := getattr(adapter, "refresh_metrics", None):
+            try:
+                observed = refresh(data)
+                data["measurement"] = {"at": stamp(), "ok": True, "updated": observed is not None}
+            except Exception as exc:
+                # A read outage cannot erase delivery evidence or interrupt release.
+                # Keep its type visible without storing credentials.
+                data["measurement"] = {"at": stamp(), "ok": False, "error": type(exc).__name__}
+            save(data)
     # Reconcile every reserved dispatch before another write, even behind a sequence hold.
     # A repair can block release, but cannot hide an already submitted dry-preview intent.
     for reserved in data["jobs"]:
