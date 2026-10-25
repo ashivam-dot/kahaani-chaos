@@ -8,11 +8,10 @@
   ]
  },
  "publish": {
-  "at": "2026-10-24T18:05:44+00:00",
+  "at": "2026-10-25T02:10:17+00:00",
   "ok": true,
   "steps": [
-   "learn: 8 scored Shorts, lifts {}"
-  ],
-  "held": "hold: the buffer is empty; slot 2026-10-25T07:30:00Z has no Short"
+   "the reviewed batch coordinator owns these premises and release slots"
+  ]
  }
 }
