@@ -1,0 +1,35 @@
+{
+  "story": "kc-20261025-0150-e03",
+  "beat": 6,
+  "alt": 0,
+  "prompt": "Prabhat alone inside the enclosed yellow-plastered telephone booth at night, seen three-quarters from behind. His mustard sweater and thin steel-rimmed glasses identify him as he looks uncertainly at the silent black rotary telephone resting on the fixed wooden shelf. His small blue notebook is tucked under one arm. The receiver rests in its cradle, untouched. A lit bare bulb on the solid ceiling casts warm light across the plain blank wall and window frame. A quiet thoughtful closing portrait, exactly one connected young adult body, no other person, no sign, no lettering. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, thoughtful and uneasy expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Enclosed 1996 north-Indian village interior, solid plaster walls and a visible solid ceiling, one warm practical light, cool blue light entering through the windows, lifted shadows. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, realistic adult proportions, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 164.9,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 967230170,
+  "log_tail": "8 - 492.37MB/s\u001b[K\n  |##################################################| 138/138 - 467.82MB/s\u001b[K\n[I] loading tensors completed, taking 0.40s (read: 0.33s, memcpy: 0.00s, convert: 0.01s, copy_to_backend: 0.00s) --- model_loader.cpp:1390\n[I] latent 1 decoded, taking 18.99s --- image.cpp:620\n[I] decode_first_stage completed, taking 18.99s --- image.cpp:624\n[I] generate_image completed in 164.07s --- image.cpp:1050\n[I] ggml: ggml_metal_free: deallocating\n[I] save result image 0 to 'evidence/kahaani-chaos/e03-local-repair/beat06.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "49eb276efbc7ff46017169a584f3e86e0938f1a192c38d2b47dfcbe735401716",
+  "generation": {
+    "origin": "local-stable-diffusion.cpp",
+    "binary_tag": "master-959-d637cfb",
+    "source_sha": "3d74ac0244a14f2a83964bfdc0e16fc7572fd64a",
+    "backend": "Darwin arm64 Metal",
+    "weights": {
+      "diffusion": {
+        "file": "z_image_turbo-Q4_K.gguf",
+        "sha256": "14b375ab4f226bc5378f68f37e899ef3c2242b8541e61e2bc1aff40976086fbd"
+      },
+      "llm": {
+        "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597"
+      },
+      "vae": {
+        "file": "ae.safetensors",
+        "sha256": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38"
+      }
+    }
+  },
+  "production_approved": false
+}

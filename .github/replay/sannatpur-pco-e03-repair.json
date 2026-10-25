@@ -1,0 +1,156 @@
+{
+  "id": "kc-20261025-0150-e03",
+  "premise": "e03",
+  "title": "पीसीओ का मीटर बिना कॉल के उल्टा क्यों गिन रहा था? ☎️",
+  "hook": "बंद पीसीओ का मीटर अपने-आप उल्टा चलने लगा।",
+  "beats": [
+    {
+      "text": "बंद पीसीओ का मीटर अपने-आप उल्टा चलने लगा।",
+      "scene": "Object-only still life inside a narrow enclosed yellow-plastered telephone booth. Close view of a rectangular gray metal analog telephone call meter bolted flat to the solid wall. A shallow sealed glass inspection window reveals small brass mechanical counting wheels entirely inside the metal case. One simple cable runs downward along the wall to a black rotary telephone resting securely on a fixed wooden shelf. Warm light from a lit bare bulb above, rich material texture. The meter casing and attached cable occupy most of the frame. An empty unoccupied room, solid ceiling, no people or body parts, no protruding handles.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात पीसीओ के पीले शीशों के पीछे से घंटी बजी।",
+      "scene": "Outside the PCO booth with its distinct yellow glass panels. Young men Prabhat in a mustard sweater and Shailesh in a red cap, and young woman Nuzhat with a long braid, look through the glass into the booth. Blue moonlight illuminates the street.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "curious and alert"
+        },
+        {
+          "name": "shailesh",
+          "expression": "surprised"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "focused"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "रिसीवर उठाते ही किसी ने मेरा नाम पूछा। नुज़हत की टॉर्च की रोशनी में केबिन ख़ाली था।",
+      "scene": "Inside the small, cramped PCO booth. Young woman Nuzhat shines her broken-glass torch toward the black rotary phone. Young man Prabhat has just picked up the receiver, looking into the empty corner of the booth.",
+      "people": [
+        {
+          "name": "nuzhat",
+          "expression": "determined"
+        },
+        {
+          "name": "prabhat",
+          "expression": "startled and pale"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "झब्बू का नियम था, अनजान आवाज़ को नाम नहीं काम बताओ। शैलेश का ट्रांजिस्टर चीख उठा।",
+      "scene": "At the entrance of the PCO booth. Old man Jhabbu stands tall in his khaki kurta and red muffler, holding his lit lantern and red register. Young man Shailesh stands behind him, clutching his leather-covered transistor.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "stern and knowing"
+        },
+        {
+          "name": "shailesh",
+          "expression": "terrified"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "मैंने कहा हम पहरा दे रहे हैं। फिर कबूला कि पिछले हफ़्ते मैंने चोरी से शहर फ़ोन किया था।",
+      "scene": "Inside the enclosed yellow-plastered PCO booth, Prabhat alone in his mustard sweater and steel-rimmed glasses holds the black telephone receiver to his ear. The rotary phone rests securely on the fixed wooden shelf. He faces the wall three-quarters away, with the small blue notebook tucked against his chest. The lit bare yellow bulb hangs from the solid ceiling and casts warm reflections on his glasses. Solid plaster walls and part of the shut yellow window frame surround him. Natural hands and one connected body, no other person.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "guilty and anxious"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "मीटर ठीक सात रुपयों पर रुक गया। ये वही पैसे थे जो मैंने पिछले हफ़्ते नहीं चुकाए थे।",
+      "scene": "Object-only still life inside the same enclosed yellow-plastered telephone booth. A rectangular gray metal analog call meter is bolted flat to the solid wall above a black rotary telephone on a fixed wooden shelf. Small brass mechanical counting wheels have stopped inside a shallow sealed glass inspection window. The entire mechanism stays within the metal case. A single thin cable runs down the wall. A lit warm bare bulb illuminates the scuffed metal and plaster wall. Empty unoccupied booth, solid ceiling, no people or body parts, no open reels, no protruding handles.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "आख़िर उस फ़ोन पर कौन था जिसे मेरे उस छोटे से झूठ की ख़बर थी?",
+      "scene": "Prabhat alone inside the enclosed yellow-plastered telephone booth at night, seen three-quarters from behind. His mustard sweater and thin steel-rimmed glasses identify him as he looks uncertainly at the silent black rotary telephone resting on the fixed wooden shelf. His small blue notebook is tucked under one arm. The receiver rests in its cradle, untouched. A lit bare bulb on the solid ceiling casts warm light across the plain blank wall and window frame. A quiet thoughtful closing portrait, exactly one connected young adult body, no other person, no sign, no lettering.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "thoughtful and uneasy"
+        }
+      ],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "jhabbu",
+      "name": "झब्बू",
+      "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+    },
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    }
+  ],
+  "subgenre": "confessed-lie",
+  "ending": "open-question",
+  "twist_beat": 4,
+  "description": "सन्नाटपुर के बंद पीसीओ में मीटर अचानक उल्टा घूमने लगता है। जब फ़ोन से एक अनजान आवाज़ प्रभात का नाम पूछती है, तो सन्नाटा और भी गहरा हो जाता है।",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य",
+    "#पीसीओ"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "gates",
+        "problems": [
+          "needs 85-130 spoken Hindi words in total, has 140: cut about 33 words so it lands near 107"
+        ]
+      },
+      {
+        "attempt": 1,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "उल्टा चलता मीटर",
+  "object_token": "मीटर",
+  "anomaly": "बिना कॉल के मीटर का उल्टा गिनना और फ़ोन से नाम पूछती आवाज़",
+  "niyam_id": "N02",
+  "resolution": "outsmart",
+  "heart_beat": 5,
+  "heart_type": "confessed-lie",
+  "skeleton": "S3",
+  "location": "पीसीओ का बूथ",
+  "place_id": "pco"
+}

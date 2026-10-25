@@ -124,7 +124,9 @@ RULES (all mandatory):
   the object alone (nobody in the painting, people empty) and the cast react in the beats around it.
   When a discovered object explains the turn, show that object and its exact location clearly in a close shot;
   put reactions in the adjacent beat. Do not crowd the reveal with the whole cast or put the same prop on a
-  character and on the ground at once.
+  character and on the ground at once. Choose the smallest visible cast the narrated moment needs, usually
+  one or two people. An introspective question ending can show the narrator alone; do not add a four-person
+  group merely to include everyone, because their distinct clothing and carried props must stay clear.
   Repeat the actual location in EVERY beat's scene. An indoor story stays inside enclosing walls with a solid
   ceiling; moonlight enters through windows. Ceiling-mounted objects remain attached to that ceiling.
   Make the named acting character perform the narrated action, identified by their fixed clothing. When one

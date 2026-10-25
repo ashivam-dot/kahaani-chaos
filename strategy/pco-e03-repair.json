@@ -1,0 +1,47 @@
+{
+  "original_run": 40152138336,
+  "speech_unchanged": true,
+  "changed_scenes": [
+    0,
+    4,
+    5,
+    6
+  ],
+  "reason": "Remove exact disembodied hands; keep the lit booth interior, clear phone support and single narrator closing instead of a refused crowded ensemble. Original passing sibling art is retained.",
+  "still_reviews": {
+    "images": [
+      {
+        "file": "beat00.png",
+        "image_sha256": "71e49e41aa0bfda076987e0b3cd4896eae2dc797f19a5e533152895a1f36bf66",
+        "decision": "pass",
+        "reason": "Direct full-resolution review: empty enclosed yellow telephone booth, a wall-mounted mechanical meter, attached cable and securely supported rotary phone. Former floating hand is absent, and the narrow meter/phone composition makes the hook object clear. Tiny mechanical dial marks are part of the device, with no written story clue or signage. Current cloud picture and full AV checks remain."
+      },
+      {
+        "file": "beat05.png",
+        "image_sha256": "6d3ea94106afb8ef488fa75ba8b59472d4f9fa44d1d0193230d8d3f05954cce2",
+        "decision": "pass",
+        "reason": "Direct full-resolution still review: the same enclosed yellow telephone booth with supported rotary phone and wall-mounted mechanical meter. The two former floating arms are absent. The call-meter mechanism is stationary in the closed housing; seven rupees is conveyed by the unchanged narration, not inserted written clue text. Current cloud picture and full AV gates remain."
+      },
+      {
+        "file": "beat04.png",
+        "image_sha256": "fc0c2b50745bfdff820acd857cd4aa18e5c7ae31de2bd4b5148af3e0fb6c1742",
+        "decision": "pass",
+        "reason": "Direct full-resolution review: exactly Prabhat in his mustard sweater and steel-frame glasses, holding the black receiver to his ear and his small blue notebook. The phone is on its shelf inside the yellow booth with a solid ceiling and lit bulb. Natural connected arms and hands, no duplicate cast or outdoor substitution. Current cloud picture and AV checks remain."
+      },
+      {
+        "file": "refused-final-00/beat06.png",
+        "image_sha256": "64718a2f3bf2b5b9e429e83dfce49018069752ead1b17476662ba9e0914646cc",
+        "decision": "hold",
+        "reason": "Direct full-resolution review: garbled sign above the booth; red-cap Shailesh wears the watchman outfit and carries lantern/staff, while a second watchman stands in the lane. Reject this exact ensemble/prop mix."
+      },
+      {
+        "file": "beat06.png",
+        "image_sha256": "49eb276efbc7ff46017169a584f3e86e0938f1a192c38d2b47dfcbe735401716",
+        "decision": "pass",
+        "reason": "Direct full-resolution review: exactly Prabhat alone in mustard sweater and steel-frame glasses, with his blue notebook, inside the enclosed yellow booth. The black phone rests on a shelf with its receiver cradled. Natural connected body and hands; no exchanged props, duplicate cast or sign. Quiet thoughtful portrait fits the unchanged final question. Current cloud picture and full AV checks remain."
+      }
+    ],
+    "release_approval": false
+  },
+  "release_approval": false
+}

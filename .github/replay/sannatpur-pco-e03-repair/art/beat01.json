@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261025-0150-e03",
+  "beat": 1,
+  "alt": 0,
+  "prompt": "Outside the PCO booth with its distinct yellow glass panels. Young men Prabhat in a mustard sweater and Shailesh in a red cap, and young woman Nuzhat with a long braid, look through the glass into the booth. Blue moonlight illuminates the street. Characters: Prabhat: lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away, curious and alert expression; Shailesh: sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind, surprised expression; Nuzhat: seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away, focused expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. bright moonlit 1996 north-Indian village, one warm practical light (lantern, torch or bulb), lifted shadows, readable moonlit-blue background, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1104.6,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 814531449,
+  "log_tail": "                                             | 2/138 - 0.00MB/s\u001b[K\n  |##################################################| 138/138 - 945.00MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.04s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 121.33s --- image.cpp:620\n[I] decode_first_stage completed, taking 121.33s --- image.cpp:624\n[I] generate_image completed in 1103.98s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat01.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12583885071,
+    "run_id": 40152138336,
+    "name": "art-40152138336-1",
+    "size_in_bytes": 1147905,
+    "source_sha": "f70bd66602e263a3c342469fba009cd9d1c7889c"
+  },
+  "image_sha256": "acbaf208c7a7d3e25b9a7e06d52ac5c21c034b7ac5a0cb8c2c81d5b358da2057"
+}
