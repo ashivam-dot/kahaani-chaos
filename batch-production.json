@@ -4259,7 +4259,55 @@
       ],
       "submitted_at": "2026-10-25T13:33:37+00:00",
       "run_id": 40198165103,
-      "cloud_status": "in_progress"
+      "cloud_status": "completed",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3.1-flash-lite",
+        "duration": 45.0,
+        "video_sha256": "919549627120de0bc69e88cc915c499112063251e9f0b568f082706db1fec776",
+        "brief_sha256": "967a5db054b089b2dff2296c6990213867ff8bf90c331b85261c4ca5df31525b",
+        "review_video_sha256": "69f0c774769208d692b3460092c8ac467cd07f33ba6731749e62fef78f532dc8",
+        "review_audio_sha256": "be2b34db2f5c53e00a3b5bf5305e40e583e39e1e60e52f6c53bca1ede338ba5d",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "राशन कार्ड बार-बार मेरी जेब में लौट आया।",
+          "heard_ending": "पर बरसों पुराने कार्ड पर उनकी तस्वीर ठीक आज जैसी क्यों थी?",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "A faded paper ration card is partially inside the pocket of a mustard-yellow sweater.",
+              "heard": "राशन कार्ड बार-बार मेरी जेब में लौट आया।"
+            },
+            {
+              "part": "middle",
+              "seconds": 25.0,
+              "seen": "An elderly man in a khaki kurta and red scarf holds a brass lantern in a dark room.",
+              "heard": "जिसकी है उस तक पहुँचाओ।"
+            },
+            {
+              "part": "ending",
+              "seconds": 40.0,
+              "seen": "A pair of middle-aged hands rests on an open blue notebook on a wooden table.",
+              "heard": "पर बरसों पुराने कार्ड पर उनकी तस्वीर ठीक आज जैसी क्यों थी?"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -4386,7 +4434,7 @@
       ],
       "submitted_at": "2026-10-25T13:39:18+00:00",
       "run_id": 40198599502,
-      "cloud_status": "in_progress"
+      "cloud_status": "queued"
     },
     {
       "repo": "kahaani-chaos",
@@ -4480,5 +4528,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T13:47:03+00:00"
+  "updated_at": "2026-10-25T13:47:54+00:00"
 }
