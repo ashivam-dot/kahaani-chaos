@@ -258,5 +258,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261024-2126-e09",
+  "premise": "e09",
+  "title": "कॉलेज का पंखा बिजली जाते ही उल्टा क्यों घूमने लगा? 😨",
+  "subgenre": "confessed-lie",
+  "motifs": [],
+  "ending": "loop-back",
+  "opening": "बिजली कटते",
+  "made_at": "2026-10-25T00:15:47+00:00",
+  "format": "micro",
+  "skeleton": "S3",
+  "resolution": "leave-it-be",
+  "heart_type": "confessed-lie",
+  "object_token": "पंखा",
+  "anomaly": "बिजली जाते ही पंखे का उल्टा घूमना",
+  "location": "स्टाफ़-रूम",
+  "place_id": "college",
+  "hook_strip": "उल्टा घूमता पंखा",
+  "script": "बिजली कटते ही कॉलेज का पंखा उल्टा घूमने लगा। उन्नीस सौ छियानवे, उस रात हम बारहवीं के दाख़िला फ़ार्म ज़मा करने रुके थे। अँधेरा होते ही सिर के ऊपर हवा का रुख़ बदल गया। शैलेश डरकर डंडा उठाकर घूमते पर को रोकने चढ़ गया। झब्बू चाचा ने हाथ पकड़ा, उल्टी चलती चीज़ को ज़बरदस्ती मत छेड़ो, सब छोड़ दो। पंखे की हवा से नीचे दबी वो अर्ज़ी उड़ी, तो शैलेश रोते हुए बोला कि पापा की मार के डर से उसने अर्ज़ी चुराई थी। हमने उसे छूना छोड़ दिया, और भोर की रोशनी में पंखा ख़ुद शांत होकर रुक गया।",
+  "slot": "2026-10-25T13:30:00Z",
+  "published_at": "2026-10-25T13:30:00Z",
+  "voice": "chatterbox-narrator-clone",
+  "batch_run": 40144076354,
+  "av_review_sha256": "4e2922409699c4389b825e2d9891d6ba021751fbfbbeefe792b80f713cb56d84",
+  "video_id": "wzHUt1EL_Lc",
+  "url": "https://www.youtube.com/shorts/wzHUt1EL_Lc",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-25T13:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-10-25T13:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
