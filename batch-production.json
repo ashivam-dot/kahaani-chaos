@@ -2092,7 +2092,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-pco-e03-repair.json"
       },
-      "stage": "upload_intent",
+      "stage": "scheduled",
       "attempts": 2,
       "editorial_holds": [
         {
@@ -2260,7 +2260,26 @@
       },
       "archive": "batch-reviewed-40155939996",
       "intended_publish_at": "2026-10-28T13:30:00Z",
-      "upload_intent_at": "2026-10-25T04:27:46+00:00"
+      "upload_intent_at": "2026-10-25T04:27:46+00:00",
+      "delivery": {
+        "video_id": "hl5AMVNu7Vo",
+        "url": "https://www.youtube.com/shorts/hl5AMVNu7Vo",
+        "privacy": "scheduled",
+        "publish_at": "2026-10-28T13:30:00Z",
+        "synthetic_declared": true,
+        "comment_text": "आख़िर उस फ़ोन पर कौन था जिसे मेरे उस छोटे से झूठ की ख़बर थी? 👇",
+        "comment": "pending: HTTP 403",
+        "playlist": "skipped: no playlist",
+        "owner_readback": {
+          "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+          "privacyStatus": "private",
+          "publishAt": "2026-10-28T13:30:00Z",
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false,
+          "containsSyntheticMedia": null,
+          "uploadStatus": "processed"
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -2509,5 +2528,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T04:27:46+00:00"
+  "updated_at": "2026-10-25T04:28:28+00:00"
 }

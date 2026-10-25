@@ -510,5 +510,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-0150-e03",
+  "premise": "e03",
+  "title": "पीसीओ का मीटर बिना कॉल के उल्टा क्यों गिन रहा था? ☎️",
+  "subgenre": "confessed-lie",
+  "motifs": [],
+  "ending": "open-question",
+  "opening": "बंद पीसीओ",
+  "made_at": "2026-10-25T04:28:28+00:00",
+  "format": "micro",
+  "skeleton": "S3",
+  "resolution": "outsmart",
+  "heart_type": "confessed-lie",
+  "object_token": "मीटर",
+  "anomaly": "बिना कॉल के मीटर का उल्टा गिनना और फ़ोन से नाम पूछती आवाज़",
+  "location": "पीसीओ का बूथ",
+  "place_id": "pco",
+  "hook_strip": "उल्टा चलता मीटर",
+  "script": "बंद पीसीओ का मीटर अपने-आप उल्टा चलने लगा। उन्नीस सौ छियानवे, उस रात पीसीओ के पीले शीशों के पीछे से घंटी बजी। रिसीवर उठाते ही किसी ने मेरा नाम पूछा। नुज़हत की टॉर्च की रोशनी में केबिन ख़ाली था। झब्बू का नियम था, अनजान आवाज़ को नाम नहीं काम बताओ। शैलेश का ट्रांजिस्टर चीख उठा। मैंने कहा हम पहरा दे रहे हैं। फिर कबूला कि पिछले हफ़्ते मैंने चोरी से शहर फ़ोन किया था। मीटर ठीक सात रुपयों पर रुक गया। ये वही पैसे थे जो मैंने पिछले हफ़्ते नहीं चुकाए थे। आख़िर उस फ़ोन पर कौन था जिसे मेरे उस छोटे से झूठ की ख़बर थी?",
+  "slot": "2026-10-28T13:30:00Z",
+  "published_at": "2026-10-28T13:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40155939996,
+  "av_review_sha256": "804f1862d7f82093757a61059f7d68656642dfc07a6db66736bc79f29a0f9831",
+  "video_id": "hl5AMVNu7Vo",
+  "url": "https://www.youtube.com/shorts/hl5AMVNu7Vo",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-28T13:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आख़िर उस फ़ोन पर कौन था जिसे मेरे उस छोटे से झूठ की ख़बर थी? 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-10-28T13:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
