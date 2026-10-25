@@ -807,7 +807,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-projector-e05-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 2,
       "source_sha": "43649a8a8f2c3066cd6242ac6036145c3f083277",
       "before_ids": [
@@ -949,7 +949,9 @@
       "obsolete_runs": [
         40142328302
       ],
-      "repair_reason": "Preserve six usable original paintings and all spoken Hindi; replace closing with the directly inspected complete projector close-up and exclude exact duplicate-Prabhat alternate. All seven beats preflight, prepared opening luma98.84/contrast0.23174; full current cloud and AV gates remain required."
+      "repair_reason": "Preserve six usable original paintings and all spoken Hindi; replace closing with the directly inspected complete projector close-up and exclude exact duplicate-Prabhat alternate. All seven beats preflight, prepared opening luma98.84/contrast0.23174; full current cloud and AV gates remain required.",
+      "run_id": 40146579288,
+      "cloud_status": "queued"
     },
     {
       "repo": "kahaani-chaos",
@@ -1211,7 +1213,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:24:34+00:00",
+  "updated_at": "2026-10-25T00:24:40+00:00",
   "complete": false,
   "health": {
     "public": 1,
