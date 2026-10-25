@@ -4002,10 +4002,21 @@
             "art-40189938585-0/beat00.png": "66a488887737908dc70aae10eaff06f6df9a0c33ce78ae04c297aef1a5b5130d",
             "art-40189938585-0/beat00-alt1.png": "6661b478efeeada29d5ceb44d9cc168ef18dbd676a2876146634a76c023dfae3"
           }
+        },
+        {
+          "id": "e11-throw-card-writing-hold",
+          "run_id": 40189938585,
+          "observed_at": "2026-10-25T12:47:13+00:00",
+          "reason": "The raised ration-card paintings contain invented printed writing. Repair only the visible card surface through a separately reviewed source-bound blank-paper texture edit, preserving Shailesh, grain shop, action and narration. All picture, narrator, render and full audiovisual gates remain required.",
+          "evidence": {
+            "art-40189938585-3/beat03.png": "c5ce0500da50c86ab233b56b5f070f6c667a57428c72f655fa4b7e4565ffd61c",
+            "art-40189938585-3/beat03-alt1.png": "ae68c1be4d2a15db2fd790ba668e2dc250649a5859637c472473feabd7fc2851"
+          }
         }
       ],
       "problems": [
-        "Both hook paintings contain conspicuous invented alphanumeric headings on the ration card instead of its planned blank reverse. Repair only the card surface or this hook; preserve narration and accepted siblings. All current picture, narration, render and full audiovisual gates remain required."
+        "Both hook paintings contain conspicuous invented alphanumeric headings on the ration card instead of its planned blank reverse. Repair only the card surface or this hook; preserve narration and accepted siblings. All current picture, narration, render and full audiovisual gates remain required.",
+        "The raised ration-card paintings contain invented printed writing. Repair only the visible card surface through a separately reviewed source-bound blank-paper texture edit, preserving Shailesh, grain shop, action and narration. All picture, narrator, render and full audiovisual gates remain required."
       ]
     },
     {
@@ -4065,5 +4076,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T12:32:41+00:00"
+  "updated_at": "2026-10-25T12:47:13+00:00"
 }
