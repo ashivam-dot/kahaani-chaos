@@ -3357,7 +3357,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e26.json"
       },
-      "stage": "building",
+      "stage": "reviewed",
       "attempts": 1,
       "source_sha": "75144b92c6126f514678aa775cb9a78c06d708be",
       "before_ids": [
@@ -3483,7 +3483,8 @@
           ],
           "issues": []
         }
-      }
+      },
+      "archive": "batch-reviewed-40171159505"
     },
     {
       "repo": "kahaani-chaos",
@@ -3844,5 +3845,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T11:40:50+00:00"
+  "updated_at": "2026-10-25T11:40:56+00:00"
 }
