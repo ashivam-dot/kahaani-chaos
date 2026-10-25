@@ -3875,10 +3875,22 @@
           "evidence": {
             "art-40187469293-4/beat04.png": "36f7ad0285f5e7dfb8d92a51ae644601ac3058de3bfc9a9802983ee0d1b472e3"
           }
+        },
+        {
+          "id": "e13-rope-action-hold",
+          "run_id": 40187469293,
+          "observed_at": "2026-10-25T12:08:38+00:00",
+          "reason": "All three beat02 paintings show Nuzhat holding her flashlight rather than pulling the well rope, and add a lantern where the flashlight resting on the parapet must be the only practical light. Preserve every spoken line and accepted siblings; replace only this action/detail scene. All current picture, narrator, render and full audiovisual checks remain required.",
+          "evidence": {
+            "art-40187469293-2/beat02.png": "3e8a840bc30c27cf130866141c318a75fb1d520e574d8817100549d60d2f2f4e",
+            "art-40187469293-2/beat02-alt1.png": "5bdbea0431699c13f37bb5ac77d6c7ebb146b68e1008441879e733f8fd0012a2",
+            "art-40187469293-2/beat02-alt2.png": "56d8a3bc2afaafb007e99d7274e3bcafb6c5f64636f971b915ad3b36ca38e38f"
+          }
         }
       ],
       "problems": [
-        "The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required."
+        "The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.",
+        "All three beat02 paintings show Nuzhat holding her flashlight rather than pulling the well rope, and add a lantern where the flashlight resting on the parapet must be the only practical light. Preserve every spoken line and accepted siblings; replace only this action/detail scene. All current picture, narrator, render and full audiovisual checks remain required."
       ]
     },
     {
@@ -4008,7 +4020,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e13: The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.",
+  "halted": "Repair held entry e13: The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.; All three beat02 paintings show Nuzhat holding her flashlight rather than pulling the well rope, and add a lantern where the flashlight resting on the parapet must be the only practical light. Preserve every spoken line and accepted siblings; replace only this action/detail scene. All current picture, narrator, render and full audiovisual checks remain required.",
   "complete": false,
   "health": {
     "public": 2,
@@ -4016,5 +4028,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T12:07:42+00:00"
+  "updated_at": "2026-10-25T12:08:38+00:00"
 }
