@@ -4465,6 +4465,24 @@
           "reason": "The beat02 painting substitutes a physical oil lamp resting on the chimney ledge for the planned autonomous light descending the ladder. Repair only this visual; preserve narration and accepted siblings, exclude these exact bytes, and retain every picture, narrator, render and full audiovisual gate.",
           "evidence": {
             "art-40198599502-2/beat02.png": "e54ce82307b5a7388b3f051968953b5cf3b5b3f6b474cc731099ed39938b76ef"
+          },
+          "resolved_at": "2026-10-25T15:15:27+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "b3dfbc9ee67a2192ca91660f8d9dc49cde8b9711",
+            "replay": ".github/replay/e21-reviewed-moving-light-repair.json",
+            "replay_sha256": "6eeaba86f3e1a929e8413f7b9f5f9228a166c5c78b3c94a9b840f81c28d0a52d",
+            "selected_images": {
+              "0": "1747dd2f7428b35cdcd43acf8175f894dc666e9147d52d736568402e97d2b09c",
+              "1": "6c3eb208a89189f7637ad905c1ed068b4dc86bbeee6179378bf62b5e9bf65425",
+              "2": "dc144e5e6db3aad4a8b3eaf1fc528dd31259323c0e635c459cf7c82154021b2c",
+              "3": "be8483ed9b49a337bac679541ac2bf15228d7e90ccf354688e707728d83b7113",
+              "4": "2aa98ed0a31f5cafaa7bcc3f27928874f47d5b8ab1122e8d6b78c3932480fd1a",
+              "5": "27d3e47137f04b1b1ecc5a8fae18bc5b4de6c6aa7c988efae8ebd66294aed730",
+              "6": "7f9a600ba5a60fe674c64b76676d4ceb6bd526cab29cc9f264a31798133e10bc"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -4474,6 +4492,24 @@
           "reason": "The opening painting attaches two physical lantern fixtures to the chimney ladder instead of one autonomous light. Repair only this opening picture, preserving narration and accepted siblings; every current picture, voice, render and full audiovisual gate remains required.",
           "evidence": {
             "art-40198599502-0/beat00.png": "89c02e998a8e6636129c6c0762c0022fad1e210a29e57978efe934866eb73546"
+          },
+          "resolved_at": "2026-10-25T15:15:27+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "b3dfbc9ee67a2192ca91660f8d9dc49cde8b9711",
+            "replay": ".github/replay/e21-reviewed-moving-light-repair.json",
+            "replay_sha256": "6eeaba86f3e1a929e8413f7b9f5f9228a166c5c78b3c94a9b840f81c28d0a52d",
+            "selected_images": {
+              "0": "1747dd2f7428b35cdcd43acf8175f894dc666e9147d52d736568402e97d2b09c",
+              "1": "6c3eb208a89189f7637ad905c1ed068b4dc86bbeee6179378bf62b5e9bf65425",
+              "2": "dc144e5e6db3aad4a8b3eaf1fc528dd31259323c0e635c459cf7c82154021b2c",
+              "3": "be8483ed9b49a337bac679541ac2bf15228d7e90ccf354688e707728d83b7113",
+              "4": "2aa98ed0a31f5cafaa7bcc3f27928874f47d5b8ab1122e8d6b78c3932480fd1a",
+              "5": "27d3e47137f04b1b1ecc5a8fae18bc5b4de6c6aa7c988efae8ebd66294aed730",
+              "6": "7f9a600ba5a60fe674c64b76676d4ceb6bd526cab29cc9f264a31798133e10bc"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -4483,6 +4519,24 @@
           "reason": "The farewell painting places Jhabbu in the shed doorway as the departing elder, conflating him with Munshi. Replace only this scene with the three established friends outside saying goodbye toward the offscreen clerk. Preserve narration, accepted siblings and all current picture/voice/render/full audiovisual gates.",
           "evidence": {
             "art-40198599502-5/beat05.png": "8519630b01af4414a580ba46dbe1d24dffea5bf4b32392951db6f6a41e607034"
+          },
+          "resolved_at": "2026-10-25T15:15:27+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "b3dfbc9ee67a2192ca91660f8d9dc49cde8b9711",
+            "replay": ".github/replay/e21-reviewed-moving-light-repair.json",
+            "replay_sha256": "6eeaba86f3e1a929e8413f7b9f5f9228a166c5c78b3c94a9b840f81c28d0a52d",
+            "selected_images": {
+              "0": "1747dd2f7428b35cdcd43acf8175f894dc666e9147d52d736568402e97d2b09c",
+              "1": "6c3eb208a89189f7637ad905c1ed068b4dc86bbeee6179378bf62b5e9bf65425",
+              "2": "dc144e5e6db3aad4a8b3eaf1fc528dd31259323c0e635c459cf7c82154021b2c",
+              "3": "be8483ed9b49a337bac679541ac2bf15228d7e90ccf354688e707728d83b7113",
+              "4": "2aa98ed0a31f5cafaa7bcc3f27928874f47d5b8ab1122e8d6b78c3932480fd1a",
+              "5": "27d3e47137f04b1b1ecc5a8fae18bc5b4de6c6aa7c988efae8ebd66294aed730",
+              "6": "7f9a600ba5a60fe674c64b76676d4ceb6bd526cab29cc9f264a31798133e10bc"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -4493,6 +4547,24 @@
           "evidence": {
             "art-40198599502-4/beat04.png": "65d2b08c7bc4c810617924f807914bf935682f881e45d877b4215bf0c2f40976",
             "art-40198599502-4/beat04-alt1.png": "bcd00871e65cbcfd4a6005b462cdcd98ad6cef157006c0c2e48f90375c3b742a"
+          },
+          "resolved_at": "2026-10-25T15:15:27+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "b3dfbc9ee67a2192ca91660f8d9dc49cde8b9711",
+            "replay": ".github/replay/e21-reviewed-moving-light-repair.json",
+            "replay_sha256": "6eeaba86f3e1a929e8413f7b9f5f9228a166c5c78b3c94a9b840f81c28d0a52d",
+            "selected_images": {
+              "0": "1747dd2f7428b35cdcd43acf8175f894dc666e9147d52d736568402e97d2b09c",
+              "1": "6c3eb208a89189f7637ad905c1ed068b4dc86bbeee6179378bf62b5e9bf65425",
+              "2": "dc144e5e6db3aad4a8b3eaf1fc528dd31259323c0e635c459cf7c82154021b2c",
+              "3": "be8483ed9b49a337bac679541ac2bf15228d7e90ccf354688e707728d83b7113",
+              "4": "2aa98ed0a31f5cafaa7bcc3f27928874f47d5b8ab1122e8d6b78c3932480fd1a",
+              "5": "27d3e47137f04b1b1ecc5a8fae18bc5b4de6c6aa7c988efae8ebd66294aed730",
+              "6": "7f9a600ba5a60fe674c64b76676d4ceb6bd526cab29cc9f264a31798133e10bc"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -4680,7 +4752,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T15:11:56+00:00",
+  "updated_at": "2026-10-25T15:15:27+00:00",
   "measurement": {
     "at": "2026-10-25T15:11:53+00:00",
     "ok": true,
