@@ -1,0 +1,154 @@
+{
+  "id": "kc-20261024-2327-e06",
+  "premise": "e06",
+  "title": "हॉल्ट का सिग्नल बिना ट्रेन के हरा क्यों हो गया? 🚦",
+  "hook": "बिना ट्रेन के हॉल्ट का सिग्नल हरा हो गया।",
+  "beats": [
+    {
+      "text": "बिना ट्रेन के हॉल्ट का सिग्नल हरा हो गया।",
+      "scene": "At the edge of the platform of Sannatpur halt, a tall vintage mechanical railway signal stands against the dark midnight sky, its round glass lens glowing vivid emerald green down the silent, empty tracks. No people are present.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात हम तीनों प्लेटफ़ॉर्म की लोहे वाली बेंच पर बैठे थे।",
+      "scene": "At the edge of the platform of Sannatpur halt, young Prabhat in a mustard sweater and steel glasses, Nuzhat with her green dupatta, and Shailesh in a red cap sit together on an old iron bench under a neem tree, lit by moonlight.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "quietly observant and thoughtful"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "calm and alert in the shadows"
+        },
+        {
+          "name": "shailesh",
+          "expression": "relaxed with his transistor resting on his lap"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "आख़िरी सवारी गाड़ी कब की निकल चुकी थी, पर खाली पटरी पर हरी बत्ती जलती रही।",
+      "scene": "At the edge of the platform of Sannatpur halt, Nuzhat holds her broken torch unlit, looking down the desolate tracks where the glowing green signal casts a faint eerie sheen on cold rails under dark blue skies.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "squinting with curious anxiety"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "frowning slightly as she stares at the light"
+        },
+        {
+          "name": "shailesh",
+          "expression": "startled and uneasy, clutching his cap"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "मैं पटरी की तरफ़ बढ़ा तो झब्बू ने रोक लिया, सुबह की पहली साइकिल-घंटी तक चुपचाप यहीं बैठो।",
+      "scene": "At the edge of the platform of Sannatpur halt, tall Jhabbu in a khaki kurta and red muffler holds up his brass lantern, placing an outstretched arm to stop young Prabhat from stepping onto the ballast gravel.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "stern and firm, warning with steady eyes"
+        },
+        {
+          "name": "prabhat",
+          "expression": "hesitant and taken aback, stepping backward"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "भोर में पहली घंटी बजी, सिग्नल लाल हुआ, और स्टेशन मास्टर ने अपनी आख़िरी ड्यूटी पर उसे धीरे से हाथ हिला दिया।",
+      "scene": "Exactly two different older men on the small railway halt platform at pale dawn. In the right foreground, the retiring station master wears a plain cream buttoned shirt, navy trousers and a black peaked railway cap. Seen from behind in three-quarter view, he raises one empty hand toward a single red signal light beside the empty tracks. In the left background, Jhabbu stands separately in his khaki kurta and red muffler, quietly watching the station master. Jhabbu holds his brass lantern low beside his leg. The two men are clearly separated by open platform space; the tracks lead into soft morning mist.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "softened and respectful in the morning mist"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "झब्बू ने अपने खाकी रजिस्टर में बस इतना लिखा, सिग्नल ने विदा कर दिया।",
+      "scene": "At the edge of the platform of Sannatpur halt, close shot of Jhabbu leaning over his red-bound khaki register, writing carefully with a stubby pencil in the early morning gray light.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "calm and gentle with quiet finality"
+        }
+      ],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "jhabbu",
+      "name": "झब्बू",
+      "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+    },
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    },
+    {
+      "id": "shailesh",
+      "name": "शैलेश",
+      "look": "sturdy eighteen-year-old young man with adult proportions, faded red cricket cap, striped shirt, a small transistor radio in a brown leather case on a shoulder strap, blue rubber flip-flops, seen from behind"
+    }
+  ],
+  "subgenre": "goodbye",
+  "ending": "register-line",
+  "twist_beat": 4,
+  "description": "सन्नाटपुर हॉल्ट पर आधी रात को बिना किसी गाड़ी के सिग्नल अचानक हरा क्यों हो गया? उस रात झब्बू ने पटरी की ओर बढ़ने से क्यों रोक दिया?",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य",
+    "#सन्नाटपुरकीरातें"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3.8-flash",
+      "gemini-3.8-flash",
+      "gemini-3.6-flash"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "gates",
+        "problems": [
+          "beat 1 (the hook) has 11 words; at most 10"
+        ]
+      },
+      {
+        "attempt": 1,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "अचानक हरा सिग्नल",
+  "object_token": "सिग्नल",
+  "anomaly": "बिना ट्रेन के सिग्नल का अपने-आप हरा हो जाना",
+  "niyam_id": "N20",
+  "resolution": "leave-it-be",
+  "heart_beat": 5,
+  "heart_type": "goodbye",
+  "skeleton": "S3",
+  "location": "प्लेटफ़ॉर्म का छोर",
+  "place_id": "halt"
+}

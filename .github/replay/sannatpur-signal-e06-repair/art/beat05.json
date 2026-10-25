@@ -1,0 +1,21 @@
+{
+  "story": "kc-20261024-2327-e06",
+  "beat": 5,
+  "alt": 0,
+  "prompt": "At the edge of the platform of Sannatpur halt, close shot of Jhabbu leaning over his red-bound khaki register, writing carefully with a stubby pencil in the early morning gray light. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, an open khaki ledger with a red spine resting before him, brass hurricane lantern and bamboo staff with a small bell set beside him, face small and turned away, calm and gentle with quiet finality expression. Exactly one person, Jhabbu, seated and writing. All details describe this same man. Nobody else is present; his lantern and staff rest beside him. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Early-morning 1996 north-Indian village at dawn, pale gold sunrise light and soft blue shadows, no moon and no lamp lit, lifted shadows, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 1262.9,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 1634418376,
+  "log_tail": "ached graph cut plan done (taking 1 ms) --- ggml_graph_cut.cpp:1032\n\n  |##################################################| 138/138 - 940.30MB/s\u001b[K\n[I] loading tensors completed, taking 0.20s (read: 0.01s, memcpy: 0.00s, convert: 0.05s, copy_to_backend: 0.00s) --- model_loader.cpp:1385\n[I] latent 1 decoded, taking 91.91s --- image.cpp:620\n[I] decode_first_stage completed, taking 91.91s --- image.cpp:624\n[I] generate_image completed in 1262.01s --- image.cpp:1050\n[I] save result image 0 to '/home/runner/work/_temp/art/beat05.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "cached_from": {
+    "id": 12580691165,
+    "run_id": 40142626858,
+    "name": "art-40142626858-5",
+    "size_in_bytes": 1973546,
+    "source_sha": "a4af1a2066f42b132aed62def56e7cd443603844"
+  },
+  "image_sha256": "411066eafaae654564c34fb2b5cb0fa6fa07567a9b047b19b6b23dbb40f229ae"
+}

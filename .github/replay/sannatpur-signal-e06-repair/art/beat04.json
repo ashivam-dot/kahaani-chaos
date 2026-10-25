@@ -1,0 +1,35 @@
+{
+  "story": "kc-20261024-2327-e06",
+  "beat": 4,
+  "alt": 0,
+  "prompt": "Exactly two different older men on the small railway halt platform at pale dawn. In the right foreground, the retiring station master wears a plain cream buttoned shirt, navy trousers and a black peaked railway cap. Seen from behind in three-quarter view, he raises one empty hand toward a single red signal light beside the empty tracks. In the left background, Jhabbu stands separately in his khaki kurta and red muffler, quietly watching the station master. Jhabbu holds his brass lantern low beside his leg. The two men are clearly separated by open platform space; the tracks lead into soft morning mist. Characters: Jhabbu: elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away, softened and respectful in the morning mist expression. Faces small in the frame, backlit or turned three-quarters away; props and silhouettes carry who is who. Early-morning 1996 north-Indian village at dawn, pale gold sunrise light and soft blue shadows, no moon and no lamp lit, lifted shadows, painterly-cinematic, realistic adult proportions. Painterly visible brushwork, readable mid-tones, no crushed blacks, vertical 9:16 composition with the subject in the upper two thirds and calm space low in the frame. Painterly-cinematic, not photoreal, not a cartoon. No text, no letters, no words, no watermark, no signature, no frame. No blood, no gore, no nudity, fully clothed people. Natural anatomy: no extra limbs, no extra fingers, no deformed hands. Not a cartoon, not anime, not a 3D render. Realistic adult proportions, no chibi, no big eyes, not a kids' book, not anime, not a 3D render. No shrine, idol, religious sign or holy thread. No brand, logo or label.",
+  "seconds": 217.1,
+  "model": "zimage",
+  "steps": 4,
+  "width": 576,
+  "height": 1024,
+  "seed": 947015262,
+  "log_tail": "#####| 138/138 - 455.42MB/s\u001b[K\n[I] loading tensors completed, taking 0.41s (read: 0.34s, memcpy: 0.00s, convert: 0.01s, copy_to_backend: 0.00s) --- model_loader.cpp:1390\n[I] latent 1 decoded, taking 18.76s --- image.cpp:620\n[I] decode_first_stage completed, taking 18.76s --- image.cpp:624\n[I] generate_image completed in 215.66s --- image.cpp:1050\n[I] ggml: ggml_metal_free: deallocating\n[I] save result image 0 to '/Users/ashivam/Desktop/YouTube/strategy-implementation-2026-10-24/evidence/kahaani-chaos/e06-local-repair/beat04.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
+  "image_sha256": "a8205abf51804fe7bba1d27e282b39fc50620220ff10ced0a62f91e54797571e",
+  "generation": {
+    "origin": "local-stable-diffusion.cpp",
+    "binary_tag": "master-959-d637cfb",
+    "source_sha": "43649a8a8f2c3066cd6242ac6036145c3f083277",
+    "backend": "Darwin arm64 Metal",
+    "weights": {
+      "diffusion": {
+        "file": "z_image_turbo-Q4_K.gguf",
+        "sha256": "14b375ab4f226bc5378f68f37e899ef3c2242b8541e61e2bc1aff40976086fbd"
+      },
+      "llm": {
+        "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597"
+      },
+      "vae": {
+        "file": "ae.safetensors",
+        "sha256": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38"
+      }
+    }
+  },
+  "production_approved": false
+}
