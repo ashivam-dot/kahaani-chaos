@@ -4799,7 +4799,7 @@
       ],
       "submitted_at": "2026-10-25T16:53:44+00:00",
       "run_id": 40213863576,
-      "cloud_status": "in_progress"
+      "cloud_status": "completed"
     },
     {
       "repo": "kahaani-chaos",
@@ -5044,7 +5044,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T17:22:18+00:00",
+  "updated_at": "2026-10-25T17:22:20+00:00",
   "measurement": {
     "at": "2026-10-25T17:22:18+00:00",
     "ok": true,
