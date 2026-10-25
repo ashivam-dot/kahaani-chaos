@@ -1473,7 +1473,7 @@
       "premise": "e32",
       "title": "सिलाई मशीन ने आधी रात अधूरा कुर्ता ख़ुद सीना शुरू किया 🧵 | सन्नाटपुर",
       "target": "2026-10-28T07:30:00Z",
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "inputs": {
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-sewing-e32-repair.json"
@@ -1683,7 +1683,9 @@
         39921910994,
         39892698527
       ],
-      "submitted_at": "2026-10-25T03:42:58+00:00"
+      "submitted_at": "2026-10-25T03:42:58+00:00",
+      "run_id": 40159235547,
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -2029,10 +2031,10 @@
   "health": {
     "public": 1,
     "scheduled": 5,
-    "held": 1,
+    "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T03:52:08+00:00",
+  "updated_at": "2026-10-25T03:52:11+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
