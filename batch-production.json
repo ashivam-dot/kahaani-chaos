@@ -4032,7 +4032,55 @@
       ],
       "submitted_at": "2026-10-25T13:21:51+00:00",
       "run_id": 40197267045,
-      "cloud_status": "in_progress"
+      "cloud_status": "completed",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3-flash-preview",
+        "duration": 38.6,
+        "video_sha256": "0c1db597a7333a0e9910daffcc6626f210720d25747b0c25fea0a7ec7ec5634f",
+        "brief_sha256": "d985752f5e2759756a9cfa0858315f9e77ed363538f76a09346f35eaf02d8f6c",
+        "review_video_sha256": "a79a8f8a91f0ea5b5368ec6bd0037933cfd4502ff26aad1590a9006a2057cbf7",
+        "review_audio_sha256": "871b396653ad733adb3fa4dc9d602449901691a57f6f9d6af7b67fd2a3e12f72",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "कुएँ की बाल्टी पानी नहीं, धागे से बँधी चिट्ठियाँ लाई।",
+          "heard_ending": "बाल्टी वापस अंधेरे में उतर गई, वही बाल्टी जो पानी नहीं, चिट्ठियाँ लाती है।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "A galvanized iron bucket filled with yellow envelopes tied with red thread sits on a stone wall at night.",
+              "heard": "कुएँ की बाल्टी पानी नहीं, धागे से बँधी चिट्ठियाँ लाई।"
+            },
+            {
+              "part": "middle",
+              "seconds": 15.0,
+              "seen": "Shailesh, wearing a red cricket cap and striped shirt, holds an unfolded yellow letter illuminated by a flashlight beam.",
+              "heard": "बाल्टी ऊपर आई तो उसमें पीले ख़त भरे थे, और शैलेश ने एक खोल दिया।"
+            },
+            {
+              "part": "ending",
+              "seconds": 35.0,
+              "seen": "A close-up of the same bucket filled with letters resting on the mossy stone parapet of the well.",
+              "heard": "वही बाल्टी जो पानी नहीं, चिट्ठियाँ लाती है।"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -4195,7 +4243,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e19.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 1,
       "source_sha": "140f56e5394f39cf4f9a0dbfd0e5cb9a0da25417",
       "before_ids": [
@@ -4260,7 +4308,9 @@
         40134047227,
         40132420577
       ],
-      "submitted_at": "2026-10-25T13:27:49+00:00"
+      "submitted_at": "2026-10-25T13:27:49+00:00",
+      "run_id": 40197721800,
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -4295,5 +4345,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T13:31:51+00:00"
+  "updated_at": "2026-10-25T13:32:30+00:00"
 }
