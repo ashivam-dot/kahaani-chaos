@@ -1479,7 +1479,23 @@
       "cloud_status": "completed",
       "run_id": 40148651151,
       "problems": [
-        "ValueError: preview did not make a finished passing Short"
+        "Direct inspection: both beat 0 candidates duplicate Prabhat/body parts; both beat 3 candidates duplicate Prabhat (alternate also substitutes flame for flashlight); both beat 4 candidates show legible Latin Nuzhat on the brick, contradicting no-text rules and the worker-name clue. Repair only these scenes; retain passing siblings."
+      ],
+      "editorial_holds": [
+        {
+          "id": "direct-brick-cast-and-text-40148651151",
+          "run_id": 40148651151,
+          "observed_at": "2026-10-25T01:49:46+00:00",
+          "reason": "Direct inspection: both beat 0 candidates duplicate Prabhat/body parts; both beat 3 candidates duplicate Prabhat (alternate also substitutes flame for flashlight); both beat 4 candidates show legible Latin Nuzhat on the brick, contradicting no-text rules and the worker-name clue. Repair only these scenes; retain passing siblings.",
+          "evidence": {
+            "art-40148651151-0/beat00-alt1.png": "4ea35e26ae814ff850bee42f1fed3572113885bf03c146baab684afc9eb8558c",
+            "art-40148651151-0/beat00.png": "1ea8e9ba69fbae87198172bba9fc258213a4c53441872b727e8861b28550524e",
+            "art-40148651151-3/beat03-alt1.png": "dfc999f22b90375b24147fdcd6f0349742e2092e08b9075c9210690a3e8d2dfd",
+            "art-40148651151-3/beat03.png": "fe83b73cbea4c659d0f00f47e9916939c76b8821e22ff0fde7adecb600dc60bb",
+            "art-40148651151-4/beat04-alt1.png": "8a20f3c47fdfdcb542720d22d18eadcbbfcc9e57c81e6b8b626908df925622c3",
+            "art-40148651151-4/beat04.png": "f0ee49ad9fad48b06e1d350aa855333f5aae2166a583f811e2c0a9c767cedc64"
+          }
+        }
       ]
     },
     {
@@ -1769,8 +1785,8 @@
       "attempts": 0
     }
   ],
-  "halted": null,
-  "updated_at": "2026-10-25T01:49:42+00:00",
+  "halted": "Repair held entry e07: Direct inspection: both beat 0 candidates duplicate Prabhat/body parts; both beat 3 candidates duplicate Prabhat (alternate also substitutes flame for flashlight); both beat 4 candidates show legible Latin Nuzhat on the brick, contradicting no-text rules and the worker-name clue. Repair only these scenes; retain passing siblings.",
+  "updated_at": "2026-10-25T01:49:46+00:00",
   "complete": false,
   "health": {
     "public": 1,
