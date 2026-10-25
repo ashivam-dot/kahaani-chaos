@@ -1191,10 +1191,12 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e07.json"
       },
-      "stage": "building",
-      "attempts": 1,
-      "source_sha": "43649a8a8f2c3066cd6242ac6036145c3f083277",
+      "stage": "dispatch_unresolved",
+      "attempts": 2,
+      "source_sha": "d00710d686fe1824fcc45e3d9134ea4bd7b0f040",
       "before_ids": [
+        40147346342,
+        40147002904,
         40146579288,
         40146069336,
         40144076354,
@@ -1254,10 +1256,55 @@
         39552636855,
         39441424003,
         39437477074,
-        39380862309
+        39380862309,
+        39377813809,
+        39271505350,
+        39267975180,
+        39210901682,
+        39207467555,
+        39136542737,
+        39134127739,
+        39104056474,
+        39102124492,
+        39041233609,
+        39038963383,
+        39009970260,
+        39007953446,
+        38917788732,
+        38913908585,
+        38861606273,
+        38858483528,
+        38753598513,
+        38749717591,
+        38693020536,
+        38689654616,
+        38582416078,
+        38578001758,
+        38522731692,
+        38519475643,
+        38451022187,
+        38448247359,
+        38446573325,
+        38444924599,
+        38439489788,
+        38428830025
       ],
-      "submitted_at": "2026-10-25T00:31:01+00:00",
-      "run_id": 40147002904
+      "submitted_at": "2026-10-25T00:44:25+00:00",
+      "repair_history": [
+        {
+          "run_id": 40147002904,
+          "source_sha": "43649a8a8f2c3066cd6242ac6036145c3f083277",
+          "stage": "building",
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e07.json"
+          }
+        }
+      ],
+      "obsolete_runs": [
+        40147002904
+      ],
+      "repair_reason": "Original draft exhausted bounded rewrites on an eleven-word hook. Repair now provides the measured Hindi token list and the exact valid ten-word bank opening; retain every story and full media gate."
     },
     {
       "repo": "kahaani-chaos",
@@ -1429,7 +1476,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:36:25+00:00",
+  "updated_at": "2026-10-25T00:44:25+00:00",
   "complete": false,
   "health": {
     "public": 1,
