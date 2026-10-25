@@ -1,0 +1,82 @@
+{
+  "original": {
+    "id": "e15",
+    "object": "नहर की छोटी लकड़ी की नाव",
+    "object_token": "नाव",
+    "anomaly": "खोलकर बहाई नाव का धार के उल्टे तैरकर लौट आना",
+    "location": "नहर की कपड़े धोने वाली सीढ़ियाँ",
+    "place_id": "nahar",
+    "niyam_id": "N03",
+    "heart_type": "confessed-lie",
+    "heart_beat": "शैलेश मान लेता है कि रस्सी हवा ने नहीं, उसने शरारत में खोली थी।",
+    "resolution_type": "leave-it-be",
+    "ending_type": "open-question",
+    "title_skeleton": "S3",
+    "hook_line": "बहाई नाव धार के उल्टे तैरकर सीढ़ियों पर लौट आई।",
+    "title": "बहाई हुई नाव उल्टी धार में वापस क्यों लौट आई? 🛶",
+    "logline": "शैलेश शरारत में नहर की सीढ़ियों से बँधी छोटी नाव की रस्सी खोल देता है और कहता है हवा ने खोली। नाव धार के साथ बहने की बजाय उल्टी तैरकर वापस सीढ़ियों पर आ लगती है, और उसमें एक गीली, बंद डायरी रखी होती है। झब्बू कहते हैं, जो ख़ुद लौटे उसे शुक्रिया कहकर रखो, सवाल पूछकर नहीं; पर डायरी का पहला पन्ना देखते ही शैलेश चुप क्यों हो गया?"
+  },
+  "replacement": {
+    "id": "e15",
+    "object": "नहर की छोटी लकड़ी की नाव",
+    "object_token": "नाव",
+    "anomaly": "खोलकर बहाई नाव का धार के उल्टे तैरकर लौट आना",
+    "location": "नहर की कपड़े धोने वाली सीढ़ियाँ",
+    "place_id": "nahar",
+    "niyam_id": "N03",
+    "heart_type": "confessed-lie",
+    "heart_beat": "शैलेश मान लेता है कि रस्सी हवा ने नहीं, उसने शरारत में खोली थी।",
+    "resolution_type": "leave-it-be",
+    "ending_type": "open-question",
+    "title_skeleton": "S3",
+    "hook_line": "बहाई नाव धार के उल्टे तैरकर सीढ़ियों पर लौट आई।",
+    "title": "बहाई हुई नाव उल्टी धार में वापस क्यों लौट आई? 🛶",
+    "logline": "उन्नीस सौ छियानवे की रात नहर की सीढ़ियों पर शैलेश पुराने लकड़ी के पेंसिल-बक्से से बनी अपनी हथेली जितनी खिलौना नाव की रस्सी खोल देता है; हवा को दोष देता है। यह यात्रियों वाली बड़ी नाव नहीं। नाव धार के उल्टे लौटकर उन्हीं सीढ़ियों पर आ लगती है। नाव में कोई डायरी, संदेश या अचानक नया सामान नहीं। झब्बू का वही नियम है: जो ख़ुद लौटे, उसे शुक्रिया कहकर रखो, सवाल पूछकर नहीं। शैलेश मानता है कि रस्सी उसी ने शरारत में खोली थी। वह नाव को शुक्रिया कहता है, बाहर निकालकर पोंछता है और सुरक्षित सूखी ऊपरी सीढ़ी पर अपने पास रख लेता है; वापस नहीं बहाता और नाव को छोड़कर नहीं जाता। तीनों उस रात नाव से कोई सवाल या जाँच नहीं करते; नहर शांत होती है और अपनी नाव वापस मिलने से छोटा समाधान पूरा होता है। अंत में वर्तमान के सैंतालीस वर्षीय प्रभात दर्शक से केवल यह अनसुलझा सवाल पूछता है कि बिना चप्पू की वह नाव उल्टी धार में कैसे चढ़ी थी; यह उस रात नियम तोड़ता संवाद नहीं। मूल हुक, नाव की असंभव वापसी, झूठ की स्वीकारोक्ति, नियम और खुला सवाल कायम रखें।"
+  },
+  "source_run": 40171278752,
+  "source_sha": "b60481b8a493f0e0b2ac37b869e982213ab22cfd",
+  "basis": "Actual three-attempt editor refusal: toy/transport scale ambiguous; unrelated diary has no causal setup; leaving boat contradicts keep-with-thanks rule. Clarify only existing bank logline, retaining every other bank field, exact hook/title/anomaly/rule/heart/rotation and location. Ordinary writer/editor and all production/release gates still required.",
+  "editor_refusals": [
+    {
+      "attempt": 0,
+      "stage": "editor",
+      "problems": [
+        "Beat 1 features a generic wooden boat rather than a distinct 90s nostalgia object.",
+        "Beat 5 states the rule to accept the returning object with thanks, but the characters neither apply it nor does it solve the situation.",
+        "Beat 7 creates a contradiction by claiming the boat was left untouched while simultaneously describing reading the diary inside it.",
+        "the story's logic has a gap",
+        "the rule of the night does not clearly solve it",
+        "beat 1 must show the object and its impossible behaviour"
+      ],
+      "canonical_hook_repair": {
+        "original": "बहाई गई लकड़ी की नाव उल्टी धार में तैरकर लौट आई।",
+        "replacement": "बहाई नाव धार के उल्टे तैरकर सीढ़ियों पर लौट आई।"
+      }
+    },
+    {
+      "attempt": 1,
+      "stage": "editor",
+      "problems": [
+        "Beat 1: A wooden canal boat is a timeless transport object rather than a distinct 90s nostalgia object.",
+        "Beat 1 and Beat 3: Beat 1 describes the boat as cast away ('बहाई नाव'), contradicting Beat 3 and Beat 6 where it was untied from a mooring peg.",
+        "Beat 7: The narrator ends by asking why Shailesh's name was written on the diary, directly violating Rule N03's mandate to accept returned things without asking questions.",
+        "the story's logic has a gap",
+        "beat 1 must show the object and its impossible behaviour"
+      ]
+    },
+    {
+      "attempt": 2,
+      "stage": "editor",
+      "problems": [
+        "Beat 1 mentions a generic canal boat rather than a specific 90s nostalgia object.",
+        "Beat 4 and 7 introduce an unexplained diary that has no causal connection to Shailesh untying the boat.",
+        "Beat 6 violates rule N03 because the rule instructs to keep the returned object ('रखो'), but they leave the boat behind ('छोड़ दिया').",
+        "the story's logic has a gap",
+        "the rule of the night does not clearly solve it",
+        "beat 1 must show the object and its impossible behaviour"
+      ]
+    }
+  ],
+  "release_approval": false,
+  "at": "2026-10-25T07:23:42.429028+00:00"
+}
