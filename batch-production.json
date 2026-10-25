@@ -1346,12 +1346,15 @@
       "target": "2026-10-27T13:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e07.json"
+        "replay": ".github/replay/sannatpur-brick-e07-repair.json"
       },
-      "stage": "held",
-      "attempts": 3,
-      "source_sha": "ea5ee448e55ee90447597e4f691d878c021a8767",
+      "stage": "dispatch_unresolved",
+      "attempts": 4,
+      "source_sha": "5aab8b3faf16f29f08909e9f8a74e206d86455d1",
       "before_ids": [
+        40152138336,
+        40148804337,
+        40148651151,
         40148639705,
         40148316893,
         40147867847,
@@ -1449,7 +1452,7 @@
         38439489788,
         38428830025
       ],
-      "submitted_at": "2026-10-25T00:56:30+00:00",
+      "submitted_at": "2026-10-25T02:01:04+00:00",
       "repair_history": [
         {
           "run_id": 40147002904,
@@ -1469,18 +1472,28 @@
             "replay": ".github/replay/batch-2026-10-25/e07.json"
           },
           "repair_reason": "Original draft exhausted bounded rewrites on an eleven-word hook. Repair now provides the measured Hindi token list and the exact valid ten-word bank opening; retain every story and full media gate."
+        },
+        {
+          "run_id": 40148651151,
+          "source_sha": "ea5ee448e55ee90447597e4f691d878c021a8767",
+          "stage": "held",
+          "problems": [
+            "Direct inspection: both beat 0 candidates duplicate Prabhat/body parts; both beat 3 candidates duplicate Prabhat (alternate also substitutes flame for flashlight); both beat 4 candidates show legible Latin Nuzhat on the brick, contradicting no-text rules and the worker-name clue. Repair only these scenes; retain passing siblings."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e07.json"
+          },
+          "repair_reason": "Stop repeated hook growth by binding an overlong rewrite to the exact valid bank opening before all code and Gemini editor checks. Provide measured per-beat word budgets; retain any failed full draft and honest model provenance for targeted recovery."
         }
       ],
       "obsolete_runs": [
         40147002904,
-        40147867847
+        40147867847,
+        40148651151
       ],
-      "repair_reason": "Stop repeated hook growth by binding an overlong rewrite to the exact valid bank opening before all code and Gemini editor checks. Provide measured per-beat word budgets; retain any failed full draft and honest model provenance for targeted recovery.",
+      "repair_reason": "Exact direct visual repair: object-only brick opening, two separate characters as Nuzhat stops Shailesh, and Nuzhat alone holding the blank reverse of the clue brick. Preserve all narration, plot, cast identities and passing sibling art; final current picture/voice/render and full audiovisual checks remain.",
       "cloud_status": "completed",
-      "run_id": 40148651151,
-      "problems": [
-        "Direct inspection: both beat 0 candidates duplicate Prabhat/body parts; both beat 3 candidates duplicate Prabhat (alternate also substitutes flame for flashlight); both beat 4 candidates show legible Latin Nuzhat on the brick, contradicting no-text rules and the worker-name clue. Repair only these scenes; retain passing siblings."
-      ],
       "editorial_holds": [
         {
           "id": "direct-brick-cast-and-text-40148651151",
@@ -1888,7 +1901,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e07: Direct inspection: both beat 0 candidates duplicate Prabhat/body parts; both beat 3 candidates duplicate Prabhat (alternate also substitutes flame for flashlight); both beat 4 candidates show legible Latin Nuzhat on the brick, contradicting no-text rules and the worker-name clue. Repair only these scenes; retain passing siblings.",
+  "halted": "Repair held entry e08: Direct full-resolution review: both hook and beat 2 paintings show flat trays or patterned table tops without the four circular corner pockets of a carrom board; beats 3/5 repeat that object. Narration explicitly pots a queen and the final black disk, so this is a material object/action mismatch. Repair board depictions, keep narration and identities.",
   "complete": false,
   "health": {
     "public": 1,
@@ -1896,5 +1909,5 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T02:00:47+00:00"
+  "updated_at": "2026-10-25T02:01:04+00:00"
 }
