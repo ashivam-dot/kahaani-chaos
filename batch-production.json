@@ -1494,6 +1494,23 @@
             "art-40148651151-3/beat03.png": "fe83b73cbea4c659d0f00f47e9916939c76b8821e22ff0fde7adecb600dc60bb",
             "art-40148651151-4/beat04-alt1.png": "8a20f3c47fdfdcb542720d22d18eadcbbfcc9e57c81e6b8b626908df925622c3",
             "art-40148651151-4/beat04.png": "f0ee49ad9fad48b06e1d350aa855333f5aae2166a583f811e2c0a9c767cedc64"
+          },
+          "resolved_at": "2026-10-25T02:00:30+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "5aab8b3faf16f29f08909e9f8a74e206d86455d1",
+            "replay": ".github/replay/sannatpur-brick-e07-repair.json",
+            "replay_sha256": "004b8e20c29f2cee5ca5094cb764b5b5a697f972421f7980e2d90d79d3fe2c24",
+            "selected_images": {
+              "0": "455d75e5db1b3955825a60e01be52f4b61c7b29a12aaa003c8fa61cc726304b2",
+              "1": "4dc679375f38ae323bd82a1c8d48d7e36150ee686b9b09bd1614a2d74c3202d8",
+              "2": "79da12b9f3cd821c51fe020277072182bded01040f3c5e7aa9746012f013f76d",
+              "3": "4980f9478f3c4a438e0c5850483348db8802e501793d3f19784f7484f0462f72",
+              "4": "1cbe4bd172aad311b32790abf4a76349e104af23a9864a1ec69ea66e56a1b527",
+              "5": "881797cb770351ad74c5df3cef89ecdf777f39ff6925b9a7effa98979ffbb66f"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ]
@@ -1879,5 +1896,5 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T01:51:54+00:00"
+  "updated_at": "2026-10-25T02:00:30+00:00"
 }
