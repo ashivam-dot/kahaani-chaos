@@ -10,7 +10,7 @@
   "height": 1024,
   "seed": 1174400810,
   "log_tail": ".54MB/s\u001b[K\n  |##################################################| 138/138 - 452.16MB/s\u001b[K\n[I] loading tensors completed, taking 0.42s (read: 0.38s, memcpy: 0.00s, convert: 0.01s, copy_to_backend: 0.00s) --- model_loader.cpp:1390\n[I] latent 1 decoded, taking 23.59s --- image.cpp:620\n[I] decode_first_stage completed, taking 23.59s --- image.cpp:624\n[I] generate_image completed in 261.87s --- image.cpp:1050\n[I] ggml: ggml_metal_free: deallocating\n[I] save result image 0 to 'evidence/kahaani-chaos/e17-billing-slip-repair/beat00.png' (success) --- main.cpp:497\n[I] 1/1 images saved --- main.cpp:573\n",
-  "image_sha256": "7d03cb35ce5a56a8dd888a51afaac4799ffbc3dc7face840861f54ee40e25ad7",
+  "image_sha256": "e0940ce71c45ec1a408de7d073a7d034f4561e982853f74545c9484c7de01906",
   "generation": {
     "origin": "local-stable-diffusion.cpp",
     "binary_tag": "master-959-d637cfb",
@@ -33,20 +33,79 @@
   },
   "production_approved": false,
   "derivation": {
-    "operation": "crop_and_resize",
-    "parent_image_sha256": "154f38a38000971c6dd1415360d857f5cc3b1ace32c99bc319a590b78ad07874",
-    "parent_file": "../provenance/raw-hook-subject/beat00.png",
-    "crop_ltrb": [
-      115,
-      440,
-      445,
-      1024
+    "operation": "clone_stamp",
+    "parent_image_sha256": "7d03cb35ce5a56a8dd888a51afaac4799ffbc3dc7face840861f54ee40e25ad7",
+    "parent_file": "../provenance/raw-hook-closeup/beat00.png",
+    "regions": [
+      {
+        "name": "blank lower cream instrument panel",
+        "source_ltrb": [
+          182,
+          501,
+          209,
+          555
+        ],
+        "target_polygon": [
+          [
+            200,
+            174
+          ],
+          [
+            343,
+            190
+          ],
+          [
+            329,
+            227
+          ],
+          [
+            163,
+            206
+          ]
+        ],
+        "target_ltrb": [
+          163,
+          174,
+          344,
+          228
+        ]
+      },
+      {
+        "name": "unmarked dark glass display",
+        "source_ltrb": [
+          256,
+          172,
+          276,
+          177
+        ],
+        "target_polygon": [
+          [
+            210,
+            149
+          ],
+          [
+            350,
+            165
+          ],
+          [
+            341,
+            189
+          ],
+          [
+            201,
+            173
+          ]
+        ],
+        "target_ltrb": [
+          201,
+          149,
+          351,
+          190
+        ]
+      }
     ],
-    "output_size": [
-      576,
-      1024
-    ],
+    "edge_feather_px": 0.65,
     "resampling": "Pillow LANCZOS",
-    "reason": "The current picture editor measures original hook subject share at 0.25, below the unchanged 0.30 minimum. Enlarge the complete meter and blank moving strip while preserving the exact enclosed room and painted pixels."
+    "reason": "The current cloud picture editor detects the generated instrument glyphs made visible by the hook crop. Clone clean painted paper and glass texture over those glyphs only. Preserve the meter construction and the large blank moving paper strip."
   }
 }

@@ -1,0 +1,16 @@
+{
+  "reviewed_at": "2026-10-25T06:42:05.957990+00:00",
+  "source_refusal_run": 40169378463,
+  "corrected_prior_observation": "The earlier cropped-hook direct review missed tiny garbled control-panel glyphs. Current cloud text refusal is valid; that cropped parent remains excluded.",
+  "images": [
+    {
+      "file": "art/beat00.png",
+      "image_sha256": "e0940ce71c45ec1a408de7d073a7d034f4561e982853f74545c9484c7de01906",
+      "decision": "pass",
+      "reason": "Direct full-resolution inspection confirms a clean unmarked glass display and cream panel, with no glyphs. Meter bevel, enclosure, perspective, large blank hanging strip, counter and room remain intact. No person or hand."
+    }
+  ],
+  "speech_preserved": true,
+  "release_approval": false,
+  "remaining": "All current picture, narrator, render and full audiovisual gates"
+}

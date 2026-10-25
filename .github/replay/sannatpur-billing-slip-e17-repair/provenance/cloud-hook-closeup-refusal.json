@@ -1,0 +1,98 @@
+{
+  "run_id": 40169378463,
+  "source_sha": "0ba70330717d2fa8194a1ab479f861f8ed1acebb",
+  "artifact_id": 12589258732,
+  "artifact_zip_sha256": "9b1dd0e503579c7ac6dad355836445c53d75692c11a8edece29d64e28dc563e1",
+  "videos": [],
+  "reports": {
+    "dry-produce-health.json": {
+      "at": "2026-10-25T06:35:45+00:00",
+      "ok": true,
+      "dry": true,
+      "steps": [
+        "paintings: 7 of 7 made, 0 repaints",
+        "hold e17: hold: only 6 of 7 paintings passed (need 5 and the hook's)"
+      ],
+      "picture_editor": [
+        "gemini"
+      ],
+      "held": "hold: only 6 of 7 paintings passed (need 5 and the hook's)"
+    },
+    "kc-20261025-0431-e17/pictures.json": [
+      {
+        "beat": 1,
+        "shows": "An unattended boxy PCO machine rests on a counter with a white paper strip hanging down.",
+        "rejected": "text: Matches the unattended meter and paper description perfectly.",
+        "cast": [],
+        "props_ok": true,
+        "repaints_tried": 0,
+        "source_painting": "/home/runner/work/_temp/plan/art/beat00.png"
+      },
+      {
+        "beat": 2,
+        "shows": "A young man in a mustard yellow sweater and a young man in a red cap stand inside a room watching through a window.",
+        "rejected": null,
+        "cast": [
+          "prabhat",
+          "shailesh"
+        ],
+        "props_ok": true,
+        "repaints_tried": 0,
+        "source_painting": "/home/runner/work/_temp/plan/art/beat01.png"
+      },
+      {
+        "beat": 3,
+        "shows": "An unattended PCO billing meter and a small service bell sit on a yellow counter inside a room.",
+        "rejected": null,
+        "cast": [],
+        "props_ok": true,
+        "repaints_tried": 0,
+        "source_painting": "/home/runner/work/_temp/plan/art/beat02.png"
+      },
+      {
+        "beat": 4,
+        "shows": "A young man wearing a red cricket cap and a striped shirt stands by a counter holding a white paper strip.",
+        "rejected": null,
+        "cast": [
+          "shailesh"
+        ],
+        "props_ok": true,
+        "repaints_tried": 0,
+        "source_painting": "/home/runner/work/_temp/plan/art/beat03.png"
+      },
+      {
+        "beat": 5,
+        "shows": "An elderly grey-haired man in a red muffler and khaki kurta holds the wrist of a young man wearing a red cap.",
+        "rejected": null,
+        "cast": [
+          "jhabbu",
+          "shailesh"
+        ],
+        "props_ok": true,
+        "repaints_tried": 0,
+        "source_painting": "/home/runner/work/_temp/plan/art/beat04.png"
+      },
+      {
+        "beat": 6,
+        "shows": "An elderly man in a red muffler and khaki kurta holding a staff and ledger, and a young man in a mustard-yellow sweater standing next to a window.",
+        "rejected": null,
+        "cast": [
+          "jhabbu",
+          "prabhat"
+        ],
+        "props_ok": true,
+        "repaints_tried": 0,
+        "source_painting": "/home/runner/work/_temp/plan/art/beat05.png"
+      },
+      {
+        "beat": 7,
+        "shows": "A wide shot of a PCO glass counter at night with a single billing machine and hanging bulb under the moon.",
+        "rejected": null,
+        "cast": [],
+        "props_ok": true,
+        "repaints_tried": 0,
+        "source_painting": "/home/runner/work/_temp/plan/art/beat06.png"
+      }
+    ]
+  }
+}
