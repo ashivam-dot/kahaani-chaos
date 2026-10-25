@@ -3437,10 +3437,20 @@
           "evidence": {
             "art-40176769163-3/beat03.png": "a8a15bd12882a7c2825ac6fd596c0fe2aea13d407011aa281068e0b456b6abd1"
           }
+        },
+        {
+          "id": "direct-e15-adult-portrait",
+          "run_id": 40176769163,
+          "observed_at": "2026-10-25T09:26:59+00:00",
+          "reason": "The ending shows a large adult face and chin-on-hand portrait, contradicting the fixed hands-only adult narrator. Preserve every spoken line and useful siblings; replace only this ending painting with hands, faded blue notebook and steel-rimmed glasses, framed at wrists. All normal picture, narrator, render and audiovisual gates remain required.",
+          "evidence": {
+            "art-40176769163-6/beat06.png": "080b6c2eda53389aa46abe02e5f7c19dae88d674cd53d1935ac68ae0dd769613"
+          }
         }
       ],
       "problems": [
-        "The upstream toy-boat painting contains a long oar/paddle and an onboard burning lantern, contradicting the tiny unpowered boat and the spoken without-oars mystery. Preserve all speech and useful siblings; replace only this scene with a clearly miniature empty toy boat. All current picture, narrator, render and audiovisual gates remain required."
+        "The upstream toy-boat painting contains a long oar/paddle and an onboard burning lantern, contradicting the tiny unpowered boat and the spoken without-oars mystery. Preserve all speech and useful siblings; replace only this scene with a clearly miniature empty toy boat. All current picture, narrator, render and audiovisual gates remain required.",
+        "The ending shows a large adult face and chin-on-hand portrait, contradicting the fixed hands-only adult narrator. Preserve every spoken line and useful siblings; replace only this ending painting with hands, faded blue notebook and steel-rimmed glasses, framed at wrists. All normal picture, narrator, render and audiovisual gates remain required."
       ]
     },
     {
@@ -3524,5 +3534,5 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T09:19:46+00:00"
+  "updated_at": "2026-10-25T09:26:59+00:00"
 }
