@@ -3061,7 +3061,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-flashlight-e16-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 3,
       "repair_history": [
         {
@@ -3274,7 +3274,9 @@
         40120456012,
         40119789283
       ],
-      "submitted_at": "2026-10-25T11:11:22+00:00"
+      "submitted_at": "2026-10-25T11:11:22+00:00",
+      "run_id": 40187818735,
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -3724,5 +3726,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T11:21:25+00:00"
+  "updated_at": "2026-10-25T11:21:31+00:00"
 }
