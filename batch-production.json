@@ -1021,7 +1021,55 @@
       ],
       "repair_reason": "Preserve six usable original paintings and all spoken Hindi; replace closing with the directly inspected complete projector close-up and exclude exact duplicate-Prabhat alternate. All seven beats preflight, prepared opening luma98.84/contrast0.23174; full current cloud and AV gates remain required.",
       "run_id": 40146579288,
-      "cloud_status": "in_progress"
+      "cloud_status": "completed",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3.1-flash-lite",
+        "duration": 49.366667,
+        "video_sha256": "56799d2be3a1b21e81f14f5129fd9c0e01c75e989e3a92fe36436c6953cf9ffd",
+        "brief_sha256": "5a5021723b8ed673a082f355fd8f20902927ddfbdc34449f13d8bd2f31c4e48a",
+        "review_video_sha256": "9891128b56c450ca311e7acfa28658c13322ca1f06fa94c95d2aa086c80a8984",
+        "review_audio_sha256": "6d5d1e2b71a1d5eed02574976d582d8b7ab5a80e3be864c0679ee54e616fea6b",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "पुरानी रील पर हम तीनों ही दिख रहे थे।",
+          "heard_ending": "सच कबूलते ही फ़िल्म उलटी घूमी, और वही पुरानी रील फिर से दीवार पर हम तीनों को दिखाने लगी।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 1.5,
+              "seen": "A rusted film reel on a stand inside a room with two windows.",
+              "heard": "पुरानी रील पर हम तीनों ही दिख रहे थे।"
+            },
+            {
+              "part": "middle",
+              "seconds": 25.0,
+              "seen": "Young man Prabhat in a mustard sweater adjusting his glasses while talking to Nuzhat.",
+              "heard": "मुझे नियम याद आया कि सच दिखाने वाली चीज़ से झूठ नहीं बोलते"
+            },
+            {
+              "part": "ending",
+              "seconds": 42.0,
+              "seen": "An old metal film projector with two reels sitting on a wooden table against a blue wall.",
+              "heard": "और वही पुरानी रील फिर से दीवार पर हम तीनों को दिखाने लगी।"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -1478,7 +1526,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:49:11+00:00",
+  "updated_at": "2026-10-25T00:50:09+00:00",
   "complete": false,
   "health": {
     "public": 1,
