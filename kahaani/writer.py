@@ -15,6 +15,10 @@ REPAIRS = 2
 class WriterHold(RuntimeError):
     """No draft passed the gates and the editor."""
 
+    def __init__(self, message, *, draft=None, log=None):
+        super().__init__(message)
+        self.draft, self.log = draft, log
+
 
 CAST_IDS = [c for c in bible.ON_SCREEN]
 SCHEMA = {
@@ -225,6 +229,13 @@ def messages(premise: dict, history: list[dict], problems: list[str] | None = No
                 hook_help += (f"\nUse this bank opening verbatim as beat 1's spoken text: {bank_hook}"
                               f"\nIt has {len(hindi.words(bank_hook))} Hindi words. Do not add a name or setup "
                               "to that line. Preserve the other valid story beats while fixing the listed checks.")
+        counts = [len(hindi.words(b.get("text", ""))) for b in previous.get("beats", [])]
+        if sum(counts) > gate.WORDS[1] and len(counts) > 1:
+            target = sum(gate.WORDS) // 2
+            per_beat = (target - gate.HOOK_WORDS) // (len(counts) - 1)
+            hook_help += (f"\nCurrent spoken words by beat: {counts}, total {sum(counts)}. "
+                          f"Use at most {gate.HOOK_WORDS} words in beat 1 and about {per_beat} words in each "
+                          f"remaining beat, roughly {target} words overall. Cut clauses; do not add setup.")
         out += [{"role": "assistant", "content": json.dumps(untidy(previous), ensure_ascii=False)},
                 {"role": "user", "content": "Your draft failed these checks. Fix every one and return the full "
                                             "corrected JSON, every beat's text, scene and people written out in "
@@ -331,4 +342,13 @@ def write(premise: dict, history: list[dict], ask) -> tuple[dict, list[dict]]:
         if attempt == REPAIRS:
             break
         draft = carry(draft, tidy(ask(messages(premise, history, found, draft), SCHEMA)))
-    raise WriterHold(f"hold: no draft of {premise['id']} passed after {REPAIRS} repairs: " + "; ".join(found)[:300])
+        # The bank fixes the opening already. A rewrite that keeps adding words
+        # can use that exact canonical line before all code and editor checks.
+        # This neither truncates Hindi nor invents a replacement; record the edit.
+        bank_hook = premise.get("hook_line", "")
+        if (draft.get("beats") and len(hindi.words(draft["beats"][0]["text"])) > gate.HOOK_WORDS
+                and bank_hook and len(hindi.words(bank_hook)) <= gate.HOOK_WORDS):
+            log[-1]["canonical_hook_repair"] = {"original": draft["beats"][0]["text"], "replacement": bank_hook}
+            draft["beats"][0]["text"] = draft["hook"] = bank_hook
+    raise WriterHold(f"hold: no draft of {premise['id']} passed after {REPAIRS} repairs: " + "; ".join(found)[:300],
+                     draft=draft, log=log)

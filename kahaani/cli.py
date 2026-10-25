@@ -213,6 +213,12 @@ def plan(out: Path, dry: bool = False, replay: Path | None = None) -> dict:
                         draft, notes = writer.write(premise, history, pen.chat)
                         break
                     except writer.WriterHold as exc:
+                        status["writer_models"] = list(pen.used)
+                        if exc.draft is not None:
+                            (out / "writer-hold.json").write_text(json.dumps({
+                                "premise": premise["id"], "models": list(pen.used),
+                                "draft": exc.draft, "log": exc.log, "publishable": False,
+                            }, ensure_ascii=False, indent=2), encoding="utf-8")
                         passed_over.append([premise["id"], str(exc)[:300]])
                         status["passed_over"] = passed_over
                         if preview_entry or len(passed_over) >= PREMISES_PER_RUN:

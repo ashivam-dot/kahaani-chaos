@@ -89,9 +89,22 @@ def test_a_repair_with_a_new_beat_count_is_taken_as_written():
 
 def test_hold_after_two_repairs():
     room = Room([long_hook()] * 3)
-    with pytest.raises(writer.WriterHold, match="hold: no draft of e01 passed after 2 repairs"):
-        writer.write(PREMISE, [], room)
+    premise = {**PREMISE, "hook_line": long_hook()["beats"][0]["text"]}
+    with pytest.raises(writer.WriterHold, match="hold: no draft of e01 passed after 2 repairs") as held:
+        writer.write(premise, [], room)
     assert sum(schema is writer.SCHEMA for _, schema in room.calls) == writer.REPAIRS + 1
+    assert held.value.draft["beats"][0]["text"] == long_hook()["beats"][0]["text"]
+    assert len(held.value.log) == writer.REPAIRS + 1
+
+
+def test_repeatedly_overlong_rewrite_uses_exact_bank_hook_before_editor():
+    room = Room([long_hook(), long_hook()])
+    out, log = writer.write(PREMISE, [], room)
+    assert out["hook"] == out["beats"][0]["text"] == PREMISE["hook_line"]
+    assert log[0]["canonical_hook_repair"]["original"] == long_hook()["beats"][0]["text"]
+    assert log[-1]["stage"] == "editor" and log[-1]["problems"] == []
+    shown = room.calls[-1][0][0]["content"]
+    assert PREMISE["hook_line"] in shown
 
 
 def test_the_editor_flags_spoilers_and_red_lines():
