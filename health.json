@@ -1,17 +1,11 @@
 {
  "produce": {
-  "at": "2026-10-24T17:54:59+00:00",
+  "at": "2026-10-25T02:09:57+00:00",
   "ok": true,
   "dry": false,
   "steps": [
-   "paintings: 7 of 7 made, 7 repaints",
-   "hold e01: hold: picture and sound checks: frame 0 mean luma 72, needs 90-170"
-  ],
-  "picture_editor": [
-   "gemini"
-  ],
-  "prop_identity": 1.0,
-  "held": "hold: picture and sound checks: frame 0 mean luma 72, needs 90-170"
+   "skip: the reviewed batch coordinator owns these premises and release slots"
+  ]
  },
  "publish": {
   "at": "2026-10-24T18:05:44+00:00",
