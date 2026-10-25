@@ -2519,8 +2519,8 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-billing-slip-e17-repair.json"
       },
-      "stage": "planned",
-      "attempts": 3,
+      "stage": "dispatch_unresolved",
+      "attempts": 4,
       "editorial_holds": [
         {
           "id": "actual-e17-printed-hook-hands-40162007872",
@@ -2715,7 +2715,71 @@
       ],
       "repair_queued_at": "2026-10-25T06:44:56+00:00",
       "repair_source_sha": "75144b92c6126f514678aa775cb9a78c06d708be",
-      "repair_reason": "Current cloud picture review correctly rejects generated control-panel glyphs exposed by the closeup. Exclude that parent and use only exact clean-panel hook e0940ce7 with documented native-pixel clone-stamp and complete crop ancestry. All six other paintings, spoken lines and title remain identical. Repeat all current picture, narrator, render and full audiovisual checks."
+      "repair_reason": "Current cloud picture review correctly rejects generated control-panel glyphs exposed by the closeup. Exclude that parent and use only exact clean-panel hook e0940ce7 with documented native-pixel clone-stamp and complete crop ancestry. All six other paintings, spoken lines and title remain identical. Repeat all current picture, narrator, render and full audiovisual checks.",
+      "source_sha": "75144b92c6126f514678aa775cb9a78c06d708be",
+      "before_ids": [
+        40169893361,
+        40169378463,
+        40169098001,
+        40168832723,
+        40168763687,
+        40164083384,
+        40162491442,
+        40162007872,
+        40160199731,
+        40159235547,
+        40158580419,
+        40158338472,
+        40157308891,
+        40155939996,
+        40154809245,
+        40154557845,
+        40152921322,
+        40152845611,
+        40152138336,
+        40148804337,
+        40148651151,
+        40148639705,
+        40148316893,
+        40147867847,
+        40147346342,
+        40147002904,
+        40146579288,
+        40146069336,
+        40144076354,
+        40143503135,
+        40142724972,
+        40142626858,
+        40142424645,
+        40142328302,
+        40134819856,
+        40134047227,
+        40132420577,
+        40127450982,
+        40127055413,
+        40124707293,
+        40122737348,
+        40120456012,
+        40119789283,
+        40119725595,
+        40113702992,
+        40101837936,
+        40098975134,
+        40097886586,
+        40094273058,
+        40093452412,
+        40076072866,
+        40074101662,
+        40069802174,
+        40052825389,
+        40015352420,
+        40012868945,
+        40010294493,
+        40008947633,
+        39998079552,
+        39984130378
+      ],
+      "submitted_at": "2026-10-25T06:45:53+00:00"
     },
     {
       "repo": "kahaani-chaos",
@@ -2854,7 +2918,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e16.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 1,
       "source_sha": "0ba70330717d2fa8194a1ab479f861f8ed1acebb",
       "before_ids": [
@@ -2919,7 +2983,9 @@
         39984130378,
         39983471528
       ],
-      "submitted_at": "2026-10-25T06:39:56+00:00"
+      "submitted_at": "2026-10-25T06:39:56+00:00",
+      "run_id": 40169893361,
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -3026,5 +3092,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T06:45:46+00:00"
+  "updated_at": "2026-10-25T06:45:53+00:00"
 }
