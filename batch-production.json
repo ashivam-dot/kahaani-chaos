@@ -4950,114 +4950,10 @@
       "target": "2026-11-03T07:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e14.json"
+        "replay": ".github/replay/e14-reviewed-lantern-rescue-repair.json"
       },
-      "stage": "held",
+      "stage": "planned",
       "attempts": 1,
-      "source_sha": "b66ce33ea61c498a6fc251875ebbe18aad265992",
-      "before_ids": [
-        40206417025,
-        40206121370,
-        40205912773,
-        40204793444,
-        40203594826,
-        40202876221,
-        40200321514,
-        40199355603,
-        40198599502,
-        40198506719,
-        40198165103,
-        40197721800,
-        40197267045,
-        40196244177,
-        40192580429,
-        40192011575,
-        40189938585,
-        40187818735,
-        40187469293,
-        40185173569,
-        40183523788,
-        40183199244,
-        40180766036,
-        40180081031,
-        40180078790,
-        40178234124,
-        40177715903,
-        40176769163,
-        40176488651,
-        40174740535,
-        40172748055,
-        40172736622,
-        40171278752,
-        40171159505,
-        40170263222,
-        40169893361,
-        40169378463,
-        40169098001,
-        40168832723,
-        40168763687,
-        40164083384,
-        40162491442,
-        40162007872,
-        40160199731,
-        40159235547,
-        40158580419,
-        40158338472,
-        40157308891,
-        40155939996,
-        40154809245,
-        40154557845,
-        40152921322,
-        40152845611,
-        40152138336,
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847,
-        40147346342,
-        40147002904,
-        40146579288,
-        40146069336,
-        40144076354,
-        40143503135,
-        40142724972,
-        40142626858,
-        40142424645,
-        40142328302,
-        40134819856,
-        40134047227,
-        40132420577,
-        40127450982,
-        40127055413,
-        40124707293,
-        40122737348,
-        40120456012,
-        40119789283,
-        40119725595,
-        40113702992,
-        40101837936,
-        40098975134,
-        40097886586,
-        40094273058,
-        40093452412,
-        40076072866,
-        40074101662,
-        40069802174,
-        40052825389,
-        40015352420,
-        40012868945,
-        40010294493,
-        40008947633,
-        39998079552,
-        39984130378,
-        39983471528,
-        39969216681,
-        39964227699,
-        39953890527,
-        39952503586
-      ],
-      "submitted_at": "2026-10-25T15:38:00+00:00",
       "editorial_holds": [
         {
           "id": "e14-produced-plan-visual-cast-hold",
@@ -5114,12 +5010,27 @@
           }
         }
       ],
-      "run_id": 40207865422,
-      "cloud_status": "queued",
-      "problems": [
-        "Direct review of the exact produced plan finds beat4 naming three visible walkers while declaring only Jhabbu, and beat5 introducing a visible unregistered father despite the approved offscreen-only brief. The hashtag list also contains stray CJK separators. Repair only visual4/5 and hashtag formatting, preserve every spoken line and accepted art; all current release gates remain.",
-        "Direct review refuses beat2 for oversized cartoon eyes and child-like proportions in the eighteen-year-old Shailesh. Use a faithful close lantern insert or a repaired natural-proportion scene, preserving the narration and all existing holds and final gates."
-      ]
+      "repair_history": [
+        {
+          "run_id": 40207865422,
+          "source_sha": "b66ce33ea61c498a6fc251875ebbe18aad265992",
+          "stage": "held",
+          "problems": [
+            "Direct review of the exact produced plan finds beat4 naming three visible walkers while declaring only Jhabbu, and beat5 introducing a visible unregistered father despite the approved offscreen-only brief. The hashtag list also contains stray CJK separators. Repair only visual4/5 and hashtag formatting, preserve every spoken line and accepted art; all current release gates remain.",
+            "Direct review refuses beat2 for oversized cartoon eyes and child-like proportions in the eighteen-year-old Shailesh. Use a faithful close lantern insert or a repaired natural-proportion scene, preserving the narration and all existing holds and final gates."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e14.json"
+          }
+        }
+      ],
+      "obsolete_runs": [
+        40207865422
+      ],
+      "repair_queued_at": "2026-10-25T18:50:20+00:00",
+      "repair_source_sha": "bcfecf00036030957b2cd3bec0dc8f71feac5e6e",
+      "repair_reason": "Reuse all exact reviewed source art. Replace childlike beat2 with the provenance-bound lantern insert, crop unregistered figures completely out of beats4/5, and split only the original literal hashtag separator. Every spoken line is unchanged, original refusals remain, and current cloud picture, narrator, render and full audiovisual checks are required."
     },
     {
       "repo": "kahaani-chaos",
@@ -5224,7 +5135,7 @@
       ]
     }
   ],
-  "halted": "Repair held entry e14: Direct review of the exact produced plan finds beat4 naming three visible walkers while declaring only Jhabbu, and beat5 introducing a visible unregistered father despite the approved offscreen-only brief. The hashtag list also contains stray CJK separators. Repair only visual4/5 and hashtag formatting, preserve every spoken line and accepted art; all current release gates remain.; Direct review refuses beat2 for oversized cartoon eyes and child-like proportions in the eighteen-year-old Shailesh. Use a faithful close lantern insert or a repaired natural-proportion scene, preserving the narration and all existing holds and final gates.",
+  "halted": "Repair held entry e24: The exact produced beat1 narration says the friends stood outside the post office, while its scene explicitly places them inside. Repair only the establishing visual direction and source art for this beat; preserve narration and accepted siblings and require every final gate.; Native-resolution review finds a second miniature childlike figure at the lower right of beat2. The declared scene has only Shailesh. Exclude the complete refused frame and use a faithful upper-body crop that removes the entire additional figure; retain the original narration and every final gate.",
   "complete": false,
   "health": {
     "public": 3,
@@ -5232,7 +5143,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T18:50:15+00:00",
+  "updated_at": "2026-10-25T18:50:20+00:00",
   "measurement": {
     "at": "2026-10-25T18:46:43+00:00",
     "ok": true,
