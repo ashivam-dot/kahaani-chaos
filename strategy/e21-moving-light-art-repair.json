@@ -1,10 +1,11 @@
 {
-  "at": "2026-10-25T13:57:54.160568+00:00",
+  "at": "2026-10-25T13:59:54.997325+00:00",
   "original_story_sha256": "3b852f69b59b42f3c336f02e4aba82eeaf8577b0934530a55330895ba2fadf92",
   "original_run": 40198599502,
   "source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f",
   "refused_image_sha256": "e54ce82307b5a7388b3f051968953b5cf3b5b3f6b474cc731099ed39938b76ef",
   "changed_beats": [
+    0,
     2
   ],
   "speech_changed": false,
@@ -12,5 +13,10 @@
   "replacement_scene": "Close documentary-style painting of the middle section of the cold brick kiln chimney at night. Two dark iron ladder rails and five clear rungs cross the tall red-brick surface. A small unattached oval patch of warm amber light hovers in open air beside the middle rung, visibly separated from the iron and brick, with a short soft vertical glow trail above it suggesting downward movement. Only brick, ladder iron, blue night sky and this airborne light occupy the frame. The chimney base, ledge, lanterns, lamps, flames, bulbs and people are outside this tight view. The unattached glow is the only warm light. The scene is outdoors.",
   "basis": "Direct image inspection shows a fixed oil lamp. Appended house style requests a practical lantern/torch/bulb; an explicit object-only unattached-glow cue now preserves the warm/blue palette without introducing fixture hardware. Two tight crop previews were also refused: glow remains cut off at the bottom, so no crop is staged.",
   "release_approval": false,
-  "remaining": "Generate only beat2, directly inspect exact output, preserve accepted siblings, then complete ordinary cached picture, voice, render and full audiovisual gates."
+  "remaining": "Generate only beat2, directly inspect exact output, preserve accepted siblings, then complete ordinary cached picture, voice, render and full audiovisual gates.",
+  "replacement_scenes": {
+    "0": "Extreme close painting of the cold brick kiln chimney crown and upper iron ladder at night. The curved red-brick crown and three dark iron ladder rungs fill most of the vertical frame. One large oval patch of amber light floats in empty blue air just beside the upper rung, occupying one third of the picture width. A short soft vertical glow trail above this patch suggests that it is descending. Blue moonlight makes the brick and iron readable. The luminous patch is visibly unattached and unsupported in empty air, with no solid object inside it. Only brick, ladder iron, empty night air and this light are visible. The unattached glow is the only warm light. The scene is outdoors.",
+    "2": "Close painting of the middle section of the cold brick kiln chimney at night. Two dark iron ladder rails and five clear rungs cross the tall red-brick surface. One unattached oval patch of warm amber light floats in empty air beside the middle rung. A short soft vertical glow trail above it suggests downward movement. The luminous patch is visibly separate from the iron and brick, with no solid object inside it. Only brick, ladder iron, blue night air and this airborne light occupy the frame. The base, ledge and people are outside this tight view. The unattached glow is the only warm light. The scene is outdoors."
+  },
+  "additional_refusal": "Opening native image also shows two attached oil lanterns; direct refusal saved and release hold remains."
 }
