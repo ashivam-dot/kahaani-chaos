@@ -130,6 +130,9 @@ RULES (all mandatory):
   Make the named acting character perform the narrated action, identified by their fixed clothing. When one
   character handles the key object, prefer a clear shot of that character alone; put other reactions in adjacent
   beats. A character setting down a prop must not simultaneously be described carrying the same prop.
+  No painting may contain readable or invented letters, names or numbers. If the plot turns on a written name,
+  register entry or message, let the Hindi narration tell it while the painting shows the character reacting,
+  with the marked surface turned away or out of view. Do not ask the painter to scratch, print or display a name.
 - people: for each beat, every cast id visible in its painting with their expression at this moment; empty when
   no one is visible.
 - hook_strip: 3-5 Hindi words painted over frame 0 (a teaser, not the title), no emoji.
