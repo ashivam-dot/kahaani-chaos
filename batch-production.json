@@ -3060,7 +3060,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e16.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 1,
       "source_sha": "0ba70330717d2fa8194a1ab479f861f8ed1acebb",
       "before_ids": [
@@ -3127,7 +3127,10 @@
       ],
       "submitted_at": "2026-10-25T06:39:56+00:00",
       "run_id": 40169893361,
-      "cloud_status": "completed"
+      "cloud_status": "completed",
+      "problems": [
+        "ValueError: preview did not make a finished passing Short"
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -3138,7 +3141,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e26.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 1,
       "source_sha": "75144b92c6126f514678aa775cb9a78c06d708be",
       "before_ids": [
@@ -3203,7 +3206,9 @@
         40008947633,
         39998079552
       ],
-      "submitted_at": "2026-10-25T07:00:29+00:00"
+      "submitted_at": "2026-10-25T07:00:29+00:00",
+      "run_id": 40171159505,
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -3298,5 +3303,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T07:02:10+00:00"
+  "updated_at": "2026-10-25T07:02:14+00:00"
 }
