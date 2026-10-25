@@ -727,12 +727,17 @@ def _chatterbox_story(story: Story, out_dir: Path) -> dict:
     if hook_factor != 1.0:
         lead = LEAD_IN / factor / hook_factor
         words = [w | {"start": max(w["start"], lead), "end": max(w["end"], lead + 0.05)} for w in heard]
+    # The clone can retain a quiet internal pause even after each beat is trimmed, or pacing can
+    # lengthen one. Apply the same word-protected edit used for Gemini before the final waveform gate.
+    words, spoken, pause_edit = _shorten_pauses(wav, words, spoken)
+    if pause_edit:
+        wpm = _wpm(tokens, spoken)
     duration = sf.info(str(wav)).duration
     record = {"engine": "chatterbox-narrator-clone", "identity": "narrator", "voice": VOICE,
               "reference": str(REFERENCE.relative_to(TTS_DIR.parent)),
               "reference_sha256": hashlib.sha256(REFERENCE.read_bytes()).hexdigest(),
               "coverage": [round(c[2], 3) for c in clips], "wpm": wpm, "tempo": factor, "hook_tempo": hook_factor,
-              **STYLE}
+              **STYLE, **({"pause_edit": pause_edit} if pause_edit else {})}
     record["checks"] = measure(story, words, spoken, wav)
     lead = LEAD_IN / factor / hook_factor
     return _timing(out_dir, words, _spans(words, len(story.beats), duration, lead), duration, record)

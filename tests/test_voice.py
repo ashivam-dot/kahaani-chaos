@@ -190,3 +190,34 @@ def test_a_clone_beat_is_cut_to_its_words_so_a_trailing_breath_adds_no_silence()
     assert abs(len(cut) / sr - (1.6 + voice.WORD_TAIL - 0.5 + voice.WORD_HEAD)) < 0.01
     assert moved[0]["start"] == voice.WORD_HEAD and moved[1]["end"] == round(1.6 - 0.5 + voice.WORD_HEAD, 3)
     assert voice._trim(audio, []) == (audio, [])
+
+
+def test_clone_final_join_repairs_a_quiet_gap_without_changing_speech(tmp_path, monkeypatch, story):
+    import soundfile as sf
+    sr = voice.SAMPLE_RATE
+    tone = np.ones(sr, dtype=np.float32) * .4
+    clip = tmp_path / 'clone.wav'
+    sf.write(clip, np.concatenate([tone, np.zeros(round(1.24 * sr)), tone]), sr)
+    reference = tmp_path / 'tts/voices/narrator_ref.wav'
+    reference.parent.mkdir(parents=True)
+    reference.write_bytes(b'fixed narrator identity')
+    monkeypatch.setattr(voice, 'REFERENCE', reference)
+    monkeypatch.setattr(voice, 'TTS_DIR', tmp_path / 'tts')
+    monkeypatch.setattr(voice, '_chatterbox', lambda lines, out, seed: [{'file':str(clip)} for _ in lines])
+    def listen(path, tokens):
+        return ([{'text':'पहले','start':0.,'end':1.,'beat':0},
+                 {'text':'बाद','start':2.24,'end':3.24,'beat':0}], [1.],
+                [('पहले',0.,1.),('बाद',2.24,3.24)], 165.)
+    monkeypatch.setattr(voice, '_listen', listen)
+    monkeypatch.setattr(voice, '_wpm', lambda *args: 165.)
+    monkeypatch.setattr(voice.align, 'heard', lambda path: [])
+    monkeypatch.setattr(voice, '_hook_paced', lambda wav,tokens,words,cov,spoken,out,factor: (words,cov,spoken,1.))
+    timing = voice._chatterbox_story(story, tmp_path/'out')
+    record = timing['voice']
+    assert record['engine']=='chatterbox-narrator-clone' and record['reference_sha256']
+    assert record['checks']['max_gap'] <= voice.MAX_GAP
+    assert len(record['pause_edit']['removed']) == len(story.beats)
+    audio, _ = sf.read(tmp_path/'out/narration.wav', dtype='float32')
+    assert np.count_nonzero(audio) == len(story.beats) * 2 * sr
+    assert timing['duration'] == pytest.approx(len(audio)/sr, abs=.001)
+    assert timing['words'][-1]['end'] <= timing['duration']
