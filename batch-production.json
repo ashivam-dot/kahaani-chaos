@@ -1130,7 +1130,7 @@
         38428830025
       ],
       "submitted_at": "2026-10-25T00:36:19+00:00",
-      "cloud_status": "queued",
+      "cloud_status": "in_progress",
       "editorial_holds": [
         {
           "id": "direct-station-master-and-extra-prabhat-40142626858",
@@ -1306,7 +1306,7 @@
       ],
       "repair_reason": "Original draft exhausted bounded rewrites on an eleven-word hook. Repair now provides the measured Hindi token list and the exact valid ten-word bank opening; retain every story and full media gate.",
       "run_id": 40147867847,
-      "cloud_status": "queued"
+      "cloud_status": "in_progress"
     },
     {
       "repo": "kahaani-chaos",
@@ -1478,12 +1478,12 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:45:58+00:00",
+  "updated_at": "2026-10-25T00:46:00+00:00",
   "complete": false,
   "health": {
     "public": 1,
     "scheduled": 3,
-    "held": 1,
+    "held": 0,
     "mode": "publish"
   }
 }
