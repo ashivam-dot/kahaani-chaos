@@ -77,6 +77,7 @@ PERSON = re.compile(r"\b(he|she|they|his|her|their|him|man|men|woman|women|young
                     re.I)
 WRITING = re.compile(r"\b(writ(?:e|es|ing)|pen|ink|pencil)\b", re.I)
 ELECTRIC_ONLY = re.compile(r"\belectric flashlight is the only practical light\b", re.I)
+UNATTACHED_GLOW = re.compile(r"\bthe unattached glow is the only warm light\b", re.I)
 WRISTS_ONLY = re.compile(r"\bonly hands and wrists are within the frame\b", re.I)
 # The e16 restraining-grip repairs ignored their crop when the appended full-body
 # cast tokens requested caps, glasses and flip-flops. This explicit close detail
@@ -214,6 +215,12 @@ def prompt(scene: str, people: list[dict], cast: list[dict], *, hook: bool = Fal
         style = style.replace("one warm practical light (lantern, torch or bulb)",
                               "one warm-white electric battery-flashlight beam")
         style = style.replace("one warm practical light", "one warm-white electric battery-flashlight beam")
+    if not present and not DAWN.search(scene) and UNATTACHED_GLOW.search(scene):
+        # E21's autonomous ladder light became a physical oil lamp because the house
+        # style explicitly requested one. Preserve the palette without adding a fixture.
+        style = style.replace("one warm practical light (lantern, torch or bulb)",
+                              "one warm unattached self-luminous glow")
+        style = style.replace("one warm practical light", "one warm unattached self-luminous glow")
     parts += [style + ".", AVOID, NEVER]
     return " ".join(parts)
 

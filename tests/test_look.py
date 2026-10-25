@@ -49,6 +49,21 @@ def test_explicit_wrists_only_narrator_does_not_request_a_face():
     assert look.FACES in previous
 
 
+def test_explicit_unattached_light_does_not_reintroduce_a_physical_lamp():
+    scene = ('An empty brick chimney ladder with an unattached glowing patch beside a middle rung. '
+             'The unattached glow is the only warm light. The scene is outdoors.')
+    out = look.prompt(scene, [], [])
+    assert 'one warm unattached self-luminous glow' in out
+    assert '(lantern, torch or bulb)' not in out and 'one warm practical light' not in out
+    assert 'moonlit-blue' in out and look.NOBODY in out and look.NEVER in out
+    ordinary = look.prompt('An empty chimney ladder at night.', [], [])
+    assert look.STYLE in ordinary
+    # Existing carried cast props and the dawn exception retain their normal lighting.
+    people = look.prompt(scene, [{'name': 'jhabbu'}], [{'id': 'jhabbu'}])
+    assert look.STYLE in people and 'brass hurricane lantern' in people
+    assert look.DAWN_STYLE in look.prompt('At dawn. ' + scene, [], [])
+
+
 def test_prompt_order_and_parts():
     p = look.prompt("Wide shot of a misty lane at night", [{"name": "dhaniram", "expression": "greedy grin"}], CAST)
     assert p.startswith("Wide shot of a misty lane at night. Characters: Dhaniram: plump middle-aged")
