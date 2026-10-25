@@ -1191,7 +1191,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e07.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 2,
       "source_sha": "d00710d686fe1824fcc45e3d9134ea4bd7b0f040",
       "before_ids": [
@@ -1304,7 +1304,9 @@
       "obsolete_runs": [
         40147002904
       ],
-      "repair_reason": "Original draft exhausted bounded rewrites on an eleven-word hook. Repair now provides the measured Hindi token list and the exact valid ten-word bank opening; retain every story and full media gate."
+      "repair_reason": "Original draft exhausted bounded rewrites on an eleven-word hook. Repair now provides the measured Hindi token list and the exact valid ten-word bank opening; retain every story and full media gate.",
+      "run_id": 40147867847,
+      "cloud_status": "queued"
     },
     {
       "repo": "kahaani-chaos",
@@ -1476,7 +1478,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:44:25+00:00",
+  "updated_at": "2026-10-25T00:44:32+00:00",
   "complete": false,
   "health": {
     "public": 1,
