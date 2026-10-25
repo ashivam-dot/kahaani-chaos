@@ -4512,7 +4512,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e19.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 2,
       "repair_history": [
         {
@@ -4626,7 +4626,26 @@
       ],
       "submitted_at": "2026-10-25T13:49:07+00:00",
       "run_id": 40199355603,
-      "cloud_status": "queued"
+      "cloud_status": "queued",
+      "editorial_holds": [
+        {
+          "id": "e19-poster-schema-held",
+          "run_id": 40199355603,
+          "observed_at": "2026-10-25T14:50:50+00:00",
+          "reason": "The opening shows a physical human in the street instead of the planned painted cinema poster; beat2 copies character metadata as labels or split panels and omits the illuminated poster. Repair only refused scenes with clean visual directions, preserve narration and accepted siblings, and retain all current release gates.",
+          "evidence": {
+            "art-40199355603-0/beat00.png": "ec38224fe3915551fd4abd1f2f44820c0f7e887a9ad44b1c4236cdd5869a2685",
+            "art-40199355603-0/beat00-alt1.png": "4c2a1192cd797beb88105557ef7473d8e5c0c6ee4699f1b2e63d8b63478bdda7",
+            "art-40199355603-0/beat00-alt2.png": "5da55249ac217ceec04de024da2f1cb98facd8f4da17d5d7a47320894fd0146c",
+            "art-40199355603-2/beat02.png": "60eb92323da19527c5f44650f2210b0f3d59a525e800c9659e045fafa1394019",
+            "art-40199355603-2/beat02-alt1.png": "57aa47e62327860a8d3f3d5c9cfa6db53dec767a3567d94b50e7538cb8994fe7",
+            "art-40199355603-2/beat02-alt2.png": "55290faafe10316729725fda96bdd889fb643bbd1383dedf60e82b28fea18e32"
+          }
+        }
+      ],
+      "problems": [
+        "The opening shows a physical human in the street instead of the planned painted cinema poster; beat2 copies character metadata as labels or split panels and omits the illuminated poster. Repair only refused scenes with clean visual directions, preserve narration and accepted siblings, and retain all current release gates."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -4661,7 +4680,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T14:41:16+00:00",
+  "updated_at": "2026-10-25T14:50:50+00:00",
   "measurement": {
     "at": "2026-10-25T14:35:27+00:00",
     "ok": true,
