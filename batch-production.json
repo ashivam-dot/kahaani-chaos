@@ -3295,9 +3295,9 @@
       "target": "2026-10-31T13:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e15.json"
+        "replay": ".github/replay/sannatpur-toy-boat-e15-repair.json"
       },
-      "stage": "held",
+      "stage": "planned",
       "attempts": 2,
       "repair_history": [
         {
@@ -3354,80 +3354,29 @@
             ],
             "publishable": false
           }
+        },
+        {
+          "run_id": 40176769163,
+          "source_sha": "d90a2f62aaf82dd5da1d9a5dbf781f2c0d325813",
+          "stage": "held",
+          "problems": [
+            "The upstream toy-boat painting contains a long oar/paddle and an onboard burning lantern, contradicting the tiny unpowered boat and the spoken without-oars mystery. Preserve all speech and useful siblings; replace only this scene with a clearly miniature empty toy boat. All current picture, narrator, render and audiovisual gates remain required.",
+            "The ending shows a large adult face and chin-on-hand portrait, contradicting the fixed hands-only adult narrator. Preserve every spoken line and useful siblings; replace only this ending painting with hands, faded blue notebook and steel-rimmed glasses, framed at wrists. All normal picture, narrator, render and audiovisual gates remain required."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e15.json"
+          },
+          "repair_reason": "Actual three-attempt editor refusal: toy/transport scale ambiguous; unrelated diary has no causal setup; leaving boat contradicts keep-with-thanks rule. Clarify only existing bank logline, retaining every other bank field, exact hook/title/anomaly/rule/heart/rotation and location. Ordinary writer/editor and all production/release gates still required."
         }
       ],
       "obsolete_runs": [
-        40171278752
-      ],
-      "repair_queued_at": "2026-10-25T07:26:32+00:00",
-      "repair_source_sha": "ca525b9e00b0c93dd332876d43381d617c14dfe1",
-      "repair_reason": "Actual three-attempt editor refusal: toy/transport scale ambiguous; unrelated diary has no causal setup; leaving boat contradicts keep-with-thanks rule. Clarify only existing bank logline, retaining every other bank field, exact hook/title/anomaly/rule/heart/rotation and location. Ordinary writer/editor and all production/release gates still required.",
-      "source_sha": "d90a2f62aaf82dd5da1d9a5dbf781f2c0d325813",
-      "before_ids": [
-        40176488651,
-        40174740535,
-        40172748055,
-        40172736622,
         40171278752,
-        40171159505,
-        40170263222,
-        40169893361,
-        40169378463,
-        40169098001,
-        40168832723,
-        40168763687,
-        40164083384,
-        40162491442,
-        40162007872,
-        40160199731,
-        40159235547,
-        40158580419,
-        40158338472,
-        40157308891,
-        40155939996,
-        40154809245,
-        40154557845,
-        40152921322,
-        40152845611,
-        40152138336,
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847,
-        40147346342,
-        40147002904,
-        40146579288,
-        40146069336,
-        40144076354,
-        40143503135,
-        40142724972,
-        40142626858,
-        40142424645,
-        40142328302,
-        40134819856,
-        40134047227,
-        40132420577,
-        40127450982,
-        40127055413,
-        40124707293,
-        40122737348,
-        40120456012,
-        40119789283,
-        40119725595,
-        40113702992,
-        40101837936,
-        40098975134,
-        40097886586,
-        40094273058,
-        40093452412,
-        40076072866,
-        40074101662,
-        40069802174
+        40176769163
       ],
-      "submitted_at": "2026-10-25T08:28:40+00:00",
-      "run_id": 40176769163,
-      "cloud_status": "in_progress",
+      "repair_queued_at": "2026-10-25T10:20:07+00:00",
+      "repair_source_sha": "2d8f655212bba84f4eb33a4fc230936252775f84",
+      "repair_reason": "Exact reviewed outdoor empty toy boat and wrists-only narrator replace held scenes3/6; original2 duplicate base excluded in favor of its passing alternate. Speech unchanged, normal picture/narrator/render/full audiovisual and processed owner checks required.",
       "editorial_holds": [
         {
           "id": "direct-e15-toy-boat-oar",
@@ -3483,10 +3432,6 @@
             "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
-      ],
-      "problems": [
-        "The upstream toy-boat painting contains a long oar/paddle and an onboard burning lantern, contradicting the tiny unpowered boat and the spoken without-oars mystery. Preserve all speech and useful siblings; replace only this scene with a clearly miniature empty toy boat. All current picture, narrator, render and audiovisual gates remain required.",
-        "The ending shows a large adult face and chin-on-hand portrait, contradicting the fixed hands-only adult narrator. Preserve every spoken line and useful siblings; replace only this ending painting with hands, faded blue notebook and steel-rimmed glasses, framed at wrists. All normal picture, narrator, render and audiovisual gates remain required."
       ]
     },
     {
@@ -3570,5 +3515,5 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T10:20:02+00:00"
+  "updated_at": "2026-10-25T10:20:07+00:00"
 }
