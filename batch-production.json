@@ -551,7 +551,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-scale-e04-repair.json"
       },
-      "stage": "building",
+      "stage": "reviewed",
       "attempts": 3,
       "source_sha": "0b1871ed060525998fc994a3a94767192b7b67c9",
       "before_ids": [
@@ -844,7 +844,8 @@
           ],
           "issues": []
         }
-      }
+      },
+      "archive": "batch-reviewed-40146069336"
     },
     {
       "repo": "kahaani-chaos",
@@ -1261,7 +1262,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T00:27:24+00:00",
+  "updated_at": "2026-10-25T00:27:33+00:00",
   "complete": false,
   "health": {
     "public": 1,
