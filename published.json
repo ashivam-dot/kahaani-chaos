@@ -426,5 +426,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-0059-e07",
+  "premise": "e07",
+  "title": "भट्ठे की ईंटें गिनीं… और हर बार एक ज़्यादा निकली! 🧱",
+  "subgenre": "kindness",
+  "motifs": [],
+  "ending": "open-question",
+  "opening": "भट्ठे की",
+  "made_at": "2026-10-25T04:16:50+00:00",
+  "format": "micro",
+  "skeleton": "S1",
+  "resolution": "outsmart",
+  "heart_type": "kindness",
+  "object_token": "ईंटें",
+  "anomaly": "गिनने पर हर बार एक ईंट ज़्यादा निकलना",
+  "location": "ठंडा पड़ा पूरब वाला ढेर",
+  "place_id": "bhatta",
+  "hook_strip": "एक ईंट ज़्यादा",
+  "script": "भट्ठे की ईंटें गिनते ही एक ईंट ज़्यादा निकल आती। उन्नीस सौ छियानवे, उस रात हम मुंशी के कहने पर पूरब वाले ठंडे ढेर की ईंटें गिन रहे थे। शैलेश ने सत्तर गिनी, नुज़हत ने इकहत्तर और मैंने बहत्तर; जबकि वहाँ सिर्फ़ उनहत्तर ईंटें थीं। शैलेश डरकर भागने लगा, पर नुज़हत ने हाथ पकड़ लिया क्योंकि रात की गिनती अधूरी छोड़ना मना है। नियम चौदह के मुताबिक़ हमने थकी हुई नुज़हत की बात मानी और बारी-बारी से आख़िरी ईंट तक गिना। उस आख़िरी ईंट पर किसी पुराने मज़दूर का नाम लिखा था जिसकी मज़दूरी मुंशी खा गया था, पर वो नाम आज रात वहाँ लिखा किसने?",
+  "slot": "2026-10-27T13:30:00Z",
+  "published_at": "2026-10-27T13:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40160199731,
+  "av_review_sha256": "68346cec16cdd5376ccc6f9386ac6a15ddeb836665910c0bf7a93e0c5120345a",
+  "video_id": "BfuHZT9Iht8",
+  "url": "https://www.youtube.com/shorts/BfuHZT9Iht8",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-27T13:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "उस आख़िरी ईंट पर किसी पुराने मज़दूर का नाम लिखा था जिसकी मज़दूरी मुंशी खा गया था, पर वो नाम आज रात वहाँ लिखा किसने? 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-10-27T13:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
