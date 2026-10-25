@@ -1,0 +1,57 @@
+{
+ "videos": {
+  "wzHUt1EL_Lc": {
+   "id": "kc-20261024-2126-e09",
+   "premise": "e09",
+   "format": "micro",
+   "source_sha": "fdaae1d136a4fcc8e7d2e9d53dc33b583674809b",
+   "published_at": "2026-10-25T13:30:19Z",
+   "observations": [
+    {
+     "observed_at": "2026-10-25T14:35:25.005157+00:00",
+     "age_h": 1.0850014325,
+     "views": 0,
+     "likes": 0,
+     "comments": 0
+    }
+   ]
+  },
+  "GeVr3RGu31I": {
+   "id": "kc-20261024-1859-e02",
+   "premise": "e02",
+   "format": "micro",
+   "source_sha": "fec73b8fbb36ae4a54d34a3916d8731269bd0af9",
+   "published_at": "2026-10-25T07:30:17Z",
+   "observations": [
+    {
+     "observed_at": "2026-10-25T14:35:25.005157+00:00",
+     "age_h": 7.085556988055555,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
+    }
+   ]
+  },
+  "MgpiNIxQLAs": {
+   "id": "kc-20261023-1622-e01",
+   "premise": "e01",
+   "format": "micro",
+   "source_sha": "4c5195d8eb2ff5e0b1b661f5225feb8d85056e1a",
+   "published_at": "2026-10-24T21:26:03Z",
+   "observations": [
+    {
+     "observed_at": "2026-10-25T14:35:25.005157+00:00",
+     "age_h": 17.156112543611112,
+     "views": 5,
+     "likes": 0,
+     "comments": 1
+    }
+   ]
+  }
+ },
+ "at": "2026-10-25T14:35:25.005157+00:00",
+ "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+ "source": "YouTube owner Data API",
+ "scope": "Actual public-batch counts at recorded ages; Analytics metrics are unknown here",
+ "missing_counts": []
+}
