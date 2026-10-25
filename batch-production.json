@@ -1998,10 +1998,10 @@
   "health": {
     "public": 1,
     "scheduled": 5,
-    "held": 0,
+    "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T03:28:29+00:00",
+  "updated_at": "2026-10-25T03:28:32+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
