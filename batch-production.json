@@ -2519,7 +2519,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-billing-slip-e17-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 4,
       "editorial_holds": [
         {
@@ -2779,7 +2779,57 @@
         39998079552,
         39984130378
       ],
-      "submitted_at": "2026-10-25T06:45:53+00:00"
+      "submitted_at": "2026-10-25T06:45:53+00:00",
+      "run_id": 40170263222,
+      "cloud_status": "completed",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3-flash-preview",
+        "duration": 44.333333,
+        "video_sha256": "b1dad98c1265ae1ca57df8b3371d884caadb3fe44d495cc708f276f7b29bfa00",
+        "brief_sha256": "14022603171d27f6c13931f876f9d87aeb15a886fadbf91f3dbb2cb3660bb1e5",
+        "review_video_sha256": "45432550c7f15a89d98f22c565916d149ae09ad76ac45ef6e3fb704cee0a34e1",
+        "review_audio_sha256": "a34eaf20fa6f019eedbf3d4ae1f729013e8b0183b4d28a547cb3760522fa0934",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "पीसीओ की पर्ची पर दस साल पुरानी तारीख़ छपी थी।",
+          "heard_ending": "पर उस रात पीसीओ की पर्ची पर वही दस साल पुरानी तारीख़ छपी रह गई।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.0,
+              "seen": "Billing machine with paper.",
+              "heard": "दस साल पुरानी तारीख़ छपी थी।"
+            },
+            {
+              "part": "middle",
+              "seconds": 25.0,
+              "seen": "Jhabbu holding Shailesh's wrist.",
+              "heard": "तारीख़ को फाड़ते नहीं।"
+            },
+            {
+              "part": "ending",
+              "seconds": 40.0,
+              "seen": "PCO counter under bulb.",
+              "heard": "पुरानी तारीख़ छपी रह गई।"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -2985,7 +3035,7 @@
       ],
       "submitted_at": "2026-10-25T06:39:56+00:00",
       "run_id": 40169893361,
-      "cloud_status": "in_progress"
+      "cloud_status": "completed"
     },
     {
       "repo": "kahaani-chaos",
@@ -3092,5 +3142,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T06:56:11+00:00"
+  "updated_at": "2026-10-25T06:57:09+00:00"
 }
