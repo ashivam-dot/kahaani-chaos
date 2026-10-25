@@ -4677,10 +4677,10 @@
   "health": {
     "public": 3,
     "scheduled": 14,
-    "held": 1,
+    "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T14:55:16+00:00",
+  "updated_at": "2026-10-25T14:55:19+00:00",
   "measurement": {
     "at": "2026-10-25T14:55:16+00:00",
     "ok": true,
