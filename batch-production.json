@@ -1821,7 +1821,55 @@
       ],
       "submitted_at": "2026-10-25T03:42:58+00:00",
       "run_id": 40159235547,
-      "cloud_status": "completed"
+      "cloud_status": "completed",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3-flash-preview",
+        "duration": 39.066667,
+        "video_sha256": "e6399f4799503482116c71f439c79748865dc6fa591f33cbceb9833c2653c716",
+        "brief_sha256": "8fc374dbbfe370804fc5fb12bda91fcc6edeb003be3a3933d90327704a4fc5c6",
+        "review_video_sha256": "60a730cd5fdc8fbc0f75f57a94c3613403c965b98a620294ccc1922111d19828",
+        "review_audio_sha256": "514794d4c3bd91358af3806fd4055f7e6b04a784d236f8156cedf506156b4035",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "दर्ज़ी की सिलाई मशीन रात में अपने-आप चलने लगी।",
+          "heard_ending": "काम पूरा होते ही, हाट की सिलाई मशीन फिर से एकदम खामोश हो गई।",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "A close-up of an old black iron sewing machine on a wooden table with khaki fabric under the needle, illuminated by a lantern.",
+              "heard": "दर्ज़ी की सिलाई मशीन रात में अपने-आप चलने लगी।"
+            },
+            {
+              "part": "middle",
+              "seconds": 14.0,
+              "seen": "Jhabbu, an elderly man with a red muffler, holds a lantern high while Prabhat, Nuzhat, and Shailesh look on in the dark.",
+              "heard": "झब्बू बोले कि रात को अधूरा काम पूरा कर दो, तो रात चुप हो जाती है।"
+            },
+            {
+              "part": "ending",
+              "seconds": 36.0,
+              "seen": "A wide shot of the empty tailor stall at night under blue moonlight, with the sewing machine sitting still on the table.",
+              "heard": "काम पूरा होते ही, हाट की सिलाई मशीन फिर से एकदम खामोश हो गई।"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -2185,7 +2233,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T04:16:50+00:00",
+  "updated_at": "2026-10-25T04:17:32+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
