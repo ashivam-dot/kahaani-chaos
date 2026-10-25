@@ -1720,6 +1720,24 @@
           "evidence": {
             "art-40152138336-0/beat00.png": "5000e820fa0dffaf040c3784270d9d04d56b68f03ff4dbf880f31cde3b6c99f8",
             "art-40152138336-5/beat05.png": "4eac6fd22a85a155bd4a152150114f9909c6ee6ca95ee0c482ed54ff80222fa9"
+          },
+          "resolved_at": "2026-10-25T02:45:00+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "802e6cac33e52929cea7750db1507e39437645b7",
+            "replay": ".github/replay/sannatpur-pco-e03-repair.json",
+            "replay_sha256": "a4fd57610fadcf3c31cefbc8d3369a6beced1d5a8e5b5aeed80f21bd77ed3ceb",
+            "selected_images": {
+              "0": "71e49e41aa0bfda076987e0b3cd4896eae2dc797f19a5e533152895a1f36bf66",
+              "1": "acbaf208c7a7d3e25b9a7e06d52ac5c21c034b7ac5a0cb8c2c81d5b358da2057",
+              "2": "ef6546b08ef425d446b1b6516d997ce27df8fb8e660dbc8277e86e302823aff5",
+              "3": "c7c405c4ebcc47ca978432be3bd45be6275fe0b79dbb8abe9a707b9a3026dbb1",
+              "4": "fc0c2b50745bfdff820acd857cd4aa18e5c7ae31de2bd4b5148af3e0fb6c1742",
+              "5": "6d3ea94106afb8ef488fa75ba8b59472d4f9fa44d1d0193230d8d3f05954cce2",
+              "6": "49eb276efbc7ff46017169a584f3e86e0938f1a192c38d2b47dfcbe735401716"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -1880,7 +1898,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T02:32:04+00:00",
+  "updated_at": "2026-10-25T02:45:00+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
