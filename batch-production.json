@@ -2597,10 +2597,22 @@
             "art-40162007872-0/beat00.png": "c32e7f3268077b560cb273894d7f2c9c128552944ad95866dc6cf21ffd66f12f",
             "art-40162007872-0/beat00-alt1.png": "7c70617392cb16f4b7ee8624aeaf4e8aa616c59a1ba2c61c5f3d9693169936f4"
           }
+        },
+        {
+          "id": "actual-e17-outdoor-meter-hands-40162007872",
+          "run_id": 40162007872,
+          "observed_at": "2026-10-25T05:28:41+00:00",
+          "reason": "Direct full-resolution inspection rejects all three beat2 paintings: unplanned human hands occupy the object-only shot and the PCO meter is staged in an outdoor village street rather than the enclosed yellow-glass counter room. The saved early editor independently refuses the first two for these exact defects. Preserve the paper-emergence narration and all other speech; replace only this image direction with an unattended blank-slip meter and a small service bell inside solid plaster walls.",
+          "evidence": {
+            "art-40162007872-2/beat02.png": "31adc2a7f0ff240fb1e9e562555f68bb7dac26ac8852f1e29f71d5ca6010cdb8",
+            "art-40162007872-2/beat02-alt1.png": "a3b97932f9263b5473b4a64b81a51c15fbc70f92a64449f0a8f7f245d932ac90",
+            "art-40162007872-2/beat02-alt2.png": "e0ef652e20f74bd701042ab4f61e07613f98ffe09a9aec6afc58c80324754922"
+          }
         }
       ],
       "problems": [
-        "Direct full-resolution inspection rejects both completed hook paintings: both add prominent human hands to a people-free object shot and rows of generated writing on the slip. The saved early picture editor independently refuses both exact images for those defects. Preserve every spoken line, title and story; replace only the hook scene with a blank unmarked paper strip emerging from an enclosed analogue PCO billing meter. Keep useful other art; complete current picture, narrator, render and full audiovisual checks remain required."
+        "Direct full-resolution inspection rejects both completed hook paintings: both add prominent human hands to a people-free object shot and rows of generated writing on the slip. The saved early picture editor independently refuses both exact images for those defects. Preserve every spoken line, title and story; replace only the hook scene with a blank unmarked paper strip emerging from an enclosed analogue PCO billing meter. Keep useful other art; complete current picture, narrator, render and full audiovisual checks remain required.",
+        "Direct full-resolution inspection rejects all three beat2 paintings: unplanned human hands occupy the object-only shot and the PCO meter is staged in an outdoor village street rather than the enclosed yellow-glass counter room. The saved early editor independently refuses the first two for these exact defects. Preserve the paper-emergence narration and all other speech; replace only this image direction with an unattended blank-slip meter and a small service bell inside solid plaster walls."
       ]
     },
     {
@@ -2790,7 +2802,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e17: Direct full-resolution inspection rejects both completed hook paintings: both add prominent human hands to a people-free object shot and rows of generated writing on the slip. The saved early picture editor independently refuses both exact images for those defects. Preserve every spoken line, title and story; replace only the hook scene with a blank unmarked paper strip emerging from an enclosed analogue PCO billing meter. Keep useful other art; complete current picture, narrator, render and full audiovisual checks remain required.",
+  "halted": "Repair held entry e17: Direct full-resolution inspection rejects both completed hook paintings: both add prominent human hands to a people-free object shot and rows of generated writing on the slip. The saved early picture editor independently refuses both exact images for those defects. Preserve every spoken line, title and story; replace only the hook scene with a blank unmarked paper strip emerging from an enclosed analogue PCO billing meter. Keep useful other art; complete current picture, narrator, render and full audiovisual checks remain required.; Direct full-resolution inspection rejects all three beat2 paintings: unplanned human hands occupy the object-only shot and the PCO meter is staged in an outdoor village street rather than the enclosed yellow-glass counter room. The saved early editor independently refuses the first two for these exact defects. Preserve the paper-emergence narration and all other speech; replace only this image direction with an unattended blank-slip meter and a small service bell inside solid plaster walls.",
   "complete": false,
   "health": {
     "public": 1,
@@ -2798,5 +2810,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T05:19:21+00:00"
+  "updated_at": "2026-10-25T05:28:41+00:00"
 }
