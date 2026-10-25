@@ -1102,7 +1102,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-signal-e06-repair.json"
       },
-      "stage": "reviewed",
+      "stage": "upload_intent",
       "attempts": 3,
       "source_sha": "ea5ee448e55ee90447597e4f691d878c021a8767",
       "before_ids": [
@@ -1316,7 +1316,9 @@
           "issues": []
         }
       },
-      "archive": "batch-reviewed-40148639705"
+      "archive": "batch-reviewed-40148639705",
+      "intended_publish_at": "2026-10-27T07:30:00Z",
+      "upload_intent_at": "2026-10-25T01:14:21+00:00"
     },
     {
       "repo": "kahaani-chaos",
@@ -1746,7 +1748,7 @@
     }
   ],
   "halted": null,
-  "updated_at": "2026-10-25T01:14:20+00:00",
+  "updated_at": "2026-10-25T01:14:21+00:00",
   "complete": false,
   "health": {
     "public": 1,
