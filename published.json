@@ -678,5 +678,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-0733-e16",
+  "premise": "e16",
+  "title": "टंकी पर पतंग फँसी थी… और वो मेरा नाम पुकार रही थी! 🪁",
+  "subgenre": "kindness",
+  "motifs": [],
+  "ending": "loop-back",
+  "opening": "टंकी पर",
+  "made_at": "2026-10-25T11:36:48+00:00",
+  "format": "micro",
+  "skeleton": "S1",
+  "resolution": "outsmart",
+  "heart_type": "kindness",
+  "object_token": "पतंग",
+  "anomaly": "फड़फड़ाहट का रात भर किसी का नाम पुकारने जैसा सुनाई देना",
+  "location": "टंकी की ऊपरी रेलिंग",
+  "place_id": "tanki",
+  "hook_strip": "पतंग की पुकार",
+  "script": "टंकी पर फँसी पतंग मेरा नाम पुकार रही थी। उन्नीस सौ छियानवे, उस रात हम तीनों टंकी की लोहे की सीढ़ी चढ़कर छत पर खड़े थे। पीछे से पतंग के फटने और हवा के घिसटने की तीखी आवाज़ आई—प्रभात। शैलेश घबराकर तुरंत पीछे मुड़ने लगा। मैंने उसकी बाँह भींच ली; झब्बू का नियम था—तीसरी पुकार पर ही पलटो। दूसरी बार फिर वही फड़फड़ाहट मेरा नाम दोहरा गई, पर हम चुपचाप पीठ किए खड़े रहे। तीसरी पुकार पर हम घूमे। हवा ने फटा कागज़ उठाया, तो पीछे डोर में उलझी एक चिड़िया दिखी, जिसे नुज़हत ने आहिस्ता से छुड़ाकर उड़ा दिया। उस रात पतंग ख़ामोश हो गई, पर आज भी सन्नाटे में हवा का झोंका मुझे टंकी पर फँसी पतंग की याद दिला देता है।",
+  "slot": "2026-10-30T13:30:00Z",
+  "published_at": "2026-10-30T13:30:00Z",
+  "voice": "chatterbox-narrator-clone",
+  "batch_run": 40187818735,
+  "av_review_sha256": "059908703cfdc5645a027f0daf5deb93e122cabd89c033cad4355402b856380b",
+  "video_id": "j43i6C-uymk",
+  "url": "https://www.youtube.com/shorts/j43i6C-uymk",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-30T13:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-10-30T13:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]

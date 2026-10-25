@@ -3061,7 +3061,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-flashlight-e16-repair.json"
       },
-      "stage": "upload_intent",
+      "stage": "scheduled",
       "attempts": 3,
       "repair_history": [
         {
@@ -3327,7 +3327,26 @@
       },
       "archive": "batch-reviewed-40187818735",
       "intended_publish_at": "2026-10-30T13:30:00Z",
-      "upload_intent_at": "2026-10-25T11:36:06+00:00"
+      "upload_intent_at": "2026-10-25T11:36:06+00:00",
+      "delivery": {
+        "video_id": "j43i6C-uymk",
+        "url": "https://www.youtube.com/shorts/j43i6C-uymk",
+        "privacy": "scheduled",
+        "publish_at": "2026-10-30T13:30:00Z",
+        "synthetic_declared": true,
+        "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+        "comment": "pending: HTTP 403",
+        "playlist": "skipped: no playlist",
+        "owner_readback": {
+          "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+          "privacyStatus": "private",
+          "publishAt": "2026-10-30T13:30:00Z",
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false,
+          "containsSyntheticMedia": null,
+          "uploadStatus": "processed"
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -3777,5 +3796,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T11:36:06+00:00"
+  "updated_at": "2026-10-25T11:36:48+00:00"
 }
