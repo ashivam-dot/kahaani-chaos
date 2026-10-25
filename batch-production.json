@@ -2517,76 +2517,10 @@
       "target": "2026-10-29T13:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e17.json"
+        "replay": ".github/replay/sannatpur-billing-slip-e17-repair.json"
       },
-      "stage": "held",
+      "stage": "planned",
       "attempts": 1,
-      "source_sha": "ec57858391b8a52f659e6187efe844662ef19aa7",
-      "before_ids": [
-        40160199731,
-        40159235547,
-        40158580419,
-        40158338472,
-        40157308891,
-        40155939996,
-        40154809245,
-        40154557845,
-        40152921322,
-        40152845611,
-        40152138336,
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847,
-        40147346342,
-        40147002904,
-        40146579288,
-        40146069336,
-        40144076354,
-        40143503135,
-        40142724972,
-        40142626858,
-        40142424645,
-        40142328302,
-        40134819856,
-        40134047227,
-        40132420577,
-        40127450982,
-        40127055413,
-        40124707293,
-        40122737348,
-        40120456012,
-        40119789283,
-        40119725595,
-        40113702992,
-        40101837936,
-        40098975134,
-        40097886586,
-        40094273058,
-        40093452412,
-        40076072866,
-        40074101662,
-        40069802174,
-        40052825389,
-        40015352420,
-        40012868945,
-        40010294493,
-        40008947633,
-        39998079552,
-        39984130378,
-        39983471528,
-        39969216681,
-        39964227699,
-        39953890527,
-        39952503586,
-        39939846588,
-        39939303531,
-        39930652897
-      ],
-      "submitted_at": "2026-10-25T04:28:31+00:00",
-      "run_id": 40162007872,
-      "cloud_status": "queued",
       "editorial_holds": [
         {
           "id": "actual-e17-printed-hook-hands-40162007872",
@@ -2730,13 +2664,30 @@
           }
         }
       ],
-      "problems": [
-        "Direct full-resolution inspection rejects both completed hook paintings: both add prominent human hands to a people-free object shot and rows of generated writing on the slip. The saved early picture editor independently refuses both exact images for those defects. Preserve every spoken line, title and story; replace only the hook scene with a blank unmarked paper strip emerging from an enclosed analogue PCO billing meter. Keep useful other art; complete current picture, narrator, render and full audiovisual checks remain required.",
-        "Direct full-resolution inspection rejects all three beat2 paintings: unplanned human hands occupy the object-only shot and the PCO meter is staged in an outdoor village street rather than the enclosed yellow-glass counter room. The saved early editor independently refuses the first two for these exact defects. Preserve the paper-emergence narration and all other speech; replace only this image direction with an unattended blank-slip meter and a small service bell inside solid plaster walls.",
-        "Direct full-resolution inspection finds a red wall notice with generated Devanagari lettering in the upper left of beat5, despite the saved early editor reporting text=false. Preserve the useful distinct Jhabbu/Prabhat painting and all narration; crop only the peripheral notice with exact raw provenance and require current picture/full audiovisual checks. The original bytes stay excluded.",
-        "Direct pixel inspection rejects all three slip-tearing paintings: base and alt2 add prominent PCO lettering and outdoor street surroundings; alt1 introduces an unplanned childlike duplicate in Shailesh signature cap/clothes, while alt2 also adds an unplanned second figure. Preserve every spoken line and title. Repair only this image direction as one adult-proportioned Shailesh inside the enclosed room, hands holding a blank unmarked paper strip. Original bytes remain excluded; current picture/full audiovisual checks are mandatory.",
-        "Direct full-resolution inspection rejects both beat4 paintings. Both stage the PCO counter outdoors under open sky. The base changes Shailesh clothing and misses the wrist-stopping action; the alternate gives Jhabbu a third arm while simultaneously holding his lantern, ledger and the wrist. The early editor missed that anatomy. Preserve all speech and story; repaint only this action inside the enclosed room with his lantern, staff and ledger resting so his hands are free. Current cloud and complete audiovisual checks remain mandatory."
-      ]
+      "repair_history": [
+        {
+          "run_id": 40162007872,
+          "source_sha": "ec57858391b8a52f659e6187efe844662ef19aa7",
+          "stage": "held",
+          "problems": [
+            "Direct full-resolution inspection rejects both completed hook paintings: both add prominent human hands to a people-free object shot and rows of generated writing on the slip. The saved early picture editor independently refuses both exact images for those defects. Preserve every spoken line, title and story; replace only the hook scene with a blank unmarked paper strip emerging from an enclosed analogue PCO billing meter. Keep useful other art; complete current picture, narrator, render and full audiovisual checks remain required.",
+            "Direct full-resolution inspection rejects all three beat2 paintings: unplanned human hands occupy the object-only shot and the PCO meter is staged in an outdoor village street rather than the enclosed yellow-glass counter room. The saved early editor independently refuses the first two for these exact defects. Preserve the paper-emergence narration and all other speech; replace only this image direction with an unattended blank-slip meter and a small service bell inside solid plaster walls.",
+            "Direct full-resolution inspection finds a red wall notice with generated Devanagari lettering in the upper left of beat5, despite the saved early editor reporting text=false. Preserve the useful distinct Jhabbu/Prabhat painting and all narration; crop only the peripheral notice with exact raw provenance and require current picture/full audiovisual checks. The original bytes stay excluded.",
+            "Direct pixel inspection rejects all three slip-tearing paintings: base and alt2 add prominent PCO lettering and outdoor street surroundings; alt1 introduces an unplanned childlike duplicate in Shailesh signature cap/clothes, while alt2 also adds an unplanned second figure. Preserve every spoken line and title. Repair only this image direction as one adult-proportioned Shailesh inside the enclosed room, hands holding a blank unmarked paper strip. Original bytes remain excluded; current picture/full audiovisual checks are mandatory.",
+            "Direct full-resolution inspection rejects both beat4 paintings. Both stage the PCO counter outdoors under open sky. The base changes Shailesh clothing and misses the wrist-stopping action; the alternate gives Jhabbu a third arm while simultaneously holding his lantern, ledger and the wrist. The early editor missed that anatomy. Preserve all speech and story; repaint only this action inside the enclosed room with his lantern, staff and ledger resting so his hands are free. Current cloud and complete audiovisual checks remain mandatory."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e17.json"
+          }
+        }
+      ],
+      "obsolete_runs": [
+        40162007872
+      ],
+      "repair_queued_at": "2026-10-25T06:14:15+00:00",
+      "repair_source_sha": "626659265ae80b3c99e06c53008e71ede95e9b0c",
+      "repair_reason": "Seven exact directly reviewed images preserve every spoken line and title. Refused hands, text, outdoors and extra-arm bytes are excluded; two raw-preserving derivations retain their provenance. Recheck every current picture, narrator, render and complete audiovisual gate at normal capacity."
     },
     {
       "repo": "kahaani-chaos",
@@ -2940,7 +2891,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e17: Direct full-resolution inspection rejects both completed hook paintings: both add prominent human hands to a people-free object shot and rows of generated writing on the slip. The saved early picture editor independently refuses both exact images for those defects. Preserve every spoken line, title and story; replace only the hook scene with a blank unmarked paper strip emerging from an enclosed analogue PCO billing meter. Keep useful other art; complete current picture, narrator, render and full audiovisual checks remain required.; Direct full-resolution inspection rejects all three beat2 paintings: unplanned human hands occupy the object-only shot and the PCO meter is staged in an outdoor village street rather than the enclosed yellow-glass counter room. The saved early editor independently refuses the first two for these exact defects. Preserve the paper-emergence narration and all other speech; replace only this image direction with an unattended blank-slip meter and a small service bell inside solid plaster walls.; Direct full-resolution inspection finds a red wall notice with generated Devanagari lettering in the upper left of beat5, despite the saved early editor reporting text=false. Preserve the useful distinct Jhabbu/Prabhat painting and all narration; crop only the peripheral notice with exact raw provenance and require current picture/full audiovisual checks. The original bytes stay excluded.; Direct pixel inspection rejects all three slip-tearing paintings: base and alt2 add prominent PCO lettering and outdoor street surroundings; alt1 introduces an unplanned childlike duplicate in Shailesh signature cap/clothes, while alt2 also adds an unplanned second figure. Preserve every spoken line and title. Repair only this image direction as one adult-proportioned Shailesh inside the enclosed room, hands holding a blank unmarked paper strip. Original bytes remain excluded; current picture/full audiovisual checks are mandatory.; Direct full-resolution inspection rejects both beat4 paintings. Both stage the PCO counter outdoors under open sky. The base changes Shailesh clothing and misses the wrist-stopping action; the alternate gives Jhabbu a third arm while simultaneously holding his lantern, ledger and the wrist. The early editor missed that anatomy. Preserve all speech and story; repaint only this action inside the enclosed room with his lantern, staff and ledger resting so his hands are free. Current cloud and complete audiovisual checks remain mandatory.",
+  "halted": "Repair held entry e12: Direct full-resolution inspection rejects both original opening paintings: the ticket occupies only about five percent of the frame and contains generated printed lettering. The early picture editor independently refuses the base for text and the alternate for opening subject share. Preserve all speech and story; replace only this opener with a large blank reverse of the same perforated ticket on the green bus seat. Useful other art remains; complete picture, narrator, render and full audiovisual checks remain mandatory.",
   "complete": false,
   "health": {
     "public": 1,
@@ -2948,5 +2899,5 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T06:14:10+00:00"
+  "updated_at": "2026-10-25T06:14:15+00:00"
 }
