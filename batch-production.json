@@ -4626,7 +4626,7 @@
       "run_id": 40206121370,
       "cloud_status": "completed",
       "retry_reason": "audiovisual review unavailable: gemini-3.8-flash: HTTP 429; gemini-3-flash-preview: HTTP 503; gemini-3.1-flash-lite: HTTP 503",
-      "review_retry_after": "2026-10-25T16:42:29.497106+00:00"
+      "review_retry_after": "2026-10-25T17:23:38.414188+00:00"
     },
     {
       "repo": "kahaani-chaos",
@@ -4978,7 +4978,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T16:53:15+00:00",
+  "updated_at": "2026-10-25T16:53:38+00:00",
   "measurement": {
     "at": "2026-10-25T16:53:15+00:00",
     "ok": true,
