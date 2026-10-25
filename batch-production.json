@@ -882,6 +882,24 @@
           "reason": "Actual closing still depicts four physical foreground people and four projected silhouettes, while the story is about a trio and this shot is planned as an object-only projector close-up. Replace only this closing art; preserve usable other paintings and all spoken text. Complete current media and audiovisual review remain mandatory.",
           "evidence": {
             "art-40142328302-6/beat06.png": "9e509497feaedcc910d8d82ded03fd719fe97ff6369314e143f7b6c9483f6e09"
+          },
+          "resolved_at": "2026-10-25T00:22:34+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "43649a8a8f2c3066cd6242ac6036145c3f083277",
+            "replay": ".github/replay/sannatpur-projector-e05-repair.json",
+            "replay_sha256": "1962ab96a3391ca4687c06a5f1dc6e4ec3429603b7027546c3c0e38d588a936c",
+            "selected_images": {
+              "0": "224335b403008f775d16e416e2b97eee8fea6a8427f5518c739a0f133eb8dfe7",
+              "1": "f8cf41f8545e83811c4a54eb90178bd6152c8ecc9531753f698872dc3ba04942",
+              "2": "233235d7984b3530b376167c989db0422d0393981204dbaa49f58857572591c4",
+              "3": "d007a4139c35dc7ce42675dabd2a16f4bd82ea041ce7786187cd36b2ea791cfe",
+              "4": "401ef39ecdd753cd9ca0d33c4e461bc878b3060412b9bef3c7e65b16a8794128",
+              "5": "16026fff09f53a34fc17a9fb6da28e8a0603b5f7433485224e944050da40e356",
+              "6": "ced1fd816ce14b272e3eab86bee1216c7e2b152f1da8c1836e13e4b3c90d2d1c"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -1149,7 +1167,7 @@
     }
   ],
   "halted": "Repair held entry e05: Actual closing still depicts four physical foreground people and four projected silhouettes, while the story is about a trio and this shot is planned as an object-only projector close-up. Replace only this closing art; preserve usable other paintings and all spoken text. Complete current media and audiovisual review remain mandatory.",
-  "updated_at": "2026-10-25T00:16:48+00:00",
+  "updated_at": "2026-10-25T00:22:34+00:00",
   "complete": false,
   "health": {
     "public": 1,
