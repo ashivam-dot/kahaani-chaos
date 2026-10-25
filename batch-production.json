@@ -4922,10 +4922,10 @@
   "health": {
     "public": 3,
     "scheduled": 14,
-    "held": 1,
+    "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T15:45:12+00:00",
+  "updated_at": "2026-10-25T15:45:15+00:00",
   "measurement": {
     "at": "2026-10-25T15:45:12+00:00",
     "ok": true,
