@@ -1532,7 +1532,55 @@
       ],
       "submitted_at": "2026-10-25T03:58:57+00:00",
       "run_id": 40160199731,
-      "cloud_status": "in_progress"
+      "cloud_status": "completed",
+      "review": {
+        "schema": 1,
+        "model": "gemini-3-flash-preview",
+        "duration": 42.533333,
+        "video_sha256": "68346cec16cdd5376ccc6f9386ac6a15ddeb836665910c0bf7a93e0c5120345a",
+        "brief_sha256": "20428f2623de7e173a94c4215b35bffdf6cb6e6bdb09fa154a9e0cb92a387646",
+        "review_video_sha256": "8cbac124ba3ae7404deb657937352a8ff34235f7ddf202102965c15265a5b798",
+        "review_audio_sha256": "3c2b8432ae409424bc116e29162bdd6ea8a0e89778303ee374a5402d0a7c0de0",
+        "verdict": {
+          "decision": "pass",
+          "audio_listened": true,
+          "video_viewed": true,
+          "heard_opening": "भट्ठे की ईंटें गिनते ही एक ईंट ज़्यादा निकल आती।",
+          "heard_ending": "पर वो नाम आज रात वहाँ लिखा किसने?",
+          "checks": {
+            "speech_clear": true,
+            "pronunciation_ok": true,
+            "music_balance_ok": true,
+            "captions_readable": true,
+            "visuals_match": true,
+            "continuity_ok": true,
+            "opening_clear": true,
+            "complete_payoff": true,
+            "no_material_factual_contradiction": true
+          },
+          "segments": [
+            {
+              "part": "opening",
+              "seconds": 2.5,
+              "seen": "Clay brick stack with one offset under moonlight.",
+              "heard": "भट्ठे की ईंटें गिनते ही एक ईंट ज़्यादा निकल आती।"
+            },
+            {
+              "part": "middle",
+              "seconds": 20.0,
+              "seen": "Nuzhat holding Shailesh's wrist at the night kiln.",
+              "heard": "शैलेश डरकर भागने लगा, पर नुज़हत ने हाथ पकड़ लिया..."
+            },
+            {
+              "part": "ending",
+              "seconds": 38.0,
+              "seen": "Jhabbu with lantern near chimney; others watching.",
+              "heard": "पर वो नाम आज रात वहाँ लिखा किसने?"
+            }
+          ],
+          "issues": []
+        }
+      }
     },
     {
       "repo": "kahaani-chaos",
@@ -2115,7 +2163,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T04:14:46+00:00",
+  "updated_at": "2026-10-25T04:15:59+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
