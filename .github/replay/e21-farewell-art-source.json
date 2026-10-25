@@ -1,0 +1,150 @@
+{
+  "id": "kc-20261025-1340-e21",
+  "premise": "e21",
+  "title": "ठंडे भट्ठे की चिमनी पर रोशनी किसने जलाई? 🏭",
+  "hook": "ठंडी चिमनी पर रोशनी जलकर धीरे-धीरे नीचे उतरने लगी।",
+  "beats": [
+    {
+      "text": "ठंडी चिमनी पर रोशनी जलकर धीरे-धीरे नीचे उतरने लगी।",
+      "scene": "Extreme close painting of the cold brick kiln chimney crown and upper iron ladder at night. The curved red-brick crown and three dark iron ladder rungs fill most of the vertical frame. One large oval patch of amber light floats in empty blue air just beside the upper rung, occupying one third of the picture width. A short soft vertical glow trail above this patch suggests that it is descending. Blue moonlight makes the brick and iron readable. The luminous patch is visibly unattached and unsupported in empty air, with no solid object inside it. Only brick, ladder iron, empty night air and this light are visible. The unattached glow is the only warm light. The scene is outdoors.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "उन्नीस सौ छियानवे, उस रात पुराना भट्ठा बिल्कुल ठंडा था। मैं, नुज़हत और झब्बू काका सन्नाटे में खड़े थे।",
+      "scene": "Outdoors at the base door of the tall brick kiln chimney. Prabhat in his mustard sweater and steel-framed glasses, Nuzhat with her green dupatta holding her electric metal flashlight, and Jhabbu in his khaki kurta and red muffler stand looking up. Jhabbu's lantern casts a warm amber glow against moonlit blue. The scene is outdoors.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "curious and tense"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "calm and focused"
+        },
+        {
+          "name": "jhabbu",
+          "expression": "stern and solemn"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "अचानक ऊँची चिमनी की लोहे की सीढ़ी पर वो रोशनी सरकने लगी।",
+      "scene": "Close painting of the middle section of the cold brick kiln chimney at night. Two dark iron ladder rails and five clear rungs cross the tall red-brick surface. One unattached oval patch of warm amber light floats in empty air beside the middle rung. A short soft vertical glow trail above it suggests downward movement. The luminous patch is visibly separate from the iron and brick, with no solid object inside it. Only brick, ladder iron, blue night air and this airborne light occupy the frame. The base, ledge and people are outside this tight view. The unattached glow is the only warm light. The scene is outdoors.",
+      "people": [],
+      "pause_after": 0.35
+    },
+    {
+      "text": "मैं सीढ़ी की तरफ़ लपका, पर काका ने बाँस अड़ा दिया।",
+      "scene": "Outdoors at the base door of the tall brick kiln chimney. Prabhat in his mustard sweater steps forward hastily, but Jhabbu in his khaki kurta extends his bamboo stick to stop him. Jhabbu's lantern provides a warm amber glow against the dark moonlit background. The scene is outdoors.",
+      "people": [
+        {
+          "name": "prabhat",
+          "expression": "startled and impatient"
+        },
+        {
+          "name": "jhabbu",
+          "expression": "resolute and serious"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "नियम था, अपने-आप जली रोशनी के पीछे मत भागो, बस देखो कहाँ रुकती है। रोशनी मुंशी की टीन की कोठरी पर ठहर गई।",
+      "scene": "Outdoors at the base door of the tall brick kiln chimney near the tin shed. Jhabbu in his red muffler points calmly toward the tin door where the light has stopped moving. Nuzhat holds her electric metal flashlight while Prabhat watches closely. Warm lantern light meets moonlight. The scene is outdoors.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "instructive and firm"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "observant"
+        },
+        {
+          "name": "prabhat",
+          "expression": "thoughtful"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "कल गाँव छोड़ रहे मुंशी जी बाहर आए, और हम तीनों चुपचाप उनके साथ विदा में खड़े रहे।",
+      "scene": "Outdoors in brick kiln yard beside tin shed at night. Exactly three friends stand side by side: Prabhat in mustard sweater and steel glasses with blue notebook, Nuzhat in green dupatta with electric metal flashlight, Jhabbu in khaki kurta and red muffler with red register under one arm. All three look respectfully toward the right frame edge, quietly saying goodbye to the offscreen clerk. A tied brown travelling trunk rests before the open tin door; the doorway is empty. Jhabbu stands outside with his friends. His brass lantern hangs from a wall hook. Blue moonlight and warm amber light. The scene is outdoors.",
+      "people": [
+        {
+          "name": "jhabbu",
+          "expression": "gentle and respectful"
+        },
+        {
+          "name": "prabhat",
+          "expression": "somber"
+        },
+        {
+          "name": "nuzhat",
+          "expression": "quietly sympathetic"
+        }
+      ],
+      "pause_after": 0.35
+    },
+    {
+      "text": "राख की तरह ठंडी चिमनी पर जलती रोशनी आज भी यादों में उतरती है।",
+      "scene": "A medium shot outdoors at the tall brick kiln chimney at early dawn. The dark brick chimney stands quiet and abandoned against the pale morning sky. The ground around the base door is empty as cold morning light fills the yard. The scene is outdoors.",
+      "people": [],
+      "pause_after": 0.35
+    }
+  ],
+  "cast": [
+    {
+      "id": "jhabbu",
+      "name": "झब्बू",
+      "look": "elderly grey-haired man about sixty with a grey moustache and a lined face, tall, lean and slightly stooped, khaki kurta and an old grey shawl, red woollen muffler, holding a brass hurricane lantern, bamboo staff with a small bell, khaki ledger with a red spine under one arm, face small and turned away"
+    },
+    {
+      "id": "prabhat",
+      "name": "प्रभात",
+      "look": "lanky seventeen-year-old young man with adult proportions, mustard-yellow knitted sweater over a shirt, thin steel-rimmed glasses, a small blue notebook with a pencil, seen from behind or three-quarters away"
+    },
+    {
+      "id": "nuzhat",
+      "name": "नुज़हत",
+      "look": "seventeen-year-old young woman with adult proportions, plain salwar kameez, bottle-green dupatta, one long plait, holding a metal flashlight with a cracked lens throwing a split beam, three-quarters turned away"
+    }
+  ],
+  "subgenre": "goodbye",
+  "ending": "loop-back",
+  "twist_beat": 5,
+  "description": "उन्नीस सौ छियानवे की रात ठंडे भट्ठे की चिमनी पर एक रहस्यमयी रोशनी अपने-आप जलकर नीचे उतरने लगी। जानिए झब्बू काका के नियम ने उस रात क्या रास्ता दिखाया।",
+  "motifs": [],
+  "hashtags": [
+    "#सन्नाटपुर",
+    "#90sकीयादें",
+    "#रहस्य",
+    "#कहानी"
+  ],
+  "writer": {
+    "models": [
+      "gemini-3.6-flash",
+      "gemini-3-flash-preview"
+    ],
+    "log": [
+      {
+        "attempt": 0,
+        "stage": "editor",
+        "problems": []
+      }
+    ]
+  },
+  "format": "micro",
+  "hook_strip": "चिमनी पर जलती रोशनी",
+  "object_token": "चिमनी",
+  "anomaly": "ठंडे भट्ठे की चिमनी पर रोशनी जलना और धीरे-धीरे नीचे उतरना",
+  "niyam_id": "N06",
+  "resolution": "leave-it-be",
+  "heart_beat": 6,
+  "heart_type": "goodbye",
+  "skeleton": "S3",
+  "location": "ऊँची चिमनी का निचला दरवाज़ा",
+  "place_id": "bhatta"
+}

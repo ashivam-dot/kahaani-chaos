@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-25T14:29:49.318058+00:00",
+  "original_run": 40198599502,
+  "original_source_sha": "3b407ddeed945dbf34cb4dbfa7c36e1df4db383f",
+  "original_story_sha256": "3b852f69b59b42f3c336f02e4aba82eeaf8577b0934530a55330895ba2fadf92",
+  "candidate_sha256": "76b95a19f2c7b7155bbf6cf98283035eb602b87b577331a2479d532e34e7e5dc",
+  "refused_farewell_image_sha256": "8519630b01af4414a580ba46dbe1d24dffea5bf4b32392951db6f6a41e607034",
+  "new_change": [
+    5
+  ],
+  "combined_changed_beats": [
+    0,
+    2,
+    5
+  ],
+  "speech_changed": false,
+  "cast_changed": false,
+  "reason": "The painting conflates Jhabbu with the departing clerk. Keep the three established friends outside together and the clerk offscreen; the original departure and farewell remain narrated.",
+  "replay": ".github/replay/e21-farewell-art-only.json",
+  "release_approval": false,
+  "remaining": "Generate and directly review beat5; combine only exact accepted originals and light repairs, then run current picture/voice/render/full AV checks."
+}
