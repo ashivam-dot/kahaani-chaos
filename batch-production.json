@@ -3059,9 +3059,9 @@
       "target": "2026-10-30T13:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e16.json"
+        "replay": ".github/replay/sannatpur-flashlight-e16-repair.json"
       },
-      "stage": "held",
+      "stage": "planned",
       "attempts": 2,
       "repair_history": [
         {
@@ -3075,80 +3075,31 @@
             "mode": "dry-run",
             "replay": ".github/replay/batch-2026-10-25/e16.json"
           }
+        },
+        {
+          "run_id": 40172736622,
+          "source_sha": "ca525b9e00b0c93dd332876d43381d617c14dfe1",
+          "stage": "held",
+          "problems": [
+            "Direct native-resolution review rejects beat 1: Nuzhat holds a flaming torch with visible fire and smoke rather than her fixed metal battery flashlight with a cracked lens. Preserve the exact spoken story and all useful siblings; replace only this image with a clearly cylindrical metal flashlight emitting a split electric light beam. Current picture, narrator, render and audiovisual gates remain mandatory.",
+            "The ending painting shows adult Prabhat plus an extra foreground younger man, contradicting its single adult-narrator scene and the fixed hands/notebook/glasses close-up. Retain all speech and useful siblings; replace only the ending picture with one pair of adult hands, faded blue notebook and steel-rimmed glasses. All normal picture, narrator, render and audiovisual gates remain mandatory.",
+            "All three second-call paintings reverse or obscure the required Prabhat-to-Shailesh restraining forearm grip. Preserve every spoken line and useful sibling; replace only this visual with a clearly mustard-sleeved hand gripping the striped forearm while both face inward away from the railing. Keep all picture, narrator, render and audiovisual gates.",
+            "All three bird-rescue paintings duplicate fixed cast members and/or give the rescue action to the wrong person. Preserve every spoken line and useful sibling; frame only Nuzhat freeing the bird, with her green clothing and electric metal flashlight. Keep all picture, narrator, render and audiovisual gates."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e16.json"
+          },
+          "repair_reason": "Source-bound three-attempt writer refusal repaired in bank logline at b60481b: make the three calls explicit, retain the unexplained name-like sound without a talking-bird claim, and complete the bird rescue that night. This is a new normal writer/editor dry attempt, not an approved story; every code, editor, picture, voice, rendered and audiovisual gate stays mandatory."
         }
       ],
       "obsolete_runs": [
-        40169893361
-      ],
-      "repair_queued_at": "2026-10-25T07:02:49+00:00",
-      "repair_source_sha": "b60481b8a493f0e0b2ac37b869e982213ab22cfd",
-      "repair_reason": "Source-bound three-attempt writer refusal repaired in bank logline at b60481b: make the three calls explicit, retain the unexplained name-like sound without a talking-bird claim, and complete the bird rescue that night. This is a new normal writer/editor dry attempt, not an approved story; every code, editor, picture, voice, rendered and audiovisual gate stays mandatory.",
-      "source_sha": "ca525b9e00b0c93dd332876d43381d617c14dfe1",
-      "before_ids": [
-        40171278752,
-        40171159505,
-        40170263222,
         40169893361,
-        40169378463,
-        40169098001,
-        40168832723,
-        40168763687,
-        40164083384,
-        40162491442,
-        40162007872,
-        40160199731,
-        40159235547,
-        40158580419,
-        40158338472,
-        40157308891,
-        40155939996,
-        40154809245,
-        40154557845,
-        40152921322,
-        40152845611,
-        40152138336,
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847,
-        40147346342,
-        40147002904,
-        40146579288,
-        40146069336,
-        40144076354,
-        40143503135,
-        40142724972,
-        40142626858,
-        40142424645,
-        40142328302,
-        40134819856,
-        40134047227,
-        40132420577,
-        40127450982,
-        40127055413,
-        40124707293,
-        40122737348,
-        40120456012,
-        40119789283,
-        40119725595,
-        40113702992,
-        40101837936,
-        40098975134,
-        40097886586,
-        40094273058,
-        40093452412,
-        40076072866,
-        40074101662,
-        40069802174,
-        40052825389,
-        40015352420,
-        40012868945,
-        40010294493
+        40172736622
       ],
-      "submitted_at": "2026-10-25T07:25:51+00:00",
-      "run_id": 40172736622,
-      "cloud_status": "queued",
+      "repair_queued_at": "2026-10-25T11:10:08+00:00",
+      "repair_source_sha": "4362bbb9b90edfac8759356338f5544867a22ccf",
+      "repair_reason": "Exact speech-preserving repair: reviewed electric flashlight, accepted arm-contact crop from original beat 2 with full source provenance, single Nuzhat bird rescue, and single adult-hands ending. All normal picture, narrator, render and audiovisual gates remain required.",
       "editorial_holds": [
         {
           "id": "direct-e16-burning-torch",
@@ -3259,12 +3210,6 @@
             "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
-      ],
-      "problems": [
-        "Direct native-resolution review rejects beat 1: Nuzhat holds a flaming torch with visible fire and smoke rather than her fixed metal battery flashlight with a cracked lens. Preserve the exact spoken story and all useful siblings; replace only this image with a clearly cylindrical metal flashlight emitting a split electric light beam. Current picture, narrator, render and audiovisual gates remain mandatory.",
-        "The ending painting shows adult Prabhat plus an extra foreground younger man, contradicting its single adult-narrator scene and the fixed hands/notebook/glasses close-up. Retain all speech and useful siblings; replace only the ending picture with one pair of adult hands, faded blue notebook and steel-rimmed glasses. All normal picture, narrator, render and audiovisual gates remain mandatory.",
-        "All three second-call paintings reverse or obscure the required Prabhat-to-Shailesh restraining forearm grip. Preserve every spoken line and useful sibling; replace only this visual with a clearly mustard-sleeved hand gripping the striped forearm while both face inward away from the railing. Keep all picture, narrator, render and audiovisual gates.",
-        "All three bird-rescue paintings duplicate fixed cast members and/or give the rescue action to the wrong person. Preserve every spoken line and useful sibling; frame only Nuzhat freeing the bird, with her green clothing and electric metal flashlight. Keep all picture, narrator, render and audiovisual gates."
       ]
     },
     {
@@ -3707,7 +3652,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e16: Direct native-resolution review rejects beat 1: Nuzhat holds a flaming torch with visible fire and smoke rather than her fixed metal battery flashlight with a cracked lens. Preserve the exact spoken story and all useful siblings; replace only this image with a clearly cylindrical metal flashlight emitting a split electric light beam. Current picture, narrator, render and audiovisual gates remain mandatory.; The ending painting shows adult Prabhat plus an extra foreground younger man, contradicting its single adult-narrator scene and the fixed hands/notebook/glasses close-up. Retain all speech and useful siblings; replace only the ending picture with one pair of adult hands, faded blue notebook and steel-rimmed glasses. All normal picture, narrator, render and audiovisual gates remain mandatory.; All three second-call paintings reverse or obscure the required Prabhat-to-Shailesh restraining forearm grip. Preserve every spoken line and useful sibling; replace only this visual with a clearly mustard-sleeved hand gripping the striped forearm while both face inward away from the railing. Keep all picture, narrator, render and audiovisual gates.; All three bird-rescue paintings duplicate fixed cast members and/or give the rescue action to the wrong person. Preserve every spoken line and useful sibling; frame only Nuzhat freeing the bird, with her green clothing and electric metal flashlight. Keep all picture, narrator, render and audiovisual gates.",
+  "halted": null,
   "complete": false,
   "health": {
     "public": 2,
@@ -3715,5 +3660,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T11:09:41+00:00"
+  "updated_at": "2026-10-25T11:10:08+00:00"
 }
