@@ -1348,7 +1348,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-brick-e07-repair.json"
       },
-      "stage": "held",
+      "stage": "planned",
       "attempts": 6,
       "repair_history": [
         {
@@ -1408,6 +1408,19 @@
             "replay": ".github/replay/sannatpur-brick-e07-repair.json"
           },
           "repair_reason": "Preserve all exact reviewed repaired art and narration. Apply deployed word-protected quiet-pause editor to cloned narration before unchanged final waveform, picture, render and full audiovisual gates; prior clone gap was 1.22 seconds."
+        },
+        {
+          "run_id": 40157308891,
+          "source_sha": "a868e5151b95bf0ab1d1ffafbe9d46000b0281c0",
+          "stage": "held",
+          "problems": [
+            "ValueError: preview did not make a finished passing Short"
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/sannatpur-brick-e07-repair.json"
+          },
+          "repair_reason": "Align pause edit to the same first-voiced-sample RMS grid as the final gate; reproduced unchanged 1.22 s hold and fixed safely without changing any voiced sample or threshold. Existing exact six repaired paintings, story and narrator retained. Full cloud picture/voice/render and complete AV gates remain. Queue at normal two-producer capacity."
         }
       ],
       "obsolete_runs": [
@@ -1415,9 +1428,10 @@
         40147867847,
         40148651151,
         40152845611,
-        40154557845
+        40154557845,
+        40157308891
       ],
-      "repair_reason": "Align pause edit to the same first-voiced-sample RMS grid as the final gate; reproduced unchanged 1.22 s hold and fixed safely without changing any voiced sample or threshold. Existing exact six repaired paintings, story and narrator retained. Full cloud picture/voice/render and complete AV gates remain. Queue at normal two-producer capacity.",
+      "repair_reason": "Actual clone-only diagnostic40158648541 reproduced1.22 seconds. Exact recording proves accumulated quiet clip edges plus inserted twist pause, with a protected Whisper interval preventing later edits. Deployed3be41cd budgets newly inserted inter-beat zeros around existing edge silence; preserves every source clip, word protection, voice identity and1.2-second final ceiling. Actual-recording regression passes including slowest tempo; all436 tests pass. Existing repaired six images and every spoken line retained. Queue at normal bounded capacity; production and full AV approval remain required.",
       "editorial_holds": [
         {
           "id": "direct-brick-cast-and-text-40148651151",
@@ -1451,77 +1465,8 @@
           }
         }
       ],
-      "repair_queued_at": "2026-10-25T02:52:44+00:00",
-      "repair_source_sha": "41652885300b45c15bf8e9205acecdc1c6717be9",
-      "source_sha": "a868e5151b95bf0ab1d1ffafbe9d46000b0281c0",
-      "before_ids": [
-        40155939996,
-        40154809245,
-        40154557845,
-        40152921322,
-        40152845611,
-        40152138336,
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847,
-        40147346342,
-        40147002904,
-        40146579288,
-        40146069336,
-        40144076354,
-        40143503135,
-        40142724972,
-        40142626858,
-        40142424645,
-        40142328302,
-        40134819856,
-        40134047227,
-        40132420577,
-        40127450982,
-        40127055413,
-        40124707293,
-        40122737348,
-        40120456012,
-        40119789283,
-        40119725595,
-        40113702992,
-        40101837936,
-        40098975134,
-        40097886586,
-        40094273058,
-        40093452412,
-        40076072866,
-        40074101662,
-        40069802174,
-        40052825389,
-        40015352420,
-        40012868945,
-        40010294493,
-        40008947633,
-        39998079552,
-        39984130378,
-        39983471528,
-        39969216681,
-        39964227699,
-        39953890527,
-        39952503586,
-        39939846588,
-        39939303531,
-        39930652897,
-        39921910994,
-        39892698527,
-        39892494946,
-        39887835447,
-        39886731532
-      ],
-      "submitted_at": "2026-10-25T03:11:42+00:00",
-      "run_id": 40157308891,
-      "cloud_status": "completed",
-      "problems": [
-        "ValueError: preview did not make a finished passing Short"
-      ]
+      "repair_queued_at": "2026-10-25T03:50:08+00:00",
+      "repair_source_sha": "3be41cd995a8045ef06344abaa6109ba81d1c7be"
     },
     {
       "repo": "kahaani-chaos",
@@ -2079,7 +2024,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e07: ValueError: preview did not make a finished passing Short",
+  "halted": null,
   "complete": false,
   "health": {
     "public": 1,
@@ -2087,7 +2032,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T03:43:01+00:00",
+  "updated_at": "2026-10-25T03:50:08+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
