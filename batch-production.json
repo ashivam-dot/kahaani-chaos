@@ -5215,76 +5215,10 @@
       "target": "2026-11-03T13:30:00Z",
       "inputs": {
         "mode": "dry-run",
-        "replay": ".github/replay/batch-2026-10-25/e24.json"
+        "replay": ".github/replay/e24-reviewed-telegraph-repair.json"
       },
-      "stage": "held",
+      "stage": "planned",
       "attempts": 1,
-      "source_sha": "3f2cc5c792281ce05d01aaf9b8aba181bb1877e2",
-      "before_ids": [
-        40207865422,
-        40206417025,
-        40206121370,
-        40205912773,
-        40204793444,
-        40203594826,
-        40202876221,
-        40200321514,
-        40199355603,
-        40198599502,
-        40198506719,
-        40198165103,
-        40197721800,
-        40197267045,
-        40196244177,
-        40192580429,
-        40192011575,
-        40189938585,
-        40187818735,
-        40187469293,
-        40185173569,
-        40183523788,
-        40183199244,
-        40180766036,
-        40180081031,
-        40180078790,
-        40178234124,
-        40177715903,
-        40176769163,
-        40176488651,
-        40174740535,
-        40172748055,
-        40172736622,
-        40171278752,
-        40171159505,
-        40170263222,
-        40169893361,
-        40169378463,
-        40169098001,
-        40168832723,
-        40168763687,
-        40164083384,
-        40162491442,
-        40162007872,
-        40160199731,
-        40159235547,
-        40158580419,
-        40158338472,
-        40157308891,
-        40155939996,
-        40154809245,
-        40154557845,
-        40152921322,
-        40152845611,
-        40152138336,
-        40148804337,
-        40148651151,
-        40148639705,
-        40148316893,
-        40147867847
-      ],
-      "submitted_at": "2026-10-25T15:58:12+00:00",
-      "run_id": 40209430956,
-      "cloud_status": "queued",
       "editorial_holds": [
         {
           "id": "e24-beat1-location-plan-held",
@@ -5341,13 +5275,30 @@
           }
         }
       ],
-      "problems": [
-        "The exact produced beat1 narration says the friends stood outside the post office, while its scene explicitly places them inside. Repair only the establishing visual direction and source art for this beat; preserve narration and accepted siblings and require every final gate.",
-        "Native-resolution review finds a second miniature childlike figure at the lower right of beat2. The declared scene has only Shailesh. Exclude the complete refused frame and use a faithful upper-body crop that removes the entire additional figure; retain the original narration and every final gate."
-      ]
+      "repair_history": [
+        {
+          "run_id": 40209430956,
+          "source_sha": "3f2cc5c792281ce05d01aaf9b8aba181bb1877e2",
+          "stage": "held",
+          "problems": [
+            "The exact produced beat1 narration says the friends stood outside the post office, while its scene explicitly places them inside. Repair only the establishing visual direction and source art for this beat; preserve narration and accepted siblings and require every final gate.",
+            "Native-resolution review finds a second miniature childlike figure at the lower right of beat2. The declared scene has only Shailesh. Exclude the complete refused frame and use a faithful upper-body crop that removes the entire additional figure; retain the original narration and every final gate."
+          ],
+          "inputs": {
+            "mode": "dry-run",
+            "replay": ".github/replay/batch-2026-10-25/e24.json"
+          }
+        }
+      ],
+      "obsolete_runs": [
+        40209430956
+      ],
+      "repair_queued_at": "2026-10-25T19:19:10+00:00",
+      "repair_source_sha": "256fd8a03e6801d26da37035cbf156e5e451a31a",
+      "repair_reason": "Reuse the four exact reviewed original scenes and three provenance-bound crops. Establish the exterior correctly, remove the entire unassigned lantern and extra small figure, and frame the electric flashlight toward the offscreen telegram. Preserve every spoken line, original refusals and all current picture, narration, render and full audiovisual checks."
     }
   ],
-  "halted": "Repair held entry e24: The exact produced beat1 narration says the friends stood outside the post office, while its scene explicitly places them inside. Repair only the establishing visual direction and source art for this beat; preserve narration and accepted siblings and require every final gate.; Native-resolution review finds a second miniature childlike figure at the lower right of beat2. The declared scene has only Shailesh. Exclude the complete refused frame and use a faithful upper-body crop that removes the entire additional figure; retain the original narration and every final gate.",
+  "halted": null,
   "complete": false,
   "health": {
     "public": 3,
@@ -5355,7 +5306,7 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T19:18:35+00:00",
+  "updated_at": "2026-10-25T19:19:10+00:00",
   "measurement": {
     "at": "2026-10-25T19:16:48+00:00",
     "ok": true,
