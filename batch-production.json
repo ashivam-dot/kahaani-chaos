@@ -4426,10 +4426,10 @@
   "halted": null,
   "complete": false,
   "health": {
-    "public": 2,
+    "public": 3,
     "scheduled": 13,
-    "held": 1,
+    "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T13:33:37+00:00"
+  "updated_at": "2026-10-25T13:33:40+00:00"
 }
