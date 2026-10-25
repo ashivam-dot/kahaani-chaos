@@ -3798,7 +3798,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e13.json"
       },
-      "stage": "building",
+      "stage": "held",
       "attempts": 1,
       "source_sha": "2d8f655212bba84f4eb33a4fc230936252775f84",
       "before_ids": [
@@ -3865,7 +3865,21 @@
       ],
       "submitted_at": "2026-10-25T11:06:12+00:00",
       "run_id": 40187469293,
-      "cloud_status": "queued"
+      "cloud_status": "queued",
+      "editorial_holds": [
+        {
+          "id": "e13-notebook-lantern-hold",
+          "run_id": 40187469293,
+          "observed_at": "2026-10-25T11:50:42+00:00",
+          "reason": "The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.",
+          "evidence": {
+            "art-40187469293-4/beat04.png": "36f7ad0285f5e7dfb8d92a51ae644601ac3058de3bfc9a9802983ee0d1b472e3"
+          }
+        }
+      ],
+      "problems": [
+        "The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required."
+      ]
     },
     {
       "repo": "kahaani-chaos",
@@ -3994,7 +4008,7 @@
       "attempts": 0
     }
   ],
-  "halted": null,
+  "halted": "Repair held entry e13: The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.",
   "complete": false,
   "health": {
     "public": 2,
@@ -4002,5 +4016,5 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T11:45:45+00:00"
+  "updated_at": "2026-10-25T11:50:42+00:00"
 }
