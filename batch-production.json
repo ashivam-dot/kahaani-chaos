@@ -3874,6 +3874,24 @@
           "reason": "The rule-remembrance scene shows a lantern where the plan specifies the electric metal flashlight, and its foreground bucket is empty while the letters should still be present. Preserve all narration and accepted siblings; repair only this scene. Existing picture, narration, render and full audiovisual release checks remain required.",
           "evidence": {
             "art-40187469293-4/beat04.png": "36f7ad0285f5e7dfb8d92a51ae644601ac3058de3bfc9a9802983ee0d1b472e3"
+          },
+          "resolved_at": "2026-10-25T13:09:52+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "140f56e5394f39cf4f9a0dbfd0e5cb9a0da25417",
+            "replay": ".github/replay/sannatpur-well-e13-notebook-repair.json",
+            "replay_sha256": "417a63297b5f0d099d4f37a83fa82692aa59a14d24b9fb7d369ed2a5961d1548",
+            "selected_images": {
+              "0": "ff84f1cda283671acb2764f97e00d5e97af134c27eb98c80d3efe01e26acd56a",
+              "1": "bbb00875a77a72da1b5f6a893dc6acb1f8faec6463578f4b1dc6d02779103b32",
+              "2": "7be25626840b39c6212da242686f55f5cc2d81f290bd79d9e92ea0d1cea5e6b9",
+              "3": "4f8de65f0ae552237d6aa58e31652347349e66eb02196b8b740009a8b389d08c",
+              "4": "bcbc6514d7f9b538d3277153f17d7b63445a13487feb890cfc0d3171281f1981",
+              "5": "e3ab67b6a5e33ea445b24f44b2bb63d4a5eabdc72d9ff3cfbbcb082152fe2c8a",
+              "6": "3df15120d1dd12d711453c445bbb14717eb2d7967abe09d163192b54c1a99061"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -3885,6 +3903,24 @@
             "art-40187469293-2/beat02.png": "3e8a840bc30c27cf130866141c318a75fb1d520e574d8817100549d60d2f2f4e",
             "art-40187469293-2/beat02-alt1.png": "5bdbea0431699c13f37bb5ac77d6c7ebb146b68e1008441879e733f8fd0012a2",
             "art-40187469293-2/beat02-alt2.png": "56d8a3bc2afaafb007e99d7274e3bcafb6c5f64636f971b915ad3b36ca38e38f"
+          },
+          "resolved_at": "2026-10-25T13:09:52+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "140f56e5394f39cf4f9a0dbfd0e5cb9a0da25417",
+            "replay": ".github/replay/sannatpur-well-e13-notebook-repair.json",
+            "replay_sha256": "417a63297b5f0d099d4f37a83fa82692aa59a14d24b9fb7d369ed2a5961d1548",
+            "selected_images": {
+              "0": "ff84f1cda283671acb2764f97e00d5e97af134c27eb98c80d3efe01e26acd56a",
+              "1": "bbb00875a77a72da1b5f6a893dc6acb1f8faec6463578f4b1dc6d02779103b32",
+              "2": "7be25626840b39c6212da242686f55f5cc2d81f290bd79d9e92ea0d1cea5e6b9",
+              "3": "4f8de65f0ae552237d6aa58e31652347349e66eb02196b8b740009a8b389d08c",
+              "4": "bcbc6514d7f9b538d3277153f17d7b63445a13487feb890cfc0d3171281f1981",
+              "5": "e3ab67b6a5e33ea445b24f44b2bb63d4a5eabdc72d9ff3cfbbcb082152fe2c8a",
+              "6": "3df15120d1dd12d711453c445bbb14717eb2d7967abe09d163192b54c1a99061"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -3896,6 +3932,24 @@
             "art-40187469293-3/beat03.png": "f0cc68c5001c0b76769dde024eab1ed72c7fe90a072c1c493aa5edd976a5594a",
             "art-40187469293-3/beat03-alt1.png": "301cd073157274e9b863d2dad8ff4ad3222e23f390bec5171943867804c7d289",
             "art-40187469293-3/beat03-alt2.png": "2e8dbc5cdd997002077899dc2f6894b0d77abc8cb0f72d05637a0d18778c5503"
+          },
+          "resolved_at": "2026-10-25T13:09:52+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "140f56e5394f39cf4f9a0dbfd0e5cb9a0da25417",
+            "replay": ".github/replay/sannatpur-well-e13-notebook-repair.json",
+            "replay_sha256": "417a63297b5f0d099d4f37a83fa82692aa59a14d24b9fb7d369ed2a5961d1548",
+            "selected_images": {
+              "0": "ff84f1cda283671acb2764f97e00d5e97af134c27eb98c80d3efe01e26acd56a",
+              "1": "bbb00875a77a72da1b5f6a893dc6acb1f8faec6463578f4b1dc6d02779103b32",
+              "2": "7be25626840b39c6212da242686f55f5cc2d81f290bd79d9e92ea0d1cea5e6b9",
+              "3": "4f8de65f0ae552237d6aa58e31652347349e66eb02196b8b740009a8b389d08c",
+              "4": "bcbc6514d7f9b538d3277153f17d7b63445a13487feb890cfc0d3171281f1981",
+              "5": "e3ab67b6a5e33ea445b24f44b2bb63d4a5eabdc72d9ff3cfbbcb082152fe2c8a",
+              "6": "3df15120d1dd12d711453c445bbb14717eb2d7967abe09d163192b54c1a99061"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -3905,6 +3959,24 @@
           "reason": "The beat05 writing scene substitutes an oil lantern for Nuzhat electric metal flashlight. Preserve the correct writing action through a separately reviewed provenance-bound crop that excludes this wrong prop, or repaint only this scene. Preserve every spoken line and accepted siblings; every current picture, narrator, render and full audiovisual gate remains required.",
           "evidence": {
             "art-40187469293-5/beat05.png": "4be8e3f4076cc108ea04fc04cdb5e1dea9682adca4f953993d14b31fc67f50ac"
+          },
+          "resolved_at": "2026-10-25T13:09:52+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "140f56e5394f39cf4f9a0dbfd0e5cb9a0da25417",
+            "replay": ".github/replay/sannatpur-well-e13-notebook-repair.json",
+            "replay_sha256": "417a63297b5f0d099d4f37a83fa82692aa59a14d24b9fb7d369ed2a5961d1548",
+            "selected_images": {
+              "0": "ff84f1cda283671acb2764f97e00d5e97af134c27eb98c80d3efe01e26acd56a",
+              "1": "bbb00875a77a72da1b5f6a893dc6acb1f8faec6463578f4b1dc6d02779103b32",
+              "2": "7be25626840b39c6212da242686f55f5cc2d81f290bd79d9e92ea0d1cea5e6b9",
+              "3": "4f8de65f0ae552237d6aa58e31652347349e66eb02196b8b740009a8b389d08c",
+              "4": "bcbc6514d7f9b538d3277153f17d7b63445a13487feb890cfc0d3171281f1981",
+              "5": "e3ab67b6a5e33ea445b24f44b2bb63d4a5eabdc72d9ff3cfbbcb082152fe2c8a",
+              "6": "3df15120d1dd12d711453c445bbb14717eb2d7967abe09d163192b54c1a99061"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         },
         {
@@ -3915,6 +3987,24 @@
           "evidence": {
             "art-40187469293-6/beat06.png": "c900d2c7408b7160cc4d85ac26abd102c7c0dc6b3c071dabac01316f120272df",
             "art-40187469293-6/beat06-alt1.png": "787eda36cd95ce19b10ca00188fc3c3a1ba85a1b8494169e4a59bbd9a7382d35"
+          },
+          "resolved_at": "2026-10-25T13:09:52+00:00",
+          "resolution": {
+            "kind": "exclude_refused_bytes_and_recheck_exact_repair",
+            "source_sha": "140f56e5394f39cf4f9a0dbfd0e5cb9a0da25417",
+            "replay": ".github/replay/sannatpur-well-e13-notebook-repair.json",
+            "replay_sha256": "417a63297b5f0d099d4f37a83fa82692aa59a14d24b9fb7d369ed2a5961d1548",
+            "selected_images": {
+              "0": "ff84f1cda283671acb2764f97e00d5e97af134c27eb98c80d3efe01e26acd56a",
+              "1": "bbb00875a77a72da1b5f6a893dc6acb1f8faec6463578f4b1dc6d02779103b32",
+              "2": "7be25626840b39c6212da242686f55f5cc2d81f290bd79d9e92ea0d1cea5e6b9",
+              "3": "4f8de65f0ae552237d6aa58e31652347349e66eb02196b8b740009a8b389d08c",
+              "4": "bcbc6514d7f9b538d3277153f17d7b63445a13487feb890cfc0d3171281f1981",
+              "5": "e3ab67b6a5e33ea445b24f44b2bb63d4a5eabdc72d9ff3cfbbcb082152fe2c8a",
+              "6": "3df15120d1dd12d711453c445bbb14717eb2d7967abe09d163192b54c1a99061"
+            },
+            "release_approval": false,
+            "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
       ],
@@ -4151,5 +4241,5 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T13:08:20+00:00"
+  "updated_at": "2026-10-25T13:09:52+00:00"
 }
