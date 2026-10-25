@@ -4475,11 +4475,21 @@
           "evidence": {
             "art-40198599502-0/beat00.png": "89c02e998a8e6636129c6c0762c0022fad1e210a29e57978efe934866eb73546"
           }
+        },
+        {
+          "id": "e21-farewell-identity-held",
+          "run_id": 40198599502,
+          "observed_at": "2026-10-25T14:28:54+00:00",
+          "reason": "The farewell painting places Jhabbu in the shed doorway as the departing elder, conflating him with Munshi. Replace only this scene with the three established friends outside saying goodbye toward the offscreen clerk. Preserve narration, accepted siblings and all current picture/voice/render/full audiovisual gates.",
+          "evidence": {
+            "art-40198599502-5/beat05.png": "8519630b01af4414a580ba46dbe1d24dffea5bf4b32392951db6f6a41e607034"
+          }
         }
       ],
       "problems": [
         "The beat02 painting substitutes a physical oil lamp resting on the chimney ledge for the planned autonomous light descending the ladder. Repair only this visual; preserve narration and accepted siblings, exclude these exact bytes, and retain every picture, narrator, render and full audiovisual gate.",
-        "The opening painting attaches two physical lantern fixtures to the chimney ladder instead of one autonomous light. Repair only this opening picture, preserving narration and accepted siblings; every current picture, voice, render and full audiovisual gate remains required."
+        "The opening painting attaches two physical lantern fixtures to the chimney ladder instead of one autonomous light. Repair only this opening picture, preserving narration and accepted siblings; every current picture, voice, render and full audiovisual gate remains required.",
+        "The farewell painting places Jhabbu in the shed doorway as the departing elder, conflating him with Munshi. Replace only this scene with the three established friends outside saying goodbye toward the offscreen clerk. Preserve narration, accepted siblings and all current picture/voice/render/full audiovisual gates."
       ]
     },
     {
@@ -4632,7 +4642,7 @@
       "attempts": 0
     }
   ],
-  "halted": "Repair held entry e21: The beat02 painting substitutes a physical oil lamp resting on the chimney ledge for the planned autonomous light descending the ladder. Repair only this visual; preserve narration and accepted siblings, exclude these exact bytes, and retain every picture, narrator, render and full audiovisual gate.; The opening painting attaches two physical lantern fixtures to the chimney ladder instead of one autonomous light. Repair only this opening picture, preserving narration and accepted siblings; every current picture, voice, render and full audiovisual gate remains required.",
+  "halted": "Repair held entry e21: The beat02 painting substitutes a physical oil lamp resting on the chimney ledge for the planned autonomous light descending the ladder. Repair only this visual; preserve narration and accepted siblings, exclude these exact bytes, and retain every picture, narrator, render and full audiovisual gate.; The opening painting attaches two physical lantern fixtures to the chimney ladder instead of one autonomous light. Repair only this opening picture, preserving narration and accepted siblings; every current picture, voice, render and full audiovisual gate remains required.; The farewell painting places Jhabbu in the shed doorway as the departing elder, conflating him with Munshi. Replace only this scene with the three established friends outside saying goodbye toward the offscreen clerk. Preserve narration, accepted siblings and all current picture/voice/render/full audiovisual gates.",
   "complete": false,
   "health": {
     "public": 3,
@@ -4640,5 +4650,5 @@
     "held": 1,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T14:22:42+00:00"
+  "updated_at": "2026-10-25T14:28:54+00:00"
 }
