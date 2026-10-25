@@ -720,5 +720,47 @@
    "containsSyntheticMedia": null,
    "uploadStatus": "processed"
   }
+ },
+ {
+  "id": "kc-20261025-0709-e26",
+  "premise": "e26",
+  "title": "कबाड़ बस के हॉर्न ने सन्नाटा तोड़ा 🚌 | सन्नाटपुर",
+  "subgenre": "goodbye",
+  "motifs": [],
+  "ending": "register-line",
+  "opening": "कबाड बस",
+  "made_at": "2026-10-25T11:41:38+00:00",
+  "format": "micro",
+  "skeleton": "S2",
+  "resolution": "kindness",
+  "heart_type": "goodbye",
+  "object_token": "हॉर्न",
+  "anomaly": "बिना बैटरी वाली कबाड़ बस का हॉर्न रात में अपने-आप बजना",
+  "location": "कबाड़ बसों की कतार",
+  "place_id": "busadda",
+  "hook_strip": "कबाड़ बस का हॉर्न",
+  "script": "कबाड़ बस का हॉर्न बिना ड्राइवर के रात में बजा। उन्नीस सौ छियानवे, उस रात बस अड्डे के पीछे कबाड़ बसों की कतार में घुप अँधेरा था। नुज़हत ने टॉर्च जलाई, तो भीतर खाली स्टीयरिंग पर कोई नहीं था, फिर भी हॉर्न लगातार बजता रहा। झब्बू चाचा ने लालटेन उठाई और कहा, अपने-आप बजी आवाज़ का मतलब है कोई रास्ता भूल गया। कोहरे से बस का पुराना कंडक्टर निकला, जिसने काँपते हाथों से अपनी आख़िरी सवारी याद की और घर का रुख़ किया। झब्बू चाचा ने अपने लाल जिल्द वाले रजिस्टर में बस एक बात लिखी, एक भटका, घर पहुँचा।",
+  "slot": "2026-10-31T07:30:00Z",
+  "published_at": "2026-10-31T07:30:00Z",
+  "voice": "gemini-narrator",
+  "batch_run": 40171159505,
+  "av_review_sha256": "c8320ed1c0150a20eb168319686e4a6bd414f5641eb47842e724f3a7806f4489",
+  "video_id": "03LENW-ZaYk",
+  "url": "https://www.youtube.com/shorts/03LENW-ZaYk",
+  "privacy": "scheduled",
+  "publish_at": "2026-10-31T07:30:00Z",
+  "synthetic_declared": true,
+  "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
+  "comment": "pending: HTTP 403",
+  "playlist": "skipped: no playlist",
+  "owner_readback": {
+   "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
+   "privacyStatus": "private",
+   "publishAt": "2026-10-31T07:30:00Z",
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false,
+   "containsSyntheticMedia": null,
+   "uploadStatus": "processed"
+  }
  }
 ]
