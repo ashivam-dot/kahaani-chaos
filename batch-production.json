@@ -1348,7 +1348,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-brick-e07-repair.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 5,
       "source_sha": "944a11a20cecc347a5373ce39b2eef3acbb479a3",
       "before_ids": [
@@ -1508,7 +1508,7 @@
         40152845611
       ],
       "repair_reason": "Preserve all exact reviewed repaired art and narration. Apply deployed word-protected quiet-pause editor to cloned narration before unchanged final waveform, picture, render and full audiovisual gates; prior clone gap was 1.22 seconds.",
-      "cloud_status": "completed",
+      "cloud_status": "queued",
       "editorial_holds": [
         {
           "id": "direct-brick-cast-and-text-40148651151",
@@ -1541,7 +1541,8 @@
             "remaining": "Current cloud picture/voice/render and full audiovisual gates"
           }
         }
-      ]
+      ],
+      "run_id": 40154557845
     },
     {
       "repo": "kahaani-chaos",
@@ -1814,7 +1815,7 @@
     "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T02:28:10+00:00",
+  "updated_at": "2026-10-25T02:28:17+00:00",
   "quarantined_jobs": [
     {
       "at": "2026-10-25T02:20:22+00:00",
