@@ -1658,7 +1658,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/batch-2026-10-25/e03.json"
       },
-      "stage": "dispatch_unresolved",
+      "stage": "building",
       "attempts": 1,
       "source_sha": "f70bd66602e263a3c342469fba009cd9d1c7889c",
       "before_ids": [
@@ -1723,7 +1723,8 @@
         39734657240,
         39731228102
       ],
-      "submitted_at": "2026-10-25T01:49:46+00:00"
+      "submitted_at": "2026-10-25T01:49:46+00:00",
+      "run_id": 40152138336
     },
     {
       "repo": "kahaani-chaos",
@@ -1875,8 +1876,8 @@
   "health": {
     "public": 1,
     "scheduled": 5,
-    "held": 1,
+    "held": 2,
     "mode": "publish"
   },
-  "updated_at": "2026-10-25T01:51:51+00:00"
+  "updated_at": "2026-10-25T01:51:54+00:00"
 }
