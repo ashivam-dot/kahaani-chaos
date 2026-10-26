@@ -55,6 +55,13 @@
      "views": 2,
      "likes": 0,
      "comments": 0
+    },
+    {
+     "observed_at": "2026-10-26T14:07:11.105224+00:00",
+     "age_h": 24.614473673333332,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
     }
    ]
   },
@@ -111,6 +118,13 @@
      "observed_at": "2026-10-26T10:56:16.767293+00:00",
      "age_h": 27.4332686925,
      "views": 2,
+     "likes": 0,
+     "comments": 0
+    },
+    {
+     "observed_at": "2026-10-26T14:07:11.105224+00:00",
+     "age_h": 30.61502922888889,
+     "views": 5,
      "likes": 0,
      "comments": 0
     }
@@ -171,6 +185,13 @@
      "views": 5,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "observed_at": "2026-10-26T14:07:11.105224+00:00",
+     "age_h": 40.685584784444444,
+     "views": 5,
+     "likes": 0,
+     "comments": 1
     }
    ]
   },
@@ -194,11 +215,34 @@
      "views": 5,
      "likes": 0,
      "comments": 0
+    },
+    {
+     "observed_at": "2026-10-26T14:07:11.105224+00:00",
+     "age_h": 6.617251451111111,
+     "views": 5,
+     "likes": 0,
+     "comments": 0
+    }
+   ]
+  },
+  "nH9CCcofLq8": {
+   "id": "kc-20261024-2322-e05",
+   "premise": "e05",
+   "format": "micro",
+   "source_sha": "43649a8a8f2c3066cd6242ac6036145c3f083277",
+   "published_at": "2026-10-26T13:30:19Z",
+   "observations": [
+    {
+     "observed_at": "2026-10-26T14:07:11.105224+00:00",
+     "age_h": 0.6144736733333334,
+     "views": 0,
+     "likes": 0,
+     "comments": 0
     }
    ]
   }
  },
- "at": "2026-10-26T10:56:16.767293+00:00",
+ "at": "2026-10-26T14:07:11.105224+00:00",
  "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
  "source": "YouTube owner Data API",
  "scope": "Actual public-batch counts at recorded ages; Analytics metrics are unknown here",
