@@ -743,7 +743,7 @@
         "mode": "dry-run",
         "replay": ".github/replay/sannatpur-scale-e04-repair.json"
       },
-      "stage": "scheduled",
+      "stage": "public",
       "attempts": 3,
       "source_sha": "0b1871ed060525998fc994a3a94767192b7b67c9",
       "before_ids": [
@@ -1043,7 +1043,7 @@
       "delivery": {
         "video_id": "cm2SqWAyil4",
         "url": "https://www.youtube.com/shorts/cm2SqWAyil4",
-        "privacy": "scheduled",
+        "privacy": "public",
         "publish_at": "2026-10-26T07:30:00Z",
         "synthetic_declared": true,
         "comment_text": "आपके गाँव में भी कोई ऐसी चीज़ थी, जिसका कोई नियम था? नीचे लिखिए 👇",
@@ -1051,14 +1051,15 @@
         "playlist": "skipped: no playlist",
         "owner_readback": {
           "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
-          "privacyStatus": "private",
-          "publishAt": "2026-10-26T07:30:00Z",
+          "privacyStatus": "public",
+          "publishAt": null,
           "madeForKids": false,
           "selfDeclaredMadeForKids": false,
           "containsSyntheticMedia": null,
           "uploadStatus": "processed"
         }
-      }
+      },
+      "public_verified_at": "2026-10-26T07:43:18.510537+00:00"
     },
     {
       "repo": "kahaani-chaos",
@@ -5523,7 +5524,7 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-26T07:43:16+00:00",
+  "updated_at": "2026-10-26T07:43:20+00:00",
   "measurement": {
     "at": "2026-10-26T07:03:31+00:00",
     "ok": true,
