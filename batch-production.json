@@ -5525,10 +5525,10 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-26T14:30:32+00:00",
+  "updated_at": "2026-10-26T14:30:33+00:00",
   "measurement": {
-    "at": "2026-10-26T14:07:12+00:00",
+    "at": "2026-10-26T14:30:33+00:00",
     "ok": true,
-    "updated": true
+    "updated": false
   }
 }
