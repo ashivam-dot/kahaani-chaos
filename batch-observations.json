@@ -48,6 +48,13 @@
      "views": 2,
      "likes": 0,
      "comments": 0
+    },
+    {
+     "observed_at": "2026-10-26T10:56:16.767293+00:00",
+     "age_h": 21.432713136944443,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
     }
    ]
   },
@@ -96,6 +103,13 @@
     {
      "observed_at": "2026-10-26T07:43:22.275019+00:00",
      "age_h": 24.21813194972222,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
+    },
+    {
+     "observed_at": "2026-10-26T10:56:16.767293+00:00",
+     "age_h": 27.4332686925,
      "views": 2,
      "likes": 0,
      "comments": 0
@@ -150,6 +164,13 @@
      "views": 5,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "observed_at": "2026-10-26T10:56:16.767293+00:00",
+     "age_h": 37.50382424805556,
+     "views": 5,
+     "likes": 0,
+     "comments": 1
     }
    ]
   },
@@ -166,11 +187,18 @@
      "views": 0,
      "likes": 0,
      "comments": 0
+    },
+    {
+     "observed_at": "2026-10-26T10:56:16.767293+00:00",
+     "age_h": 3.4354909147222226,
+     "views": 5,
+     "likes": 0,
+     "comments": 0
     }
    ]
   }
  },
- "at": "2026-10-26T07:43:22.275019+00:00",
+ "at": "2026-10-26T10:56:16.767293+00:00",
  "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
  "source": "YouTube owner Data API",
  "scope": "Actual public-batch counts at recorded ages; Analytics metrics are unknown here",
