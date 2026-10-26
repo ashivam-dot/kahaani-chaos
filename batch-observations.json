@@ -34,6 +34,13 @@
      "views": 2,
      "likes": 0,
      "comments": 0
+    },
+    {
+     "observed_at": "2026-10-26T04:09:34.805451+00:00",
+     "age_h": 14.654390403055556,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
     }
    ]
   },
@@ -68,6 +75,13 @@
     {
      "observed_at": "2026-10-26T00:38:09.040215+00:00",
      "age_h": 17.131122281944446,
+     "views": 2,
+     "likes": 0,
+     "comments": 0
+    },
+    {
+     "observed_at": "2026-10-26T04:09:34.805451+00:00",
+     "age_h": 20.65494595861111,
      "views": 2,
      "likes": 0,
      "comments": 0
@@ -108,11 +122,18 @@
      "views": 5,
      "likes": 0,
      "comments": 1
+    },
+    {
+     "observed_at": "2026-10-26T04:09:34.805451+00:00",
+     "age_h": 30.725501514166666,
+     "views": 5,
+     "likes": 0,
+     "comments": 1
     }
    ]
   }
  },
- "at": "2026-10-26T00:38:09.040215+00:00",
+ "at": "2026-10-26T04:09:34.805451+00:00",
  "channel_id": "UCX-96TVtOBCEkDMloHuYAHw",
  "source": "YouTube owner Data API",
  "scope": "Actual public-batch counts at recorded ages; Analytics metrics are unknown here",

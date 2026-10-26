@@ -5523,10 +5523,10 @@
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-26T04:09:33+00:00",
+  "updated_at": "2026-10-26T04:09:37+00:00",
   "measurement": {
-    "at": "2026-10-26T03:29:34+00:00",
+    "at": "2026-10-26T04:09:37+00:00",
     "ok": true,
-    "updated": false
+    "updated": true
   }
 }
