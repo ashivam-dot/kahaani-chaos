@@ -5520,12 +5520,12 @@
   "halted": null,
   "complete": true,
   "health": {
-    "public": 4,
-    "scheduled": 17,
+    "public": 5,
+    "scheduled": 16,
     "held": 0,
     "mode": "publish"
   },
-  "updated_at": "2026-10-26T14:07:12+00:00",
+  "updated_at": "2026-10-26T14:07:13+00:00",
   "measurement": {
     "at": "2026-10-26T14:07:12+00:00",
     "ok": true,
